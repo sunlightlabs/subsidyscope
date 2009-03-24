@@ -20,8 +20,8 @@ def main():
     
     # write headers
     labels = ['date']
-    for field in parser.out_order:
-        labels.append(field)
+    for collector in parser.collectors:
+        labels.append(collector['label'])
     writer.writerow(labels)
             
     while file_root:
@@ -39,10 +39,14 @@ def main():
             row.append('')
 
         # add individual line items
-        for field in parser.out_order:
-            row.append(parsed[field])
+        for collector in parser.collectors:
+            row.append(parsed[collector['label']])
         
-        writer.writerow(row)
+        if '--debug' in sys.argv:
+            for field in parser.out_order:
+                print '%s: %s' % (collector['label'], parsed[collector['label']])
+        else:
+            writer.writerow(row)
             
         file_root = f.readline()
 
