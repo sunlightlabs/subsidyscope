@@ -6,8 +6,12 @@
 </span>
 
 {% if institution.getTotalTARPFundsReceived %}
-<span class="tarp_received">TARP Funds Received: ${{ institution.getTotalTARPFundsReceived|scale_number }}</span>
-
+	{% if institution.getTARPFundsReceived %}
+		<span class="tarp_received">TARP Funds Received: ${{ institution.getTARPFundsReceived|scale_number }}</span>
+	{% endif %}
+	{% if institution.getParentTARPFundsReceived %}
+		<span class="tarp_received">TARP Funds Received by Parent Company: ${{ institution.getParentTARPFundsReceived|scale_number }}</span>
+	{% endif %}
 {% else %}
 <span class="no_tarp">No TARP Funds Received.</span>
 {% endif %}

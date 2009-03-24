@@ -157,7 +157,8 @@ class Institution(models.Model):
     
     objects = InstitutionManager()
     
-    def getTotalTARPFundsReceived(self):
+    
+    def getTARPFundsReceived(self):
         
         total_funds = 0
         
@@ -167,12 +168,21 @@ class Institution(models.Model):
                 
                 total_funds += transaction.price_paid
             
+        return total_funds
+    
+    def getParentTARPFundsReceived(self):
+        
+        total_funds = 0
+            
         if self.parent_institution:
             
             total_funds += self.parent_institution.getTotalTARPFundsReceived()
             
         return total_funds
-            
+    
+    def getTotalTARPFundsReceived(self):
+        
+        return self.getTARPFundsReceived() + self.getParentTARPFundsReceived()
     
     
     def updateStockPrice(self):

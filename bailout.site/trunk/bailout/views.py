@@ -401,10 +401,7 @@ def bank_search_json(request):
     if request.GET.has_key('q') and request.GET['q'] != '':
         
         institutions = Institution.objects.filter(Q(name__icontains=request.GET['q']) 
-                                                  | Q(display_name__icontains=request.GET['q'])
-                                                  | Q(city__icontains=request.GET['q'])
-                                                  | Q(state__iexact=request.GET['q']) 
-                                                  ).order_by('-total_assets')
+                                                  | Q(display_name__icontains=request.GET['q'])).order_by('-total_assets')
         
         #if institutions.count() == 0:
         #    institutions = Institution.objects.filter(city__icontains=request.GET['q']).order_by('-total_assets')
