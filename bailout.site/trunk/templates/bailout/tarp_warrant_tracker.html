@@ -12,10 +12,10 @@
 
 		<table class="warrant_tracker" width="100%">
 				<tr>
-					<th align="left">Current Price</th>
-					<th align="left">Strike Price</th>
-					<th align="right">In/Out ($)</th>
-					<th align="right">In/Out (%)</th>
+					<th align="left" width="25%">Current Price</th>
+					<th align="right" width="25%">Strike Price</th>
+					<th align="right" width="25%">In/Out ($)</th>
+					<th align="right" width="25%">In/Out (%)</th>
 				</tr>
 		</table>
 	{% for t in transactions %}
@@ -28,24 +28,24 @@
 		
 			<table class="warrant_tracker" width="100%">
 				<tr>
-					<td align="left"><span class="current_price">{{ t.getLastClosingPrice|price }}</span></td>
-					<td align="right"><span class="strike_price">{{ t.warrant_reported_strike_price|price }}</span></td>
+					<td align="left" width="25%"><span class="current_price">{{ t.getLastClosingPrice|price }}</span></td>
+					<td align="right" width="25%"><span class="strike_price">{{ t.warrant_reported_strike_price|price }}</span></td>
 		
 			
 			{% if t.isInMoneyReportedStrikePrice %}
-			<td align="right"><span class="warrant_in">	
+			<td align="right" width="25%"><span class="warrant_in">	
 				{{ t.getMoneyPositionReportedStrikePrice|price_abs }} 
 			</span>
 			</td>
-			<td align="right"><span class="warrant_in">	
+			<td align="right" width="25%"><span class="warrant_in">	
 				({{ t.getMoneyPercentage|percent }}%)
 			</span></td>
 			{% else %}
-			<td align="right"><span class="warrant_out">
+			<td align="right" width="25%"><span class="warrant_out">
 				{{ t.getMoneyPositionReportedStrikePrice|price_abs }} 
 			</span>
 			</td>
-			<td align="right"><span class="warrant_out">
+			<td align="right" width="25%"><span class="warrant_out">
 				({{ t.getMoneyPercentage|percent }}%)
 			</span></td>
 			{% endif %}

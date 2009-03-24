@@ -330,6 +330,11 @@ table.warrant_tracker td {
 	-moz-border-radius: 0px 0px 0px 0px;
 	
 }
+#tracker_box h3 a:link { text-decoration:none; color:#000000;}
+#tracker_box h3 a:visited { text-decoration:none; color:#000000;}
+#tracker_box h3 a:hover { text-decoration:none; color:#ba2725;}
+#tracker_box h3 a:active { text-decoration:none; color:#000000;}
+
 
 #tracker_box .warrant_company { border-top:1px solid #cccccc; background-color:#f4f4f4; padding:3px;}
 #tracker_box .warrant_details { margin-bottom:5px;}
