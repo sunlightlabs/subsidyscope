@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <bankfailures>
 {% for b in bank_failure_list %}
-	<bankfailure id="{{b.id}}" closing_date="{{b.closing_date}}" updated_date="{{b.updated_date}}" name="{{b.name}}" city="{{b.city}}" state="{{b.state}}" grouping_hash="{{b.grouping_hash}}" amount="{{b.amount}}" notes="{{b.notes}}" ></bankfailure>
+	<bankfailure id="{{b.id}}" closing_date="{{b.closing_date}}" updated_date="{{b.updated_date}}" name="{{b.name}}" city="{{b.city}}" state="{{b.state}}" grouping_hash="{{b.grouping_hash}}" amount="{{b.get_exact_amount_or_range_average}}" notes="{{b.notes}}" ></bankfailure>
 {% endfor %}
 </bankfailures>

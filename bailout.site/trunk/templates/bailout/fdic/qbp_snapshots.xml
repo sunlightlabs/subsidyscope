@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<qbpsnapshots>
+{% for q in qbp_snapshots %}
+	<qbpsnapshot id="{{q.id}}" date="{{q.date}}" problem_institutions="{{q.problem_institutions}}" fund_balance="{{q.fund_balance}}" reserve_ratio="{{q.reserve_ratio}}"></qbpsnapshot>
+{% endfor %}
+</qbpsnapshots>

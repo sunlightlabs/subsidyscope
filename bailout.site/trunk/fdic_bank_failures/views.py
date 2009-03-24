@@ -1,10 +1,10 @@
-from fdic_bank_failures.models import BankFailure
+from fdic_bank_failures.models import BankFailure, QBPSnapshot
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 import csv
 
 def fdic_bank_failures_xml(request):
-    bank_failure_list = BankFailure.objects.all().order_by('closing_date')
+    bank_failure_list = BankFailure.objects.all().order_by('closing_date')    
     return render_to_response('bailout/fdic/fdic_bank_failures.xml', { 'bank_failure_list': bank_failure_list }, mimetype='text/xml')
 
 def fdic_bank_failures_csv(request):
@@ -30,3 +30,7 @@ def fdic_bank_failures_csv(request):
         writer.writerow(record)
 
     return response
+    
+def fdic_qbpsnapshot_xml(request):
+    qbp_snapshots = QBPSnapshot.objects.all().order_by('date')
+    return render_to_response('bailout/fdic/qbp_snapshots.xml', { 'qbp_snapshots': qbp_snapshots }, mimetype='text/xml')
