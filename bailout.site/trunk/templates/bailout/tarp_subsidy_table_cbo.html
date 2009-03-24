@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% load media %}
+{% load charts %}
+{% load webdesign %}
+
+{% block content %}
+
+<style type="text/css">
+.subsidy-table	{ width: 100%; border-left: 0 !important; border-top: 0 !important;}
+.subsidy-table td, .subsidy-table th { border: 0; padding: 0px; text-align: left; vertical-align: middle;}
+.subsidy-table th { text-align: center; font-weight: bold; line-height: 100%; padding: 5px 0;}
+.subsidy-table td.name { padding: 3px; padding-left: 5px; }
+.subsidy-table td.date { text-align:center; }
+.subsidy-table td .number-wrapper { padding: 3px 13px 3px 0px; width: 3.5em; margin: 0 auto;}
+.subsidy-table td.num-institutions .number-wrapper, .subsidy-table td.amount .number-wrapper, .subsidy-table td.estimated-subsidy .number-wrapper, .subsidy-table td.subsidy-rate .number-wrapper { text-align: right; }
+.subsidy-table tr.header-row { border-bottom: 1px solid #a5a5a5; padding-bottom: 5px; margin-bottom: 5px;}
+.subsidy-table td.name { text-align: left; }
+.subsidy-table tr.border-bottom { border-bottom:1px solid #a5a5a5;}
+.subsidy-table tr.white { background-color:#ffffff;}
+.subsidy-table tr.indent-1 td.name { padding-left: 2em !important; }
+.subsidy-table tr.indent-2 td.name { padding-left: 4em !important; }
+.subsidy-table tr.indent-3 td.name { padding-left: 6em !important; }
+.subsidy-table tr.bold td, .subsidy-table tr td.bold { font-weight: bold; }
+.subsidy-table tr.sum td.num-institutions .number-wrapper, .subsidy-table tr.sum td.amount .number-wrapper, .subsidy-table tr.sum td.estimated-subsidy .number-wrapper { border-top: 1px solid #a5a5a5; }
+.subsidy-table tr.sum td { font-weight: bold; }
+.subsidy-table tr.vertical-space td { padding-top: 1.5em; }
+.subsidy-table tr.vertical-space-below td { padding-bottom: 1.5em; }		
+.subsidy-table tr.footer-row { border-top: 1px solid #a5a5a5; border-bottom: 1px solid #a5a5a5; }
+.subsidy-table tr.footer-row td { padding: 5px;}
+.subsidy-table .centered { text-align: center; font-weight: bold; padding-top: 3px;}
+.subsidy-table .gray, .subsidy-table .gray * { background-color: #f4f4f4; }
+.subsidy-table .blue { background-color: #E6E6E6; border-top:1px solid #a5a5a5;}
+.subsidy-table { border-top: 1px solid #a5a5a5; border-bottom: 1px solid #aaa; border-left: 0; border-right: 0;}
+.subsidy-table tr.spacer td { border-top: 1px solid #aaa; border-bottom: 1px solid #aaa;}
+.subsidy-table tr.title td { text-align: center; }
+#cop-table .spacer * { border: 0;}
+#cop-table { border-bottom: 0 !important;}
+.subsidy-table .footnote td { font-size: 85%; }
+.subsidy-table tr.title td { border-top: 1px solid #a5a5a5; padding-top: 5px;}
+.subsidy-table tr.grand-total td { border-bottom: 1px solid #aaa;}
+.tarp-subsidy-chart img { display: block; margin: 0 auto;}
+.tarp-subsidy-chart h3 { text-align: center; margin-top: 0.7em; margin-bottom: 0; font-size: 1.3em;}
+.tarp-subsidy-chart h4 { text-align: center; margin-bottom: 0; margin-top: 0; font-weight: normal; font-size: 1em;}
+ul.subsidy-estimate, ul.subsidy-estimate li { list-style-type: disc;}
+h4.tarp_table_head { margin:0 0 5px 0; padding:0;}
+</style>
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+<div class="span-15">
+	<div class="tlr_padding">
+		<h2 class="type_header">Reference</h2>
+		<h3 class="section_header">Congressional Budget Office Subsidy Estimates</h3>		
+
+		<p>The Congressional Budget Office (CBO) has presented three estimates of the subsidies provided through the Troubled Asset Relief Program (TARP).  The first accounts for transactions through 12/31/08; the second updates the bottom-line numbers for transactions through 1/22/09; and the third projects subsidy costs through the end of 2009.</p>
+
+		<p>CBO found that between 10/14/08 and 1/22/09, TARP: </p>
+
+		<ul class="subsidy-estimate">
+			<li>Purchased $293 billion of preferred stock and warrants from financial institutions and automotive companies;</li>
+			<li>Furnished $94 billion of subsidies through those purchases;</li>
+			<li>Provided an average subsidy rate of 32 percent to those firms ($94/$293).</li>
+		</ul>
+
+		<p>CBO also found a significant variation in subsidy rates among firms; the highest subsidy rates were recorded by:</p>
+
+		<ul class="subsidy-estimate">
+			<li>General Motors and GMAC &mdash; 63 percent;</li>
+			<li>American International Group (AIG) &mdash; 53 percent.</li>
+		</ul>
+
+		<p>CBO projects that TARP subsidies will grow to $200 billion by the end of 2009.</p>
+				
+	</div>
+	<div class="span-4 last">&nbsp;</div>
+
+</div>
+<div class="span-24">
+	<div class="lr_padding">
+
+	<h4 class="tarp_table_head">Congressional Budget Office's Estimated Subsidy of Select TARP Transactions as of December 31, 2008</h4>
+		<table id="cbo-table" class="subsidy-table" cellspacing="3">
+
+			<tr class="header-row blue">
+				<th class="name">Program</th>
+				<th class="num-institutions">Number of Institutions</th>
+				<th class="amount">Amount<br /><small>(billions of dollars)</small></th>
+				<th class="estimated-subsidy">Estimated Subsidy<br/><small>(billions of dollars)</small></th>
+				<th class="subsidy-rate">Subsidy Rate<br/><small>(percent)</small></th>
+			</tr>
+
+			<tr class="white">
+				<td>&nbsp;</td>
+				<td colspan="4" class="centered">As of December 31, 2008<sup>1</sup></td></tr>
+			</tr>
+
+			<tr class="odd gray">
+				<td class="name"><strong>Capital Purchase Program</strong></td>
+				<td class="num-institutions"><div class="number-wrapper">214</div></td>
+				<td class="amount"><div class="number-wrapper">178</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">32</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">18</div></td>
+			</tr>
+
+			<tr class="even white">
+				<td class="name"><strong>Significantly Systemic Failing Institutions</strong><br/>(American International Group - AIG)</td>
+				<td class="num-institutions"><div class="number-wrapper">1</div></td>
+				<td class="amount"><div class="number-wrapper">40</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">21</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">53</div></td>
+			</tr>
+
+			<tr class="odd gray">
+				<td class="name"><strong>Targeted Investment Program</strong> (Citigroup)</td>
+				<td class="num-institutions"><div class="number-wrapper">1</div></td>
+				<td class="amount"><div class="number-wrapper">20</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">5</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">26</div></td>
+			</tr>
+
+			<tr class="even white">
+				<td class="name" colspan="5"><strong>Automotive Industry Financing Program</strong></td>			
+			</tr>
+			
+			<tr class="even indent-1 gray">
+				<td class="name"><strong>Equity</strong> (GMAC LLC)</td>
+				<td class="num-institutions"><div class="number-wrapper">1</div></td>
+				<td class="amount"><div class="number-wrapper">5</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">3</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">63</div></td>
+			</tr>
+			<tr class="even indent-1 white border-bottom">
+				<td class="name"><strong>Debt Guarantee</strong> (GM Corporation)</td>
+				<td class="num-institutions"><div class="number-wrapper">1</div></td>
+				<td class="amount"><div class="number-wrapper">4</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">3</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">63</div></td>
+			</tr>
+
+			<tr class="odd gray">
+				<td class="name bold">Total</td>
+				<td class="num-institutions"><div class="number-wrapper">218</div></td>
+				<td class="amount"><div class="number-wrapper">247</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">64</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">26</div></td>
+			</tr>
+			
+			<tr class="spacer"><td colspan="5">&nbsp;</td></tr>
+			
+			<tr class="gray">
+				<td>&nbsp;</td>
+				<td colspan="4" class="centered">As of January 22, 2009<sup>2</sup></td></tr>
+			</tr>
+			
+			<tr class="even gray">
+				<td class="name bold">Total</td>
+				<td class="num-institutions"><div class="number-wrapper"></div></td>
+					<td class="amount"><div class="number-wrapper">293</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">94</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">32</div></td>
+			</tr>
+			
+			<tr class="spacer"><td colspan="5">&nbsp;</td></tr>
+			
+			<tr class="gray">
+				<td>&nbsp;</td>
+				<td colspan="4" class="centered">As of December 31, 2009<sup>3</sup></td></tr>
+			</tr>
+			
+			<tr class="odd gray">
+				<td class="name bold">Total (Projected)</td>
+				<td class="num-institutions"><div class="number-wrapper"></div></td>
+				<td class="amount"><div class="number-wrapper">700</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">200</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">29</div></td>
+			</tr>
+
+		</table>
+		
+		<p><small>
+		1. CBO Report <em><a href="{% url bailoutpdf_detail 15 %}">The Troubled Asset Relief Program: Report on Transactions through December 31, 2008</a></em>.<br/>
+		2. <a href="{% url bailoutpdf_detail 19 %}">Testimony of CBO Director Douglas Elmendorf to the Senate Budget Committee on January 28, 2009</a>, page 30.<br/>
+		3. <a href="{% url bailoutpdf_detail 19 %}">Ibid</a>, page 22.
+		</small></p>
+
+</div>
+</div>
+</div> <!--ends container-->
+
+{% endblock %}

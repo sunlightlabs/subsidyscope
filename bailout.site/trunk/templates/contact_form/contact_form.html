@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hate to do this, but we're still waiting on Pew... -->
+	
+<!-- <div class="container top_solid_box">&nbsp;</div> -->
+
+<div class="container white">
+	<div class="span-24">
+		<div class="full_padding">
+		
+		<h2 class="type_header">subsidyscope</h2>
+		<h3 class="section_header">Contact Us</h3>
+			<div id="contact_form">
+    			<form action="." method="post" id="contactus">
+					<ul>
+			    		{{ form.as_ul }}	
+        	    		<li><p class="submit"><input type="submit" value="Send your question or comment to Subsidyscope"></p></li>
+					</ul>
+    			</form>
+			</div>
+
+		<p>For press inquiries, please contact Lisa Cutler at 202-552-2169.</p>
+		
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock %}

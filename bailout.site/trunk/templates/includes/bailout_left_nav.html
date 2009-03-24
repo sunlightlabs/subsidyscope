@@ -1,0 +1,187 @@
+{% load media %}
+<!--[if gte IE 5.5]>
+<script>
+navHover = function() {
+	var lis = document.getElementById("navmenu-v").getElementsByTagName("LI");
+	for (var i=0; i<lis.length; i++) {
+		lis[i].onmouseover=function() {
+			this.className+=" iehover";
+		}
+		lis[i].onmouseout=function() {
+			this.className=this.className.replace(new RegExp(" iehover\\b"), "");
+		}
+	}
+}
+if (window.attachEvent) window.attachEvent("onload", navHover);
+</script>
+<![endif]-->
+
+<style>
+/* Root = Vertical, Secondary = Vertical */
+ul#navmenu-v,
+ul#navmenu-v li,
+ul#navmenu-v ul {
+  margin: 0;
+  border: 0 none;
+  padding: 0;
+  width: 160px; /*For KHTML*/
+  list-style: none;
+}
+
+ul#navmenu-v:after /*From IE 7 lack of compliance*/{
+  clear: both;
+  display: block;
+  font: 1px/0px serif;
+  content: ".";
+  height: 0;
+  visibility: hidden;
+}
+
+ul#navmenu-v li {
+  float: left; /*For IE 7 lack of compliance*/
+  display: block !important; /*For GOOD browsers*/
+  display: inline; /*For IE*/
+  position: relative;
+}
+
+/* Root Menu */
+ul#navmenu-v a {
+  border: 1px solid #FFF;
+  border-right-color: #fff;
+  border-bottom-color: #CCC;
+  padding: 0 6px;
+  display: block;
+  background: #fff;
+  color: #2a6466;
+  font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  height: auto !important;
+  height: 1%; /*For IE*/
+}
+
+/* Root Menu Hover Persistence */
+ul#navmenu-v a:hover,
+ul#navmenu-v li:hover a,
+ul#navmenu-v li.iehover a {
+  background: #afc4cd;
+  color: #FFF;
+}
+
+/* 2nd Menu */
+ul#navmenu-v li:hover li a,
+ul#navmenu-v li.iehover li a {
+  background: #cfe0dd;
+  color: #2a6466;
+}
+
+/* 2nd Menu Hover Persistence */
+ul#navmenu-v li:hover li a:hover,
+ul#navmenu-v li:hover li:hover a,
+ul#navmenu-v li.iehover li a:hover,
+ul#navmenu-v li.iehover li.iehover a {
+  background: #afc4cd;
+  color: #FFF;
+}
+
+/* 3rd Menu */
+ul#navmenu-v li:hover li:hover li a,
+ul#navmenu-v li.iehover li.iehover li a {
+  background: #afc4cd;
+  color: #FFF;
+}
+
+/* 3rd Menu Hover Persistence */
+ul#navmenu-v li:hover li:hover li a:hover,
+ul#navmenu-v li:hover li:hover li:hover a,
+ul#navmenu-v li.iehover li.iehover li a:hover,
+ul#navmenu-v li.iehover li.iehover li.iehover a {
+  background: #cfe0dd;
+  color: #2a6466;
+}
+
+/* 4th Menu */
+ul#navmenu-v li:hover li:hover li:hover li a,
+ul#navmenu-v li.iehover li.iehover li.iehover li a {
+  background: #EEE;
+  color: #666;
+}
+
+/* 4th Menu Hover */
+ul#navmenu-v li:hover li:hover li:hover li a:hover,
+ul#navmenu-v li.iehover li.iehover li.iehover li a:hover {
+  background: #CCC;
+  color: #FFF;
+}
+
+ul#navmenu-v ul,
+ul#navmenu-v ul ul,
+ul#navmenu-v ul ul ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 160px;
+}
+
+/* Do Not Move - Must Come Before display:block for Gecko */
+ul#navmenu-v li:hover ul ul,
+ul#navmenu-v li:hover ul ul ul,
+ul#navmenu-v li.iehover ul ul,
+ul#navmenu-v li.iehover ul ul ul {
+  display: none;
+}
+
+ul#navmenu-v li:hover ul,
+ul#navmenu-v ul li:hover ul,
+ul#navmenu-v ul ul li:hover ul,
+ul#navmenu-v li.iehover ul,
+ul#navmenu-v ul li.iehover ul,
+ul#navmenu-v ul ul li.iehover ul {
+  display: block;
+}
+
+a#key-documents { 
+	border-top: 1px solid #ccc !important; 
+	margin-top: 1px !important; /* we're faking a double border */
+	border-bottom: 0 !important;
+}
+
+</style>
+
+
+<div class="leftnav_box">
+
+		<h2 class="type_header">The Financial Bailout</h2>
+
+		<ul id="navmenu-v">
+			<li>
+				<a href="{% url bailout_treasury_index %}">Treasury</a>
+				<ul id="project_leftnav_sub">
+					<li><a href="{% url tarp %}">TARP Disbursements</a></li>
+					<li><a href="{% url tarp-subsidies %}">TARP Subsidies</a>
+						<ul>
+							<li><a href="{% url tarp-subsidies-cop %}">COP Estimates</a></li>
+							<li><a href="{% url tarp-subsidies-cbo %}">CBO Estimates</a></li>
+						</ul>
+					</li>
+					<li><a href="{% url tarp-warrants %}">TARP Warrants</a>
+						<ul>
+							<li><a href="{% url tarp-warrants-calculation %}">Inconsistencies in Warrant Policy</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+
+				</li>
+			<li><a href="{% url bailout_fdic_index %}">FDIC</a>
+				<ul id="project_leftnav_sub">
+					<li><a href="{% url fdic_bank_failures %}">Bank Failures and the Deposit Insurance Fund</a></li>
+				</ul>
+			</li>		
+			<li><a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a></li>
+			<li><a href="{% url bailout_other_index %}">Other Agencies</a></li>
+
+			<li><a id="key-documents" href="{% url bailoutpdf_index %}">Key Documents</a></li>
+		</ul>
+
+</div>
+

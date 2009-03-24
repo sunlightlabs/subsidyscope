@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% load media %}
+{% load charts %}
+{% load webdesign %}
+
+{% block content %}
+
+<style type="text/css">
+.subsidy-table	{ width: 100%; border-left: 0 !important; border-top: 0 !important;}
+.subsidy-table td, .subsidy-table th { border: 0; padding: 0px; text-align: left; vertical-align: middle;}
+.subsidy-table th { text-align: center; font-weight: bold; line-height: 100%; padding: 5px 0;}
+.subsidy-table td.name { padding: 3px; padding-left: 5px; }
+.subsidy-table td.date { text-align:center; }
+.subsidy-table td .number-wrapper { padding: 3px 13px 3px 0px; width: 3.5em; margin: 0 auto;}
+.subsidy-table td.num-institutions .number-wrapper, .subsidy-table td.amount .number-wrapper, .subsidy-table td.estimated-subsidy .number-wrapper, .subsidy-table td.subsidy-rate .number-wrapper { text-align: right; }
+.subsidy-table tr.header-row { border-bottom: 1px solid #a5a5a5; padding-bottom: 5px; margin-bottom: 5px;}
+.subsidy-table tr.white { background-color:#ffffff;}
+.subsidy-table tr.border-bottom { border-bottom:1px solid #a5a5a5;}
+.subsidy-table td.name { text-align: left; }
+.subsidy-table tr.indent-1 td.name { padding-left: 2em !important; }
+.subsidy-table tr.indent-2 td.name { padding-left: 4em !important; }
+.subsidy-table tr.indent-3 td.name { padding-left: 6em !important; }
+.subsidy-table tr.bold td, .subsidy-table tr td.bold { font-weight: bold; }
+.subsidy-table tr.sum td.num-institutions .number-wrapper, .subsidy-table tr.sum td.amount .number-wrapper, .subsidy-table tr.sum td.estimated-subsidy .number-wrapper { border-top: 1px solid #a5a5a5; }
+.subsidy-table tr.sum td { font-weight: bold; }
+.subsidy-table tr.vertical-space td { padding-top: 1.5em; }
+.subsidy-table tr.vertical-space-below td { padding-bottom: 1.5em; }		
+.subsidy-table tr.footer-row { border-top: 1px solid black; border-bottom: 1px solid black; }
+.subsidy-table tr.footer-row td { padding: 5px;}
+.subsidy-table .centered { text-align: center; font-weight: bold; padding-top: 3px;}
+.subsidy-table .gray, .subsidy-table .gray * { background-color: #f4f4f4; }
+.subsidy-table .blue { background-color: #E6E6E6; border-top:1px solid #a5a5a5;}
+.subsidy-table { border-top: 1px solid #a5a5a5; border-bottom: 1px solid #a5a5a5; border-left: 0; border-right: 0;}
+.subsidy-table tr.spacer td { border-top: 1px solid #aaa; border-bottom: 1px solid #aaa;}
+.subsidy-table tr.title td { text-align: center; }
+#cop-table .spacer * { border: 0;}
+#cop-table { border-bottom: 0 !important;}
+.subsidy-table .footnote td { font-size: 85%; }
+.subsidy-table tr.title td { border-top: 1px solid #a5a5a5; padding-top: 5px;}
+.subsidy-table tr.grand-total td { border-bottom: 1px solid #aaa;}
+.tarp-subsidy-chart img { display: block; margin: 0 auto;}
+.tarp-subsidy-chart h3 { text-align: center; margin-top: 0.7em; margin-bottom: 0; font-size: 1.3em;}
+.tarp-subsidy-chart h4 { text-align: center; margin-bottom: 0; margin-top: 0; font-weight: normal; font-size: 1em;}
+ul.subsidy-estimate, ul.subsidy-estimate li { list-style-type: disc;}
+.subsidy-table .program-heading { padding:5px;}
+h4.tarp_table_head { margin:0 0 0 0; padding:0;}
+</style>
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+<div class="span-15">
+	<div class="tlr_padding">
+		<h2 class="type_header">Reference</h2>
+		<h3 class="section_header">Congressional Oversight Panel (COP) Subsidy Estimates</h3>
+		
+		<p>The Congressional Oversight Panel found that between 10/14/08 and 1/23/09, the Troubled Asset Relief Program (TARP): </p>
+
+		<ul class="subsidy-estimate">
+			<li>Purchased $254 billion of preferred stock and warrants from financial institutions;</li>
+			<li>Furnished $78 billion of subsidies through those purchases;</li>
+			<li>Provided an average subsidy rate of 31 percent to those institutions ($78b/$254b).</li>
+		</ul>
+
+		<p>The panel also found a huge variation in subsidy rates among institutions.  Among the eight largest TARP transactions:</p>
+
+		<ul class="subsidy-estimate">
+			<li>American International Group (AIG) received the largest subsidy rate: 63 percent;</li>
+			<li>U.S. Bancorp received the smallest subsidy rate: 5 percent.</li>
+		</ul>
+
+		<p>The panel observed that the variation in subsidy rates stemmed largely from the fact that TARP did not distinguish among institutions with different risks of insolvency.  As a result, weaker institutions tended to receive higher subsidy rates. </p>
+		
+		<p>COP's subsidy estimates (in dollar terms) are smaller than those made by the Congressional Budget Office because COP did not include subsidies to automotive companies.  After accounting for that difference, both the COP and CBO estimates are broadly similar.  Both organizations estimate similar subsidy rates.</p>
+		
+	</div>
+	<div class="span-4 last">&nbsp;</div>
+
+</div>
+<div class="span-24">
+	<div class="lr_padding">
+		
+			<h4 class="tarp_table_head">Congressional Oversight Panel's Estimated Subsidy of Select TARP Transactions as of January 23, 2009</h4>
+(Excluding Financing for the Automotive Industry)
+		<table id="cop-table" class="subsidy-table">
+			
+			<tr class="header-row blue">
+				<th>&nbsp;</th>
+				<th class="date">Transaction Date<sup>1</sup></th>
+				<th class="amount">Amount Received<br /><small>(billions of dollars)</small></th>
+				<th class="estimated-subsidy">Estimated Subsidy<br/><small>(billions of dollars)</small></th>
+				<th class="subsidy-rate">Subsidy Rate<br/><small>(percent)</small></th>
+			</tr>
+			
+			<tr>
+				<td colspan="5" class="white bold program-heading">Capital Purchase Program</td>
+			</tr>
+			
+			<tr class="indent-1 white">
+				<td class="name">Bank of America Corporation</td>
+				<td class="date">10/28/08</td>
+				<td class="amount"><div class="number-wrapper">15.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">2.6</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">17%</div></td>
+			</tr>
+			
+			<tr class="gray indent-1">
+				<td class="name">Citigroup, Inc.</td>
+				<td class="date">10/28/08</td>
+				<td class="amount"><div class="number-wrapper">25.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">9.5</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">38%</div></td>
+			</tr>
+				
+			<tr class="white indent-1">
+				<td class="name"> JP Morgan Chase &amp; Co.</td>
+				<td class="date">10/28/08</td>
+				<td class="amount"><div class="number-wrapper">25.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">4.4</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">18%</div></td>
+			</tr>
+			
+			<tr class="gray indent-1">
+				<td class="name">Morgan Stanley</td>
+				<td class="date">10/28/08</td>
+				<td class="amount"><div class="number-wrapper">10.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">4.2</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">42%</div></td>
+			</tr>
+			
+			<tr class="white indent-1">
+				<td class="name">The Goldman Sachs Group, Inc.</td>
+				<td class="date">10/28/08</td>
+				<td class="amount"><div class="number-wrapper">10.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">2.5</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">25%</div></td>
+			</tr>
+			
+			<tr class="gray indent-1">
+				<td class="name">The PNC Financial Services Group</td>
+				<td class="date">12/31/08</td>
+				<td class="amount"><div class="number-wrapper">7.6</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">2.1</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">27%</div></td>
+			</tr>
+			
+			<tr class="white indent-1">
+				<td class="name">U.S. Bancorp</td>
+				<td class="date">11/14/08</td>
+				<td class="amount"><div class="number-wrapper">6.6</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">0.3</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">5%</div></td>
+			</tr>
+			
+			<tr class="gray indent-1 border-bottom">
+				<td class="name">Wells Fargo &amp; Company</td>
+				<td class="date">10/28/08</td>
+				<td class="amount"><div class="number-wrapper">25.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">1.8</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">7%</div></td>
+			</tr>
+			
+			<tr class="white indent-2">
+				<td class="name" colspan="2">Subtotal</td>
+				<td class="amount"><div class="number-wrapper">124.2</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">27.3</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">22%</div></td>
+			</tr>
+			
+			<tr class="white spacer"><td colspan="5">&nbsp;</td></tr>
+			
+			<tr class="gray indent-1 border-bottom">
+				<td class="name" colspan="2">Other Institutions<sup>2</sup></td>
+				<td class="amount"><div class="number-wrapper">70.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">15.4</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">22%</div></td>
+			</tr>
+			
+			<tr class="white indent-3">
+				<td class="name" colspan="2">CPP Total</td>
+				<td class="amount"><div class="number-wrapper">194.2</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">42.7</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">22%</div></td>
+			</tr>
+			
+			<tr class="white spacer"><td colspan="5">&nbsp;</td></tr>
+			
+			<tr>
+				<td colspan="5" class="white bold program-heading">Systemically Significant Failing Institutions (SSFI) &amp; Targeted Investment Program (TIP)</td>
+			</tr>
+			
+			<tr class="gray indent-1">
+				<td class="name">American International Group, Inc. (AIG)</td>
+				<td class="date">11/25/2008</td>
+				<td class="amount"><div class="number-wrapper">40.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">25.2</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">63%</div></td>
+			</tr>
+			
+			<tr class="white indent-1 border-bottom">
+				<td class="name">Citigroup, Inc.</td>
+				<td class="date">12/31/2008</td>
+				<td class="amount"><div class="number-wrapper">20.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">10.0</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">50%</div></td>
+			</tr>
+			
+			<tr class="gray indent-3 ">
+				<td class="name" colspan="2">SSFI/TIP Total</td>
+				<td class="amount"><div class="number-wrapper">60.0</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">35.2</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">59%</div></td>
+			</tr>
+			
+			<tr class="white spacer border-bottom"><td colspan="5">&nbsp;</td></tr>
+			
+			<tr class="gray  grand-total">
+				<td class="name" colspan="2">Grand Total</td>
+				<td class="amount"><div class="number-wrapper">254.2</div></td>
+				<td class="estimated-subsidy"><div class="number-wrapper">78.0</div></td>
+				<td class="subsidy-rate"><div class="number-wrapper">31%</div></td>
+			</tr>
+			
+			<tr class="spacer"><td colspan="5">&nbsp;</td></tr>
+
+			<tr class="footnote">
+				<td colspan="5">1. Transaction date is from <a href="http://www.treasury.gov/initiatives/eesa/docs/transaction_report_02-10-09.pdf">Treasury's Transaction Reports</a>; the subsidy was estimated using market data when the agreements were announced which was earlier than the transaction date. (See COP report for details).</td>
+			</tr>
+			
+			<tr class="footnote">
+				<td colspan="5">2. There were 311 other institutions. Subsidy estimates for those institutions were extrapolated using the 22% subsidy rate from the 8 CPP investments studied by COP.</td>
+			</tr>
+			
+			<tr class="footnote">
+				<td colspan="5" class="footnote">Source: Congressional Oversight Panel, "February Oversight Report: Valuing Treasury's Acquisitions." February 6, 2009. <a href="http://cop.senate.gov/documents/cop-020609-report-dpvaluation.pdf">http://cop.senate.gov/documents/cop-020609-report-dpvaluation.pdf</a>; page 7.</td>
+			</tr>
+		</table>
+		
+
+</div>
+</div>
+</div> <!--ends container-->
+
+{% endblock %}

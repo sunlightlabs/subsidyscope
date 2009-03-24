@@ -1,0 +1,42 @@
+{% extends "base_projects.html" %}
+{% load media %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+
+<div class="container main_container">
+
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+
+
+	<div class="span-13">
+		<div class="full_padding">
+		
+			<h2 class="type_header">updates</h2>
+			<h3 class="section_header">{{ item.title }}</h3>
+
+			<div id="update_item">
+				<p style="margin-top:1em"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} </p>
+	
+				{% if item.extended_text %}
+
+					<p>{{ item.extended_text|safe }}</p>
+
+					{% if item.link %}<p><a href="{{ item.link }}" class="readmore">View</a></p>{% endif %}
+
+				{% endif %}
+			</div>
+
+		</div>
+	</div>
+
+	<div class="span-6 last">
+			<div style="background-color:#ffffff; height:100px; margin:0 0 0 0;">&nbsp;</div>
+	</div>
+
+
+</div>
+
+{% endblock %}

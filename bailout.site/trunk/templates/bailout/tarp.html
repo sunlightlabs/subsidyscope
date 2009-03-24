@@ -1,0 +1,159 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load bailout_tags %}
+{% load media %}
+
+{% block additional_css %}
+	{% css "ui.theme.css" %}
+	{% css "tarp-visualization.css" %}
+{% endblock %}
+
+{% block additional_js %}
+	{% js "jquery-ui-personalized-tabs-1.5.3.js" %}
+	{% js "jquery.scrollTo-1.4.0-min.js" %}
+	{% js "jquery.localscroll-1.2.6-min.js" %}
+	{% js "jquery.serialScroll-1.2.1-min.js" %}	
+	{% js "jquery.tablesorter.js" %}
+	{% js "jquery.autocomplete.js" %}
+	
+	{% js "swfobject.js" %}
+	{# avoid using js tag for this last one -- it needs to be served locally, not rewritten to use S3 #}
+
+	<script type="text/javascript" src="{% url tarp-javascript %}"></script>
+	
+{% endblock %}
+
+{% block content %}
+
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+
+	
+<div class="span-15">
+	
+	<div class="tlr_padding">
+	<h2 class="type_header">Database</h2>
+	<h3 class="section_header">Transactions under the Troubled Asset Relief Program (TARP)</h3>
+	
+	<p>This page is your gateway to information on the TARP transactions. Subsidyscope has gathered data on each transaction under the TARP program. The following table shows which companies received funds, how much they received, and when they received it.  Detailed data on individual transactions can be downloaded into a spreadsheet, and the visualizations provide a quick view of the transactions over time, by recipient and by date.</p>
+
+	<p>Although the government has provided a few companies with <a href="{% url glossary %}">loans</a> under TARP, nearly all the transactions have been purchases of <a href="{% url glossary %}">equity</a> stakes in those companies.  In exchange for funding from TARP, the government usually receives <a href="{% url glossary %}">preferred stock</a> and <a href="{% url glossary %}">warrants</a> from the company. For information on the value of warrants purchased through TARP, including daily stock prices, <a href="{% url tarp-warrants %}">click here</a>.</p>
+
+	<p>The amount of funding provided through a TARP transaction can be found in the "Disbursements Received" column of the table (this corresponds to what the Treasury Department calls "Prices Paid" in its publications). The table also includes information on the size of those companies, as measured by their assets.</p>
+
+	<p>The amount of funding provided to a company is a crucial piece of information needed to calculate the subsidies provided through TARP.  But it is not a measure of the subsidy itself.  To calculate the subsidies, the market value of the preferred stock, warrants, and loans must be deducted from the funding provided to the institution.  Although information on the subsidies to individual companies through TARP is still quite limited, some data can be found <a href="{% url tarp-subsidies %}">here</a>.</p>
+	
+	<p>Click each tab below for different ways to view the TARP data.</p>
+</div>
+
+	<div class="span-4 last">&nbsp;</div>
+
+</div>
+<div class="span-24">
+	<div class="lr_padding">
+	
+	
+	<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#transactions">Transactions</a></li>
+			<li class="ui-state-default ui-corner-top"><a href="#recipients">By Recipient</a></li>
+			<li class="ui-state-default ui-corner-top"><a href="#by-date">By Date</a></li>
+			<li class="ui-state-default ui-corner-top"><a href="#csv">Download</a></li>
+		</ul>
+		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="transactions">
+			
+			<div id="tarp-container"><div id="tarp" style="text-align:center;">
+				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
+				
+			<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+			
+			</div></div>
+			<div class="gray-label">transaction date &rarr;</div>
+			
+		</div>
+		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="recipients">
+			<div id="bubbles-container"><div id="tarpBubbleVis" style="text-align:center;">
+				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
+				
+			<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+			
+			</div></div>
+			
+			<div class="gray-label">Mouse over the circles to see the names of institutions receiving TARP funds, the amounts received and the percentage of total disbursements each amount represents.</div>
+			<div style="margin-top:15px" class="gray-label">Note: Although AIG is widely known as one of the world's largest insurance companies, its ownership of AIG Federal Savings Bank classifies it as a thrift holding company, subject to federal regulation by the Office of Thrift Supervision. The Federal Reserve refers to AIG as a "widely diversified financial services company."</div>
+		</div>
+		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="by-date">
+			<div id="by-date-container"><div id="tarpTimelineVis" style="text-align:center;">
+				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
+				
+			<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+			
+			</div></div>
+		</div>
+		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="csv">
+	    	<p>If you'd like to download the data powering these visualizations you may do so using the link below.  In addition to the fields displayed in the table on this page, the download includes information like FDIC ID numbers and stock ticker symbols (when available).  The file is in <a href="{% url glossary %}">CSV</a> format, which can be opened with any modern spreadsheet program.</p>
+			<p><a id="csv-link" href="{% url bailout.views.tarp_csv %}">Download CSV Data &raquo;</a></p>
+		</div>
+	</div>
+	
+	<div id="table-filter" style="clear:left; padding-top: 15px;">Filter transactions by recipient: <input size="30" id="tarpFilterInput"/></div> 
+	
+	<table class="tarp-table" id="tarp-header-table">
+	<thead>
+	<tr>
+		<th class="date">Date</th>
+		<th class="recipient">Recipient</th>
+		<th class="price">Disbursement Received</th>
+		<th class="assets">Company Assets&nbsp;*</th>
+		<th class="city">City</th>
+		<th class="state">State</th>
+	</tr>
+	</thead>
+	</table>
+	
+	<div class="gray-label" style="clear:left">click on column headings to sort</div>
+	
+
+	<div id="tarp-table-container">	
+
+		
+	
+
+	<table class="tarp-table" id="tarp-data-table">
+	<tbody>
+	{% for t in transaction_list %}
+
+	<tr id="row-{{ t.id }}" class="{% cycle 'even' 'odd' %}">
+		<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
+		<td class="recipient">{% if t.institution.display_name %}{{ t.institution.display_name}}{% else %}{{ t.institution.name }}{% endif %}</td>
+		<td class="price">${{ t.price_paid|divide:1|floatformat:"-0"|intcomma}}</td>
+		<td class="assets">{% if t.institution.total_assets %}${{ t.institution.total_assets_fixed|divide:1|floatformat:"-0"|intcomma }} {% else %}<em>not confirmed</em>{% endif %}</td>
+		<td class="city">{{ t.institution.city }}</td>
+		<td class="state">{{ t.institution.state }}</td>
+	</tr>
+
+	{% endfor %}
+	</tbody>
+	</table>
+	
+	</div>	
+	
+	
+	
+	
+	
+	<div class="footnotes">
+	<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
+		
+	<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are as of September 30, 2008.</em></p>
+	</div>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}

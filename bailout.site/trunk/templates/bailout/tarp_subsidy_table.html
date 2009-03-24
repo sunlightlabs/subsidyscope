@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load media %}
+{% load charts %}
+{% load webdesign %}
+
+{% block content %}
+
+<style type="text/css">
+.subsidy-table	{ width: 100%; border-left: 0 !important; border-top: 0 !important;}
+.subsidy-table td, .subsidy-table th { border: 0; padding: 0px; text-align: left; vertical-align: middle;}
+.subsidy-table th { text-align: center; font-weight: bold; line-height: 100%; padding: 5px 0;}
+.subsidy-table td.name { padding: 3px; padding-left: 5px; }
+.subsidy-table td.date { text-align:center; }
+.subsidy-table td .number-wrapper { padding: 3px 13px 3px 0px; width: 3.5em; margin: 0 auto;}
+.subsidy-table td.num-institutions .number-wrapper, .subsidy-table td.amount .number-wrapper, .subsidy-table td.estimated-subsidy .number-wrapper, .subsidy-table td.subsidy-rate .number-wrapper { text-align: right; }
+.subsidy-table tr.header-row { border-bottom: 1px solid black; padding-bottom: 5px; margin-bottom: 5px;}
+.subsidy-table td.name { text-align: left; }
+.subsidy-table tr.indent-1 td.name { padding-left: 2em !important; }
+.subsidy-table tr.indent-2 td.name { padding-left: 4em !important; }
+.subsidy-table tr.indent-3 td.name { padding-left: 6em !important; }
+.subsidy-table tr.bold td, .subsidy-table tr td.bold { font-weight: bold; }
+.subsidy-table tr.sum td.num-institutions .number-wrapper, .subsidy-table tr.sum td.amount .number-wrapper, .subsidy-table tr.sum td.estimated-subsidy .number-wrapper { border-top: 1px solid black; }
+.subsidy-table tr.sum td { font-weight: bold; }
+.subsidy-table tr.vertical-space td { padding-top: 1.5em; }
+.subsidy-table tr.vertical-space-below td { padding-bottom: 1.5em; }		
+.subsidy-table tr.footer-row { border-top: 1px solid black; border-bottom: 1px solid black; }
+.subsidy-table tr.footer-row td { padding: 5px;}
+.subsidy-table .centered { text-align: center; font-weight: bold; padding-top: 3px;}
+.subsidy-table .gray, .subsidy-table .gray * { background-color: #f4f4f4; }
+.subsidy-table .blue { background-color: #E6E6E6; }
+.subsidy-table { border-top: 1px solid #000; border-bottom: 1px solid #aaa; border-left: 0; border-right: 0;}
+.subsidy-table tr.spacer td { border-top: 1px solid #aaa; border-bottom: 1px solid #aaa;}
+.subsidy-table tr.title td { text-align: center; }
+#cop-table .spacer * { border: 0;}
+#cop-table { border-bottom: 0 !important;}
+.subsidy-table .footnote td { font-size: 85%; }
+.subsidy-table tr.title td { border-top: 1px solid black; padding-top: 5px;}
+.subsidy-table tr.grand-total td { border-bottom: 1px solid #aaa;}
+.tarp-subsidy-chart img { display: block; margin: 0 auto 1em 0;}
+.tarp-subsidy-chart h3 { text-align: center; margin-top: 0.7em; margin-bottom: 0; font-size: 1.3em;}
+.tarp-subsidy-chart h4 { text-align: center; margin-bottom: 0; margin-top: 0; font-weight: normal; font-size: 1em;}
+</style>
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+<div class="span-15">
+	<div class="tlr_padding">
+		<h2 class="type_header">Reference</h2>
+		<h3 class="section_header">Subsidies from the Troubled Asset Relief Program</h3>
+		
+		<p>The Troubled Asset Relief Program (TARP) is one of the federal government's most complex programs. It's not surprising, therefore, that there are misunderstandings about the subsidies TARP provides.</p>
+
+		<p>Subsidies arise under the program because the federal government offers financing to companies at terms that are substantially more generous than what private markets would provide.  In some cases, the company receives a government loan at below-market interest rates; in other cases, the company receives an above-market price for the sale of stock to the government.</p>
+
+		<div class="tarp-subsidy-chart">
+			<h3>Total Disbursement</h3>
+			<h4>Selected Companies as of 1/23/09 (billions)</h4>
+			{{ amounts_received_chart|safe }}
+		</div>
+
+		<p>In nearly all TARP transactions, the Treasury purchases <a href="{% url glossary %}">preferred stock</a> and <a href="{% url glossary %}">warrants</a> from a company requesting funds.  Although the stock and warrants give the federal government a claim on the company's future profits, the market value of those claims is generally expected to be worth much less than the initial disbursement to the company. As a result, the government will provide an implicit subsidy to the company through TARP financing.  The size of the subsidy is the difference between the initial disbursement and the market value of the preferred stock and warrants.</p>
+
+		<div class="tarp-subsidy-chart">
+			<h3>Estimated Subsidy</h3>
+			<h4>Selected Companies as of 1/23/09 (billions)</h4>
+			{{ estimated_subsidies_chart|safe }}
+		</div>
+
+		<p>This analysis highlights a critical distinction between the funds disbursed to companies and the subsidies provided to them.  The two concepts are not the same.  As long as the preferred stock and warrants that the government receives from companies are not worthless, the subsidies provided by TARP are smaller than the program's disbursements. A useful measure for understanding this distinction is the <a href="{% url glossary %}"><em>subsidy rate</em></a>, which is the ratio of the subsidy to the disbursement. The subsidy rate shows the share of the disbursement that reflects a true subsidy cost to the government.</p>
+
+		
+		<div class="tarp-subsidy-chart">
+			<h3>Subsidy Rate (Subsidy/Total Disbursement)</h3>
+			<h4>Selected Companies as of 1/23/09</h4>
+			{{ subsidy_rate_chart|safe }}
+		</div>
+
+		<p>Both the <a href="{% url tarp-subsidies-cop %}">Congressional Oversight Panel</a> and the <a href="{% url tarp-subsidies-cbo %}">Congressional Budget Office</a> have begun providing estimates of the TARP subsidies and subsidy rates. Among the institutions receiving some of the largest subsidies, the estimators find tremendous variation in subsidy rates (see below). The numbers from both agencies reflect estimates at a specific point in time. For example, the COP estimates reflected the subsidy costs to the government when the government purchased the preferred stock and warrants from the companies.  However, because the subsidy estimates depend on market conditions, those subsidy estimates can change over time.  If market conditions deteriorate, as they have for a number of financial companies, the size of the subsidies will increase.</p>
+				
+		
+		<p>&nbsp;</p>
+		
+		
+		<p><small>Source for GM Corp and GMAC LLC: Congressional Budget Office, <a href="{% url bailoutpdf_detail 15 %}">The Troubled Asset Relief Program: Report on Transactions Through December 31, 2008</a>, 01/09; All other data from: Congressional Oversight Panel, <a href="{% url bailoutpdf_detail 22 %}">February Oversight Report, Valuing Treasury's Acquisitions</a>, 2/6/09.</small></p>
+		<p><small>* The figure for Citigroup is a combination of the subsidies it received through two separate programs (Capital Purchase Program and Systemically Significant Failing Institutions) and that were individually estimated by COP.</small></p>
+		
+		
+				
+	</div>
+	<div class="span-4 last">&nbsp;</div>
+
+</div>
+<div class="span-24">
+	<div class="lr_padding">
+		
+		
+	
+
+</div>
+</div>
+</div> <!--ends container-->
+
+{% endblock %}

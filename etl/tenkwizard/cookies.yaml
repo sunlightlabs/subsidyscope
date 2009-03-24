@@ -1,0 +1,55 @@
+--- 
+tenkwizard.com: 
+  wizard: !ruby/object:WWW::Mechanize::Cookie 
+    comment: 
+    comment_url: 
+    discard: 
+    domain: tenkwizard.com
+    expires: Sun, 07 Feb 2010 12:39:31 GMT
+    max_age: 
+    name: wizard
+    path: /
+    port: 
+    secure: false
+    value: 195346640749946cdd8d925
+    version: 0
+10kwizard.com: 
+  tk_ref: !ruby/object:WWW::Mechanize::Cookie 
+    comment: 
+    comment_url: 
+    discard: 
+    domain: 10kwizard.com
+    expires: Sun, 07 Feb 2010 12:39:33 GMT
+    max_age: 
+    name: tk_ref
+    path: /
+    port: 
+    secure: false
+    value: ""
+    version: 0
+  wizard: !ruby/object:WWW::Mechanize::Cookie 
+    comment: 
+    comment_url: 
+    discard: 
+    domain: 10kwizard.com
+    expires: Sun, 07 Feb 2010 12:39:26 GMT
+    max_age: 
+    name: wizard
+    path: /
+    port: 
+    secure: false
+    value: 195346640749946cdd8d925
+    version: 0
+  tenk_brcr: !ruby/object:WWW::Mechanize::Cookie 
+    comment: 
+    comment_url: 
+    discard: 
+    domain: 10kwizard.com
+    expires: Fri, 12 Feb 2010 00:00:00 GMT
+    max_age: 
+    name: tenk_brcr
+    path: /
+    port: 
+    secure: false
+    value: ""
+    version: 0

@@ -1,0 +1,40 @@
+{% extends "base_projects.html" %}
+{% load media %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+
+	<div class="span-15">
+	<div class="full_padding">
+				<h2 class="type_header">project</h2>
+		<h3 class="section_header">The Financial Bailout</h3>		
+
+		<p>In recent months, the federal government has intervened in the nation’s economy in unprecedented ways. Those actions have raised citizens’ awareness about the role of subsidies in the economy and heightened concerns about their size and scope. However, it is hard to find comprehensive data on the financial interventions in a single, easy-to-use Web site.</p>
+
+		<p>To fill this gap, Subsidyscope &ndash; an initiative of <a href="http://www.pewtrusts.org/">The Pew Charitable Trusts</a> &ndash; is pulling together data on the financial institutions that are receiving benefits from the various federal programs so users can understand how and where taxpayer dollars are being spent.</p>
+
+	</div>
+	</div>
+
+
+
+	<div class="span-4 last">
+	<!--	<div class="featured_project">
+			<h2 class="type_header">Featured</h2>
+			<h3 class="section_header"><a href="/projects/bailout/tarp/">TARP Database</a></h3>
+			<a href="/projects/bailout/tarp/"><img src="{% media_url %}/images/featured_tarpdb.gif"></a>
+			<p>Data on the payments made to banks and other financial institutions as part of the Troubled Asset Relief Program.</p>
+		</div>
+	-->
+	&nbsp;	
+	</div>
+
+
+
+</div> <!--ends container-->
+{% endblock %}

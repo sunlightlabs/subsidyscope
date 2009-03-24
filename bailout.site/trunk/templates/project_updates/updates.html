@@ -1,0 +1,14 @@
+{% load media %}
+
+
+{% for item in items %}
+<div id="update_item">
+<h3><a href="{% if item.link %}{{ item.link }}{% else %}{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}{% endif %}">{{ item.title }}</a></h3>
+<p><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} 
+	
+	{% if item.extended_text %}
+		<a href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">read more</a>
+	{% endif %}				
+</p>
+</div>
+{% endfor %}

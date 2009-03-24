@@ -1,0 +1,64 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load webdesign %}
+{% load media %}
+
+{% block additional_js %}
+	{% js "jquery.pngFix.pack.js" %}
+	<script src="{% url bailout-visualization-js %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block additional_css %}
+	<style type="text/css">@import "{% url bailout-visualization-css %}";</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+	
+	<div class="span-15">
+		<div class="full_padding">
+			
+			<h2 class="type_header">Bailout</h2>
+			<h3 class="section_header">FDIC</h3>
+
+
+			<p>The Federal Deposit Insurance Corporation administers several programs aimed at strengthening the banking sector.  In an effort to encourage new bank lending and interbank borrowing, the FDIC created the Temporary Liquidity Guarantee Program (TLGP), which has two components. The Transaction Account Guarantee Option guarantees new <a href="{% url glossary %}">senior unsecured debt</a> issued by financial institutions. The Debt Guarantee Option guarantees certain deposits in checking accounts and other <a href="{% url glossary %}">non-interest-bearing accounts</a>.</p>
+			
+			<p>As a result of a Freedom of Information Act request, Subsidyscope has obtained a list showing <a href="{% url bailout_fdic_tlgp_csv %}">which of the more than 14,000 banks, bank holding companies and thrift holding companies in the United States were participating in the TLGP as of Jan. 31, 2009</a>. The document includes the institution's name and location as well as its FDIC or Office of Thrift Supervision identification number and TLGP participation status.</p>
+
+			<p>In addition to the TLGP, the FDIC has temporarily raised the maximum amount of <a href="{% url glossary %}">deposit insurance</a> from $100,000 to $250,000 through 2009.  It also may absorb losses resulting from the federal government's guarantee of Citigroup's assets.</p>
+
+			<p>Hover your cursor over the name of each program (in bold) for a more detailed description of its terms.</p>
+
+		</div>
+	</div>
+	<div class="span-4 last">&nbsp;</div>
+	
+	<div class="span-24">
+		<div class="full_padding">
+			<div id="legend-container"></div>
+
+			<div id="visualization-container"></div>
+			
+			<a class="json" href="{% url bailout-visualization-json %}">Download as JSON</a>
+			
+			<p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.</p>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	DrawBailoutVisualizationLegend($('#legend-container')); 
+	DrawBailoutVisualization($('#visualization-container'), 'FDIC');	
+});		
+</script>
+
+{% endblock %}

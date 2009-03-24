@@ -1,0 +1,79 @@
+{% load bailout_tags %}
+
+<script type="text/javascript">
+
+
+
+function search_init()
+{
+	$('#bankSearchNameInput').autocomplete('/projects/bailout/search/bank/', {
+		width: 260,
+		cacheLength: 1,
+		selectFirst: false});
+	
+	function findValueCallback(event, data, formatted) {
+		if (data)
+		{
+			$.get('/projects/bailout/search/bank/summary/' + data[1] + '/', null, function(data)
+			{
+				$("#bankInfo").html(data);
+				
+			}, 'html');
+		}
+	}
+	
+	
+	$("#bankSearchNameInput").result(findValueCallback).change(function() {
+		$("#bankInfo").html('');
+	
+		if($("#bankSearchNameInput").val() != '')
+			$(this).search();
+	});
+	
+	$("#bankSearchNameInput").blur(function() {
+		
+		if($("#bankSearchNameInput").val() != '')
+			$(this).search();
+		else
+		{
+			$("#bankSearchNameInput").addClass('pre_input');
+			$("#bankSearchNameInput").val('Enter a bank name, city or state');
+		}
+	});
+	
+	$("#bankSearchNameInput").focus(function() {
+		if($("#bankSearchNameInput").hasClass('pre_input'))
+		{
+			$("#bankSearchNameInput").removeClass('pre_input');
+			$("#bankSearchNameInput").val('');
+		}
+	});
+	
+	$("#bankSearchNameInput").result(function(event, data, formatted) {
+		if (data)
+		{
+			$.get('/projects/bailout/search/bank/summary/' + data[1] + '/', null, function(data)
+			{
+				$("#bankInfo").html(data);
+				
+			}, 'html');
+		}
+	});
+}
+
+$(document).ready(function(){
+	search_init();
+});	
+
+</script>
+
+
+<div id="tracker_box">
+<div class="find_bank">
+	<h3>Find My Bank</h3>
+<p>Enter a bank name, city or state to learn how much TARP funding an institution has received or whether it is participating in an FDIC debt guarantee program.</p>
+	<div id="bankSearch" style="clear:left;"><input size="30" id="bankSearchNameInput" value="Enter a bank name, city or state" class="pre_input"/></div> 
+
+	<div id="bankInfo"></div>
+	</div>
+</div>

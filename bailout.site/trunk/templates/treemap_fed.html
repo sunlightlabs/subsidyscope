@@ -1,0 +1,119 @@
+{% extends "base_clean.html" %}
+{% load media %}
+
+{% block content %}
+
+
+<div class="container noicon main_container">
+	<div class="span-24 top_gradient_box"><h3 class="location_header"><a href="/projects/">Projects</a> : Bailout</h3></div>
+<div class="span-24">
+	<div class="left_padding">
+	<h2 class="type_header">Visualization</h2>
+	<h3 class="section_header">The Federal Reserve Bailout Programs</h3>
+	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+
+	<script src="http://assets.subsidyscope.com/treemap/jquery.js" type="text/javascript"></script>
+	<script src="http://assets.subsidyscope.com/treemap/interface.js" type="text/javascript"></script>
+	<script src="http://assets.subsidyscope.com/treemap/treemap.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		jQuery(function(){
+			var data = getData();
+			var tree = jQuery("table").treemap(900,900,{getData:function(){return data;}});
+			enhanceTreemap(tree,data);
+		});
+
+		function enhanceTreemap(t,data) {
+			jQuery("div.treemapCell",t).hover(function(){jQuery(this).addClass("selected")},function(){jQuery(this).removeClass("selected")});
+			jQuery("div.treemapHead",t).click(function(){
+				var cell = jQuery(this);
+				var transferComplete = function() {
+					var tree = jQuery("<div>").
+					treemap(900,900,{getData:function(){
+						var branch = cell.html();
+						for(var i=0,dl=data.length;i<dl;i++)
+							if(data[i][0]==branch) return data[i][1];
+					}})
+					.css({"position":"absolute","top":t[0].offsetTop,"left":t[0].offsetLeft,"z-index":1});
+					enhanceTreemap(tree,data);
+					jQuery("<a href='#'>").
+					css({"cursor":"pointer","position":"absolute","top":t[0].offsetTop+910,"left":t[0].offsetLeft+800}).
+					html("return to main view").
+					click(function(){tree.add(this).remove();return false;}).
+					appendTo("body");
+					tree.appendTo("body");
+				};
+				cell.TransferTo({to:t[0],duration:"normal",className:"transfer",complete:transferComplete});
+			})
+		}
+
+		function getData() {
+			var data = [];
+			var cont = {};
+			jQuery("tr",this).each(function(){
+				var cell = jQuery("td",this);
+				if(!cell.length) return;
+				var c = cell.filter(":eq(3)").html();
+				if(!cont[c]) cont[c] = [];
+				var num = cell.filter(":eq(2)").html();
+				num = num.replace(/,/g,'');
+				var row = [cell.filter(":eq(1)").html(),num];
+				cont[c].push(row);
+			});
+			jQuery.each(cont,function(i,n){
+
+				data.push([i,n]);
+
+			})
+
+
+			return data;
+		}
+	</script>
+	
+	<table id="treemap" class="treemap">
+	<tbody><tr><th>Rank</th><th>Program</th><th>Funding</th><th>Type</th></tr>
+	<tr><td>1</td><td><h2 class="tree_head rank_14">Money Market Investor Funding Facility (MMFF)</h2> <p class="funding">$540 (Potential)</p></td><td>540</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>2</td><td><h2 class="tree_head rank_13">Currency Swaps</h2> <p class="funding">Spent: $500 Spent / Potential: Unlimited</p></td><td>500</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>2</td><td><h2 class="tree_head rank_12">Purchase of mortgage backed securities</h2> <p class="funding">$500 (Potential)</p></td><td>500</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>4</td><td><h2 class="tree_head rank_11">Term Auction Facility</h2> <p class="funding">$450</p> </td><td>450</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>5</td><td><h2 class="tree_head rank_10">Commercial Paper Funding Facility (CPFF)</h2> <p class="funding">$334</p></td><td>334</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>6</td><td><h2 class="tree_head rank_9">Citigroup</h2>  <p class="funding">$234 (Potential)</p></td><td>234</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>7</td><td><h2 class="tree_head rank_8">Term Asset- Backed Securities Loan Facility (TALF)</h2> <p class="funding">$200</p></td><td>200</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>8</td><td><h2 class="tree_head rank_7">Term Securities Lending Facility (TSLF) &amp; TSLF Options Program (TOP)</h2> <p class="funding">$172</p></td><td>172</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>9</td><td><h2 class="tree_head rank_6">Primary &amp; Secondary Loans</h2> <p class="funding">$94</p></td><td>94</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>10</td><td><h2 class="tree_head rank_5">AIG</h2> <p class="funding">$83</p></td><td>83</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>11</td><td><h2 class="tree_head rank_4">Primary Dealer Credit Facility (PDCF)</h2> <p class="funding">$37</p></td><td>37</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>12</td><td><h2 class="tree_head rank_3">Bear Sterns</h2> <p class="funding">$29</p></td><td>29</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>13</td><td><h2 class="tree_head rank_2">AMLF</h2> <p class="funding">$24</p></td><td>24</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+
+	<tr><td>14</td><td><h2 class="tree_head rank_1">MM Support purchase of debt</h2><p class="funding rank_1">$15</p></td><td>15</td><td><h2 class="tree_main_head">Federal Reserve Programs (In Billions)</h2></td></tr>
+	</tbody></table>
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+</div>
+	
+<div class="span-11 last">&nbsp;</div>
+	
+</div> <!--ends container-->
+{% endblock %}

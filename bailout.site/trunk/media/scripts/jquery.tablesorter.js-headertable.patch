@@ -1,0 +1,108 @@
+*** /Users/thomaslee/Desktop/tablesorter/jquery.tablesorter.js	2008-03-17 23:48:50.000000000 -0400
+--- jquery.tablesorter.js	2009-01-28 12:07:17.000000000 -0500
+***************
+*** 110,116 ****
+  				headerList: [],
+  				dateFormat: "us",
+  				decimal: '.',
+! 				debug: false
+  			};
+  			
+  			/* debuging utils */
+--- 110,117 ----
+  				headerList: [],
+  				dateFormat: "us",
+  				decimal: '.',
+! 				debug: false,
+! 				headerTable: null
+  			};
+  			
+  			/* debuging utils */
+***************
+*** 293,300 ****
+  				
+  				var meta = ($.metadata) ? true : false, tableHeadersRows = [];
+  			
+! 				for(var i = 0; i < table.tHead.rows.length; i++) { tableHeadersRows[i]=0; };
+  				
+  				$tableHeaders = $("thead th",table);
+  		
+  				$tableHeaders.each(function(index) {
+--- 294,304 ----
+  				
+  				var meta = ($.metadata) ? true : false, tableHeadersRows = [];
+  			
+! 				for(var i = 0; i < ((table.config.headerTable==null) ? table.tHead.rows.length : table.config.headerTable.tHead.rows.length); i++) { tableHeadersRows[i]=0; };
+  				
++ 				if(table.config.headerTable!=null)
++ 				    $tableHeaders = $("thead th",table.config.headerTable);
++ 				else
+  				    $tableHeaders = $("thead th",table);
+  		
+  				$tableHeaders.each(function(index) {
+***************
+*** 320,326 ****
+  			};
+  						
+  		   	function checkCellColSpan(table, rows, row) {
+!                 var arr = [], r = table.tHead.rows, c = r[row].cells;
+  				
+  				for(var i=0; i < c.length; i++) {
+  					var cell = c[i];
+--- 324,330 ----
+  			};
+  						
+  		   	function checkCellColSpan(table, rows, row) {
+!                 var arr = [], r = ((table.config.headerTable==null) ? table.tHead.rows : table.config.headerTable.tHead.rows), c = r[row].cells;
+  				
+  				for(var i=0; i < c.length; i++) {
+  					var cell = c[i];
+***************
+*** 328,334 ****
+  					if ( cell.colSpan > 1) { 
+  						arr = arr.concat(checkCellColSpan(table, headerArr,row++));
+  					} else  {
+! 						if(table.tHead.length == 1 || (cell.rowSpan > 1 || !r[row+1])) {
+  							arr.push(cell);
+  						}
+  						//headerArr[row] = (i+row);
+--- 332,338 ----
+  					if ( cell.colSpan > 1) { 
+  						arr = arr.concat(checkCellColSpan(table, headerArr,row++));
+  					} else  {
+! 						if(((table.config.headerTable==null) ? table.tHead : table.config.headerTable.tHead).length == 1 || (cell.rowSpan > 1 || !r[row+1])) {
+  							arr.push(cell);
+  						}
+  						//headerArr[row] = (i+row);
+***************
+*** 488,501 ****
+  
+  				return this.each(function() {
+  					
+- 					if(!this.tHead || !this.tBodies) return;
+- 					
+  					var $this, $document,$headers, cache, config, shiftDown = 0, sortOrder;
+  					
+  					this.config = {};
+  					
+  					config = $.extend(this.config, $.tablesorter.defaults, settings);
+  					
+  					// store common expression for speed					
+  					$this = $(this);
+  					
+--- 492,506 ----
+  
+  				return this.each(function() {
+  					
+  					var $this, $document,$headers, cache, config, shiftDown = 0, sortOrder;
+  					
+  					this.config = {};
+  					
+  					config = $.extend(this.config, $.tablesorter.defaults, settings);
+  					
++ 					// sanity check
++ 					if(!((this.config.headerTable==null) ? this.tHead : this.config.headerTable.tHead.rows) || !this.tBodies) return;
++ 					
+  					// store common expression for speed					
+  					$this = $(this);
+  					

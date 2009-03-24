@@ -1,0 +1,83 @@
+// ActionScript file
+import flash.events.Event;
+import flash.events.MouseEvent;
+import flash.xml.XMLNode;
+
+import mx.containers.Box;
+import mx.controls.Alert;
+
+const BAR_WIDTH:int = 3;
+
+public function init():void
+{
+	// fetch XML
+	//tarpDataService.send();
+	
+	test();
+	
+	// miscellaneous drawing crap
+	var b:Box = new Box();
+	b.id = 'box_1';
+	b.width = 100;
+	b.height = 100;
+	b.x = 100;
+	b.y = 100;
+	b.addEventListener(MouseEvent.MOUSE_OVER,box_mouseover);
+	b.addEventListener(MouseEvent.MOUSE_OUT,box_mouseout);
+	b.setStyle("backgroundColor", "blue");	
+	this.main_canvas.addChild(b);	
+}
+
+private function loadTarpData(event:Event):void
+{
+	var tarpTransactions:XML = new XML(String(tarpDataService.lastResult));
+	doDrawing(tarpTransactions);
+}
+
+private function test():void
+{
+	var x:XML = <transactions>
+
+	<transaction>
+		<id>1</id>
+		<date>2008-10-28</date>
+		<price_paid>15000000000</price_paid>
+	</transaction>
+
+	<transaction>
+		<id>2</id>
+		<date>2008-10-28</date>
+		<price_paid>3000000000</price_paid>
+	</transaction>
+
+	<transaction>
+		<id>3</id>
+		<date>2008-10-28</date>
+		<price_paid>25000000000</price_paid>
+	</transaction>
+</transactions>;
+	doDrawing(x);
+}
+
+private function doDrawing(tarpTransactions:XML):void
+{
+	Alert.show('in doDrawing');
+	trace('in doDrawing');
+	for(var i:int=0;i<tarpTransactions.transactions.length;i++)
+	{
+		var t:XMLNode = tarpTransactions.transactions[i];
+		//Alert.show(t.date.toXMLString());
+		break;
+		
+	}
+}
+
+public function box_mouseover(event:MouseEvent):void
+{
+	event.currentTarget.setStyle("backgroundColor","yellow");
+}
+
+public function box_mouseout(event:MouseEvent):void
+{
+	event.currentTarget.setStyle("backgroundColor","blue");
+}

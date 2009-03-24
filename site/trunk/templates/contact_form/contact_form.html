@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="span-18">
+	<div class="flat_container">	
+		<ul class="flat_list">
+		<li><h2>Contact Subsidyscope</h2>
+			
+			<div id="contact_form">
+    			<form action="." method="post" id="contactus">
+					<ul>
+			    		{{ form.as_ul }}	
+        	    		<li><p class="submit"><input type="submit" value="Send Your Messsage to Subsidyscope"></p></li>
+					</ul>
+    			</form>
+			</div>
+			
+		</li>
+		</ul>
+	</div>
+</div>	
+
+<div class="span-6 last">&nbsp;
+<!-- in case they want to share additional information, un-comment this
+		
+<div id="additional_info">
+<p>any additional contact information here? </p>
+</div>
+
+-->
+</div>
+
+
+{% endblock %}

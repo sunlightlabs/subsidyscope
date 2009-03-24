@@ -1,0 +1,60 @@
+{% load bailout_tags %}
+
+<div id="tracker_box">
+
+	<h3><a href="{% url tarp-warrants %}">TARP Warrant Tracker</a></h3>
+	
+
+		<div class="about_warrants">
+		<p>Warrants in/out of money based on <b>{{ price_date|date:"n/j/y" }}</b> stock prices. Learn more about <a href="{% url tarp-warrants %}">TARP warrants</a>.</p>
+	
+		</div>
+
+		<table class="warrant_tracker" width="100%">
+				<tr>
+					<th align="left">Current Price</th>
+					<th align="left">Strike Price</th>
+					<th align="right">In/Out ($)</th>
+					<th align="right">In/Out (%)</th>
+				</tr>
+		</table>
+	{% for t in transactions %}
+		<div class="warrant_company">
+			<span class="bold">{% if t.institution.display_name %}{{ t.institution.display_name|shorten_name }}{% else %}{{ t.institution.name|shorten_name }}</span>
+			{% endif %}
+		</div>
+		<div class="warrant_details">
+
+		
+			<table class="warrant_tracker" width="100%">
+				<tr>
+					<td align="left"><span class="current_price">{{ t.getLastClosingPrice|price }}</span></td>
+					<td align="right"><span class="strike_price">{{ t.warrant_reported_strike_price|price }}</span></td>
+		
+			
+			{% if t.isInMoneyReportedStrikePrice %}
+			<td align="right"><span class="warrant_in">	
+				{{ t.getMoneyPositionReportedStrikePrice|price_abs }} 
+			</span>
+			</td>
+			<td align="right"><span class="warrant_in">	
+				({{ t.getMoneyPercentage|percent }}%)
+			</span></td>
+			{% else %}
+			<td align="right"><span class="warrant_out">
+				{{ t.getMoneyPositionReportedStrikePrice|price_abs }} 
+			</span>
+			</td>
+			<td align="right"><span class="warrant_out">
+				({{ t.getMoneyPercentage|percent }}%)
+			</span></td>
+			{% endif %}
+			</tr>
+			</table>
+		</div>
+	{% endfor %}
+	
+
+	
+	
+</div>

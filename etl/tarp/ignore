@@ -1,0 +1,4 @@
+transaction_date,transaction_transaction_type,transaction_description,transaction_price_paid,transaction_pricing_mechanism,institution_is_new,institution_existing_id,institution_name,institution_existing_name,institution_city,institution_existing_city,institution_state,institution_existing_state,institution_institution_type
+2008-12-12 00:00:00,Purchase,Preferred Stock w/Warrants,41279000,Par,YES,,Capital Bank Corporation,,Raliegh,,NC,,
+2009-01-23 00:00:00,Purchase,Preferred Stock w/ Warrants,25083000,Par,YES,,"Princeton National Bancorp, Inc.",,Princeton,,IL,,
+2009-02-20 00:00:00,Purchase,Preferred Stock w/Warrants,30407000,Par,YES,,"Royal Bancshares of Pennsylvania, Inc.",,Narberth,,PA,,

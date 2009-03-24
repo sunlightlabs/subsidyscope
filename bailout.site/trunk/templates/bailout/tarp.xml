@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transactions>
+{% for t in transaction_list %}
+	<transaction id="{{t.id}}" date="{{t.date}}" price="{{t.price_paid}}" ></transaction>
+{% endfor %}
+</transactions>

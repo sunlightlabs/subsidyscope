@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:test="com.sunlightfoundation.*" xmlns:tweenscroll="com.sunlightfoundation.tweenscroll.*" backgroundColor="0xFFFFFF" paddingLeft="0" paddingRight="0" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" horizontalScrollPolicy="off" verticalScrollPolicy="off" initialize="init()">	
+	<mx:Script source="tarp.as" />
+	<tweenscroll:TweenHorizontalScrollEffect id="tweenScrollEff" target="{barHolder}" />
+	<mx:Canvas  backgroundColor="0xffffff" id="labelHolder" width="40" x="0" y="0" height="100%" horizontalScrollPolicy="off" verticalScrollPolicy="off"></mx:Canvas>
+	<mx:Canvas id="barHolder" horizontalScrollPolicy="on" verticalScrollPolicy="off" x="{labelHolder.width}" y="0" width="{Application.application.width - labelHolder.width}" height="100%">
+		<mx:Canvas id="main_canvas" y="0" x="0"></mx:Canvas>
+		<mx:Canvas id="axis_overlay" x="0" y="0" width="{main_canvas.width}" height="{main_canvas.height}"></mx:Canvas>
+	</mx:Canvas>
+	<mx:HTTPService id="tarpDataService" result="loadTarpData(event)" />
+</mx:Application>

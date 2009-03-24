@@ -1,0 +1,31 @@
+{% extends "base_documents.html" %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+<div class="span-24">
+	<div class="full_padding">
+	
+	{% if pdf.local_copy %}<a style="float: right" class="pdf-download-link" href="{{ pdf.local_copy.url|urlencode }}">Download Document &raquo;</a>{% endif %}
+	
+	<h2 class="type_header">Documents</h2>
+	<h3 class="section_header">{{ pdf.title }}</h3>
+	<p>{{ pdf.description|safe }}</p>
+
+<div id='embedded_flash'><a href="http://www.scribd.com"></a></div>
+
+<script type="text/javascript">
+	var scribd_doc = scribd.Document.getDocFromUrl( 'http://' + window.location.host + '{{ pdf.local_copy.url|urlencode }}', '{{ scribd_publisher_id }}' );    
+	scribd_doc.addParam( 'jsapi_version', 1 );
+	scribd_doc.addParam('public', true);
+	scribd_doc.addEventListener( 'iPaperReady', function(e){
+		
+	});
+	scribd_doc.write( 'embedded_flash' );
+</script>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}

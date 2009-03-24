@@ -1,0 +1,36 @@
+{% load media %}
+
+
+<div class="container header">
+	<div class="span-5 logo_box"><a href="/"><img src="{% media_url %}/images/ss_logo.png" alt="SubsidyScope"></a></div>
+
+		<div class="span-19 last">
+			<div id="top_nav" class="navbar">
+				<ul id="top_nav_list">
+<li><a href="/">Home</a></li><li><a href="/projects/">Projects</a></li><li><a href="/about/">About</a></li><li><a href="/board/">Board</a></li><li><a href="/press/">Press</a></li><li class="last"><a href="/contact/">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+</div>
+
+<div class="container">
+	<div class="span-24">
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+		$('#updates form').submit(function(){
+			var valid = ($('#updates form input#email-textbox').val().match(/^\s*[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\s*$/i)!=null);
+			if(!valid)
+				$('#email-validation-error').fadeIn(800);
+			else
+				if($('#email-validation-error').css('display')!='none')
+					$('#email-validation-error').fadeOut(800);
+
+			return valid;
+		});
+	});
+	</script>
+<div id="updates"><form action="/mailinglist/subscribe/" method="post" id="update_email">Sign up for email updates&nbsp;<input type="text" id="email-textbox" name="email"><input type="submit" class="submit" value="Sign Up"></form><div id="email-validation-error">This does not appear to be a valid email address.</div></div>
+</div>
+</div>
+

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load markup %}
+
+{% block content %}
+<div class="span-24">
+			<div class="full_padding">
+				{{ flatpage.content|markdown }}
+    		</div>
+</div>
+{% endblock %}

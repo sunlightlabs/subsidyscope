@@ -1,0 +1,59 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load webdesign %}
+{% load media %}
+
+{% block additional_js %}
+	{% js "jquery.pngFix.pack.js" %}
+	<script src="{% url bailout-visualization-js %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block additional_css %}
+	<style type="text/css">@import "{% url bailout-visualization-css %}";</style>
+{% endblock %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+	<div class="span-15">
+		<div class="full_padding">
+			
+			<h2 class="type_header">Bailout</h2>
+			<h3 class="section_header">Treasury Department</h3>
+
+			<p>The Treasury Department's efforts have several components. The chart below provides funding levels for each of these programs - both funds released to date and funds authorized to be released in the future. The programs are authorized for different periods of time and receive different level of funding. Because several of these programs include terms that allow the government to receive a return on its investment, it will take time before the precise subsidy cost of each program can be determined. 
+			<a href="{% url tarp-subsidies %}">Go to our TARP Subsidies page</a> for some initial estimates on subsidy levels through the Treasury's Troubled Asset Relief Program (TARP), and <a href="{% url tarp %}">visit our TARP Disbursements page</a> to view the TARP data by transaction, recipient and date.</p>
+
+			<p><a href="{% url tarp-warrants %}">Click on the TARP Warrants page for an interactive table</a> that allows users to track certain Treasury Department investments under the Troubled Asset Relief Program (TARP) in real time.  Subsidyscope also <a href="{% url tarp-warrants-calculation %}">highlights a discrepancy</a>  between the way Treasury publicly described pricing for warrants and terms found in the final contracts with many TARP recipients, which may have resulted in Treasury receiving less favorable pricing on these warrants.</p>
+
+			<p>Hover your cursor over the name of each program (in bold) for a more detailed description of its terms.</p>
+			
+		</div>
+	</div>
+	<div class="span-4 last">&nbsp;</div>
+
+	<div class="span-24">
+		<div class="full_padding">
+			<div id="legend-container"></div>
+
+			<div id="visualization-container"></div>
+			
+			<a class="json" href="{% url bailout-visualization-json %}">Download as JSON</a>
+			
+			<p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.</p>
+		</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	DrawBailoutVisualizationLegend($('#legend-container')); 
+	DrawBailoutVisualization($('#visualization-container'), 'Treasury Department');
+});		
+</script>
+
+{% endblock %}

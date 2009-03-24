@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load media %}
+{% load project_update_tags %}
+{% load bailout_tags %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	
+<div class="span-16">
+	<div class="front_left_col">
+		<div id="intro">
+			<p class="intro_copy"><strong>Subsidyscope</strong>, launched by The Pew Charitable Trusts, aims to raise public awareness about the role of federal subsidies in the economy. Over the next few years, the project will build this subsidy database industry sector by industry sector. <a href="/about/" class="intro_more">Read More »</a></p>
+		
+		</div>
+	
+			<div class="updates_box">
+				<div class="updates_head">
+				<h2>Subsidyscope Project Updates</h2>
+				<a title="Click here for news feed" href="{% url django.contrib.syndication.views.feed "updates" %}"><img src="http://data.subsidyscope.com/media/images/rss_icon.png">
+				</a>
+				</div>
+			
+			
+				{# display project updates #}		
+				{% project_updates %}
+			
+			<!-- start update item 
+				<div id="update_item">
+				<h3><a href="#">Integer vitae libero ac risus egestas placerat</a></h3>
+				<p><span class="update_date">February 12</span> &ndash; Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
+					<a href class="readmore">read more</a>					
+				</p>
+				</div>	-->
+			
+			
+			</div> <!-- ends update box-->
+			
+
+		</div>
+</div>
+
+<div class="span-8 last">
+	
+	<div id="featured_vis_boxes">
+		<h3>Featured Visualizations</h3>
+		<div class="featured_vis">
+		<a href="/projects/bailout/tarp/"><img src="/media/images/feature_tarp_transactions_293x100.gif"></a>
+		</div>
+		<a href="/projects/bailout/tarp/"><span class="featured_vis_title">TARP Transactions</span></a>
+
+		<div class="featured_vis">
+		<a href="/projects/bailout/tarp/#recipients"><img src="/media/images/feature_tarp_recipients_293x100.gif"></a>
+		</div>
+		<a href="/projects/bailout/tarp/#recipients"><span class="featured_vis_title">TARP Recipients</span>
+		
+		<div class="featured_vis">
+		<a href="/projects/bailout/tarp/subsidies/"><img src="/media/images/feature_tarp_subsidies_293x100.gif"></a>
+		</div>
+		<a href="/projects/bailout/tarp/subsidies/"><span class="featured_vis_title">TARP Subsidies</span></a>
+	</div>	
+	
+	<!--
+	<div id="featured_project">
+		<h2 class="featured">Featured Visualizations</h2>
+		
+		
+		<a href="/projects/bailout/tarp/">
+		<img src="http://media.sunlightprojects.org/subsidyscope/images/frontpage/feature_graphic_260_200.png" class="featured_img">
+		</a>
+		<h3><a href="/projects/bailout/tarp/">TARP Database</a></h3>
+		<p>Data on the payments made to banks and other financial institutions as part of the Troubled Asset Relief Program.
+		<span class="gotofeature"><a href="/projects/bailout/tarp"><img src="{% media_url %}/images/feature_arrow_right.png"></a></span>
+		</p>
+	</div>	
+-->
+	
+	
+	{% tarp_warrant_tracker %}
+	
+	{% bank_search %}
+	
+	<div class="front_about">
+		<h3 class="front_about_head">Who is Involved?</h3>			
+		<p>Subsidyscope is guided by a broad and bipartisan <a href="/board/">advisory board</a> of top experts in federal spending, taxes, and finance. <a href="http://www.sunlightfoundation.com">The Sunlight Foundation</a>, Pew's research and technology partner, is developing the database and Web site to facilitate the distribution of data across the Web. </p>
+	</div>
+	
+	
+</div>
+		
+<div class="span-24">&nbsp;</div>
+	
+</div> <!--ends container-->
+{% endblock %}

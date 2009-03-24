@@ -1,0 +1,222 @@
+{
+	'Federal Reserve' : {
+	    '_subtitle': 'as of January 22, 2009',
+		/*
+		'Interest Rates': {
+			'ftd': 'n.a.', 
+			'pff': 'n.a.',
+			'sc': null,
+			'desc': 'The Fed lowered the interest rate that banks charnge on loans to other banks ten times between Sept. 2007 and Dec. 2008 - falling from between 5.25 percent to between zero and 0.25 percent.'
+		},
+		*/
+		'Currency Swaps' :  {
+			'ftd': '500+',
+			'pff': 'unlimited',
+			'sc': null,
+			'desc': 'The Fed contracted with 14 foreign banks to make U.S. dollars temporarily available. After a set period of time, the original amount will be returned to the U.S. in exchange for the foreign currency.'
+		},		
+		'Bear Stearns' : {
+			'ftd': 29,
+			'pff': 29,
+			'sc': null,
+			'desc': 'The Fed creates Maiden Lane I, a limited liability company that spent $29 billion to acquire assets from Bear Stearns to help the takeover of Bear Stearns by JP Morgan Chase. An LLC allows for protection from personal liability for business debts, but any profits or losses of the business pass through to its owners. Maiden Lane I will manage the assets with the hopes that the investment is repaid.'
+		},
+		'AIG' : {
+			'ftd': 82,
+			'pff': 113,
+			'sc': null,
+			'desc': 'The Fed acquired control of 80 percent of AIG and loaned the company $60 billion. It also bought $19.5 billion of AIG\'s residential mortgage-backed securities, and another $24.5 billion in collateralized debt obligations on which AIG wrote contracts for credit default swaps.'
+		},
+		'Citigroup': {
+			'ftd': 0,
+			'pff': 234,
+			'sc': null,
+			'desc': 'The Fed will absorb 90 percent of any losses that could occur from the federal government\'s guarantee of a pool of Citigroup\'s assets after payouts have been made by Citigroup, the Troubled Assets Relief Program, and the Federal Deposit Insurance Corporation.'
+		},
+		'Bank of America': {
+			'ftd': 0,
+			'pff': 87,
+			'sc': null,
+			'desc': 'The Fed will absorb 90 percent of any losses resulting from the federal government\'s guarantee of a pool of Bank of America\'s assets after payouts have been made by Bank of America, the Troubled Assets Relief Program, and the Federal Deposit Insurance Corporation.'
+		},
+		'Primary & Secondary Loans': {
+			'ftd': 63,
+			'pff': 'unknown',
+			'sc': null,
+			'desc': 'The Fed disbursed short-term loans up to 90 days directly to banks and other institutions that are legally allowed to accept monetary deposits from consumers.'
+		},
+		'Term Auction Facility': {
+			'ftd': 416,
+			'pff': 600,
+			'sc': null,
+			'desc': 'The Facilty allows banks and other financial institutions to pledge collateral in exchange for a negotiated-rate loan from the Fed. The interest rate on the loan is determined by auction that is conducted biweekly for loans with a maturity of either 28 or 84 days. The maximum size of each auction is $150 billion, although accepted bids for most recent auctions have been considerably smaller.'
+		},
+		'Commercial Paper Funding Facility': {
+			'ftd': 351,
+			'pff': 1800,
+			'sc': null,
+			'desc': 'Encourages corporate borrowing by buying commercial paper (securities sold by large banks and corporations to get money to meet short-term borrowing needs, like payroll and bills) directly from companies. Such securities are backed by assets or unsecured; must be highly rated, in U.S. dollars, and have a maturity of three months. The program is in effect until April 30, 2009'
+		},
+		'Money Market Investor Funding Facility': {
+			'ftd': 0,
+			'pff': 540,
+			'sc': null,
+			'desc': 'Aimed at restoring liquidity to money markets by buying certificates of deposit and commercial paper from money market mutual funds. Program is in effect until April 30, 2009.'
+		},
+		'AMLF' : {
+			'descriptive name': 'Asset-Backed Commercial Paper Money Market Mutual Fund Liquidity Facility',
+			'ftd': 15,
+			'pff': 'unknown',
+			'sc': null,
+			'desc': 'The Asset-Backed Commercial Paper Money Market Mutual Fund Liquidity Facility (AMLF) provides funding to banks and bank holding companies to purchase high-quality asset-backed commercial paper from money market mutual funds under certain conditions. Aimed at helping money market funds with such paper to meet demands for redemptions by investors, and to foster liquidity in the money markets. Program is in effect until April 30, 2009'
+		},	
+		'TSLF & TOP': {
+			'descriptive name': 'Term Securities Lending Facility & Term Securities Lending Facility Options Program',
+			'ftd': 133,
+			'pff': 200,
+			'sc': null,
+			'desc': 'The Term Securities Lending Facility offers to lend Treasury securities held by the Fed for a one-month term in exchange for other types of securities held by 17 financial institutions, known as primary dealers, that trade directly with the Fed. The TSLF Options Program or TOP, offers options on short-term TSLF loans that will be made on a future date.'
+		},
+		'Primary Dealer Credit Facility': {
+			'ftd': 33,
+			'pff': 'unknown',
+			'sc': null,
+			'desc': 'The Primary Dealer Credit Facility (PDCF) provides one-day loans to financial institutions that trade directly with the Fed in exchange for eligible collateral. Program is in effect until April 30, 2009.'
+		},
+		'Fannie Mae, Freddie Mac, Federal Home Loan Banks': {
+			'ftd': 23,
+			'pff': 100,
+			'sc': null,
+			'desc': 'The Fed will purchase up to $100 billion in debt issued by three government-sponsored enterprises -- Fannie Mae, Freddie Mac, and the Federal Home Loan Banks -- through competitive auctions over the next several quarters'
+		},		
+		'Mortgage-backed Securities': {
+			'ftd': 53,
+			'pff': 500,
+			'sc': null,
+			'desc': 'Over the next several quarters, the Fed will purchase up to $500 billion in mortgage-backed securities issued by Fannie Mae, Freddie Mac and the Fedearl Home Loan banks and the Government National Mortgage Association (Ginnie Mae). Expected to begin in early January.'
+		},
+		'Term Asset-Backed Securities Loan Facility': {
+			'ftd': 0,
+			'pff': 200,
+			'sc': null,
+			'desc': 'The Term Asset-Backed Securities Loan Facility (TALF) is aimed at supporting consumer and small business lending. The Fed will lend up to $200 billion to holders of certain AAA-rated asset-backed securities and the Troubled Asset Relief Program will provide $20 billion in credit protection against those that do not pay because of insolvency or default for those loans. Program is expected to begin lending in February 2009; the authority expires on December 31, 2009'
+		}	
+	},
+	
+	'Treasury Department': {
+	    '_subtitle': 'as of January 22, 2009',	    
+		'TARP': {
+			'descriptive name': 'Trouble Asset Relief Program',
+			'ftd': 293,
+			'pff': 700,
+			'sc': 94,
+			'desc': "The Emergency Economic Stabilization Act of 2008 allowed Treasury to purchase $700 billion in assets through the new Troubled Asset Relief Program (TARP). The First $350 billion is now available and as of December 31, 2008, TARP had disbursed $247 billion that have fallen into three categories including capital purchases, loans and other actions. The subsidy cost (which accounts for market risk) was estimated by the Congressional Budget Office totals about $64 billion to date.\nCapital Purchase Program: $178 billion given (estimated subsidy: $32 billion)\nAIG capital purchases: $40 billion given (estimated subsidy: $21 billion)\nCitigroup capital purchases: $20 billion given (estimated subsidy: $5 billion)\nGMAC capital purchases: $5 billion given (estimated subsidy: $3 billion)\nLoans to auto companies: $1 billion given (estimated subsidy: $3 billion)\nThe second $350 billion will be available if the Obama Administration requests it and the Congress does not deny the request."
+		},
+		'Housing-related Tax Provisions': {
+			'ftd': 0,
+			'pff': 12,
+			'sc': 'n.a.',
+			'desc': 'The Housing and Economic Recovery Act of 2008 authorized a refundable tax credit for first-time home buyers to be repaid, without interest, over a 15-year period. The Act also had other housing-related tax provisions.'
+		},
+		'Securities purchases for Fannie Mae & Freddie Mac': {
+			'ftd': 71,
+			'pff': 'unlimited',
+			'sc': -1,
+			'desc': 'The Housing and Economic Recovery Act of 2008 authorized Treasury to buy obligations and securities issued by Fannie Mae and Freddie Mac. About $71 billion of residential mortgage-backed securities have been purchased as of December 31, 2008. Authority to make such market purchases expires on December 31, 2009. The subsidy cost recorded in the budget is computed using standard credit reform procedures.'
+		},
+		'Conservatorship of Fannie Mae and Freddie Mac': {
+			'ftd': 14,
+			'pff': 200,
+			'sc': 'n.a.',
+			'desc': 'Treasury received senior preferred equity shares and warrants in exchange for any future contributions necessary to keep Fannie Mae and Freddie Mac solvent. Preferred equity shares provide a specific dividend that is paid before dividends are paid to common stockholders. They also take precedence over common stock in a liquidation. A warrant is a security that entitles the holder to buy stock of the company that issued it at a specified price.'
+		},
+		'Temporary Guarantee Program for Money Market Funds': {
+			'ftd': 'unknown',
+			'pff': 3000,
+			'sc': 'n.a.',
+			'desc': 'Treasury will guarantee investors\' shares as of September 19, 2008. The guarantee is in effect through April 30, 2009, but can be extended through September 18, 2009. Participating funds pay a fee of 1.5 or 2.2 basis points times the number of shares outstanding. (A basis point is one-hundredth of a percentage point)'
+		},
+		'Supplemental Financing Program': {
+			'ftd': 175,
+			'pff': 'unlimited',
+			'sc': 'n.a.',
+			'desc': 'The Treasury is borrowing from the public to assist the Federal Reserve.'
+		}
+	},
+	
+	'FDIC': {
+	    '_subtitle': 'Federal Deposit Insurance Corporation &mdash; as of January 22, 2009',
+		'Raised Limits on Insurance Coverage': {
+			'ftd': 'n.a.',
+			'pff': 700,
+			'sc': null,
+			'desc': 'The Emergency Economic Stabilization Act of 2008 temporarily raised the limit on deposit insurance from $100,000 to $250,000 per depositor through December 31, 2009. The raise is estimated to increase the amount of insured deposits by about $700 billion, or 15 percent.'
+		},
+		'Temporary Liquidity Guarantee Program': {
+			'ftd': 'n.a.',
+			'pff': 1450,
+			'sc': null,
+			'desc': 'The Temporary Liquidity Guarantee Program (TLGP) has two parts. The Debt Guarantee Option allows participating institutions to borrow and lend money more readily. The guarantee applies to debt that is issued by June 30, 2009 and matures no later than June 30, 2012. Participating institutions pay fees based on the maturity of the debt. <a href="http://www2.fdic.gov/qbp/2008dec/qbptlgp.html">According to the FDIC</a>, the agency has guaranteed $224 billion of new debt under the Debt Guarantee Option; potential guarantees could total $1 trillion. The second component is the Transaction Account Guarantee Option, which provides full guarantees for certain checking and other non-interest-bearing accounts through December 31, 2009. Participating institutions also pay fees for this guarantee. <a href="http://www2.fdic.gov/qbp/2008dec/qbptlgp.html">The FDIC reports</a> that it has guaranteed approximately $684 billion under the Transaction Account Guarantee Option.'
+		},
+		'Citigroup': {
+			'ftd': 0,
+			'pff': 10,
+			'sc': null,
+			'desc': 'The FDIC may absorb up to $10 billion in losses resulting from the federal government\'s guarantee of a pool of Citigroup\'s assets after payouts have been made by Citigroup and the Troubled Asset Relief Program. As a fee for the guarantee, the FDIC will receive $3 billion in preferred stock.'
+		}
+	},
+
+	'HUD': {
+	    '_subtitle': 'Department of Housing and Urban Development &mdash; as of January 22, 2009',
+		'Redevelopment of Abandoned and Foreclosed Homes': {
+			'ftd': 0,
+			'pff': 4,
+			'sc': null,
+			'desc': 'The Housing and Economic Recovery Act of 2008 provided $4 billion in funding to state and local governments to purchase and rehabilitate foreclosed and abandoned homes.'
+		},
+		'HOPE Program': {
+			'ftd': 0,
+			'pff': 1,
+			'sc': null,
+			'desc': 'The HOPE for Homeowners program permits home mortgages to be refinanced through private lenders with a guarantee from the Federal Housing Administration. The new loans must have a loan-to-value ratio that is no greater than 90 percent of the property\'s appraised value.'
+		},
+		'FHA Secure': {
+			'ftd': 'n.a.',
+			'pff': 1,
+			'sc': null,
+			'desc': 'FHA Secure was a temporary initiative to permit lenders to refinance non-Federal-Housing-Administration adjustable-rate mortgages. The program made about 4,000 loans since fall 2007 and expired on December 31, 2008.'
+		}
+	},
+	
+	'FHFA': {
+        '_subtitle': 'Federal Housing Finance Administration &mdash; as of January 22, 2009',
+		'Fannie Mae and Freddie Mac': {
+			'ftd': 'n.a.',
+			'pff': 'n.a.',
+			'sc': null,
+			'desc': 'The Federal Housing Finance Agency and the Treasury took control of Fannie Mae and Freddie Mac, two government-sponsored enterprises, on September 6, 2008. Under the current circumstances, the Congressional Budget Office views Fannie Mae and Freddie Mac as governmental entities'
+		}
+	},
+	
+	'NCUA': {
+        '_subtitle': 'National Credit Union Administration &mdash; as of January 22, 2009',
+		'Homeowners Programs': {
+			'ftd': 5,
+			'pff': 41,
+			'sc': null,
+			'desc': 'The Credit Union Homeowners Affordibility Relief Program (CU HARP) and the Credit Union System Investment Program (CU SIP)are run through the National Credit Union Administration\'s Central Liquidity Facility and are financed by borrowing from the Federal Financing Bank. The CU HARP program will provide subsidized funding intended to help credit unions modify mortgages. The CU SIP program aims to facilitate lending by shoring up corporate credit unions which primarily provide financial resources and services to other credit unions.'
+		},
+		'Streamlined Modification Program': {
+			'ftd': 'unknown',
+			'pff': 'unknown',
+			'sc': null,
+			'desc': 'The Streamlined Modification Program aims to avoid foreclosures by creating a fast-track method for reducing monthly payments on mortgages. The program will restrict payments to 38 percent of a household\'s gross monthly income by reducing the interest rate, extending the life of the loan, or deferring principal. The policy applies to loans held by Fannie Mae and Freddie Mac and was launched on December 15, 2008.'
+		},		
+		'Temporary Corporate Credit Union Liquidity Guarantee Program': {
+			'ftd': 'n.a.',
+			'pff': 'unknown',
+			'sc': null,
+			'desc': 'The Temporary Corporate Credit Union Liquidity Guarantee Program guarantees certain unsecured debt of participating corporate credit unions issued between October 16, 2008 and June 30, 2009. Such debt must mature by June 30, 2012. Participating institutions pay annualized fees for the guarantees.'
+		}
+	}
+}

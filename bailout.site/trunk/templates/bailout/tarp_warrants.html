@@ -1,0 +1,148 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load bailout_tags %}
+{% load media %}
+
+{% block additional_css %}
+	{% css "ui.theme.css" %}
+	{% css "tarp-visualization.css" %}
+{% endblock %}
+
+{% block additional_js %}
+
+	{% js "jquery-ui-personalized-tabs-1.5.3.js" %}
+	{% js "jquery.scrollTo-1.4.0-min.js" %}
+	{% js "jquery.localscroll-1.2.6-min.js" %}
+	{% js "jquery.serialScroll-1.2.1-min.js" %}	
+	{% js "jquery.tablesorter.js" %}
+	{% js "jquery.autocomplete.js" %}
+
+	{% js "tarp_warrants.js" %}
+	
+{% endblock %}
+
+{% block content %}
+
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+
+	
+<div class="span-15">
+	
+	<div class="tlr_padding">
+	<h2 class="type_header">Database</h2>
+	<h3 class="section_header">A Slice of the TARP Data: <br/>Monitoring the Value of the TARP-Funded Warrants</h3>
+	
+	
+	<p>The Special Inspector General overseeing the Treasury Department's Troubled Asset Relief Program (TARP) presents data on the <a href="{% url glossary %}">warrants</a> that taxpayers now hold as a result of the government's bailout of financial institutions. Treasury also receives <a href="{% url glossary %}">preferred stocks</a> from a company in exchange for TARP funding.</p> 
+
+	<p>The purchase of warrants to infuse capital into banks was one piece of the Treasury's larger investment through TARP.  As the Congressional Oversight Panel (COP) notes, the value of the warrants was small relative to the value of the preferred stock in most instances. (See <a href="{% url tarp-subsidies %}">this page</a> for more on the total estimated subsidies to the companies involved, including both preferred stocks and warrants.)</p>
+
+	<p>A warrant is an option to buy shares in a company's common stock at a fixed price at any point over a set period of time; Treasury's warrants through TARP generally expire in 10 years. The agreed-upon fixed price is referred to as the <a href="{% url glossary %}">strike price</a>. <a href="{% url tarp-warrants-calculation %}">Click here</a> for more information on Treasury's policy determining the strike price.</p> 
+
+	<p>If the strike price is above the <a href="{% url glossary %}">stock price</a>, the warrants are considered <a href="{% url glossary %}">"out of the money."</a> This means that if the government were to exercise its rights under the warrant and purchase stock at the strike price, it would lose money.  In practice, however, the government would not choose to exercise that right so the payoff to the government from an out-of-the-money option is zero. That does not necessarily mean that the warrant is worthless.  Because stock prices move up or down every day, there is always a chance that the stock price could move above the strike price at some point in the future before the expiration date of the warrant. The Special Inspector General for TARP (SIGTARP) notes that it is not unusual for warrants to be "out of the money" when they are issued.  If the stock price is above the strike price, the warrant is considered "in the money." If the government exercises the warrant, the payoff is the difference between the stock price and the strike price.</p> 
+
+	<p>Based on the closing prices on <b>{{ last_date|date:"F j, Y" }}</b>,   
+	
+	{% if in_money %}
+		{% ifequal in_money 1 %}
+			only one 
+		{% else %}
+			only {{ in_money }}
+		{% endifequal %}
+	{% else %}
+		none
+	{% endif %}
+	 of the {{ total_transactions }} warrant transactions listed on Subsidyscope are in the money. 
+	 Some of the biggest recipients of TARP funding are in the most difficult financial situations.
+	 For example, the closing stock price for AIG was {{ aig_stock|price_abs }} on {{ last_date|date:"F j" }}, which is {{ aig_percentage }} percent below 
+	 the strike price of {{ aig_strike|price_abs }} of the warrants that the government received on November 25, 2008;
+	 and Citigroup's closing stock price of {{ citi_stock|price_abs }} on {{ last_date|date:"F j" }} is {{ citi_percentage }} 
+	 percent below the strike price of {{ citi_strike|price_abs }} of the warrants the government 
+	 received on October 28, 2008. </p>
+
+   
+
+
+	<p>It is important to note that the payoff is not the value of the warrant. Those values are determined using a methodology called options pricing; such an approach includes inputs such as the risk-free rate of return, the expected future volatility of the stock price, and the dividend yield on common stock, among other factors. See <a href="/projects/bailout/documents/22/">this report</a> from the COP for more information and some preliminary estimates of the warrant valuations.</p>
+
+	<p>Taxpayers' warrants can be tracked on a daily basis with some key pieces of information. The table below provides the number of warrants in each company that Treasury purchased, the strike price of the warrants and the current stock price. The last column, labeled "In/Out of Money," presents the daily stock price minus the strike price and illustrates a point in time estimate of whether the Treasury's warrants are "in the money" or "out of the money." Subsidyscope will track the warrants on a daily basis.</p>
+
+	<p>There has been some confusion surrounding the Treasury's explanation of how it sets the strike price (or exercise price), for the warrants it purchased. Subsidyscope has investigated the matter and provides a thorough explanation of the <a href="{% url tarp-warrants-calculation %}">inconsistencies of the Treasury's explanation of its warrant policy</a>.</p> 
+
+	<p>Click on the column headings below to sort. The data are also downloadable in <a href="{% url glossary %}">CSV</a> format by <a href="{% url tarp-csv %}">clicking here</a>.</p> 
+	
+</div>
+
+	<div class="span-4 last">&nbsp;</div>
+
+</div>
+<div class="span-24">
+	<div class="lr_padding">
+	
+	
+	<div id="table-filter" style="clear:left; padding-top: 15px;">Filter transactions by recipient: <input size="30" id="tarpFilterInput"/></div> 
+	
+		
+	<table class="tarp-table" id="tarp-header-table">
+	<thead>
+	<tr>
+		<th class="date">Date</th>
+		<th class="recipient">Recipient (Stock Symbol)</th>
+		<th class="program">Program</th>
+		<th class="strike">Strike<br/>Price</th>
+		<th class="warrants">Warrants<br/>Received</th>
+		<th class="current">Current Stock Price*</th>
+		<th class="inout">In/Out of<br/>Money*</th>
+		<th class="percent">Percent of<br/>Money*</th>
+	</tr>
+	</thead>
+	</table>
+	
+	<div class="gray-label" style="clear:left">click on column headings to sort</div>
+	
+
+	<div id="tarp-table-container">	
+
+		
+	
+
+	<table class="tarp-table" id="tarp-data-table">
+	<tbody>
+	{% for t in transactions %}
+
+	<tr id="row-{{ t.id }}" class="{% cycle 'even' 'odd' %}">
+		<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
+		<td class="recipient">{% if t.institution.display_name %}{{ t.institution.display_name}}{% else %}{{ t.institution.name }}{% endif %} ({{ t.institution.stock_symbol }})</td>
+		<td class="program">{{ t.program }}</td>
+		<td class="strike">${{ t.warrant_reported_strike_price }}</td>
+		<td class="warrants">{{ t.warrants_issued }}</td>
+		<td class="current">${{ t.getLastClosingPrice }}</td>
+		<td class="inout">{% if t.isInMoneyReportedStrikePrice %}${{ t.getMoneyPositionReportedStrikePrice }}{% else %}<span style="color: red;">${{ t.getMoneyPositionReportedStrikePrice }}</span>{% endif %}</td>
+		<td class="percent">{% if t.isInMoneyReportedStrikePrice %}{{ t.getMoneyPercentage|percent }}%{% else %}<span style="color: red;">{{ t.getMoneyPercentage|percent }}%</span>{% endif %}</td>
+	</tr>
+
+	{% endfor %}
+	</tbody>
+	</table>
+	
+	</div>	
+	
+	
+	
+	
+	
+	<div class="footnotes">
+		<p><strong>* Current prices as of close of trading on {{ last_date|date:"n/j/y" }}.</strong></p>
+		<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Program, strike price and warrant information is from the Office of the Special Inspector General for the Troubled Asset Relief Program's <a href="/projects/bailout/documents/21/">Initial Report to Congress on February 6, 2009</a>. Current stock prices are updated daily from Yahoo! Finance.</p>
+	</div>
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}

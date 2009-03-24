@@ -1,0 +1,23 @@
+{% load bailout_tags %}
+<div id="search_results_bank_summary">
+<h2>{{ institution.name }}</h2>
+<span class="address">{{ institution.city }}, {{ institution.state }}
+{% if institution.parent_institution %} held by {{ institution.parent_institution.name }} {% endif %}
+</span>
+
+{% if institution.getTotalTARPFundsReceived %}
+<span class="tarp_received">TARP Funds Received: ${{ institution.getTotalTARPFundsReceived|scale_number }}</span>
+
+{% else %}
+<span class="no_tarp">No TARP Funds Received.</span>
+{% endif %}
+
+
+
+{% if institution.tlgp_participant %}
+<span class="tlgp">(Participating in TLGP)</span>
+{% else %}
+<span class="no_tlgp">(Not participating in TLGP)</span>
+{% endif %}
+
+</div>

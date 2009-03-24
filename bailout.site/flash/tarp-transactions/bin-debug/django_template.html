@@ -1,0 +1,4719 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link  href="http://assets.subsidyscope.com/v2/favicon.ico" rel="shortcut icon" type="image/ico" />
+	        <link rel="stylesheet" href="http://assets.subsidyscope.com/v2/styles/screen.css" type="text/css" media="screen, projection" />
+        	<link rel="stylesheet" href="http://assets.subsidyscope.com/v2/styles/print.css" type="text/css" media="print" />
+        	<!--[if IE ]><link rel="stylesheet" href="http://assets.subsidyscope.com/v2/styles/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+        	<link rel="stylesheet" href="http://assets.subsidyscope.com/v2/styles/style.css" type="text/css" media="screen, projection" />
+			
+	<link rel="stylesheet" href="http://assets.subsidyscope.com/v2/styles/tarp-visualization.css" type="text/css" media="screen, projection" />
+
+
+	        <script type="text/javascript" charset="utf-8" src="http://assets.subsidyscope.com/v2/scripts/jquery-1.2.6.min.js"></script>
+			
+	<script type="text/javascript" charset="utf-8" src="http://assets.subsidyscope.com/v2/scripts/jquery.scrollTo-1.4.0-min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://assets.subsidyscope.com/v2/scripts/jquery.localscroll-1.2.6-min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://assets.subsidyscope.com/v2/scripts/jquery.serialScroll-1.2.1-min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="http://assets.subsidyscope.com/v2/scripts/raphael-packed.js"></script>			
+	<script type="text/javascript" charset="utf-8" src="http://assets.subsidyscope.com/v2/scripts/jquery.tablesorter.js"></script>
+
+	<script type="text/javascript" charset="utf-8" src="http://assets.subsidyscope.com/v2/scripts/jquery.swfobject.js"></script>
+	
+	<script type="text/javascript" src="/projects/bailout/tarp/visualization.js"></script>
+
+
+	        <title>Subsidyscope.com</title>
+</head>
+<body>
+
+<div class="container header">
+	<div class="span-5 logo_box"><a href="/"><img src="http://assets.subsidyscope.com/v2/images/ss_logo.png" alt="SubsidyScope"></a></div>
+
+	<div class="span-19 last">
+
+		<div id="updates"><form action="/mailinglist/subscribe/" method="post" id="update_email">Sign up for email updates&nbsp;<input type="text" id="email-textbox" name="email"><input type="submit" class="submit" value="Sign Up"></form><div id="email-validation-error">This does not appear to be a valid email address.</div></div>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$('#updates form').submit(function(){
+				var valid = ($('#updates form input#email-textbox').val().match(/^\s*[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\s*$/i)!=null);
+				if(!valid)
+					$('#email-validation-error').fadeIn(800);
+				else
+					if($('#email-validation-error').css('display')!='none')
+						$('#email-validation-error').fadeOut(800);
+						
+				return valid;
+			});
+		});
+		</script>
+	</div>	
+</div>
+
+<div class="container">
+	<div class="span-24 nav_bg">
+
+		<div id="top_nav" class="navbar">
+			<ul id="top_nav_list">
+				<li><a href="/">Home</a></li>
+				<li><a href="/projects/">Projects</a></li>
+				<li><a href="/about/">About</a></li>
+				<li><a href="/board/">Board</a></li>
+				<li><a href="/press/">Press</a></li>
+
+				<li><a href="/contact/">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div class="container white">
+
+	<div class="span-5">
+			
+
+<div class="bailout_box">
+	
+	<ul id="bailout_box_leftnav">
+		<li><a href="/projects/bailout/tarp/">TARP Database</a></li>
+		<li><a href="/projects/bailout/cbo-table/">TARP Subsidies</a></li>
+		<li><a href="/projects/bailout/documents/">Key Documents</a></li>
+	</ul>
+	
+</div>
+
+	</div>
+
+	
+<div class="span-15">
+	
+	<div class="tlr_padding">
+	<h2 class="type_header">Database</h2>
+	<h3 class="section_header">Transactions under the Troubled Asset Relief Program (TARP)</h3>
+	
+	<p>This page is your gateway to information on the TARP transactions. Subsidyscope has gathered data on each transaction under the TARP program. The following table shows which companies received funds, how much they received, and when they received it.  Detailed data on individual transactions can be downloaded into a spreadsheet, and the visualization provides a quick view of the transactions over time.</p>
+
+	<p>Although the government has provided a few companies with <a href="/projects/bailout/glossary/">loans</a> under TARP, nearly all the transactions have been purchases of <a href="/projects/bailout/glossary/">equity</a> stakes in those companies.  In exchange for funding from TARP, the government usually receives <a href="/projects/bailout/glossary/">preferred stock</a> and <a href="/projects/bailout/glossary/">warrants</a> from the company.</p>
+
+	<p>The amount of funding provided through a TARP transaction can be found in the “Prices Paid” column of the table.  That is the official term used by the Treasury Department for its acquisition of preferred stock, warrants, loans, and other financial claims on companies receiving funds.  The table also includes information on the size of those companies, as measured by their assets.</p>
+
+	<p>The amount of funding provided a company is a crucial piece of information needed to calculate the subsidies provided through TARP.  But it is not a measure of the subsidy itself.  To calculate the subsidies, the market value of the preferred stock, warrants, and loans must be deducted from the funding provided to the institution.  Although information on the subsidies to individual companies through TARP is still quite limited, some data can be found <a href="/projects/bailout/cbo-table/">here</a>.</p>
+</div>
+
+	<div class="span-4 last">&nbsp;</div>
+
+</div>
+<div class="span-24">
+	<div class="lr_padding">
+
+	
+	
+	
+	<a id="csv-link" href="/projects/bailout/tarp/csv/">Download as CSV</a>
+	<h2 class="type_header" id="graph-header">Cumulative Funding</h2>
+	
+	<!--><div id="raphael-container"><div id="raphael"></div></div>-->
+	<div id="flash-container"></div>
+
+	<div class="gray-label">transaction date &rarr;</div>
+
+	<div class="gray-label">click on column headings to sort</div>
+
+	
+	<table class="tarp-table" id="tarp-header-table">
+	<thead>
+	<tr>
+		<th class="date">Date</th>
+		<th class="recipient">Recipient</th>
+		<th class="price">Price Paid</th>
+		<th class="assets">Company Assets&nbsp;*</th>
+
+		<th class="city">City</th>
+		<th class="state">State</th>
+	</tr>
+	</thead>
+	</table>
+
+	<div id="tarp-table-container">	
+	<table class="tarp-table" id="tarp-data-table">
+	<tbody>
+
+	
+
+	<tr id="row-1" class="even">
+		<td class="date">2008-10-28<!-- ordinal: 1 --></td>
+		<td class="recipient">Bank of America Corporation</td>
+		<td class="price">$15,000,000,000</td>
+		<td class="assets">$1,803,212,624,000 </td>
+		<td class="city">Charlotte</td>
+
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-2" class="odd">
+		<td class="date">2008-10-28<!-- ordinal: 2 --></td>
+		<td class="recipient">Bank of New York Mellon Corporation</td>
+		<td class="price">$3,000,000,000</td>
+
+		<td class="assets">$230,988,165,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-3" class="even">
+		<td class="date">2008-10-28<!-- ordinal: 3 --></td>
+
+		<td class="recipient">Citigroup Inc.</td>
+		<td class="price">$25,000,000,000</td>
+		<td class="assets">$1,306,041,994,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-4" class="odd">
+		<td class="date">2008-10-28<!-- ordinal: 4 --></td>
+		<td class="recipient">The Goldman Sachs Group, Inc.</td>
+		<td class="price">$10,000,000,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">New York</td>
+
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-5" class="even">
+		<td class="date">2008-10-28<!-- ordinal: 5 --></td>
+		<td class="recipient">JPMorgan Chase &amp; Co.</td>
+		<td class="price">$25,000,000,000</td>
+
+		<td class="assets">$1,856,207,282,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-6" class="odd">
+		<td class="date">2008-10-28<!-- ordinal: 6 --></td>
+
+		<td class="recipient">Morgan Stanley</td>
+		<td class="price">$10,000,000,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-7" class="even">
+		<td class="date">2008-10-28<!-- ordinal: 7 --></td>
+		<td class="recipient">State Street Corporation</td>
+		<td class="price">$2,000,000,000</td>
+		<td class="assets">$276,290,703,000 </td>
+		<td class="city">Boston</td>
+
+		<td class="state">MA</td>
+	</tr>
+
+	
+
+	<tr id="row-8" class="odd">
+		<td class="date">2008-10-28<!-- ordinal: 8 --></td>
+		<td class="recipient">Wells Fargo &amp; Company</td>
+		<td class="price">$25,000,000,000</td>
+
+		<td class="assets">$569,241,620,000 </td>
+		<td class="city">San Francisco</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-9" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 9 --></td>
+
+		<td class="recipient">Bank of Commerce Holdings</td>
+		<td class="price">$17,000,000</td>
+		<td class="assets">$648,015,000 </td>
+		<td class="city">Redding</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-10" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 10 --></td>
+		<td class="recipient">1st Financial Services Corporation</td>
+		<td class="price">$16,369,000</td>
+		<td class="assets">$670,167,000 </td>
+		<td class="city">Hendersonville</td>
+
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-11" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 11 --></td>
+		<td class="recipient">UCBH Holdings, Inc.</td>
+		<td class="price">$298,737,000</td>
+
+		<td class="assets">$13,021,043,000 </td>
+		<td class="city">San Francisco</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-12" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 12 --></td>
+
+		<td class="recipient">Northern Trust Corporation</td>
+		<td class="price">$1,576,000,000</td>
+		<td class="assets">$81,708,987,000 </td>
+		<td class="city">Chicago</td>
+		<td class="state">IL</td>
+	</tr>
+
+	
+
+	<tr id="row-13" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 13 --></td>
+		<td class="recipient">SunTrust Banks, Inc.</td>
+		<td class="price">$3,500,000,000</td>
+		<td class="assets">$170,007,323,000 </td>
+		<td class="city">Atlanta</td>
+
+		<td class="state">GA</td>
+	</tr>
+
+	
+
+	<tr id="row-14" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 14 --></td>
+		<td class="recipient">Broadway Financial Corporation</td>
+		<td class="price">$9,000,000</td>
+
+		<td class="assets">$404,040,000 </td>
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-15" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 15 --></td>
+
+		<td class="recipient">Washington Federal Inc.</td>
+		<td class="price">$200,000,000</td>
+		<td class="assets">$11,796,420,000 </td>
+		<td class="city">Seattle</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-16" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 16 --></td>
+		<td class="recipient">BB&amp;T Corporation</td>
+		<td class="price">$3,133,640,000</td>
+		<td class="assets">$134,907,234,000 </td>
+		<td class="city">Winston-Salem</td>
+
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-17" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 17 --></td>
+		<td class="recipient">Provident Bankshares Corporation</td>
+		<td class="price">$151,500,000</td>
+
+		<td class="assets">$6,154,081,000 </td>
+		<td class="city">Baltimore</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-18" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 18 --></td>
+
+		<td class="recipient">Umpqua Holdings Corp.</td>
+		<td class="price">$214,181,000</td>
+		<td class="assets">$8,324,598,000 </td>
+		<td class="city">Portland</td>
+		<td class="state">OR</td>
+	</tr>
+
+	
+
+	<tr id="row-19" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 19 --></td>
+		<td class="recipient">Comerica Inc.</td>
+		<td class="price">$2,250,000,000</td>
+		<td class="assets">$65,521,041,000 </td>
+		<td class="city">Dallas</td>
+
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-20" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 20 --></td>
+		<td class="recipient">Regions Financial Corp.</td>
+		<td class="price">$3,500,000,000</td>
+
+		<td class="assets">$139,556,254,000 </td>
+		<td class="city">Birmingham</td>
+		<td class="state">AL</td>
+	</tr>
+
+	
+
+	<tr id="row-21" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 21 --></td>
+
+		<td class="recipient">Capital One Financial Corporation</td>
+		<td class="price">$3,555,199,000</td>
+		<td class="assets">$145,624,907,000 </td>
+		<td class="city">McLean</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-22" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 22 --></td>
+		<td class="recipient">First Horizon National Corporation</td>
+		<td class="price">$866,540,000</td>
+		<td class="assets">$32,586,725,000 </td>
+		<td class="city">Memphis</td>
+
+		<td class="state">TN</td>
+	</tr>
+
+	
+
+	<tr id="row-23" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 23 --></td>
+		<td class="recipient">Huntington Bancshares Incorporated</td>
+		<td class="price">$1,398,071,000</td>
+
+		<td class="assets">$53,709,880,000 </td>
+		<td class="city">Columbus</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-24" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 24 --></td>
+
+		<td class="recipient">KeyCorp</td>
+		<td class="price">$2,500,000,000</td>
+		<td class="assets">$97,811,238,000 </td>
+		<td class="city">Cleveland</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-25" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 25 --></td>
+		<td class="recipient">Valley National Bancorp</td>
+		<td class="price">$300,000,000</td>
+		<td class="assets">$14,269,419,000 </td>
+		<td class="city">Wayne</td>
+
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-26" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 26 --></td>
+		<td class="recipient">Zions Bancorporation</td>
+		<td class="price">$1,400,000,000</td>
+
+		<td class="assets">$54,593,062,000 </td>
+		<td class="city">Salt Lake City</td>
+		<td class="state">UT</td>
+	</tr>
+
+	
+
+	<tr id="row-27" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 27 --></td>
+
+		<td class="recipient">Marshall &amp; Ilsley Corporation</td>
+		<td class="price">$1,715,000,000</td>
+		<td class="assets">$65,389,071,000 </td>
+		<td class="city">Milwaukee</td>
+		<td class="state">WI</td>
+
+	</tr>
+
+	
+
+	<tr id="row-28" class="odd">
+		<td class="date">2008-11-14<!-- ordinal: 28 --></td>
+		<td class="recipient">U.S. Bancorp</td>
+		<td class="price">$6,599,000,000</td>
+		<td class="assets">$247,704,877,000 </td>
+
+		<td class="city">Minneapolis</td>
+		<td class="state">MN</td>
+	</tr>
+
+	
+
+	<tr id="row-29" class="even">
+		<td class="date">2008-11-14<!-- ordinal: 29 --></td>
+		<td class="recipient">TCF Financial Corporation</td>
+
+		<td class="price">$361,172,000</td>
+		<td class="assets">$16,558,757,000 </td>
+		<td class="city">Wayzata</td>
+		<td class="state">MN</td>
+	</tr>
+
+	
+
+	<tr id="row-30" class="odd">
+
+		<td class="date">2008-11-21<!-- ordinal: 30 --></td>
+		<td class="recipient">First Niagara Financial Group</td>
+		<td class="price">$184,011,000</td>
+		<td class="assets">$9,008,383,000 </td>
+		<td class="city">Lockport</td>
+		<td class="state">NY</td>
+
+	</tr>
+
+	
+
+	<tr id="row-31" class="even">
+		<td class="date">2008-11-21<!-- ordinal: 31 --></td>
+		<td class="recipient">HF Financial Corp.</td>
+		<td class="price">$25,000,000</td>
+		<td class="assets">$1,128,084,000 </td>
+
+		<td class="city">Sioux Falls</td>
+		<td class="state">SD</td>
+	</tr>
+
+	
+
+	<tr id="row-32" class="odd">
+		<td class="date">2008-11-21<!-- ordinal: 32 --></td>
+		<td class="recipient">Centerstate Banks of Florida Inc.</td>
+
+		<td class="price">$27,875,000</td>
+		<td class="assets">$1,234,129,000 </td>
+		<td class="city">Davenport</td>
+		<td class="state">FL</td>
+	</tr>
+
+	
+
+	<tr id="row-33" class="even">
+
+		<td class="date">2008-11-21<!-- ordinal: 33 --></td>
+		<td class="recipient">City National Corporation</td>
+		<td class="price">$400,000,000</td>
+		<td class="assets">$15,948,957,000 </td>
+		<td class="city">Beverly Hills</td>
+		<td class="state">CA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-34" class="odd">
+		<td class="date">2008-11-21<!-- ordinal: 34 --></td>
+		<td class="recipient">First Community Bancshares Inc.</td>
+		<td class="price">$41,500,000</td>
+		<td class="assets">$1,946,454,000 </td>
+
+		<td class="city">Bluefield</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-35" class="even">
+		<td class="date">2008-11-21<!-- ordinal: 35 --></td>
+		<td class="recipient">Western Alliance Bancorporation</td>
+
+		<td class="price">$140,000,000</td>
+		<td class="assets">$5,391,268,000 </td>
+		<td class="city">Las Vegas</td>
+		<td class="state">NV</td>
+	</tr>
+
+	
+
+	<tr id="row-36" class="odd">
+
+		<td class="date">2008-11-21<!-- ordinal: 36 --></td>
+		<td class="recipient">Webster Financial Corporation</td>
+		<td class="price">$400,000,000</td>
+		<td class="assets">$17,387,434,000 </td>
+		<td class="city">Waterbury</td>
+		<td class="state">CT</td>
+
+	</tr>
+
+	
+
+	<tr id="row-37" class="even">
+		<td class="date">2008-11-21<!-- ordinal: 37 --></td>
+		<td class="recipient">Pacific Capital Bancorp</td>
+		<td class="price">$180,634,000</td>
+		<td class="assets">$7,680,035,000 </td>
+
+		<td class="city">Santa Barbara</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-38" class="odd">
+		<td class="date">2008-11-21<!-- ordinal: 38 --></td>
+		<td class="recipient">Heritage Commerce Corp.</td>
+
+		<td class="price">$40,000,000</td>
+		<td class="assets">$1,511,753,000 </td>
+		<td class="city">San Jose</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-39" class="even">
+
+		<td class="date">2008-11-21<!-- ordinal: 39 --></td>
+		<td class="recipient">Ameris Bancorp</td>
+		<td class="price">$52,000,000</td>
+		<td class="assets">$2,254,306,000 </td>
+		<td class="city">Moultrie</td>
+		<td class="state">GA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-40" class="odd">
+		<td class="date">2008-11-21<!-- ordinal: 40 --></td>
+		<td class="recipient">Porter Bancorp Inc.</td>
+		<td class="price">$35,000,000</td>
+		<td class="assets">$1,591,797,000 </td>
+
+		<td class="city">Louisville</td>
+		<td class="state">KY</td>
+	</tr>
+
+	
+
+	<tr id="row-41" class="even">
+		<td class="date">2008-11-21<!-- ordinal: 41 --></td>
+		<td class="recipient">Banner Corporation</td>
+
+		<td class="price">$124,000,000</td>
+		<td class="assets">$4,653,890,000 </td>
+		<td class="city">Walla Walla</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-42" class="odd">
+
+		<td class="date">2008-11-21<!-- ordinal: 42 --></td>
+		<td class="recipient">Cascade Financial Corporation</td>
+		<td class="price">$38,970,000</td>
+		<td class="assets">$1,550,686,000 </td>
+		<td class="city">Everett</td>
+		<td class="state">WA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-43" class="even">
+		<td class="date">2008-11-21<!-- ordinal: 43 --></td>
+		<td class="recipient">Columbia Banking System, Inc.</td>
+		<td class="price">$76,898,000</td>
+		<td class="assets">$3,083,570,000 </td>
+
+		<td class="city">Tacoma</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-44" class="odd">
+		<td class="date">2008-11-21<!-- ordinal: 44 --></td>
+		<td class="recipient">Heritage Financial Corporation</td>
+
+		<td class="price">$24,000,000</td>
+		<td class="assets">$904,640,000 </td>
+		<td class="city">Olympia</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-45" class="even">
+
+		<td class="date">2008-11-21<!-- ordinal: 45 --></td>
+		<td class="recipient">First PacTrust Bancorp, Inc.</td>
+		<td class="price">$19,300,000</td>
+		<td class="assets">$845,549,000 </td>
+		<td class="city">Chula Vista</td>
+		<td class="state">CA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-46" class="odd">
+		<td class="date">2008-11-21<!-- ordinal: 46 --></td>
+		<td class="recipient">Severn Bancorp, Inc.</td>
+		<td class="price">$23,393,000</td>
+		<td class="assets">$980,000,000 </td>
+
+		<td class="city">Annapolis</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-47" class="even">
+		<td class="date">2008-11-21<!-- ordinal: 47 --></td>
+		<td class="recipient">Boston Private Financial Holdings, Inc.</td>
+
+		<td class="price">$154,000,000</td>
+		<td class="assets">$6,740,702,000 </td>
+		<td class="city">Boston</td>
+		<td class="state">MA</td>
+	</tr>
+
+	
+
+	<tr id="row-48" class="odd">
+
+		<td class="date">2008-11-21<!-- ordinal: 48 --></td>
+		<td class="recipient">Associated Banc-Corp</td>
+		<td class="price">$525,000,000</td>
+		<td class="assets">$22,276,617,000 </td>
+		<td class="city">Green Bay</td>
+		<td class="state">WI</td>
+
+	</tr>
+
+	
+
+	<tr id="row-49" class="even">
+		<td class="date">2008-11-21<!-- ordinal: 49 --></td>
+		<td class="recipient">Trustmark Corporation</td>
+		<td class="price">$215,000,000</td>
+		<td class="assets">$9,141,032,000 </td>
+
+		<td class="city">Jackson</td>
+		<td class="state">MS</td>
+	</tr>
+
+	
+
+	<tr id="row-50" class="odd">
+		<td class="date">2008-11-21<!-- ordinal: 50 --></td>
+		<td class="recipient">First Community Corporation</td>
+
+		<td class="price">$11,350,000</td>
+		<td class="assets">$631,966,000 </td>
+		<td class="city">Lexington</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-51" class="even">
+
+		<td class="date">2008-11-21<!-- ordinal: 51 --></td>
+		<td class="recipient">Taylor Capital Group</td>
+		<td class="price">$104,823,000</td>
+		<td class="assets">$4,064,992,000 </td>
+		<td class="city">Rosemont</td>
+		<td class="state">IL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-52" class="odd">
+		<td class="date">2008-11-21<!-- ordinal: 52 --></td>
+		<td class="recipient">Nara Bancorp, Inc.</td>
+		<td class="price">$67,000,000</td>
+		<td class="assets">$2,594,507,000 </td>
+
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-222" class="even">
+		<td class="date">2008-11-25<!-- ordinal: 53 --></td>
+		<td class="recipient">American International Group</td>
+
+		<td class="price">$40,000,000,000</td>
+		<td class="assets">$1,022,237,000,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-53" class="odd">
+
+		<td class="date">2008-12-05<!-- ordinal: 54 --></td>
+		<td class="recipient">Midwest Banc Holdings, Inc.</td>
+		<td class="price">$84,784,000</td>
+		<td class="assets">$3,568,854,000 </td>
+		<td class="city">Melrose Park</td>
+		<td class="state">IL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-54" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 55 --></td>
+		<td class="recipient">MB Financial Inc.</td>
+		<td class="price">$196,000,000</td>
+		<td class="assets">$8,343,309,000 </td>
+
+		<td class="city">Chicago</td>
+		<td class="state">IL</td>
+	</tr>
+
+	
+
+	<tr id="row-55" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 56 --></td>
+		<td class="recipient">First Midwest Bancorp, Inc.</td>
+
+		<td class="price">$193,000,000</td>
+		<td class="assets">$8,206,092,000 </td>
+		<td class="city">Itasca</td>
+		<td class="state">IL</td>
+	</tr>
+
+	
+
+	<tr id="row-56" class="even">
+
+		<td class="date">2008-12-05<!-- ordinal: 57 --></td>
+		<td class="recipient">United Community Banks, Inc.</td>
+		<td class="price">$180,000,000</td>
+		<td class="assets">$8,098,573,000 </td>
+		<td class="city">Blairsville</td>
+		<td class="state">GA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-57" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 58 --></td>
+		<td class="recipient">Wesbanco Bank Inc.</td>
+		<td class="price">$75,000,000</td>
+		<td class="assets">$5,123,638,000 </td>
+
+		<td class="city">Wheeling</td>
+		<td class="state">WV</td>
+	</tr>
+
+	
+
+	<tr id="row-58" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 59 --></td>
+		<td class="recipient">Encore Bancshares Inc.</td>
+
+		<td class="price">$34,000,000</td>
+		<td class="assets">$1,470,914,000 </td>
+		<td class="city">Houston</td>
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-59" class="odd">
+
+		<td class="date">2008-12-05<!-- ordinal: 60 --></td>
+		<td class="recipient">Manhattan Bancorp</td>
+		<td class="price">$1,700,000</td>
+		<td class="assets">$71,783,000 </td>
+		<td class="city">El Segundo</td>
+		<td class="state">CA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-60" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 61 --></td>
+		<td class="recipient">Iberiabank Corporation</td>
+		<td class="price">$90,000,000</td>
+		<td class="assets">$5,313,050,000 </td>
+
+		<td class="city">Lafayette</td>
+		<td class="state">LA</td>
+	</tr>
+
+	
+
+	<tr id="row-61" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 62 --></td>
+		<td class="recipient">Eagle Bancorp, Inc.</td>
+
+		<td class="price">$38,235,000</td>
+		<td class="assets">$1,452,273,000 </td>
+		<td class="city">Bethesda</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-62" class="even">
+
+		<td class="date">2008-12-05<!-- ordinal: 63 --></td>
+		<td class="recipient">Sandy Spring Bancorp, Inc.</td>
+		<td class="price">$83,094,000</td>
+		<td class="assets">$3,189,916,000 </td>
+		<td class="city">Olney</td>
+		<td class="state">MD</td>
+
+	</tr>
+
+	
+
+	<tr id="row-63" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 64 --></td>
+		<td class="recipient">East West Bancorp</td>
+		<td class="price">$306,546,000</td>
+		<td class="assets">$11,706,993,000 </td>
+
+		<td class="city">Pasadena</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-64" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 65 --></td>
+		<td class="recipient">South Financial Group, Inc.</td>
+
+		<td class="price">$347,000,000</td>
+		<td class="assets">$13,657,268,000 </td>
+		<td class="city">Greenville</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-65" class="odd">
+
+		<td class="date">2008-12-05<!-- ordinal: 66 --></td>
+		<td class="recipient">Great Southern Bancorp</td>
+		<td class="price">$58,000,000</td>
+		<td class="assets">$2,525,348,000 </td>
+		<td class="city">Springfield</td>
+		<td class="state">MO</td>
+
+	</tr>
+
+	
+
+	<tr id="row-66" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 67 --></td>
+		<td class="recipient">Cathay General Bancorp</td>
+		<td class="price">$258,000,000</td>
+		<td class="assets">$11,039,989,000 </td>
+
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-67" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 68 --></td>
+		<td class="recipient">Southern Community Financial Corp.</td>
+
+		<td class="price">$42,750,000</td>
+		<td class="assets">$1,793,449,000 </td>
+		<td class="city">Winston-Salem</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-68" class="even">
+
+		<td class="date">2008-12-05<!-- ordinal: 69 --></td>
+		<td class="recipient">CVB Financial Corp</td>
+		<td class="price">$130,000,000</td>
+		<td class="assets">$6,415,384,000 </td>
+		<td class="city">Ontario</td>
+		<td class="state">CA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-69" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 70 --></td>
+		<td class="recipient">First Defiance Financial Corp.</td>
+		<td class="price">$37,000,000</td>
+		<td class="assets">$1,957,177,000 </td>
+
+		<td class="city">Defiance</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-70" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 71 --></td>
+		<td class="recipient">First Financial Holdings Inc.</td>
+
+		<td class="price">$65,000,000</td>
+		<td class="assets">$2,973,990,000 </td>
+		<td class="city">Charleston</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-71" class="odd">
+
+		<td class="date">2008-12-05<!-- ordinal: 72 --></td>
+		<td class="recipient">Superior Bancorp Inc.</td>
+		<td class="price">$69,000,000</td>
+		<td class="assets">$3,103,677,000 </td>
+		<td class="city">Birmingham</td>
+		<td class="state">AL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-72" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 73 --></td>
+		<td class="recipient">Southwest Bancorp, Inc.</td>
+		<td class="price">$70,000,000</td>
+		<td class="assets">$2,866,914,000 </td>
+
+		<td class="city">Stillwater</td>
+		<td class="state">OK</td>
+	</tr>
+
+	
+
+	<tr id="row-73" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 74 --></td>
+		<td class="recipient">Popular, Inc.</td>
+
+		<td class="price">$935,000,000</td>
+		<td class="assets">$38,814,913,000 </td>
+		<td class="city">San Juan</td>
+		<td class="state">PR</td>
+	</tr>
+
+	
+
+	<tr id="row-74" class="even">
+
+		<td class="date">2008-12-05<!-- ordinal: 75 --></td>
+		<td class="recipient">Blue Valley Ban Corp</td>
+		<td class="price">$21,750,000</td>
+		<td class="assets">$773,530,000 </td>
+		<td class="city">Overland Park</td>
+		<td class="state">KS</td>
+
+	</tr>
+
+	
+
+	<tr id="row-75" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 76 --></td>
+		<td class="recipient">Central Federal Corporation</td>
+		<td class="price">$7,225,000</td>
+		<td class="assets">$280,755,000 </td>
+
+		<td class="city">Fairlawn</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-76" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 77 --></td>
+		<td class="recipient">Bank of Marin Bancorp</td>
+
+		<td class="price">$28,000,000</td>
+		<td class="assets">$984,705,000 </td>
+		<td class="city">Novato</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-77" class="odd">
+
+		<td class="date">2008-12-05<!-- ordinal: 78 --></td>
+		<td class="recipient">Bank of North Carolina</td>
+		<td class="price">$31,260,000</td>
+		<td class="assets">$1,260,541,000 </td>
+		<td class="city">Thomasville</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-78" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 79 --></td>
+		<td class="recipient">Central Bancorp, Inc.</td>
+		<td class="price">$10,000,000</td>
+		<td class="assets">$541,366,000 </td>
+
+		<td class="city">Somerville</td>
+		<td class="state">MA</td>
+	</tr>
+
+	
+
+	<tr id="row-79" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 80 --></td>
+		<td class="recipient">Southern Missouri Bancorp, Inc.</td>
+
+		<td class="price">$9,550,000</td>
+		<td class="assets">$426,371,000 </td>
+		<td class="city">Poplar Bluff</td>
+		<td class="state">MO</td>
+	</tr>
+
+	
+
+	<tr id="row-80" class="even">
+
+		<td class="date">2008-12-05<!-- ordinal: 81 --></td>
+		<td class="recipient">State Bancorp, Inc.</td>
+		<td class="price">$36,842,000</td>
+		<td class="assets">$1,589,310,000 </td>
+		<td class="city">Jericho</td>
+		<td class="state">NY</td>
+
+	</tr>
+
+	
+
+	<tr id="row-81" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 82 --></td>
+		<td class="recipient">TIB Financial Corp</td>
+		<td class="price">$37,000,000</td>
+		<td class="assets">$1,560,502,000 </td>
+
+		<td class="city">Naples</td>
+		<td class="state">FL</td>
+	</tr>
+
+	
+
+	<tr id="row-82" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 83 --></td>
+		<td class="recipient">Unity Bancorp, Inc.</td>
+
+		<td class="price">$20,649,000</td>
+		<td class="assets">$863,647,000 </td>
+		<td class="city">Clinton</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-83" class="odd">
+
+		<td class="date">2008-12-05<!-- ordinal: 84 --></td>
+		<td class="recipient">Old Line Bancshares, Inc.</td>
+		<td class="price">$7,000,000</td>
+		<td class="assets">$284,569,000 </td>
+		<td class="city">Bowie</td>
+		<td class="state">MD</td>
+
+	</tr>
+
+	
+
+	<tr id="row-84" class="even">
+		<td class="date">2008-12-05<!-- ordinal: 85 --></td>
+		<td class="recipient">FPB Bancorp, Inc.</td>
+		<td class="price">$5,800,000</td>
+		<td class="assets">$230,989,000 </td>
+
+		<td class="city">Port St. Lucie</td>
+		<td class="state">FL</td>
+	</tr>
+
+	
+
+	<tr id="row-85" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 86 --></td>
+		<td class="recipient">Sterling Financial Corporation</td>
+
+		<td class="price">$303,000,000</td>
+		<td class="assets">$12,599,102,000 </td>
+		<td class="city">Spokane</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-86" class="even">
+
+		<td class="date">2008-12-05<!-- ordinal: 87 --></td>
+		<td class="recipient">Oak Valley Bancorp</td>
+		<td class="price">$13,500,000</td>
+		<td class="assets">$490,230,000 </td>
+		<td class="city">Oakdale</td>
+		<td class="state">CA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-228" class="odd">
+		<td class="date">2008-12-05<!-- ordinal: 88 --></td>
+		<td class="recipient">Coastal Banking Company, Inc.</td>
+		<td class="price">$9,950,000</td>
+		<td class="assets">$438,928,000 </td>
+
+		<td class="city">Fernandina Beach</td>
+		<td class="state">FL</td>
+	</tr>
+
+	
+
+	<tr id="row-87" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 89 --></td>
+		<td class="recipient">Old National Bancorp</td>
+
+		<td class="price">$100,000,000</td>
+		<td class="assets">$7,409,455,000 </td>
+		<td class="city">Evansville</td>
+		<td class="state">IN</td>
+	</tr>
+
+	
+
+	<tr id="row-88" class="odd">
+
+		<td class="date">2008-12-12<!-- ordinal: 90 --></td>
+		<td class="recipient">Capital Bank Corporation</td>
+		<td class="price">$41,279,000</td>
+		<td class="assets">$1,592,678,000 </td>
+		<td class="city">Raleigh</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-89" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 91 --></td>
+		<td class="recipient">Pacific International Bancorp</td>
+		<td class="price">$6,500,000</td>
+		<td class="assets">$247,409,000 </td>
+
+		<td class="city">Seattle</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-90" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 92 --></td>
+		<td class="recipient">SVB Financial Group</td>
+
+		<td class="price">$235,000,000</td>
+		<td class="assets">$7,461,691,000 </td>
+		<td class="city">Santa Clara</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-91" class="even">
+
+		<td class="date">2008-12-12<!-- ordinal: 93 --></td>
+		<td class="recipient">LNB Bancorp Inc.</td>
+		<td class="price">$25,223,000</td>
+		<td class="assets">$1,108,889,000 </td>
+		<td class="city">Lorain</td>
+		<td class="state">OH</td>
+
+	</tr>
+
+	
+
+	<tr id="row-92" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 94 --></td>
+		<td class="recipient">Wilmington Trust Corporation</td>
+		<td class="price">$330,000,000</td>
+		<td class="assets">$12,824,928,000 </td>
+
+		<td class="city">Wilmington</td>
+		<td class="state">DE</td>
+	</tr>
+
+	
+
+	<tr id="row-93" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 95 --></td>
+		<td class="recipient">Susquehanna Bancshares, Inc</td>
+
+		<td class="price">$300,000,000</td>
+		<td class="assets">$14,441,329,000 </td>
+		<td class="city">Lititz</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-94" class="odd">
+
+		<td class="date">2008-12-12<!-- ordinal: 96 --></td>
+		<td class="recipient">Signature Bank</td>
+		<td class="price">$120,000,000</td>
+		<td class="assets">$6,699,455,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+
+	</tr>
+
+	
+
+	<tr id="row-95" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 97 --></td>
+		<td class="recipient">HopFed Bancorp</td>
+		<td class="price">$18,400,000</td>
+		<td class="assets">$843,435,000 </td>
+
+		<td class="city">Hopkinsville</td>
+		<td class="state">KY</td>
+	</tr>
+
+	
+
+	<tr id="row-96" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 98 --></td>
+		<td class="recipient">Citizens Republic Bancorp, Inc.</td>
+
+		<td class="price">$300,000,000</td>
+		<td class="assets">$12,736,527,000 </td>
+		<td class="city">Flint</td>
+		<td class="state">MI</td>
+	</tr>
+
+	
+
+	<tr id="row-97" class="even">
+
+		<td class="date">2008-12-12<!-- ordinal: 99 --></td>
+		<td class="recipient">Indiana Community Bancorp</td>
+		<td class="price">$21,500,000</td>
+		<td class="assets">$941,999,000 </td>
+		<td class="city">Columbus</td>
+		<td class="state">IN</td>
+
+	</tr>
+
+	
+
+	<tr id="row-98" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 100 --></td>
+		<td class="recipient">Bank of the Ozarks, Inc.</td>
+		<td class="price">$75,000,000</td>
+		<td class="assets">$3,057,523,000 </td>
+
+		<td class="city">Little Rock</td>
+		<td class="state">AR</td>
+	</tr>
+
+	
+
+	<tr id="row-99" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 101 --></td>
+		<td class="recipient">Center Financial Corporation</td>
+
+		<td class="price">$55,000,000</td>
+		<td class="assets">$2,032,238,000 </td>
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-100" class="odd">
+
+		<td class="date">2008-12-12<!-- ordinal: 102 --></td>
+		<td class="recipient">NewBridge Bancorp</td>
+		<td class="price">$52,372,000</td>
+		<td class="assets">$2,057,067,000 </td>
+		<td class="city">Greensboro</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-101" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 103 --></td>
+		<td class="recipient">Sterling Bancshares, Inc.</td>
+		<td class="price">$125,198,000</td>
+		<td class="assets">$4,948,771,000 </td>
+
+		<td class="city">Houston</td>
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-102" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 104 --></td>
+		<td class="recipient">The Bancorp, Inc.</td>
+
+		<td class="price">$45,220,000</td>
+		<td class="assets">$1,778,828,000 </td>
+		<td class="city">Wilmington</td>
+		<td class="state">DE</td>
+	</tr>
+
+	
+
+	<tr id="row-103" class="even">
+
+		<td class="date">2008-12-12<!-- ordinal: 105 --></td>
+		<td class="recipient">TowneBank</td>
+		<td class="price">$76,458,000</td>
+		<td class="assets">$3,015,581,000 </td>
+		<td class="city">Portsmouth</td>
+		<td class="state">VA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-104" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 106 --></td>
+		<td class="recipient">Wilshire Bancorp, Inc.</td>
+		<td class="price">$62,158,000</td>
+		<td class="assets">$2,383,869,000 </td>
+
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-105" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 107 --></td>
+		<td class="recipient">Valley Financial Corporation</td>
+
+		<td class="price">$16,019,000</td>
+		<td class="assets">$638,125,000 </td>
+		<td class="city">Roanoke</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-106" class="odd">
+
+		<td class="date">2008-12-12<!-- ordinal: 108 --></td>
+		<td class="recipient">Independent Bank Corporation</td>
+		<td class="price">$72,000,000</td>
+		<td class="assets">$3,136,290,000 </td>
+		<td class="city">Ionia</td>
+		<td class="state">MI</td>
+
+	</tr>
+
+	
+
+	<tr id="row-107" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 109 --></td>
+		<td class="recipient">Pinnacle Financial Partners, Inc.</td>
+		<td class="price">$95,000,000</td>
+		<td class="assets">$4,329,444,000 </td>
+
+		<td class="city">Nashville</td>
+		<td class="state">TN</td>
+	</tr>
+
+	
+
+	<tr id="row-108" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 110 --></td>
+		<td class="recipient">First Litchfield Financial Corporation</td>
+
+		<td class="price">$10,000,000</td>
+		<td class="assets">$505,889,000 </td>
+		<td class="city">Litchfield</td>
+		<td class="state">CT</td>
+	</tr>
+
+	
+
+	<tr id="row-109" class="even">
+
+		<td class="date">2008-12-12<!-- ordinal: 111 --></td>
+		<td class="recipient">National Penn Bancshares, Inc.</td>
+		<td class="price">$150,000,000</td>
+		<td class="assets">$9,298,290,000 </td>
+		<td class="city">Boyertown</td>
+		<td class="state">PA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-110" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 112 --></td>
+		<td class="recipient">Northeast Bancorp</td>
+		<td class="price">$4,227,000</td>
+		<td class="assets">$602,742,000 </td>
+
+		<td class="city">Lewiston</td>
+		<td class="state">ME</td>
+	</tr>
+
+	
+
+	<tr id="row-111" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 113 --></td>
+		<td class="recipient">Citizens South Banking Corporation</td>
+
+		<td class="price">$20,500,000</td>
+		<td class="assets">$823,030,000,000 </td>
+		<td class="city">Gastonia</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-112" class="odd">
+
+		<td class="date">2008-12-12<!-- ordinal: 114 --></td>
+		<td class="recipient">Virginia Commerce Bancorp</td>
+		<td class="price">$71,000,000</td>
+		<td class="assets">$2,659,491,000 </td>
+		<td class="city">Arlington</td>
+		<td class="state">VA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-113" class="even">
+		<td class="date">2008-12-12<!-- ordinal: 115 --></td>
+		<td class="recipient">Fidelity Bancorp, Inc.</td>
+		<td class="price">$7,000,000</td>
+		<td class="assets">$721,972,000 </td>
+
+		<td class="city">Pittsburgh</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-114" class="odd">
+		<td class="date">2008-12-12<!-- ordinal: 116 --></td>
+		<td class="recipient">LSB Corporation</td>
+
+		<td class="price">$15,000,000</td>
+		<td class="assets">$729,210,000 </td>
+		<td class="city">North Andover</td>
+		<td class="state">MA</td>
+	</tr>
+
+	
+
+	<tr id="row-115" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 117 --></td>
+		<td class="recipient">Intermountain Community Bancorp</td>
+		<td class="price">$27,000,000</td>
+		<td class="assets">$1,028,326,000 </td>
+		<td class="city">Sandpoint</td>
+		<td class="state">ID</td>
+
+	</tr>
+
+	
+
+	<tr id="row-116" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 118 --></td>
+		<td class="recipient">Community West Bancshares</td>
+		<td class="price">$15,600,000</td>
+		<td class="assets">$639,938,000 </td>
+
+		<td class="city">Goleta</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-117" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 119 --></td>
+		<td class="recipient">Synovus Financial Corp.</td>
+
+		<td class="price">$967,870,000</td>
+		<td class="assets">$34,666,111,000 </td>
+		<td class="city">Columbus</td>
+		<td class="state">GA</td>
+	</tr>
+
+	
+
+	<tr id="row-118" class="odd">
+
+		<td class="date">2008-12-19<!-- ordinal: 120 --></td>
+		<td class="recipient">Tennessee Commerce Bancorp, Inc.</td>
+		<td class="price">$30,000,000</td>
+		<td class="assets">$1,103,053,000 </td>
+		<td class="city">Franklin</td>
+		<td class="state">TN</td>
+
+	</tr>
+
+	
+
+	<tr id="row-119" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 121 --></td>
+		<td class="recipient">Community Bankers Trust Corporation</td>
+		<td class="price">$17,680,000</td>
+		<td class="assets">$721,654,000 </td>
+
+		<td class="city">Glen Allen</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-120" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 122 --></td>
+		<td class="recipient">BancTrust Financial Group, Inc.</td>
+
+		<td class="price">$50,000,000</td>
+		<td class="assets">$2,088,295,000 </td>
+		<td class="city">Mobile</td>
+		<td class="state">AL</td>
+	</tr>
+
+	
+
+	<tr id="row-121" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 123 --></td>
+		<td class="recipient">Enterprise Financial Services Corp.</td>
+		<td class="price">$35,000,000</td>
+		<td class="assets">$2,217,268,000 </td>
+		<td class="city">St. Louis</td>
+		<td class="state">MO</td>
+
+	</tr>
+
+	
+
+	<tr id="row-122" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 124 --></td>
+		<td class="recipient">Mid Penn Bancorp, Inc.</td>
+		<td class="price">$10,000,000</td>
+		<td class="assets">$552,393,000 </td>
+
+		<td class="city">Millersburg</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-123" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 125 --></td>
+		<td class="recipient">Summit State Bank</td>
+
+		<td class="price">$8,500,000</td>
+		<td class="assets">$349,785,000 </td>
+		<td class="city">Santa Rosa</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-124" class="odd">
+
+		<td class="date">2008-12-19<!-- ordinal: 126 --></td>
+		<td class="recipient">VIST Financial Corp.</td>
+		<td class="price">$25,000,000</td>
+		<td class="assets">$1,159,357,000 </td>
+		<td class="city">Wyomissing</td>
+		<td class="state">PA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-125" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 127 --></td>
+		<td class="recipient">Wainwright Bank &amp; Trust Company</td>
+		<td class="price">$22,000,000</td>
+		<td class="assets">$979,538,000 </td>
+
+		<td class="city">Boston</td>
+		<td class="state">MA</td>
+	</tr>
+
+	
+
+	<tr id="row-126" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 128 --></td>
+		<td class="recipient">Whitney Holding Corporation</td>
+
+		<td class="price">$300,000,000</td>
+		<td class="assets">$10,972,952,000 </td>
+		<td class="city">New Orleans</td>
+		<td class="state">LA</td>
+	</tr>
+
+	
+
+	<tr id="row-127" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 129 --></td>
+		<td class="recipient">The Connecticut Bank and Trust Company</td>
+		<td class="price">$5,448,000</td>
+		<td class="assets">$223,465,000 </td>
+		<td class="city">Hartford</td>
+		<td class="state">CT</td>
+
+	</tr>
+
+	
+
+	<tr id="row-128" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 130 --></td>
+		<td class="recipient">CoBiz Financial Inc.</td>
+		<td class="price">$64,450,000</td>
+		<td class="assets">$2,545,247,000 </td>
+
+		<td class="city">Denver</td>
+		<td class="state">CO</td>
+	</tr>
+
+	
+
+	<tr id="row-129" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 131 --></td>
+		<td class="recipient">Santa Lucia Bancorp</td>
+
+		<td class="price">$4,000,000</td>
+		<td class="assets">$253,508,000 </td>
+		<td class="city">Atascadero</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-130" class="odd">
+
+		<td class="date">2008-12-19<!-- ordinal: 132 --></td>
+		<td class="recipient">Seacoast Banking Corporation of Florida</td>
+		<td class="price">$50,000,000</td>
+		<td class="assets">$2,222,712,000 </td>
+		<td class="city">Stuart</td>
+		<td class="state">FL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-131" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 133 --></td>
+		<td class="recipient">Horizon Bancorp</td>
+		<td class="price">$25,000,000</td>
+		<td class="assets">$1,187,279,000 </td>
+
+		<td class="city">Michigan City</td>
+		<td class="state">IN</td>
+	</tr>
+
+	
+
+	<tr id="row-132" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 134 --></td>
+		<td class="recipient">Fidelity Southern Corporation</td>
+
+		<td class="price">$48,200,000</td>
+		<td class="assets">$1,757,601,000 </td>
+		<td class="city">Atlanta</td>
+		<td class="state">GA</td>
+	</tr>
+
+	
+
+	<tr id="row-133" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 135 --></td>
+		<td class="recipient">Community Financial Corporation</td>
+		<td class="price">$12,643,000</td>
+		<td class="assets">$490,944,000 </td>
+		<td class="city">Staunton</td>
+		<td class="state">VA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-134" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 136 --></td>
+		<td class="recipient">Berkshire Hills Bancorp, Inc.</td>
+		<td class="price">$40,000,000</td>
+		<td class="assets">$2,565,699,000 </td>
+
+		<td class="city">Pittsfield</td>
+		<td class="state">MA</td>
+	</tr>
+
+	
+
+	<tr id="row-135" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 137 --></td>
+		<td class="recipient">First California Financial Group, Inc</td>
+
+		<td class="price">$25,000,000</td>
+		<td class="assets">$1,123,419,000 </td>
+		<td class="city">Westlake Village</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-136" class="odd">
+
+		<td class="date">2008-12-19<!-- ordinal: 138 --></td>
+		<td class="recipient">AmeriServ Financial, Inc</td>
+		<td class="price">$21,000,000</td>
+		<td class="assets">$896,286,000 </td>
+		<td class="city">Johnstown</td>
+		<td class="state">PA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-137" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 139 --></td>
+		<td class="recipient">Security Federal Corporation</td>
+		<td class="price">$18,000,000</td>
+		<td class="assets">$905,463,000 </td>
+
+		<td class="city">Aiken</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-138" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 140 --></td>
+		<td class="recipient">Wintrust Financial Corporation</td>
+
+		<td class="price">$250,000,000</td>
+		<td class="assets">$9,913,440,000 </td>
+		<td class="city">Lake Forest</td>
+		<td class="state">IL</td>
+	</tr>
+
+	
+
+	<tr id="row-139" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 141 --></td>
+		<td class="recipient">Flushing Financial Corporation</td>
+		<td class="price">$70,000,000</td>
+		<td class="assets">$3,616,874,000 </td>
+		<td class="city">Lake Success</td>
+		<td class="state">NY</td>
+
+	</tr>
+
+	
+
+	<tr id="row-140" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 142 --></td>
+		<td class="recipient">Monarch Financial Holdings, Inc.</td>
+		<td class="price">$14,700,000</td>
+		<td class="assets">$594,563,000 </td>
+
+		<td class="city">Chesapeake</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-141" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 143 --></td>
+		<td class="recipient">StellarOne Corporation</td>
+
+		<td class="price">$30,000,000</td>
+		<td class="assets">$2,969,515,000 </td>
+		<td class="city">Charlottesville</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-142" class="odd">
+
+		<td class="date">2008-12-19<!-- ordinal: 144 --></td>
+		<td class="recipient">Union Bankshares Corporation</td>
+		<td class="price">$59,000,000</td>
+		<td class="assets">$2,451,950,000 </td>
+		<td class="city">Bowling Green</td>
+		<td class="state">VA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-143" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 145 --></td>
+		<td class="recipient">Tidelands Bancshares, Inc</td>
+		<td class="price">$14,448,000</td>
+		<td class="assets">$665,642,000 </td>
+
+		<td class="city">Mt. Pleasant</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-144" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 146 --></td>
+		<td class="recipient">Bancorp Rhode Island, Inc.</td>
+
+		<td class="price">$30,000,000</td>
+		<td class="assets">$1,489,366,000 </td>
+		<td class="city">Providence</td>
+		<td class="state">RI</td>
+	</tr>
+
+	
+
+	<tr id="row-145" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 147 --></td>
+		<td class="recipient">Hawthorn Bancshares, Inc.</td>
+		<td class="price">$30,255,000</td>
+		<td class="assets">$1,283,274,000 </td>
+		<td class="city">Lee&#39;s Summit</td>
+		<td class="state">MO</td>
+
+	</tr>
+
+	
+
+	<tr id="row-146" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 148 --></td>
+		<td class="recipient">The Elmira Savings Bank, FSB</td>
+		<td class="price">$9,090,000</td>
+		<td class="assets">$462,649,000 </td>
+
+		<td class="city">Elmira</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-147" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 149 --></td>
+		<td class="recipient">Alliance Financial Corporation</td>
+
+		<td class="price">$26,918,000</td>
+		<td class="assets">$1,341,177,000 </td>
+		<td class="city">Syracuse</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-148" class="odd">
+
+		<td class="date">2008-12-19<!-- ordinal: 150 --></td>
+		<td class="recipient">Heartland Financial USA, Inc.</td>
+		<td class="price">$81,698,000</td>
+		<td class="assets">$3,530,216,000 </td>
+		<td class="city">Dubuque</td>
+		<td class="state">IA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-149" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 151 --></td>
+		<td class="recipient">Citizens First Corporation</td>
+		<td class="price">$8,779,000</td>
+		<td class="assets">$359,536,000 </td>
+
+		<td class="city">Bowling Green</td>
+		<td class="state">KY</td>
+	</tr>
+
+	
+
+	<tr id="row-225" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 152 --></td>
+		<td class="recipient">Tri-County Financial Corporation</td>
+
+		<td class="price">$15,540,000</td>
+		<td class="assets">$675,463,000 </td>
+		<td class="city">Waldorf</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-226" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 153 --></td>
+		<td class="recipient">OneUnited Bank</td>
+		<td class="price">$12,063,000</td>
+		<td class="assets">$625,311,000 </td>
+		<td class="city">Boston</td>
+		<td class="state">MA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-227" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 154 --></td>
+		<td class="recipient">Patriot Bancshares Inc.</td>
+		<td class="price">$26,038,000</td>
+		<td class="assets">$932,382,000 </td>
+
+		<td class="city">Houston</td>
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-229" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 155 --></td>
+		<td class="recipient">Pacific City Financial Corporation</td>
+
+		<td class="price">$16,200,000</td>
+		<td class="assets">$565,570,000 </td>
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-230" class="odd">
+
+		<td class="date">2008-12-19<!-- ordinal: 156 --></td>
+		<td class="recipient">Marquette National Corporation</td>
+		<td class="price">$35,500,000</td>
+		<td class="assets">$1,599,436,000 </td>
+		<td class="city">Chicago</td>
+		<td class="state">IL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-231" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 157 --></td>
+		<td class="recipient">Exchange Bank</td>
+		<td class="price">$43,000,000</td>
+		<td class="assets">$1,666,259,000 </td>
+
+		<td class="city">Santa Rosa</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-232" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 158 --></td>
+		<td class="recipient">Monadnock Bancorp Inc.</td>
+
+		<td class="price">$1,834,000</td>
+		<td class="assets">$110,757,000 </td>
+		<td class="city">Peterborough</td>
+		<td class="state">NH</td>
+	</tr>
+
+	
+
+	<tr id="row-233" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 159 --></td>
+		<td class="recipient">Bridgeview Bancorp Inc.</td>
+		<td class="price">$38,000,000</td>
+		<td class="assets">$1,422,447,000 </td>
+		<td class="city">Bridgeview</td>
+		<td class="state">IL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-234" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 160 --></td>
+		<td class="recipient">Patapsco Bancorp Inc.</td>
+		<td class="price">$6,000,000</td>
+		<td class="assets">$260,898,000 </td>
+
+		<td class="city">Dundalk</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-236" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 161 --></td>
+		<td class="recipient">NCAL Bancorp</td>
+
+		<td class="price">$10,000,000</td>
+		<td class="assets">$406,919,000 </td>
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-238" class="odd">
+
+		<td class="date">2008-12-19<!-- ordinal: 162 --></td>
+		<td class="recipient">FCB Bancorp Inc.</td>
+		<td class="price">$9,294,000</td>
+		<td class="assets">$353,005,000 </td>
+		<td class="city">Louisville</td>
+		<td class="state">KY</td>
+
+	</tr>
+
+	
+
+	<tr id="row-297" class="even">
+		<td class="date">2008-12-19<!-- ordinal: 163 --></td>
+		<td class="recipient">FFW Corporation</td>
+		<td class="price">$7,289,000</td>
+		<td class="assets">$319,472,000 </td>
+
+		<td class="city">Wabash</td>
+		<td class="state">IN</td>
+	</tr>
+
+	
+
+	<tr id="row-298" class="odd">
+		<td class="date">2008-12-19<!-- ordinal: 164 --></td>
+		<td class="recipient">PlainsCapital Corporation</td>
+
+		<td class="price">$87,631,000</td>
+		<td class="assets">$3,367,099,000 </td>
+		<td class="city">Dallas</td>
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-299" class="even">
+
+		<td class="date">2008-12-19<!-- ordinal: 165 --></td>
+		<td class="recipient">Fidelity Financial Corporation</td>
+		<td class="price">$36,282,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">Wichita</td>
+		<td class="state">KS</td>
+
+	</tr>
+
+	
+
+	<tr id="row-150" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 166 --></td>
+		<td class="recipient">First Financial Bancorp</td>
+		<td class="price">$80,000,000</td>
+		<td class="assets">$3,498,950,000 </td>
+
+		<td class="city">Cincinnati</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-151" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 167 --></td>
+		<td class="recipient">Bridge Capital Holdings</td>
+
+		<td class="price">$23,864,000</td>
+		<td class="assets">$855,542,000 </td>
+		<td class="city">San Jose</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-152" class="odd">
+
+		<td class="date">2008-12-23<!-- ordinal: 168 --></td>
+		<td class="recipient">International Bancshares Corporation</td>
+		<td class="price">$216,000,000</td>
+		<td class="assets">$11,520,418,000 </td>
+		<td class="city">Laredo</td>
+		<td class="state">TX</td>
+
+	</tr>
+
+	
+
+	<tr id="row-153" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 169 --></td>
+		<td class="recipient">First Sound Bank</td>
+		<td class="price">$7,400,000</td>
+		<td class="assets">$266,958,000 </td>
+
+		<td class="city">Seattle</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-154" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 170 --></td>
+		<td class="recipient">M&amp;T Bank Corporation</td>
+
+		<td class="price">$600,000,000</td>
+		<td class="assets">$65,247,210,000 </td>
+		<td class="city">Buffalo</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-155" class="even">
+
+		<td class="date">2008-12-23<!-- ordinal: 171 --></td>
+		<td class="recipient">Emclaire Financial Corp.</td>
+		<td class="price">$7,500,000</td>
+		<td class="assets">$354,546,000 </td>
+		<td class="city">Emlenton</td>
+		<td class="state">PA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-156" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 172 --></td>
+		<td class="recipient">Park National Corporation</td>
+		<td class="price">$100,000,000</td>
+		<td class="assets">$6,843,721,000 </td>
+
+		<td class="city">Newark</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-157" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 173 --></td>
+		<td class="recipient">Green Bankshares, Inc.</td>
+
+		<td class="price">$72,278,000</td>
+		<td class="assets">$3,008,125,000 </td>
+		<td class="city">Greeneville</td>
+		<td class="state">TN</td>
+	</tr>
+
+	
+
+	<tr id="row-158" class="odd">
+
+		<td class="date">2008-12-23<!-- ordinal: 174 --></td>
+		<td class="recipient">Cecil Bancorp, Inc.</td>
+		<td class="price">$11,560,000</td>
+		<td class="assets">$455,443,000 </td>
+		<td class="city">Elkton</td>
+		<td class="state">MD</td>
+
+	</tr>
+
+	
+
+	<tr id="row-159" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 175 --></td>
+		<td class="recipient">Financial Institutions, Inc.</td>
+		<td class="price">$37,515,000</td>
+		<td class="assets">$1,938,393,000 </td>
+
+		<td class="city">Warsaw</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-160" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 176 --></td>
+		<td class="recipient">Fulton Financial Corporation</td>
+
+		<td class="price">$376,500,000</td>
+		<td class="assets">$16,757,953,000 </td>
+		<td class="city">Lancaster</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-161" class="even">
+
+		<td class="date">2008-12-23<!-- ordinal: 177 --></td>
+		<td class="recipient">United Bancorporation of Alabama, Inc.</td>
+		<td class="price">$10,300,000</td>
+		<td class="assets">$464,240,000 </td>
+		<td class="city">Atmore</td>
+		<td class="state">AL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-162" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 178 --></td>
+		<td class="recipient">MutualFirst Financial, Inc.</td>
+		<td class="price">$32,382,000</td>
+		<td class="assets">$1,398,891,000 </td>
+
+		<td class="city">Muncie</td>
+		<td class="state">IN</td>
+	</tr>
+
+	
+
+	<tr id="row-163" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 179 --></td>
+		<td class="recipient">BCSB Bancorp, Inc.</td>
+
+		<td class="price">$10,800,000</td>
+		<td class="assets">$567,082,000 </td>
+		<td class="city">Baltimore</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-164" class="odd">
+
+		<td class="date">2008-12-23<!-- ordinal: 180 --></td>
+		<td class="recipient">HMN Financial, Inc.</td>
+		<td class="price">$26,000,000</td>
+		<td class="assets">$1,128,900,000 </td>
+		<td class="city">Rochester</td>
+		<td class="state">MN</td>
+
+	</tr>
+
+	
+
+	<tr id="row-165" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 181 --></td>
+		<td class="recipient">First Community Bank Corporation of America</td>
+		<td class="price">$10,685,000</td>
+		<td class="assets">$476,185,000 </td>
+
+		<td class="city">Pinellas Park</td>
+		<td class="state">FL</td>
+	</tr>
+
+	
+
+	<tr id="row-166" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 182 --></td>
+		<td class="recipient">Sterling Bancorp</td>
+
+		<td class="price">$42,000,000</td>
+		<td class="assets">$2,097,818,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-167" class="even">
+
+		<td class="date">2008-12-23<!-- ordinal: 183 --></td>
+		<td class="recipient">Intervest Bancshares Corporation</td>
+		<td class="price">$25,000,000</td>
+		<td class="assets">$2,108,233,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+
+	</tr>
+
+	
+
+	<tr id="row-168" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 184 --></td>
+		<td class="recipient">Peoples Bancorp of North Carolina, Inc.</td>
+		<td class="price">$25,054,000</td>
+		<td class="assets">$961,039,000 </td>
+
+		<td class="city">Newton</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-169" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 185 --></td>
+		<td class="recipient">Parkvale Financial Corporation</td>
+
+		<td class="price">$31,762,000</td>
+		<td class="assets">$1,828,080,000 </td>
+		<td class="city">Monroeville</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-170" class="odd">
+
+		<td class="date">2008-12-23<!-- ordinal: 186 --></td>
+		<td class="recipient">Timberland Bancorp, Inc.</td>
+		<td class="price">$16,641,000</td>
+		<td class="assets">$679,635,000 </td>
+		<td class="city">Hoquiam</td>
+		<td class="state">WA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-171" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 187 --></td>
+		<td class="recipient">1st Constitution Bancorp</td>
+		<td class="price">$12,000,000</td>
+		<td class="assets">$513,276,000 </td>
+
+		<td class="city">Cranbury</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-172" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 188 --></td>
+		<td class="recipient">Central Jersey Bancorp</td>
+
+		<td class="price">$11,300,000</td>
+		<td class="assets">$555,680,000 </td>
+		<td class="city">Oakhurst</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-235" class="even">
+
+		<td class="date">2008-12-23<!-- ordinal: 189 --></td>
+		<td class="recipient">Western Illinois Bancshares Inc.</td>
+		<td class="price">$6,855,000</td>
+		<td class="assets">$346,115,000 </td>
+		<td class="city">Monmouth</td>
+		<td class="state">IL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-237" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 190 --></td>
+		<td class="recipient">Saigon National Bank</td>
+		<td class="price">$1,549,000</td>
+		<td class="assets">$55,043,000 </td>
+
+		<td class="city">Westminster</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-239" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 191 --></td>
+		<td class="recipient">Capital Pacific Bancorp</td>
+
+		<td class="price">$4,000,000</td>
+		<td class="assets">$136,224,000 </td>
+		<td class="city">Portland</td>
+		<td class="state">OR</td>
+	</tr>
+
+	
+
+	<tr id="row-240" class="odd">
+
+		<td class="date">2008-12-23<!-- ordinal: 192 --></td>
+		<td class="recipient">Uwharrie Capital Corp</td>
+		<td class="price">$10,000,000</td>
+		<td class="assets">$427,174,000 </td>
+		<td class="city">Albemarle</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-241" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 193 --></td>
+		<td class="recipient">Mission Valley Bancorp</td>
+		<td class="price">$5,500,000</td>
+		<td class="assets">$220,312,000 </td>
+
+		<td class="city">Sun Valley</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-242" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 194 --></td>
+		<td class="recipient">The Little Bank, Incorporated</td>
+
+		<td class="price">$7,500,000</td>
+		<td class="assets">$316,518,000 </td>
+		<td class="city">Kinston</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-243" class="even">
+
+		<td class="date">2008-12-23<!-- ordinal: 195 --></td>
+		<td class="recipient">Pacific Commerce Bank</td>
+		<td class="price">$4,060,000</td>
+		<td class="assets">$165,410,000 </td>
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-244" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 196 --></td>
+		<td class="recipient">Citizens Community Bank</td>
+		<td class="price">$3,000,000</td>
+		<td class="assets">$149,794,000 </td>
+
+		<td class="city">South Hill</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-245" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 197 --></td>
+		<td class="recipient">Seacoast Commerce Bank</td>
+
+		<td class="price">$1,800,000</td>
+		<td class="assets">$74,961,000 </td>
+		<td class="city">Chula Vista</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-246" class="odd">
+
+		<td class="date">2008-12-23<!-- ordinal: 198 --></td>
+		<td class="recipient">Nicolet Bankshares, Inc.</td>
+		<td class="price">$14,964,000</td>
+		<td class="assets">$624,515,000 </td>
+		<td class="city">Green Bay</td>
+		<td class="state">WI</td>
+
+	</tr>
+
+	
+
+	<tr id="row-247" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 199 --></td>
+		<td class="recipient">Leader Bancorp, Inc.</td>
+		<td class="price">$5,830,000</td>
+		<td class="assets">$240,058,000 </td>
+
+		<td class="city">Arlington</td>
+		<td class="state">MA</td>
+	</tr>
+
+	
+
+	<tr id="row-248" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 200 --></td>
+		<td class="recipient">TCNB Financial Corp.</td>
+
+		<td class="price">$2,000,000</td>
+		<td class="assets">$96,117,000 </td>
+		<td class="city">Dayton</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-249" class="even">
+
+		<td class="date">2008-12-23<!-- ordinal: 201 --></td>
+		<td class="recipient">Magna Bank</td>
+		<td class="price">$13,795,000</td>
+		<td class="assets">$529,959,000 </td>
+		<td class="city">Memphis</td>
+		<td class="state">TN</td>
+
+	</tr>
+
+	
+
+	<tr id="row-250" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 202 --></td>
+		<td class="recipient">Western Community Bancshares, Inc.</td>
+		<td class="price">$7,290,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+
+		<td class="city">Palm Desert</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-251" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 203 --></td>
+		<td class="recipient">Community Investors Bancorp, Inc.</td>
+
+		<td class="price">$2,600,000</td>
+		<td class="assets">$143,134,000 </td>
+		<td class="city">Bucyrus</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-252" class="odd">
+
+		<td class="date">2008-12-23<!-- ordinal: 204 --></td>
+		<td class="recipient">Capital Bancorp, Inc.</td>
+		<td class="price">$4,700,000</td>
+		<td class="assets">$198,272,000 </td>
+		<td class="city">Rockville</td>
+		<td class="state">MD</td>
+
+	</tr>
+
+	
+
+	<tr id="row-253" class="even">
+		<td class="date">2008-12-23<!-- ordinal: 205 --></td>
+		<td class="recipient">Cache Valley Banking Company</td>
+		<td class="price">$4,767,000</td>
+		<td class="assets">$200,058,000 </td>
+
+		<td class="city">Logan</td>
+		<td class="state">UT</td>
+	</tr>
+
+	
+
+	<tr id="row-254" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 206 --></td>
+		<td class="recipient">Citizens Bancorp</td>
+
+		<td class="price">$10,400,000</td>
+		<td class="assets">$365,643,000 </td>
+		<td class="city">Nevada City</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-255" class="even">
+
+		<td class="date">2008-12-23<!-- ordinal: 207 --></td>
+		<td class="recipient">Tennessee Valley Financial Holdings, Inc.</td>
+		<td class="price">$3,000,000</td>
+		<td class="assets">$204,134,000 </td>
+		<td class="city">Oak Ridge</td>
+		<td class="state">TN</td>
+
+	</tr>
+
+	
+
+	<tr id="row-256" class="odd">
+		<td class="date">2008-12-23<!-- ordinal: 208 --></td>
+		<td class="recipient">Pacific Coast Bankers&#39; Bancshares</td>
+		<td class="price">$11,600,000</td>
+		<td class="assets">$547,784,000 </td>
+
+		<td class="city">San Francisco</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-223" class="even">
+		<td class="date">2008-12-29<!-- ordinal: 209 --></td>
+		<td class="recipient">GMAC LLC</td>
+
+		<td class="price">$5,000,000,000</td>
+		<td class="assets">$211,327,000,000 </td>
+		<td class="city">Detroit</td>
+		<td class="state">MI</td>
+	</tr>
+
+	
+
+	<tr id="row-300" class="odd">
+
+		<td class="date">2008-12-29<!-- ordinal: 210 --></td>
+		<td class="recipient">General Motors Corporation</td>
+		<td class="price">$884,024,131</td>
+		<td class="assets">$110,425,000,000 </td>
+		<td class="city">Detroit</td>
+		<td class="state">MI</td>
+
+	</tr>
+
+	
+
+	<tr id="row-173" class="even">
+		<td class="date">2008-12-31<!-- ordinal: 211 --></td>
+		<td class="recipient">SunTrust Banks, Inc.</td>
+		<td class="price">$1,350,000,000</td>
+		<td class="assets">$170,007,323,000 </td>
+
+		<td class="city">Atlanta</td>
+		<td class="state">GA</td>
+	</tr>
+
+	
+
+	<tr id="row-174" class="odd">
+		<td class="date">2008-12-31<!-- ordinal: 212 --></td>
+		<td class="recipient">The PNC Financial Services Group Inc.</td>
+
+		<td class="price">$7,579,200,000</td>
+		<td class="assets">$138,394,228,000 </td>
+		<td class="city">Pittsburgh</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-175" class="even">
+
+		<td class="date">2008-12-31<!-- ordinal: 213 --></td>
+		<td class="recipient">Fifth Third Bancorp</td>
+		<td class="price">$3,408,000,000</td>
+		<td class="assets">$128,957,600,000 </td>
+		<td class="city">Cincinnati</td>
+		<td class="state">OH</td>
+
+	</tr>
+
+	
+
+	<tr id="row-176" class="odd">
+		<td class="date">2008-12-31<!-- ordinal: 214 --></td>
+		<td class="recipient">Hampton Roads Bankshares, Inc.</td>
+		<td class="price">$80,347,000</td>
+		<td class="assets">$911,006,000 </td>
+
+		<td class="city">Norfolk</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-177" class="even">
+		<td class="date">2008-12-31<!-- ordinal: 215 --></td>
+		<td class="recipient">CIT Group Inc.</td>
+
+		<td class="price">$2,330,000,000</td>
+		<td class="assets">$80,845,300,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-178" class="odd">
+
+		<td class="date">2008-12-31<!-- ordinal: 216 --></td>
+		<td class="recipient">West Bancorporation, Inc.</td>
+		<td class="price">$36,000,000</td>
+		<td class="assets">$1,446,269,000 </td>
+		<td class="city">West Des Moines</td>
+		<td class="state">IA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-301" class="even">
+		<td class="date">2008-12-31<!-- ordinal: 217 --></td>
+		<td class="recipient">General Motors Corporation</td>
+		<td class="price">$9,400,000,000</td>
+		<td class="assets">$110,425,000,000 </td>
+
+		<td class="city">Detroit</td>
+		<td class="state">MI</td>
+	</tr>
+
+	
+
+	<tr id="row-302" class="odd">
+		<td class="date">2008-12-31<!-- ordinal: 218 --></td>
+		<td class="recipient">First Banks, Inc.</td>
+
+		<td class="price">$295,400,000</td>
+		<td class="assets">$10,795,704,000 </td>
+		<td class="city">Clayton</td>
+		<td class="state">MO</td>
+	</tr>
+
+	
+
+	<tr id="row-303" class="even">
+
+		<td class="date">2008-12-31<!-- ordinal: 219 --></td>
+		<td class="recipient">Citigroup Inc.</td>
+		<td class="price">$20,000,000,000</td>
+		<td class="assets">$1,306,041,994,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+
+	</tr>
+
+	
+
+	<tr id="row-224" class="odd">
+		<td class="date">2009-01-02<!-- ordinal: 220 --></td>
+		<td class="recipient">Chrysler Holding LLC</td>
+		<td class="price">$4,000,000,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+
+		<td class="city">Auburn Hills</td>
+		<td class="state">MI</td>
+	</tr>
+
+	
+
+	<tr id="row-179" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 221 --></td>
+		<td class="recipient">Bank of America Corporation</td>
+
+		<td class="price">$10,000,000,000</td>
+		<td class="assets">$1,803,212,624,000 </td>
+		<td class="city">Charlotte</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-180" class="odd">
+
+		<td class="date">2009-01-09<!-- ordinal: 222 --></td>
+		<td class="recipient">FirstMerit Corporation</td>
+		<td class="price">$125,000,000</td>
+		<td class="assets">$10,669,170,000 </td>
+		<td class="city">Akron</td>
+		<td class="state">OH</td>
+
+	</tr>
+
+	
+
+	<tr id="row-181" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 223 --></td>
+		<td class="recipient">Farmers Capital Bank Corporation</td>
+		<td class="price">$30,000,000</td>
+		<td class="assets">$2,197,645,000 </td>
+
+		<td class="city">Frankfort</td>
+		<td class="state">KY</td>
+	</tr>
+
+	
+
+	<tr id="row-182" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 224 --></td>
+		<td class="recipient">Peapack-Gladstone Financial Corporation</td>
+
+		<td class="price">$28,685,000</td>
+		<td class="assets">$1,363,390,000 </td>
+		<td class="city">Gladstone</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-183" class="even">
+
+		<td class="date">2009-01-09<!-- ordinal: 225 --></td>
+		<td class="recipient">Commerce National Bank</td>
+		<td class="price">$5,000,000</td>
+		<td class="assets">$261,908,000 </td>
+		<td class="city">Newport Beach</td>
+		<td class="state">CA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-184" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 226 --></td>
+		<td class="recipient">The First Bancorp, Inc.</td>
+		<td class="price">$25,000,000</td>
+		<td class="assets">$1,280,005,000 </td>
+
+		<td class="city">Damariscotta</td>
+		<td class="state">ME</td>
+	</tr>
+
+	
+
+	<tr id="row-185" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 227 --></td>
+		<td class="recipient">Sun Bancorp, Inc.</td>
+
+		<td class="price">$89,310,000</td>
+		<td class="assets">$3,421,760,000 </td>
+		<td class="city">Vineland</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-186" class="odd">
+
+		<td class="date">2009-01-09<!-- ordinal: 228 --></td>
+		<td class="recipient">Crescent Financial Corporation</td>
+		<td class="price">$24,900,000</td>
+		<td class="assets">$955,407,000 </td>
+		<td class="city">Cary</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-187" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 229 --></td>
+		<td class="recipient">American Express Company</td>
+		<td class="price">$3,388,890,000</td>
+		<td class="assets">$127,218,000,000 </td>
+
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-188" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 230 --></td>
+		<td class="recipient">Central Pacific Financial Corp.</td>
+
+		<td class="price">$135,000,000</td>
+		<td class="assets">$5,492,394,000 </td>
+		<td class="city">Honolulu</td>
+		<td class="state">HI</td>
+	</tr>
+
+	
+
+	<tr id="row-189" class="even">
+
+		<td class="date">2009-01-09<!-- ordinal: 231 --></td>
+		<td class="recipient">Centrue Financial Corporation</td>
+		<td class="price">$32,668,000</td>
+		<td class="assets">$1,332,286,000 </td>
+		<td class="city">St. Louis</td>
+		<td class="state">MO</td>
+
+	</tr>
+
+	
+
+	<tr id="row-190" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 232 --></td>
+		<td class="recipient">Eastern Virginia Bankshares, Inc.</td>
+		<td class="price">$24,000,000</td>
+		<td class="assets">$1,030,403,000 </td>
+
+		<td class="city">Tappahannock</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-191" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 233 --></td>
+		<td class="recipient">Colony Bankcorp, Inc.</td>
+
+		<td class="price">$28,000,000</td>
+		<td class="assets">$1,212,848,000 </td>
+		<td class="city">Fitzgerald</td>
+		<td class="state">GA</td>
+	</tr>
+
+	
+
+	<tr id="row-192" class="odd">
+
+		<td class="date">2009-01-09<!-- ordinal: 234 --></td>
+		<td class="recipient">Independent Bank Corp.</td>
+		<td class="price">$78,158,000</td>
+		<td class="assets">$3,480,446,000 </td>
+		<td class="city">Rockland</td>
+		<td class="state">MA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-193" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 235 --></td>
+		<td class="recipient">Cadence Financial Corporation</td>
+		<td class="price">$44,000,000</td>
+		<td class="assets">$1,971,583,000 </td>
+
+		<td class="city">Starkville</td>
+		<td class="state">MS</td>
+	</tr>
+
+	
+
+	<tr id="row-194" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 236 --></td>
+		<td class="recipient">LCNB Corp.</td>
+
+		<td class="price">$13,400,000</td>
+		<td class="assets">$664,928,000 </td>
+		<td class="city">Lebanon</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-195" class="even">
+
+		<td class="date">2009-01-09<!-- ordinal: 237 --></td>
+		<td class="recipient">Center Bancorp, Inc.</td>
+		<td class="price">$10,000,000</td>
+		<td class="assets">$1,043,714,000 </td>
+		<td class="city">Union</td>
+		<td class="state">NJ</td>
+
+	</tr>
+
+	
+
+	<tr id="row-196" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 238 --></td>
+		<td class="recipient">F.N.B. Corporation</td>
+		<td class="price">$100,000,000</td>
+		<td class="assets">$8,282,327,000 </td>
+
+		<td class="city">Hermitage</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-197" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 239 --></td>
+		<td class="recipient">C&amp;F Financial Corporation</td>
+
+		<td class="price">$20,000,000</td>
+		<td class="assets">$842,034,000 </td>
+		<td class="city">West Point</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-198" class="odd">
+
+		<td class="date">2009-01-09<!-- ordinal: 240 --></td>
+		<td class="recipient">North Central Bancshares, Inc.</td>
+		<td class="price">$10,200,000</td>
+		<td class="assets">$475,094,000 </td>
+		<td class="city">Fort Dodge</td>
+		<td class="state">IA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-199" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 241 --></td>
+		<td class="recipient">Carolina Bank Holdings, Inc.</td>
+		<td class="price">$16,000,000</td>
+		<td class="assets">$591,000,000 </td>
+
+		<td class="city">Greensboro</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-200" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 242 --></td>
+		<td class="recipient">First Bancorp</td>
+
+		<td class="price">$65,000,000</td>
+		<td class="assets">$2,703,642,000 </td>
+		<td class="city">Troy</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-201" class="even">
+
+		<td class="date">2009-01-09<!-- ordinal: 243 --></td>
+		<td class="recipient">First Financial Service Corporation</td>
+		<td class="price">$20,000,000</td>
+		<td class="assets">$989,987,000 </td>
+		<td class="city">Elizabethtown</td>
+		<td class="state">KY</td>
+
+	</tr>
+
+	
+
+	<tr id="row-202" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 244 --></td>
+		<td class="recipient">Codorus Valley Bancorp, Inc.</td>
+		<td class="price">$16,500,000</td>
+		<td class="assets">$644,313,000 </td>
+
+		<td class="city">York</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-203" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 245 --></td>
+		<td class="recipient">MidSouth Bancorp, Inc.</td>
+
+		<td class="price">$20,000,000</td>
+		<td class="assets">$915,191,000 </td>
+		<td class="city">Lafayette</td>
+		<td class="state">LA</td>
+	</tr>
+
+	
+
+	<tr id="row-204" class="odd">
+
+		<td class="date">2009-01-09<!-- ordinal: 246 --></td>
+		<td class="recipient">First Security Group, Inc.</td>
+		<td class="price">$33,000,000</td>
+		<td class="assets">$1,280,241,000 </td>
+		<td class="city">Chattanooga</td>
+		<td class="state">TN</td>
+
+	</tr>
+
+	
+
+	<tr id="row-205" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 247 --></td>
+		<td class="recipient">Shore Bancshares, Inc.</td>
+		<td class="price">$25,000,000</td>
+		<td class="assets">$1,014,494,000 </td>
+
+		<td class="city">Easton</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-206" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 248 --></td>
+		<td class="recipient">The Queensborough Company</td>
+
+		<td class="price">$12,000,000</td>
+		<td class="assets">$846,225,000 </td>
+		<td class="city">Louisville</td>
+		<td class="state">GA</td>
+	</tr>
+
+	
+
+	<tr id="row-207" class="even">
+
+		<td class="date">2009-01-09<!-- ordinal: 249 --></td>
+		<td class="recipient">American State Bancshares, Inc.</td>
+		<td class="price">$6,000,000</td>
+		<td class="assets">$332,241,000 </td>
+		<td class="city">Great Bend</td>
+		<td class="state">KS</td>
+
+	</tr>
+
+	
+
+	<tr id="row-208" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 250 --></td>
+		<td class="recipient">Security California Bancorp</td>
+		<td class="price">$6,815,000</td>
+		<td class="assets">$237,549,000 </td>
+
+		<td class="city">Riverside</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-209" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 251 --></td>
+		<td class="recipient">Security Business Bancorp</td>
+
+		<td class="price">$5,803,000</td>
+		<td class="assets">$215,759,000 </td>
+		<td class="city">San Diego</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-210" class="odd">
+
+		<td class="date">2009-01-09<!-- ordinal: 252 --></td>
+		<td class="recipient">Sound Banking Company</td>
+		<td class="price">$3,070,000</td>
+		<td class="assets">$127,406,000 </td>
+		<td class="city">Morehead City</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-211" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 253 --></td>
+		<td class="recipient">Mission Community Bancorp</td>
+		<td class="price">$5,116,000</td>
+		<td class="assets">$217,789,000 </td>
+
+		<td class="city">San Luis Obispo</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-212" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 254 --></td>
+		<td class="recipient">Redwood Financial Inc.</td>
+
+		<td class="price">$2,995,000</td>
+		<td class="assets">$140,604,000 </td>
+		<td class="city">Redwood Falls</td>
+		<td class="state">MN</td>
+	</tr>
+
+	
+
+	<tr id="row-213" class="even">
+
+		<td class="date">2009-01-09<!-- ordinal: 255 --></td>
+		<td class="recipient">Surrey Bancorp</td>
+		<td class="price">$2,000,000</td>
+		<td class="assets">$205,489,000 </td>
+		<td class="city">Mount Airy</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-214" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 256 --></td>
+		<td class="recipient">Independence Bank</td>
+		<td class="price">$1,065,000</td>
+		<td class="assets">$66,497,000 </td>
+
+		<td class="city">East Greenwich</td>
+		<td class="state">RI</td>
+	</tr>
+
+	
+
+	<tr id="row-215" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 257 --></td>
+		<td class="recipient">Valley Community Bank</td>
+
+		<td class="price">$5,500,000</td>
+		<td class="assets">$211,129,000 </td>
+		<td class="city">Pleasanton</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-216" class="odd">
+
+		<td class="date">2009-01-09<!-- ordinal: 258 --></td>
+		<td class="recipient">Rising Sun Bancorp</td>
+		<td class="price">$5,983,000</td>
+		<td class="assets">$236,268,000 </td>
+		<td class="city">Rising Sun</td>
+		<td class="state">MD</td>
+
+	</tr>
+
+	
+
+	<tr id="row-217" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 259 --></td>
+		<td class="recipient">Community Trust Financial Corporation</td>
+		<td class="price">$24,000,000</td>
+		<td class="assets">$964,240,000 </td>
+
+		<td class="city">Ruston</td>
+		<td class="state">LA</td>
+	</tr>
+
+	
+
+	<tr id="row-218" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 260 --></td>
+		<td class="recipient">GrandSouth Bancorporation</td>
+
+		<td class="price">$9,000,000</td>
+		<td class="assets">$376,862,000 </td>
+		<td class="city">Greenville</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-219" class="even">
+
+		<td class="date">2009-01-09<!-- ordinal: 261 --></td>
+		<td class="recipient">Texas National Bancorporation</td>
+		<td class="price">$3,981,000</td>
+		<td class="assets">$165,510,000 </td>
+		<td class="city">Jacksonville</td>
+		<td class="state">TX</td>
+
+	</tr>
+
+	
+
+	<tr id="row-220" class="odd">
+		<td class="date">2009-01-09<!-- ordinal: 262 --></td>
+		<td class="recipient">Congaree Bancshares, Inc.</td>
+		<td class="price">$3,285,000</td>
+		<td class="assets">$128,195,000 </td>
+
+		<td class="city">Cayce</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-221" class="even">
+		<td class="date">2009-01-09<!-- ordinal: 263 --></td>
+		<td class="recipient">New York Private Bank &amp; Trust Corporation</td>
+
+		<td class="price">$267,274,000</td>
+		<td class="assets">$14,233,606,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-258" class="odd">
+
+		<td class="date">2009-01-16<!-- ordinal: 264 --></td>
+		<td class="recipient">Home Bancshares, Inc.</td>
+		<td class="price">$50,000,000</td>
+		<td class="assets">$2,668,553,000 </td>
+		<td class="city">Conway</td>
+		<td class="state">AR</td>
+
+	</tr>
+
+	
+
+	<tr id="row-259" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 265 --></td>
+		<td class="recipient">Syringa Bancorp</td>
+		<td class="price">$8,000,000</td>
+		<td class="assets">$293,382,000 </td>
+
+		<td class="city">Boise</td>
+		<td class="state">ID</td>
+	</tr>
+
+	
+
+	<tr id="row-260" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 266 --></td>
+		<td class="recipient">Idaho Bancorp</td>
+
+		<td class="price">$6,900,000</td>
+		<td class="assets">$238,659,000 </td>
+		<td class="city">Boise</td>
+		<td class="state">ID</td>
+	</tr>
+
+	
+
+	<tr id="row-261" class="even">
+
+		<td class="date">2009-01-16<!-- ordinal: 267 --></td>
+		<td class="recipient">Puget Sound Bank</td>
+		<td class="price">$4,500,000</td>
+		<td class="assets">$153,981,000 </td>
+		<td class="city">Bellevue</td>
+		<td class="state">WA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-262" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 268 --></td>
+		<td class="recipient">New Hampshire Thrift Bancshares, Inc.</td>
+		<td class="price">$10,000,000</td>
+		<td class="assets">$829,204,000 </td>
+
+		<td class="city">Newport</td>
+		<td class="state">NH</td>
+	</tr>
+
+	
+
+	<tr id="row-263" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 269 --></td>
+		<td class="recipient">United Financial Banking Companies Inc.</td>
+
+		<td class="price">$5,658,000</td>
+		<td class="assets">$226,923,000 </td>
+		<td class="city">Vienna</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-264" class="odd">
+
+		<td class="date">2009-01-16<!-- ordinal: 270 --></td>
+		<td class="recipient">Washington Banking Company</td>
+		<td class="price">$26,380,000</td>
+		<td class="assets">$910,803,000 </td>
+		<td class="city">Oak Harbor</td>
+		<td class="state">WA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-265" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 271 --></td>
+		<td class="recipient">Bar Harbor Bankshares</td>
+		<td class="price">$18,751,000</td>
+		<td class="assets">$943,563,000 </td>
+
+		<td class="city">Bar Harbor</td>
+		<td class="state">ME</td>
+	</tr>
+
+	
+
+	<tr id="row-266" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 272 --></td>
+		<td class="recipient">Dickinson Financial Corporation II</td>
+
+		<td class="price">$146,053,000</td>
+		<td class="assets">$5,632,563,000 </td>
+		<td class="city">Kansas City</td>
+		<td class="state">MO</td>
+	</tr>
+
+	
+
+	<tr id="row-267" class="even">
+
+		<td class="date">2009-01-16<!-- ordinal: 273 --></td>
+		<td class="recipient">MainSource Financial Group, Inc.</td>
+		<td class="price">$57,000,000</td>
+		<td class="assets">$2,871,121,000 </td>
+		<td class="city">Greensburg</td>
+		<td class="state">IN</td>
+
+	</tr>
+
+	
+
+	<tr id="row-268" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 274 --></td>
+		<td class="recipient">MetroCorp Bancshares, Inc.</td>
+		<td class="price">$45,000,000</td>
+		<td class="assets">$1,596,759,000 </td>
+
+		<td class="city">Houston</td>
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-269" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 275 --></td>
+		<td class="recipient">United Bancorp, Inc.</td>
+
+		<td class="price">$20,600,000</td>
+		<td class="assets">$826,242,000 </td>
+		<td class="city">Tecumseh</td>
+		<td class="state">MI</td>
+	</tr>
+
+	
+
+	<tr id="row-270" class="odd">
+
+		<td class="date">2009-01-16<!-- ordinal: 276 --></td>
+		<td class="recipient">Old Second Bancorp, Inc.</td>
+		<td class="price">$73,000,000</td>
+		<td class="assets">$2,947,089,000 </td>
+		<td class="city">Aurora</td>
+		<td class="state">IL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-271" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 277 --></td>
+		<td class="recipient">The Baraboo Bancorporation</td>
+		<td class="price">$20,749,000</td>
+		<td class="assets">$780,783,000 </td>
+
+		<td class="city">Baraboo</td>
+		<td class="state">WI</td>
+	</tr>
+
+	
+
+	<tr id="row-272" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 278 --></td>
+		<td class="recipient">Somerset Hills Bancorp</td>
+
+		<td class="price">$7,414,000</td>
+		<td class="assets">$286,255,000 </td>
+		<td class="city">Bernardsville</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-273" class="even">
+
+		<td class="date">2009-01-16<!-- ordinal: 279 --></td>
+		<td class="recipient">Pulaski Financial Corp</td>
+		<td class="price">$32,538,000</td>
+		<td class="assets">$1,304,150,000 </td>
+		<td class="city">Creve Coeur</td>
+		<td class="state">MO</td>
+
+	</tr>
+
+	
+
+	<tr id="row-274" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 280 --></td>
+		<td class="recipient">OceanFirst Financial Corp.</td>
+		<td class="price">$38,263,000</td>
+		<td class="assets">$1,876,260,000 </td>
+
+		<td class="city">Toms River</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-275" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 281 --></td>
+		<td class="recipient">Community 1st Bank</td>
+
+		<td class="price">$2,550,000</td>
+		<td class="assets">$96,656,000 </td>
+		<td class="city">Roseville</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-276" class="odd">
+
+		<td class="date">2009-01-16<!-- ordinal: 282 --></td>
+		<td class="recipient">TCB Holding Company, Texas Community Bank</td>
+		<td class="price">$11,730,000</td>
+		<td class="assets">$431,643,000 </td>
+		<td class="city">The Woodlands</td>
+		<td class="state">TX</td>
+
+	</tr>
+
+	
+
+	<tr id="row-277" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 283 --></td>
+		<td class="recipient">Centra Financial Holdings, Inc./Centra Bank, Inc.</td>
+		<td class="price">$15,000,000</td>
+		<td class="assets">$1,203,530,000 </td>
+
+		<td class="city">Morgantown</td>
+		<td class="state">WV</td>
+	</tr>
+
+	
+
+	<tr id="row-278" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 284 --></td>
+		<td class="recipient">SCBT Financial Corporation</td>
+
+		<td class="price">$64,779,000</td>
+		<td class="assets">$2,772,365,000 </td>
+		<td class="city">Columbia</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-279" class="even">
+
+		<td class="date">2009-01-16<!-- ordinal: 285 --></td>
+		<td class="recipient">First Bankers Trustshares, Inc.</td>
+		<td class="price">$10,000,000</td>
+		<td class="assets">$489,172,000 </td>
+		<td class="city">Quincy</td>
+		<td class="state">IL</td>
+
+	</tr>
+
+	
+
+	<tr id="row-280" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 286 --></td>
+		<td class="recipient">Pacific Coast National Bancorp</td>
+		<td class="price">$4,120,000</td>
+		<td class="assets">$138,073,000 </td>
+
+		<td class="city">San Clemente</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-281" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 287 --></td>
+		<td class="recipient">Bank of Commerce</td>
+
+		<td class="price">$3,000,000</td>
+		<td class="assets">$125,462,000 </td>
+		<td class="city">Charlotte</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-282" class="odd">
+
+		<td class="date">2009-01-16<!-- ordinal: 288 --></td>
+		<td class="recipient">Community Bank of the Bay</td>
+		<td class="price">$1,747,000</td>
+		<td class="assets">$68,610,000 </td>
+		<td class="city">Oakland</td>
+		<td class="state">CA</td>
+
+	</tr>
+
+	
+
+	<tr id="row-283" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 289 --></td>
+		<td class="recipient">Redwood Capital Bancorp</td>
+		<td class="price">$3,800,000</td>
+		<td class="assets">$146,510,000 </td>
+
+		<td class="city">Eureka</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-284" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 290 --></td>
+		<td class="recipient">S &amp; T Bancorp, Inc.</td>
+
+		<td class="price">$108,676,000</td>
+		<td class="assets">$4,440,790,000 </td>
+		<td class="city">Indiana</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-285" class="even">
+
+		<td class="date">2009-01-16<!-- ordinal: 291 --></td>
+		<td class="recipient">BNCCORP Inc.</td>
+		<td class="price">$20,093,000</td>
+		<td class="assets">$837,855,000 </td>
+		<td class="city">Bismarck</td>
+		<td class="state">ND</td>
+
+	</tr>
+
+	
+
+	<tr id="row-286" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 292 --></td>
+		<td class="recipient">State Bankshares Inc.</td>
+		<td class="price">$50,000,000</td>
+		<td class="assets">$1,934,025,000 </td>
+
+		<td class="city">Fargo</td>
+		<td class="state">ND</td>
+	</tr>
+
+	
+
+	<tr id="row-287" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 293 --></td>
+		<td class="recipient">First Manitowoc Bancorp Inc.</td>
+
+		<td class="price">$12,000,000</td>
+		<td class="assets">$766,603,000 </td>
+		<td class="city">Manitowoc</td>
+		<td class="state">WI</td>
+	</tr>
+
+	
+
+	<tr id="row-288" class="odd">
+
+		<td class="date">2009-01-16<!-- ordinal: 294 --></td>
+		<td class="recipient">Southern Bancorp Inc.</td>
+		<td class="price">$11,000,000</td>
+		<td class="assets">$583,784,000 </td>
+		<td class="city">Arkadelphia</td>
+		<td class="state">AR</td>
+
+	</tr>
+
+	
+
+	<tr id="row-289" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 295 --></td>
+		<td class="recipient">Morrill Bancshares Inc.</td>
+		<td class="price">$13,000,000</td>
+		<td class="assets">$653,603,000 </td>
+
+		<td class="city">Merriam</td>
+		<td class="state">KS</td>
+	</tr>
+
+	
+
+	<tr id="row-290" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 296 --></td>
+		<td class="recipient">Treaty Oak Bancorp Inc.</td>
+
+		<td class="price">$3,268,000</td>
+		<td class="assets">$122,475,000 </td>
+		<td class="city">Austin</td>
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-291" class="even">
+
+		<td class="date">2009-01-16<!-- ordinal: 297 --></td>
+		<td class="recipient">ECB Bancorp, Inc.</td>
+		<td class="price">$17,949,000</td>
+		<td class="assets">$767,768,000 </td>
+		<td class="city">Engelhard</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-292" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 298 --></td>
+		<td class="recipient">First BanCorp</td>
+		<td class="price">$400,000,000</td>
+		<td class="assets">$19,271,302,000 </td>
+
+		<td class="city">San Juan</td>
+		<td class="state">PR</td>
+	</tr>
+
+	
+
+	<tr id="row-293" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 299 --></td>
+		<td class="recipient">Texas Capital Bancshares, Inc.</td>
+
+		<td class="price">$75,000,000</td>
+		<td class="assets">$4,731,136,000 </td>
+		<td class="city">Dallas</td>
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-294" class="odd">
+
+		<td class="date">2009-01-16<!-- ordinal: 300 --></td>
+		<td class="recipient">Yadkin Valley Financial Corporation</td>
+		<td class="price">$36,000,000</td>
+		<td class="assets">$1,467,790,000 </td>
+		<td class="city">Elkin</td>
+		<td class="state">NC</td>
+
+	</tr>
+
+	
+
+	<tr id="row-295" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 301 --></td>
+		<td class="recipient">Carver Bancorp, Inc</td>
+		<td class="price">$18,980,000</td>
+		<td class="assets">$790,740,000 </td>
+
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-296" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 302 --></td>
+		<td class="recipient">Citizens and Northern Corporation</td>
+
+		<td class="price">$26,440,000</td>
+		<td class="assets">$1,277,846,000 </td>
+		<td class="city">Wellsboro</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-304" class="even">
+
+		<td class="date">2009-01-16<!-- ordinal: 303 --></td>
+		<td class="recipient">Chrysler Financial Services Americas LLC</td>
+		<td class="price">$1,500,000,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">Farmington Hills</td>
+		<td class="state">MI</td>
+
+	</tr>
+
+	
+
+	<tr id="row-305" class="odd">
+		<td class="date">2009-01-16<!-- ordinal: 304 --></td>
+		<td class="recipient">Bank of America Corporation</td>
+		<td class="price">$20,000,000,000</td>
+		<td class="assets">$1,803,212,624,000 </td>
+
+		<td class="city">Charlotte</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-306" class="even">
+		<td class="date">2009-01-16<!-- ordinal: 305 --></td>
+		<td class="recipient">Citigroup Inc.</td>
+
+		<td class="price">$5,000,000,000</td>
+		<td class="assets">$1,306,041,994,000 </td>
+		<td class="city">New York</td>
+		<td class="state">NY</td>
+	</tr>
+
+	
+
+	<tr id="row-307" class="odd">
+
+		<td class="date">2009-01-23<!-- ordinal: 306 --></td>
+		<td class="recipient">1st Source Corporation</td>
+		<td class="price">$111,000,000</td>
+		<td class="assets">$4,390,073,000 </td>
+		<td class="city">South Bend</td>
+		<td class="state">IN</td>
+
+	</tr>
+
+	
+
+	<tr id="row-308" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 307 --></td>
+		<td class="recipient">Princeton National  Bancorp Inc.</td>
+		<td class="price">$25,083,000</td>
+		<td class="assets">$1,123,308,000 </td>
+
+		<td class="city">Princeton</td>
+		<td class="state">IL</td>
+	</tr>
+
+	
+
+	<tr id="row-309" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 308 --></td>
+		<td class="recipient">AB&amp;T Financial Corporation</td>
+
+		<td class="price">$3,500,000</td>
+		<td class="assets">$174,055,000 </td>
+		<td class="city">Gastonia</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-310" class="even">
+
+		<td class="date">2009-01-23<!-- ordinal: 309 --></td>
+		<td class="recipient">First Citizens Banc Corp.</td>
+		<td class="price">$23,184,000</td>
+		<td class="assets">$1,095,845,000 </td>
+		<td class="city">Sandusky</td>
+		<td class="state">OH</td>
+
+	</tr>
+
+	
+
+	<tr id="row-311" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 310 --></td>
+		<td class="recipient">WSFS Financial Corporation</td>
+		<td class="price">$52,625,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+
+		<td class="city">Wilmington</td>
+		<td class="state">DE</td>
+	</tr>
+
+	
+
+	<tr id="row-312" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 311 --></td>
+		<td class="recipient">Commonwealth Business Bank</td>
+
+		<td class="price">$7,701,000</td>
+		<td class="assets">$295,847,000 </td>
+		<td class="city">Los Angeles</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-313" class="odd">
+
+		<td class="date">2009-01-23<!-- ordinal: 312 --></td>
+		<td class="recipient">Seaside National Bank &amp; Trust</td>
+		<td class="price">$5,677,000</td>
+		<td class="assets">$243,410,000 </td>
+		<td class="city">Orlando</td>
+
+		<td class="state">FL</td>
+	</tr>
+
+	
+
+	<tr id="row-314" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 313 --></td>
+		<td class="recipient">CalWest Bancorp</td>
+		<td class="price">$4,656,000</td>
+
+		<td class="assets">$207,981,000 </td>
+		<td class="city">Rancho Santa Margarita</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-315" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 314 --></td>
+
+		<td class="recipient">Fresno First Bank</td>
+		<td class="price">$1,968,000</td>
+		<td class="assets">$96,313,000 </td>
+		<td class="city">Fresno</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-316" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 315 --></td>
+		<td class="recipient">First ULB Corp.</td>
+		<td class="price">$4,900,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">Oakland</td>
+
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-317" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 316 --></td>
+		<td class="recipient">Alarion Financial Services, Inc.</td>
+		<td class="price">$6,514,000</td>
+
+		<td class="assets">$253,477,000 </td>
+		<td class="city">Ocala</td>
+		<td class="state">FL</td>
+	</tr>
+
+	
+
+	<tr id="row-318" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 317 --></td>
+
+		<td class="recipient">Pierce County Bancorp</td>
+		<td class="price">$6,800,000</td>
+		<td class="assets">$270,753,000 </td>
+		<td class="city">Tacoma</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-319" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 318 --></td>
+		<td class="recipient">Calvert Financial Corporation</td>
+		<td class="price">$1,037,000</td>
+		<td class="assets">$46,956,000 </td>
+		<td class="city">Ashland</td>
+
+		<td class="state">MO</td>
+	</tr>
+
+	
+
+	<tr id="row-320" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 319 --></td>
+		<td class="recipient">Midland States Bancorp, Inc.</td>
+		<td class="price">$10,189,000</td>
+
+		<td class="assets">$406,071,000 </td>
+		<td class="city">Effingham</td>
+		<td class="state">IL</td>
+	</tr>
+
+	
+
+	<tr id="row-321" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 320 --></td>
+
+		<td class="recipient">Liberty Bancshares, Inc.</td>
+		<td class="price">$57,500,000</td>
+		<td class="assets">$2,566,250,000 </td>
+		<td class="city">Jonesboro</td>
+		<td class="state">AR</td>
+	</tr>
+
+	
+
+	<tr id="row-322" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 321 --></td>
+		<td class="recipient">Moscow Bancshares, Inc.</td>
+		<td class="price">$6,216,000</td>
+		<td class="assets">$248,140,000 </td>
+		<td class="city">Moscow</td>
+
+		<td class="state">TN</td>
+	</tr>
+
+	
+
+	<tr id="row-323" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 322 --></td>
+		<td class="recipient">Crosstown Holding Company</td>
+		<td class="price">$10,650,000</td>
+
+		<td class="assets">$400,987,000 </td>
+		<td class="city">Blaine</td>
+		<td class="state">MN</td>
+	</tr>
+
+	
+
+	<tr id="row-324" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 323 --></td>
+
+		<td class="recipient">Farmers Bank</td>
+		<td class="price">$8,752,000</td>
+		<td class="assets">$344,804,000 </td>
+		<td class="city">Windsor</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-325" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 324 --></td>
+		<td class="recipient">BankFirst Capital Corporation</td>
+		<td class="price">$15,500,000</td>
+		<td class="assets">$671,071,000 </td>
+		<td class="city">Macon</td>
+
+		<td class="state">MS</td>
+	</tr>
+
+	
+
+	<tr id="row-326" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 325 --></td>
+		<td class="recipient">California Oaks State Bank</td>
+		<td class="price">$3,300,000</td>
+
+		<td class="assets">$123,242,000 </td>
+		<td class="city">Thousand Oaks</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-327" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 326 --></td>
+
+		<td class="recipient">Southern Illinois Bancorp, Inc.</td>
+		<td class="price">$5,000,000</td>
+		<td class="assets">$233,386,000 </td>
+		<td class="city">Carmi</td>
+		<td class="state">IL</td>
+	</tr>
+
+	
+
+	<tr id="row-328" class="even">
+		<td class="date">2009-01-23<!-- ordinal: 327 --></td>
+		<td class="recipient">FPB Financial Corp.</td>
+		<td class="price">$3,240,000</td>
+		<td class="assets">$156,712,000 </td>
+		<td class="city">Hammond</td>
+
+		<td class="state">LA</td>
+	</tr>
+
+	
+
+	<tr id="row-329" class="odd">
+		<td class="date">2009-01-23<!-- ordinal: 328 --></td>
+		<td class="recipient">Stonebridge Financial Corp.</td>
+		<td class="price">$10,973,000</td>
+
+		<td class="assets">$492,640,000 </td>
+		<td class="city">West Chester</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-363" class="even">
+		<td class="date">2009-01-29<!-- ordinal: 329 --></td>
+
+		<td class="recipient">Community Partners Bancorp</td>
+		<td class="price">$9,000,000</td>
+		<td class="assets">$573,843,000 </td>
+		<td class="city">Middletown</td>
+		<td class="state">JN</td>
+	</tr>
+
+	
+
+	<tr id="row-330" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 330 --></td>
+		<td class="recipient">Beach Business Bank</td>
+		<td class="price">$6,000,000</td>
+		<td class="assets">$221,846,000 </td>
+		<td class="city">Manhattan Beach</td>
+
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-331" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 331 --></td>
+		<td class="recipient">Legacy Bancorp Inc.</td>
+		<td class="price">$5,498,000</td>
+
+		<td class="assets">$214,828,000 </td>
+		<td class="city">Milwaukee</td>
+		<td class="state">WI</td>
+	</tr>
+
+	
+
+	<tr id="row-332" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 332 --></td>
+
+		<td class="recipient">First Southern Bancorp Inc.</td>
+		<td class="price">$10,900,000</td>
+		<td class="assets">$394,637,000 </td>
+		<td class="city">Boca Raton</td>
+		<td class="state">FL</td>
+	</tr>
+
+	
+
+	<tr id="row-333" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 333 --></td>
+		<td class="recipient">Country Bank Shares Inc.</td>
+		<td class="price">$7,525,000</td>
+		<td class="assets">$342,845,000 </td>
+		<td class="city">Milford</td>
+
+		<td class="state">NE</td>
+	</tr>
+
+	
+
+	<tr id="row-334" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 334 --></td>
+		<td class="recipient">Katahdin Bankshares Corp.</td>
+		<td class="price">$10,449,000</td>
+
+		<td class="assets">$465,345,000 </td>
+		<td class="city">Houlton</td>
+		<td class="state">ME</td>
+	</tr>
+
+	
+
+	<tr id="row-335" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 335 --></td>
+
+		<td class="recipient">Rogers Bancshares Inc.</td>
+		<td class="price">$25,000,000</td>
+		<td class="assets">$1,664,542,000 </td>
+		<td class="city">Little Rock</td>
+		<td class="state">AR</td>
+	</tr>
+
+	
+
+	<tr id="row-336" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 336 --></td>
+		<td class="recipient">UBT Bancshares Inc.</td>
+		<td class="price">$8,950,000</td>
+		<td class="assets">$419,136,000 </td>
+		<td class="city">Marysville</td>
+
+		<td class="state">KS</td>
+	</tr>
+
+	
+
+	<tr id="row-337" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 337 --></td>
+		<td class="recipient">Bankers&#39; Bank of the West Bancorp Inc.</td>
+		<td class="price">$12,639,000</td>
+
+		<td class="assets">$528,492,000 </td>
+		<td class="city">Denver</td>
+		<td class="state">CO</td>
+	</tr>
+
+	
+
+	<tr id="row-338" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 338 --></td>
+
+		<td class="recipient">W.T.B. Financial Corporation</td>
+		<td class="price">$110,000,000</td>
+		<td class="assets">$4,058,490,000 </td>
+		<td class="city">Spokane</td>
+		<td class="state">WA</td>
+	</tr>
+
+	
+
+	<tr id="row-339" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 339 --></td>
+		<td class="recipient">AMB Financial Corp.</td>
+		<td class="price">$3,674,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">Munster</td>
+
+		<td class="state">IN</td>
+	</tr>
+
+	
+
+	<tr id="row-340" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 340 --></td>
+		<td class="recipient">Goldwater Bank, N.A.</td>
+		<td class="price">$2,568,000</td>
+
+		<td class="assets">$100,013,000 </td>
+		<td class="city">Scottsdale</td>
+		<td class="state">AZ</td>
+	</tr>
+
+	
+
+	<tr id="row-341" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 341 --></td>
+
+		<td class="recipient">Equity Bancshares Inc.</td>
+		<td class="price">$8,750,000</td>
+		<td class="assets">$369,647,000 </td>
+		<td class="city">Wichita</td>
+		<td class="state">KS</td>
+	</tr>
+
+	
+
+	<tr id="row-342" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 342 --></td>
+		<td class="recipient">WashingtonFirst Bank</td>
+		<td class="price">$6,633,000</td>
+		<td class="assets">$275,804,000 </td>
+		<td class="city">Reston</td>
+
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-343" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 343 --></td>
+		<td class="recipient">Central Bancshares Inc.</td>
+		<td class="price">$5,800,000</td>
+
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">Houston</td>
+		<td class="state">TX</td>
+	</tr>
+
+	
+
+	<tr id="row-344" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 344 --></td>
+
+		<td class="recipient">Hilltop Community Bancorp Inc.</td>
+		<td class="price">$4,000,000</td>
+		<td class="assets">$165,377,000 </td>
+		<td class="city">Summit</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-345" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 345 --></td>
+		<td class="recipient">Northway Financial Inc.</td>
+		<td class="price">$10,000,000</td>
+		<td class="assets">$716,970,000 </td>
+		<td class="city">Berlin</td>
+
+		<td class="state">NH</td>
+	</tr>
+
+	
+
+	<tr id="row-346" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 346 --></td>
+		<td class="recipient">Monument Bank</td>
+		<td class="price">$4,734,000</td>
+
+		<td class="assets">$176,495,000 </td>
+		<td class="city">Bethesda</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-347" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 347 --></td>
+
+		<td class="recipient">Metro City Bank</td>
+		<td class="price">$7,700,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">Doraville</td>
+		<td class="state">GA</td>
+	</tr>
+
+	
+
+	<tr id="row-348" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 348 --></td>
+		<td class="recipient">F&amp;M Bancshares Inc.</td>
+		<td class="price">$4,609,000</td>
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">Trezevant</td>
+
+		<td class="state">TN</td>
+	</tr>
+
+	
+
+	<tr id="row-349" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 349 --></td>
+		<td class="recipient">First Resource Bank</td>
+		<td class="price">$2,600,000</td>
+
+		<td class="assets"><em>not confirmed</em></td>
+		<td class="city">Exton</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-350" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 350 --></td>
+
+		<td class="recipient">Peoples Bancorp Inc.</td>
+		<td class="price">$39,000,000</td>
+		<td class="assets">$1,909,911,000 </td>
+		<td class="city">Marietta</td>
+		<td class="state">OH</td>
+	</tr>
+
+	
+
+	<tr id="row-351" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 351 --></td>
+		<td class="recipient">Anchor BanCorp Wisconsin Inc.</td>
+		<td class="price">$110,000,000</td>
+		<td class="assets">$4,928,074,000 </td>
+		<td class="city">Madison</td>
+
+		<td class="state">WI</td>
+	</tr>
+
+	
+
+	<tr id="row-352" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 352 --></td>
+		<td class="recipient">Parke Bancorp, Inc.</td>
+		<td class="price">$16,288,000</td>
+
+		<td class="assets">$563,756,000 </td>
+		<td class="city">Sewell</td>
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-353" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 353 --></td>
+
+		<td class="recipient">Central Virginia Bankshares, Inc.</td>
+		<td class="price">$11,385,000</td>
+		<td class="assets">$480,641,000 </td>
+		<td class="city">Powhatan</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-354" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 354 --></td>
+		<td class="recipient">Flagstar Bancorp, Inc.</td>
+		<td class="price">$266,657,000</td>
+		<td class="assets">$14,159,370,000,000 </td>
+		<td class="city">Troy</td>
+
+		<td class="state">MI</td>
+	</tr>
+
+	
+
+	<tr id="row-355" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 355 --></td>
+		<td class="recipient">Middleburg Financial Corporation</td>
+		<td class="price">$22,000,000</td>
+
+		<td class="assets">$930,845,000 </td>
+		<td class="city">Middleburg</td>
+		<td class="state">VA</td>
+	</tr>
+
+	
+
+	<tr id="row-356" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 356 --></td>
+
+		<td class="recipient">Peninsula Bank Holding Co.</td>
+		<td class="price">$6,000,000</td>
+		<td class="assets">$229,367,000 </td>
+		<td class="city">Palo Alto</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-357" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 357 --></td>
+		<td class="recipient">PrivateBancorp, Inc.</td>
+		<td class="price">$243,815,000</td>
+		<td class="assets">$9,122,670,000 </td>
+		<td class="city">Chicago</td>
+
+		<td class="state">IL</td>
+	</tr>
+
+	
+
+	<tr id="row-358" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 358 --></td>
+		<td class="recipient">Central Valley Community Bancorp</td>
+		<td class="price">$7,000,000</td>
+
+		<td class="assets">$524,024,000 </td>
+		<td class="city">Fresno</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-359" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 359 --></td>
+
+		<td class="recipient">Plumas Bancorp</td>
+		<td class="price">$11,949,000</td>
+		<td class="assets">$462,932,000 </td>
+		<td class="city">Quincy</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-360" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 360 --></td>
+		<td class="recipient">Stewardship Financial Corporation</td>
+		<td class="price">$10,000,000</td>
+		<td class="assets">$605,538,000 </td>
+		<td class="city">Midland Park</td>
+
+		<td class="state">NJ</td>
+	</tr>
+
+	
+
+	<tr id="row-361" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 361 --></td>
+		<td class="recipient">Oak Ridge Financial Services, Inc.</td>
+		<td class="price">$7,700,000</td>
+
+		<td class="assets">$310,482,000 </td>
+		<td class="city">Oak Ridge</td>
+		<td class="state">NC</td>
+	</tr>
+
+	
+
+	<tr id="row-362" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 362 --></td>
+
+		<td class="recipient">First United Corporation</td>
+		<td class="price">$30,000,000</td>
+		<td class="assets">$1,614,138,000 </td>
+		<td class="city">Oakland</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-364" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 363 --></td>
+		<td class="recipient">Guaranty Federal Bancshares, Inc.</td>
+		<td class="price">$17,000,000</td>
+		<td class="assets">$681,913,000 </td>
+		<td class="city">Springfield</td>
+
+		<td class="state">MO</td>
+	</tr>
+
+	
+
+	<tr id="row-365" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 364 --></td>
+		<td class="recipient">Annapolis Bancorp, Inc.</td>
+		<td class="price">$8,152,000</td>
+
+		<td class="assets">$375,813,000 </td>
+		<td class="city">Annapolis</td>
+		<td class="state">MD</td>
+	</tr>
+
+	
+
+	<tr id="row-366" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 365 --></td>
+
+		<td class="recipient">DNB Financial Corporation</td>
+		<td class="price">$11,750,000</td>
+		<td class="assets">$551,575,000 </td>
+		<td class="city">Downingtown</td>
+		<td class="state">PA</td>
+	</tr>
+
+	
+
+	<tr id="row-367" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 366 --></td>
+		<td class="recipient">Firstbank Corporation</td>
+		<td class="price">$33,000,000</td>
+		<td class="assets">$1,414,435,000 </td>
+		<td class="city">Alma</td>
+
+		<td class="state">MI</td>
+	</tr>
+
+	
+
+	<tr id="row-368" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 367 --></td>
+		<td class="recipient">Valley Commerce Bancorp</td>
+		<td class="price">$7,700,000</td>
+
+		<td class="assets">$305,945,000 </td>
+		<td class="city">Visalia</td>
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-369" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 368 --></td>
+
+		<td class="recipient">Greer Bancshares Incorporated</td>
+		<td class="price">$9,993,000</td>
+		<td class="assets">$430,548,000 </td>
+		<td class="city">Greer</td>
+		<td class="state">SC</td>
+	</tr>
+
+	
+
+	<tr id="row-370" class="even">
+		<td class="date">2009-01-30<!-- ordinal: 369 --></td>
+		<td class="recipient">Ojai Community Bank</td>
+		<td class="price">$2,080,000</td>
+		<td class="assets">$50,743,000 </td>
+		<td class="city">Ojai</td>
+
+		<td class="state">CA</td>
+	</tr>
+
+	
+
+	<tr id="row-371" class="odd">
+		<td class="date">2009-01-30<!-- ordinal: 370 --></td>
+		<td class="recipient">Adbanc, Inc.</td>
+		<td class="price">$12,720,000</td>
+
+		<td class="assets">$477,433,000 </td>
+		<td class="city">Ogallala</td>
+		<td class="state">NE</td>
+	</tr>
+
+	
+	</tbody>
+	</table>
+	</div>	
+	
+	<div class="footnotes">
+
+	<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
+		
+	<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are as of September 30, 2008.</em></p>
+	</div>
+
+		</div>
+	</div>
+
+</div>
+
+
+
+
+<div class="container footer_container">
+<div class="span-1">&nbsp;</div>
+<div class="span-18"> <p class="footer"><a href="http://www.pewtrusts.org/" class="footer">The Pew Charitable Trusts</a> is driven by the power of knowledge to solve today’s most challenging problems. Pew applies a rigorous, analytical approach to improve public policy, inform the public and stimulate civic life. We partner with a diverse range of donors, public and private organizations and concerned citizens who share our commitment to fact-based solutions and goal-driven investments to improve society.</p> </div>
+<div class="span-5 last"><a href="http://www.pewtrusts.org"><img src="http://assets.subsidyscope.com/v2/images/pew_logo.png"></a></div>
+  </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1265484-28");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

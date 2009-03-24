@@ -1,0 +1,62 @@
+{% extends "base_documents.html" %}
+{% load webdesign %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	<div class="span-5">{% include "includes/bailout_left_nav.html" %}</div>
+		<div class="span-15">
+			<div class="tlr_padding">
+			<h2 class="type_header">documents</h2>
+			<h3 class="section_header">The Financial Bailout</h3>
+			<p>Subsidyscope provides a clearinghouse for government documents and reports related to the financial rescue. This compilation will be updated regularly. </p>
+			</div>
+		</div>			
+	<div class="span-4 last">&nbsp;</div>
+
+	<div class="span-24">
+		<div class="tlr_padding">			
+			<table class="pdf-table" id="pdf-data-table">
+				
+			<tr id="header-row">
+				<th class="date">Date</th>
+				<th class="title">Title</th>
+				<th class="description">Description</th>
+				<th class="source">Source</th>
+			</tr>
+				
+			{% for pdf in object_list %}
+			    <tr class="{% cycle 'odd' 'even' %}">
+					<td class="date">{{ pdf.date }}</td>
+					<td class="title">{% ifequal pdf.document_type 'PDF' %}<a href="{% url bailoutpdf_detail pdf_id=pdf.id %}">{{ pdf.title }}</a>{% else %}<a href="{{ pdf.link_url }}">{{ pdf.title }}</a>{% endifequal %}</td>
+					<td class="description">{{ pdf.description|safe }}</td>
+					<td class="source"><a href="{{ pdf.source_url }}">{{ pdf.source_name }}</a></td>
+				</tr>
+			{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+.pdf-table
+{
+	width:98%; border: 0 !important;
+}
+
+.pdf-table .source, .pdf-table .date
+{
+	text-align: center;
+}
+
+.pdf-table td
+{
+	border: 1px solid #ccc;
+}
+
+.pdf-table th
+{
+	border-width: 0px 0px 1px 0px;
+}
+</style>
+{% endblock %}

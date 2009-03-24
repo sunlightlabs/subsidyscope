@@ -1,0 +1,78 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load webdesign %}
+{% load media %}
+
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+	<div class="span-15">
+		<div class="full_padding">
+			
+			<h2 class="type_header">Bailout</h2>
+			<h3 class="section_header">Federal Reserve</h3>
+
+<p>The Federal Reserve has engaged in a broad range of activities to try to improve the economy. Under the Federal Reserve Act, the Fed is authorized to extend credit directly to individuals, partnerships, or corporations in times of "unusual and exigent circumstances."</p>
+
+<p>According to Congressional Budget Office estimates in January and announcements from the Fed in March, the potential holdings of the Fed could exceed $5 trillion. This graphic provides a breakdown of these holdings, both before and after the financial crisis:</p> 
+
+<p><img style="margin-left: -145px;" src="{% media_url %}/images/fed_tmp_image.png"/></p>
+
+<p>The Fed is trying to stimulate the economy by providing overnight and long-term loans to financial institutions; increasing currency swaps with foreign central banks; providing liquidity to borrowers and investors through the purchase of commercial paper and other assets; making direct loans to companies to purchase asset-backed securities; and purchasing mortgage-backed securities.</p>
+
+<p>The largest of the new Fed programs include:</p>
+
+<p>The <strong>Commercial Paper Funding Facility</strong>, created in October 2008, encourages corporate borrowing by buying commercial paper (securities sold by large banks and companies to obtain funds for short-term borrowing needs such as payroll) directly from companies. This facility has the potential to purchase up to $1.8 trillion.</p>
+
+<p><strong>Mortgage-backed securities</strong>: The Fed is purchasing up to $1.25 trillion in mortgage-backed securities issued by Fannie Mae, Freddie Mac, the Federal Home Loan Banks, and Ginnie Mae.</p>
+
+<p><strong>Term Asset-Backed Securities Loan Facility (TALF)</strong>: The Fed has committed to $200 billion in loans -- with a possible increase of up to $1 trillion -- to companies to support the purchase of asset-backed securities, such as student loans, auto loans, credit card loans, and loans guaranteed by the Small Business Administration. The Treasury Department is providing $20 billion in credit protection to the Fed for TALF. The Fed estimates TALF will generate $1 trillion in liquidity in the credit market.  All loans will mature in three years.</p>
+
+<p>The <strong>Term Auction Facility</strong>, created in December 2007, through which the Fed makes loans -- whose interest rates are determined by auctions -- to banks and other financial institutions in exchange for pledged collateral. The maximum lending amount under this program is $600 billion.</p>
+
+<p>The <strong>Money Market Investor Funding Facility</strong>, created in October 2008, will buy certificates of deposit and commercial paper from money market mutual funds. This facility has yet to be utilized but could make purchases up to $540 billion.</p>
+
+<p>This graphic shows each of the Fed's bailout-related programs:</p> 
+
+<p>[[GRAPHIC HERE]]</p> 
+
+<p>These lending facilities have significantly changed the way that the Fed operates. Generally speaking, before the onset of the financial crisis, a typical Fed loan had a term ranging from overnight to 28 days. With the new lending facilities, the terms of loans can be as long as three years.</p>
+
+<p>As the economy improves, the Fed plans to phase out most of the programs used to acquire assets and return to its historical mission of keeping credit flowing between banks by setting the interest rate at which they lend to one another.  The size of the Fed is likely to shrink drastically: At present, it holds assets worth about $1.9 trillion; traditionally, it has held about $850 billion.</p>
+
+<p>Other key programs include: (link these to glossary page)</p>
+
+<p><strong>The Term Securities Lending Facility</strong></p>
+
+<p><strong>Credit extended to AIG</strong></p>
+
+<p><strong>Asset-backed Commercial Paper Money Market Mutual Fund Liquidity Facility (AMLF):</strong></p> 
+
+<p><strong>Primary dealer and other broker credit facility</strong></p>
+
+<p><strong>Federal agency debt securities</strong></p>
+
+<p><strong>Net Portfolio holdings of Maiden Lane LLC</strong></p>
+
+<p><strong>Net portfolio holdings of Maiden Lane II LLC</strong></p>
+
+<p><strong>Net portfolio holdings of Maiden lane III LLC</strong></p>
+
+<p><strong>Currency swaps</strong></p>
+
+		</div>	
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	DrawBailoutVisualizationLegend($('#legend-container'), 'Committed Funding', 'Potential Funding'); 
+	DrawBailoutVisualization($('#visualization-container'), 'Federal Reserve');	
+});		
+</script>
+
+{% endblock %}

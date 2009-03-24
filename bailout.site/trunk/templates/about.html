@@ -1,0 +1,192 @@
+{% extends "base_about.html" %}
+
+{% load media %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	
+<div class="span-24 aboutpage">
+		<div class="span-8"><div id="about_logo_replacement">&nbsp;</div></div>
+		<div class="span-16 last">
+			<ul class="questions">
+			<li class="dark"><a href="/about/#what_is_subsidyscope">// What is Subsidyscope?</a></li>
+			<li class="lite"><a href="/about/#what_is_included_in_database">// What is included in Subsidyscope’s database?</a></li>
+			<li class="dark"><a href="/about/#why_is_a_database_needed">// Why is a database needed?</a></li>
+			<li class="lite"><a href="/about/#will_there_be_analysis_of_the_data">// Will there be analysis of the subsidy data?</a></li>
+			<li class="dark"><a href="/about/#who_is_involved">// Who is involved in Subsidyscope?</a></li>
+			</ul>
+		</div>
+
+		<div class="span-24 scroll_container">
+			<div id="slider">
+				<!-- element with overflow applied -->
+				<div class="scroll">
+					<!-- the element that will be scrolled during the effect -->
+					<div class="scrollContainer">
+						<!-- our individual panels -->
+						<div class="panel" id="what_is_subsidyscope">
+							<ul class="main_list">
+								<li>
+									<h2>What is Subsidyscope?</h2>
+									<ul class="sub_list">
+										<li>
+											<p>
+											    Subsidyscope aims to raise public awareness about the role of federal subsidies in the economy.
+											    This new project, launched by <a href="http://www.pewtrusts.org" class="noicon">The Pew Charitable Trusts</a>, plans to create a searchable database of federal subsidies and publish the data online.
+											    Over the next few years, the project will build this subsidy database industry sector by industry sector.
+											</p>
+										</li>
+									</ul>
+									<div id="navigation_box">
+										<div id="navigation_left">&nbsp;</div>
+										<div id="navigation_right">
+											<a href="#what_is_included_in_database">What is included in Subsidyscope’s database?</a>
+											<a href="#what_is_included_in_database">
+												<img src="{% media_url %}/images/arrow_right.png" class="arrows_right" border="0">
+											</a>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel" id="what_is_included_in_database">
+							<ul class="main_list">
+								<li>
+									<h2>What is included in Subsidyscope’s database?</h2>
+									<ul class="sub_list">
+										<li>
+											<p>Subsidies for each sector will be measured comprehensively. Subsidyscope will include:</p>
+											<ul class="sub_sub_list">
+												<li><p>direct payments made by government to businesses and individuals;</p></li>
+												<li><p>tax breaks for corporations and individuals; and</p></li>
+												<li><p>loan guarantees and other types of financial support.</p></li>
+											</ul>
+										</li>
+									</ul>
+		        					<div id="navigation_box">
+		        						<div id="navigation_left">
+		        							<a href="#what_is_subsidyscope">
+		        								<img src="{% media_url %}/images/arrow_left.png" class="arrows_left" border="0">
+		        							</a>
+		        							<a href="#what_is_subsidyscope">What is Subsidyscope?</a>
+		        						</div>
+		        						<div id="navigation_right">
+		        							<a href="#why_is_a_database_needed">Why is a database needed?</a>
+		        							<a href="#why_is_a_database_needed">
+		        								<img src="{% media_url %}/images/arrow_right.png" class="arrows_right" border="0">
+		        							</a>
+		        						</div>
+		        					</div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel" id="why_is_a_database_needed">
+							<ul class="main_list">
+								<li>
+									<h2>Why is a database needed?</h2>
+									<ul class="sub_list">
+										<li>
+											<p>
+											    In the past several months, the federal government has intervened in the nation’s economy in unprecedented ways.
+											    Those actions have raised many citizens’ awareness of the role of subsidies in the economy and heightened concerns about their size, not only in the financial sector, but in other sectors as well.
+											    Yet, despite growing public concerns, comprehensive and high-quality information about the true scale of government subsidies is still lacking.
+											    Moreover, in light of the scarcity of resources in today’s fiscally challenged environment, such a database could help policymakers and the public make more informed decisions about public policy.
+											</p>
+										</li>
+									</ul>
+		        					<div id="navigation_box">
+		        						<div id="navigation_left">
+		        							<a href="#what_is_included_in_database">
+		        								<img src="{% media_url %}/images/arrow_left.png" class="arrows_left" border="0">
+		        							</a>
+		        							<a href="#what_is_included_in_database">What is included in Subsidyscope’s database?</a>
+		        						</div>
+		        						<div id="navigation_right">
+		        							<a href="#will_there_be_analysis_of_the_data">Will there be analysis of the subsidy data?</a>
+		        							<a href="#will_there_be_analysis_of_the_data">
+		        								<img src="{% media_url %}/images/arrow_right.png" class="arrows_right" border="0">
+		        							</a>
+		        						</div>
+		        					</div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel" id="will_there_be_analysis_of_the_data">
+							<ul class="main_list">
+								<li>
+									<h2>Will there be analysis of the subsidy data?</h2>
+									<ul class="sub_list">
+										<li>
+											<p>
+											    Pew staff will be carefully sifting through the data, looking for patterns and discerning trends.
+											    Based on that analysis, we will publish a regular series of major reports on sector subsidies, written by budget analysts on Pew’s staff and peer reviewed by outside experts.
+											    Our approach to the data analysis is unbiased, objective and nonpartisan.
+											</p>
+											<p><form action="/mailinglist/subscribe/" method="post" id="update_email_inline">
+											    Each new report will be unveiled at an event, open to the public and press, and will be published on Subsidyscope’s site. Sign up to receive e-mail notices about upcoming events and release dates for publications. <input type="text" name="email"><input type="submit" class="submit" value="Sign Up"></form>
+
+
+											</p>
+										</li>
+									</ul>
+		        					<div id="navigation_box">
+		        						<div id="navigation_left">
+		        							<a href="#why_is_a_database_needed">
+		        								<img src="{% media_url %}/images/arrow_left.png" class="arrows_left" border="0">
+		        							</a>
+		        							<a href="#why_is_a_database_needed">Why is a database needed?</a>
+		        						</div>
+		        						<div id="navigation_right">
+		        							<a href="#who_is_involved">Who is involved in Subsidyscope?</a>
+		        							<a href="#who_is_involved">
+		        								<img src="{% media_url %}/images/arrow_right.png" class="arrows_right" border="0">
+		        							</a>
+		        						</div>
+		        					</div>
+								</li>
+							</ul>
+						</div>
+						<div class="panel" id="who_is_involved">
+							<ul class="main_list">
+								<li>
+									<h2>Who is involved in Subsidyscope?</h2>
+									<ul class="sub_list">
+										<li> 
+											<p>
+											    Subsidyscope will also be guided by a broad and bipartisan advisory board of top experts in federal spending, taxes, and finance. View a list of <a href="/board/">Advisory Board members</a> and their biographies.
+											</p>
+
+											<p><a href="http://sunlightfoundation.com">The Sunlight Foundation</a>, Pew’s research and technology partner, will develop the database and Web site, which will feature a variety of tools for viewing and analyzing the data.
+										    To facilitate the distribution of data across the Web, the database will be developed in an open source environment.
+										</p>
+										</li>
+									</ul>
+		            				<div id="navigation_box">
+		            					<div id="navigation_left">
+		            						<a href="#will_there_be_analysis_of_the_data">
+		            							<img src="{% media_url %}/images/arrow_left.png" class="arrows_left" border="0">
+		            						</a>
+		            						<a href="#will_there_be_analysis_of_the_data">Will there be analysis of the subsidy data?</a>
+		            					</div>
+		            					<div id="navigation_right">
+											&nbsp;
+		            					</div>
+		            				</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+		
+</div>	
+</div> <!--ends container-->
+{% endblock %}
