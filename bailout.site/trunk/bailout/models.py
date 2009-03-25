@@ -476,7 +476,21 @@ class Transaction(models.Model):
                 return True
             else:
                 return False
-            
+    
+    def getSubsidyEstimate(self):
+        if not hasattr(self,'SubsidyEstimate'):
+            if SubsidyEstimate.objects.filter(transaction__id=self.id).count()>0:
+                self.SubsidyEstimate = SubsidyEstimate.objects.filter(transaction__id=self.id)[0]
+            else:
+                # create a dummy object with the necessary attributes
+                # irritating that we can't just use object() -- it has no __dict__, sadly
+                class JunkClass(object):
+                    pass
+                self.SubsidyEstimate = JunkClass()
+                self.SubsidyEstimate.__dict__.update({'date': None, 'source': None, 'subsidy_rate': None})
+
+        return self.SubsidyEstimate
+    
             
 class SubsidyEstimate(models.Model):
     def __unicode__(self):
