@@ -11,7 +11,7 @@ function search_init()
 	$('#bankSearchNameInput').autocomplete('/projects/bailout/search/bank/', {
 		width: 260,
 		cacheLength: 1,
-		selectFirst: false});
+		selectFirst: true});
 	
 	function findValueCallback(event, data, formatted) {
 		if (data)
