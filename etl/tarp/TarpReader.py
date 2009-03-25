@@ -51,7 +51,7 @@ class TarpReader():
         # identify whether this is a transaction line item; if so, retrieve its data
         line_item = self._process_transaction_line(line)
         
-        print line
+        #print line
         
         # was this a transaction line item?
         if line_item:            

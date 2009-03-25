@@ -4,6 +4,7 @@ import bailout.models
 import etl.models
 import csv
 import re
+import time
 from TarpReader import TarpReader
 import sys
 from datetime import datetime
@@ -24,19 +25,28 @@ class TarpWriter(TarpReader):
         # utility regex for splitting excel dates (bah!)
         self.re_date = re.compile(r'(\d+)[\-\/](\d+)[\-\/](\d+)[^\d]')
         
+    def convert_isoformat_string_to_date(self, date_string):        
+        date_parts = date_string.split(' ')
+        return datetime.utcfromtimestamp(time.mktime(time.strptime(date_parts[0], '%Y-%m-%d')))        
+    
+    def display_broken_row(self, stream, message, record):
+        print >>stream, message 
+        row = []
+        TW = TarpWriter()
+        for field in TW.CSV_LAYOUT:
+            row.append(record[field])
+        writer = csv.writer(stream)
+        writer.writerow(row)
+        print
+        del writer
+        del TW
+        del row
     
     def import_record(self, record):
         """import a single TARP record"""
         # TODO: deal with entries that have an existing institution record
         
         if record['institution_is_new']=='YES':     
-            
-            date = self.re_date.search(record.get('transaction_date'))
-            year = int(date.group(3))
-            month = int(date.group(1))
-            day = int(date.group(2))
-            if year<100:
-                year = year + 2000
             
             # Institution     
             I = bailout.models.Institution()
@@ -50,7 +60,7 @@ class TarpWriter(TarpReader):
             # Transaction
             T = bailout.models.Transaction()
             T.institution = I
-            T.date = datetime(year, month, day)
+            T.date = self.convert_isoformat_string_to_date(record.get('transaction_date'))
             T.price_paid = record.get('transaction_price_paid')
             T.description = record.get('transaction_description')
             T.pricing_mechanism = record.get('transaction_pricing_mechanism')
@@ -58,6 +68,30 @@ class TarpWriter(TarpReader):
             T.program = record.get('transaction_program', 'CPP')
             T.datarun = self.datarun
             T.save()
+            
+        if record['institution_is_new']=='NO':
+            institution_id = record.get('institution_existing_id').strip()
+            if len(institution_id)==0:
+                err_msg = "### Error! No ID for following row:"
+                self.display_broken_row(sys.stderr, err_msg, record)
+                return
+            I = bailout.models.Institution.objects.filter(id=int(institution_id))
+            if len(I)!=1:
+                err_msg =  "### Error! Looked for institution ID %s and found %d results. Line follows:" % (record.get('institution_existing_id'), len(I))
+                self.display_broken_row(sys.stderr, err_msg, record)
+                return
+            else:
+                I = I[0]
+                T = bailout.models.Transaction()
+                T.institution = I                
+                T.date = self.convert_isoformat_string_to_date(record.get('transaction_date'))
+                T.price_paid = record.get('transaction_price_paid')
+                T.description = record.get('transaction_description')
+                T.pricing_mechanism = record.get('transaction_pricing_mechanism')
+                T.transaction_type = record.get('transaction_transaction_type')
+                T.program = record.get('transaction_program', 'CPP')
+                T.datarun = self.datarun
+                T.save()            
 
             
 if __name__ == "__main__":
