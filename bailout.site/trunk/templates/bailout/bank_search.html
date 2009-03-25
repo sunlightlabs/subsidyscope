@@ -6,6 +6,8 @@
 
 function search_init()
 {
+	var lastSearch;
+
 	$('#bankSearchNameInput').autocomplete('/projects/bailout/search/bank/', {
 		width: 260,
 		cacheLength: 1,
@@ -14,31 +16,41 @@ function search_init()
 	function findValueCallback(event, data, formatted) {
 		if (data)
 		{
+			lastSearch = $("#bankSearchNameInput").val();
 			$.get('/projects/bailout/search/bank/summary/' + data[1] + '/', null, function(data)
 			{
 				$("#bankInfo").html(data);
 				
 			}, 'html');
 		}
+		else
+		{
+			$("#bankInfo").html('<div id="search_results_bank_summary"><h2>Bank Not Found</h2><p>Information regarding credit unions and savings and loans are not currently available through this search tool.</p></div>');
+		}
 	}
 	
+	$("#bankSearchNameInput").result(findValueCallback);
 	
-	$("#bankSearchNameInput").result(findValueCallback).change(function() {
-		if($("#bankSearchNameInput").val() != '')
-			$(this).search();
-		else
+	$("#bankSearchNameInput").change(function() {
+		
+		if($("#bankSearchNameInput").val() == '')
+		{
 			$("#bankInfo").html('');
+			lastSearch = '';
+		}
+		else if($("#bankSearchNameInput").val() != lastSearch)
+			$("#bankSearchNameInput").search();
 	});
 	
 	$("#bankSearchNameInput").blur(function() {
 		
-		if($("#bankSearchNameInput").val() != '')
-			$(this).search();
-		else
+		if($("#bankSearchNameInput").val() == '')
 		{
 			$("#bankSearchNameInput").addClass('pre_input');
 			$("#bankSearchNameInput").val('Enter company name');
 			$("#bankInfo").html('');
+			
+			lastSearch = '';
 		}
 	});
 	
@@ -50,16 +62,7 @@ function search_init()
 		}
 	});
 	
-	$("#bankSearchNameInput").result(function(event, data, formatted) {
-		if (data)
-		{
-			$.get('/projects/bailout/search/bank/summary/' + data[1] + '/', null, function(data)
-			{
-				$("#bankInfo").html(data);
-				
-			}, 'html');
-		}
-	});
+	
 }
 
 $(document).ready(function(){
@@ -73,7 +76,7 @@ $(document).ready(function(){
 <div class="find_bank">
 	<h3>Find My Bank</h3>
 <p>Enter a bank or holding company name to learn how much TARP funding an institution has received or whether it is participating in an FDIC debt guarantee program (TLGP).</p>
-	<div id="bankSearch" style="clear:left;"><input size="30" id="bankSearchNameInput" value="Enter company name" class="pre_input"/></div> 
+	<div id="bankSearch" style="clear:left;"><input size="30" id="bankSearchNameInput" style="margin-left: 5px;" value="Enter company name" class="pre_input"/></div> 
 
 	<div id="bankInfo"></div>
 	</div>
