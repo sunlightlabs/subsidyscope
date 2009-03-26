@@ -2,6 +2,7 @@ from fdic_bank_failures.models import BankFailure, QBPSnapshot
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 import csv
+import string
 
 def fdic_bank_failures_xml(request):
     bank_failure_list = BankFailure.objects.all().order_by('closing_date')    
@@ -19,8 +20,8 @@ def fdic_bank_failures_csv(request):
         'name': 'Failed Institution',
         'closing_date': 'Date of Bank Closure',
         'exact_amount': 'Estimated Loss to the Deposit Insurance Fund (exact)',
-        'range_low': 'Estimated Loss to the Deposit Insurance Fund (lower bound)',
-        'range_high': 'Estimated Loss to the Deposit Insurance Fund (upper bound)'
+        'range_low': 'Estimated Loss to the Deposit Insurance Fund (lower range)',
+        'range_high': 'Estimated Loss to the Deposit Insurance Fund (upper range)'
     }    
     columns_to_exclude = ['id', 'updated_date']
     currency_columns = ['exact_amount', 'range_high', 'range_low']
@@ -31,7 +32,7 @@ def fdic_bank_failures_csv(request):
             if field.name in field_name_substitutions:
                 headers.append(field_name_substitutions[field.name])
             else:
-                headers.append(field.name)
+                headers.append(string.capwords(field.name))
     writer.writerow(headers)
 
     failures = BankFailure.objects.all().order_by('closing_date')
