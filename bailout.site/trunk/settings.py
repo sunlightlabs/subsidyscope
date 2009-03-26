@@ -88,7 +88,8 @@ INSTALLED_APPS = (
     'bailout_pdfs',
     'project_updates',
     'tarp_subsidy_graphics',
-    'fdic_bank_failures'
+    'fdic_bank_failures',
+    'fed_h41'
 )
 
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+<objects>
+{% for object in object_list %}
+	<object {% for kvtuple in object %}{{ kvtuple|first|safe }}="{{ kvtuple|last|safe }}" {% endfor %}></object>
+{% endfor %}
+</objects>
+
+<labels>
+{% for kvtuple in labels %}
+	<label key="{{ kvtuple|first|safe }}" value="{{ kvtuple|last|safe }}" ></label>
+{% endfor %}
+</labels>
+
+</root>

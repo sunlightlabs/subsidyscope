@@ -29,6 +29,7 @@ urlpatterns = patterns('',
     url(r'^fdic/FDIC_TLGP_opt-in\.csv$', 'bailout.views.fdic_tlgp_csv', name='bailout_fdic_tlgp_csv'),
     url(r'^fdic/bank-failures/', include('fdic_bank_failures.urls')),
     url(r'^federal-reserve/$', 'bailout.views.agency_landing_page', {'agency': 'federal_reserve'}, name='bailout_federal_reserve_index'),
+    url(r'^federal-reserve/h41', include('fed_h41.urls')),
     url(r'^other/$', 'bailout.views.agency_landing_page', {'agency': 'other'}, name='bailout_other_index'),
     
     
