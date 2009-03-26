@@ -379,7 +379,7 @@ def tarp_institution_filter_json(request):
     
     for transaction in transactions[:5]:
         
-        institution_dict[transaction.institution.id] = transaction.institution.name
+        institution_dict[transaction.institution.id] = transaction.institution.name.upper()
         
         if not transactions_dict.has_key(transaction.institution.id):
             transactions_dict[transaction.institution.id] = str(transaction.id)
@@ -417,7 +417,7 @@ def bank_search_json(request):
     
     for institution in institutions[:5]:
         
-        result += '%s (%s, %s)|%d\n' % (str(institution.name).replace(', National Association', ''), institution.city, institution.state, institution.id)
+        result += '%s (%s, %s)|%d\n' % (str(institution.name).replace(', National Association', '').upper(), institution.city, institution.state, institution.id)
         
 
     return HttpResponse(result, mimetype='text/plain')

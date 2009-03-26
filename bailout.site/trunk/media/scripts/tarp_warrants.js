@@ -1,6 +1,8 @@
 
 function TARP_init()
 {  
+	var lastSearch;
+	
 	// add parser through the tablesorter addParser method 
     $.tablesorter.addParser({ 
         // set a unique id 
@@ -65,6 +67,8 @@ function TARP_init()
 	function findValueCallback(event, data, formatted) {
 		if (data)
 		{
+			lastSearch = $('#tarpFilterInput').val();
+			
 			if(this != false)
 			{
 				var show = {}
@@ -105,11 +109,13 @@ function TARP_init()
 	
 	
 	$("#tarpFilterInput").result(findValueCallback).change(function() {
-		$(this).search();
+		if($("#tarpFilterInput").val() != lastSearch)
+			$(this).search();
 	});
 	
 	$("#tarpFilterInput").blur(function() {
-		$(this).search();
+		if($("#tarpFilterInput").val() != lastSearch)
+			$(this).search();
 	});
 	
 	$("#tarpFilterInput").result(function(event, data, formatted) {

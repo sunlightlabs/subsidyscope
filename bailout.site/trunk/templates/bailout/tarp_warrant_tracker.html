@@ -19,8 +19,7 @@
 		</table>
 	{% for t in transactions %}
 		<div class="warrant_company">
-			<span class="bold">{% if t.institution.display_name %}{{ t.institution.display_name|shorten_name }}{% else %}{{ t.institution.name|shorten_name }}</span>
-			{% endif %}
+			<span class="bold">{% institution_name_shorten t.institution %}</span>
 		</div>
 		<div class="warrant_details">
 
@@ -37,7 +36,7 @@
 			</span>
 			</td>
 			<td align="right" width="25%"><span class="warrant_in">	
-				({{ t.getMoneyPercentage|percent }}%)
+				-{{ t.getMoneyPercentage|percent }}%
 			</span></td>
 			{% else %}
 			<td align="right" width="25%"><span class="warrant_out">
@@ -45,7 +44,7 @@
 			</span>
 			</td>
 			<td align="right" width="25%"><span class="warrant_out">
-				({{ t.getMoneyPercentage|percent }}%)
+				-{{ t.getMoneyPercentage|percent }}%
 			</span></td>
 			{% endif %}
 			</tr>

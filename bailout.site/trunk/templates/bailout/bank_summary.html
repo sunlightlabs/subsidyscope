@@ -1,8 +1,8 @@
 {% load bailout_tags %}
 <div id="search_results_bank_summary">
-<h2>{{ institution.name }}</h2>
-<span class="address">{{ institution.city }}, {{ institution.state }}
-{% if institution.parent_institution %} held by {{ institution.parent_institution.name }} {% endif %}
+<h2>{% institution_name institution %}</h2>
+<span class="address">{{ institution.city }}, {{ institution.state }}<br />
+{% if institution.parent_institution %} held by {% institution_name institution.parent_institution %} {% endif %}
 </span>
 
 {% if institution.getTotalTARPFundsReceived %}

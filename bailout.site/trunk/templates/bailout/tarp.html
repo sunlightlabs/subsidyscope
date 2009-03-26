@@ -129,7 +129,7 @@
 
 	<tr id="row-{{ t.id }}" class="{% cycle 'even' 'odd' %}">
 		<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
-		<td class="recipient">{% if t.institution.display_name %}{{ t.institution.display_name}}{% else %}{{ t.institution.name }}{% endif %}</td>
+		<td class="recipient">{% institution_name t.institution %}</td>
 		<td class="price">${{ t.price_paid|divide:1|floatformat:"-0"|intcomma}}</td>
 		<td class="assets">{% if t.institution.total_assets %}${{ t.institution.total_assets_fixed|divide:1|floatformat:"-0"|intcomma }} {% else %}<em>not confirmed</em>{% endif %}</td>
 		<td class="city">{{ t.institution.city }}</td>

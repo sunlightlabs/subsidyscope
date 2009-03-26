@@ -1,9 +1,11 @@
 import re
 
 from django import template
+from django.template import Variable
+
 from django.template.loader import render_to_string
 
-from bailout.models import Transaction
+from bailout.models import Transaction, Institution
 
 register = template.Library()
 
@@ -112,10 +114,38 @@ class BankSearchNode(template.Node):
     
     
   
-#register.filter('multiply', mult)
-#register.filter('divide', div)
-#register.filter('percent', percent)
-#register.filter('price', price)
-#register.filter('price_abs', price_abs)
+@register.tag
+def institution_name(parser, token):
+    
+    tag, institution = token.split_contents()
+    
+    return InstitutionNameNode(institution, False)
 
+@register.tag
+def institution_name_shorten (parser, token):
+    
+    tag, institution = token.split_contents()
+    
+    return InstitutionNameNode(institution, True)
+
+class InstitutionNameNode(template.Node):
+    
+    def __init__(self, institution, shorten):
+        
+        self.institution = Variable(institution)
+        self.shorten = shorten
+    
+    def render(self, context):
+        
+        institution_object = self.institution.resolve(context)
+        
+        if institution_object.display_name:
+            name = institution_object.display_name
+        else:
+            name = institution_object.name
+        
+        if self.shorten:
+            name = shorten_name(name)
+        
+        return name.upper() 
 
