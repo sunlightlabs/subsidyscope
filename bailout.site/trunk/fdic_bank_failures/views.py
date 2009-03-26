@@ -15,9 +15,23 @@ def fdic_bank_failures_csv(request):
 
     writer = csv.writer(response)
 
+    field_name_substitutions = {
+        'name': 'Failed Institution',
+        'closing_date': 'Date of Bank Closure',
+        'exact_amount': 'Estimated Loss to the Deposit Insurance Fund (exact)',
+        'range_low': 'Estimated Loss to the Deposit Insurance Fund (lower bound)',
+        'range_high': 'Estimated Loss to the Deposit Insurance Fund (upper bound)'
+    }    
+    columns_to_exclude = ['id', 'updated_date']
+    currency_columns = ['exact_amount', 'range_high', 'range_low']
+
     headers = []
     for field in BankFailure._meta.fields:
-        headers.append(field.name)
+        if field.name not in columns_to_exclude:
+            if field.name in field_name_substitutions:
+                headers.append(field_name_substitutions[field.name])
+            else:
+                headers.append(field.name)
     writer.writerow(headers)
 
     failures = BankFailure.objects.all().order_by('closing_date')
@@ -25,7 +39,11 @@ def fdic_bank_failures_csv(request):
 
         record = []
         for field in BankFailure._meta.fields:
-            record.append(getattr(failure, field.name, None))
+            if field.name not in columns_to_exclude:
+                value = getattr(failure, field.name, None)
+                if field.name in currency_columns and value is not None:
+                    value = int(value) * 1000000                
+                record.append(value)
 
         writer.writerow(record)
 
