@@ -356,15 +356,8 @@ table.warrant_tracker td {
 #search_results_bank_summary .tlgp { display:block; font-size:11px; color:#333333;}
 #search_results_bank_summary .no_tlgp { display:block; font-size:11px; color:#333333; }
 
-dl#glossary dt
-{
-    display: block;
-    padding: 0;
-    margin-bottom: 0.2em;
-}
+/* glossary */
+dl#glossary dt { display: block; padding: 0; margin-bottom: 0.2em; }
+dl#glossary dd { display: block; margin-bottom: 1.5em; }
 
-dl#glossary dd
-{
-    display: block;
-    margin-bottom: 1.5em;
-}
+ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
