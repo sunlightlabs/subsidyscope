@@ -1,4 +1,4 @@
-from fed_h41.models import H41Snapshot
+from fed_h41.models import H41Snapshot, FedNewsEvent
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 import csv
@@ -30,3 +30,10 @@ def h41_xml(request):
         object_list.append(row)
     
     return render_to_response('bailout/federal_reserve/generic.xml', { 'labels': labels, 'object_list': object_list }, mimetype='text/xml')
+
+
+def fed_news_xml(request):
+    news = FedNewsEvent.objects.all().order_by('date')
+    return render_to_response('bailout/federal_reserve/news.xml', { 'news': news }, mimetype='text/xml')
+    
+        

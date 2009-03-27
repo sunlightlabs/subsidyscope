@@ -2,7 +2,13 @@ from django.db import models
 
 # Create your models here.
 class H41Snapshot(models.Model):
-    """docstring for H41Snapshot"""
+
+    def __unicode__(self):
+        return '%s - $%d' % (self.date, self.reserve_bank_credit)
+    class Meta:
+        verbose_name = 'H41 Snapshot'
+        ordering = ['-date']
+
     date = models.DateField("Date")
     
     # this field should sum to the others
@@ -30,3 +36,13 @@ class H41Snapshot(models.Model):
     central_bank_liquidity_swaps = models.IntegerField("Central bank liquidity swaps", max_length=15, blank=True, null=True)
     us_treasury_securities = models.IntegerField("U.S. Treasury securities", max_length=15, blank=True, null=True)
     
+class FedNewsEvent(models.Model):
+    
+    def __unicode__(self):
+        return '%s' % (self.date)
+    class Meta:
+        verbose_name = 'Fed News Event'
+        ordering = ['-date']
+    
+    date = models.DateField("Date")
+    text = models.TextField("Text", blank=False, default='', null=False)

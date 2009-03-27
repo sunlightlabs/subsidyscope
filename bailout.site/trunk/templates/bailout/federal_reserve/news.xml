@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<news>
+{% for n in news %}
+	<news_item date="{{ n.date }}"><![CDATA[{{ n.text|safe }}]]></news_item>
+{% endfor %}
+</news>
