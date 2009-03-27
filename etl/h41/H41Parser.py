@@ -28,7 +28,7 @@ class H41Parser(object):
             {'label': 'Net portfolio holdings of Maiden Lane III LLC', 're': re.compile(r'^\s*Net portfolio holdings of Maiden Lane III LLC', re.I), 'restrict_to_first_table': True}, # BAILOUT
             {'label': 'Federal agency debt securities', 're': re.compile(r'^\s*Federal agency( debt securities )?\(2\)', re.I), 'restrict_to_first_table': True}, # BAILOUT
             {'label': 'Central bank liquidity swaps', 're': re.compile(r'^\s*Central bank liquidity swaps\s+(\(\d+\))?\s+\d+', re.I), 'restrict_to_first_table': True}, # BAILOUT
-            {'label': 'Securities lent to dealers', 're': re.compile(r'^\s*Securities lent to dealers', re.I), 'restrict_to_first_table': False}   # BAILOUT     
+            {'label': 'Term Facility', 're': re.compile(r'^\s*Term facility', re.I), 'restrict_to_first_table': False}   # BAILOUT     
         ]
       
         self._non_bailout_line_items = [
@@ -41,31 +41,7 @@ class H41Parser(object):
             'Other credit extensions',
             'Other federal reserve assets',
         ]
-        self.out_order = [
-            'Reserve Bank credit',
-
-            'U.S. Treasury securities',
-            'Repurchase agreements',
-            'Primary credit',
-            'Secondary credit',
-            'Seasonal credit',
-            'Other credit extensions',
-            'Other federal reserve assets',
-            
-            'Mortgage-backed securities',
-            'Term Auction credit',
-            'Primary dealer and other broker-dealer credit',
-            'Asset-backed Commercial Paper Money Market Mutual Fund Liquidity Facility',
-            'Credit extended to American International Group, Inc.',
-            'Net portfolio holdings of Commercial Paper Funding Facility LLC',
-            'Net portfolio holdings of LLCs funded through the Money market Investor Funding Facility',
-            'Net portfolio holdings of Maiden Lane LLC',
-            'Net portfolio holdings of Maiden Lane II LLC',
-            'Net portfolio holdings of Maiden Lane III LLC',
-            'Federal agency debt securities',
-            'Central bank liquidity swaps',
-            'Securities lent to dealers'
-        ]
+        
         self._re_table_start = re.compile('^(\d)\.')
         self._re_figure = re.compile('\s(\-?[\d\,]+)\s')        
 
