@@ -194,8 +194,9 @@ class Institution(models.Model):
         
     def updateTARPParticipation(self):
         
-        if Transaction.objects.filter(institution=self).count() > 0:
+        if self.transaction_set.all().count() > 0:
             self.tarp_participant = True
+            self.save()
         else:
             self.tarp_participant = False
 
