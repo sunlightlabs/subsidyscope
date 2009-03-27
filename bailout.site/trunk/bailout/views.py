@@ -60,14 +60,21 @@ def tarp_warrants(request):
         # get citi moneyness for transaction id 3  
         if transaction.id == 3:
 
+            citi_stock = transaction.getLastClosingPrice()
+            citi_strike = transaction.warrant_reported_strike_price
+            
+
             # assumes out of money 
-            citi_percentage =  '%d' % int(100 * (1 - abs(transaction.getMoneyPercentage()))) 
+            citi_percentage =  '%d' % int(100 * (abs(transaction.getMoneyPercentage()))) 
             
         # get aig moneyness for transaction id 222  
         if transaction.id == 222:
             
+            aig_stock = transaction.getLastClosingPrice()
+            aig_strike = transaction.warrant_reported_strike_price
+            
             # assumes out of money 
-            aig_percentage =  '%d' % int(100 * (1 - abs(transaction.getMoneyPercentage())))  
+            aig_percentage =  '%d' % int(100 * (abs(transaction.getMoneyPercentage())))  
     
     total_transactions = in_money + out_money
 

@@ -59,6 +59,15 @@ def percent(value, decimals=0):
         return '%d' % int(value * 100)
     except:
         return value
+    
+@register.filter
+def percent_abs(value, decimals=0):
+    
+    try:
+        # need to handle variable precision  
+        return '%d' % abs(int(value * 100))
+    except:
+        return value
 
 @register.filter
 def price(value, decimal='show'):

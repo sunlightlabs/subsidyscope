@@ -437,7 +437,7 @@ class Transaction(models.Model):
         stock = self.getLastClosingPrice()
         strike = self.warrant_reported_strike_price
             
-        percent = (stock / strike).quantize(Decimal('0.01'), rounding=ROUND_HALF_DOWN)
+        percent = 1 - (stock / strike).quantize(Decimal('0.01'), rounding=ROUND_HALF_DOWN)
         
         return percent
          

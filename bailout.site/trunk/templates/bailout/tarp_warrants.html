@@ -97,8 +97,8 @@
 		<th class="strike">Strike<br/>Price</th>
 		<th class="warrants">Warrants<br/>Received</th>
 		<th class="current">Current Stock Price*</th>
-		<th class="inout">In/Out of<br/>Money*</th>
-		<th class="percent">Percent of<br/>Money*</th>
+		<th class="inout">In/Out of<br/>Money ($)*</th>
+		<th class="percent">In/(Out) of<br/>Money (%)*</th>
 	</tr>
 	</thead>
 	</table>
@@ -123,7 +123,7 @@
 		<td class="warrants">{{ t.warrants_issued }}</td>
 		<td class="current">${{ t.getLastClosingPrice }}</td>
 		<td class="inout">{% if t.isInMoneyReportedStrikePrice %}${{ t.getMoneyPositionReportedStrikePrice }}{% else %}<span style="color: red;">${{ t.getMoneyPositionReportedStrikePrice }}</span>{% endif %}</td>
-		<td class="percent">{% if t.isInMoneyReportedStrikePrice %}{{ t.getMoneyPercentage|percent }}%{% else %}<span style="color: red;">{{ t.getMoneyPercentage|percent }}%</span>{% endif %}</td>
+		<td class="percent">{% if t.isInMoneyReportedStrikePrice %}{{ t.getMoneyPercentage|percent_abs }}%{% else %}<span style="color: red;">({{ t.getMoneyPercentage|percent_abs }}%)</span>{% endif %}</td>
 	</tr>
 
 	{% endfor %}

@@ -14,7 +14,7 @@
 					<th align="left" width="25%">Current Price</th>
 					<th align="right" width="25%">Strike Price</th>
 					<th align="right" width="25%">In/Out ($)</th>
-					<th align="right" width="25%">In/Out (%)</th>
+					<th align="right" width="25%">In/(Out) (%)</th>
 				</tr>
 		</table>
 	{% for t in transactions %}
@@ -36,7 +36,7 @@
 			</span>
 			</td>
 			<td align="right" width="25%"><span class="warrant_in">	
-				-{{ t.getMoneyPercentage|percent }}%
+				{{ t.getMoneyPercentage|percent }}%
 			</span></td>
 			{% else %}
 			<td align="right" width="25%"><span class="warrant_out">
@@ -44,7 +44,7 @@
 			</span>
 			</td>
 			<td align="right" width="25%"><span class="warrant_out">
-				{{ t.getMoneyPercentage|percent }}%
+				({{ t.getMoneyPercentage|percent }}%)
 			</span></td>
 			{% endif %}
 			</tr>
