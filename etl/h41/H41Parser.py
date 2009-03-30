@@ -28,7 +28,8 @@ class H41Parser(object):
             {'label': 'Net portfolio holdings of Maiden Lane III LLC', 're': re.compile(r'^\s*Net portfolio holdings of Maiden Lane III LLC', re.I), 'restrict_to_first_table': True}, # BAILOUT
             {'label': 'Federal agency debt securities', 're': re.compile(r'^\s*Federal agency( debt securities )?\(2\)', re.I), 'restrict_to_first_table': True}, # BAILOUT
             {'label': 'Central bank liquidity swaps', 're': re.compile(r'^\s*Central bank liquidity swaps\s+(\(\d+\))?\s+\d+', re.I), 'restrict_to_first_table': True}, # BAILOUT
-            {'label': 'Term Facility', 're': re.compile(r'^\s*Term facility', re.I), 'restrict_to_first_table': False}   # BAILOUT     
+            {'label': 'Term Facility', 're': re.compile(r'^\s*Term facility', re.I), 'restrict_to_first_table': False },   # BAILOUT     
+            {'label': 'Term Asset-Backed Securities Loan Facility', 're': re.compile(r'^\s*Term Asset-Backed Securities Loan Facility', re.I), 'restrict_to_first_table': True } # BAILOUT
         ]
       
         self._non_bailout_line_items = [
