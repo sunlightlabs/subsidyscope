@@ -347,11 +347,16 @@ class TransactionManager(models.Manager):
                 print transaction.institution.stock_symbol
                 transaction.calculateStrikePrice()
     
-    def getLastTransactionDate(self, institution):
+    def getLastTransactionDate(self, institution=None):
         
         try:
-            recentTransaction = self.filter(institution=institution).order_by('-date')[0]
+            if institution:
+                recentTransaction = self.filter(institution=institution).order_by('-date')[0]
+            else:
+                recentTransaction = self.filter().order_by('-date')[0]
+                    
             return recentTransaction.date
+        
         except:
             return False
         
@@ -437,7 +442,7 @@ class Transaction(models.Model):
         stock = self.getLastClosingPrice()
         strike = self.warrant_reported_strike_price
             
-        percent = 1 - (stock / strike).quantize(Decimal('0.01'), rounding=ROUND_HALF_DOWN)
+        percent = (stock / strike).quantize(Decimal('0.01'), rounding=ROUND_HALF_DOWN) - 1
         
         return percent
          
@@ -449,6 +454,7 @@ class Transaction(models.Model):
     def getLastPriceUpdateDate(self):
         
         return InstitutionDailyStockPrice.objects.getLastDate(self.institution)
+    
 
     def getMoneyPositionReportedStrikePrice(self):
         

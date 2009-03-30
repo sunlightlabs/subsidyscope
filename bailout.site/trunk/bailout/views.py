@@ -433,8 +433,11 @@ def bank_search_json(request):
 def bank_summary(request, bank_id):
     
     if bank_id != '':
+        
+        last_tarp_update = Transaction.objects.getLastTransactionDate()
+        
         institution = Institution.objects.select_related().get(id=int(bank_id))
-        return render_to_response('bailout/bank_summary.html', {'institution':institution})
+        return render_to_response('bailout/bank_summary.html', {'institution':institution, 'last_tarp_update':last_tarp_update})
         
         
     return HttpResponse()

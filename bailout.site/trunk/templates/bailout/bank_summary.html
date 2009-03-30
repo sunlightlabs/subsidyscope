@@ -7,21 +7,21 @@
 
 {% if institution.getTotalTARPFundsReceived %}
 	{% if institution.getTARPFundsReceived %}
-		<span class="tarp_received">TARP Funds Received: ${{ institution.getTARPFundsReceived|scale_number }}</span>
+		<span class="tarp_received">TARP Funds Received as of {{ last_tarp_update|date:"F j, Y" }}: ${{ institution.getTARPFundsReceived|scale_number }}</span>
 	{% endif %}
 	{% if institution.getParentTARPFundsReceived %}
-		<span class="tarp_received">TARP Funds Received by Parent Company: ${{ institution.getParentTARPFundsReceived|scale_number }}</span>
+		<span class="tarp_received">TARP Funds Received by Parent Company as of {{ last_tarp_update|date:"F j, Y" }}: ${{ institution.getParentTARPFundsReceived|scale_number }}</span>
 	{% endif %}
 {% else %}
-<span class="no_tarp">No TARP Funds Received.</span>
+<span class="no_tarp">This financial institution had not received TARP funding as of {{ last_tarp_update|date:"F j, Y" }}.</span>
 {% endif %}
 
 
 
 {% if institution.tlgp_participant %}
-<span class="tlgp">(Participating in TLGP)</span>
+<span class="tlgp">(Participating in TLGP debt guarantee program as of January 31, 2009)</span>
 {% else %}
-<span class="no_tlgp">(Not participating in TLGP)</span>
+<span class="no_tlgp">(Not participating in TLGP debt guarantee program as of January 31, 2009)</span>
 {% endif %}
 
 </div>
