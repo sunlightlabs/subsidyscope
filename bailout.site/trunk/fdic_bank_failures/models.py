@@ -18,6 +18,7 @@ class BankFailure(models.Model):
     range_low = models.DecimalField("Amount Range Low Bound ($millions)", max_digits=15, decimal_places=2, blank=True, null=True)
     range_high = models.DecimalField("Amount Range High Bound ($millions)", max_digits=15, decimal_places=2, blank=True, null=True)
     notes = models.CharField("Notes", max_length=255, blank=True, null=True)
+    ig_report = models.URLField("Report", max_length=255, blank=True, default='')
     
     def grouping_hash(self):
         """gets the quarter, currently, for easy categorization in flex"""
