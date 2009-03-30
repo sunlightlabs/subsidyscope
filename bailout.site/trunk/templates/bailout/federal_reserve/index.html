@@ -34,7 +34,8 @@ $(function(){
 		width: 550,
 		height: 350,	       
 		data_url: 'http://' + window.location.host + '{% url h41_snapshot_xml %}',
-		policy_file: 'http://' + window.location.host + '/crossdomain.xml',
+		timeline_data_url: 'http://' + window.location.host + '{% url fed_news_xml %}',
+		policy_file: 'http://' + window.location.host + '/crossdomain.xml'
 	},
 	{
 		bgcolor: '#ffffff'
