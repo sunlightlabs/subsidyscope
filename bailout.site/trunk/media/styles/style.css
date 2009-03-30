@@ -353,8 +353,8 @@ table.warrant_tracker td {
 #search_results_bank_summary .tarp_received { display:block; font-weight:bold; color:#548330;}
 #search_results_bank_summary .address { font-size:11px; }
 #search_results_bank_summary .no_tarp { display:block; }
-#search_results_bank_summary .tlgp { display:block; font-size:11px; color:#333333;}
-#search_results_bank_summary .no_tlgp { display:block; font-size:11px; color:#333333; }
+#search_results_bank_summary .tlgp { display:block; font-weight:bold; color:#548330;}
+#search_results_bank_summary .no_tlgp { display:block; }
 
 /* glossary */
 dl#glossary dt { display: block; padding: 0; margin-bottom: 0.2em; }
