@@ -119,7 +119,9 @@ class BankSearchNode(template.Node):
     
     def render(self, context):
         
-        return  render_to_string('bailout/bank_search.html')
+        last_tarp_update = Transaction.objects.getLastTransactionDate()
+        
+        return  render_to_string('bailout/bank_search.html', {'last_tarp_update':last_tarp_update})
     
     
   

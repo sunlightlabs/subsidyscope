@@ -54,6 +54,9 @@ function TARP_init()
             },
             5: {
                 sorter:'currency'
+            },
+            6: {
+                sorter:'percent'
             }
         },
         sortList: [[0,0]],
