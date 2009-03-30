@@ -25,7 +25,7 @@ function search_init()
 		}
 		else
 		{
-			$("#bankInfo").html('<div id="search_results_bank_summary"><strong>This financial institution had not received TARP funding as of {{ last_tarp_update|date:"F j, Y" }}, or participated in TLGP debt guarantee program as of January 31, 2009.</strong><p style="font-size: 0.8em; line-height: 1.2em; color: #666;">Credit unions, savings and loans, and banks not receiving TARP funding or participating in TLGP are not included.</p></div>');
+			$("#bankInfo").html('<div id="search_results_bank_summary">This financial institution had not received TARP funding as of {{ last_tarp_update|date:"F j, Y" }}, or participated in TLGP debt guarantee program as of January 31, 2009.</div>');
 		}
 	}
 	
