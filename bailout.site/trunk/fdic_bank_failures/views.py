@@ -18,6 +18,11 @@ def fdic_bank_failures(request):
     return render_to_response('bailout/fdic/bank_failures.html', { 'num_failures': int2word(recent_failed_banks.count()), 'last_failure_year': recent_failed_banks[0].closing_date.strftime('%Y'), 'last_failure_month_day': recent_failed_banks[0].closing_date.strftime('%B %d') })
         
 
+def fdic_bank_failures_table(request):
+    bank_failure_list = BankFailure.objects.all().order_by('closing_date')    
+    return render_to_response('bailout/fdic/fdic_bank_failure_table.html', { 'bank_failure_list': bank_failure_list })
+    
+
 def fdic_bank_failures_csv(request):
     
     # Create the HttpResponse object with the appropriate CSV header.

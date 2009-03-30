@@ -1,0 +1,75 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load webdesign %}
+{% load media %}
+
+{% block additional_js %}
+	{% js "swfobject.js" %}
+{% endblock %}
+
+{% block additional_css %}
+	<style type="text/css">@import "{% url bailout-visualization-css %}";</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+	
+	<div class="span-15">
+		<div class="full_padding">
+			
+			<h2 class="type_header">Bailout</h2>
+			<h3 class="section_header" style="font-size:20px">BANK FAILURES</h3>
+
+			<p>The following table lists the bank failures that have occurred since 2000.  When available, the IG Report associated with each bank failure is linked from the bank's name.</p>
+
+			<table id="bank-failures">
+			<thead>
+				<tr>
+					<th class="date">Date</th>
+					<th class="name">Name</th>
+					<th class="location">Location</th>
+					<th class="amount">Amount</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				{% for failure in bank_failure_list %}
+				<tr>
+					<td class="date">{{ failure.closing_date }}</td>
+					<td class="name">{% if failure.report %}<a href="{{ failure.report }}">{% endif %}{{ failure.name }}{% if failure.report %}</a>{% endif %}</td>
+					<td class="location">{{ failure.city }}, {{ failure.state }}</td>
+					<td class="amount">{% if failure.exact_amount %}${{ failure.exact_amount|floatformat:"-2" }}m{% else %}{% if failure.range_low and failure.range_high %}${{ failure.range_low|floatformat }}&ndash;{{ failure.range_high|floatformat }}m{% else %}N/A{% endif %}{% endif %}{% if failure.notes %}<div class="notes">({{ failure.notes }})</div>{% endif %}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+			</table>
+
+			<p>If you'd like to work with this data, you may <a href="{% url fdic_bank_failures_csv %}">download it in CSV format</a>.</p>
+
+			<style type="text/css">
+			table#bank-failures td.name{ text-align: left; width:250px;}
+			table#bank-failures td.amount{ text-align: right;}
+			table#bank-failures td.amount .notes { font-size: 0.85em;}
+			table#bank-failures td.location{ text-align: right;}
+			table#bank-failures td.notes{ text-align: center; font-size: 0.8em;}
+			</style>	
+			
+			</div>
+	</div>
+	
+
+	<div class="span-4 last">&nbsp;</div>
+	
+	<div class="span-24">
+		<div class="full_padding">
+		</div>
+	</div>
+</div>
+
+{% endblock %}

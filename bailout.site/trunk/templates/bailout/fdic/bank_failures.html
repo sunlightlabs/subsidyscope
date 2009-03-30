@@ -28,7 +28,7 @@
 
 			<p>The Federal Deposit Insurance Corporation insures deposits in U.S. banks and thrifts up to $250,000. When an institution fails, a charge is made against the Deposit Insurance Fund, which is supported by fees imposed on the banking industry. The fund is also supported by a backstop line of credit from the U.S. Treasury that could be tapped if the fees are insufficient to cover losses.</p>
 
-			<p>The fund seemed in little danger of being depleted until the recent financial crisis unfolded. A rash of bank failures has caused the fund’s balance to drop from about <a href="http://www2.fdic.gov/qbp/2008dec/dep1b.html">$52 billion in the fourth quarter of 2007 to about $19 billion in the fourth quarter of 2008</a>. Twenty banks had failed in 2009 as of March 23, and many more are expected to go under before the crisis abates. <a href="{% url fdic_bank_failures_csv %}">Download a list of failed banks and their charges against the fund here</a>.</p>			
+			<p>The fund seemed in little danger of being depleted until the recent financial crisis unfolded. A rash of bank failures has caused the fund’s balance to drop from about <a href="http://www2.fdic.gov/qbp/2008dec/dep1b.html">$52 billion in the fourth quarter of 2007 to about $19 billion in the fourth quarter of 2008</a>. Twenty banks had failed in 2009 as of March 23, and many more are expected to go under before the crisis abates. <a href="{% url fdic_bank_failures_table %}">You can find a complete list of failed banks and their charges against the fund here</a>.</p>			
 
 			<p>FDIC has imposed new fees on banks to replenish the fund. Nonetheless, it also has asked Congress to increase its line of credit from <a href="http://thomas.loc.gov/cgi-bin/cpquery/17?&sid=ITLUMwGzjX&l_f=1&l_file=list/cp111ch.lst&hd_count=50&l_t=38&refer=&r_n=hr018.111&db_id=111&item=17&sel=TOC_7958&">$30 billion to $100 billion</a> to create a cushion in case the fund falls into negative territory and help from the Treasury is needed. (History shows that support from the Treasury can be important. In the 1980s, the fund that insured deposits in savings and loans became insolvent, a victim of an S-and-L crisis that, by some estimates, cost taxpayers about $125 billion. The fund was abolished in 1989. For more details, <a href="http://www.fdic.gov/bank/analytical/banking/2000dec/brv13n2_2.pdf">click here</a>.</p>
 			
@@ -127,11 +127,12 @@
 				);			
 			});
 			</script>			
-
-		</div>
+		
 	
 		<p>Source for all charts: FDIC Quarterly Banking Profile (<a href="{% url fdic_qbpsnapshot_csv %}">Download CSV</a>).</p>
 			
+			
+		</div>
 	</div>
 	
 
