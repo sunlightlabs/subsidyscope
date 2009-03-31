@@ -5,10 +5,8 @@
 <div id="update_item">
 <h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
 <p><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} 
-	
-	{% if item.extended_text %}
-		<a href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">read more</a>
-	{% endif %}				
+	<a style="font-size: 10px;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
 </p>
+
 </div>
 {% endfor %}
