@@ -29,13 +29,14 @@
 </div></div>
 <script type="text/javascript">
 $(function(){
-	swfobject.embedSWF('{% media_url %}/scripts/fed_h41_1.0.swf', 'fed-h41', 550, 350, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', 
+	swfobject.embedSWF('{% media_url %}/scripts/fed_h41_1.1.swf', 'fed-h41', 550, 400, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', 
 	{
 		width: 550,
-		height: 350,	       
+		height: 400,	       
 		data_url: 'http://' + window.location.host + '{% url h41_snapshot_xml %}',
 		timeline_data_url: 'http://' + window.location.host + '{% url fed_news_xml %}',
-		policy_file: 'http://' + window.location.host + '/crossdomain.xml'
+		policy_file: 'http://' + window.location.host + '/crossdomain.xml',
+		colors: '50c3e1,b79bd1,ff9595,50c3e1,b2de82,ff923f,5ca3f0,ff7776,baf275,ba92de,ffaa4a,34dbf5,b1cef9,b6d3fe,b79bd1'		
 	},
 	{
 		bgcolor: '#ffffff'
