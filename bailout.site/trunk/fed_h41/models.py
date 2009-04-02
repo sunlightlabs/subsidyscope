@@ -4,7 +4,7 @@ from django.db import models
 class H41Snapshot(models.Model):
 
     def __unicode__(self):
-        return '%s - $%d' % (self.date, self.reserve_bank_credit)
+        return str(self.date)
     class Meta:
         verbose_name = 'H41 Snapshot'
         ordering = ['-date']
