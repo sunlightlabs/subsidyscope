@@ -19,7 +19,7 @@ function TARP_init()
     /* initial tarp viz */
 	
 	
-	swfobject.embedSWF('{% media_url %}/scripts/tarp-f.swf', 'tarp', {{ visualization_settings.width }}, {{ visualization_settings.height }}, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {
+	swfobject.embedSWF('{% media_url %}/scripts/tarp-1.1.swf', 'tarp', {{ visualization_settings.width }}, {{ visualization_settings.height }}, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {
        	       width: {{ visualization_settings.width }},
        	       height: {{ visualization_settings.height }},
        	       bar_width: {{ visualization_settings.bar_width }},
@@ -43,62 +43,6 @@ function TARP_init()
 	
 	
 	/* by date viz */
-/*$.getJSON("/projects/bailout/tarp/filter/state/",
-	        function(data){
-	        
-	       		var filterValue = $("#filterValue").get(0);
-				filterValue.options.length = 0;
-				
-				filterValue.options[0] = new Option('Show All', '');
-				
-				$.each(data, function () {
-    				filterValue.options[filterValue.options.length] = new Option(this.name, this.value);
-				});
-				
-				$("#filterValue").show();	  
-	        });
-
-	function filterByChanged()
-	{
-		var filterBy = $("#filterBy option:selected").val();
-
-		if(filterBy == 'none')
-		{
-			$("#filterValue").hide();
-			var filterValue = $("#filterValue").get(0);
-			filterValue.options.length = 0;
-			
-			return;
-		}	
-			
-		$.getJSON("/projects/bailout/tarp/filter/" + filterBy + "/",
-	        function(data){
-	        
-	       		var filterValue = $("#filterValue").get(0);
-				filterValue.options.length = 0;
-				
-				filterValue.options[0] = new Option('Show All', '');
-				
-				$.each(data, function () {
-    				filterValue.options[filterValue.options.length] = new Option(this.name, this.value);
-				});
-				
-				$("#filterValue").show();	  
-	        });
-	}
-	
-	function filterValueChanged()
-	{
-		var filterValue = $("#filterValue option:selected").val();
-		
-		var flash = document.getElementById("tarpTimelineVis");
-		
-		if(filterValue != "")
-			flash.filterState(filterValue);
-		else
-			flash.clearFilter();	
-	}*/
-			
 	
 	swfobject.embedSWF('{% media_url %}/scripts/TARPVis.swf', 'tarpTimelineVis', 900, 300, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
 	

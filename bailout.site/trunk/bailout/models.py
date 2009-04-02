@@ -497,6 +497,11 @@ class Transaction(models.Model):
                 self.SubsidyEstimate.__dict__.update({'date': None, 'source': None, 'subsidy_rate': None})
 
         return self.SubsidyEstimate
+        
+    def is_negative(self):
+        """ returns true if the transaction amount is negative. convenience method for templating. """
+        print self.price_paid, self.price_paid<0
+        return self.price_paid<0
     
             
 class SubsidyEstimate(models.Model):
