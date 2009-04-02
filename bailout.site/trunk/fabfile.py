@@ -18,7 +18,7 @@ def subsidyscope_setup():
     set( local_project_root=get('subsidyscope_local_project_root'), local_ssh_keyfile_for_staging=get('subsidyscope_local_ssh_keyfile_for_staging'), local_login_for_staging=get('subsidyscope_local_login_for_staging') ) 
 
 
-# TODO: add private decorator once fabric adds support for it
+# DEPRECATED FOR DATA-HEAVY APPLICATIONS
 def push_fixture(fixture_name=None, restart_server=False):
     subsidyscope_setup()
     
@@ -37,7 +37,7 @@ def push_fixture(fixture_name=None, restart_server=False):
         run('/home/subsidyscope/run-this.sh')
 
 
-# TODO: add private decorator once fabric adds support for it
+# DEPRECATED FOR DATA-HEAVY APPLICATIONS
 def pull_fixture(fixture_name=None):
     if fixture_name is None:
         prompt('app_name', 'What application fixture would you like to retrieve and install locally?')
@@ -69,10 +69,12 @@ def pull_documents():
     subsidyscope_setup()
     pull_fixture('bailout_pdfs')
 
+
 def pull_email_list_to_local():
     "Pulls the list of subscribers from the staging server to the local box"
     subsidyscope_setup()
     pull_fixture('spammer')
+
     
 def pull_email_list_to_staging():
     "Pulls the list of subscribers from the production server to the staging server"
@@ -135,7 +137,7 @@ def push_local_tarp_to_staging():
     subsidyscope_setup()
     push_local_fixture_to_staging('etl', restart_server=False)
     push_local_fixture_to_staging('bailout', restart_server=True)
-     
+
 def push_project_updates():
     "Pushes files and fixtures supporting the project_updates application (mini-blog) from staging to production."
     # setup -- all commands go through a shell connection to the live site
@@ -147,6 +149,20 @@ def push_project_updates():
     # sync project update data
     push_fixture('project_updates', restart_server=True)
     
+
+def get_mysql_string(subsidyscope_com_local_settings):
+    db_settings = []
+    if subsidyscope_com_local_settings.DATABASE_USER:
+        db_settings.append('-u%s' % subsidyscope_com_local_settings.DATABASE_USER)
+    if subsidyscope_com_local_settings.DATABASE_PORT:
+        db_settings.append('-P%s' % subsidyscope_com_local_settings.DATABASE_PORT)
+    if subsidyscope_com_local_settings.DATABASE_PASSWORD:
+        db_settings.append('-p%s' % subsidyscope_com_local_settings.DATABASE_PASSWORD)
+    if subsidyscope_com_local_settings.DATABASE_HOST:
+        db_settings.append('-h%s' % subsidyscope_com_local_settings.DATABASE_HOST)            
+    if subsidyscope_com_local_settings.DATABASE_NAME:
+        db_settings.append('-D%s' % subsidyscope_com_local_settings.DATABASE_NAME)
+    return 'mysql %s' % ' '.join(db_settings)
 
 def drop_and_reload_live_models(app=None):
     subsidyscope_setup()
@@ -167,25 +183,8 @@ def drop_and_reload_live_models(app=None):
         if app is None:
             prompt('app_name', 'What application should we refresh?')        
 
-        # grab database settings
-        download('$(live_project_root)/local_settings.py', 'local_settings.py')
-        local('mv local_settings.py.subsidyscope.com subsidyscope_com_local_settings.py')
-        import subsidyscope_com_local_settings
-        assert subsidyscope_com_local_settings.DATABASE_ENGINE=='mysql', "live site appears to not be using mysql"
-
-        db_settings = []
-        if subsidyscope_com_local_settings.DATABASE_USER:
-            db_settings.append('-u%s' % subsidyscope_com_local_settings.DATABASE_USER)
-        if subsidyscope_com_local_settings.DATABASE_PORT:
-            db_settings.append('-P%s' % subsidyscope_com_local_settings.DATABASE_PORT)
-        if subsidyscope_com_local_settings.DATABASE_PASSWORD:
-            db_settings.append('-p%s' % subsidyscope_com_local_settings.DATABASE_PASSWORD)
-        if subsidyscope_com_local_settings.DATABASE_HOST:
-            db_settings.append('-h%s' % subsidyscope_com_local_settings.DATABASE_HOST)            
-        if subsidyscope_com_local_settings.DATABASE_NAME:
-            db_settings.append('-D%s' % subsidyscope_com_local_settings.DATABASE_NAME)
-
-        set(mysql = ('mysql %s' % (' '.join(db_settings))))        
+        # grab database settings        
+        set(mysql = get_live_mysql_string())
 
         # DROP
         run('python $(live_project_root)/manage.py sqlclear $(app_name) | $(mysql)')
@@ -199,12 +198,120 @@ def drop_and_reload_live_models(app=None):
         # PUSH DATA
         push_fixture(ENV['app_name'])
 
-def launch_the_damn_thing():
-    subsidyscope_setup()
-         
-    run('svn up $(live_project_root)')
-    run('python $(live_project_root)/manage.py syncdb') # handle new app for gchart stuff
-    push_fixture('tarp_subsidy_graphics')
-    drop_and_reload_live_models('bailout')
-    drop_and_reload_live_models('project_updates')
+def get_staging_mysql_string():
+    """ returns mysql string for staging server """
+    subsidyscope_setup()    
+    local('scp -C -i $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging):$(staging_project_root)/local_settings.py $(local_project_root)/local_settings_staging.py')
+    import local_settings_staging
+    assert local_settings_staging.DATABASE_ENGINE=='mysql', "staging site appears not to be using mysql"
+    local('rm $(local_project_root)/local_settings_staging.py')
+    return get_mysql_string(local_settings_staging)
     
+    
+def get_local_mysql_string():
+    """ returns mysql string for local server """
+    import local_settings
+    assert local_settings.DATABASE_ENGINE=='mysql', "local site appears not to be using mysql"
+    return get_mysql_string(local_settings)
+
+
+def get_live_mysql_string():
+    """ returns mysql string for local server """
+    subsidyscope_setup()    
+    download('$(live_project_root)/local_settings.py', 'local_settings.py')
+    local('mv local_settings.py.subsidyscope.com local_settings_live.py')
+    import local_settings_live
+    assert local_settings_live.DATABASE_ENGINE=='mysql', "live site appears not to be using mysql"
+    local('rm local_settings_live.py')
+    return get_mysql_string(local_settings_live)
+
+
+def convert_mysql_string_to_mysqldump(m):
+    """ converts a mysql string to a mysqldump string; assumes -D flag comes last """
+    return m.replace('mysql ', 'mysqldump ').replace('-D', '')
+
+def get_staging_table_names(fixture_name):
+    # figure out which tables are involved in the app
+    # (need to write to a file because fabric doesn't capture output of local())
+    set(app_name=fixture_name)
+    re_create_table = re.compile(r'CREATE\s*TABLE\s*`?(.*?)`?\s*[\($]', re.I)
+    subsidyscope_setup()
+    tables = []
+    local('python $(local_project_root)/manage.py sql $(app_name) > /tmp/$(app_name)-create.sql')
+    f = open('/tmp/%s-create.sql' % ENV['app_name'],'r')
+    create_sql = f.readlines()
+    f.close()
+    local('rm /tmp/$(app_name)-create.sql')    
+    for line in create_sql:
+        m = re_create_table.search(line)
+        if m:
+            tables.append(m.group(1))
+    return tables
+
+def push_fixture_from_local_to_staging_via_mysql(fixture_name=None, backup=True):
+    """ push fixture from local to staging using SQL instead of fixtures (as fixtures have turned flaky) """
+    if fixture_name is None:
+        prompt('app_name', 'What application fixture would you like to move from local to staging?')
+        fixture_name = ENV['app_name']
+
+    set(app_name=fixture_name)
+
+    # backup DB
+    if backup:
+        local('ssh -i $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging) "~/subsidyscope_backup.sh"')
+
+    tables = get_staging_table_names(fixture_name)
+    
+    # dump the tables to a local file
+    mysqldump = '%s %s > /tmp/$(app_name).sql' % (convert_mysql_string_to_mysqldump(get_local_mysql_string()), ' '.join(tables))
+    local(mysqldump)
+    
+    # copy dumped file to staging server
+    local('scp -C -i $(subsidyscope_local_ssh_keyfile_for_staging) /tmp/$(app_name).sql $(subsidyscope_local_login_for_staging):$(staging_project_root)/data/ && rm /tmp/$(app_name).sql')
+
+    # import file contents on staging server and delete it
+    staging_mysql = get_staging_mysql_string()
+    local('ssh -i $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging) "cat $(staging_project_root)/data/$(app_name).sql | %s && ~/run-this.sh && rm $(staging_project_root)/data/$(app_name).sql"' % staging_mysql)
+    
+
+def push_fixture_from_staging_to_live_via_mysql(fixture_name=None, backup=True):
+    """ push the TARP tables from staging to live using SQL instead of fixtures (as fixtures have turned flaky) """
+    if fixture_name is None:
+        prompt('app_name', 'What application fixture would you like to move from staging to production?')
+        fixture_name = ENV['app_name']
+        
+    set(app_name=fixture_name)
+
+    # backup DB
+    if backup:
+        run('~/subsidyscope_backup.sh')
+
+    # use staging to figure out which tables are included in the app
+    tables = get_staging_table_names(fixture_name)
+
+    # dump the tables into a file on staging
+    mysqldump = '%s %s' % (convert_mysql_string_to_mysqldump(get_staging_mysql_string()), ' '.join(tables))
+    run('ssh -i $(live_ssh_keyfile_for_staging) $(live_login_for_staging) "%s > /tmp/$(app_name).sql"' % mysqldump)
+
+    # copy the file onto the production server
+    run('scp -C -i $(live_ssh_keyfile_for_staging) $(live_login_for_staging):/tmp/$(app_name).sql /tmp/$(app_name).sql')
+
+    # delete the file from the staging server
+    run('ssh -i $(live_ssh_keyfile_for_staging) $(live_login_for_staging) "rm /tmp/$(app_name).sql"')
+
+    # import the sqldump on the live server
+    live_mysql = get_live_mysql_string()
+    run('cat /tmp/$(app_name).sql | %s && ~/run-this.sh && rm /tmp/$(app_name).sql' % live_mysql)
+    
+    
+def push_local_imported_tarp():
+    """ pushes locally-imported TARP changes to the staging server """
+    subsidyscope_setup()
+    push_fixture_from_local_to_staging_via_mysql('etl')
+    push_fixture_from_local_to_staging_via_mysql('bailout', backup=False) # only backup before the first operation so we can roll back properly
+
+def push_tarp():
+    """ pushes bailout fixture from staging to production """
+    subsidyscope_setup()
+    push_fixture_from_staging_to_live_via_mysql('etl')
+    push_fixture_from_staging_to_live_via_mysql('bailout', backup=False) # only backup before the first operation so we can roll back properly
