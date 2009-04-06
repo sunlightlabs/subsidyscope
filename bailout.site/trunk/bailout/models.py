@@ -396,7 +396,8 @@ class Transaction(models.Model):
         ('TIP', 'Targeted Investment Program'),
         ('AIFP', 'Automotive Industry Financing Program'),
         ('SSFI', 'Systematically Significant Failing Institutions'),
-        ('TLGP', 'Temporary Liquidity Guarantee Program')
+        ('TLGP', 'Temporary Liquidity Guarantee Program'),
+        ('CBLIIP','Consumer and Business Lending Initiative Investment Program')
     )
     program = models.CharField("Program", max_length=50, choices=PROGRAM_CHOICES, blank=True, null=True, default='CPP')
 
