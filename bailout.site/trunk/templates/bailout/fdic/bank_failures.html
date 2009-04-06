@@ -28,16 +28,16 @@
 
 			<p>The Federal Deposit Insurance Corporation insures deposits in U.S. banks and thrifts up to $250,000. When an institution fails, a charge is made against the Deposit Insurance Fund, which is supported by fees imposed on the banking industry. The fund is also supported by a backstop line of credit from the U.S. Treasury that could be tapped if the fees are insufficient to cover losses.</p>
 
-			<p>The fund seemed in little danger of being depleted until the recent financial crisis unfolded. A rash of bank failures caused the fund’s balance to drop from about <a href="http://www2.fdic.gov/qbp/2008dec/dep1b.html">$52 billion in the fourth quarter of 2007 to about $19 billion in the fourth quarter of 2008</a>. Twenty-one banks failed during the first quarter of 2009, and many more are expected to go under before the crisis abates. <a href="{% url fdic_bank_failures_csv %}">Download a list of failed banks and their charges against the fund here</a>.</p>
+			<p>The fund seemed in little danger of being depleted until the recent financial crisis unfolded. A rash of bank failures caused the fund's balance to drop from about <a href="http://www2.fdic.gov/qbp/2008dec/dep1b.html">$52 billion in the fourth quarter of 2007 to about $19 billion in the fourth quarter of 2008</a>. Twenty-one banks failed during the first quarter of 2009, leading to estimated charges against the fund of $2.3 billion, and many more are expected to go under before the crisis abates. <a href="{% url fdic_bank_failures_table %}">View or download a list of failed banks and their charges against the fund here</a>.</p>
 
-			<p>By law, a review is required whenever the Deposit Insurance Fund incurs a "material loss" from an institution placed in FDIC receivership.  To reach that threshold, the loss must exceed the greater of $25 million or 2 percent of an institution's total assets. The review must be carried out by the inspector general of the institution’s regulator within six months of the failure. Subsidyscope provides material loss reviews in a downloadable form when they are available.</p>
+			<p>By law, a review is required whenever the fund incurs a "material loss" from an institution placed in FDIC receivership.  To reach that threshold, the loss must exceed the greater of $25 million or 2 percent of an institution's total assets. The review must be carried out by the inspector general of the institution's regulator within six months of the failure. Subsidyscope provides material loss reviews in a downloadable form when they are available.</p>
 
-			<p>FDIC has imposed new fees on banks to replenish the fund. Nonetheless, it also has asked Congress to increase its line of credit from <a href="http://thomas.loc.gov/cgi-bin/cpquery/17?&sid=ITLUMwGzjX&l_f=1&l_file=list/cp111ch.lst&hd_count=50&l_t=38&refer=&r_n=hr018.111&db_id=111&item=17&sel=TOC_7958&">$30 billion to $100 billion</a> to create a cushion in case the fund falls into negative territory and help from the Treasury is needed. (History shows that support from the Treasury can be important. In the 1980s, the fund that insured deposits in savings and loans became insolvent, a victim of a thrift crisis that, by some estimates, cost taxpayers about $125 billion. The fund was abolished in 1989. For more details, <a href="http://www.fdic.gov/bank/analytical/banking/2000dec/brv13n2_2.pdf">click here</a>.</p>
+			<p>FDIC has imposed new fees on banks to replenish the fund. Nonetheless, it also has asked Congress to increase its line of credit from <a href="http://thomas.loc.gov/cgi-bin/cpquery/17?&sid=ITLUMwGzjX&l_f=1&l_file=list/cp111ch.lst&hd_count=50&l_t=38&refer=&r_n=hr018.111&db_id=111&item=17&sel=TOC_7958&">$30 billion to $100 billion</a> to create a cushion in case the fund falls into negative territory and help from the Treasury is needed. History shows that support from the Treasury can be important. In the 1980s, the fund that insured deposits in savings and loans became insolvent, a victim of a thrift crisis that, by some estimates, cost taxpayers about $125 billion. The fund was abolished in 1989. For more details, <a href="http://www.fdic.gov/bank/analytical/banking/2000dec/brv13n2_2.pdf">click here</a>.</p>		
 
-			<p>The graphics below show how, as the number of bank failures has soared, the Deposit Insurance Fund’s reserves have plummeted.</p>
+			<p>The graphics below show how, as the number of bank failures has soared, the Deposit Insurance Fund's reserves have plummeted.</p>
 
 
-			<div id="bank-failures-container" style="width: 500px; margin: 0 auto"><h4 style="text-align: center">Bank Failures</h3><div id="bankFailureVis" style="text-align:center;">				
+			<div id="bank-failures-container" style="width: 500px; margin: 0 auto 1em auto"><h4 style="text-align: center">Bank Failures</h3><div id="bankFailureVis" style="text-align:center;">				
 				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
 				<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
 			</div></div>
@@ -59,7 +59,7 @@
 			</script>
 
 		
-			<div id="bank-failures-container" style="width: 500px; margin: 0 auto"><h4 style="text-align: center">Deposit Insurance Fund Balance</h3><div id="DIF-fund-balance" style="text-align:center;">				
+			<div id="bank-failures-container" style="width: 500px; margin: 0 auto 1em auto"><h4 style="text-align: center">Deposit Insurance Fund Balance</h3><div id="DIF-fund-balance" style="text-align:center;">				
 				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
 				<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
 			</div></div>
@@ -81,10 +81,10 @@
 			});
 			</script>
 			
-			<p>The reserve ratio is another measure of the fund’s precariousness. <a href="http://www.fdic.gov/deposit/insurance/initiative/index.html">By law</a>, the fund is supposed to remain within 1.15 percent and 1.5 percent of all insured deposits. If the ratio falls below the lower limit, the FDIC must raise assessment rates on covered financial institutions; if it rises above the upper limit, the FDIC must increase dividends to those same institutions by the excess amount. In December 2007, the reserve ratio was <a href="http://www2.fdic.gov/qbp/2007dec/dep1b.html">1.22 percent</a>, but by December 2008, it had fallen precipitously to <a href="http://www2.fdic.gov/qbp/2008dec/dep1b.html">0.4 percent</a>. A fund restoration plan <a href="http://www.fdic.gov/deposit/insurance/initiative/index.html">announced by the FDIC</a> will increase assessment rates with the aim of restoring the ratio to 1.15 percent by December 31, 2015.</p>
+			<p>The reserve ratio is another measure of the fund's precariousness. By law, the fund is supposed to remain within 1.15 percent and 1.5 percent of all insured deposits. If the ratio falls below the lower limit, the FDIC must raise assessment rates on covered financial institutions; if it rises above the upper limit, the FDIC must increase dividends to those same institutions by the excess amount. In December 2007, the reserve ratio was 1.22 percent, but by December 2008, it had fallen precipitously to <a href="http://www2.fdic.gov/qbp/2008dec/dep1b.html">0.4 percent</a>. A <a href="http://www.fdic.gov/deposit/insurance/initiative/index.html">fund restoration plan announced by the FDIC</a> will increase assessment rates with the aim of restoring the ratio to 1.15 percent by December 31, 2015.</p>		
 						
 
-			<div id="bank-failures-container" style="width: 500px; margin: 0 auto"><h4 style="text-align: center">Deposit Insurance Fund Reserve Ratio</h3><div id="DIF-reserve-ratio" style="text-align:center;">				
+			<div id="bank-failures-container" style="width: 500px; margin: 0 auto 1em auto"><h4 style="text-align: center">Deposit Insurance Fund Reserve Ratio</h3><div id="DIF-reserve-ratio" style="text-align:center;">				
 				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
 				<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
 			</div></div>
@@ -109,7 +109,7 @@
 			<p>Another measure of the fund's instability is the number of problem institutions insured by the FDIC &mdash; institutions with weaknesses that threaten their continued financial viability.  According to <a href="http://www2.fdic.gov/qbp/2008dec/qbp.pdf">the FDIC's December 2008 Quarterly Banking Profile</a>, as of December 2007 there were 76 such institutions, with total assets of $22 billion. By December 2008 the number of problem institutions had grown to 252, with total assets of $159 billion.</p>
 
 			
-			<div id="bank-failures-container" style="width: 500px; margin: 0 auto"><h4 style="text-align: center">FDIC Problem Institutions</h3><div id="problem-institutions" style="text-align:center;">				
+			<div id="bank-failures-container" style="width: 500px; margin: 0 auto 1em auto"><h4 style="text-align: center">FDIC Problem Institutions</h3><div id="problem-institutions" style="text-align:center;">				
 				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
 				<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
 			</div></div>

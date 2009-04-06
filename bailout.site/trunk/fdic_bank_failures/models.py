@@ -31,6 +31,12 @@ class BankFailure(models.Model):
             return self.exact_amount
 
 class QBPSnapshot(models.Model):
+    def __unicode__(self):
+        return '%s' % self.date
+    class Meta:
+        verbose_name = 'QBP Snapshot'
+        ordering = ['-date']    
+    
     date = models.DateField("Date")
     problem_institutions = models.IntegerField(max_length=10, blank=True, null=True)
     reserve_ratio = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
