@@ -112,7 +112,8 @@ class Institution(models.Model):
         ('thrift holding company', 'Thrift Holding Company'), 
         ('savings and loan', 'Savings & Loan'),
         ('insurance company', 'Insurance Company'), 
-        ('auto company', 'Auto Company')
+        ('auto company', 'Auto Company'),
+        ('other', 'Other')
     )
     
     type_of_institution = models.CharField("Institution Type", max_length=25, choices=TYPE_CHOICES, default='bank')
