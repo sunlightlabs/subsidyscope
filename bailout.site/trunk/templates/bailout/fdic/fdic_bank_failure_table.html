@@ -42,7 +42,7 @@
 				{% for failure in bank_failure_list %}
 				<tr>
 					<td class="date">{{ failure.closing_date }}</td>
-					<td class="name">{% if failure.report %}<a href="{{ failure.report }}">{% endif %}{{ failure.name }}{% if failure.report %}</a>{% endif %}</td>
+					<td class="name">{% if failure.ig_report %}<a href="{{ failure.ig_report }}">{% endif %}{{ failure.name }}{% if failure.report %}</a>{% endif %}</td>
 					<td class="location">{{ failure.city }}, {{ failure.state }}</td>
 					<td class="amount">{% if failure.exact_amount %}${{ failure.exact_amount|floatformat:"-2" }}m{% else %}{% if failure.range_low and failure.range_high %}${{ failure.range_low|floatformat }}&ndash;{{ failure.range_high|floatformat }}m{% else %}N/A{% endif %}{% endif %}{% if failure.notes %}<div class="notes">({{ failure.notes }})</div>{% endif %}</td>
 				</tr>
