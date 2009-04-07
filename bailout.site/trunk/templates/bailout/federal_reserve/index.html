@@ -28,15 +28,19 @@
 			<div><h4 style="text-align: center">Factors Affecting Federal Reserve Balances</h3><div id="fed-h41" style="text-align:center;">				
 				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
 				<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
-			</div></div>
+			</div>
+			
+			<div class="attribution">Source: <a href="http://www.subsidyscope.com">www.subsidyscope.com</a>. Data from <a href="http://www.federalreserve.gov/releases/h41/">The Federal Reserve</a> (<a href="{% url fdic_qbpsnapshot_csv %}">Download CSV</a>).</div>
+			</div>
 			<script type="text/javascript">
 			$(function(){
-				swfobject.embedSWF('{% media_url %}/scripts/fed_h41_1.1.swf', 'fed-h41', 550, 400, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', 
+				var d = new Date();
+				swfobject.embedSWF('{% media_url %}/scripts/fed_h41_1.3.swf', 'fed-h41', 550, 400, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', 
 				{
 					width: 550,
 					height: 400,	       
-					data_url: 'http://' + window.location.host + '{% url h41_snapshot_xml %}',
-					timeline_data_url: 'http://' + window.location.host + '{% url fed_news_xml %}',
+					data_url: 'http://' + window.location.host + '{% url h41_snapshot_xml %}?' + d.getTime(),
+					timeline_data_url: 'http://' + window.location.host + '{% url fed_news_xml %}?' + d.getTime(),
 					policy_file: 'http://' + window.location.host + '/crossdomain.xml',
 					colors: '50c3e1,b79bd1,ff9595,50c3e1,b2de82,ff923f,5ca3f0,ff7776,baf275,ba92de,ffaa4a,34dbf5,b1cef9,b6d3fe,b79bd1'		
 				},
@@ -48,7 +52,7 @@
 			});
 			</script>
 
-			<p>Source: The <a href="http://www.federalreserve.gov/releases/h41/">Federal Reserve</a>.<p><p>The Fed is trying to stimulate the economy by providing overnight and longer-term loans to financial institutions; increasing currency swaps with foreign central banks; providing liquidity to borrowers and investors through the purchase of commercial paper and other assets; making direct loans to companies to purchase asset-backed securities; and purchasing mortgage-backed securities.</p>
+			<p>The Fed is trying to stimulate the economy by providing overnight and longer-term loans to financial institutions; increasing currency swaps with foreign central banks; providing liquidity to borrowers and investors through the purchase of commercial paper and other assets; making direct loans to companies to purchase asset-backed securities; and purchasing mortgage-backed securities.</p>
 
 			<p>The largest of the new Fed programs include:</p>
 
@@ -56,7 +60,7 @@
 
 			<p><strong>Mortgage-backed securities:</strong> <a href="http://www.federalreserve.gov/newsevents/press/monetary/20090318a.htm">The Fed announced on March 18, 2009</a>, that it has the authority to purchase up to $1.25 trillion in mortgage-backed securities issued by Fannie Mae, Freddie Mac, the Federal Home Loan Banks and Ginnie Mae.</p>
 
-			<p><strong>Term Asset-Backed Securities Loan Facility (TALF):</strong> On November 25, 2008, <a href="http://www.federalreserve.gov/newsevents/press/monetary/20081125a.htm">the Fed announced</a> that it would commit $200 billion in loans and the Treasury will provide $20 billion in credit protection for the TALF — for companies to support the purchase of asset-backed securities, such as student loans, auto loans, credit card loans and loans guaranteed by the Small Business Administration. Each loan has a three year maturity date. In February 2009, the Fed announced that TALF could be expanded up to $1 trillion. On March 23, 2009, <a href="http://www.treasury.gov/press/releases/tg65.htm">the Fed and the Treasury Department announced</a> that TALF would be expanded to include residential and commercial mortgage-backed securities under the newly announced Legacy Securities program — a part of the Public-Private Investment Program.</p>
+			<p><strong>Term Asset-Backed Securities Loan Facility (TALF):</strong> On November 25, 2008, <a href="http://www.federalreserve.gov/newsevents/press/monetary/20081125a.htm">the Fed announced</a> that it would commit $200 billion in loans and the Treasury will provide $20 billion in credit protection for the TALF — for companies to support the purchase of asset-backed securities, such as student loans, auto loans, credit card loans and loans guaranteed by the Small Business Administration. Each loan has a three year maturity date. In February 2009, <a href="http://www.federalreserve.gov/newsevents/press/monetary/20090210b.htm">the Fed announced</a> that TALF could be expanded up to $1 trillion. On March 23, 2009, <a href="http://www.treasury.gov/press/releases/tg65.htm">the Fed and the Treasury Department announced</a> that TALF would be expanded to include residential and commercial mortgage-backed securities under the newly announced Legacy Securities program — a part of the Public-Private Investment Program.</p>
 
 			<p>The <strong>Term Auction Facility</strong>, created in <a href="http://www.federalreserve.gov/monetarypolicy/taf.htm">December 2007</a>, through which the Fed makes loans — whose interest rates are determined by auctions — to banks and other financial institutions in exchange for pledged collateral. The maximum lending amount under this program is <a href="http://cbo.gov/ftpdocs/99xx/doc9957/01-07-Outlook.pdf">$600 billion</a>.</p>
 
