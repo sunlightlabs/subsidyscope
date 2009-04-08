@@ -1,5 +1,7 @@
 from django.db import models
 
+
+
 class State(models.Model):
 
     name = models.CharField("Name", max_length=50)
