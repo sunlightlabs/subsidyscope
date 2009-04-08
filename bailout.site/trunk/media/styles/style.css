@@ -364,4 +364,4 @@ dl#glossary dd { display: block; margin-bottom: 1.5em; }
 
 ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 
-.attribution { text-align: right; font-size: 0.9em; margin-bottom: 1em; padding-left: 50px;}
+.attribution { font-size: 0.9em; margin-bottom: 1em;}
