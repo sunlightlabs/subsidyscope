@@ -7,7 +7,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Kevin Webb - test', 'kwebb@sunlightfoundation.com'),
+    ('Kevin Webb', 'kwebb@sunlightfoundation.com'),
     ('Tom Lee','tlee@sunlightfoundation.com')
 )
 
