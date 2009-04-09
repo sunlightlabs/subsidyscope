@@ -273,7 +273,7 @@ def tarp_csv(request):
         'FDIC Number': 'institution.fdic_number',
         'OTS Number': 'institution.ots_number',
         'Type of Institution': 'institution.type_of_institution',
-        'Total Assets': 'institution.total_assets_fixed',
+        'Total Assets (Q4 2008)': 'institution.total_assets_fixed',
         'Regulator': 'institution.regulator',
         'City': 'institution.city',
         'State': 'institution.state',
