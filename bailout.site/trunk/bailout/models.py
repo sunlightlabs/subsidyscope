@@ -69,7 +69,7 @@ class InstitutionManager(models.Manager):
         
         for institution in self.all():
             
-            if institution.stock_symbol:
+            if institution.stock_symbol and institution.hasStrikePrice():
                 
                 institution.updateStockPrice()
                 
@@ -193,14 +193,24 @@ class Institution(models.Model):
             return InstitutionAssetHistory.objects.filter(institution=self).order_by('-report_date')[0].total_assets
         except:
             return None
+       
+    def hasStrikePrice(self):
+        
+        for transaction in self.transaction_set.all():
+            
+            if transaction.warrant_reported_strike_price:
+                return True
+        
+        return False
     
     def updateStockPrice(self):
         
         if self.tarp_participant:
+ 
+            InstitutionDailyStockPrice.objects.importStockPrices(self)
+
             
-            InstitutionDailyStockPrice.objects.importStockPrices(self).order_by('-date')[0]
-            
-    
+
         
     def updateTARPParticipation(self):
         
@@ -380,7 +390,7 @@ class TransactionManager(models.Manager):
             return recentTransaction.date
         except:
             return False
-        
+    
     
 class Transaction(models.Model):    
     
