@@ -94,10 +94,11 @@ class Institution(models.Model):
 
     # account for admin interface being in thousands
     def total_assets_fixed(self):
-        if self.total_assets==None:
+        assets = self.getMostRecentTotalAssets()
+        if assets == None:
             return None
         else:
-            return self.total_assets * 1000
+            return assets * 1000
 
     name = models.CharField("Name", max_length=50)
     display_name = models.CharField("Display Name (if different)", max_length=100, blank=True, default='')
@@ -186,10 +187,18 @@ class Institution(models.Model):
         return self.getTARPFundsReceived() + self.getParentTARPFundsReceived()
     
     
+    def getMostRecentTotalAssets(self):
+        
+        try:
+            return InstitutionAssetHistory.objects.filter(institution=self).order_by('-report_date')[0].total_assets
+        except:
+            return None
+    
     def updateStockPrice(self):
         
         if self.tarp_participant:
-            InstitutionDailyStockPrice.objects.importStockPrices(self)
+            
+            InstitutionDailyStockPrice.objects.importStockPrices(self).order_by('-date')[0]
             
     
         
@@ -204,7 +213,10 @@ class Institution(models.Model):
 
 class InstitutionAssetHistory(models.Model):    
     
-    date = models.DateField()
+    institution = models.ForeignKey(Institution)
+    
+    report_date = models.DateField()
+    crawl_date = models.DateField()
     
     total_deposits = models.DecimalField("Total Deposits", max_digits=15, decimal_places=2, blank=True, null=True)
     total_assets = models.DecimalField("Total Assets", max_digits=15, decimal_places=2, blank=True, null=True)
