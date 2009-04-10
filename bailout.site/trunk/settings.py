@@ -78,6 +78,8 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'django.contrib.webdesign',
     'GChartWrapper.charts',
+    'morsels',
+    'rcsfield',
     'contact_form',
     'sunlightcore',
     'spammer',
@@ -152,10 +154,15 @@ MAILINGLIST_REQUIRED_FIELDS = {
     "email":    u"A valid email address is required",
 }
 
+# Scribd
 SCRIBD_API_KEY = '***REMOVED***'
 SCRIBD_API_SECRET = '***REMOVED***'
 SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
+# RCSField
+RCS_BACKEND = 'gitcore' # uses git-python
+
+# Feedburner
 FEEDBURNER = { 'feeds/updates': 'http://feedproxy.google.com/subsidyscope' }
 
 try:
