@@ -131,7 +131,7 @@
 		<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
 		<td class="recipient">{% institution_name t.institution %}</td>
 		<td class="price">{% if t.is_negative %}<span class="negative">-${{ t.price_paid|cut:"-"|divide:1|floatformat:"-0"|intcomma}}</span>{% else %}${{ t.price_paid|divide:1|floatformat:"-0"|intcomma}}{% endif %}</td>
-		<td class="assets">{% if t.institution.total_assets %}${{ t.institution.total_assets_fixed|divide:1|floatformat:"-0"|intcomma }} {% else %}<em>not confirmed</em>{% endif %}</td>
+		<td class="assets">{% if t.institution.total_assets_fixed %}${{ t.institution.total_assets_fixed|divide:1|floatformat:"-0"|intcomma }} {% else %}<em>not confirmed</em>{% endif %}</td>
 		<td class="city">{{ t.institution.city }}</td>
 		<td class="state">{{ t.institution.state }}</td>
 	</tr>
@@ -149,7 +149,7 @@
 	<div class="footnotes">
 	<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
 		
-	<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are as of September 30, 2008.</em></p>
+	<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are for the quarter ending December 31, 2008 (retreived from the FDIC web site on March 13, 2009).</em></p>
 	</div>
 
 		</div>

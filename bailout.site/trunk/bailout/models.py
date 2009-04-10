@@ -69,7 +69,7 @@ class InstitutionManager(models.Manager):
         
         for institution in self.all():
             
-            if institution.stock_symbol:
+            if institution.stock_symbol and institution.hasStrikePrice():
                 
                 institution.updateStockPrice()
                 
@@ -94,10 +94,11 @@ class Institution(models.Model):
 
     # account for admin interface being in thousands
     def total_assets_fixed(self):
-        if self.total_assets==None:
+        assets = self.getMostRecentTotalAssets()
+        if assets == None:
             return None
         else:
-            return self.total_assets * 1000
+            return assets * 1000
 
     name = models.CharField("Name", max_length=50)
     display_name = models.CharField("Display Name (if different)", max_length=100, blank=True, default='')
@@ -186,12 +187,30 @@ class Institution(models.Model):
         return self.getTARPFundsReceived() + self.getParentTARPFundsReceived()
     
     
+    def getMostRecentTotalAssets(self):
+        
+        try:
+            return InstitutionAssetHistory.objects.filter(institution=self).order_by('-report_date')[0].total_assets
+        except:
+            return None
+       
+    def hasStrikePrice(self):
+        
+        for transaction in self.transaction_set.all():
+            
+            if transaction.warrant_reported_strike_price:
+                return True
+        
+        return False
+    
     def updateStockPrice(self):
         
         if self.tarp_participant:
+ 
             InstitutionDailyStockPrice.objects.importStockPrices(self)
+
             
-    
+
         
     def updateTARPParticipation(self):
         
@@ -204,7 +223,10 @@ class Institution(models.Model):
 
 class InstitutionAssetHistory(models.Model):    
     
-    date = models.DateField()
+    institution = models.ForeignKey(Institution)
+    
+    report_date = models.DateField()
+    crawl_date = models.DateField()
     
     total_deposits = models.DecimalField("Total Deposits", max_digits=15, decimal_places=2, blank=True, null=True)
     total_assets = models.DecimalField("Total Assets", max_digits=15, decimal_places=2, blank=True, null=True)
@@ -368,7 +390,7 @@ class TransactionManager(models.Manager):
             return recentTransaction.date
         except:
             return False
-        
+    
     
 class Transaction(models.Model):    
     
