@@ -5,7 +5,7 @@ import re
 class TarpReader():
     
     def __init__(self):
-        self.CSV_LAYOUT = [
+        self.CSV_LAYOUT = (
             'transaction_date',
             'transaction_transaction_type',
             'transaction_description',
@@ -20,7 +20,18 @@ class TarpReader():
             'institution_state',
             'institution_existing_state',
             'institution_institution_type'
-        ]
+        )
+        
+        self.GOVERNMENT_CSV_LAYOUT = (
+            'transaction_date',
+            'institution_name',
+            'institution_city',
+            'institution_state',
+            'transaction_price_paid',
+            'transaction_description',
+            'transaction_transaction_type',
+            'transaction_pricing_mechanism'
+        )
         
         self._re_is_transaction = re.compile(r'^([\d]+)\/([\d]+)\/([\d]+)\s+(\w[\w\s\&\,\.\'\-]+)\s{3,}(\w[\w\s\'\.\-\&]+)\s{3,}([A-Z]{2})\s{3,}(\w[\w\s]+)\s{3,}(\w[\w\s\/]+)\s{3,}\$?([\d\,]+)\s+(\w[\w\s\/]+)$')
         self._re_is_classification_line = re.compile(r'^\s{50,}([A-Z\s]+?)$')
@@ -32,6 +43,37 @@ class TarpReader():
         for f in self.CSV_LAYOUT:
             r[f] = None
         return r
+    
+    
+    def convert_government_csv_line(self, line):
+        """
+        converts a line from the financialstability.gov website into a CSV of the format we expect        
+        """
+        out_row = self.get_empty_record()
+        for i in range(0, len(line)):
+            out_row[self.GOVERNMENT_CSV_LAYOUT[i]] = line[i].replace('&#44;',',').strip()
+        out_row['transaction_date'] = datetime.datetime.strptime(out_row['transaction_date'], '%m/%d/%Y')
+        
+        # look for an existing institution that matches this one
+        institution_match, match_quality = Institution.objects.matchInstitution(out_row['institution_name'], out_row['institution_city'], out_row['institution_state'])
+        if match_quality == Institution.objects.MATCH_SUCCESS_EXACT:
+            out_row['institution_is_new']  = 'NO'
+            out_row['institution_existing_id'] = institution_match[0].id
+        elif match_quality == Institution.objects.MATCH_SUCCESS_PARTIAL:
+            out_row['institution_is_new'] = 'NO'
+            for field in ('city', 'state', 'name', 'id', 'institution_type'):
+                out_row['institution_existing_%s' % field] = getattr(institution_match[0], field, None)
+        else:
+            out_row['institution_is_new'] = 'YES'
+        
+        # look for matching transactions if this is a known institution
+        if out_row['institution_is_new']=='NO':
+            possible_transaction_matches = Transaction.objects.filter(institution__id=out_row['institution_existing_id'], date=out_row['transaction_date'])
+            if possible_transaction_matches.count()>0:
+                return False
+                
+        return out_row
+        
     
     def process_line(self, line, ignore=[]):
         """processes a single line of input"""
