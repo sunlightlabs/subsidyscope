@@ -17,7 +17,6 @@ for institution in Institution.objects.all():
     institutions[institution.fdic_number] = institution
 
 
-        
 branches = open('../data/sept08/branches', 'r')
 
 for branch in branches.readlines():

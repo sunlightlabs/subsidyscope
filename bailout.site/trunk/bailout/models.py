@@ -200,6 +200,16 @@ class Institution(models.Model):
             self.save()
         else:
             self.tarp_participant = False
+            
+    def getParentTARPParticipation(self):
+        
+        if self.transaction_set.all().count() > 0:
+            return True
+        else:
+            if self.parent_institution:
+                return self.parent_institution.getParentTARPParticipation()
+            else:
+                return False
 
 
 class InstitutionAssetHistory(models.Model):    
