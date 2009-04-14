@@ -11,9 +11,11 @@ class MorselManager(models.Manager):
     def get_for_current(self, context, name, inherit=False):
         if not context.has_key('request'):
             return None
-
         url = context['request'].path
         page = context.get('page', None)
+        return self.get_for_url(url, name, page)
+            
+    def get_for_url(self, url, name, page=None, inherit=False):
         if page is not None:
             ix = url.rfind('%d/' % page)
             if ix != -1:

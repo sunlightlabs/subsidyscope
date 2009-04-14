@@ -44,6 +44,9 @@ urlpatterns += patterns('django.views.generic.simple',
 urlpatterns += patterns('',
     url(r'^rcsfield/', include('rcsfield.urls'))
 )
+urlpatterns += patterns('',
+    url(r'^morsels/', include('morsels.urls'))
+)
 
 if settings.DEBUG:
     urlpatterns += patterns('',

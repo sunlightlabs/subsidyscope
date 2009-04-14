@@ -170,6 +170,9 @@ RCS_BACKEND = 'gitcore' # uses git-python
 # Feedburner
 FEEDBURNER = { 'feeds/updates': 'http://feedproxy.google.com/subsidyscope' }
 
+# Django Morsels
+MORSELS_USE_JEDITABLE = True
+
 try:
     from local_settings import *
 except ImportError, exp:    
