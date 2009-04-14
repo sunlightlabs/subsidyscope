@@ -135,8 +135,8 @@ def push_flatpages():
 def push_local_tarp_to_staging():
     """ Pushes local etl and bailout fixtures up to staging server """
     subsidyscope_setup()
-    push_local_fixture_to_staging('etl', restart_server=False)
-    push_local_fixture_to_staging('bailout', restart_server=True)
+    push_fixture_from_local_to_staging_via_mysql('etl', backup=True)
+    push_fixture_from_local_to_staging_via_mysql('bailout', backup=False)
 
 def push_project_updates():
     "Pushes files and fixtures supporting the project_updates application (mini-blog) from staging to production."
