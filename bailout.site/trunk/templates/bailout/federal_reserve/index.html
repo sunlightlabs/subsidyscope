@@ -2,6 +2,7 @@
 {% load humanize %}
 {% load webdesign %}
 {% load media %}
+{% load morsel_tags %}
 
 {% block additional_js %}
 	{% js "swfobject.js" %}
@@ -18,6 +19,8 @@
 			
 			<h2 class="type_header">Bailout</h2>
 			<h3 class="section_header">Federal Reserve</h3>
+
+			{% morsel top %}
 
 			<p>The Federal Reserve has engaged in a broad range of activities to try to improve the economy. Under the Federal Reserve Act, the Fed is authorized to extend credit directly to individuals, partnerships, or corporations in times of "unusual and exigent circumstances."</p>
 
@@ -51,6 +54,8 @@
 				);			
 			});
 			</script>
+
+			{% morsel bottom %}
 
 			<p>The Fed is trying to stimulate the economy by providing overnight and longer-term loans to financial institutions; increasing currency swaps with foreign central banks; providing liquidity to borrowers and investors through the purchase of commercial paper and other assets; making direct loans to companies to purchase asset-backed securities; and purchasing mortgage-backed securities.</p>
 

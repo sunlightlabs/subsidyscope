@@ -4,6 +4,8 @@ from django.utils import simplejson as json
 from django.utils.html import escape, conditional_escape
 from django.utils.encoding import force_unicode
 from django.forms.util import flatatt
+from django.core.urlresolvers import reverse
+from rcsfield.backends import backend
 import settings
 
 class RcsTextFieldWidget(forms.Textarea):
@@ -15,28 +17,33 @@ class RcsTextFieldWidget(forms.Textarea):
     """
     
     def __init__(self, *args, **kwargs):        
-        super(RcsTextFieldWidget, self).__init__(*args, **kwargs)
-        
         self.field_instance = None
         self.model_instance = None
+        super(RcsTextFieldWidget, self).__init__(*args, **kwargs)
     
     
     class Media:
-        js = ("%sscripts/jquery.js" % settings.MEDIA_URL,)
+        js = (
+            "%sscripts/jquery.js" % settings.MEDIA_URL,
+            "%sscripts/rcsfield.js" % settings.MEDIA_URL
+            )       
 
     def render(self, name, value, attrs=None):
         output = []
         output.append(super(RcsTextFieldWidget, self).render(name, value, attrs))
-        if value is not None:
-            output.append('<div style="margin-left:108px">Older Revisions <em>may</em> be available.</div>')
-       
-        # output.append('<br/>'.join(dir(self.field_instance)))
-        output.append('###')        
-        output.append(str('<br/>'.join(self.field_instance.get_changed_revisions(self.model_instance, self.field_instance))))
-        output.append('###')
 
+        key = self.field_instance.get_key(self.model_instance)
+        revs = self.field_instance.get_changed_revisions(self.model_instance, self.field_instance)
+        rev_html = ['<a style="display:block; width: 80%%" href="#HEAD" rel="%s" class="rcsfield-revision">Most Recent</a>' % attrs['id']]
+        for rev in revs:
+            rev_html.append('<a style="display:block; width: 80%%" href="%s?key=%s&rev=%s" rel="%s" class="rcsfield-revision">%s</a>' % (reverse('rcsfield_get_revision'), key, rev, attrs['id'], rev ))
+
+        if value is not None:
+            output.append('<div style="margin-left:106px; height: 100px; width: 300px; padding: 2px;overflow: auto; border: 1px solid #ccc">%s</div>' % ''.join(rev_html))
+                    
         return mark_safe(u"\n".join(output))
-        
+
+
 
 
 class JsonWidget(forms.Textarea):

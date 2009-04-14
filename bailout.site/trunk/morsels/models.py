@@ -16,8 +16,8 @@ class Morsel(models.Model):
             after the morsel name."""))
     title = models.CharField(_('title'), max_length=80, blank=True)
     
-    content = RcsTextField()    
-    objects = RevisionManager()
+    content = RcsTextField("Content")    
+    # objects = RevisionManager()
     
     sites = models.ManyToManyField(Site, verbose_name=_('sites'))
     locked = models.BooleanField(_('locked'), default=False,
