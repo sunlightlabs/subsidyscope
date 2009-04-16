@@ -21,9 +21,7 @@ def ajax_save_morsel(request, morsel_path):
             return HttpResponse(content, mimetype='text/html')
         else:
             error_msg = """
-            <!-- ERROR MESSAGE -- PLEASE IGNORE -->
             <p style="color:red; font-weight: bold">Save failed. Please copy your work to a safe location and then reload the page.</p>
-            <!-- END ERROR MESSAGE -->
             
             <!-- ### YOUR WORK BEGINS BELOW THIS LINE ### -->
             
