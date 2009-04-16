@@ -32,7 +32,7 @@ for branch in branches.readlines():
         county = county_matcher.matchName(branch_parts[3])
         
         if county:
-        
+            
             fdic_number = int(branch_parts[0])
             
             if institutions.has_key(fdic_number):

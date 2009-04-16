@@ -7,13 +7,13 @@ class StateMatcher():
     
     # for bulk matching in memory
     
-    name_list = {}
-    abbreviation_list = {}
-    fips_list = {}
-    
-    county_matchers = {}
-    
     def __init__(self, match_counties=False):
+        
+        self.name_list = {}
+        self.abbreviation_list = {}
+        self.fips_list = {}
+    
+        self.county_matchers = {}
         
         for state in State.objects.all():
             
@@ -91,11 +91,11 @@ class State(models.Model):
 
 class CountyMatcher():
     
-    name_list = {}
-    name_complete_list = {}
-    fips_list = {}
-    
     def __init__(self, state):
+        
+        self.name_list = {}
+        self.name_complete_list = {}
+        self.fips_list = {}
         
         self.state = state
         
