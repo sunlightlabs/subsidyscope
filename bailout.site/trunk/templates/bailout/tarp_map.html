@@ -22,9 +22,142 @@
 	
 
 $(document).ready(function(){
-	swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf', 'map-container', 800, 800, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
+	swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf', 'map-container', 800, 800, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
+	
+	$('#tarpFilterInput').autocomplete('/projects/bailout/tarp/map/filter/institution/', {
+		width: 260,
+		selectFirst: true});
+	
+	function findValueCallback(event, data, formatted) {
+		if (data)
+		{
+			if(this != false)
+			{
+				var show = {}
+				
+				var id = data[1];
+				
+				showBankShare(id);
+			}
+			else
+			{	
+			
+			}
+		
+		}
+		else
+		{	
+	
+		}
+	}
+	
+	
+	$("#tarpFilterInput").result(function(event, data, formatted) {
+		if (data)
+		{
+			if(this != false)
+			{
+				var show = {}
+				
+				var id = data[1];
+				
+				showBankShare(id);
+				
+			}
+			else
+			{	
+
+			}
+		
+		}
+
+	});
+	
+	$("select[@name='dataType']").change(
+		function()
+		{
+			if ($("select[@name='dataType']").val() == 'branches')
+			{	
+				showBranches();
+			}
+			else if ($("select[@name='dataType']").val() == 'deposits')
+			{
+				showDeposits();
+			}
+			
+		});
+	
+	$("input[@name='filterType']").change(
+		function()
+		{
+			if ($("input[@name='filterType']:checked").val() == 'all')
+			{
+				$(".group").toggleClass("group_vert");
+				$('#tarpFilterInput').val('');
+				$('#tarpFilterInput').attr("disabled", true);
+				
+				showTARPShare(); 
+			}
+			else if ($("input[@name='filterType']:checked").val() == 'filter')
+			{
+				$('#tarpFilterInput').attr("disabled", false);
+				showBankShare(-1);
+			}
+			$(this).blur();
+		});
+	$("input[@value='all']").attr('checked','checked');
+	$("select[@name='dataType']").val('deposits');
+	$('#tarpFilterInput').val('');
+	$('#tarpFilterInput').attr("disabled", true); 
+	
 	
 });
+
+function showBankShare(bank_id)
+{
+	var flex = null;
+	flex = getFlexMovie("map-container");
+	if((flex!=null) && (flex.loadBankShare!=null))
+	    flex.loadBankShare(bank_id);	
+}
+
+function showTARPShare()
+{
+	var flex = null;
+	flex = getFlexMovie("map-container");
+	if((flex!=null) && (flex.loadTARPShare!=null))
+	    flex.loadTARPShare();	
+}
+
+
+function showBranches()
+{
+	var flex = null;
+	flex = getFlexMovie("map-container");
+	if((flex!=null) && (flex.showBranches!=null))
+	    flex.showBranches();	
+}
+
+function showDeposits()
+{
+	var flex = null;
+	flex = getFlexMovie("map-container");
+	if((flex!=null) && (flex.showDeposits!=null))
+	    flex.showDeposits();	
+}
+
+
+function getFlexMovie(movieName) {
+    if (navigator.appName.indexOf("Microsoft") != -1) {
+        return window[movieName]
+    }
+    else {
+        return document[movieName]
+    }
+}
+
+
+
 
 </script>
 
@@ -51,6 +184,20 @@ $(document).ready(function(){
 	</div>
 	<div class="span-24">
 		<div class="lr_padding">
+			<div id="table-filter" style="clear:left; margin: 25px;">
+			
+			<p><input type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
+			<p><input type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput"/></p>
+			
+			
+			View share of: <select name="dataType">
+				<option value="branches">Branches</option>
+				<option value="deposits">Deposits</option>
+				<option value="lending">Lending (2007 HMDA)</option>
+			</select>
+			
+			</div> 
+	
 			
 			<div id="map-container"><div id="tarpBubbleVis" style="text-align:center;">
 					<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
