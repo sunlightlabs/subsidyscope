@@ -1,0 +1,6 @@
+Table 1b: 
+HTML begins at 2003 MAR
+MAR 2006 - format changes to include beginning bank balance
+example URL: http://www2.fdic.gov/qbp/2003mar/dep1b.html
+
+pre-2006: figures are for END FUND BALANCE and are broken out into BANK INSURANCE FUND and SAVINGS ASSOCIATION INSURANCE FUND numbers which, when summed, equal the end fund balance post-2006
