@@ -15,9 +15,10 @@ if __name__ == "__main__":
     writer = csv.writer(sys.stdout)
 
     for line in reader:
-        processed_line = TR.convert_government_csv_line(line)
-        if processed_line:
-            row = []
-            for f in TR.CSV_LAYOUT:
-                row.append(processed_line[f])
-            writer.writerow(row)
+        if len(line)>=len(TR.GOVERNMENT_CSV_LAYOUT):
+            processed_line = TR.convert_government_csv_line(line)
+            if processed_line:
+                row = []
+                for f in TR.CSV_LAYOUT:
+                    row.append(processed_line[f])
+                writer.writerow(row)

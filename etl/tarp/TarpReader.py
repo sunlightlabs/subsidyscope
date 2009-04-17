@@ -50,7 +50,7 @@ class TarpReader():
         converts a line from the financialstability.gov website into a CSV of the format we expect        
         """
         out_row = self.get_empty_record()
-        for i in range(0, len(line)):
+        for i in range(0, len(self.GOVERNMENT_CSV_LAYOUT)):
             out_row[self.GOVERNMENT_CSV_LAYOUT[i]] = line[i].replace('&#44;',',').strip()
         out_row['transaction_date'] = datetime.datetime.strptime(out_row['transaction_date'], '%m/%d/%Y')
         
