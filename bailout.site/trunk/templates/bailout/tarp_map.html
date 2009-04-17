@@ -61,7 +61,7 @@ $(document).ready(function(){
 				
 				var id = data[1];
 				
-				showBankShare(id);
+				showBankShare(id, $('#tarpFilterInput').val());
 				
 			}
 			else
@@ -113,12 +113,12 @@ $(document).ready(function(){
 	
 });
 
-function showBankShare(bank_id)
+function showBankShare(bank_id, bank_name)
 {
 	var flex = null;
 	flex = getFlexMovie("map-container");
 	if((flex!=null) && (flex.loadBankShare!=null))
-	    flex.loadBankShare(bank_id);	
+	    flex.loadBankShare(bank_id, bank_name);	
 }
 
 function showTARPShare()
