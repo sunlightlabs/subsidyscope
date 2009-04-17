@@ -319,7 +319,83 @@ def tarp_csv(request):
 def tarp_map(request):
     
     return render_to_response('bailout/tarp_map.html')
+
+def tarp_map_filter_institution_search(request):
     
+    if request.GET.has_key('q') and request.GET['q'] != '':
+        transactions = Transaction.objects.select_related().filter(institution__name__icontains=request.GET['q']).order_by('institution__name')
+    else:
+        transactions = Transaction.objects.select_related().order_by('institution__name')
+
+            
+    institution_dict = {}
+    transactions_dict = {}
+    
+    for transaction in transactions[:5]:
+        
+        institution_dict[transaction.institution.id] = transaction.institution.name.upper()
+        
+        if not transactions_dict.has_key(transaction.institution.id):
+            transactions_dict[transaction.institution.id] = str(transaction.id)
+        else:
+            transactions_dict[transaction.institution.id] += ',' + str(transaction.id)
+            
+    result = ''
+    
+    for id in institution_dict.keys():
+        
+        result += str(institution_dict[id]) + '|' + str(id) + '\n'
+        
+
+    return HttpResponse(result, mimetype='text/plain')
+    
+def tarp_map_filter_institution(request, bank_id):
+    
+    institution = Institution.objects.get(id=bank_id)
+    
+    county_data = {}
+    
+    county_data = recurse_institution_summary(institution, county_data)
+    
+    output = ''
+    
+    for county in county_data.keys():
+        
+        output += "%d,-,-,%s,%s,%s,%s,%s,%s\r\n" % (county,
+                                        str(county_data[county]['county_deposits']), 
+                                        str(county_data[county]['institution_deposits']),
+                                        str(county_data[county]['deposits_percent']),
+                                        str(county_data[county]['county_branches']),
+                                        str(county_data[county]['institution_branches']),
+                                        str(county_data[county]['branches_percent']))
+                                        
+    
+    return HttpResponse(output, mimetype='text/csv')
+    
+def recurse_institution_summary(institution, county_data):
+    
+    for summary in institution.institutioncountysummary_set.all():
+        
+        if not county_data.has_key(summary.county.fips_full_code):
+            county_data[summary.county.fips_full_code] = {}
+            county_data[summary.county.fips_full_code]['county_branches'] = summary.county_branches
+            county_data[summary.county.fips_full_code]['county_deposits'] = summary.county_deposits
+            county_data[summary.county.fips_full_code]['institution_branches'] = 0
+            county_data[summary.county.fips_full_code]['institution_deposits'] = 0
+            county_data[summary.county.fips_full_code]['branches_percent'] = 0
+            county_data[summary.county.fips_full_code]['deposits_percent'] = 0
+            
+        county_data[summary.county.fips_full_code]['institution_branches'] += summary.institution_branches
+        county_data[summary.county.fips_full_code]['institution_deposits'] += summary.institution_deposits
+        county_data[summary.county.fips_full_code]['branches_percent'] += summary.branches_percent
+        county_data[summary.county.fips_full_code]['deposits_percent'] += summary.deposits_percent
+        
+    for child_institution in institution.institution_set.all():
+        
+        recurse_institution_summary(child_institution, county_data)
+            
+    return county_data
+            
 
 
 def tarp_timeline_visualization_json(request):
