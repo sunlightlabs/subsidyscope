@@ -316,13 +316,12 @@ def tarp_csv(request):
     return response
 
 
-def tarp_alt_index(request):
-   return render_to_response('bailout/tarp_alt_index.html')
 
 
-def tarp_alt_bubbles_index(request):
-   return render_to_response('bailout/tarp_alt_bubbles_index.html')
-
+def tarp_map(request):
+    
+    return render_to_response('bailout/tarp_map.html')
+    
 
 
 def tarp_timeline_visualization_json(request):
