@@ -88,7 +88,7 @@ INSTALLED_APPS = (
     'contact_form',
     'sunlightcore',
     'spammer',
-    'django_evolution',
+    #'django_evolution',
     'etl',
     'geo',
     'bailout',
