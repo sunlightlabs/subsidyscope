@@ -41,6 +41,10 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': {'updates': ProjectUpdatesFeed}}, name="feed_project_updates"),  
 )
 
+urlpatterns += patterns('',
+    url(r'^rcsfield/', include('rcsfield.urls'))
+)
+
 if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_MEDIA_DIR}),

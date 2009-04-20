@@ -52,9 +52,14 @@ ADMIN_MEDIA_PREFIX = '***REMOVED***'
 SECRET_KEY = '***REMOVED***'
 
 # List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
+TEMPLATE_LOADERS = (    
     'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
+    'django.template.loaders.app_directories.load_template_source'
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.core.context_processors.auth'
 )
 
 MIDDLEWARE_CLASSES = (
