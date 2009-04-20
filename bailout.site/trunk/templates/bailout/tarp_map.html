@@ -17,6 +17,17 @@
 
 {% block content %}
 
+<script type="text/javascript">
+
+swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf', 'map-container', 800, 800, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
+	
+
+$(document).ready(function(){
+	TARP_init();
+});
+
+</script>
+
 <div class="container top_solid_box">&nbsp;</div>
 	<div class="container white">
 	
