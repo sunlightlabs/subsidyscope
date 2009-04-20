@@ -4,8 +4,7 @@ from django.utils import simplejson as json
 from django.utils.html import escape, conditional_escape
 from django.utils.encoding import force_unicode
 from django.forms.util import flatatt
-
-
+import settings
 
 class RcsTextFieldWidget(forms.Textarea):
     """
@@ -14,16 +13,30 @@ class RcsTextFieldWidget(forms.Textarea):
     FIXME: currently unused. may be used later.
 
     """
+    
+    def __init__(self, *args, **kwargs):        
+        super(RcsTextFieldWidget, self).__init__(*args, **kwargs)
+        
+        self.field_instance = None
+        self.model_instance = None
+    
+    
+    class Media:
+        js = ("%sscripts/jquery.js" % settings.MEDIA_URL,)
 
     def render(self, name, value, attrs=None):
         output = []
         output.append(super(RcsTextFieldWidget, self).render(name, value, attrs))
         if value is not None:
             output.append('<div style="margin-left:108px">Older Revisions <em>may</em> be available.</div>')
+       
+        # output.append('<br/>'.join(dir(self.field_instance)))
+        output.append('###')        
+        output.append(str('<br/>'.join(self.field_instance.get_changed_revisions(self.model_instance, self.field_instance))))
+        output.append('###')
+
         return mark_safe(u"\n".join(output))
-
-
-
+        
 
 
 class JsonWidget(forms.Textarea):

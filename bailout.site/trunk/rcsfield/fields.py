@@ -6,6 +6,7 @@ from django.utils.functional import curry
 from django.utils import simplejson as json
 from rcsfield.backends import backend
 from rcsfield.widgets import RcsTextFieldWidget, JsonWidget
+from rcsfield.forms import RcsTextFieldFormField
 
 
 
@@ -42,7 +43,11 @@ class RcsTextField(models.TextField):
         #TODO: check if the string has the correct format
         self.rcskey_format = kwargs.pop('rcskey_format', "%s/%s/%s/%s.txt")
         self.IS_VERSIONED = True # so we can figure out that this field is versionized
-        TextField.__init__(self, *args, **kwargs)
+
+        self._widget = RcsTextFieldWidget(attrs={}) # create widget now so that we can add values to it as they become available
+        self._widget.field_instance = self # store field instance in widget so that we can get back here from the widget
+
+        super(RcsTextField, self).__init__(self, *args, **kwargs)
 
 
     def get_internal_type(self):
@@ -52,8 +57,15 @@ class RcsTextField(models.TextField):
         format_args = (instance._meta.app_label,
                        instance.__class__.__name__,
                        self.attname,
-                       instance.pk)
-        return self.rcskey_format % format_args
+                       instance.pk)        
+        key = self.rcskey_format % format_args
+        return key
+    
+    def post_init(self, instance, **kwargs):
+        """
+        store the model instance in the widget -- necessary for grabbing revision history
+        """
+        self._widget.model_instance = instance
         
     def post_save(self, instance=None, **kwargs):
         """
@@ -126,6 +138,12 @@ class RcsTextField(models.TextField):
         setattr(cls, 'get_changed_revisions', curry(self.get_changed_revisions, field=self))
         setattr(cls, 'get_%s_diff' % self.name, curry(self.get_FIELD_diff, field=self))
         signals.post_save.connect(self.post_save, sender=cls)
+        signals.post_init.connect(self.post_init, sender=cls)
+
+    def formfield(self, **kwargs):
+        kwargs['widget'] = self._widget
+        kwargs['form_class'] = RcsTextFieldFormField
+        return super(RcsTextField, self).formfield(**kwargs)
 
 
 
