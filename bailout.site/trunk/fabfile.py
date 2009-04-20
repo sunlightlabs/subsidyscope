@@ -282,6 +282,8 @@ def push_fixture_from_staging_to_live_via_mysql(fixture_name=None, backup=True):
         
     set(app_name=fixture_name)
 
+    subsidyscope_setup()
+
     # backup DB
     if backup:
         run('~/subsidyscope_backup.sh')

@@ -1,5 +1,4 @@
 from morsels.models import Morsel
-
 from django.template import Library, Node
 from django.utils.safestring import mark_safe
 from django.conf import settings
@@ -28,32 +27,33 @@ class MorselNode(Node):
     def render(self, context):  
                 
         morsel = Morsel.objects.get_for_current(context, self.name, self.inherit)
-                
-        js = """
-        <script type="text/javascript">
-        if(typeof($)=='undefined') { 
-            document.write('<script type="text/javascript" src="%sscripts/jquery.js"></' + 'script>');
-        }
-        </script>
-        <script type="text/javascript" src="%sscripts/jquery.jeditable.js"></script>
-        <script type="text/javascript">
-        $(document).ready(function(){
-            $('.jeditable-morsel').each(function(i){
-                $(this).editable($(this).attr('rel'), 
-                {
-                    type      : 'textarea',
-                    cancel    : 'Cancel',
-                    submit    : 'OK',
-                    indicator : 'Saving...',
-                    tooltip   : 'Click to edit...'
+        
+        if getattr(settings,'MORSELS_USE_JEDITABLE',False):
+            js = """
+            <script type="text/javascript">
+            if(typeof($)=='undefined') { 
+                document.write('<script type="text/javascript" src="%sjquery.js"></' + 'script>');
+            }
+            </script>
+            <script type="text/javascript" src="%sjquery.jeditable.js"></script>
+            <script type="text/javascript">
+            $(document).ready(function(){
+                $('.jeditable-morsel').each(function(i){
+                    $(this).editable($(this).attr('rel'), 
+                    {
+                        type      : 'textarea',
+                        cancel    : 'Cancel',
+                        submit    : 'OK',
+                        indicator : 'Saving...',
+                        tooltip   : 'Click to edit...'
+                    });
                 });
             });
-        });
-        </script>
-        """ % (settings.MEDIA_URL, settings.MEDIA_URL)
-        if self.JS_SIGNAL in context['messages']:
-            js = ""
-
+            </script>
+            """ % (settings.MORSELS_JAVASCRIPT_PATH, settings.MORSELS_JAVASCRIPT_PATH)
+            if self.JS_SIGNAL in context['messages']:
+                js = ""
+            
         if morsel is None:
             return u''
         if self.as_var:
@@ -61,10 +61,9 @@ class MorselNode(Node):
             return u''
             
         output = typogrify(morsel.content)
-        if settings.MORSELS_USE_JEDITABLE and context['user'].is_authenticated():
+        if getattr(settings,'MORSELS_USE_JEDITABLE',False) and context['user'].is_authenticated():
             output = '%s<div class="jeditable-morsel" id="%s" rel="%s">%s</div>' % (js, self.name, reverse('morsels_ajax_save', None, (urllib.quote(context['request'].path, safe=''),)), output)           
-    
-        context['messages'].append(self.JS_SIGNAL)
+            context['messages'].append(self.JS_SIGNAL)
 
         return mark_safe(output)
 
