@@ -322,6 +322,7 @@ def tarp_map(request):
     
     return render_to_response('bailout/tarp_map.html')
 
+
 def tarp_map_filter_institution_search(request):
     
     if request.GET.has_key('q') and request.GET['q'] != '':
@@ -348,7 +349,6 @@ def tarp_map_filter_institution_search(request):
         
         result += str(institution_dict[id]) + '|' + str(id) + '\n'
         
-
     return HttpResponse(result, mimetype='text/plain')
     
 def tarp_map_filter_institution(request, bank_id):
