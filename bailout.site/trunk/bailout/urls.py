@@ -21,7 +21,8 @@ urlpatterns = patterns('',
     url(r'^tarp/warrants/calculation/$', 'bailout.views.tarp_warrants_calculation', name="tarp-warrants-calculation"),
     
     url(r'^tarp/map/$', 'bailout.views.tarp_map', name='tarp-map'),
-    
+    url(r'^tarp/map/filter/institution/$', 'bailout.views.tarp_map_filter_institution_search', name='tarp-map-filter-institution-search'),
+    url(r'^tarp/map/filter/institution/(?P<bank_id>[0-9]+)/$', 'bailout.views.tarp_map_filter_institution', name='tarp-map-filter-institution'),
     
     # framing viz + navigation
     url(r'^visualization\.js$', 'bailout.views.visualization_js', name="bailout-visualization-js"),
