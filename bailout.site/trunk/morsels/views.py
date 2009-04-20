@@ -11,6 +11,8 @@ def ajax_save_morsel(request, morsel_path):
     """
     if request.method=='POST':
         
+        if not morsel_path.startswith('/'):
+            morsel_path = '/' + morsel_path 
         key = request.POST['id']
         content = request.POST['value']
         m = Morsel.objects.get_for_url(url=urllib.unquote(morsel_path), name=key)        
@@ -20,10 +22,10 @@ def ajax_save_morsel(request, morsel_path):
             m.save()
             return HttpResponse(content, mimetype='text/html')
         else:
+            print "key: %s" % key
+            print "morsel_path: %s" % morsel_path
             error_msg = """
-            <!-- ERROR MESSAGE -- PLEASE IGNORE -->
             <p style="color:red; font-weight: bold">Save failed. Please copy your work to a safe location and then reload the page.</p>
-            <!-- END ERROR MESSAGE -->
             
             <!-- ### YOUR WORK BEGINS BELOW THIS LINE ### -->
             
