@@ -4,6 +4,8 @@ from exceptions import LockedError
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
+from rcsfield.fields import RcsTextField
+from rcsfield.manager import RevisionManager
 
 class Morsel(models.Model):
     url = models.CharField(_('url'), max_length=100, db_index=True, unique=True,
@@ -13,7 +15,10 @@ class Morsel(models.Model):
             Make sure to have leading and trailing slashes for the page url, but no slash
             after the morsel name."""))
     title = models.CharField(_('title'), max_length=80, blank=True)
-    content = models.TextField(_('content'), blank=True)
+    
+    content = RcsTextField()    
+    objects = RevisionManager()
+    
     sites = models.ManyToManyField(Site, verbose_name=_('sites'))
     locked = models.BooleanField(_('locked'), default=False,
         help_text=_("""
