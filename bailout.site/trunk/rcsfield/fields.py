@@ -45,10 +45,17 @@ class RcsTextField(models.TextField):
         self.IS_VERSIONED = True # so we can figure out that this field is versionized
 
         self._widget = RcsTextFieldWidget(attrs={}) # create widget now so that we can add values to it as they become available
-        self._widget.field_instance = self # store field instance in widget so that we can get back here from the widget
+        self._widget.field_instance = self # store field instance in widget so that we can get back here from the widget       
+
+        self.label = ''
+        if kwargs.has_key('label'):
+            self.label = kwargs['label']
+        elif len(args)>0:
+            self.label = args[0]
 
         super(RcsTextField, self).__init__(self, *args, **kwargs)
-
+        
+        
 
     def get_internal_type(self):
         return "TextField"
@@ -143,9 +150,8 @@ class RcsTextField(models.TextField):
     def formfield(self, **kwargs):
         kwargs['widget'] = self._widget
         kwargs['form_class'] = RcsTextFieldFormField
+        kwargs['label'] = self.label
         return super(RcsTextField, self).formfield(**kwargs)
-
-
 
 
 class RcsJsonField(RcsTextField):
@@ -185,3 +191,4 @@ class RcsJsonField(RcsTextField):
         data = getattr(instance, self.attname)
         key = self.get_key(instance)
         backend.commit(key, json.dumps(data)) #.decode().encode('utf-8'))
+
