@@ -11,6 +11,8 @@ from django.core.urlresolvers import reverse
 from helpers import JSONHttpResponse, compare_by, FileIterWrapper
 from tarp_subsidy_graphics.models import SubsidyRecord
 from GChartWrapper import GChart
+from django.template import RequestContext
+
 
 def tarp_visualization_settings():
     return {
@@ -209,7 +211,7 @@ def visualization(request, template='bailout/bailout_visualization.html', mimety
     return render_to_response(template, {'visualization_settings': visualization_settings }, mimetype=mimetype)
 
 def agency_landing_page(request, agency):
-    return render_to_response(('bailout/%s/index.html' % agency), {})
+    return render_to_response(('bailout/%s/index.html' % agency), {}, context_instance=RequestContext(request))
 
 def visualization_index(request):
     return visualization(request, template='bailout/bailout_visualization.html', mimetype='text/html')

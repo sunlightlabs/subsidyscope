@@ -3,6 +3,8 @@ from morsels.models import Morsel
 from django.template import Library, Node
 from django.utils.safestring import mark_safe
 from django.conf import settings
+from django.core.urlresolvers import reverse
+import urllib 
 
 typogrify = lambda a: a
 try:
@@ -21,14 +23,53 @@ class MorselNode(Node):
         self.as_var = as_var
         self.inherit = inherit
 
-    def render(self, context):
+    def render(self, context):  
+        
+        JS_SIGNAL = '<!-- ADDED JS -->'
+        
         morsel = Morsel.objects.get_for_current(context, self.name, self.inherit)
+                
+        js = """
+        <script type="text/javascript">
+        if(typeof($)=='undefined') { 
+            document.write('<script type="text/javascript" src="%sscripts/jquery.js"></' + 'script>');
+        }
+        </script>
+        <script type="text/javascript" src="%sscripts/jquery.jeditable.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $('.jeditable-morsel').each(function(i){
+                $(this).editable($(this).attr('rel'), 
+                {
+                    type      : 'textarea',
+                    cancel    : 'Cancel',
+                    submit    : 'OK',
+                    indicator : 'Saving...',
+                    tooltip   : 'Click to edit...'
+                });
+            });
+        });
+        </script>
+        """ % (settings.MEDIA_URL, settings.MEDIA_URL)
+        if JS_SIGNAL in context['messages']:
+            js = ""
+
         if morsel is None:
             return u''
         if self.as_var:
             context[self.as_var] = morsel
             return u''
-        return mark_safe(typogrify(morsel.content))
+            
+        output = typogrify(morsel.content)
+        if settings.MORSELS_USE_JEDITABLE and context['user'].is_authenticated():
+            output = '%s<div class="jeditable-morsel" id="%s" rel="%s">%s</div>' % (js, self.name, reverse('morsels_save_revision', None, (urllib.quote(context['request'].path, safe=''),)), output)           
+    
+        context['messages'].append(JS_SIGNAL)
+
+        return mark_safe(output)
+
+    render.allow_tags = True
+
 
 @register.tag
 def morsel(parser, token):
