@@ -20,6 +20,10 @@ urlpatterns = patterns('',
     url(r'^tarp/warrants/$', 'bailout.views.tarp_warrants', name="tarp-warrants"),
     url(r'^tarp/warrants/calculation/$', 'bailout.views.tarp_warrants_calculation', name="tarp-warrants-calculation"),
     
+    url(r'^tarp/map/$', 'bailout.views.tarp_map', name='tarp-map'),
+    url(r'^tarp/map/filter/institution/$', 'bailout.views.tarp_map_filter_institution_search', name='tarp-map-filter-institution-search'),
+    url(r'^tarp/map/filter/institution/(?P<bank_id>[0-9]+)/$', 'bailout.views.tarp_map_filter_institution', name='tarp-map-filter-institution'),
+    
     # framing viz + navigation
     url(r'^visualization\.js$', 'bailout.views.visualization_js', name="bailout-visualization-js"),
     url(r'^visualization\.css$', 'bailout.views.visualization_css', name="bailout-visualization-css"),
@@ -32,9 +36,6 @@ urlpatterns = patterns('',
     url(r'^federal-reserve/h41', include('fed_h41.urls')),
     url(r'^other/$', 'bailout.views.agency_landing_page', {'agency': 'other'}, name='bailout_other_index'),
     
-    
-    url(r'^tarp/alt/$', 'bailout.views.tarp_alt_index', name='tarp_alt'),
-    url(r'^tarp/alt/bubbles/$', 'bailout.views.tarp_alt_bubbles_index', name='tarp_bubbles_visualization'),
     url(r'^tarp/visualization/data/$', 'bailout.views.tarp_timeline_visualization_json', name='tarp-timeline-visualization-json'),
     url(r'^tarp/visualization/institution/$', 'bailout.views.tarp_institution_visualization_json', name='tarp-institution-visualization-json'),
     url(r'^tarp/filter/institution/$', 'bailout.views.tarp_institution_filter_json', name='tarp-institution-filter-json'),
