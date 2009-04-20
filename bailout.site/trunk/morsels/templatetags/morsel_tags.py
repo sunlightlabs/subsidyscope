@@ -18,15 +18,15 @@ register = Library()
 
 class MorselNode(Node):
 
+    JS_SIGNAL = '<!-- ADDED JS -->'
+
     def __init__(self, name, as_var, inherit):
         self.name = name
         self.as_var = as_var
         self.inherit = inherit
 
     def render(self, context):  
-        
-        JS_SIGNAL = '<!-- ADDED JS -->'
-        
+                
         morsel = Morsel.objects.get_for_current(context, self.name, self.inherit)
                 
         js = """
@@ -51,7 +51,7 @@ class MorselNode(Node):
         });
         </script>
         """ % (settings.MEDIA_URL, settings.MEDIA_URL)
-        if JS_SIGNAL in context['messages']:
+        if self.JS_SIGNAL in context['messages']:
             js = ""
 
         if morsel is None:
@@ -62,9 +62,9 @@ class MorselNode(Node):
             
         output = typogrify(morsel.content)
         if settings.MORSELS_USE_JEDITABLE and context['user'].is_authenticated():
-            output = '%s<div class="jeditable-morsel" id="%s" rel="%s">%s</div>' % (js, self.name, reverse('morsels_save_revision', None, (urllib.quote(context['request'].path, safe=''),)), output)           
+            output = '%s<div class="jeditable-morsel" id="%s" rel="%s">%s</div>' % (js, self.name, reverse('morsels_ajax_save', None, (urllib.quote(context['request'].path, safe=''),)), output)           
     
-        context['messages'].append(JS_SIGNAL)
+        context['messages'].append(self.JS_SIGNAL)
 
         return mark_safe(output)
 
