@@ -88,7 +88,7 @@ INSTALLED_APPS = (
     'contact_form',
     'sunlightcore',
     'spammer',
-    'django_evolution',
+    #'django_evolution',
     'etl',
     'geo',
     'bailout',
@@ -96,7 +96,9 @@ INSTALLED_APPS = (
     'project_updates',
     'tarp_subsidy_graphics',
     'fdic_bank_failures',
-    'fed_h41'
+    'fed_h41',
+    'sectors',
+    'cfda'
 )
 
 
