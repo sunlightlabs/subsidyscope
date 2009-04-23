@@ -1,0 +1,34 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load webdesign %}
+{% load media %}
+{% load morsel_tags %}
+
+{% block additional_js %}
+	{% js "swfobject.js" %}
+{% endblock %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+	<div class="span-15">
+		<div class="full_padding">
+			
+			<h2 class="type_header">Bailout</h2>
+			<h3 class="section_header">Legacy Loan Program Comments</h3>
+
+			{% morsel top %}			
+
+			<div style="margin: 0 auto"><script type="text/javascript" src="http://manyeyes.alphaworks.ibm.com/manyeyes/visualizations/a0a0705229cf11dea285000255111976/comments/a0b2239c29cf11dea285000255111976.js?width=400&height=350"></script></div>
+
+			{% morsel bottom %}			
+
+		</div>	
+	</div>
+</div>
+
+
+{% endblock %}
