@@ -1,0 +1,1 @@
+curl "http://www.financialstability.gov/impact/DataTables/fsTable/transaction.csv" | python tarp_process_financialstabilitydotgov.py
