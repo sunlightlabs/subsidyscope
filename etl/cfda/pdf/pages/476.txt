@@ -1,0 +1,200 @@
+  97-0100-0-1-051.                                                                   
+Obligations:                                                                         
+  FY 07 not reported; FY 08 est not reported; and FY 09 est not reported. Note:      
+  No current information provided by Agency.                                         
+Range and Average of Financial Assistance:                                           
+  $5,000 to $500,000.                                                                
+PROGRAM ACCOMPLISHMENTS:                                                             
+  Provided support which led to the documentation of low density languages; the      
+  development of foreign language reference works, and the improved research in      
+  training methods and computer assisted instruction technologies.                   
+REGULATIONS, GUIDELINES, AND LITERATURE:                                             
+  None.                                                                              
+Regional or Local Office:                                                            
+  Not applicable.                                                                    
+Headquarters Office:                                                                 
+  Chief, Language Training, Department of Defense, National Security Agency,         
+  ATTN: E41, Fort George Meade, MD 20755-6000. Telephone: (410) 859-6087.            
+  Use the same number for FTS.                                                       
+Web Site Address:                                                                    
+  http://www.darpa.mil/cmo.                                                          
+RELATED PROGRAMS:                                                                    
+  None.                                                                              
+EXAMPLES OF FUNDED PROJECTS:                                                         
+  1. CALICO; 2. development of a hypermedia area studies module; 3. research         
+  on student learning center to maintain less commonly taught languages; 4.          
+  ALICE prototype natural language processing environment; and 5. monograph          
+  defining priorities for listening comprehension research.                          
+CRITERIA FOR SELECTING PROPOSALS:                                                    
+  1. Overall language, technical or socio-economic merits; 2. potential              
+  contributions of the effort to the agency's specific mission; 3. the offerer's     
+  capabilities, related experience, facilities, techniques or unique combinations of 
+  these, which are integral factors for achieving the proposal objectives; 4. the    
+  qualifications, capabilities and experience of the proposal principal investigator,
+  team leader or key personal who are critical in achieving the proposal objectives; 
+   5. realism of the proposed cost and availability of funds; and 6. potential       
+                                                                                     
+  contributions of the effort to the American public.
+
+                                                                                     
+                                                                                     
+12.901 MATHEMATICAL SCIENCES GRANTS PROGRAM                                          
+                                                                                     
+FEDERAL AGENCY:
+
+  NATIONAL SECURITY AGENCY, DEPARTMENT OF DEFENSE                                    
+AUTHORIZATION:                                                                       
+  National Security Act of 1959, Sections (13(a) and 10(a), 50 U.S.C. 402, Public    
+  Law 86-36.
+
+OBJECTIVES:                                                                          
+  The NSA grant program seeks to stimulate developments in the field of
+
+  cryptography and make careers in these fields of mathematics more attractive to    
+  Americans and to make NSA known as a possible employer of such
+
+  mathematicians.                                                                    
+                                                                                     
+TYPES OF ASSISTANCE:
+
+                                                                                     
+  Project Grants.
+
+                                                                                     
+USES AND USE RESTRICTIONS:
+
+                                                                                     
+  Summer salary, professional travel, publishing costs, graduate student support,
+
+                                                                                     
+  postdoctoral support, and conference support. No more than one summer month
+
+                                                                                     
+  support. No released time from teaching during the regular academic year.
+
+                                                                                     
+Applicant Eligibility:
+
+                                                                                     
+  Investigators must be an employee of a U.S. college or university, the principal
+
+                                                                                     
+  investigator must be at least a permanent resident of the U.S. Graduate students
+
+                                                                                     
+  must be U.S. citizens or intending to become U.S. citizens.
+
+                                                                                     
+Beneficiary Eligibility:
+
+  This will benefit researchers in the mathematical science that are at least        
+  permanent residents as well as their students that are permanent residents of the  
+                                                                                     
+  U.S. and intending to apply for U.S. citizenship.
+
+                                                                                     
+Credentials/Documentation:
+
+                                                                                     
+  None.
+
+                                                                                     
+Preapplication Coordination:
+
+  None. This program is excluded from coverage under E.O. 12372.                     
+Application Procedure:                                                               
+  A brochure is available from NSA giving the form of the proposal. A proposal       
+  may be sent directly to NSA by a college or university before the yearly           
+  deadline. NSA has the authority for the final approval and passes the funds to a   
+  college or university. The college or university distributes the funds to the      
+  principal investigator, students, postdoctoral students, etc.                      
+Award Procedure:                                                                     
+  The agency grant/contracting officer coordinates with the performing               
+  organization for the effective administration of the grant.                        
+Deadlines:                                                                           
+  October 15 is the deadline for submission of proposals with certain exceptions,    
+  such as conference applications for which there is no deadline.                    
+Range of Approval/Disapproval Time:                                                  
+  Generally 12 months.                                                               
+
+
+                                                                                11-08
+Appeals:
+  None.
+Renewals:
+  Only no-cost extensions allowed when work is not completed. Funds will
+  remain.
+Formula and Matching Requirements:
+  Not applicable.
+Length and Time Phasing of Assistance:
+  Two years in most cases except for conferences, which are for a shorter period.
+Reports:
+  Interim and final reports are required.
+Audits:
+  Not applicable.
+Records:
+  Not applicable.
+Account Identification:
+  97-0400-0-1-051.
+Obligations:
+  FY 07 est $3,000,000; and FY 08 est not reported; and FY 09 est not reported.
+  Note: No current information provided by Agency.
+Range and Average of Financial Assistance:
+  $5,000 to $60,000. Average: $15,000.
+PROGRAM ACCOMPLISHMENTS:
+  None.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  NSA provides a free brochure describing how to apply for a grant.
+Regional or Local Office:
+  Not applicable.
+Headquarters Office:
+  Dr. Charles F. Osgood, Department of Defense, National Security Agency,
+  ATTN: R51A, Fort George G. Meade, MD 20755-6000. Telephone: (301) 688-
+  0400. Use the same number for FTS.
+Web Site Address:
+  http://www.darpa.mil/cmo.
+RELATED PROGRAMS:
+  None.
+EXAMPLES OF FUNDED PROJECTS:
+  (1) Mathematics conference; (2) research in algebra; (3) research in number
+  theory; (4) research in discrete mathematics; (5) research in statistics; and (6)
+  research in probability.
+CRITERIA FOR SELECTING PROPOSALS:
+  Primarily qualifications of the principal investigator. Cost is considered when
+  deciding what to fund, e.g., one month of summer salary and/or student support.
+12.902 INFORMATION SECURITY GRANT PROGRAM
+   (Information Security University Research Program (URP))
+FEDERAL AGENCY:
+  NATIONAL SECURITY AGENCY, DEPARTMENT OF DEFENSE
+AUTHORIZATION:
+  Public Law 97-89, NSA/CSS Directive 60-11.
+OBJECTIVES:
+  The National Security Agency (NSA) is involved with the development of secure
+  computing systems. This grant program is designed to assist in the area of
+  unclassified Information Security research. This research should provide
+  significant advances in our nation's ability to design, build, and maintain
+  computer systems that perform with a high degree of integrity, confidentiality,
+  and service assurance. Additionally, this grant program is aimed at developing
+  computer science graduates who are knowledgeable in the area of Information
+  Security from which NSA can recruit.
+TYPES OF ASSISTANCE:
+  Project Grants.
+USES AND USE RESTRICTIONS:
+  Summer salary, professional travel, publishing costs, graduate student support,
+  postdoctoral support, and conference support. No more than two summer
+  months support from all sources. No released time from teaching during the
+  regular academic year.
+Applicant Eligibility:
+  Investigators must be an employee of a U.S. college or university, the principal
+  investigator and supported graduate students must be (at least) a permanent
+  resident of the U.S., graduate students must at least have started to apply for
+  U.S. citizenship.
+Beneficiary Eligibility:
+  This will benefit researchers in the information security field of computer
+  science that are at least permanent residents as well as their students that are
+  permanent residents of the U.S. and intending to apply for U.S. citizenship.
+Credentials/Documentation:
+  None.
+Preapplication Coordination:
+  None. This program is excluded from coverage under E.O. 12372.
+                                                                                  289

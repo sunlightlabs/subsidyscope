@@ -1,0 +1,164 @@
+  Examples of some projects funded by the Exchange Network Grant Program are             
+  described below: A State environmental agency is using grant funds to advance          
+  the use of the State's Exchange Network node and to promote the efficient and          
+  effective use of data to improve environmental conditions across the state. In         
+  particular, the state EPA is using the Exchange Network to exchange data               
+  associated with the Facility Registry System (FRS), the National Emissions             
+  Inventory (NEI), and the Integrated Compliance Information System - National           
+  Pollutant Discharge Elimination System (ICIS-NPDES). A State's Office of               
+  Technology is using federal assistance to enhance the use of watershed modeling        
+  in the state's environmental decision-making. In addition to the Office of             
+  Technology, project partners include the State's Department for Environmental          
+  Protection, the Office of Geographic Information, the Open GIS Consortium,             
+  and the Geological Survey. The project involves developing a web-based                 
+  watershed modeling information portal to provide timely watershed modeling             
+  data to support state environmental decision-making. Project partners will also        
+  work toward making the watershed modeling data available to other Exchange             
+  Network partners through the state's Exchange Network node, which is currently         
+  under development. A state's Department of the Environment is continuing to            
+  develop an Exchange Network node to facilitate the exchange of information             
+  from the state's Enterprise Environmental Management System (EEMS) with                
+  EPA and other Exchange Network partners. The primary purpose of the project            
+  is to advance the electronic exchange of data with EPA. The project focuses on         
+  submitting data associated with the Resource Conservation and Recovery Act             
+  Information System (RCRAInfo) and ICIS-NPDES from MDE's node to EPA's                  
+  node on the Central Data Exchange. A State Department of Environmental                 
+  Protection is working in partnership with other regional state and watershed           
+  partners to use the Exchange Network to share data on Best Management                  
+  Practices (BMP) for addressing non-point source pollution. This effort involves        
+  developing and registering XML schema for exchanging BMP data. The                     
+  watershed office receives BMP data from jurisdictions that participate in the          
+  program and then enters the data in a regional watershed module and various            
+  presentation tools for regional use. Four State environmental agencies                 
+  collaborated to develop an application that would provide a range of critical          
+  information to field personnel responding to emergencies such as flooding at           
+  facilities that store toxic chemicals or an explosion at a chemical plant. By          
+  using the Exchange Network technology, the project team created the Heartland          
+  Emergency Response Exchange which can reach across organizational lines to             
+  retrieve integrated environmental and natural resource data from agencies in           
+  partner states. Emergency planners can quickly identify potential dangers posed        
+  by chemical inventories or hazardous waste storage. In minutes, response teams         
+  can assess threats to drinking water infrastructure or other environmental             
+  interests. One of the key features of this system is its ability to visualize the data 
+  using popular web-based mapping applications such as Google Earth or                   
+  Microsoft Virtual Earth. In short, better information will offer opportunities for     
+  more comprehensive planning and more informed responses.                               
+CRITERIA FOR SELECTING PROPOSALS:                                                        
+  The evaluation criteria for the FY 2008 Exchange Network Grant program was             
+  described in the FY 2008 solicitation notice. The quantitative evaluation criteria     
+  included such factors as expected project outputs/outcomes, the feasibility and        
+  approach of the work plan, the relevance and significance of the proposed              
+  project to the Exchange Network, the adequacy of resources and key personnel,          
+  and past performance. EPA may also consider various qualitative criteria when          
+  determining which applications to recommend for funding. Examples of such              
+  qualitative criteria may include, but are not limited to, factors such as achieving    
+  a balance among projects, distributing funds among different states/territories/       
+  tribes, and having EPA programmatic support for the project. Applications for          
+  non-competitive awards to co-regulator/co-implementor organizations, funded            
+  by the Exchange Network Grant program through EPA's STAG appropriation,                
+  will be evaluated based on the ability of the applicant to provide the following:      
+  outreach, communications, technical assistance, and other support to                   
+  states/tribes that are participating in, or may wish to participate in, the Exchange   
+  Network; and support for state/territorial/tribal participation in the Network         
+  Operations Board and related workgroups. Applications for non-competitive              
+  awards to a co-regulator/co-implementor organization, funded through EPA's             
+  EPM appropriation, will be evaluated based on the applicant's ability to               
+  implement the types of activities described in the Objectives section of this          
+  description.                                                                           
+                                                                                         
+                                                                                         
+66.609 PROTECTION OF CHILDREN AND OLDER                                                  
+ADULTS (ELDERLY) FROM ENVIRONMENTAL HEALTH                                               
+RISKS                                                                                    
+                                                                                         
+      (Children's Environmental Health and the Aging Initiative)                         
+                                                                                         
+FEDERAL AGENCY:                                                                          
+  CHILD AND AGING HEALTH PROTECTION DIVISION, OFFICE OF                                  
+  CHILDREN'S HEALTH PROTECTION AND ENVIRONMENTAL                                         
+  EDUCATION, ENVIRONMENTAL PROTECTION AGENCY                                             
+AUTHORIZATION:                                                                           
+
+
+996                                                                                11-08
+
+  Clean Water Act, Section 104; Federal Insecticide, Fungicide, and Rodenticide
+  Act, Section 20; Clean Air Act, Section 103; Solid Waste Disposal Act, Section
+  8001; Safe Drinking Water Act, Section 1442; Toxic Substances Control Act,
+  Section 10; Marine Protection, Research, and Sanctuaries Act, Section 203;
+  Comprehensive Environmental Response, Compensation, and Liability Act
+  (CERCLA), Section 311; and National Environmental Policy Act, Section
+  102(2)(F) for international awards.
+OBJECTIVES:
+  To support efforts by organizations; educational institutions; and/or State, local,
+  and tribal governmental agencies to establish or enhance their ability to take
+  actions that will reduce environmental risks to the health of children or the aging
+  (elderly) population. Funding Priority - Fiscal Year 2008: Support efforts to: (1)
+  Create healthy school environments; (2) Build state, local, and tribal government
+  capacity to address environmental health risks to children and older adults; (3)
+  Educate health practitioners on environmental risks to children; (4) Implement a
+  National Agenda for the Environment and the Aging to protect the health of
+  older persons, prepare for an aging society, and encourage civic engagement
+  among older adults; (5) Protect children and older adults from environmental
+  hazards in local communities through civic engagement, demonstration projects,
+  and other community capacity building activities; (6) Conduct environmental
+  health tracking as it relates to older persons at the state level; (7) Protect children
+  and older adults internationally from environmental health risks; (8)
+  Demonstrate how smart growth activities can promote healthy communities for
+  older adults and children; (9) Reduce environmental risks to children and older
+  adults through intergenerational activities; (10) Educate women of childbearing
+  age and their health care providers about preventing and reducing environmental
+  health risks; (11) reduce environmental health disparities; (12) Educate older
+  adults to be environmental leaders in their community and train other elders to
+  be leaders and educate children and older adults about the importance of
+  environmental stewardship and health.
+TYPES OF ASSISTANCE:
+  Project Grants (Cooperative Agreements).
+USES AND USE RESTRICTIONS:
+  Grants and cooperative agreements are available to support recipients' allowable
+  direct costs incident to approved surveys, studies, investigations, and special
+  purpose assistance, plus allowable indirect costs, in accordance with established
+  EPA policies and regulations. Funding awarded for research does not include
+  research within the purview of EPA's Office of Research and Development.
+  Funds awarded under Section 311(b)(3) of CERCLA must be used for projects
+  relating to innovative or alternative treatment technologies that may be utilized
+  in response actions to achieve more permanent protection of human health and
+  welfare and the environment. Assistance agreement awards under this program
+  may involve or relate to geospatial information. Further information regarding
+  geospatial information may be obtained by viewing the following website:
+  http://geodata.epa.gov.
+Applicant Eligibility:
+  Assistance under this program is generally available to States or state agencies,
+  territories, the District of Columbia, American Indian Tribes (federally
+  recognized), and possessions of the U.S. It is also available to public and private
+  universities and colleges, hospitals, laboratories, other public or private
+  nonprofit institutions, and 501(c)(3) organizations. Nonprofit organizations
+  described in Section 501(c)(4) of the Internal Revenue Code that engage in
+  lobbying activities as defined in Section 3 of the Lobbying Disclosure Act of
+  1995 are not eligible to apply. For profit organizations are generally not eligible
+  for funding. Some of EPA's statutes may limit assistance to specific types of
+  interested applications. See "Authorization" listed above. For certain competitive
+  funding opportunities under this CFDA description, the Agency may limit
+  eligibility to compete to a number or subset of eligible applicants consistent with
+  the Agency's Assistance Agreement Competition Policy.
+Beneficiary Eligibility:
+  State agencies and local governments, U.S. territories and possessions, American
+  Indian Tribes, universities and colleges, hospitals, laboratories, and other public
+  and private nonprofit institutions and organizations.
+Credentials/Documentation:
+  Documentation of nonprofit status may be required. Applicants may be
+  requested to demonstrate they have appropriate background, academic training,
+  experience in the field, and necessary equipment to carry out projects. The Child
+  and Aging Health Protection Division within the Office of Children's Health
+  Protection and Environmental Education may ask applicants or principal
+  investigators to provide curriculum vitae and relevant publications.
+Preapplication Coordination:
+  Regarding pre-application/pre-proposal assistance with respect to competitive
+  funding opportunities under this program description, EPA will generally specify
+  the nature of the pre-application/pre-proposal assistance, if any, that will be
+  available to applicants in the competitive announcement. For additional
+  information, contact the individual(s) listed as "Information Contacts" or see
+  Appendix IV of the Catalog. This program is eligible for coverage under E.O.
+  12372, "Intergovernmental Review of Federal Programs." An applicant should
+  consult the office or official designated as the single point of contact in his or
+  her State for more information on the process the State requires to be followed in

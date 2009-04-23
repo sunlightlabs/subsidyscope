@@ -23,23 +23,17 @@ if __name__ == "__main__":
             f.close()
             
 
-    for v in sys.argv:
-        if v=='--parse':
-            mode = 'parse'
-
-
-    if mode=='parse':
-        line = sys.stdin.readline()
-        writer = csv.writer(sys.stdout)
+    line = sys.stdin.readline()
+    writer = csv.writer(sys.stdout)
+    row = []
+    for f in TR.CSV_LAYOUT:
+        row.append(f)
+    writer.writerow(row)
+    while line:
+        processed_line = TR.process_line(line, ignore=ignore_list)
         row = []
-        for f in TR.CSV_LAYOUT:
-            row.append(f)
-        writer.writerow(row)
-        while line:
-            processed_line = TR.process_line(line, ignore=ignore_list)
-            row = []
-            if processed_line:
-                for f in TR.CSV_LAYOUT:
-                    row.append(processed_line[f])
-                writer.writerow(row)
-            line = sys.stdin.readline()
+        if processed_line:
+            for f in TR.CSV_LAYOUT:
+                row.append(processed_line[f])
+            writer.writerow(row)
+        line = sys.stdin.readline()

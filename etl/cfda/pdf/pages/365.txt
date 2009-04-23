@@ -1,0 +1,166 @@
+Formula and Matching Requirements:                                                    
+  Not applicable.                                                                     
+Length and Time Phasing of Assistance:                                                
+  Not applicable.                                                                     
+Reports:                                                                              
+  None.                                                                               
+Audits:                                                                               
+  In accordance with the provisions of OMB Circular No. A-133 (Revised, June          
+  27, 2003), "Audits of States, Local Governments, and Non-Profit                     
+  Organizations." Nonfederal entities that expend financial assistance of             
+  $500,000 or more in Federal awards will have a single or a program-specific         
+  audit conducted for that year. Nonfederal entities that expend less than            
+  $500,000 a year in Federal awards are exempt from Federal audit requirements        
+  for that year, except as noted in Circular No. A-133.                               
+Records:                                                                              
+  None.                                                                               
+Account Identification:                                                               
+  13-4512-0-1-376.                                                                    
+Obligations:                                                                          
+  FY 07 $66,700; FY 08 est not available; and FY 09 est not reported.                 
+Range and Average of Financial Assistance:                                            
+  Not applicable.                                                                     
+PROGRAM ACCOMPLISHMENTS:                                                              
+  Published biweekly newsletters via e-mail and the Internet for the public.          
+  Conducted occasional seminars on Census and other statistical resources, and        
+  specialized workshops and training courses on Census 2000 programs and              
+  products, Economic Census activities, American Community Survey programs            
+  and products and other subjects. Both Census headquarters and regional office       
+  staff participated in such conferences and workshops. Publication of guides,        
+  pamphlets, and other reference material and sale of data products.                  
+REGULATIONS, GUIDELINES, AND LITERATURE:                                              
+  Publication order forms for reports on data files resulting from census and         
+  special surveys, no charge. Selected informational publications: Census Product     
+  Update (biweekly online and e-mailed newsletter), no charge; information about      
+  training courses, no charge; online electronic sales catalog site. Please contact   
+  the Customer Services Center (301) 763-4636 for ordering information, or check      
+   "Catalog" on the Internet site (http://www.census.gov).                            
+Regional or Local Office:                                                             
+  See list of 12 Census Bureau Regional Offices at www.census.gov/field/www.          
+Headquarters Office:                                                                  
+  For information about training opportunities, go to                                 
+  http://www.census.gov/mso/www/training/index.htm or contact the Marketing           
+  Services Office, Census Bureau, Washington, DC 20233. Telephone: 301-763-           
+  4094. For free materials and ordering information for priced products, please       
+  contact: Customer Services Center, Marketing Services Office, Census Bureau,        
+  Washington, DC 20233. Telephone: (301) 763-INFO (4636).                             
+Web Site Address:                                                                     
+  http://www.census.gov .                                                             
+RELATED PROGRAMS:                                                                     
+  11.003, Census Geography; 11.004, Census Intergovernmental Services; 11.005,        
+  Census Special Tabulations and Services.                                            
+EXAMPLES OF FUNDED PROJECTS:                                                          
+  Not applicable.                                                                     
+CRITERIA FOR SELECTING PROPOSALS:                                                     
+  Not applicable.                                                                     
+                                                                                      
+                                                                                      
+11.003 CENSUS GEOGRAPHY                                                               
+      (Census Mapping and Statistical Areas)                                          
+                                                                                      
+FEDERAL AGENCY:                                                                       
+  CENSUS BUREAU, DEPARTMENT OF COMMERCE                                               
+AUTHORIZATION:                                                                        
+  Act of August 31, 1954, Public Law 83-740, 13 U.S.C. 8.                             
+OBJECTIVES:                                                                           
+  To provide a computer generated set of maps for use in conducting censuses and      
+  surveys and for showing their results geographically; determine names and           
+  current boundaries of selected statistical areas; show these entities on a variety  
+  of maps; develop geographic code schemes; develop computer files of area            
+  measurements, geographic boundaries, and map features with address ranges.          
+TYPES OF ASSISTANCE:                                                                  
+  Provision of Specialized Services; Dissemination of Technical Information.          
+USES AND USE RESTRICTIONS:                                                            
+  The U.S. Census Bureau prepares base maps that are used in the planning and         
+  conduct of its various censuses and surveys. The Census Bureau also prepares        
+  for publication detailed maps showing States and State equivalents (i.e., the       
+  District of Columbia, Puerto Rico, and the several U.S. territories and             
+  possessions), counties and county equivalents, Congressional districts, county      
+  subdivisions, places, American Indian reservations, urbanized areas,                
+  metropolitan areas, census tracts, block-numbered areas, blocks, and other          
+  geographic units. Some of these maps show roads and other physical features,        
+
+
+178                                                                             11-08
+
+  others show only area outlines and related identifiers. The Census Bureau also
+  issues U.S. maps showing boundaries (e.g., States and metropolitan areas) and
+  sometimes data sets of maps. For the 2000 Decennial Census, an automated
+  geographic data base, called the Topologically Integrated Geographic Encoding
+  and Referencing (TIGER) system was used to generate maps, and other
+  geographic products, including digital geospatial data files (TIGER/Line files).
+  In addition, the Census Bureau, in conjunction with State, local and tribal
+  governments, maintains records of changes in legally-defined areas, and delimits
+  the boundaries of Census-defined statistical areas for use in the next Decennial
+  Census, and develops geographic code systems that are used in the electronic
+  data processing of the information.
+Applicant Eligibility:
+  Interested persons, organizations, or government agencies.
+Beneficiary Eligibility:
+  Interested persons, organizations, or government agencies.
+Credentials/Documentation:
+  Not applicable.
+Preapplication Coordination:
+  None. This program is excluded from coverage under E.O. 12372.
+Application Procedure:
+  By written request.
+Award Procedure:
+  Not applicable.
+Deadlines:
+  Not applicable.
+Range of Approval/Disapproval Time:
+  Not applicable.
+Appeals:
+  Not applicable.
+Renewals:
+  Not applicable.
+Formula and Matching Requirements:
+  Not applicable.
+Length and Time Phasing of Assistance:
+  Not applicable.
+Reports:
+  None.
+Audits:
+  In accordance with the provisions of OMB Circular No. A-133 (Revised, June
+  27, 2003), audits of states, local governments, and non-profit organizations,
+  nonfederal entities that expend financial assistance of $500,000 or more in
+  federal awards will have a single or a program-specific audit conducted for that
+  year. Nonfederal entities that expend less than $500,000 a year in federal
+  awards are exempt from federal audit requirements for that year, except as noted
+  in Circular No. A-133.
+Records:
+  None.
+Account Identification:
+  13-0450-0-1-376.
+Obligations:
+  FY 07 $40,210,000; FY 08 est not available; and FY 09 est not reported.
+Range and Average of Financial Assistance:
+  Not applicable. The Census Bureau is only an "information source" and not a
+  fund granting agency; i.e., our assistance is limited to helping people understand
+  what data are available to use in their analysis.
+PROGRAM ACCOMPLISHMENTS:
+  The Census Bureau maintains the MAF/TIGER data bases and related
+  applications software to support the various censuses and household surveys
+  managed by the Census Bureau with geographic products including geographic
+  files and maps. Digital geospatial data, called TIGER/Line files, are available for
+  the entire U.S. and its possessions. TIGER/Line files are available for the whole
+  country from the Census Bureau's web site or on DVD. Additionally the
+  MAF/TIGER data bases serve as the mapping base for many different
+  automated, printed, and plotted map types required by the Census Bureau's
+  programs. The Census Bureau's Internet site (address: http://www.census.gov/)
+  includes mapping features and data displayed on maps, and PDF versions of the
+  Census 2000 maps designed to be used with the data tabulations.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  The Census Catalog is available off the Census Bureau's homepage at
+  https://censuscatalog.mso.census.gov/esales/start.swe. Please contact Customer
+  Services, (301) 763-INFO (3646) for additional ordering information.
+  Geographic information is available at
+  http://www.census.gov/geo/www/index.html.
+Regional or Local Office:
+  See list of 12 Bureau of the Census Regional Offices listed in Appendix IV of
+  the Catalog, or www.census.gov/field/www.
+Headquarters Office:
+  Geography Division, U.S. Census Bureau, Department of Commerce,
+  Washington, DC 20233-7400. Telephone: (301) 763-1128 or e-mail:
+  geography@geo.census.gov. For more information on maps and other
+  geographic products, contact Customer Services, U.S. Census Bureau,
