@@ -63,29 +63,33 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 
 		{% morsel top %}
 
-		<h4 class="tarp_table_head">Congressional Budget Office's Estimated Subsidy of Total TARP Subsidy by Fiscal Year</h4>
+		<h4 class="tarp_table_head">CBO Projects of Total TARP Subsidy by Fiscal Year</h4>
 			<table id="cbo-table-revised" class="subsidy-table" cellspacing="3">
 
-				<tr class="header-row blue no-bottom-border">
-					<th class="name">&nbsp;</th>
-					<th class="2009">Number of Institutions</th>
-					<th class="2010">Amount</th>
-					<th class="total">Estimated Subsidy</th>
-					<th class="subsidy-rate"><a href="{% url glossary%}#subsidy-rate">Subsidy Rate</a><br/><small></small></th>
-				</tr>
+				<tr class="header-row blue no-bottom-border"> 
+					<th>&nbsp;</th>
+					<th colspan="3">Subsidy<br/><small>(in billions)</small></th>
+					<th>Disbursement<br/><small>(in billions)</small></th>
+					<th><a href="{% url glossary%}#subsidy-rate">Subsidy Rate</a></th>
+				</tr>				
 				
 				<tr class="header-row blue smallrow">
-					<td>&nbsp;</td>
-					<td colspan="3">(in billions)</td>
-					<td>(percent)</td>
+					<td class="name">&nbsp;</td>
+					<td class="2009">2009</td>
+					<td class="2010">2010</td>
+					<td class="total">Total 2009&ndash;2010</td>
+					<td class="disbursement">2009&ndash;2010</td>
+					<td class="subsidy-rate">2009&ndash;2010</td>
 				</tr>
+			
 				
 				<tr>
 					<td class="name">Projected Subsidy as of January 2009<a href="#footnote-1" class="footnote">1</a></td>
 					<td class="2009"><div class="number-wrapper">184</div></td>
 					<td class="2010"><div class="number-wrapper">5</div></td>
 					<td class="total"><div class="number-wrapper">189</div></td>
-					<td class="subsidy-rate"><div class="number-wrapper">27</div></td>
+					<td class="disbursement"><div class="number-wrapper">700</div></td>
+					<td class="subsidy-rate"><div class="number-wrapper">27%</div></td>
 				</tr>
 				
 				<tr>
@@ -93,7 +97,12 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 					<td class="2009"><div class="number-wrapper">152</div></td>
 					<td class="2010"><div class="number-wrapper">15</div></td>
 					<td class="total"><div class="number-wrapper">167</div></td>
+					<td class="disbursement"><div class="number-wrapper">&nbsp;</div></td>					
 					<td class="subsidy-rate">&nbsp;</td>
+				</tr>
+				
+				<tr>
+					<td colspan="6">&nbsp;</td>
 				</tr>
 				
 				<tr>
@@ -101,7 +110,8 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 					<td class="2009"><div class="number-wrapper">336</div></td>
 					<td class="2010"><div class="number-wrapper">20</div></td>
 					<td class="total"><div class="number-wrapper">356<a class="footnote" href="#footnote-3">3</a></div></td>
-					<td class="subsidy-rate">51</div></td>
+					<td class="disbursement"><div class="number-wrapper">700</div></td>
+					<td class="subsidy-rate"><div class="number-wrapper">51%</div></td>
 				</tr>				
 
 			</table>
