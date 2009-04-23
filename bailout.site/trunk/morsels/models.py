@@ -39,7 +39,3 @@ class Morsel(models.Model):
         if self.locked:
             raise LockedError('Morsel "%s" cannot be deleted.' % self)
         super(Morsel, self).delete()
-<<<<<<< HEAD:bailout.site/trunk/morsels/models.py
-
-=======
->>>>>>> afe5d271c43b310d7523a47c284081afb4ccc0c0:bailout.site/trunk/morsels/models.py

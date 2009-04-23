@@ -9,8 +9,4 @@ def get_revision(request):
         rev = request.GET['rev']
         text = backend.fetch(key, rev)
         return HttpResponse(text, mimetype='text/plain')
-<<<<<<< HEAD:bailout.site/trunk/rcsfield/views.py
         
-=======
-        
->>>>>>> afe5d271c43b310d7523a47c284081afb4ccc0c0:bailout.site/trunk/rcsfield/views.py

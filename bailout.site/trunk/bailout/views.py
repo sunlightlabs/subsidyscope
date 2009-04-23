@@ -322,35 +322,6 @@ def tarp_map(request):
     
     return render_to_response('bailout/tarp_map.html')
 
-<<<<<<< HEAD:bailout.site/trunk/bailout/views.py
-def tarp_map_filter_institution_search(request):
-    
-    if request.GET.has_key('q') and request.GET['q'] != '':
-        transactions = Transaction.objects.select_related().filter(institution__name__icontains=request.GET['q']).order_by('institution__name')
-    else:
-        transactions = Transaction.objects.select_related().order_by('institution__name')
-
-            
-    institution_dict = {}
-    transactions_dict = {}
-    
-    for transaction in transactions[:5]:
-        
-        institution_dict[transaction.institution.id] = transaction.institution.name.upper()
-        
-        if not transactions_dict.has_key(transaction.institution.id):
-            transactions_dict[transaction.institution.id] = str(transaction.id)
-        else:
-            transactions_dict[transaction.institution.id] += ',' + str(transaction.id)
-            
-    result = ''
-    
-    for id in institution_dict.keys():
-        
-        result += str(institution_dict[id]) + '|' + str(id) + '\n'
-        
-
-=======
 
 def tarp_map_filter_institution_search(request):
     
@@ -378,7 +349,6 @@ def tarp_map_filter_institution_search(request):
         
         result += str(institution_dict[id]) + '|' + str(id) + '\n'
         
->>>>>>> afe5d271c43b310d7523a47c284081afb4ccc0c0:bailout.site/trunk/bailout/views.py
     return HttpResponse(result, mimetype='text/plain')
     
 def tarp_map_filter_institution(request, bank_id):
