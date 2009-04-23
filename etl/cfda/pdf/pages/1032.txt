@@ -1,0 +1,180 @@
+  assistance of scientists and engineers who are specialists in the field covered by 
+  the proposal, of prospective users of research results when appropriate, and of    
+  specialists in other Federal agencies.                                             
+Deadlines:                                                                           
+  Many NSF programs accept proposals at any time. Other programs, however,           
+  establish due dates for submission of proposals. NSF utilizes Target Dates,        
+  Deadline Dates, and Submission Windows. Consult the Grant Proposal Guide,          
+  Section I.F. for a further description of these types of due dates.                
+Range of Approval/Disapproval Time:                                                  
+  Approximately six months or less, except in special instances.                     
+Appeals:                                                                             
+  The Principal Investigator may request, in writing, that the National Science      
+  Foundation reconsider its action in declining any proposal, renewal, or            
+  continuing grant proposal.                                                         
+Renewals:                                                                            
+  Proposals for renewal of NSF grants compete with all other pending proposals.      
+Formula and Matching Requirements:                                                   
+  The Grant Proposal Guide (GPG, Chapter II) and the Grant Policy Manual (Sec.       
+  330) provide information on the general NSF policy on cost-sharing.                
+Length and Time Phasing of Assistance:                                               
+  Normally 6 months to 3 years; occasionally longer.                                 
+Reports:                                                                             
+  For multi-year grants (including both standard and continuing grants), the PI      
+  must submit an annual progress report to the cognizant program officer at least    
+  90 days before the end of the current budget period. Within 90 days after the      
+  expiration of a grant, the PI is required to submit final project report. Quarterly
+  Cash Transaction Report are required. Other reporting requirements may be          
+  imposed via the grant instrument.                                                  
+Audits:                                                                              
+  In accordance with the provisions of OMB Circular No. A-133 (Revised, June         
+  27, 2003), "Audit of States, Local Governments, and Non-Profit Organizations,"     
+  nonfederal entities that expend financial assistance of $500,000 or more in        
+  Federal awards will have a single or a program-specific audit conducted for that   
+  year. Nonfederal entities that expend less than $500,000 a year in Federal         
+  awards are exempt from Federal audit requirements for that year, except as noted   
+  in Circular No. A-133.                                                             
+Records:                                                                             
+  Grantees are expected to maintain separate records for each grant to ensure that
+
+                                                                                     
+  funds are used for the general purpose for which each grant was made. Records
+
+                                                                                     
+  are subject to inspection during the life of the grant and for 3 years thereafter.
+
+                                                                                     
+Account Identification:
+
+                                                                                     
+  49-0100-0-1-251.
+
+                                                                                     
+Obligations:
+
+                                                                                     
+  Obligations: (Grants) FY 07 $182,420,000; FY 08 est $185,330,000; and FY 09
+
+                                                                                     
+  est not reported.
+
+                                                                                     
+Range and Average of Financial Assistance:
+
+  $10,000 to $20,000,000; $339,956.                                                  
+PROGRAM ACCOMPLISHMENTS:                                                             
+  In fiscal year 2006, 130 proposals were received and 42 awards made. In fiscal     
+  year 2007, 307 proposals were received and 70 awards were made. In fiscal year     
+  2008, approximately 320 proposals are expected to be received 71 awards made.      
+REGULATIONS, GUIDELINES, AND LITERATURE:                                             
+  48 CFR Chapter 25: 45 CFR Chapter VI; NSF Guide to Programs, fiscal year           
+  2004, NSF 04-009 (http://www.nsf.gov/cgi-bin/getpub?/nsf04009); and "Grant         
+  Proposal Guide," (http://www.nsf.gov/cgi-bin/getpub?/nsf0423). NSF World           
+  Wide Web site URL: http://www.nsf.gov/oci/.                                        
+Regional or Local Office:                                                            
+  None.                                                                              
+Headquarters Office:                                                                 
+  Office of the Director, National Science Foundation, 4201 Wilson Blvd.,            
+  Arlington, VA 22230. Telephone: (703) 292-8970.                                    
+Web Site Address:                                                                    
+  http://www.nsf.gov/oci/ .                                                          
+RELATED PROGRAMS:                                                                    
+  47.041, Engineering Grants; 47.049, Mathematical and Physical Sciences;            
+  47.050, Geosciences; 47.070 Computer and Information Science and                   
+  Engineering; 47.074, Biological Sciences; 47.075, Social, Behavioral, and          
+  Economic Sciences; 47.076, Education and Human Resources; 47.078, Polar            
+  Programs; 47.079, International Science and Engineering (OISE).                    
+EXAMPLES OF FUNDED PROJECTS:                                                         
+  1) The OptIPuter: Essentially, the OptIPuter is a "virtual" parallel computer in   
+  which the individual "processors" are widely distributed clusters; the             
+  "backplane" is provided by IP delivered over multiple dedicated lambdas (each      
+  1-10 Gbps); and, the "mass storage systems" are large distributed scientific data  
+  repositories, fed by scientific instruments as OptIPuter peripheral devices,       
+  operated in near real-time. Furthermore, collaboration will be a defining          
+  OptIPuter characteristic; goals include implementing a next-generation Access      
+  Grid with optical multicast, enabling tiled stereo HDTV screens of reality-        
+  matching visual resolution. The OptIPuter is an embodiment of the vision of the    
+  "hollowing out of the computer" prophesized in the mid-1990s. The old              
+
+
+                                                                                11-08
+  "computer-in-a-box" is being blown up and scattered across the Net. The
+  OptIPuter's fundamental inventions include software and middleware
+  abstractions to deliver unique capabilities in a lambda-rich world, a world in
+  which endpoint-delivered bandwidth is greater than individual computers can
+  saturate. The OptIPuter project explores a new architecture for the distributed
+  information infrastructure (which NSF terms infrastructure) required by a
+  number of this decade's science and engineering shared facilities. The project is
+  driven by a close collaboration with leaders of two of these community systems,
+  NSF's EarthScope and NIH's Biomedical Imaging Research Network (BIRN) -
+  both of which are beginning to produce an accelerating flood of data which will
+  in stored in distributed federated data repositories. One characteristic blocking
+  such science is that the individual data objects (a 3D brain image or a terrain
+  dataset) are large (Gigabytes) compared to what can be interactively manipulated
+  or visualized over today's networks. What these scientists require are ultra-high-
+  speed predictable "clear-channel" networks linking PC clusters, storage and
+  visualization systems, enabling collaborating scientists to explore interactively
+  massive amounts of previously uncorrelated data. An important opportunity
+  exists over the next few years to develop a radical new architecture for this
+  needed scientific infostructure. 2) Engaging People in Cyberinfrastructure
+  (EPIC): TeacherTECH program reached 540 K-12 educators from February
+  2005 to December 2005 through monthly and summer workshops in science,
+  technology, engineering and math. These educator participants represented all of
+  San Diego County, from urban to rural, from the tip of San Diego County all the
+  way to the border with Mexico. Seventy educators were reached last year.
+  Workshops include TeacherTECH Technology Tools workshops, TeacherTECH
+  Advanced Technology Tools workshops, TeacherTECH Science Series and a
+  TeacherTECH Math Series. Many of the TeacherTECH Science Series
+  workshop presentations are archived on our TeacherTECH site
+  (http://education.sdsc.edu/teachertech) for viewing by teachers across the nation.
+   Ten thousand people have visited the new TeacherTECH website since its
+  inception in May 2005. The site includes standards-based curriculum submitted
+  by TeacherTECH participants, science lectures, scientific visualizations, notes,
+  resources and much more. Our community partners and educators alike have
+  praised our site. 3) Tornadogenesis within a simulated supercell storm: Using
+  the Advanced Regional Prediction System model and supercomputing facilities
+  a realistic supercell storm is simulated and successfully reproduced vorticity and
+  other features of the most-intense tornado ever simulated. The use of a uniform
+  resolution grid large enough to contain the entire parent storm is a first, and
+  eliminates the uncertainties of artificial human control associated with nested
+  grid simulations or simulations using horizontally stretched grids. The peak
+  wind speed, reaching 120 meters per second, places the tornado within the F5
+  intensity scale of Fujita. Atmospheric data from this
+  simulationwill be used to develop algorithms for a new system of cell-phone
+  tower based Doppler radar, called CASA (Center for Collaborative Adaptive
+  Sensing of the Atmosphere), projected to reduce tornado false-alarm forecasts
+  from the current 75 percent to 25 percent. 4) The Pacific Rim Application and
+  Grid Middleware Assembly (PRAGMA): An intensive international effort
+  involving researcher from more than ten institutions to improve grid-based
+  application, collaboration, discourse and exchange of scientific personnel among
+  Pacific Rim institutions. It builds on an initial series of workshops that focused
+  on assessing the state of grid-based infrastructure, evaluated a collection of
+  scientific applications and provided a recurring venue to nurture sustainable
+  collaborations across the Pacific Rim. The original award provided funds to
+  host the first workshop and allow both computing infrastructure specialists and
+  applications scientists to attend follow on workshops. This ongoing effort
+  created the initial impetus to move forward in both building long long-term
+  international collaborations and creating a venue for applications scientists to
+  effectively understand and use grid-based systems. 5) Keeping Condor Flight
+  Worthy: This proposal outlines an effort to sustain the Condor High Throughput
+  Computing Software (Condor) by the Condor Project at the University of
+  Wisconsin-Madison (UW). The activities proposed are categorized into four
+  areas of work: Support, Release, Enhance, and Use. "Support" activities aid
+  users with installation, configuration, and usage through ticket-tracked email.
+  Support also includes outreach work in the scientific computing community.
+  This outreach work includes hosting an annual international Condor workshop,
+  participating in online forums dedicated to Condor and distributed computing,
+  writing articles and book chapters on using Condor, and delivering invited
+  tutorials at workshops and conferences. "Support" functions serve mainly to
+  deliver new versions of the Condor software. Support also includes maintenance
+  - ongoing bug fixing, support for new operating system releases and new
+  versions of dependent software packages, and updates to documentation.
+  "Enhance" activities will generate basic improvements to the Condor software,
+  such as enhancements in scalability and reliability, new capabilities on Win32,
+  and the incorporation of recent advances in distributed computing technology.
+  "Use" activities leverages the Grid Laboratory of Wisconsin (GLOW) project.
+  GLOW is a multi disciplinary team of researchers across the University of
+  Wisconsin campus that develops, implements, tests and deploys grid-enabled
+  capabilities.
+CRITERIA FOR SELECTING PROPOSALS:
+                                                                                  845

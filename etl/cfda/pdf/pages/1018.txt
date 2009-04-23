@@ -1,0 +1,172 @@
+                                                  NATIONAL SCIENCE FOUNDATION
+
+47.041 ENGINEERING GRANTS                                                           
+                                                                                    
+   (ENG)                                                                            
+                                                                                    
+FEDERAL AGENCY:                                                                     
+  NATIONAL SCIENCE FOUNDATION                                                       
+AUTHORIZATION:                                                                      
+  National Science Foundation Act of 1950, as amended, Public Law 107-368, 42
+
+                                                                                    
+  U.S.C. 1861 et seq.                                                               
+OBJECTIVES:                                                                         
+  NSF's Directorate for Engineering (ENG) seeks to improve the quality of life and
+
+                                                                                    
+  the economic strength of the Nation by fostering innovation, creativity, and
+
+                                                                                    
+  excellence in engineering education and research. Specifically, ENG enables the
+
+                                                                                    
+  Nation's long- term capacity to perform by: (1) Investing in the creation of new
+
+                                                                                    
+  engineering knowledge and the development of human capital within disciplines
+
+                                                                                    
+  and at their interfaces; (2) making critical investments to enable an intelligent,
+  agile and adaptable physical infrastructure for engineering education and         
+  research; (3) improving the quality and effectiveness of engineering education    
+  and research through the integration of and systemic reform of these processes;   
+  and (4) enabling knowledge transfer connections among diverse constituencies      
+  and communities. Areas of research include: tissue engineering; metabolic         
+  pathway engineering; bioinformatics; protein drug processing, fluid flow;         
+  combustion; heat transfer; fuel cells; sensors; integrated modeling of the        
+  behavior of materials and structures; civil infrastructure; structures and        
+  mechanical systems; engineering in geologic materials; reducing risks of natural  
+  and technological hazards; enterprise-level integration technologies; innovative  
+  design strategies; manufacturing processes and materials; production systems;     
+  microelectronic, nanoelectronic, micromagnetic, photonic, and                     
+  electromechanical devices and their integration into circuits and microsystems;   
+  design and analysis of systems and the convergence of control, communications     
+  and computation; Engineering Research Groups; Engineering Research Centers;       
+  Industry/University Cooperative Research Centers; Engineering Education;          
+  Human Resources Development; cross cutting activities and special studies and     
+  analyses. Support is also provided for undergraduate student research, graduate   
+  research fellowships, research equipment and instrumentation, Small Business      
+  Innovation Research (SBIR), and Grant Opportunities for Academic Liaison          
+  with Industry (GOALI). ENG also provides support for Foundation-wide              
+  programs including the Faculty Early Career Development (CAREER) program          
+  and the Integrative Graduate Education and Research Training (IGERT)              
+  Program, and Small Business Technology Transfer Program (STTR).                   
+TYPES OF ASSISTANCE:                                                                
+  Project Grants.                                                                   
+USES AND USE RESTRICTIONS:                                                          
+  Funds may be used for paying costs to conduct research, such as salaries and      
+  wages, equipment and supplies, travel, publication costs, other direct costs, and 
+  indirect costs. This program does not provide support for inventions, product     
+  development, marketing, pilot plant efforts, technical assistance, or research    
+  requiring security classifications.                                               
+Applicant Eligibility:                                                              
+  Public and private colleges and universities; Non-profit, non-academic            
+  organizations; For-profit organizations; State and Local Governments; and         
+  unaffiliated scientists under special circumstances. See the Grant Proposal Guide 
+  for a full description of eligibility requirements.                               
+Beneficiary Eligibility:                                                            
+  See the Grant Proposal Guide, Section I.E. for a full description of eligibility  
+  requirements.                                                                     
+Credentials/Documentation:                                                          
+  The proposal must be signed electronically by an official authorized to commit    
+  the institution or organization in business and financial affairs and who can     
+  commit the organization to certain proposal certifications. Costs will be         
+  determined in accordance with OMB Circular Nos. A-21 for colleges and             
+  universities and A-122 for nonprofit organizations. This program is excluded      
+  from coverage under OMB Circular No. A-87.                                        
+Preapplication Coordination:                                                        
+  None required for unsolicited proposals, but preliminary discussions with         
+  relevant National Science Foundation program officer, by telephone or mail, is    
+  encouraged if specific program information is needed. Special proposal            
+  competitions may specify preliminary proposal requirements. This program is       
+  excluded from coverage under OMB Circular No. A-102. This program is              
+  excluded from coverage under E.O. 12372.                                          
+Application Procedure:                                                              
+  Proposals must be submitted electronically via FastLane to the Engineering        
+  Programs and should follow the general instructions and guidelines in the NSF     
+  "Grant Proposal Guide." Research proposals for support under the Small            
+  Business Innovation Research (SBIR) program must be submitted in response to      
+  an annual solicitation. All proposals are acknowledged. These programs are        
+  subject to the provisions of OMB Circular No. A-110.                              
+Award Procedure:
+
+                                                                               11-08
+  NSF staff members review and evaluate all proposals with the assistance and
+  advice of scientists and engineers who are specialists in the field covered by the
+  proposal, of prospective users of research results when appropriate, and of
+  specialists in other Federal agencies when appropriate.
+Deadlines:
+  Many NSF programs accept proposals at any time. Other programs, however,
+  establish due dates for submission of proposals. NSF utilizes Target Dates,
+  Deadline Dates, and Submission Windows. Consult the Grant Proposal Guide,
+  Section I.F. for a further description of these types of due dates. See the
+  Directorate's web pages for deadlines for unsolicited research proposals
+  (http://www.nsf.gov/dir/index.jsp?org=ENG). Proposers should contact the
+  program officer listed under the Information Contacts section of this program for
+  dates on specific programs.
+Range of Approval/Disapproval Time:
+  Approximately 3 to 7 months.
+Appeals:
+  The Principal Investigator may request, in writing, that the Foundation
+  reconsider its action in declining any proposal, renewal, or continuing grant
+  proposal.
+Renewals:
+  NSF awards the following types of grants: 1) Standard Grants, in which NSF
+  agrees to support a specified level of effort for a specified period of time, with
+  no statement of NSF intent to provide additional future support. Proposals for
+  renewal of a Standard Grant compete with all other pending proposals. 2)
+  Continuing Grants, in which NSF agrees to support a specified level of effort for
+  a specified period of time, with a statement of intent to provide additional
+  support for the project, provided funds are available and the results achieved
+  warrant further support. Funding is normally in one-year increments. Some
+  awards are made as cooperative agreements when substantial NSF involvement
+  is required during the project performance period. Renewals are not allowed for
+  the Small Business Innovation Research (SBIR) program.
+Formula and Matching Requirements:
+  The Grant Proposal Guide (GPG)(Chapter II) and the Grant Policy Manual (Sec.
+  330) provide additional information on the general NSF policy on cost-sharing.
+  The Small Business Innovation Research (SBIR) program is a phased project
+  program. Phase I is a feasibility study up to 6 months. Phase II is the principal
+  research program for up to 24 months.
+Length and Time Phasing of Assistance:
+  Normally 6 months to 3 years, occasionally longer.
+Reports:
+  For all multi-year grants (including both standard and continuing grants), the PI
+  must submit an annual project report to the cognizant program office at least 90
+  days before the end of the current budget period. Within 90 days after the
+  expiration of a grant, the PI is required to submit a final project report. Quarterly
+  Federal Cash Transaction Reports are required. Other reporting requirements
+  may be imposed via the grant instrument.
+Audits:
+  In accordance with the provisions of OMB Circular No. A-133 (Revised, June
+  27, 2003), "Audits of States, Local Governments, and Non-Profit
+  Organizations," nonfederal entities that expend financial assistance of $500,000
+  or more in Federal awards will have a single or a program-specific audit
+  conducted for that year. Nonfederal entities that expend less than $500,000 a
+  year in Federal awards are exempt from Federal audit requirements for that year,
+  except as noted in Circular No. A-133.
+Records:
+  Grantees are expected to maintain separate records for each grant to ensure that
+  funds are used for the general purpose for which the award was made. Records
+  are subject to inspection during the life of the award and for 3 years thereafter.
+Account Identification:
+  49-0100-0-1-251.
+Obligations:
+  (Grants and Contracts) FY 07 $629,990,000; FY 08 est $636,870,000; and FY
+  09 est not reported.
+Range and Average of Financial Assistance:
+  $5,000 to $4,000,000; $120,000.
+PROGRAM ACCOMPLISHMENTS:
+  In fiscal year 2006, 9,427 proposals were received and 1,737 awards were made.
+  In fiscal year 2007, 9,575 proposals were received and 1,958 awards were made,
+  and in fiscal year 2008 approximately 9,890 proposals will be received and
+  about 1,978 awards will be made.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  45 CFR Chapter VI; 48 CFR Chapter 25; "NSF Guide to Programs, fiscal year
+  2004," NSF 04-009 (http://www.nsf.gov/cgi-bin/getpub?nsf04009); and "Grant
+  Proposal Guide," (http://www.nsf.gov/cgi-bin/getpub?nsf0423); selected
+  solicitations include "Small Business Innovation Research (SBIR) and Small
+  Business Technology Transfer (STTR) Programs Phase I Solicitation," NSF 06-
+  553; "Faculty Early Career Development (CAREER)," NSF 05-579; "Grant
+                                                                                      831

@@ -12,6 +12,7 @@ class ProgramDescription(models.Model):
     program_number = models.DecimalField("Program number", max_digits=7, decimal_places=3)
     program_title = models.CharField("Program title", max_length=255)
     sectors = models.ManyToManyField(sectors.models.Sector)
+    program_note = models.TextField("Program note", default="", blank=True)
     federal_agency = models.TextField("Federal agency", blank=True, default="")
     major_agency = models.CharField("Major agency",blank=True,default="", max_length=100)
     minor_agency = models.TextField("Minor agency",blank=True,default="")

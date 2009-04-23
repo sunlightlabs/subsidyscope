@@ -1,0 +1,164 @@
+Credentials/Documentation:                                                            
+  A program point of contact must be designated by the chief elected official of      
+  each jurisdiction eligible to apply to DHS for assistance.                          
+Preapplication Coordination:                                                          
+  This program is eligible for coverage under E.O. 12372, "Intergovernmental          
+  Review of Federal Programs." An applicant should consult the office or official     
+  designated as the single point of contact in his or her State for more information  
+  on the process the State requires to be followed in applying for assistance, if the 
+  State has selected the program for review.                                          
+Application Procedure:                                                                
+  Application deadline and other information are contained in the                     
+  application/program guidance.                                                       
+Award Procedure:                                                                      
+  Applications or plans are reviewed by DHS program and administrative staff.         
+  Any issues or concerns noted in the application will be negotiated with the         
+  successful applicant prior to the award being issued.                               
+Deadlines:
+
+  Refer to announcement or application guidance for further information.              
+Range of Approval/Disapproval Time:
+
+  Refer to program guidance document.                                                 
+Appeals:                                                                              
+  None.                                                                               
+Renewals:                                                                             
+  A new application is required for each Federal fiscal year.                         
+Formula and Matching Requirements:                                                    
+  States will be allocated a base amount of Citizen Corps funds using the             
+  percentages prescribed in Section 1014 of the USA Patriot Act, P.L. 107-56.         
+  Each State will be allocated a base amount of 0.75 percent of the total amount      
+  available except that the Virgin Islands, Guam, American Samoa, and the             
+  Commonwealth of the Northern Mariana Islands each will be allocated a base          
+  amount of 0.25 percent of the total amount available. The remaining Citizen         
+  Corps grant funds will be allocated on the basis of population and added to the     
+  base amounts. The Citizen Corps grants will carry no cost-share requirement.        
+Length and Time Phasing of Assistance:                                                
+  Refer to program guidance. Awards are subject to the Cash Management                
+  Improvement Act for payment and/or reimbursement of expenditures.                   
+Reports:                                                                              
+  Categorical Assistance Progress Reports (CAPR) and Biannual Strategy                
+  Implementation Reports (BSIR) are due within 30 days after the end of the           
+  reporting periods, which are June 30 and December 31, for the life of the award.    
+  Grantees are also required to submit quarterly financial reports. These reports     
+  are due 30 days after the end of each quarter: Jan. 30, April 30, July 30, and      
+  Oct. 30. Final financial, CAPR and BSIR reports are due 90 days after the           
+  expiration or termination of the grant award.                                       
+Audits:                                                                               
+  In accordance with the provisions of OMB Circular A-133 (Revised, June 27,          
+  2003), Audits of States, Local Governments, and Nonprofit Organizations,            
+  nonfederal entities that expend financial assistance of $500,000 or more in         
+  Federal awards (or receive property, or a combination of both, within the fiscal    
+  year) will have a single or a program-specific audit conducted for that year.       
+  Nonfederal entities that expend less than $500,000 a year in Federal awards are     
+  exempt from Federal audit requirements for that year, except as noted in Circular   
+  A-133. These audits are due to the cognizant Federal agency, submitted through      
+  the Federal Audit Clearinghouse, not later than 9 months after the end of the       
+  grantees fiscal year.                                                               
+Records:                                                                              
+  Grant records shall retained for a period of 3 years from the day the recipient     
+  submits its final expenditure report. If any litigation, claim, negotiation, audit, 
+  or other action involving the records has been started before the expiration of the 
+  3-year period, the records must be retained until completion of the action and      
+  resolution of all issues which arise from it, or until the end of the regular 3-year
+  period, whichever is later. Grant records include financial and program/progress    
+  reports, support documents, statistical records, and other documents that support   
+  the activity and/or expenditure of the recipient or sub-recipient under the award.  
+Account Identification:                                                               
+  70-0560-0-1-999.                                                                    
+Obligations:                                                                          
+  (Grants) FY 07 $550,000 (remaining funding included in 97.067); FY 08 est           
+  $14,572,500; and FY 09 est $15,000,000.                                             
+Range and Average of Financial Assistance:                                            
+  Refer to program guidance.                                                          
+PROGRAM ACCOMPLISHMENTS:                                                              
+  Not applicable.                                                                     
+REGULATIONS, GUIDELINES, AND LITERATURE:                                              
+  All available, relevant guidance is provided to the designated points of contact    
+  of all eligible State participants.                                                 
+Regional or Local Office:                                                             
+  Not applicable.                                                                     
+Headquarters Office:                                                                  
+  Department of Homeland Security, 245 Murray Lane, Bldg. #410, Washington,           
+
+
+                                                                                 11-08
+  DC 20528.
+Web Site Address:
+  http://www.fema.gov.
+RELATED PROGRAMS:
+  97.051, State and Local All Hazards Emergency Operations Planning; 97.052,
+  Emergency Operations Centers; 97.025, National Urban Search and Rescue
+  (US&R) Response System; 97.038, First Responder Counter-Terrorism Training
+  Assistance; 97.042, Emergency Management Performance Grants; 97.044,
+  Assistance to Firefighters Grant; 97.008, Urban Areas Security Initiative;
+  97.071, Metropolitan Medical Response System; 97.073, State Homeland
+  Security Program (SHSP); 97.074, Law Enforcement Terrorism Prevention
+  Program (LETPP).
+EXAMPLES OF FUNDED PROJECTS:
+  Not applicable.
+CRITERIA FOR SELECTING PROPOSALS:
+  Refer to the program guidance for information on criteria for selecting proposals.
+97.055 INTEROPERABLE COMMUNICATIONS
+EQUIPMENT
+FEDERAL AGENCY:
+  DEPARTMENT OF HOMELAND SECURITY
+AUTHORIZATION:
+  Homeland Security Act of 2002, Public Law 107-296; Federal Fire Prevention
+  and Control Act of 1974, 15 U.S.C., Section 2201-2232; Consolidated
+  Appropriations Resolution, Public Law 108-7 (2003); Emergency Wartime
+  Supplemental Appropriations Act, Public Law 108-11 (2003).
+OBJECTIVES:
+  Provide funding to jurisdictions across the nation for demonstration projects that
+  will explore uses of equipment and technologies to increase interoperability
+  among the fire service, law enforcement, and emergency medical service
+  communities. These projects will illustrate and encourage the acceptance of new
+  technologies and operating methods to assist communities in achieving
+  interoperability.
+TYPES OF ASSISTANCE:
+  Project Grants.
+USES AND USE RESTRICTIONS:
+  Designated jurisdictions will be invited to submit applications for interoperable
+  communications projects that include the purchase of interoperable
+  communications equipment components for multi-disciplinary and/or multi-
+  jurisdictional public safety communications projects. Requests may provide
+  local jurisdictions with equipment or services to participate on public safety,
+  commercial, or other shared networks and portable gateway solutions.
+  Applicants may request assistance for other technologies if the application
+  demonstrates how the proposed technology will improve interoperability among
+  the public safety community. If an interoperable communications plan has not
+  been developed, the application should also include a description of how a plan
+  will be established as part of the proposed project.
+Applicant Eligibility:
+  Local governments nominated by State or Territory government to submit an
+  application.
+Beneficiary Eligibility:
+  Local governments.
+Credentials/Documentation:
+  None.
+Preapplication Coordination:
+  FEMA will invite a limited number of local jurisdictions, as designated by their
+  respective State's Governor, to submit competitive proposals for interoperable
+  communications demonstration projects. This program is excluded from
+  coverage under E.O. 12372.
+Application Procedure:
+  Application deadline and other information are contained in the
+  application/program guidance.
+Award Procedure:
+  Applications or plans are reviewed by DHS program and administrative staff.
+  Any issues or concerns noted in the application will be negotiated with the
+  successful applicant prior to the award being issued.
+Deadlines:
+  Refer to announcement or application guidance for further information.
+Range of Approval/Disapproval Time:
+  Refer to program guidance document.
+Appeals:
+  None.
+Renewals:
+  None.
+Formula and Matching Requirements:
+  This program has no statutory formula. Grant awards will require a 25%
+  nonfederal cost share. The source of the match funds must be identified in the
+  grant application. The match does not need to be a cash match. In-kind
+  contributions are permitted and must be activities in direct support of and
+                                                                                 1637

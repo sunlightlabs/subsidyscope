@@ -1,0 +1,184 @@
+  he/she is qualified to make judgements. What is the intellectual merit of the        
+  proposed activity? How important is the proposed activity to advancing               
+  knowledge and understanding within its own field or across different fields?         
+  How well qualified is the proposer (individual or team) to conduct the project?      
+  (If appropriate, the reviewer will comment on the quality of the prior work.) To     
+  what extent does the proposed activity suggest and explore creative and original     
+  concepts? How well conceived and organized is the proposed activity? Is there        
+  sufficient access to resources? What are the broader impacts of the proposed         
+  activity? How well does the activity advance discovery and understanding while       
+  promoting teaching, training, and learning? How well does the proposed activity      
+  broaden the participation of underrepresented groups (e.g., gender, ethnicity,       
+  disability, geographic, etc.)? To what extent will it enhance the infrastructure for 
+  research and education, such as facilities, instrumentation, networks, and           
+  partnerships? Will the results be disseminated broadly to enhance scientific and     
+  technological understanding? What may be the benefits of the proposed activity       
+  to society? NSF staff will give careful consideration to the following in making     
+  funding decisions: Integration of Research and Education. One of the principal       
+  strategies in support of NSF's goals is to foster integration of research and        
+  education through the programs, projects, and activities it supports at academic     
+  and research institutions. These institutions provide abundant opportunities         
+  where individuals may concurrently assume responsibilities as researchers,           
+  educators, and students and where all can engage in joint efforts that infuse        
+  education with the                                                                   
+  excitementofdiscoveryandenrich research through the diversity of learning            
+  perspectives. Integrating Diversity into NSF Programs, Projects, and Activities.     
+  Broadening opportunities and enabling the participation of all citizens -- women     
+  and men, underrepresented minorities, and persons with disabilities -- is            
+  essential to the health and vitality of science and engineering. NSF is committed    
+  to this principle of diversity and deems it central to the programs, projects, and   
+  activities it considers and supports.                                                
+                                                                                       
+                                                                                       
+47.070 COMPUTER AND INFORMATION SCIENCE AND                                            
+ENGINEERING                                                                            
+                                                                                       
+   (CISE)                                                                              
+                                                                                       
+FEDERAL AGENCY:                                                                        
+  NATIONAL SCIENCE FOUNDATION                                                          
+AUTHORIZATION:
+
+                                                                                       
+  National Science Foundation Act of 1950, as amended, Public Law 107-368, 42
+
+                                                                                       
+  U.S.C. 1861 et seq.
+
+                                                                                       
+OBJECTIVES:
+
+                                                                                       
+  To support investigator-initiated research in all areas of computer science and
+
+                                                                                       
+  engineering and related fields and contribute to the education and training of
+
+                                                                                       
+  future generations of computing professionals, ensuring a supply of qualified
+
+                                                                                       
+  technical personnel commensurate with national needs.                                
+TYPES OF ASSISTANCE:                                                                   
+  Project Grants.
+
+                                                                                       
+USES AND USE RESTRICTIONS:                                                             
+  Funds may be used to pay costs of conducting research, and obtaining access to
+
+                                                                                       
+  advanced computing and networking capabilities, salaries and wages, equipment        
+  and supplies, travel, publication costs, other direct costs, and indirect costs.     
+  Funds may not be used for purposes other than those specified in the proposal.       
+Applicant Eligibility:                                                                 
+  Public and private colleges and universities; Non-profit, non-academic               
+  organizations; For-profit organizations; State and Local Governments; and            
+  unaffiliated scientists under special circumstances. See the Grant Proposal Guide    
+  for a full description of eligibility requirements.                                  
+Beneficiary Eligibility:                                                               
+  See the Grant Proposal Guide, Section I.E. for a full description of eligibility     
+  requirements.                                                                        
+Credentials/Documentation:                                                             
+  The proposal must be signed electronically by an official authorized to commit       
+  the institution or organization in business and financial affairs and who can        
+  commit the organization to certain proposal certifications. Costs will be            
+  determined in accordance with OMB Circular Nos. A-21 for educational                 
+  institutions and A-122 for nonprofit organizations. This program is excluded         
+  from coverage under OMB Circular No. A-87.                                           
+Preapplication Coordination:                                                           
+  None required, except in specific cases, but preliminary discussions with            
+  relevant National Science Foundation program officers, by email, telephone or        
+  mail, are encouraged. This program is excluded from coverage under E.O.              
+  12372.                                                                               
+Application Procedure:                                                                 
+  Proposals must be submitted electronically via FastLane to the Computer and          
+  Information Science and Engineering Directorate and should follow the general        
+  instructions and guidelines in the "Grant Proposal Guide." All proposals are         
+  acknowledged. This program is subject to the provisions of OMB Circular No.          
+  A-110 for nonprofit organizations. This program is excluded from coverage            
+  under OMB Circular No. A-102.
+
+
+
+                                                                                  11-08
+Award Procedure:
+  NSF staff members review and evaluate all proposals, with the advice and
+  assistance: of scientists and engineers who are specialists in the field covered by
+  the proposal, of prospective users of research results when appropriate, and of
+  specialists in other Federal agencies.
+Deadlines:
+  Many NSF programs accept proposals at any time. Other programs, however,
+  establish due dates for submission of proposals. NSF utilizes Target Dates,
+  Deadline Dates, and Submission Windows. Consult the Grant Proposal Guide,
+  Section I.F. for a further description of these types of due dates. The Directorate
+  website lists funding opportunities at: http://www.cise.nsf.gov/.
+Range of Approval/Disapproval Time:
+  Approximately 6 months or less, except in special instances.
+Appeals:
+  The Principal Investigator may request, in writing, that the National Science
+  Foundation reconsider its action in declining any proposal application, renewal
+  application, or continuing application.
+Renewals:
+  Proposals for renewal of NSF grants compete with all other pending proposals.
+Formula and Matching Requirements:
+  The Grant Proposal Guide (GPG) (Chapter II) and the Grant Policy Manual (Sec.
+  330) provide information on the general NSF policy on cost-sharing.
+Length and Time Phasing of Assistance:
+  Normally 6 months to 3 years; occasionally longer.
+Reports:
+  For all multi-year grants (including both standard and continuing grants), the PI
+  must submit an annual project report to the cognizant program officer at least 90
+  days before the end of the current budget period. Within 90 days after the
+  expiration of a grant, the PI is required to submit a final project report. Quarterly
+  Federal Cash Transaction Reports are required. Other reporting requirements
+  may be imposed via the grant instrument.
+Audits:
+  In accordance with the provisions of OMB Circular No. A-133 (Revised, June
+  27, 2003), "Audits of States, Local Governments, and Non-Profit
+  Organizations," nonfederal entities that expend financial assistance of $500,000
+  or more in Federal awards will have a single or a program-specific audit
+  conducted for that year. Nonfederal entities that expend less than $500,000 a
+  year in Federal awards are exempt from Federal audit requirements for that year,
+  except as noted in Circular No. A-133.
+Records:
+  Grantees are expected to maintain separate records for each grant to ensure that
+  funds are used for the general purpose for which each grant was made. Records
+  are subject to inspection during the life of the grant and for 3 years thereafter.
+Account Identification:
+  49-0100-0-1-251.
+Obligations:
+  (Grants) FY 07 $526,680,000; FY 08 est $534,530,000; and FY 09 est not
+  reported.
+Range and Average of Financial Assistance:
+  $2,000 to $19,000,000; $136,000.
+PROGRAM ACCOMPLISHMENTS:
+  In fiscal year 2007, 5,745 proposals were received and 1,633 awards were
+  made. In fiscal year 2008, we estimate approximately 7,400 proposals will be
+  received and approximately 1,635 awards will be made.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  48 CFR Chapter 25: 45 CFR Chapter VI; "NSF Guide to Programs, fiscal year
+  2004," NSF 04-009 (http://www.nsf.gov/cgi-bin/getpub?nsf04009); and "Grant
+  Proposal Guide," (http://www.nsf.gov/cgi-bin/getpub?nsf0423).
+Regional or Local Office:
+  Not applicable.
+Headquarters Office:
+  Assistant Director, Computer and Information Science and Engineering,
+  National Science Foundation, 4201 Wilson Blvd., Arlington, VA 22230.
+  Telephone: (703) 292-8900. NSF World Wide Web site URL:
+  http://www.cise.nsf.gov/.
+Web Site Address:
+  http://www.cise.nsf.gov/.
+RELATED PROGRAMS:
+  47.041, Engineering Grants; 47.049, Mathematical and Physical Sciences;
+  47.050, Geosciences; 47.074, Biological Sciences; 47.075, Social, Behavioral,
+  and Economic Sciences; 47.076, Education and Human Resources; 47.078,
+  Polar Programs; 47.079, International Science and Engineering (OISE); 47.080,
+  Office of Cyberinfrastructure.
+EXAMPLES OF FUNDED PROJECTS:
+  (1) Cooperative Steady-Hand Augmentation of Human Skill in
+  Micromanipulation Tasks: The primary focus of this research is on development
+  of a cooperatively controlled 'steady hand' robot for microsurgery and other fine
+  manipulation tasks, research exploring and extending the steady hand paradigm,
+  and application of the system for prototypical microsurgical tasks in areas such
+  as ophthalmology and otology. Researchers at John Hopkins University have
+                                                                                     835

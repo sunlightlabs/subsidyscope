@@ -1,0 +1,188 @@
+  programs for education purposes.                                                     
+Beneficiary Eligibility:                                                               
+  Anyone who receives the improved digital television signal from a rural public       
+  television station or attends an educational institution that uses public television 
+  in its curriculum.                                                                   
+Credentials/Documentation:                                                             
+  The applicant must provide evidence demonstrating that it meets the definition       
+  of a public television station in section 81, above. The applicant must also         
+  provide evidence that the FCC has authorized the initiation of digital               
+  broadcasting at each of the Applicant's transmitter and translator sites.            
+Preapplication Coordination:                                                           
+  None required. This program is excluded from coverage under E.O. 12372.              
+Application Procedure:                                                                 
+  An applicant must submit an application in accordance with the Program's             
+  application guide. In addition to Government-wide requirements, the applicant        
+  shall provide a description of the project including: an executive summary, a        
+  project cost spreadsheet, broadcast coverage maps, a complete narrative              
+  description, and an environmental assessment.                                        
+Award Procedure:                                                                       
+  All complete applications from eligible applicants that meet the application         
+  deadline will be scored in a competitive process to determine which projects are     
+  funded. There are three scoring categories. The first is rurality, a measure of the  
+  rural character of the applicant's digital television coverage area. Up to 50        
+  points can be earned in this category. The second uses the National School           
+  Lunch Program eligibility percentage as a measure of the economic need of the        
+  people in the applicant's coverage area. This category earns up to 25 points.        
+  Finally, up to 25 points can be awarded based on critical need.                      
+Deadlines:                                                                             
+  RUS publishes application dates and deadlines annually in a Notice of Funding        
+  Availability in the Federal Register.                                                
+Range of Approval/Disapproval Time:                                                    
+  Applications are approved each fiscal year for which funding is made available.      
+Appeals:                                                                               
+  None.                                                                                
+Renewals:                                                                              
+  None.
+
+Formula and Matching Requirements:
+
+  None.                                                                                
+Length and Time Phasing of Assistance:                                                 
+  RUS will advance funds as needed (but no more frequently than once every 30
+
+                                                                                       
+  days) to reimburse disbursements for approved grant purposes. A recipient
+
+  generally has three years to spend funds. RUS may approve a one year
+
+                                                                                       
+  extension.
+
+                                                                                       
+Reports:                                                                               
+  The recipient must provide periodic performance reports and permit periodic          
+  inspection by RUS of the project. The recipient must constantly monitor              
+  performance to ensure that it is meeting time schedules, accomplishing projected     
+  work by time periods, and achieving other performance objectives. The                
+  recipient must provide periodic financial reports to RUS. The performance and        
+  financial reports must be submitted to RUS on a quarterly basis throughout the       
+  project construction period.                                                         
+Audits:                                                                                
+  The recipient must provide RUS with an audit for each year in which a portion        
+  of the grant is expended. In accordance with the provisions of OMB Circular          
+  No. A-133 (Revised, June 27, 2003), "Audits of States, Local Governments, and        
+  Non Profit Organizations, nonfederal entities that receive financial assistance of   
+  $500,000 or more in Federal awards will have a single or a program-specific          
+  audit conducted for that year. Nonfederal entities that expend less than             
+  $500,000 a year in Federal awards are exempt from Federal audit requirements         
+  for that year, except as noted in Circular No. A-133.                                
+Records:                                                                               
+  The recipient must maintain all records needed to identify the purposes for          
+  which, and the manner in which, grant and other funds were expended on the           
+  project. The recipient must maintain such records for three years after the          
+  project is completed. The recipient must provide reasonable access to these          
+  records to RUS.                                                                      
+Account Identification:                                                                
+  12-1232-0-1-452.                                                                     
+Obligations:                                                                           
+  (Grants) FY 07 $4,950,000; FY 08 $0; and FY 09 est not reported.                     
+Range and Average of Financial Assistance:                                             
+  The maximum grant for an individual public television station is $1 million. In
+
+                                                                                       
+  fiscal year 2006, the average grant amount was $497,000. The 10 grants ranged
+
+                                                                                       
+  from $110,525 to $1,000,000.
+
+                                                                                       
+PROGRAM ACCOMPLISHMENTS:
+
+                                                                                       
+  During fiscal year 2006, 10 applicants received grants.
+
+                                                                                       
+REGULATIONS, GUIDELINES, AND LITERATURE:
+
+                                                                                       
+  7 CFR Part 1740 - Public Television Station Digital Transition Grant Program
+
+                                                                                       
+  (Interim final rule with request for comments)
+
+                                                                                       
+Regional or Local Office:
+
+                                                                                       
+
+
+150                                                                              11-08
+
+  None.
+Headquarters Office:
+  Assistant Administrator, Telecommunications Program, Rural Utilities Service,
+  Department of Agriculture, 1400 Independence Avenue, S.W., STOP 1590,
+  Room 5151, Washington, DC 20250-1590. Telephone: (202) 720 9554, Fax:
+  (202) 720 0810.
+Web Site Address:
+  http://www.usda.gov/rus/telecom/index.htm.
+RELATED PROGRAMS:
+  None.
+EXAMPLES OF FUNDED PROJECTS:
+  The grant will enable the purchase of a full power transmitter, 14 translators,
+  master control equipment, and standby power. The grant will fund DTV
+  translators. It will also fund purchase and installation of a DTV video
+  distribution system to mirror the programming storage functions of a similar
+  system. In addition, the grant will fund a digital media server and automation
+  system. The grant will finance a full power digital television transmission
+  facility serving an area that is currently served by six low power analog
+  translators. Funding will cover a new tower, building, transmission equipment,
+  and associated processing, monitoring, and test equipment. The grant will fund
+  an emergency backup power generation system to provide a reliable broadcast
+  during power outages. The grant will fund a studio-to-transmitter
+  communication system, a transmission link for High Definition programming,
+  and a dynamic Program and System Information Protocol generation system.
+  The grant will fund a three hop microwave system to deliver the digital signal
+  140 miles The grant will allow the conversion of two translators to digital. The
+  translators serve areas hidden from the transmitters by terrain. It will also
+  provide interconnection from the headquarters to the translator sites using a
+  vacant UHF channel. The grant will finance the upgrade of microwave systems
+  that will allow two stations to deliver standard and high definition signals.
+CRITERIA FOR SELECTING PROPOSALS:
+  Complete, eligible applications that meet the application deadline are scored to
+  determine which projects are funded. There are three scoring categories:
+  rurality, up to 50 points; economic need, up to 25 points; and critical need, up to
+  25 points.
+10.862 HOUSEHOLD WATER WELL SYSTEM GRANT
+PROGRAM
+   (HWWS Program)
+FEDERAL AGENCY:
+  RURAL UTILITIES SERVICE, DEPARTMENT OF AGRICULTURE
+AUTHORIZATION:
+  Consolidated Farm and Rural Development Act, as amended, Section 306E,
+  Public Law 107-171, 7 U.S.C. 1926e.
+OBJECTIVES:
+  To make grants to private, nonprofit organizations to finance the construction,
+  refurbishing and servicing of individually-owned household water well systems
+  in rural areas for individuals with low or moderate income.
+TYPES OF ASSISTANCE:
+  Project Grants.
+USES AND USE RESTRICTIONS:
+  Grant funds will be used to establish and maintain a revolving loan fund to
+  provide loans to eligible individuals to construct, refurbish, and service
+  individually-owned household water well systems. Eligible individuals must
+  own or will own the household water well systems. Funds may be used to pay
+  administrative expenses associated with providing the loans. Grant funds may
+  not be used to pay (1) administrative expenses exceeding 10 percent of the loans
+  made during the calendar year; (2) administrative expenses incurred before the
+  Rural Utilities Service executes a grant agreement; (3) delinquent debt owed to
+  the Federal Government.
+Applicant Eligibility:
+  An applicant must be a private organization, organized as a non-profit
+  corporation. The applicant must have the legal capacity and authority to
+  perform the obligations of the grant. The applicant must have sufficient
+  expertise and experience in lending activities and promoting the safe and
+  productive use of individually-owned household water well systems and ground
+  water.
+Beneficiary Eligibility:
+  An individual in a household in which the combined income of all household
+  members (for the most recent 12 months) does not exceed 100 percent of the
+  median non-metropolitan household income for the State or territory in which
+  the individual resides.
+Credentials/Documentation:
+  Evidence of legal capacity, economic feasibility, ability to administer and
+  service a revolving loan fund, commitment and sources of financial resources
+  the organization controls.
+Preapplication Coordination:
+  The standard application forms furnished by the Federal agency and required by

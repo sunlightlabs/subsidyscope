@@ -1,0 +1,164 @@
+  employees). To be eligible for funding, a grant application must be approved for     
+  scientific merit and program relevance by a scientific review group and a            
+  national advisory council.                                                           
+Credentials/Documentation:                                                             
+  Cost allowability will be determined in accordance with OMB Circular A-87 for        
+  State, Local, and Indian Tribal Governments, OMB Circular A-21 for                   
+  Educational Institutions and for For-profit organizations, costs will be             
+  determined in accordance with 48 CFR Subpart 31.2 Federal Acquisition                
+  Regulation (FAR). Nonprofit institutions cost principles are outlined under          
+  OMB Circular A-122 and for Hospitals, 45 CFR Part 74, Appendix E. These              
+  cost principles are codified under 45 CFR 74.27 and 92.22. Uniform                   
+  Administrative Requirements for Grants and Other Agreements with Institutions        
+  of Higher Education, Hospitals, and Other Nonprofit Organizations are outlined       
+  in OMB Circular A-110. Documentation providing NIH grants policy and                 
+  guidance can be found at http://grants.nih.gov/grants/policy/policy.htm. The         
+  Division of Extramural Programs, NLM provides program specific grant                 
+  information at http://www.nlm.nih.gov/ep.                                            
+Preapplication Coordination:                                                           
+  Not applicable. This program is excluded from coverage under E.O. 12372.             
+Application Procedure:                                                                 
+  NIH is in the process of moving to electronic submission of applications for all     
+  of its grant programs. Only electronic applications are accepted for all types of    
+  Research Grants, SBIR and STTR grants, and Resource Grants. Electronic grant         
+  submission of the SF424 (R&R) form is via http://www.grants.gov. For                 
+  instructions on submitting grants electronically, see                                
+  http://era.nih.gov/ElectronicReceipt/. A timeline of transitions to electronic       
+  submission for each grant program is available at                                    
+  http://www.nlm.nih.gov/ep/Deadlines.html. For all other grant programs, a paper      
+  form is submitted to the Center for Scientific Review, National Institutes of        
+  Health, Bethesda, MD 20892. Form PHS-398 is used for NIH Pathway to                  
+  Independence Grants and Biomedical Resource Grants. Forms and instructions           
+  for PHS-398 can be downloaded at                                                     
+  http://grants1.nih.gov/grants/funding/phs398/phs398.html. For Informationist         
+  Fellowships, submit Form PHS-416-1, with forms and instructions                      
+  downloadable at http://grants1.nih.gov/grants/funding/416/phs416.htm. These          
+  programs are subject to the provisions of 45 CFR, Part 92 for State and local        
+  governments and OMB Circular No. A-110 for nonprofit organizations. Updates          
+  on NLM application deadlines and links to available forms can also be found at       
+  http://www.nlm.nih.gov/ep/.                                                          
+Award Procedure:                                                                       
+  Applications are evaluated for merit by a committee of scientific experts and for    
+  program relevance by the Board of Regents (BOR) of the National Library of           
+  Medicine (NLM). If favorably recommended, the application is considered for          
+  funding. An award notice is prepared when it is determined that a grant is to be     
+  paid. This notice is sent to the grantee with a letter from the program officer      
+  when special provisions are necessary. All accepted SBIR/STTR applications are       
+  evaluated for scientific and technical merit by an appropriate scientific peer       
+  review panel and by a national advisory council or board. All applications           
+  receiving a priority score compete for available SBIR/STTR set-aside funds on        
+  the basis of scientific and technical merit and commercial potential of the          
+  proposed research, program relevance, and program balance among the areas of         
+  research.                                                                            
+Deadlines:                                                                             
+  Each program has 3 application deadlines per year, which vary by grant program       
+  and whether the application is new or revised. Special Requests for Applications     
+  (RFAs) or newly established Program Announcements (PAs) issued annually              
+  may have other limited deadline dates. For an up-to-date list of deadlines, see      
+  http://www.nlm.nih.gov/ep/Deadlines.html.                                            
+Range of Approval/Disapproval Time:                                                    
+  From 9-10 months after the application deadline.                                     
+Appeals:                                                                               
+  NIH policy allows a principal investigator (PI) to appeal the outcome of a review    
+  if procedural errors or factual errors entered into the review of the application. A 
+  description of the NIH Peer Review Appeal procedures is available at                 
+  http://grants.nih.gov/grants/guide/notice-files/not97-232.html. However,             
+  differences of scientific opinion that often occur between investigators and         
+  reviewers may not be contested through these procedures. In addition,                
+  communications from investigators consisting of additional information that was      
+  not available to the reviewers are not considered to be appeals.                     
+Renewals:                                                                              
+  Competing renewal applications follow same review procedures and deadlines as        
+  new applications; dates for submission are at                                        
+  http://www.nlm.nih.gov/ep/Deadlines.html. NIH also permits the resubmission          
+  of an application that has been revised following merit review. Deadlines for        
+  resubmissions are listed with other deadlines.                                       
+Formula and Matching Requirements:                                                     
+  There are no statutory formula or matching requirements for NLM grants.              
+Length and Time Phasing of Assistance:                                                 
+  The length of a grant award varies by the type of grant. R01 research grants         
+  generally last three or four years. Resource grants, Small Pilot and                 
+
+
+1526                                                                             11-08
+
+  Exploratory/Developmental grants, Fellowships and NIH Pathway to
+  Independence awards have defined maximum periods that are provided in the
+  funding opportunity announcement.
+Reports:
+  Annual grant progress reports and Financial Status Reports must be submitted as
+  required. At the end of a grant, the awardee must file a final progress report,
+  final Financial Status Report and final statement of invention.
+Audits:
+  In accordance with the provisions of OMB Circular No. A-133, States, local
+  governments, and nonprofit organizations that expend $500,000 or more in a
+  year in Federal awards shall have a single or program-specific audit conducted
+  for that year. In accordance with 45 CFR 74 Subpart C Section 74.26(d) for-
+  profit organizations that expend more than $500,000 in DHHS awards in a year
+  shall have an audit of the DHHS awards in accordance with the "Government
+  Auditing Standards" (Yellow Book) or an audit that meets the requirements of
+  OMB Circular A-133. Award recipients that do not meet the $500,000 threshold
+  are exempt from Federal audit requirements for that year, except as noted in
+  Circular A-133. In addition, grants and cooperative agreements are subject to
+  review or audit by appropriate officials of the Federal (funding) agency, pass-
+  through entity and the Government Accountability Office (GAO). Foreign
+  organizations must use the for-profit audit requirements for DHHS supported
+  awards. The NIH/DHHS Loan Repayment Program (LRP) is not subject to
+  Federal auditing requirements. For OMB policy statements on grants, see
+  http://www.whitehouse.gov/omb/grants/grants_docs.html. Government Auditing
+  Standards is available on the GAO Web site at
+  http://www.gao.gov/govaud/ybk01.htm.
+Records:
+  Financial and programmatic grant records must be retained for 3 years from the
+  day on which the grantee submits the last (annual) Financial Status Report
+  (FSR). Streamlined Noncompeting Application Process (SNAP) awardees
+  beginning date for record retention purposes is the date of the FSR submission
+  for the entire competitive segment of the grant.
+Account Identification:
+  75-0807-0-1-552.
+Obligations:
+  (Extramural Funding Awards) FY 07 $67,568,000; FY 08 est $63,389,000; and
+  FY 09 est $63,389,000.
+Range and Average of Financial Assistance:
+  $7,000 to $1,561,223; $333,452 - FY 07 total average cost for Basic Research
+  Grant (R01); $143,773 - FY 07 total average cost for Knowledge Management
+  Grant (G08); $70,692 - FY 07 total average cost for Scholarly Works Grant
+  (G13).
+PROGRAM ACCOMPLISHMENTS:
+  In fiscal year 2007, 223 new and continuing awards were made for projects in
+  biomedical informatics, bioinformatics, informatics training and health
+  information management. It is anticipated that approximately 213 awards will be
+  issued in fiscal year 2008 and approximately 213 awards will be issued in fiscal
+  year 2009.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  National Library of Medicine Grant Programs are awarded under the Public
+  Health Service Act and the Medical Library Assistance Act. Grants and funding
+  awards are made available under the authority of the Acts as codified under 45
+  CFR 74 (Uniform Administrative Requirements for Awards and Subawards to
+  Institutions of Higher Education, Hospitals, Other Nonprofit Organizations, and
+  Commercial Organizations; and Certain Grants and Agreements with States,
+  Local Governments, and Indian Tribal Governments and 45 CFR 92 (Uniform
+  Administrative Requirements for Grants and Cooperative Agreements to States
+  and Local Governments); the NIH Grants Policy Statement is available to
+  grantees as a single document governing the NIH/DHHS policy requirements
+  and terms and conditions of NIH/DHHS grant awards. Additional regulations
+  and guidelines are provided in the Omnibus Solicitation of the Public Health
+  Service for Small Business Innovation Research (SBIR - R43, R44) Grant and
+  Cooperative Agreement Applications including the Omnibus Solicitation of the
+  National Institutes of Health for Small Business Technology Transfer (STTR -
+  R41, R42) Grant Applications.
+Regional or Local Office:
+  Not applicable.
+Headquarters Office:
+  Extramural Programs, National Library of Medicine, National Institutes of
+  Health, Public Health Service, Department of Health and Human Services,
+  Bethesda, MD 20894. Telephone: (301) 496-4621. Program Contacts:
+  Telephone: (301) 594-4882. Grants Management Contact: Grants Management
+  Officer: Telephone: (301) 496-4221. Grant Review Contact: Scientific Review
+  Administrator. Telephone: (301) 496-4253. Use the same numbers for FTS.
+  Website: http://www.nlm.nih.gov/ep.
+Web Site Address:
+  http://www.nlm.nih.gov/ep.
+RELATED PROGRAMS:
+  None.
+EXAMPLES OF FUNDED PROJECTS:
