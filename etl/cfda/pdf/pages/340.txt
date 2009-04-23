@@ -1,0 +1,202 @@
+  financed facilities will not be inconsistent with any development plans of the     
+  State, multi-jurisdictional area, county, or municipality in which the proposed    
+  project is located.                                                                
+                                                                                     
+                                                                                     
+10.886 RURAL BROADBAND ACCESS LOANS AND LOAN                                         
+GUARANTEES                                                                           
+                                                                                     
+   (Rural Broadband Access Loans and Loan Guarantees)
+
+                                                                                     
+                                                                                     
+FEDERAL AGENCY:
+
+                                                                                     
+  RURAL UTILITIES SERVICE, DEPARTMENT OF AGRICULTURE
+
+                                                                                     
+AUTHORIZATION:
+
+                                                                                     
+  Rural Electrification Act of 1936, as amended, Title VI; 7 U.S.C. 950bb.
+
+OBJECTIVES:                                                                          
+  To assure that people in eligible rural communities have access to broadband       
+  service comparable in reliability and quality to the rest of the Nation.           
+TYPES OF ASSISTANCE:                                                                 
+  Direct Loans; Guaranteed/Insured Loans.                                            
+USES AND USE RESTRICTIONS:                                                           
+  RUS makes long term direct and guaranteed loans to eligible entities for the       
+  purpose of financing the construction, improvement, and acquisition of             
+  telecommunications facilities and equipment to provide broadband service in        
+  eligible rural communities. Eligible rural communities are defined as any area     
+                                                                                     
+  of the United States (which includes its territories and insular possessions,
+
+                                                                                     
+  including the Federated States of Micronesia, the Republic of the Marshall
+
+                                                                                     
+  Islands, and the Republic of Palau); that is not contained in an incorporated city
+
+                                                                                     
+  or town with a population in excess of 20,000 inhabitants, based on the most
+
+                                                                                     
+  recent available information of the Bureau of the Census. Broadband Service
+
+                                                                                     
+  means any technology having the capacity to transmit at a minimum
+
+                                                                                     
+  transmission speed of 200 kbps both from and to a residential subscriber. The
+
+                                                                                     
+  rate of data transmission is subject to annual review and will be published in the
+
+                                                                                     
+  Notice of Funds Availability at the beginning of each fiscal year. Loans
+
+                                                                                     
+  maturities are equal to the composite economic life of the facilities financed.
+
+                                                                                     
+  The interest rate for the Cost-of-Money program is equal to the cost of
+
+                                                                                     
+  borrowing to the Department of Treasury for a comparable maturity. The 4-
+
+                                                                                     
+  Percent program interest rate is 4 percent and the maximum loan amount for the     
+  4-Percent program is $7.5 million. The interest rate for the Guarantee program is  
+  set by the lender.                                                                 
+Applicant Eligibility:                                                               
+  Cooperative, nonprofit, limited dividend or mutual associations, limited liability
+
+                                                                                     
+  companies, commercial organizations, Indian tribes, tribal organizations, state    
+  government, local government, including those located in the U.S. territories and  
+  countries included in the Compact of Free Association Act of 1985, providing or    
+  proposing to provide broadband services in eligible rural communities. The         
+  following are not eligible: individuals, partnerships, limited liability           
+  partnerships, and any entity serving more than 2 percent of the telephone          
+  subscriber lines installed in the United States. Applicants must meet a credit     
+  support requirement; see7 CFR 1738.20.                                             
+Beneficiary Eligibility:                                                             
+  Residents of eligible rural communities and others who may receive service as a    
+  result of service provided to a rural area.                                        
+Credentials/Documentation:                                                           
+  None.                                                                              
+Preapplication Coordination:                                                         
+  Applicants must supply environmental impact information to determine whether       
+  an environmental impact assessment or an environmental impact statement will
+
+  be required. This program is excluded from coverage under Executive Order
+
+  12372.                                                                             
+Application Procedure:                                                               
+  The completed loan application consists of twenty-one schedules. Form 532,         
+  Rural Broadband Access Loan and Loan Guarantee Application, serves as the          
+  official application document and as a checklist to assure all relevant            
+  information is included. The major sections of an application include: business    
+  plan, market research, historical and 5 year pro forma financial statements,       
+  system design and project costs. The instructions for completing an application    
+  are outlined in RUS Bulletin 1738-1: Rural Broadband Access Loan and Loan          
+  Guarantee Program Application Guide. The bulletin and application are              
+  available from RUS on request and on our website:                                  
+  www.usda.gov/rus/telecom/broadband.htm.                                            
+Award Procedure:                                                                     
+  Depending on the amount of the application, and loan committee(s)                  
+  recommendation, the RUS Administrator or Assistant Administrator                   
+  Telecommunications, makes the final decision on approval of the loan or loan       
+  guarantee. There must be a finding that the project is economically feasible,      
+  capable of delivering Broadband Service, and services the purposes of the          
+  program. Borrowers and member of Congress are notified directly of the             
+  approval of a loan or loan guarantee.                                              
+Deadlines:                                                                           
+  The program is an ongoing program with applications evaluated on a first come,     
+  first served basis. There is no deadline for applications.                         
+
+
+                                                                                11-08
+Range of Approval/Disapproval Time:
+  Normal processing time is four to five months.
+Appeals:
+  Not applicable.
+Renewals:
+  Not applicable.
+Formula and Matching Requirements:
+  This program has no statutory formula.
+Length and Time Phasing of Assistance:
+  Loan funds must be used within a five year period from the date of loan closing.
+  A one time extension is permitted.
+Reports:
+  The borrower must submitted quarterly financial statements within 30 days of
+  the end of each calendar quarter. The statements must consist of a balance
+  sheet, income statement, and statement of cash flows.
+Audits:
+  All borrowers must have their books audited annually by a Certified Public
+  Accountant. Information on audits is contained in 7 CFR Part 1773.
+Records:
+  Not applicable.
+Account Identification:
+  12-1232-0-1-452.
+Obligations:
+  (Cost of Money Loans) FY 07 $923,186,000; FY 08 est $300,000,000; and FY
+  09 est not reported. (4 Percent Loans) FY 07 $0; FY 08 est $0; and FY 09 est not
+  reported. (Loan Guarantees) FY 07 $0; FY 08 est $0; and FY 09 est not
+  reported.
+Range and Average of Financial Assistance:
+  The minimum loan amount for the program is $100,000. There is no maximum
+  loan amount except for 4 Percent loans (that amount is published by RUS in the
+  Federal Register at the beginning of each fiscal year). The smallest loan
+  approved to date is $362,000; the largest, $168,406,000.
+PROGRAM ACCOMPLISHMENTS:
+  In Fiscal Year 2006, RUS approved 15 Cost of Money loans totaling
+  $329,000,000.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  7 CFR 1738 - Rural Broadband Access Loans and Loan Guarantees Notice of
+  funds availability, Federal Register, March 4, 2005 (Volume 70, Number 42)
+  RUS Bulletin 1738-1: Rural Broadband Access Loan and Loan Guarantee
+  Program Application Guide.
+Regional or Local Office:
+  None.
+Headquarters Office:
+  Assistant Administrator, Telecommunications Program, Rural Utilities Service,
+  Department of Agriculture, 1400 Independence Avenue, S.W., STOP 1590,
+  Room 5151, Washington, DC 20250 1590. Telephone number (202) 720 9554,
+  Facsimile (202) 720 0810.
+Web Site Address:
+  http://www.usda.gov/rus/telecom/broadband.htm.
+RELATED PROGRAMS:
+  10.851, Rural Telephone Loans and Loan Guarantees.
+EXAMPLES OF FUNDED PROJECTS:
+  Loans have been approved to construct wireless, DSL, cable modem, and fiber to
+  the premises (FTTP) broadband systems.
+CRITERIA FOR SELECTING PROPOSALS:
+  See 7 CFR 1738.
+10.901 RESOURCE CONSERVATION AND DEVELOPMENT
+FEDERAL AGENCY:
+  NATURAL RESOURCES CONSERVATION SERVICE, DEPARTMENT OF
+  AGRICULTURE
+AUTHORIZATION:
+  Public Law 97-98, 95 Stat. 1213.
+OBJECTIVES:
+  To encourage and improve the capability of State and local units of government
+  and local nonprofit organizations in rural areas to plan, develop and carry out
+  programs for resource conservation and development.
+TYPES OF ASSISTANCE:
+  Advisory Services and Counseling.
+USES AND USE RESTRICTIONS:
+  Technical assistance is available only to RC&D sponsors within areas authorized
+  by the Secretary of Agriculture for assistance. Technical assistance is available
+  for the planning and installation of approved projects specified in RC&D area
+  plans, for land conservation, water management, community development and
+  environmental enhancement elements.
+Applicant Eligibility:
+  State and local governments and nonprofit organizations with authority to plan
+  or carry out activities relating to resource use and development in
+  multijurisdictional areas. This program is also available in Puerto Rico, the
+  Virgin Islands, Guam and Mariana Islands.
+                                                                                  153

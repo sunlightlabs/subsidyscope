@@ -1,0 +1,164 @@
+  calculating the principle limit. This is determined at closing using a factor       
+  corresponding to the age of the youngest borrower, the interest rate, and the       
+  value of the home or the FHA limits, whichever is less. The average loan amount     
+  for FY 2006 is $235,634.                                                            
+PROGRAM ACCOMPLISHMENTS:                                                              
+  In Fiscal Year 2006, 76,282 loans were Insured; in Fiscal Year 2007, 107,367        
+  loans were insured.                                                                 
+REGULATIONS, GUIDELINES, AND LITERATURE:                                              
+  "Options for Elderly Homeowners: A Guide to Reserve Mortgages and Their             
+  Alternatives," no charge; 24 CFR 200 and 206, HUD Handbook 4235.1, Rev. 1.          
+Regional or Local Office:                                                             
+  Persons are encouraged to contact the Homeownership Center serving their            
+  State(see http://www.hud.gov/offices/hsg/sfh/hoc/hsghocs.cfm) or the nearest        
+  HUD Office. See Catalog Address Appendix IV for a list of Offices.                  
+Headquarters Office:                                                                  
+  451 7th Street, S.W., Washington, DC 20410. Telephone: (202) 708-2121.              
+Web Site Address:                                                                     
+  http://www.hud.gov/offices/hsg/sfh/hecm/hecmabou.cfm.                               
+RELATED PROGRAMS:                                                                     
+  None.                                                                               
+EXAMPLES OF FUNDED PROJECTS:                                                          
+  None.                                                                               
+CRITERIA FOR SELECTING PROPOSALS:                                                     
+  None.                                                                               
+                                                                                      
+14.184 MORTGAGES INSURANCE FOR SINGLE ROOM                                            
+OCCUPANCY (SRO) PROJECTS                                                              
+                                                                                      
+      (221(d) Single Room Occupancy)                                                  
+                                                                                      
+FEDERAL AGENCY:                                                                       
+  HOUSING, DEPARTMENT OF HOUSING AND URBAN DEVELOPMENT                                
+AUTHORIZATION:                                                                        
+  National Housing Act, Section 221(d), 12 U.S.C. 1751(d); Section 223(g), 12         
+  U.S.C. 1715 (g).                                                                    
+OBJECTIVES:                                                                           
+  The Single Room Occupancy (SRO) Program provides mortgage insurance for             
+  multifamily properties consisting of single-room units. There are no Federal rent   
+  subsidies involved with this SRO Program. It is aimed at those tenants who          
+  have a source of income but are priced out of the rental apartment market. SRO      
+  projects will generally require assistance from local governing bodies or           
+  charitable organizations in order to reduce the rents to affordable levels.         
+TYPES OF ASSISTANCE:                                                                  
+  Guaranteed/Insured Loans.                                                           
+USES AND USE RESTRICTIONS:                                                            
+  The SRO Program insures lenders against loss on mortgages used to finance           
+  construction or substantial rehabilitation of projects consisting of five or more   
+  units comprised primarily of one room residential units. Projects must be           
+  designed primarily for residential use. Any commercial activity must be             
+  compatible with the use of the project and primarily for the benefit of the         
+  residents. Commercial space is limited to 10 percent of the total gross floor area  
+  (20 percent in substantial rehabilitation projects), and 15 percent of gross rental 
+  income in a project. Contractors for new construction and substantial               
+  rehabilitation projects must comply with prevailing wage requirements under the     
+  Davis-Bacon Act.                                                                    
+Applicant Eligibility:                                                                
+  Eligible applicants may be nonprofit entities; builder/sellers teamed with a        
+  nonprofit purchaser, a limited distribution entity, profit-motivated entities or    
+  public entities. Cooperative lenders or investors are not eligible.                 
+Beneficiary Eligibility:                                                              
+  Residents are subject to normal tenant selection procedures. There are no income    
+  limits for admission.                                                               
+Credentials/Documentation:                                                            
+  Along with the Application for Mortgage Insurance, the applicant must provide       
+  a market profile demonstrating a clear need for the proposed SRO, experience        
+  profiles as to SRO operation, a certification from the local government assuring    
+  support of the project, and a relocation plan if needed.                            
+Preapplication Coordination:                                                          
+  For Traditional Application Process (TAP), the sponsor has an initial conference    
+  with the local HUD Multifamily Hub and Program Center to determine the              
+  preliminary feasibility of the project before a Site Appraisal and Market Analysis  
+  (SAMA) Application (for new construction projects or feasibility application        
+  (for substantial rehabilitation projects) is submitted. For Multifamily             
+  Accelerated Processing (MAP), the sponsor works with the MAP-approved               
+  lender who submits required exhibits for the pre-application state. This program    
+  is excluded from coverage under OMB Circular No. A-102. An environmental            
+  assessment is required for this program. This program is eligible for coverage      
+  under E.O. 12372, "Intergovernmental Review of Federal Programs." An                
+  applicant should consult the office or official designated as the single point of   
+  contact in his or her State for more information on the process the State requires  
+
+
+318                                                                             11-08
+
+  to be followed in applying for assistance, if the State has selected the program
+  for review.
+Application Procedure:
+  The sponsor submits an application for a SAMA or feasibility application to the
+  local HUD office for review. Following HUD's issuance of a SAMA or
+  feasibility letter, the sponsor submits a firm commitment application through a
+  HUD-approved mortgagee to the local HUD Multifamily Hub and Program
+  Center for processing. This program is excluded from coverage under OMB
+  Circular No. A-110.
+Award Procedure:
+  The project is reviewed to determine its feasibility. If the project meets program
+  requirements, the HUD Multifamily Hub or Program Center issues a
+  commitment to insure the mortgage.
+Deadlines:
+  Deadlines are established on a case-by-case basis by the local HUD Multifamily
+  Hub or Program Center.
+Range of Approval/Disapproval Time:
+  Processing time depends upon the degree of preparation by the sponsor and the
+  workload of the HUD Multifamily Hub or Program Center.
+Appeals:
+  If an application for mortgage insurance is denied, HUD will state the reasons
+  for the denial. If reapplication is desired, the applicant may reapply subject to
+  concurrence of the lender.
+Renewals:
+  The term of a commitment to insure may be extended when more time is
+  required to close the loan.
+Formula and Matching Requirements:
+  The maximum amount of a Section 221 (d)(4) profit motivated loan may not
+  exceed 90 percent of the estimated replacement cost. The maximum amount of
+  a Section 221(d)(3) non-profit loan is 100 percent of the estimated replacement
+  cost. The mortgage insurance premium is one-half percent of the mortgage
+  amount. The HUD fees for application processing and commitment are $3 per
+  $1,000 of the mortgage amount. The HUD-inspection fee may not exceed $5
+  per $1,000 of the mortgage amount.
+Length and Time Phasing of Assistance:
+  The maximum mortgage term is 40 years, or not in excess of three-fourths of the
+  remaining economic life, whichever is less.
+Reports:
+  HUD must approve mortgagor changes during the period of mortgage insurance.
+   Defaults in meeting the mortgage terms must be reported. All mortgagors are
+  required to submit an annual financial statement to HUD. All approved
+  mortgagees at any time upon request by HUD must furnish copies of their latest
+  financial statements.
+Audits:
+  The Department of Housing and Urban Development reserves the right to audit
+  the accounts of either the mortgagee or mortgagor to determine their compliance
+  and conformance with HUD regulations and standards.
+Records:
+  Mortgagees are required to service and maintain records in accordance with
+  acceptable mortgage practices of prudent lending institutions and HUD
+  regulations.
+Account Identification:
+  86-4077-0-3-371.
+Obligations:
+  (Mortgages insured) Reported under program 14.133.
+Range and Average of Financial Assistance:
+  The maximum amount of the loan may not exceed 90 percent of the estimated
+  replacement cost for For Section 221(d)(4). The maximum loan amount for
+  Section 221(d)(3) is 100 percent of the estimated replacement cost.
+PROGRAM ACCOMPLISHMENTS:
+  In Fiscal Year 2007, the Department did not insure any mortgages under this
+  section. No activity under this section is expected in Fiscal Year 2008.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  24 CFR 221.565; HUD Handbook 4560.3, Mortgage Insurance for Single Room
+  Occupancy (SRO) Projects available on www.hudclips.org.
+Regional or Local Office:
+  Persons are encouraged to communicate with the nearest local HUD Multifamily
+  Hub and Program Center listed in
+  http://www.hud.gov/offices/hsg/mfh/mfbroch/hubs_pcs.cfm or the nearestHUD
+  Office listed in the Catalog Address Appendix IV.
+Headquarters Office:
+  Office of Multifamily Development, Department of Housing and Urban
+  Development, 451 7th Street, S.W., Washington, DC 20410. Telephone: (202)
+  708-1142.
+Web Site Address:
+  http://www.hud.gov/offices/hsg/hsgmulti.cfm.
+RELATED PROGRAMS:
+  14.134, Mortgage Insurance_Rental Housing; 14.135, Mortgage
+  Insurance_Rental and Cooperative Housing for Moderate Income Families and
+  Elderly, Market Interest Rate; 14.155, Mortgage Insurance for the Purchase or

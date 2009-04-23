@@ -1,0 +1,186 @@
+  The National Science Board approved revised criteria for evaluating proposals at     
+  its meeting on March 28, 1997 (NSB 97-72). All NSF proposals are evaluated           
+  through use of the two merit review criteria. In some instances, however, NSF        
+  will employ additional criteria as required to highlight the specific objectives of  
+  certain programs and activities. On July 8, 2002, the NSF Director issued            
+  Important Notice 127, Implementation of new Grant Proposal Guide                     
+  Requirements Related to the Broader Impacts Criterion. This Important Notice         
+  reinforces the importance of addressing both criteria in the preparation and         
+  review of all proposals submitted to NSF. NSF continues to strengthen its            
+  internal processes to ensure that both of the merit review criteria are addressed    
+  when making funding decisions. In an effort to increase compliance with these        
+  requirements, the January 2002 issuance of the GPG incorporated revised              
+  proposal preparation guidelines relating to the development of the Project           
+  Summary and Project Description. Chapter II of the GPG specifies that Principal      
+  Investigators (PIs) must address both merit review criteria in separate statements   
+  within the one-page Project Summary. This chapter also reiterates that broader       
+  impacts resulting from the proposed project must be addressed in the Project         
+  Description and described as an integral part of the narrative. Effective October    
+  1, 2002, NSF will return without review proposals that do not separately address     
+  both merit review criteria within the Project Summary. It is believed that these     
+  changes to NSF proposal preparation and processing guidelines will more clearly      
+  articulate the importance of broader impacts to NSF-funded projects. The two         
+  National Science Board approved merit review criteria are listed below (see the      
+  Grant Proposal Guide Chapter III.A for further information). The criteria include    
+  considerations that help define them. These considerations are suggestions and       
+  not all will apply to any given proposal. While proposers must address both          
+  merit review criteria, reviewers will be asked to address only those                 
+  considerations that are relevant to the proposal being considered and for which      
+  he/she is qualified to make judgments. What is the intellectual merit of the         
+  proposed activity? How important is the proposed activity to advancing               
+  knowledge and understanding within its own field or across different fields?         
+  How well qualified is the proposer (individual or team) to conduct the project?      
+  (If appropriate, the reviewer will comment on the quality of the prior work.) To     
+  what extent does the proposed activity suggest and explore creative and original     
+  concepts? How well conceived and organized is the proposed activity? Is there        
+  sufficient access to resources? What are the broader impacts of the proposed         
+  activity? How well does the activity advance discovery and understanding while       
+  promoting teaching, training, and learning? How well does the proposed activity      
+  broaden the participation of underrepresented groups (e.g., gender, ethnicity,       
+  disability, geographic, etc.)? To what extent will it enhance the infrastructure for 
+  research and education, such as facilities, instrumentation, networks, and           
+  partnerships? Will the results be disseminated broadly to enhance scientific and     
+  technological understanding? What may be the benefits of the proposed activity       
+  to society NSF staff will give careful consideration to the following in making      
+                                                                                       
+  funding decisions: Integration of Research and Education. One of the principal
+
+                                                                                       
+  strategies in support of NSF's goals is to foster integration of research and
+
+                                                                                       
+  education through the programs, projects, and activities it supports at academic
+
+                                                                                       
+  and research institutions. These institutions provide abundant opportunities
+
+                                                                                       
+  where individuals may concurrently assume responsibilities as researchers,
+
+                                                                                       
+  educators, and students and where all can engage in joint efforts that infuse
+
+                                                                                       
+  education with the excitement of discovery andenrich
+
+                                                                                       
+  research through the diversity of learning perspectives. Integrating Diversity into
+
+                                                                                       
+  NSF Programs, Projects, and Activities. Broadening opportunities and enabling
+
+                                                                                       
+  the participation of all citizens -- women and men, underrepresented minorities,
+
+                                                                                       
+  and persons with disabilities -- is essential to the health and vitality of science
+
+                                                                                       
+  and engineering. NSF is committed to this principle of diversity and deems it        
+  central to the programs, projects, and activities it considers and supports.         
+                                                                                       
+47.081 OFFICE OF EXPERIMENTAL PROGRAM TO                                               
+STIMULATE COMPETITIVE RESEARCH                                                         
+                                                                                       
+      020 (EPSCoR)                                                                     
+                                                                                       
+FEDERAL AGENCY:                                                                        
+  NATIONAL SCIENCE FOUNDATION                                                          
+AUTHORIZATION:                                                                         
+  National Science Foundation Act of 1950, as amended, Public Law 107-368, 42          
+  U.S.C. 1861 et seq.                                                                  
+OBJECTIVES:                                                                            
+  As an investment strategy, Co-funding enables members of the research                
+  communities within EPSCoR jurisdictions not only to improve their ability to         
+  compete for National Science Foundation (NSF) program funds, but also to             
+  increase their active participation and visibility as members of the national        
+  scientific research and education enterprise. To assist those jurisdictions that     
+  has historically received lesser amounts of academic research and development        
+  funding. The NSF EPSCoR Office established the Co-funding Initiative in FY           
+  1998 to accelerate the movement of more researchers and institutions from            
+  EPSCoR jurisdictions into the mainstream of NSF support, and thereby                 
+  contribute to the NSF EPSCoR concept of a Trajectory for Sustainable Scientific      
+
+
+846                                                                              11-08
+
+  Success.
+TYPES OF ASSISTANCE:
+  Project Grants.
+USES AND USE RESTRICTIONS:
+  Funds may be used to pay the costs of conducting research, product
+  development, resources, tools and services, as salaries and wages, equipment and
+  supplies, travel, publication costs, other direct costs, and indirect costs.
+Applicant Eligibility:
+  Public and private colleges and universities; Non-profit, non-academic
+  organizations; For-profit organizations; State and Local Governments; and
+  unaffiliated scientists under special circumstances. See the Grant Proposal
+  Guide for a full description of eligibility requirements.
+Beneficiary Eligibility:
+  See the Grant Proposal Guide, Section I.E. for a full description of eligibility
+  requirements.
+Credentials/Documentation:
+  The proposal must be signed electronically by an official authorized to commit
+  the institution or organization in business and financial affairs and who can
+  commit the organization to certain proposal certifications. Costs will be
+  determined in accordance with OMB Circular Nos. A-21 for educational
+  institutions and A-122 for nonprofit organizations. This program is excluded
+  from coverage under OMB Circular No. A-87.
+Preapplication Coordination:
+  None required, except in specific cases, but preliminary discussions with
+  relevant National Science Foundation program officers, by telephone or mail, are
+  encouraged. This program is excluded from coverage under E.O. 12372.
+Application Procedure:
+  By electronic submission via FastLane of a formal proposal describing the
+  research or study to be undertaken. Guidelines are contained in publication,
+  "Grant Proposal Guide," and "Guide to Programs Fiscal Year 2004,"NSF 04-
+  009. This program is subject to the provisions of OMB Circular No. A-110.
+  This program is excluded from the coverage under OMB Circular No. A-102.
+Award Procedure:
+  NSF staff members review and evaluate all proposals, with the advice and
+  assistance of scientists and engineers who are specialists in the field covered by
+  the proposal, of prospective users of research results when appropriate, and of
+  specialists in other Federal agencies.
+Deadlines:
+  Many NSF program accept proposals at any time. Other programs, however,
+  establish due dates for submission of proposals. NSF utilizes Target Dates,
+  Deadline Dates, and Submission Windows. Consult the Grant Proposal Guide,
+  Section I.F. for further description of these types of due dates.
+Range of Approval/Disapproval Time:
+  From 90 to 180 days.
+Appeals:
+  The Principal Investigator whose proposal for support has been declined may
+  request, in writing, that the National Science Foundation reconsider its action in
+  ceclining any proposal, renewal, or continuing grant proposal.
+Renewals:
+  Proposals for renewals, containing the same type of information as the original
+  proposal, should be submitted at least 6 months before the expiration date of the
+  award. Renewals are treated in competition with all other pending proposals.
+Formula and Matching Requirements:
+  The Grant Proposal Guide (GPA, Chapter II) and the Grant Policy Manual
+  (Section 330) provide information on the general NSF policy on cost-sharing.
+Length and Time Phasing of Assistance:
+  Normally 6 months to 3 years; occasionally longer.
+Reports:
+  For multi-year grants (including both standard and continuing grants), the PI
+  must submit an annual progress report to the cognizant program officer at least
+  90 days before the end of the current budget period. Within 90 days after the
+  expiration of a grant, the PI is required to submit final project report. Quarterly
+  cash Transaction Report are required. Other reporting requirements may be
+  imposed via the grant instrument.
+Audits:
+  In accordance with the provisions of OMB Circular No. A-133 (Revised, June
+  27, 2003), Audit of States, Local Governments, and Nonprofit Organizations,
+  nonfederal entities that expend financial assistance of $500,000 or more in
+  Federal awards will have a single or a program-specific audit conducted for that
+  year. Nonfederal entities that expend less than $500,000 a year in Federal
+  awards are exempt from Federal audit requirements for that year, except as noted
+  in Circular No. A-133.
+Records:
+  Grantees are expected to maintain separate records for each grant to ensure that
+  funds are used for the general propose for which each grant was made. Records
+  are subject to inspection during the life of the grant and for 3 years thereafter.
+Account Identification:
+  49-0100-0-1-251.
+Obligations:
+  FY 07 $102,110,000; FY 08 est $111,100,000; and FY 09 est not available.

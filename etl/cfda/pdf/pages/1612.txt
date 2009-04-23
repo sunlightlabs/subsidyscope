@@ -1,0 +1,164 @@
+  "APPLY" section of this announcement under http:\\www.grants.gov.                    
+Award Procedure:                                                                       
+  All accepted applications receive a scientific review for technical merit and a      
+  recommendation for approval by an appropriate initial ad hoc review group. All       
+  approved and scored applications compete for available funds on the basis of         
+  score, scientific merit and program analysis. Geographic distribution will be a      
+  consideration in the award selection process.                                        
+Deadlines:                                                                             
+  Applications will be due no later than 30 days after publication in the Federal      
+  Register and/or the NIH Guide.                                                       
+Range of Approval/Disapproval Time:                                                    
+  90-120 days.                                                                         
+Appeals:                                                                               
+  None.                                                                                
+Renewals:                                                                              
+  Renewals are available. Procedures are the same as for new applications.             
+Formula and Matching Requirements:                                                     
+  None.                                                                                
+Length and Time Phasing of Assistance:                                                 
+  The length of support will depend on the nature of the project. For those            
+  projects with an expected duration of more than 1 year, a 2nd or 3rd year of non-    
+  competitive continuation of support will depend on: 1) performance during the        
+  preceding year and, 2) availability of Federal funds.                                
+Reports:                                                                               
+  For continuing grants and cooperative agreements, quarterly reports or as            
+  determined by the Project Officer, and an annual program progress report as well     
+  as a final Financial Status Report is required.                                      
+Audits:                                                                                
+  In accordance with the provisions of OMB Circular No. A-133 (Revised June            
+  27, 2003), "Audits of States, Local Governments and Nonprofit Organizations,"        
+  nonfederal entities that expend financial assistance of $500,000 or more in          
+  Federal awards will have a single or program-specific audit conducted for that       
+  year under the nonfederal audit requirement except as noted in Circular A-133."      
+  In addition, grants and cooperative agreements are subject to inspection and         
+  audits by DHHS and other Federal government officials.                               
+Records:                                                                               
+  All grant and cooperative agreement documentation must be retained for 3 years       
+  from the day on which the grantee submits the final financial status report for      
+  the project period. Progress reports, expenditures and other financial records       
+  must be retained for 3 years from the day on which the grantee submits the final     
+  financial status report for the project period. Financial and programmatic           
+  records, supporting documents, statistical records and all other records that are    
+  required by the terms of the gran or may be considered pertinent to a grant must     
+  be retained for 3 years from the date the grantee submits the final financial status
+
+  report for the project period. See 45 CFR 74.53 and 92.42 for exceptions and
+
+  qualification to the 3 year retention requirement. See 45 CFR 74.48 and 92.36        
+  for record retention and access requirements for contracts under grants.             
+Account Identification:                                                                
+  75-0600-0-1-554.                                                                     
+Obligations:                                                                           
+  For Food Safety and Security Monitoring Project for Chemical Analysis: FY 07         
+  $2,333,495; and FY 08 est $2,403,500, and FY 09 est $2,500,000. For Food             
+  Safety and Security Monitoring Project for Radiological Analysis: FY 07              
+  $750,000; and FY 08 est $750,000 and FY 09 est $750,000.                             
+Range and Average of Financial Assistance:                                             
+  An average of $350,000 total cost per award per year(direct plus indirect            
+  combined) for up to 3 years.                                                         
+PROGRAM ACCOMPLISHMENTS:                                                               
+  For the Food Safety and Security Monitoring Program for Chemical Analysis:           
+  award of 8 cooperative agreements and supply of necessary equipment and              
+  training to begin the analysis. Equipment is in place and training has been          
+  accomplished. Labs have been involved in: participation in proficiency testing       
+  for Food Emergency Response Network (FERN), participation in method                  
+  development and method validation for food safety and food defense methods,          
+  and participation in food defense surveillance assignments. The 8 Chemistry          
+  Cooperative Agreement labs participated in the FDA's Pet Food surveillance           
+  assignment. For the Food Safety and Security Monitoring Program for                  
+  Radiological Analysis: award of 3 cooperative agreements, now starting second        
+  year. Equipment has been purchased, and some minor remodeling of existing            
+  facility is underway. Training has been accomplished, and method                     
+  development/validation is ongoing. Two new Radiological Cooperative                  
+  Agreements have been awarded, with funding started FY08. Equipment has               
+  been ordered. Some initial training has occurred.                                    
+REGULATIONS, GUIDELINES, AND LITERATURE:                                               
+  42 CFR Part 52-Grants for Research Projects; 45 CFR Part 74 - Uniform                
+  Administrative Requirements for Awards and Subawards to Institutions of              
+  Higher Education, Hospital, Other Nonprofit Organizations and Commercial             
+  Organizations; and certain grants and agreements with States, Local                  
+  Governments and Indian Tribal Governments; 45 CFR Part 92-Uniform                    
+  Administrative Requirements for Grants and Cooperative Agreements to State           
+
+
+                                                                                 11-08 
+  and Local Governments; the HHS Grants Policy Statement (most recent update)
+  available at http://www.hhs.gov/grantsnet/adminis/gpd/index.htm; Executive
+  Order 12372, Intergovernmental Review of Federal Programs as implemented
+  through 45 CFR Part 100-Intergovernmental Review of Department of Health
+  and Human Services Programs and Activities.
+Regional or Local Office:
+  Regional and Local Office information will be provided in the application
+  packet, if applicable.
+Headquarters Office:
+  Program Contact: Jennifer Gabb, Division of Federal-State Relations,, Office of
+  Regulatory Affairs (ORA), Food and Drug Administration, HFC-140, 5600
+  Fishers Lane, Rm 1207, Rockville, MD 20857, Telephone: (301) 827-2899, E-
+  mail: jennifer.gabb@fda.hhs.gov.
+Web Site Address:
+  http://www.fda.gov/ora/fed_state/default.htm; or http://www.grants.gov.
+RELATED PROGRAMS:
+  None.
+EXAMPLES OF FUNDED PROJECTS:
+  For Food Safety and Security Monitoring Project for Chemical Analysis:
+  Virginia Food Safety and Security Monitoring Project; Minnesota Food Safety
+  and Security Monitoring Project; Arizona Food Safety and Security Monitoring
+  Project. For Food Safety and Security Monitoring Project for Radiological
+  Analysis: Surge Capacity Program.
+CRITERIA FOR SELECTING PROPOSALS:
+  All applications will be reviewed for responsiveness by the Grants Management
+  staff and the Office of Regulatory Affairs (ORA). To be responsive, the
+  application must be submitted in accordance with the requirements of the
+  Federal Register Notice and/or NIH Guide. All responsive applications will be
+  reviewed by an ad hoc committee. Each application will be scored and ranked
+  based on the following criteria: a) adequacy of facilities, expertise of project
+  staff, equipment, support services, commitment to analyze surveillance samples,
+  and quality management practices needed for the project; b) expertise in the use
+  of gas chromatography/mass spectrometry for the analysis of foods or animal
+  tissues; c) expertise in the use of liquid chromatography/mass spectrometry for
+  the analysis of foods or animal tissues; d) expertise in the use of inductively
+  coupled plasma/mass spectrometry for the analysis of foods or animal tissues; e)
+  expertise in the use of ELISA and other antibody based analyses for the
+  identification of toxins in foods or animal tissues; f) current food or animal
+  tissue analysis programs; g) the rationale and design to meet the goals of the
+  cooperative agreement; h) quality control and quality assurance procedures and
+  practices; i) abilities and procedures in place to recall personnel, establish
+  extended work-weeks. All funding decisions will be made by the Commissioner
+  of Food and Drug Administration or his designee.
+93.449 RUMINANT FEED BAN SUPPORT PROJECT
+FEDERAL AGENCY:
+  FOOD AND DRUG ADMINISTRATION, DEPARTMENT OF HEALTH AND
+  HUMAN SERVICES
+AUTHORIZATION:
+  Public Health Security and Bioterrorism Preparedness and Response Act of
+  2002, Public Law 107-188.
+OBJECTIVES:
+  To assist in an increased surveillance presence throughout the commercial feed
+  channels to prevent the introduction or amplification of Bovine Spongiform
+  Encephalopathy (BSE) in the United States.
+TYPES OF ASSISTANCE:
+  Cooperative Agreements.
+USES AND USE RESTRICTIONS:
+  Grants are awarded to eligible institutions in the name of the principal
+  investigator for a discrete project. Funds are to be used for location and
+  visitation of firms involved in the manufacture, distribution and transportation
+  of animal feed, and operations feeding ruminant animals in their jurisdiction, to
+  verify compliance with the ruminant feed ban. Visitations could include annual
+  inspections of renderers, protein blenders and feed mills that manufacture animal
+  feeds and feed ingredients utilizing materials prohibited under the ruminant feed
+  ban that are not covered under existing FDA contracts and other agreements.
+  Funds can be used for inspections of salvagers of food and feed, and transporters
+  of animal feed and feed ingredients, supplies, training, laboratory equipment for
+  feed sample testing, and as a supplement to the annual State program
+  appropriations. Funds may not be used to replace annual State program funds
+  for these purposes.
+Applicant Eligibility:
+  This cooperative agreement program is only available to State and Tribal
+  Feed/BSE regulatory programs.
+Beneficiary Eligibility:
+  The general public, State and Tribal Feed/BSE regulatory programs.
+Credentials/Documentation:
+  Applications must present a plan and furnish evidence that facilities, personnel
+  and equipment are appropriate to carry out the plan. Costs will be determined in
+                                                                                1425
