@@ -242,6 +242,141 @@ class InstitutionAssetHistory(models.Model):
     total_assets = models.DecimalField("Total Assets", max_digits=15, decimal_places=2, blank=True, null=True)
 
 
+class CountySummaryManager(models.Manager):
+    
+    def updateSummaryData(self):
+        
+        # clear any existing summary data
+        for item in self.all():
+            
+            item.delete()
+            
+        for item in InstitutionCountySummary.objects.all():
+            
+            item.delete()
+        
+        # calc county totals 
+        total_branches = 0
+        total_deposits = 0
+        
+        county_total_branches = {}
+        county_total_deposits = {}
+        
+        counties = {}
+        
+        for county in County.objects.all():
+            
+            counties[county.id] = county 
+            
+            for branch in county.institutionbranch_set.all():
+                
+                if not county_total_branches.has_key(branch.county_id):
+                    county_total_branches[branch.county_id] = 0 
+                    
+                if not county_total_deposits.has_key(branch.county_id):
+                    county_total_deposits[branch.county_id] = 0
+                
+                total_branches += 1
+                total_deposits += branch.deposits
+                
+                county_total_branches[branch.county_id] += 1  
+                county_total_deposits[branch.county_id] += branch.deposits
+        
+        # process institutions and save county level summary 
+    
+        county_summaries = {}
+    
+        for county_id in county_total_branches.keys():
+            
+            branches_percent = Decimal(county_total_branches[county_id]) / total_branches
+            deposits_percent = county_total_deposits[county_id] / total_deposits
+            
+            county_summaries[county_id] = self.create(county=counties[county_id],
+                                         branches=county_total_branches[county_id],
+                                         deposits=county_total_deposits[county_id],
+                                         branches_percent=branches_percent, 
+                                         deposits_percent=deposits_percent)
+    
+        for institution in Institution.objects.all():
+            
+            institution_branches = 0
+            institution_deposits = 0
+            
+            county_institution_branches = {}
+            county_institution_deposits = {}
+            
+            # process branches to county level 
+            for branch in institution.institutionbranch_set.all():
+    
+                if not county_institution_branches.has_key(branch.county_id):
+                    county_institution_branches[branch.county_id] = 0
+                    
+                if not county_institution_deposits.has_key(branch.county_id):
+                    county_institution_deposits[branch.county_id] = 0
+                  
+                institution_branches += 1
+                institution_deposits += branch.deposits
+                
+                county_institution_branches[branch.county_id] += 1  
+                county_institution_deposits[branch.county_id] += branch.deposits
+                
+            # process counties to calc percent - save summary 
+    
+            for county_id in county_institution_branches.keys():
+                
+                branches_county_percent = Decimal(county_institution_branches[county_id]) / Decimal(county_total_branches[county_id])
+                deposits_county_percent = county_institution_deposits[county_id] / county_total_deposits[county_id]
+                
+                if county_institution_branches[county_id] > 0 and institution_branches > 0:
+                    branches_institution_percent = Decimal(county_institution_branches[county_id]) / Decimal(institution_branches)
+                else:
+                    branches_institution_percent = 0
+                
+                if county_institution_deposits[county_id] > 0 and institution_deposits > 0:
+                    deposits_institution_percent = county_institution_deposits[county_id] / institution_deposits
+                else:
+                    deposits_institution_percent = 0
+                
+                InstitutionCountySummary.objects.create(institution=institution, county=county_summaries[county_id], 
+                            institution_branches=county_institution_branches[county_id],
+                            institution_deposits=county_institution_deposits[county_id],
+                            branches_county_percent=branches_county_percent,
+                            deposits_county_percent=deposits_county_percent, 
+                            branches_institution_percent=branches_institution_percent, 
+                            deposits_institution_percent=deposits_institution_percent)
+                
+                
+            
+
+
+class CountySummary(models.Model):
+    
+    county = models.OneToOneField(County)
+    
+    branches = models.IntegerField('County Branches', null=True)
+    deposits = models.DecimalField('County Deposits', max_digits=15, decimal_places=2, null=True)
+    
+    branches_percent = models.DecimalField('Branches County Percent', max_digits=10, decimal_places=9, null=True)
+    deposits_percent = models.DecimalField('Deposits County Percent', max_digits=10, decimal_places=9, null=True)
+
+    objects = CountySummaryManager()
+
+
+class InstitutionCountySummary(models.Model):
+    
+    institution = models.ForeignKey(Institution)
+    
+    county = models.ForeignKey(CountySummary)
+    
+    institution_branches = models.IntegerField('Institution Branches', null=True)
+    institution_deposits = models.DecimalField('Institution Deposits', max_digits=15, decimal_places=2, null=True)
+    
+    branches_county_percent = models.DecimalField('Branches County Percent', max_digits=10, decimal_places=9, null=True)
+    deposits_county_percent = models.DecimalField('Deposits County Percent', max_digits=10, decimal_places=9, null=True)
+    
+    branches_institution_percent = models.DecimalField('Branches Institution Percent', max_digits=10, decimal_places=9, null=True)
+    deposits_institution_percent = models.DecimalField('Deposits Institution Percent', max_digits=10, decimal_places=9, null=True)
+
 
 class InstitutionCountySummaryManager(models.Manager):
     

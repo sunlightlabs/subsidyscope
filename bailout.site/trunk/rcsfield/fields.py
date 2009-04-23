@@ -191,4 +191,7 @@ class RcsJsonField(RcsTextField):
         data = getattr(instance, self.attname)
         key = self.get_key(instance)
         backend.commit(key, json.dumps(data)) #.decode().encode('utf-8'))
+<<<<<<< HEAD:bailout.site/trunk/rcsfield/fields.py
 
+=======
+>>>>>>> afe5d271c43b310d7523a47c284081afb4ccc0c0:bailout.site/trunk/rcsfield/fields.py

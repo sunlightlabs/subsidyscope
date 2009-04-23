@@ -50,8 +50,7 @@ p.tagline { font-family:Georgia,"Nimbus Roman No9 L",serif; font-size:14px; colo
 
 #top_nav_list { margin:0; height:25px; padding:5px 0 0 0;  width:690px; text-align:center;}
 #top_nav_list ul { margin:0; padding:0;}
-#top_nav_list li { display:inline; text-align:center; padding:0 28px 0 25px; 
-    border-right:1px solid #e8e8e8;  }
+#top_nav_list li { display:inline; text-align:center; padding:0 25px 0 25px; border-right:1px solid #e8e8e8;  }
 
 #top_nav_list li.first { display:inline;  text-align:center; border-right:1px solid #e8e8e8; padding:0 28px 0 25px;}
 #top_nav_list li.last { display:inline; text-align:center; border:0px solid #e8e8e8; padding:0 28px 0 20px;}

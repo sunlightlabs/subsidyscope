@@ -63,4 +63,7 @@ class JsonWidget(forms.Textarea):
         final_attrs = self.build_attrs(attrs, name=name)
         return mark_safe(u'<textarea%s>%s</textarea>' % (flatatt(final_attrs),
                 conditional_escape(force_unicode(value))))
+<<<<<<< HEAD:bailout.site/trunk/rcsfield/widgets.py
 
+=======
+>>>>>>> afe5d271c43b310d7523a47c284081afb4ccc0c0:bailout.site/trunk/rcsfield/widgets.py
