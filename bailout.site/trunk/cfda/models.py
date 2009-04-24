@@ -14,7 +14,7 @@ class ProgramDescription(models.Model):
     sectors = models.ManyToManyField(sectors.models.Sector, blank=True)
     program_note = models.TextField("Program note", default="", blank=True)
     federal_agency = models.TextField("Federal agency", blank=True, default="")
-    major_agency = models.CharField("Major agency",blank=True,default="", max_length=100)
+    major_agency = models.TextField("Major agency",blank=True,default="")
     minor_agency = models.TextField("Minor agency",blank=True,default="")
     authorization = models.TextField("Authorization",blank=True,default="")
     objectives = models.TextField("Objectives",blank=True,default="")
