@@ -11,6 +11,8 @@ class CFDAImporter(object):
         'PROGRAM TITLE': 'program_title',
         'PROGRAM NOTE': 'program_note',
         'FEDERAL AGENCY': 'federal_agency',
+        'MAJOR AGENCY': 'major_agency',
+        'MINOR AGENCY': 'minor_agency',
         'AUTHORIZATION': 'authorization',
         'OBJECTIVES': 'objectives',
         'TYPES OF ASSISTANCE': 'types_of_assistance',
@@ -87,6 +89,11 @@ class CFDAImporter(object):
             record[f] = record[f].strip()
 
         record['PROGRAM TITLE'] = self.re_trailing_junk.sub('', record['PROGRAM TITLE'])
+        
+        agency_parts = record['FEDERAL AGENCY'].split(',')
+        record['MAJOR AGENCY'] = self.re_trailing_junk.sub('',agency_parts[-1].strip())
+        record['MINOR AGENCY'] = self.re_trailing_junk.sub('',','.join(agency_parts[0:-1]).strip())
+        
         return record
 
         
