@@ -7,7 +7,7 @@
 {% block content %}
 
 <style type="text/css">
-.subsidy-table	{ width: 100%; border-left: 0 !important; border-top: 0 !important;}
+.subsidy-table	{ width: 100%; border-left: 0 !important; border-top: 1px solid #a5a5a5 !important;}
 .subsidy-table td, .subsidy-table th { border: 0; padding: 0px; text-align: left; vertical-align: middle;}
 .subsidy-table th { text-align: center; font-weight: bold; line-height: 100%; padding: 5px 0; }
 .subsidy-table .header-wrapper { border-bottom: 1px solid #a5a5a5; margin: 0 5px; padding-bottom: 5px;}
@@ -15,7 +15,7 @@
 .subsidy-table td.date { text-align:center; }
 .subsidy-table td .number-wrapper { padding: 3px 13px 3px 0px; width: 3.5em; margin: 0 auto; text-align: right;}
 .subsidy-table td.num-institutions .number-wrapper, .subsidy-table td.amount .number-wrapper, .subsidy-table .subsidy-table td.estimated-subsidy .number-wrapper, .subsidy-table td.subsidy-rate .number-wrapper { text-align: right; }
-#cbo-table-revised { border-top: 1px solid #a5a5a5 !important;}
+#cbo-table .header-row th { border-bottom: 1px solid #a5a5a5;}
 .subsidy-table .number-wrapper2 { width: 50px; text-align: center; margin: 0 auto;}
 .subsidy-table tr.header-row * { background-color: #e6e6e6;}
 .subsidy-table tr.header-row td { border-bottom: 1px solid #a5a5a5; padding-bottom: 5px; margin-bottom: 5px;}
@@ -93,7 +93,7 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 					<td class="2010"><div class="number-wrapper2">5</div></td>
 					<td class="total"><div class="number-wrapper2">189</div></td>
 					<td class="disbursement"><div class="number-wrapper2">700</div></td>
-					<td class="subsidy-rate"><div class="number-wrapper2">27</div></td>
+					<td class="subsidy-rate"><div class="number-wrapper2">27%</div></td>
 				</tr>
 				
 				<tr class="gray odd">
@@ -115,7 +115,7 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 					<td class="2010"><div class="number-wrapper2">20</div></td>
 					<td class="total"><div class="number-wrapper2">356<a class="footnote" href="#footnote-3">3</a></div></td>
 					<td class="disbursement"><div class="number-wrapper2">700</div></td>
-					<td class="subsidy-rate"><div class="number-wrapper2">51</div></td>
+					<td class="subsidy-rate"><div class="number-wrapper2">51%</div></td>
 				</tr>				
 
 			</table>
@@ -140,7 +140,7 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 	<div class="lr_padding">
 
 	<h4 class="tarp_table_head">Congressional Budget Office's Estimated Subsidy of Select TARP Transactions</h4>
-		<table id="cbo-table" class="subsidy-table" cellspacing="3">
+		<table id="cbo-table" class="subsidy-table">
 
 			<tr class="header-row blue">
 				<th class="name">Program</th>
