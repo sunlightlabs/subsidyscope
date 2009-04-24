@@ -11,10 +11,10 @@ class ProgramDescription(models.Model):
 
     program_number = models.DecimalField("Program number", max_digits=7, decimal_places=3)
     program_title = models.CharField("Program title", max_length=255)
-    sectors = models.ManyToManyField(sectors.models.Sector)
+    sectors = models.ManyToManyField(sectors.models.Sector, blank=True)
     program_note = models.TextField("Program note", default="", blank=True)
     federal_agency = models.TextField("Federal agency", blank=True, default="")
-    major_agency = models.CharField("Major agency",blank=True,default="", max_length=100)
+    major_agency = models.TextField("Major agency",blank=True,default="")
     minor_agency = models.TextField("Minor agency",blank=True,default="")
     authorization = models.TextField("Authorization",blank=True,default="")
     objectives = models.TextField("Objectives",blank=True,default="")
@@ -35,7 +35,7 @@ class ProgramDescription(models.Model):
     reports = models.TextField("Reports",blank=True,default="")
     audits = models.TextField("Audits",blank=True,default="")
     records = models.TextField("Records",blank=True,default="")
-    account_identification = models.CharField("Account identification",blank=True,default="", max_length=255)
+    account_identification = models.TextField("Account identification",blank=True,default="")
     obligations = models.TextField("Obligations",blank=True,default="")
     range_and_average_of_financial_assistance = models.TextField("Range and average of financial assistance",blank=True,default="")
     program_accomplishments = models.TextField("Program accomplishments",blank=True,default="")
@@ -46,4 +46,4 @@ class ProgramDescription(models.Model):
     related_programs = models.TextField("Related programs",blank=True,default="")
     examples_of_funded_projects = models.TextField("Examples of funded projects",blank=True,default="")
     criteria_for_selecting_proposals = models.TextField("Criteria for selecting proposals",blank=True,default="")
-    
+    cfda_edition = models.IntegerField("CFDA Edition")
