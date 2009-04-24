@@ -9,13 +9,15 @@
 <style type="text/css">
 .subsidy-table	{ width: 100%; border-left: 0 !important; border-top: 0 !important;}
 .subsidy-table td, .subsidy-table th { border: 0; padding: 0px; text-align: left; vertical-align: middle;}
-.subsidy-table th { text-align: center; font-weight: bold; line-height: 100%; padding: 5px 0;}
+.subsidy-table th { text-align: center; font-weight: bold; line-height: 100%; padding: 5px 0; }
+.subsidy-table .header-wrapper { border-bottom: 1px solid #a5a5a5; margin: 0 5px; padding-bottom: 5px;}
 .subsidy-table td.name { padding: 3px; padding-left: 5px; }
 .subsidy-table td.date { text-align:center; }
 .subsidy-table td .number-wrapper { padding: 3px 13px 3px 0px; width: 3.5em; margin: 0 auto; text-align: right;}
 .subsidy-table td.num-institutions .number-wrapper, .subsidy-table td.amount .number-wrapper, .subsidy-table .subsidy-table td.estimated-subsidy .number-wrapper, .subsidy-table td.subsidy-rate .number-wrapper { text-align: right; }
+#cbo-table-revised { border-top: 1px solid #a5a5a5 !important;}
 .subsidy-table .number-wrapper2 { width: 50px; text-align: center; margin: 0 auto;}
-.subsidy-table tr.header-row { border-bottom: 1px solid #a5a5a5; padding-bottom: 5px; margin-bottom: 5px;}
+.subsidy-table tr.header-row td { border-bottom: 1px solid #a5a5a5; padding-bottom: 5px; margin-bottom: 5px;}
 .subsidy-table tr.no-bottom-border { border-bottom: 0 !important;}
 .subsidy-table tr.smallrow { border-top: 0 !important;}
 .subsidy-table tr.smallrow td { font-size: 0.9em; text-align: center; vertical-align: bottom;}
@@ -65,41 +67,41 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 		{% morsel top %}
 
 		<h4 class="tarp_table_head">CBO Projects of Total TARP Subsidy by Fiscal Year</h4>
-			<table id="cbo-table-revised" class="subsidy-table" cellspacing="3">
+			<table id="cbo-table-revised" class="subsidy-table" cellspacing="0">
 
 				<tr class="header-row blue no-bottom-border"> 
 					<th>&nbsp;</th>
-					<th colspan="3">Subsidy<br/><small>(in billions)</small></th>
-					<th>Disbursement<br/><small>(in billions)</small></th>
-					<th><a href="{% url glossary%}#subsidy-rate">Subsidy Rate</a></th>
+					<th colspan="3"><div class="header-wrapper">Subsidy<br/><small>(in billions)</small></div></th>
+					<th><div class="header-wrapper">Disbursement<br/><small>(in billions)</small></div></th>
+					<th><div class="header-wrapper"><a href="{% url glossary%}#subsidy-rate">Subsidy Rate</a><br/><small>(in percent)</small></div></th>
 				</tr>				
 				
 				<tr class="header-row blue smallrow">
 					<td class="name">&nbsp;</td>
 					<td class="2009">2009</td>
 					<td class="2010">2010</td>
-					<td class="total">Total 2009&ndash;2010</td>
-					<td class="disbursement">2009&ndash;2010</td>
-					<td class="subsidy-rate">2009&ndash;2010</td>
+					<td class="total">Total<br/>2009&ndash;2010</td>
+					<td class="disbursement">Total<br/>2009&ndash;2010</td>
+					<td class="subsidy-rate">Total<br/>2009&ndash;2010</td>
 				</tr>
 			
 				
 				<tr>
-					<td class="name">Projected Subsidy as of January 2009<a href="#footnote-1" class="footnote">1</a></td>
+					<td class="name">Projected Subsidy as<br/>of January 2009<a href="#footnote-1" class="footnote">1</a></td>
 					<td class="2009"><div class="number-wrapper2">184</div></td>
 					<td class="2010"><div class="number-wrapper2">5</div></td>
 					<td class="total"><div class="number-wrapper2">189</div></td>
 					<td class="disbursement"><div class="number-wrapper2">700</div></td>
-					<td class="subsidy-rate"><div class="number-wrapper2">27%</div></td>
+					<td class="subsidy-rate"><div class="number-wrapper2">27</div></td>
 				</tr>
 				
 				<tr>
-					<td class="name">Increase in projected subsidy between January and March 2009<a class="footnote" href="#footnote-2">2</a></td>
+					<td class="name">Increase in projected<br/>subsidy between January<br/>and March 2009<a class="footnote" href="#footnote-2">2</a></td>
 					<td class="2009"><div class="number-wrapper2">152</div></td>
 					<td class="2010"><div class="number-wrapper2">15</div></td>
 					<td class="total"><div class="number-wrapper2">167</div></td>
-					<td class="disbursement"><div class="number-wrapper2">&nbsp;</div></td>					
-					<td class="subsidy-rate">&nbsp;</td>
+					<td class="disbursement"><div class="number-wrapper2">n.a.</div></td>					
+					<td class="subsidy-rate"><div class="number-wrapper2">n.a.</div></td>
 				</tr>
 				
 				<tr>
@@ -112,7 +114,7 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 					<td class="2010"><div class="number-wrapper2">20</div></td>
 					<td class="total"><div class="number-wrapper2">356<a class="footnote" href="#footnote-3">3</a></div></td>
 					<td class="disbursement"><div class="number-wrapper2">700</div></td>
-					<td class="subsidy-rate"><div class="number-wrapper2">51%</div></td>
+					<td class="subsidy-rate"><div class="number-wrapper2">51</div></td>
 				</tr>				
 
 			</table>
@@ -120,7 +122,8 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 			<ol class="footnotes">
 			<li id="footnote-1"><a name="footnote-1"></a>Congressional Budget Office. "<a href="{% url bailoutpdf_detail 3 %}">The Budget and Economic Outlook: Fiscal Years 2009-2019</a>." p.27.</li>
 			<li id="footnote-2"><a name="footnote-2"></a>Congressional Budget Office. "<a href="{% url bailoutpdf_detail 40 %}">A Preliminary Analysis of the President's Budget and an Update CBO's Budget and Economic Outlook</a>." p.7.</li>
-			<li id="footnote-3"><a name="footnote-3"></a>Congressional Budget Office, Directors Blog. <a href="http://cboblog.cbo.gov/?p=231">Douglas Elmendorf's post on April 17, 2009</a>.</li>
+			<li id="footnote-3"><a name="footnote-3"></a>Congressional Budget Office, Directors Blog. <a href="http://cboblog.cbo.gov/?p=231">Douglas Elmendorf's post on April 17, 2009</a>.<br/><br/>
+				n.a. = not applicable</li>
 			</ol>
 		
 			<p>&nbsp;</p>
