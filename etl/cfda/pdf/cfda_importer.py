@@ -1,6 +1,7 @@
 import re
 import sys
 from cfda.models import *
+from etl.models import *
 import django.utils.encoding
 
 class CFDAImporter(object):
@@ -39,17 +40,19 @@ class CFDAImporter(object):
         'WEB SITE ADDRESS': 'web_site_address',
         'RELATED PROGRAMS': 'related_programs',
         'EXAMPLES OF FUNDED PROJECTS': 'examples_of_funded_projects',
-        'CRITERIA FOR SELECTING PROPOSALS': 'criteria_for_selecting_proposals'
+        'CRITERIA FOR SELECTING PROPOSALS': 'criteria_for_selecting_proposals',
     }
     
     re_ignorable_line = re.compile(r'^\s{30,}')
     re_program_line = re.compile(r'^\d{2}\.\d{3}')
     re_trailing_junk = re.compile(r'\s{20,}.*$')
+    CFDA_YEAR = 2008
 
     def __init__(self):
         super(CFDAImporter, self).__init__()
         self.active_record = {}
-        self.active_token = None
+        self.active_token = None        
+        
     
     def create_empty_record(self):
         out = {}
@@ -64,10 +67,12 @@ class CFDAImporter(object):
             sys.stderr.write("%s %s\n" % (self.active_record['PROGRAM NUMBER'], self.active_record['PROGRAM TITLE']))
             
             PD = ProgramDescription()
+            PD.cfda_edition = self.CFDA_YEAR
             PD.program_number = record['PROGRAM NUMBER']
             PD.save()            
             for k in record:
-                setattr(PD, self.FIELD_TO_MODEL_MAPPING[k], record[k].encode('utf-8', 'ignore'))
+                unicode_string = unicode(record[k], 'latin1', 'replace')
+                setattr(PD, self.FIELD_TO_MODEL_MAPPING[k], unicode_string)
 
             PD.save()
 
