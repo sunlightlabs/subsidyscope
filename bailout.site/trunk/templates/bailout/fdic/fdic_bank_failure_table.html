@@ -20,7 +20,7 @@
 			{% include "includes/bailout_left_nav.html" %}
 	</div>
 	
-	<div class="span-15">
+	<div class="span-18">
 		<div class="full_padding">
 			
 			<h2 class="type_header">Bailout</h2>
@@ -34,7 +34,7 @@
 					<th class="date">Date</th>
 					<th class="name">Name</th>
 					<th class="location">Location</th>
-					<th class="amount">Amount</th>
+					<th class="amount">Estimated Charge to Deposit Insurance Fund</th>
 				</tr>
 			</thead>
 
@@ -53,8 +53,9 @@
 			<p>If you'd like to work with this data, you may <a href="{% url fdic_bank_failures_csv %}">download it in CSV format</a>.</p>
 
 			<style type="text/css">
+			table#bank-failures th{ vertical-align: middle;}
 			table#bank-failures td.name{ text-align: left; width:250px;}
-			table#bank-failures td.amount{ text-align: right;}
+			table#bank-failures td.amount{ text-align: right; width:150px;}
 			table#bank-failures td.amount .notes { font-size: 0.85em;}
 			table#bank-failures td.location{ text-align: right;}
 			table#bank-failures td.notes{ text-align: center; font-size: 0.8em;}

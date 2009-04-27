@@ -1,0 +1,176 @@
+  given to eligible low-power television stations in which the license is held by a  
+  non-profit corporation and eligible low-power television stations that serve rural 
+  areas of fewer than 10,000 viewers.                                                
+Beneficiary Eligibility:                                                             
+  General public in area served by the eligible station.                             
+Credentials/Documentation:                                                           
+  All applicants must supply proof of eligibility. Applicants must certify proof of  
+  Federal Communications Commission (FCC) license. Applicants must provide           
+  assurances required under Program Rules and Regulations.                           
+Preapplication Coordination:                                                         
+  Program staff members are available to provide technical and other assistance in   
+  preparing application forms. This program is excluded from coverage under E.O.     
+  12372.                                                                             
+Application Procedure:                                                               
+  The application forms as furnished by the Federal Agency/LPTV and approved         
+  by OMB must be used for this program. The Application Kit can be retrieved         
+  from the web-site at www.ntia.doc.gov/. By the deadline applicants must file a     
+  completed application form, required certifications and complete ACH payment       
+  form. Applications postmarked or received after the deadline are returned to       
+  applicants.                                                                        
+Award Procedure:                                                                     
+  Applications are reviewed for completeness and verified with FCC data.             
+  Payments are direct electronic transfers through the Automated Clearing            
+  House(ACH) system.                                                                 
+Deadlines:                                                                           
+  An eligible low-power television station may receive compensation from this        
+  program only if it submits a request for such compensation on or before            
+  February 17, 2009.                                                                 
+Range of Approval/Disapproval Time:                                                  
+  Award payments are generally within 90 days.                                       
+Appeals:                                                                             
+  None.                                                                              
+Renewals:                                                                            
+  None.                                                                              
+Formula and Matching Requirements:                                                   
+  None.                                                                              
+Length and Time Phasing of Assistance:                                               
+  ACH payments are generally within 90 days.                                         
+Reports:                                                                             
+  None.                                                                              
+Audits:                                                                              
+  Audits may be conducted in accordance with the terms and conditions of the         
+  award and Department of Commerce Financial Assistance Standard Terms and           
+  Conditions.                                                                        
+Records:                                                                             
+  Grant recipient must retain records for three years.                               
+Account Identification:                                                              
+  13-5396-0-1-503.
+
+                                                                                     
+Obligations:
+
+                                                                                     
+  FY 07 $10,000,000; FY 08 est $10,000,000; and FY 09 est not reported.
+
+                                                                                     
+Range and Average of Financial Assistance:
+
+                                                                                     
+  $1,000.
+
+PROGRAM ACCOMPLISHMENTS:                                                             
+  None.                                                                              
+REGULATIONS, GUIDELINES, AND LITERATURE:                                             
+  Available from www.ntia.doc.gov/lptv.                                              
+Regional or Local Office:                                                            
+  None.                                                                              
+Headquarters Office:                                                                 
+  Mr. William Cooperman, Director, Broadcast Division, Office of                     
+  Telecommunications and Information Applications/NTIA, Room 4812,                   
+  Department of Commerce, 1401 Constitution Avenue, N.W., Washington, DC             
+  20230. Telephone: (202) 482-5802.                                                  
+Web Site Address:                                                                    
+  www.ntia.doc.gov/lptv .                                                            
+RELATED PROGRAMS:                                                                    
+  None.                                                                              
+EXAMPLES OF FUNDED PROJECTS:                                                         
+  None.                                                                              
+CRITERIA FOR SELECTING PROPOSALS:                                                    
+  Priority compensation shall be given to eligible low-power television stations in  
+  which the license is held by a nonprofit corporation and eligible low-power        
+  television stations that serve rural areas of fewer than 10,000 viewers.           
+                                                                                     
+                                                                                     
+11.555 PUBLIC SAFETY INTEROPERABLE                                                   
+COMMUNICATIONS GRANT PROGRAM                                                         
+                                                                                     
+      (PSIC)
+
+                                                                                     
+                                                                                     
+FEDERAL AGENCY:                                                                      
+  NATIONAL TELECOMMUNICATION AND INFORMATION                                         
+242                                                                            11-08
+
+  ADMINISTRATION, DEPARTMENT OF COMMERCE
+AUTHORIZATION:
+  The Deficit Reduction Act of 2005, (Public Law 109-171), as amended by
+  Section 2201 of Public Law 110-53, and Section 4 of the Call Home Act of
+  2006, Public Law 109-459.
+OBJECTIVES:
+  To assist public safety agencies in the acquisition of, deployment of, or training
+  for the use of interoperable communications systems that can utilize or enable
+  interoperability with communications systems that can utilize reallocated public
+  safety spectrum for radio communications.
+TYPES OF ASSISTANCE:
+  Project Grants.
+USES AND USE RESTRICTIONS:
+  Provides grants to assist public safety agencies in the planning and coordination
+  associated with, acquisition of, deployment of, or training for the use of
+  interoperable communications equipment, software and systems that utilize
+  reallocated public safety spectrum for radio communication; enable
+  interoperability with communications systems that can utilize reallocated public
+  safety spectrum for communication; or otherwise improve or advance the
+  interoperability of public safety.
+Applicant Eligibility:
+  The PSIC grant will be awarded to the 56 States and Territories. The Governor
+  of each State and Territory has designated a State Administrative Agency (SAA),
+  which can apply for and administer the funds under the PSIC Grant Program.
+  The SAA is the only agency eligible to apply for PSIC funds.
+Beneficiary Eligibility:
+  The SAA is responsible for obligating PSIC funds to eligible pass-through,
+  public safety recipients.
+Credentials/Documentation:
+  All applicants must be a public safety agency that is a State, local, or tribal
+  government entity or nongovernmental organization authorized by such entity,
+  whose sole or principal purpose is to protect safety of life, health, or property.
+Preapplication Coordination:
+  Program staff members are available to provide technical and other assistance in
+  preparing application forms. This program is excluded from coverage under E.O.
+  12372.
+Application Procedure:
+  The SAAs must apply for PSIC Grant Program funding through the online
+  Grants.gov system through the Authorized Organization Representative (AOR.)
+  Instructions are available on the Grants.gov website (www.grants.gov).
+Award Procedure:
+  Each applications will be reviewed by NTIA and DHS for completeness,
+  adherence to programmatic guidelines, feasibility, and how well the proposed
+  solution addresses the identified need or capability shortfall. If submissions do
+  not meet PSIC requirements, they will be returned to the submitting State or
+  Territory and funds will be withheld until the applicant meets all PSIC
+  requirements. Upon approval of the application, the grant will be awarded to the
+  SAA. Grantees can draw down and expend funds through the DHS Payment and
+  Reporting System.
+Deadlines:
+  The deadline for filing applications was August 22, 2007. The deadline for
+  submitting the required Statewide Communications Interoperability Plans and
+  Investment Justifications was December 3, 2007.
+Range of Approval/Disapproval Time:
+  Award payments are generally within 90 days of application approval.
+Appeals:
+  None.
+Renewals:
+  None.
+Formula and Matching Requirements:
+  Each public safety agency receiving PSIC funds is required to meet and
+  document the 20 percent statutory match requirement for each project, during
+  the period of performance of the grant program.
+Length and Time Phasing of Assistance:
+  Payment and Reporting System payments are generally within 90 days.
+Reports:
+  None.
+Audits:
+  Audits may be conducted in accordance with the terms and conditions of the
+  award and Department of Commerce Financial Assistance Standard Terms and
+  Conditions. The Implementing Recommendations of the 9/11 Commission Act
+  of 2007, requires the Departments Office of Inspector General to report annually
+  on the management of the NTIA PSIC program to Congress, and conduct
+  financial audits on not fewer than 25 States or territories receiving NTIA PSIC
+  grant awards.
+Records:
+  Grant recipient must retain records for three years.
+Account Identification:
+  13-5396-0-1-503.
+Obligations:
+  FY 07 $968,385,000; FY 08 $0; and FY 09 est not reported.

@@ -156,6 +156,7 @@ a#key-documents {
 			<li>
 				<a href="{% url bailout_treasury_index %}">Treasury</a>
 				<ul id="project_leftnav_sub">
+					<li><a href="{% url fannie_freddie_index %}">Fannie Mae/Freddie Mac</a></li>
 					<li><a href="{% url tarp %}">TARP Disbursements</a></li>
 					<li><a href="{% url tarp-subsidies %}">TARP Subsidies</a>
 						<ul>
@@ -170,16 +171,15 @@ a#key-documents {
 					</li>
 					
 				</ul>
-
 				</li>
 			<li><a href="{% url bailout_fdic_index %}">FDIC</a>
 				<ul id="project_leftnav_sub">
 					<li><a href="{% url fdic_bank_failures %}">Bank Failures and the Deposit Insurance Fund</a></li>
+					<li><a href="{% url fdic_llp_comments %}">Legacy Loan Program Comments</a></li>
 				</ul>
 			</li>		
-			<li><a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a></li>
+			<li><a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a></li>			
 			<li><a href="{% url bailout_other_index %}">Other Agencies</a></li>
-
 			<li><a id="key-documents" href="{% url bailoutpdf_index %}">Key Documents</a></li>
 		</ul>
 

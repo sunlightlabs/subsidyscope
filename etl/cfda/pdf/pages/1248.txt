@@ -1,0 +1,194 @@
+  Project Office - National Energy Technology Laboratory, P.O. Box 10940,          
+  Pittsburgh, PA 15236. Contact: Ms. Paula Flenory, Telephone (412) 386-4781.      
+Headquarters Office:                                                               
+  Office of Advanced Research, Assistant Secretary of Fossil Energy, Washington,   
+  DC 20585. Contact: Fred Glaser. Telephone: (301) 903-2786.                       
+Web Site Address:                                                                  
+  http://www.netl.doe.gov/technologies/coalpower/advresearch/.                     
+RELATED PROGRAMS:                                                                  
+  81.089, Fossil Energy Research and Development.                                  
+EXAMPLES OF FUNDED PROJECTS:                                                       
+  In 2008, within the board area of Enabling Advanced Modeling and Simulation      
+  for Fuel-Flexible Combustors, projects were awarded in two the subtopic areas    
+  that follows: 1) Quantify Current Prediction Capability for Flashback and Lean   
+  Blowout, and Identify The Sensitivity to Physical Sub-Models and 2) Conduct      
+  Numeric Investigations of Boundary Condition Effects On CFD Simulations of       
+  Thermo-Acoustic Instabilities.                                                   
+CRITERIA FOR SELECTING PROPOSALS:                                                  
+  Emphasis is on the scientific and technical merit of the proposed research and   
+  the factors listed as generic goals in the formal solicitation for proposals.    
+                                                                                   
+                                                                                   
+81.064 OFFICE OF SCIENTIFIC AND TECHNICAL                                          
+INFORMATION                                                                        
+                                                                                   
+   (OSTI)                                                                          
+                                                                                   
+FEDERAL AGENCY:                                                                    
+  OFFICE OF SCIENCE, DEPARTMENT OF ENERGY                                          
+AUTHORIZATION:                                                                     
+  42 U.S.C. 7151 (A); 42 U.S.C. 7112 (5).
+
+                                                                                   
+OBJECTIVES:
+
+                                                                                   
+  To advance science and sustain technological creativity by making R&D
+
+                                                                                   
+  findings available and useful to the Department of Energy (DOE) researchers
+
+                                                                                   
+  and the American people. To collect, preserve, disseminate, and leverage the
+
+                                                                                   
+  scientific and technical information (STI) resources of DOE in order to provide
+
+                                                                                   
+  access to national and global STI for use by DOE, the scientific research
+
+                                                                                   
+  community, academia, US industry, and the public to expand the knowledge
+
+                                                                                   
+  base of science and technology. To acquire domestic and international
+
+                                                                                   
+  information of interest to DOE and the scientific community through
+
+                                                                                   
+  partnerships with U.S. agencies and over 120 countries and international
+
+                                                                                   
+  organizations.
+
+                                                                                   
+TYPES OF ASSISTANCE:
+
+                                                                                   
+  Dissemination of Technical Information.
+
+                                                                                   
+USES AND USE RESTRICTIONS:
+
+  The Scientific and Technical Information (STI) produced through DOE and its      
+  predecessor agencies includes information from the broad range of science        
+  disciplines of interest to the Energy Department mission. OSTI is the sole source
+  of specialized collections containing results of closed-out DOE research and     
+  development projects. OSTI provides information services to DOE and DOE          
+  contractor organizations and makes Energy Department information publicly        
+  available through a suite of OSTI Web tools and services. Most information       
+  services are provided electronically through databases and full-text compilations
+  at no cost. Some collections result from partnerships with other national and    
+  international governmental agencies.                                             
+Applicant Eligibility:                                                             
+  State and local governments and universities that are DOE contractors are        
+  provided electronic access to Energy Department information in specific areas of 
+  concern. Energy information exchange agreements may be made with non-DOE         
+  affiliates, universities and other organizations involved in energy-related      
+  research. Public access to R&D documents is also available through the National  
+  Technical Information Service (NTIS) and the Government Printing Office          
+  (GPO).                                                                           
+Beneficiary Eligibility:                                                           
+  DOE federal employees and contractors are primary beneficiaries of DOE STI       
+  collections in their specific areas of concern. Although most Web-based          
+  collections are available to the general public through official government      
+  outlets, limited-access databases contain information restricted by international
+  exchange agreements or other access restrictions.                                
+Credentials/Documentation:                                                         
+  This program is excluded from coverage under OMB Circular No. A-87.              
+Preapplication Coordination:                                                       
+  This program is excluded from coverage under OMB Circular No. A-102 and          
+  E.O. 12372.                                                                      
+Application Procedure:                                                             
+  By written or telephone inquiry to the information contacts shown below. This    
+  program is excluded from coverage under OMB Circular No. A-110.                  
+Award Procedure:                                                                   
+  None.                                                                            
+Deadlines:                                                                         
+  None.                                                                            
+Range of Approval/Disapproval Time:                                                
+
+
+                                                                              11-08
+  None.
+Appeals:
+  None.
+Renewals:
+  None.
+Formula and Matching Requirements:
+  None.
+Length and Time Phasing of Assistance:
+  None.
+Reports:
+  None.
+Audits:
+  None.
+Records:
+  None.
+Account Identification:
+  89-0230-0-1-270.
+Obligations:
+  (Salaries and Expenses); FY 07 $8,600,000; FY 08 est $8,700,000 and FY 09
+  est $8,900,000.
+Range and Average of Financial Assistance:
+  None.
+PROGRAM ACCOMPLISHMENTS:
+  In 2007, OSTI developed and launched the DOE Science Accelerator
+  (http://www.ScienceAccelerator.gov) which searches across key DOE databases
+  with one query. The Energy Citations Database
+  (http://www.osti.gov/energycitations) contains over 2.2 million references to
+  research results. Over 1.5 million full-text reports of research results reside in a
+  centralized repository, and harvested citations link to thousands more at DOE
+  and DOE contractor sites. The Information Bridge: DOE Scientific and
+  Technical Information (full-text DOE research and development reports,
+  (http://www.osti.gov/bridge) contains more than 170,000 full-text reports. The
+  E-print Network: Research Communications for Scientists and Engineers
+  (http://www.osti.gov/eprints) provides full-text searching of more than 5 million
+  e-prints from scientific Web sites and databases.. Also included is a searchable
+  compendium of over 3,000 scientific societies. A relevancy tool was added in
+  FY 04 to rank search results. DOE Research and Development (R&D) Project
+  Summaries (http://www.osti.gov/rdprojects) contains information on
+  approximately 30,000 active DOE-sponsored research projects. Energy Files
+  (http://www.osti.gov/energyfiles), a virtual library of information and resources
+  pertaining to energy science and technology, provides single- query searching
+  across more than 500 information resources. Science Conference Proceedings
+  (http://www.osti.gov/scienceconferences) provides access to science and
+  technology conference papers and proceedings from a number of authoritative
+  sites whose areas of interest in the physical sciences and technology intersect
+  with those of DOE. DOepatents (http://www.osti.gov/doepatents) is DOE's
+  central collection of patent information, and demonstrates the Department's
+  considerable contribution to scientific progress from the 1940s to the present.
+  The Energy Science and Technology Software Center searches and distributes
+  federally funded scientific and technical software developed by the national
+  laboratories, other facilities and DOE contractors. Science.gov
+  (http://www.science.gov), the USA.gov portal for science information, provides
+  integrated searching of and access to government-sponsored research results and
+  science information with a single query. Search enhancements, including
+  relevancy ranking, have been implemented, along with a user-customized Alert
+  Service to deliver relevant information about the most current science
+  developments to desktops each Monday. OSTI hosts and provides deep Web
+  search capability to Science.gov, a collaboration of 17 information organizations
+  from 13 R&D federal agencies. The deep Web search allows a user to search
+  government databases, regardless of which agency has the data or how that data
+  is stored. In 2007, OSTI developed WorldWideScience.org, a global science
+  gateway to over 200 million pages of science information from science portals
+  residing on every inhabited continent. Science.gov is the U.S. contribution to
+  WorldWideScience.org. FY 07 data show more than 74 million user transactions
+  for Web products maintained on OSTI servers.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  OSTI announces and makes available research and development reports and
+  current awareness publications which are available on the World Wide Web via
+  the OSTI Home Page at http://www.osti.gov. Policy and practices related to
+  DOE's Scientific and Technical Information Program are available at
+  http://www.osti.gov/stip.
+Regional or Local Office:
+  None.
+Headquarters Office:
+  DOE Office of Science, Office of Scientific and Technical Information, Office
+  of Program Integration, 1 Science.gov Way, Oak Ridge, TN 37831. Contact:
+  Sharon Jordan, Assistant Director, Program Integration (865) 576-1194,
+  jordans@osti.gov.
+Web Site Address:
+  http://www.osti.gov
+                                                                                   1061

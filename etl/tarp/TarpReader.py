@@ -33,7 +33,8 @@ class TarpReader():
             'transaction_pricing_mechanism'
         )
         
-        self._re_is_transaction = re.compile(r'^([\d]+)\/([\d]+)\/([\d]+)\s+(\w[\w\s\&\,\.\'\-]+)\s{3,}(\w[\w\s\'\.\-\&]+)\s{3,}([A-Z]{2})\s{3,}(\w[\w\s]+)\s{3,}(\w[\w\s\/]+)\s{3,}\$?([\d\,]+)\s+(\w[\w\s\/]+)$')
+        #self._re_is_transaction = re.compile(r'^([\d]+)\/([\d]+)\/([\d]+)\s+(\w[\w\s\&\,\.\'\-]+)\s{3,}(\w[\w\s\'\.\-\&]+)\s{3,}([A-Z]{2})\s{3,}(\w[\w\s]+)\s{3,}(\w[\w\s\/]+)\s{3,}\$?([\s\d\,]+)\s+(\w[\w\s\/]+)$')
+        self._re_is_transaction = re.compile(r'^([\d]+)\/([\d]+)\/([\d]+)\s+(\w[\w\s\&\,\.\'\-]+)\s{3,}(\w[\w\s\'\.\-\&]+)\s{3,}([A-Z]{2})\s{3,}(\w[\w\s\/]+)\s{3,}\$?([\s\d\,]+)\s+(\w[\w\s\/]+)$')
         self._re_is_classification_line = re.compile(r'^\s{50,}([A-Z\s]+?)$')
         self._re_typo_garbage = re.compile(r'^\s*\d{1,2}\/?\s{5,}')
         self._re_name_normalization = re.compile(r'\,?\s+\b(Inc|LLC|Corp|Corporation|Company|Bank|Group)\b\.?', re.I)
@@ -80,7 +81,7 @@ class TarpReader():
         # remove general crud (footnotes) and TARP-specific date typo. it's a weird one.
         line = self._re_typo_garbage.sub('',line)
         line = line.replace('QQQ','')
-        
+
         # check for a new classification set, e.g. "AUTOMOTIVE INDUSTRY FINANCING PROGRAM"
         classification = ''
         l_classification = self._is_classification_line(line)
@@ -93,10 +94,10 @@ class TarpReader():
         # identify whether this is a transaction line item; if so, retrieve its data
         line_item = self._process_transaction_line(line)
         
-        #print line
+        # print line
         
         # was this a transaction line item?
-        if line_item:            
+        if line_item:                                            
             
             # create an empty row
             r = self.get_empty_record()
@@ -159,10 +160,10 @@ class TarpReader():
             name = m.group(4).strip()
             city = m.group(5).strip()
             state = m.group(6).strip()
-            transaction_type = m.group(7).strip()
-            description = m.group(8).strip()
-            price_paid = m.group(9).replace(',','').strip()
-            pricing_mechanism = m.group(10).strip()
+            transaction_type = '' #m.group(7).strip()
+            description = m.group(7).strip()
+            price_paid = m.group(8).replace(',','').strip()
+            pricing_mechanism = m.group(9).strip()
             return {'date':date, 'name':name, 'city':city, 'state':state, 'transaction_type':transaction_type, 'description':description, 'price_paid':price_paid, 'pricing_mechanism':pricing_mechanism}
         else:
             return False

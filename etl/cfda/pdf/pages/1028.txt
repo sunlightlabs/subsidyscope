@@ -1,0 +1,164 @@
+its community of collaborators. Partners include educational organizations (e.g.,  
+4-H, the National Education Association, Parents as Teachers), libraries           
+(American Library Association), museums (via the Boston Children's Museum),        
+and promotional media outlets. 4) The NSF Graduate Teaching Fellowships in         
+K-12 Education (GK-12) program supports graduate students in STEM fields           
+while providing them an opportunity to serve as resources in K-12 schools.         
+Graduate Fellows at the University of Colorado Boulder taught engineering to       
+more than 1,600 girls and boys through its integrated teaching and learning        
+program. In the Denver School of Science and Technology, a high needs school,      
+GK-12 Fellows initiated an engineering technical elective course. During fall      
+2005 engineering lessons were developed on several topics, including weather,      
+biodomes, dams, states of matter, the human body and natural disasters. 5) With    
+a grant from the Integrative Graduate Education and Research Traineeships          
+(IGERT) program, IGERT students at the University of Alaska, Fairbanks, are        
+assessing the sustainability of high-latitude regions, and working to discover     
+how to reduce the vulnerability of these regions to both ecological and social     
+change. One of the students contributed to the polar chapter of the UNESCO-        
+sponsored Millennium Assessment, which isinvestigating                             
+the impacts of global change on human well-being. Four students worked with        
+Native village councils or with the Alaska Native Science Commission to            
+develop plans to assess changes in the subsistence resource base for Native        
+Alaskans. 6) In December 2005, the National Science Digital Library (NSDL),        
+in partnership with the Digital Library for Earth System Education (DLESE),        
+offered free online professional development workshops to K-12 science and         
+math teachers in hurricane-impacted schools, as well as to those teaching          
+hurricane-displaced students. The workshops provided practical ideas for           
+finding and using digital library resources, with a particular emphasis on         
+strategies that are easy to implement in storm-stressed classrooms and in          
+distance learning courses being offered to displaced students. 7) The state of     
+North Carolina has experienced an increase in new STEM graduates as a result       
+of EHR's Louis Stokes Alliances for Minority Participation (LSAMP) program.        
+Led by North Carolina A&T State University, the NC-LSAMP is a partnership          
+of eight North Carolina colleges and universities. The project increases the       
+quantity and quality of underrepresented minority students receiving bachelor's    
+degrees in STEM disciplines. The newly instituted "Bridge to the Doctorate"        
+initiative is in high gear supporting graduate students in a broad range of science
+and engineering disciplines. 8) Improving teacher quality in mathematics and       
+science education, K-12, is a key goal of the Math and Science Partnership         
+(MSP) program. Graduates of the Florida Atlantic University Teacher Institute,     
+for example, will receive a master's degree that includes a newly developed        
+strand for middle school mathematics teaching. MSP Summer Institutes respond       
+to the differentiated needs of the teachers they serve. In its work with inservice 
+teachers in central Appalachia, the Appalachian Mathematics and Science            
+Partnership (AMSP), a Comprehensive Partnership, reports significant gains         
+with teachers in the project's innovative 2005 summer Algebra Institutes. 9)       
+Building on an earlier NSF-supported project at the Indiana University of          
+Pennsylvania (which was funded by NSF's Course, Curriculum, and Laboratory         
+Improvement (CCLI) program), educators at the University of Wisconsin, Eau         
+Claire, have developed the Computational Laboratory for Information and            
+Computer Security, or CLICS. Funded by NSF's Federal Cyber Service:                
+Scholarship for Service (SFS) program, CLICS is a two day "cyber-war exercise"     
+that gives undergraduate students hands-on experience with the issues,             
+strategies, and tools involved in computer security and information assurance.     
+The Cyber-war exercises involve students in real-world, team-based efforts to      
+harden their systems, detect intrusions and respond in real time - without         
+threatening the wider campus network. 10) With funding from EHR's Centers of       
+Research Excellence in Science and Technology (CREST) the Florida                  
+International University CREST Center has created TerraFly                         
+(http://terrafly.fiu.edu), a Web-enabled system developed to aid in the            
+visualization of spatial imagery, the first step toward building geospatial skills.
+The system allows Web surfers to "fly" over the Earth's surface and explore        
+spatial data such as aerial photography, satellite imagery, street maps, and locale
+information. The web site is designed for users of all levels, from grade school to
+university researchers. Unlike other geographic information systems, TerraFly      
+runs via standard Web browsers, with no need to download software or data          
+prior to visualization. This ease of use and accessibility is evidenced by the     
+most recent user statistics that report over 10,000 hits a day. 11) The
+
+Experimental Program to Stimulate Competitive Research (EPSCoR) is funding         
+the Quarked project which creates an entertaining multimedia experience about
+
+quarks aimed at children ages 7-12, but accessible to all ages. The educational    
+goals of the project areto introduce
+
+quarks and the people who work with them into the common language of kids;         
+investigate how young people are introduced to and grasp the scientific world of   
+the unseen and abstract; and to demystify subatomic physics, while changing the    
+perception that science is difficult and inaccessible. Developments include a      
+half-hour animated TV series, an interactive web site (www.quarked.org),           
+museum programs, and educational outreach activities. 12) With support from        
+NSF's Robert Noyce Scholarship Program, Drexel University recruits science,        
+engineering, and mathematics majors who are committed to teaching                  
+                                                                                   
+
+
+                                                                              11-08
+  mathematics and science in the School District of Philadelphia. The program
+  provides strong teacher preparation addressing content knowledge, pedagogical
+  knowledge, learner knowledge and technology integration. Mentoring and
+  induction activities provide support to the new teachers. To broaden the
+  exposure of students to teaching, the Noyce Seminar Series provides a venue for
+  Noyce Scholars to interact with teacher leaders, teacher scientists, and experts
+  who are leaders in pedagogy, science and mathematics teaching or scientists
+  with a penchant for teaching.
+CRITERIA FOR SELECTING PROPOSALS:
+  The National Science Board approved revised criteria for evaluating proposals at
+  its meeting on March 28, 1997 (NSB 97-72). All NSF proposals are evaluated
+  through use of the two merit review criteria. In some instances, however, NSF
+  will employ additional criteria as required to highlight the specific objectives of
+  certain programs and activities. On July 8, 2002, the NSF Director issued
+  Important Notice 127, Implementation of new Grant Proposal Guide
+  Requirements Related to the Broader Impacts Criterion. This Important Notice
+  reinforces the importance of addressing both criteria in the preparation and
+  review of all proposals submitted to NSF. NSF continues to strengthen its
+  internal processes to ensure that both of the merit review criteria are addressed
+  when making funding decisions. In an effort to increase compliance with these
+  requirements, the January 2002 issuance of the GPG incorporated revised
+  proposal preparation guidelines relating to the development of the Project
+  Summary and Project Description. Chapter II of the GPG specifies that Principal
+  Investigators (PIs) must address both merit review criteria in separate statements
+  within the one-page Project Summary. This chapter also reiterates that broader
+  impacts resulting from the proposed project must be addressed in the Project
+  Description and described as an integral part of the narrative. Effective October
+  1, 2002, NSF will return without review proposals that do not separately address
+  both merit review criteria within the Project Summary. It is believed that these
+  changes to NSF proposal preparation and processing guidelines will more clearly
+  articulate the importance of broader impacts to NSF-funded projects. The two
+  National Science Board approved merit review criteria are listed below (see the
+  Grant Proposal Guide Chapter III.A for further information). The criteria include
+  considerations that help define them. These considerations are suggestions and
+  not all will apply to any given proposal. While proposers must address both
+  merit review criteria, reviewers will be asked to address only those
+  considerations that are relevant to the proposal being considered and for which
+  he/she is qualified to make judgments. What is the intellectual merit of the
+  proposed activity? How important is the proposed activity to advancing
+  knowledge and understanding within its own field or across different fields?
+  How well qualified is the proposer (individual or team) to conduct the project?
+  (If appropriate, the reviewer will comment on the quality of the prior work.) To
+  what extent does the proposed activity suggest and explore creative and original
+  concepts? How well conceived and organized is the proposed activity? Is there
+  sufficient access to resources? What are the broader impacts of the proposed
+  activity? How well does the activity advance discovery and understanding while
+  promoting teaching, training, and learning? How well does the proposed activity
+  broaden the participation of underrepresented groups (e.g., gender, ethnicity,
+  disability, geographic, etc.)? To what extent will it enhance the infrastructure for
+  research and education, such as facilities, instrumentation, networks, and
+  partnerships? Will the results be disseminated broadly to enhance scientific and
+  technological understanding? What may be the benefits of the proposed activity
+  to society? NSF staff will give careful consideration to the following in making
+  funding decisions: Integration of Research and Education. One of the principal
+  strategies in support of NSF's goals is to foster integration of research and
+  education through the programs, projects, and activities it supports at academic
+  and research institutions. These institutions provide abundant opportunities
+  where individuals may concurrently assume responsibilities as researchers,
+  educators, and students and where all can engage in joint efforts that infuse
+  education with the excitement of discovery andenrich
+  research through the diversity of learning perspectives. Integrating Diversity into
+  NSF Programs, Projects, and Activities. Broadening opportunities and enabling
+  the participation of all citizens - women and men, underrepresented minorities,
+  and persons with disabilities --is essential to the health and vitality of science
+  and engineering. NSF is committed to this principle of diversity and deems it
+  central to the programs, projects, and activities it considers and supports.
+47.078 POLAR PROGRAMS
+   (OPP)
+FEDERAL AGENCY:
+  NATIONAL SCIENCE FOUNDATION
+AUTHORIZATION:
+  National Science Foundation Act of 1950, as amended, Public Law 107-368, 42
+  U.S.C. 1861 et seq.
+OBJECTIVES:
+  To strengthen and enhance the national scientific enterprise through the
+  expansion of fundamental knowledge and increased understanding of the polar
+  regions. To encourage and support basic research in the Arctic and Antarctic
+                                                                                    841

@@ -1,0 +1,162 @@
+  Indian Health Service Educational Loan Repayment; 93.209, Contraception and        
+  Infertility Research Loan Repayment Program; 93.220, Clinical Research Loan        
+  Repayment Program for Individuals from Disadvantaged Backgrounds; 93.307,          
+  Minority Health and Health Disparities Research; 93.308, Extramural Loan           
+  Repayment for Individuals from Disadvantaged Backgrounds Conducting                
+  Clinical Research; 93.364, Nursing Student Loans; 93.936, National Institutes of   
+  Health Acquired Immunodeficiency Syndrome Research Loan Repayment                  
+  Program.                                                                           
+EXAMPLES OF FUNDED PROJECTS:                                                         
+  Transgenic zebrafish models of acute leukemia. The role of the Ku                  
+  Heterodimmer in Telomere function and chromosome stability. Gene therapy           
+  for the treatment of primary immunodeficiencies. Pilot study of hypericum for      
+  juvenile depression.                                                               
+CRITERIA FOR SELECTING PROPOSALS:                                                    
+  The NIH Institutes and Centers approve or disapprove applications for              
+  participation in the Pediatric Research Loan Repayment Program. Applications       
+  that are on time, complete and eligible are referred to the appropriate NIH        
+  Institute or Center by the NIH Center for Scientific Review. The NIH Institutes    
+  and Centers convene panels comprised of non-NIH scientists to review, score        
+  and rank applications. In evaluating the application, reviewers are directed to    
+  consider the following components as they relate to the likelihood that the        
+  applicant will continue in a research career: (1) potential of the applicant to    
+  pursue a career in research, and (2) quality of the overall environment to prepare 
+  the applicant for a research career.                                               
+                                                                                     
+93.286 DISCOVERY AND APPLIED RESEARCH FOR                                            
+                                                                                     
+TECHNOLOGICAL INNOVATIONS TO IMPROVE HUMAN                                           
+HEALTH                                                                               
+FEDERAL AGENCY:                                                                      
+  NATIONAL INSTITUTES OF HEALTH, DEPARTMENT OF HEALTH AND                            
+  HUMAN SERVICES                                                                     
+AUTHORIZATION:                                                                       
+  Public Health Service Act; Title IV, Sections 401(b)(1) and 467z; Public Law       
+  106-505.                                                                           
+OBJECTIVES:                                                                          
+  To support hypothesis, design, technology, or devise-driven research relation to   
+  the discovery, design, development, validation, and application of technologies    
+  related to biomedical imaging and bioengineering. The program includes             
+  biomaterials (biomimetics, bioprocessing, organogenesis, rehabilitation, tissue    
+  engineering, implant science, material science, interface science, physics and     
+  stress engineering, technology assessment of materials/devices),                   
+  biosensors/biotransducers (technology development, technology assessment,          
+  development of algorithms, telemetry), nanotechnology (nanoscience,                
+  biomimetics, drug delivery systems, drug bioavailability,                          
+  microarray/combinatorial technology, genetic engineering, computer science,        
+  technology assessment), bioinformatics (computer science, information science,     
+  mathematics, biomechanics, computational modeling and simulation, remote           
+  diagnosis and therapy), imaging device development, biomedical imaging             
+  technology development, image exploitation, contrast agents, informatics and       
+  computer sciences related to imaging, molecular and cellular imaging,              
+  bioelectrics/biomagnetics, organ and whole body imaging, screening for diseases    
+  and disorders, and imaging technology assessment and surgery (technique            
+  development and technology development).                                           
+TYPES OF ASSISTANCE:                                                                 
+  Project Grants.                                                                    
+USES AND USE RESTRICTIONS:                                                           
+  Research Grant funds may be used for salaries, consultation, equipment, travel     
+  and other usual costs, subject to Federal regulations applicable to the grant.     
+  Individual National Research Service Awards (NRSAs) are made directly to           
+  individuals for research training in specified areas related to the mission of     
+  NIBIB. Institutional NRSAs may be made to institutions to enable them to           
+  accept individuals for research training. Each individual who receives a NRSA      
+  postdoctoral fellowship or traineeship is obligated upon termination of the award  
+  to comply with certain service and payback provisions. Small Business              
+  Innovation Research (SBIR) Phase I grants are to establish the technical merit     
+  and feasibility of a proposed research effort that may lead to a commercial        
+  product or process. Only Phase I awardees are eligible to apply for Phase II       
+  support. Small Business Technology Transfer (STTR) Phase I grants are to           
+  determine the scientific, technical, and commercial merit and feasibility of the   
+  proposed cooperative effort that has potential for commercial application. Phase   
+  II funding is based on results of research initiated in Phase I and scientific and 
+  technical merit and commercial potential of the Phase II application.              
+Applicant Eligibility:                                                               
+  Any corporation, public or private institution or agency, or other legal entity,   
+  either nonprofit or for-profit, may apply for a research grant. An applicant for   
+  an individual NRSA must be a citizen of the United States or lawfully admitted     
+  for permanent residence. Those on temporary or student visas are not eligible.     
+  An eligible institution for an institutional NRSA must be capable of providing     
+                                                                                     
+                                                                                11-08
+  predoctoral and/or postdoctoral research training opportunities for engineers,
+  bioengineers or other. SBIR grants can be awarded only to domestic small
+  businesses (entities that are independently owned and operated for profit; are not
+  dominant in the field in which research is being proposed; and have no more
+  than 500 employees). Primary employment (more than one-half time) of the
+  principal investigator must be with the small business at the time of award and
+  during the conduct of the proposed project. In both Phase I and Phase II, the
+  research must be performed in the United States or its possessions. To be eligible
+  for funding, a grant application must be reviewed for scientific merit and
+  program relevance by a scientific review group and a national advisory council.
+  STTR grants can be awarded only to domestic small business concerns (entities
+  that are independently owned and operated for profit, are not dominant in the
+  field in which research is proposed and have no more than 500 employees)
+  which "partner" with a research institution in cooperative research and
+  development. At least 40 percent of the project is to be performed by the small
+  business concern and at least 30 percent by the research institution. In both
+  Phase I and Phase II, the research must be performed in the U.S. or its
+  possessions. To be eligible for funding, a grant application must be approved for
+  scientific merit and program relevance by a scientific review group and a
+  national advisory council.
+Beneficiary Eligibility:
+  Any nonprofit or for-profit organization, company, or institution engaged in
+  biomedical research.
+Credentials/Documentation:
+  Credentials/Documentation: Each applicant for research projects must present a
+  research plan and furnish evidence that scientific competence, facilities,
+  equipment, and supplies are appropriate to carry out the plan. For an individual
+  NRSA, the applicant's academic record, research experience, citizenship, and
+  institutional sponsorship should be documented in the application. For an
+  institutional NRSA, the applicant organization must show the objectives,
+  methodology and resources for the research training program, the qualifications
+  and experience of directing staff, the criteria to be used in selecting individuals
+  for awards, and detailed budget justification for the amount of grant funds
+  requested. Costs will be determined in accordance with OMB Circular No. A-21,
+  Cost Principles for Educational Institutions and OMB Circular No. A-87 for
+  State and local governments. For-profit organizations' costs are determined in
+  accordance with Subpart 31.2 of the Federal Acquisition Regulations. For other
+  grantees, costs will be determined by HHS Regulations 45 CFR, Part 74,
+  Subpart Q. For SBIR and STTR grants, applicant organization (small business
+  concern) must present in a research plan an idea that has potential for
+  commercialization and furnish evidence that scientific competence,
+  experimental methods, facilities, equipment, and funds requested are appropriate
+  to carry out the plan. Use of PHS 398 (Rev. 5/01; updated 8/8/03) and
+  associated forms are required for all applications submitted to the NIH.
+Preapplication Coordination:
+  Not applicable. This program is excluded from coverage under E.O. 12372.
+Application Procedure:
+  Application Form PHS 398 (Rev. 5/01; updated 8/8/03) is the standard form.
+  Application kits are available at most institutional offices of sponsored research
+  and may be obtained from the Office of Extramural Outreach and Information
+  Resources, National Institutes of Health, 6701 Rockledge Drive, MSC 7910,
+  Bethesda, MD 20892-7910, Telephone: (301) 435-0714, E-mail:
+  grantsinfo@nih.gov . Alternatively, the application kit can be obtained on the
+  World Wide Web, http://grants.nih.gov/grants/funding/phs398/phs398.html.
+  Completed applications should be submitted to the Center for Scientific Review,
+  National Institutes of Health, Bethesda, MD 20892. The standard application
+  forms, as furnished by PHS and required by 45 CFR Part 92 for State and local
+  governments, must be used for this program. The same application form will be
+  used for all types of applications including training (NRSA), both individual and
+  institutional, and SBIR/STTR. The training (NRSA) program is subject to the
+  provisions of 45 CFR Part 92 for State and local governments and OMB
+  Circular No. A-110 for nonprofit organizations. SBIR and STTR Grant
+  Solicitations and SBIR Contract Solicitation may be obtained electronically
+  through the NIH's "Small Business Funding Opportunities" home page at
+  www.nih.gov/grants/funding/sbir.htm on the World Wide Web. A limited
+  number of hard copies of these publications are produced. Subject to
+  availability, they may be obtained by contacting the NIH support services
+  contractor: Telephone: (301) 206-9385; Fax: (301) 206-9722; E-mail:
+  a2y@cu.nih.gov . The Solicitations include submission procedures, review
+  considerations, and grant application or contract proposal forms. SBIR and
+  STTR grant applications should be submitted to the Center for Scientific
+  Review, 6701 Rockledge Drive, Room 1040 - MSC 7710, Bethesda, MD 20892-
+  7710.
+Award Procedure:
+  All applications for research or training are reviewed for scientific merit by an
+  appropriate initial review group and then by a national advisory council. All
+  applications favorably recommended compete for available funds on the basis of
+  scientific merit and program emphasis. All accepted SBIR/STTR applications
+  are evaluated for scientific and technical merit by an appropriate scientific peer
+  review panel and by a national advisory council or board. All applications
+                                                                                  1383

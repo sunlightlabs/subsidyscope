@@ -1,0 +1,164 @@
+  funded and require no State matching of funds.                                     
+Length and Time Phasing of Assistance:                                               
+  Grants are available for up to two years. Obligations to a State will remain       
+  available for expenditure during the two-year period specified in the grant        
+  agreement and may be extended under special circumstances with FMCSA               
+  approval.                                                                          
+Reports:                                                                             
+  Quarterly activity reports, including a summary of grant expenditures, are         
+  required to be filed with the FMCSA Division Office.                               
+Audits:                                                                              
+  When a State has fully implemented the PRISM Program an Implementation             
+  Review is scheduled to ensure that States meet the requirements of the PRISM       
+  Program. Items needing modification are identified for corrective action with      
+  progress monitored on a bi-annual basis.                                           
+Records:                                                                             
+  Records of all program activities covered in the State's PRISM Implementation      
+  Plan and records pertaining to other supporting activities must be kept for 3      
+  years following the year of funding.                                               
+Account Identification:                                                              
+  69-8048-0-7-401.                                                                   
+Obligations:                                                                         
+  FY 07 Grants $5,000,000; Contracts $1,000,000; FY 08 $5,000,000; and FY 09         
+  $5,000,000.                                                                        
+Range and Average of Financial Assistance:                                           
+  Financial assistance averages approximately $500,000 per State. Funding is         
+  determined based upon individual State needs for full implementation of the        
+  program.                                                                           
+PROGRAM ACCOMPLISHMENTS:                                                             
+  As Of July 1st 2008 46 States plus the District of Columbia have signed grant      
+  agreements with the FMCSA to implement the PRISM program, including: AK,           
+  AL, AR, AZ, CA, CO, CT, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA,            
+  ME, MN, MO, MS, MT, NH, NJ, NC, NE, NH, NY, OH, OK, OR, PA, RI, SC,                
+  SD, TN, TX, UT, VA, VT, WA, WI, WV, and WY. On average it takes                    
+  approximately 2 to 2 1/2 years for a State to acquire the necessary hardware and   
+  software required to build, populate, and maintain the necessary DMV PRISM         
+  data files to fully realize the potential of PRISM. Twenty nine States are         
+  presently PRISM capable, with four states in the process of implementation and     
+  nine states and DC committed to implement the program at their discretion          
+  sometime in the future. PRISM states that actively exercise their authority to     
+  deny, revoke, and or suspend a carriers registration include: AL, AR, CT, GA,      
+  IA, IN, KY, ME, MN, MO, NC, NE, NH, NM, OH, OK, PA, RI, SC, SD, TN,                
+  TX, UT, VT, WA, and WV.                                                            
+REGULATIONS, GUIDELINES, AND LITERATURE:                                             
+  The Implementation Guide, Procedures Manual, and System Specifications for         
+  the PRISM program maybe obtained by contacting                                     
+  PRISMTechnicalSupport@Volpe.dot.gov. Regulations, Guidelines, and                  
+  Literature: 49 CFR 1.48. 49 CFR 386-399, Federal Motor Carrier Safety              
+  regulations; 49 CFR 100-180, Hazardous Materials Regulations, Government           
+  Printing Office, $14-$27 per volume.                                               
+Regional or Local Office:                                                            
+  State Division Offices of the Federal Motor Carrier Safety Administration, as      
+  listed in Appendix IV of the Catalog.                                              
+Headquarters Office:                                                                 
+  Federal Motor Carrier Safety Administration, Office of Enforcement and             
+  Compliance, MC-ECE, 1200 New Jersey Ave, S.E., Washington, DC, 20590.              
+  Telephone: (202) 366-9699.                                                         
+Web Site Address:                                                                    
+  http://www.fmcsa.dot.gov.                                                          
+RELATED PROGRAMS:                                                                    
+  None.                                                                              
+EXAMPLES OF FUNDED PROJECTS:                                                         
+  State improvements to data information and registration systems, bar-coding,       
+  training and outreach activities.                                                  
+CRITERIA FOR SELECTING PROPOSALS:                                                    
+  The applicant must submit and receive formal approval of a State PRISM             
+  Implementation Plan specifying how the State will meet the program                 
+  requirements, time frames for completion, and associated costs of the program.     
+                                                                                     
+20.232 COMMERCIAL DRIVER LICENSE STATE                                               
+                                                                                     
+PROGRAMS                                                                             
+FEDERAL AGENCY:                                                                      
+  FEDERAL MOTOR CARRIER SAFETY ADMINISTRATION,                                       
+  DEPARTMENT OF TRANSPORTATION                                                       
+AUTHORIZATION:                                                                       
+  49 U.S.C. 521, 31136, 31301 et seq., 31502; Section 103, Public Law 106-159,       
+  113 Stat. 1753; Section 214 of Public Law 106-159, 113 Stat. 1766; 49 CFR          
+  1.73. Section 31313 of Public Law 109-59.                                          
+OBJECTIVES:                                                                          
+  To help or prevent truck and bus accidents, fatalities, and injuries by requiring  
+
+
+                                                                                11-08
+  drivers to have a single commercial motor vehicle license and by disqualifying
+  drivers who operate commercial motor vehicles in an unsafe manner.
+TYPES OF ASSISTANCE:
+  Project Grants.
+USES AND USE RESTRICTIONS:
+  A State may use grants only for expenses directly related to its compliance with
+  section 31311 of the Safe, Accountable, Flexible, Efficient Transportation
+  Equity Act: A Legacy for Users (SAFETEA-LU - Public Law 109-59); except
+  that a State that is making good faith efforts toward substantial compliance with
+  the requirements of 31311 and 31313 of SAFETEA-LU may use grants to
+  improve implementation of the State's commercial driver's license program,
+  including expenses for computer hardware and software, publications, testing,
+  personnel, training, fraud prevention, and quality control. The grant may not be
+  used to rent, lease, or buy land or buildings.
+Applicant Eligibility:
+  Only those agencies in each State or the District of Columbia that is designated
+  as the primary driver licensing agency responsible for the administration of the
+  CDL program may apply.
+Beneficiary Eligibility:
+  States may receive grant funds to comply with the requirements of section 31311
+  of SAFETEA-LU or if making good faith efforts toward substantial compliance
+  with the requirements of section 31311 and 31313 receive grant funds to
+  improve implementation of the commercial driver's license program.
+Credentials/Documentation:
+  Certification by the State that it meets the conditions for grant approval. States
+  must submit a self assessment of their CDL program and agree to maintain CDL
+  program expenditures at a level at least equal to the average of the past two State
+  fiscal years that ended prior to August 10, 2005. The State is also required to
+  submit a self-assessment of its CDL program that addresses and supports the
+  specific requests indicated in their application for a grant. Costs will be
+  determined in accordance with OMB Circular A-87.
+Preapplication Coordination:
+  This program is excluded from coverage under E.O. 12372.
+Application Procedure:
+  Detailed application instructions and forms are available on Grants.gov.
+  Applications must be submitted using Grants.gov after approval by the State's
+  FMCSA Division Office.
+Award Procedure:
+  The amount of the CDL grant to a qualifying State will be determined by the
+  CDL Division based on the documented needs of the State and the availability of
+  funds. The Federal Register Notice will outline the current year's priorities. All
+  proposals will be evaluated by a panel to determine which proposals have the
+  greatest impact on the effectiveness of the CDL program in improving highway
+  safety and reducing commercial motor vehicle related fatalities. States will be
+  required to sign a grant agreement.
+Deadlines:
+  Grant applications must be approved by the FMCSA Division Administrator in
+  the State and submitted via grants.gov by the date indicated in the Federal
+  Register Notice.
+Range of Approval/Disapproval Time:
+  60 to 90 days.
+Appeals:
+  States will be notified of a denial of funding of their grant application. If denied
+  funding, a State may revise and resubmit their application within 30 days.
+  FMCSA will consider their revised application and may award a grant based on
+  remaining funds at that time of consideration.
+Renewals:
+  A new grant application must be made whenever a new Federal Register Notice
+  is published.
+Formula and Matching Requirements:
+  CDL Program Improvement grants are 100 percent federally funded and require
+  no State matching of funds.
+Length and Time Phasing of Assistance:
+  Grants are available for up to one year. Obligations to a state remain available
+  until expended.
+Reports:
+  Project activity reports and financial status reports (SF-269) must be submitted
+  quarterly to the FMCSA Division office.
+Audits:
+  In accordance with OMB Circular A-133, nonfederal entities that expend
+  financial assistance of $500,000 or more in Federal awards must have a single or
+  program-specific audit conducted for that year. Nonfederal entities that expend
+  less than $500,000 a year in Federal awards are exempt from Federal audit
+  requirements for that year, except as noted in OMB Circular A-133.
+Records:
+  Records of all program activities covered in the grant proposal. Such records
+  must be kept for three years following the year of funding.
+Account Identification:
+  69-8158-0-7-401.
+Obligations:
+                                                                                    711

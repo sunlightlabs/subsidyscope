@@ -1,0 +1,176 @@
+  be used for personnel, consultant costs, equipment, supplies, travel, patient      
+  costs, animals, alterations and renovations, miscellaneous items, and Facilities   
+  and Administrative Costs (formerly known as indirect costs). SBIR Phase I          
+  grants (of approximately 6-months' duration) are to establish the technical merit  
+  and feasibility of a proposed research effort that may lead to a commercial        
+  product or process. Phase II grants are for the continuation of the research       
+  initiated in Phase I and that are likely to result in commercial products or       
+  processes. Only Phase I awardees are eligible to receive Phase II support. STTR    
+  Phase I grants (normally of 1-year duration) are to determine the scientific,      
+  technical and commercial merit and feasibility of the proposed cooperative effort  
+  that has potential for commercial application. Phase II are for the continuation of
+  the research initiated in Phase I that is likely to result in a commercial product.
+  The SBIR/STTR Fast Track Initiative provides additional assistance to              
+  applicants by expediting the decision and award of SBIR Phase II funding for       
+  scientifically meritorious applications for projects that have a high potential for
+  commercialization. Fast-Track is a parallel review option whereby Phase I and      
+  Phase II projects are reviewed concurrently with the aim of reducing or            
+  eliminating the funding gap between Phase I and Phase II.                          
+Applicant Eligibility:                                                               
+  The awardee will be a university, college, hospital, public agency, nonprofit      
+  research institution or for-profit organization that submits an application and    
+  receives a grant for support of research by a named principal investigator. SBIR   
+  grants can be awarded only to domestic small businesses (entities that are         
+  independently owned and operated for profit, are not dominant in the field in      
+  which research is proposed and have no more than 500 employees). Primary           
+  employment (more than one-half time) of the principal investigator must be with    
+  the small business at the time of award and during the conduct of the proposed     
+  project. In both Phase I and Phase II, the research must be performed in the U.S.  
+  and its possessions. To be eligible for funding, a grant application must be       
+  approved for scientific merit and program relevance by a scientific review group   
+  and a national advisory council. STTR grants can be awarded only to domestic       
+  small business concerns (entities that are independently owned and operated for    
+  profit, are not dominant in the field in which research is proposed and have no    
+  more than 500 employees)which "partner" with a research institution in             
+  cooperative research and development. At least 40 percent of the project must be   
+  performed by the small business concern and at least 30 percent by the research    
+  institution. In both Phase I and Phase II, the research must be performed in U.S.  
+  and its possessions. To be eligible for funding, a grant application must be       
+  approved for scientific merit and program relevance by a scientific review group   
+  and a national advisory council.                                                   
+Beneficiary Eligibility:                                                             
+  Any nonprofit or for-profit organization, company, or institution engaged in       
+  biomedical research.                                                               
+Credentials/Documentation:                                                           
+  Costs will be determined in accordance with OMB Circular No. A-87 for State        
+  and local governments. For-profit organizations' costs are determined in           
+  accordance with Subpart 31.2 of the Federal Acquisition Regulations. For other     
+  grantees, costs will be determined in accordance with HHS Regulations 45 CFR       
+  Part 74, Subpart Q. For SBIR and STTR grants, applicant organization (small        
+  business concern) must present in a research plan an idea that has potential for   
+  commercialization and furnish evidence that scientific competence,                 
+  experimental methods, facilities, equipment, and funds requested are appropriate   
+  to carry out the plan. Grant form SF424(R&R) is used to apply for SBIR Phase I     
+  and Phase II, STTR Phase I and Phase II grants, and Fast-Track.                    
+Preapplication Coordination:                                                         
+  None. This program is excluded from coverage under E.O. 12372.                     
+Application Procedure:                                                               
+  The NIH is in the process of a transition to fully electronic grant submission     
+  through Grants.gov (see http://era.nih.gov/ElectronicReceipt for details).         
+  Depending on the grant mechanism, either form PHS-398 (Rev. September              
+  2004) or form SF424(R&R) (October 2005) is the standard form. Both can be          
+  obtained at http://grants1.nih.gov/grants/forms.htm. The standard application      
+  forms, as furnished by PHS and required by 45 CFR, Part 92 for State and local     
+  governments, must be used for this program. This program is subject to the         
+  provisions of 45 CFR, Part 92 for State and local governments and OMB              
+  Circular No. A-110 for nonprofit organizations, as appropriate. SBIR and STTR      
+  Grant Solicitations and SBIR Contract Solicitation may be obtained                 
+  electronically through the NIH's "Small Business Funding Opportunities" home       
+  page at www.nih.gov/grants/funding/sbir.htm on the World Wide Web. The             
+  Solicitations include submission procedures, review considerations, and grant      
+  application or contract proposal forms. All competing SBIR and STTR grant          
+  applications must be submitted electronically via Grants.gov The following is a    
+  website address for NIH electronic submission of grant application information:    
+  http://era.nih.gov/ElectronicReceipt/index.htm.                                    
+                                                                                     
+Award Procedure:
+
+                                                                                     
+  Grants and cooperative agreements are funded based on scientific merit,
+
+                                                                                     
+  program relevance, and program balance and are made annually. The initial
+
+                                                                                     
+  grant award provides funds for the first budget period (usually 12 months) and
+
+                                                                                     
+  letter Notice of Award indicates support recommended for the remainder of the
+
+                                                                                     
+  project period, allocation of Federal funds by budget categories and special
+
+
+
+                                                                                11-08
+  conditions, if any. All accepted SBIR/STTR applications are evaluated for
+  technical merit by an appropriate scientific review group and if they are
+  recommended for further consideration, by a national advisory council. All
+  applications receiving a priority score compete for available SBIR/STTR set-
+  aside funds on the basis of scientific and technical merit and commercial
+  potential of the proposed research, program relevance, and program balance
+  among the areas of research.
+Deadlines:
+  All Grants including renewals and supplements: April 5, August 5, December 5.
+  Cooperative Agreements and contracts are usually submitted in response to a
+  Request for Applications (RFA) or a Request for Proposals (RFP). The receipt
+  date is stipulated in the RFA or RFP.
+Range of Approval/Disapproval Time:
+  Regular Grants: Approximately 10 months. SBIR/STTR: Approximately 7-1/2
+  months.
+Appeals:
+  A principal investigator may question the substantive or procedural aspects of
+  the review of his/her application by communicating with the staff of the
+  Institute. A description of the NIH Peer Review Appeal procedures is available
+  on the NIH home page www.nih.gov/grants/guide/1997/97.11.21/n2.html.
+Renewals:
+  Applications submitted for renewal are reviewed and selected for funding on a
+  competitive basis.
+Formula and Matching Requirements:
+  None.
+Length and Time Phasing of Assistance:
+  Grants and Cooperative Agreements: Average 3 to 4 years, and a maximum of 5
+  years. Renewals may be awarded for additional periods of up to 5 years based on
+  competitive peer review. Funding is provided through Monthly Demand
+  Payment System or an Electronic Transfer System. SBIR: Normally, Phase I
+  awards are for 6 months; normally, Phase II awards are for 2 years. STTR:
+  Normally, Phase I awards are for 1 year; normally, Phase II awards are for 2
+  years.
+Reports:
+  Progress reports are required each year. Annual financial status report is
+  required 90 days after the end of the budget period. Special reports may be
+  requested by DHHS. Terminal reports are required 6 months after the end of a
+  project.
+Audits:
+  "In accordance with the provisions of OMB Circular No. A-133 (Revised, June
+  27, 2003), Audits of States, Local Governments, and Nonprofit Organizations,
+  nonfederal entities that expend financial assistance of $500,000 or more in
+  Federal awards will have a single or a program-specific audit conducted for that
+  year. Nonfederal entities that expend less than $500,000 a year in Federal
+  awards are exempt from Federal audit requirements for that year, except as noted
+  in Circular No. A-133." In addition, grants and cooperative agreements are
+  subject to inspection and audits by DHHS and other Federal government
+  officials.
+Records:
+  Expenditures and other financial records must be retained for 3 years from the
+  day on which the grantee submits the last financial status report for the report
+  period.
+Account Identification:
+  75-0849-0-1-550.
+Obligations:
+  (Grants) RPG: FY 07 $527,308,000; FY 08 est $497,545,000; and FY 09 est
+  $498,852,000. SBIR/STTR: FY 07 $7,923,000; FY 08 est $6,194,000; and FY
+  09 est $7,662,000.
+Range and Average of Financial Assistance:
+  $23,915 to $2,268,192; $335,438.
+PROGRAM ACCOMPLISHMENTS:
+  Competing FY 07 RPG act. 306 awards, which were 17.7 percent of applications
+  received. Competing FY 07 SBIR/STTR act. 18 awards, which were 23.1
+  percent of applications received. Fiscal year 08 est 1,509 total awards and FY 09
+  est 1,489 total awards.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  42 CFR 52; 45 CFR 74; 45 CFR 92; Grants will be available under the authority
+  of and administered in accordance with the PHS Grants Policy Statement and
+  Federal regulations at 42 CFR 52 and 42 U.S.C. 241; Omnibus Solicitation of
+  the Public Health Service for Small Business Innovation Research (SBIR) Grant
+  and Cooperative Agreement Applications. Omnibus Solicitation of the National
+  Institutes of Health for Small Business Technology Transfer (STTR) Grant
+  Applications.
+Regional or Local Office:
+  None.
+Headquarters Office:
+  Program Contact: Stephen T. White, Special Assistant to the Director, Division
+  of Cancer Biology, National Cancer Institute, National Institutes of Health,
+  Public Health Service, Department of Health and Human Services, 6130
+  Executive Boulevard, EPN-5048, Bethesda, MD 20892. Telephone: (301) 496-
+                                                                                1415

@@ -1,0 +1,164 @@
+  competency of the proposed investigator or group to successfully pursue the         
+  project; (4) the adequacy of the available and proposed facilities and resources;   
+  (5) the necessity of the budget components requested in relation to the proposed    
+  project; and (6) the relevance and importance to announced program objectives.      
+  The following criteria will be used in considering the scientific and technical     
+  merit of SBIR/STTR Phase I grant applications: (1) The soundness and technical      
+  merit of the proposed approach; (2) the qualifications of the proposed principal    
+  investigator, supporting staff, and consultants; (3) the technological innovation   
+  of the proposed research; (4) the potential of the proposed research for            
+  commercial application; (5) the appropriateness of the budget requested; (6) the    
+  adequacy and suitability of the facilities and research environment; and (7)        
+  where applicable, the adequacy of assurances detailing the proposed means for       
+  (a) safeguarding human or animal subjects and/or (b) protecting against or          
+  minimizing any adverse effect on the environment. Phase II grant applications       
+  will be reviewed based upon the following criteria: (1) The degree to which the     
+  Phase I objectives were met and feasibility demonstrated; (2) the scientific and    
+  technical merit of the proposed approach for achieving the Phase II objectives;     
+  (3) the qualifications of the proposed principal investigator, supporting staff, and
+  consultants; (4) the technological innovation, originality, or societal importance  
+  of the proposed research; (5) the potential of the proposed research for            
+  commercial application; (6) the reasonableness of the budget requested for the      
+  work proposed; (7) the adequacy and suitability of the facilities and research      
+  environment; and (8) where applicable, the adequacy of assurances detailing the     
+  proposed means for (a) safeguarding human or animal subjects and/or (b)             
+  protecting against or minimizing any adverse effect on the environment.             
+                                                                                      
+                                                                                      
+93.847 DIABETES, DIGESTIVE, AND KIDNEY DISEASES
+
+                                                                                      
+EXTRAMURAL RESEARCH                                                                   
+FEDERAL AGENCY:                                                                       
+  NATIONAL INSTITUTES OF HEALTH, DEPARTMENT OF HEALTH AND                             
+  HUMAN SERVICES                                                                      
+AUTHORIZATION:                                                                        
+  Public Health Service Act, Sections 301, 405, 428, 431, 487, 491, 493, 495, and     
+  498, as amended; Public Laws 78-410, 99-158, 100-607, and 106-554; 42               
+  U.S.C. 241, 42 U.S.C. 285c-2; 42 U.S.C. 285c-5, 42 U.S.C. 288, as amended;          
+  Small Business Research and Development Enhancement Act of 1992; Public             
+  Law 102-564.                                                                        
+OBJECTIVES:                                                                           
+  (1) To promote extramural basic and clinical biomedical research that improves      
+  the understanding of the mechanisms underlying disease and leads to improved        
+  preventions, diagnosis, and treatment of diabetes, digestive, and kidney diseases.  
+   Programmatic areas within the National Institute of Diabetes and Digestive and     
+  Kidney Diseases include diabetes, digestive, endocrine, hematologic, liver,         
+  metabolic, nephrologic, nutrition, obesity, and urologic diseases. Specific         
+  programs areas of interest include the following: (a) For diabetes, endocrine,      
+  and metabolic diseases areas: Fundamental and clinical studies including the        
+  etiology, pathogenesis, prevention, diagnosis, treatment and cure of diabetes       
+  mellitus and its complications; Normal and abnormal function of the pituitary,      
+  thyroid, parathyroid, adrenal, and other hormone secreting glands; Hormonal         
+  regulation of bone, adipose tissue, and liver; on fundamental aspects of signal     
+  transduction, including the action of hormones, coregulators, and chromatin         
+  remodeling proteins; Hormone biosynthesis, secretion, metabolism, and binding;      
+  and on hormonal regulation of gene expression and the role(s) of selective          
+  receptor modulators as partial agonists or antagonists of hormone action; and       
+  Fundamental studies relevant to metabolic disorders including membrane              
+  structure, function, and transport phenomena and enzyme biosynthesis; and           
+  basic and clinical studies on the etiology, pathogenesis, prevention, and           
+  treatment of inherited metabolic disorders (such as cystic fibrosis). (b) For       
+  digestive disease and nutrition areas: Genetics and genomics of the GI tract and    
+  its diseases; Genetics and genomics of liver/pancreas and diseases; Genetics and    
+  genomics of nutrition; genetics and genomics of obesity; Bariatric surgery;         
+  Clinical nutrition research; Clinical obesity research; Complications of chronic    
+  liver disease; Fatty liver disease; Genetic liver disease; HIV and liver; Cell      
+  injury, repair, fibrosis and inflammation in the liver; Liver cancer; Liver         
+  transplantation; Pediatric liver disease; Viral hepatitis and infectious diseases;  
+  Gastrointestinal and nutrition effects of AIDS; Gastrointestinal mucosal and        
+  immunology; Gastrointestinal motility; Basic neurogastroenterology;                 
+  Gastrointestinal development; Gastrointestinal epithelial biology;                  
+  Gastrointestinal inflammation; Digestive diseases epidemiology and data             
+  systems; Nutritional epidemiology and data systems; Autoimmune liver disease;       
+  Bile, Bilirubin and cholestasis; Bioengineering and biotechnology related to        
+  digestive diseases, liver, nutrition and obesity; Cell and molecular biology of the 
+  liver; Developmental biology and regeneration; Drug-induced liver disease;          
+  Gallbladder disease and biliary diseases; Exocrine pancreas biology and             
+  diseases; Gastrointestinal neuroendocrinology; Gastrointestinal transport and       
+  absorption; Nutrient metabolism; Pediatric clinical obesity; Clinical trials in     
+  digestive diseases; Liver clinical trials; Obesity prevention and treatment; and    
+  Obesity and eating disorders. (c) For kidney, urologic and hematologic              
+                                                                                      
+                                                                                 11-08
+  diseases areas: Studies of the development, physiology, and cell biology of the
+  kidney; Pathophysiology of the kidney; Genetics of kidney disorders; Immune
+  mechanisms of kidney disease; Kidney disease as a complication of diabetes;
+  Effects of drugs, nephrotoxins and environmental toxins on the kidney;
+  Mechanisms of kidney injury repair; Improved diagnosis, prevention and
+  treatment of chronic kidney disease and end-stage renal disease; Improved
+  approaches to maintenance dialysis therapies; Basic studies of lower urinary
+  tract cell biology, development, physiology, and pathophysiology; Clinical
+  studies of bladder dysfunction, incontinence, pyelonephritis, interstitial cystitis,
+  benign prostatic hyperplasia, urolithiasis, and vesicoureteral reflux;
+  Development of novel diagnostic tools and improved therapies, including tissue
+  engineering strategies, for urologic
+  disorders;Research on hematopoietic cell differentiation; metabolism of iron
+  overload and deficiency; Structure, biosynthesis and genetic regulation of
+  hemoglobin; as well as Research on the etiology, pathogenesis, and therapeutic
+  modalities for the anemia of inflammation and chronic diseases. (2) To
+  encourage basic and clinical research training and career development of
+  scientists during the early stages of their careers. The Ruth L. Kirschstein
+  National Research Service Award (NRSA) funds basic and clinical research
+  training, support for career development, and the transition from postdoctoral
+  biomedical research training to independent research related to diabetes,
+  digestive, endocrine, hematologic, liver, metabolic, nephrologic, nutrition,
+  obesity, and urologic diseases. (3) To expand and improve the Small
+  Business Innovation Research (SBIR) program. The SBIR Program aims to
+  increase and facilitate private sector commercialization of innovations derived
+  from Federal research and development; to enhance small business participation
+  in Federal research and development; and to foster and encourage participation
+  of socially and economically disadvantaged small business concerns and
+  women-owned small business concerns in technological innovation. (4) To
+  utilize the Small Business Technology Transfer (STTR) program. The STTR
+  Program intends to stimulate and foster scientific and technological innovation
+  through cooperative research and development carried out between small
+  business concerns and research institutions; to foster technology transfer
+  between small business concerns and research institutions; to increase private
+  sector commercialization of innovations derived from Federal research and
+  development; and to foster and encourage participation of socially and
+  economically disadvantaged small business concerns and women-owned small
+  business concerns in technological innovation.
+TYPES OF ASSISTANCE:
+  Project Grants.
+USES AND USE RESTRICTIONS:
+  Project Grants provide funds for salaries, equipment, supplies, travel, and other
+  expenses associated with scientific investigation relevant to program objectives.
+  NRSAs are made directly to individuals for research training in specified
+  biomedical shortage areas, or, to institutions to enable them to make NRSAs to
+  individuals selected by them. Each individual who receives a NRSA is obligated
+  upon termination of the award to comply with certain service and payback
+  provisions. SBIR Phase I grants (of approximately 6-months duration) are to
+  establish the technical merit and feasibility of a proposed research effort that
+  may lead to a commercial product or process. Phase II grants are for the
+  continuation of the research initiated in Phase I and that are likely to result in
+  commercial products or processes. Only Phase I awardees are eligible to receive
+  Phase II support. STTR Phase I grants (normally of 1-year duration) are to
+  determine the scientific, technical, and commercial merit and feasibility of the
+  proposed cooperative effort that has potential for commercial application. Phase
+  II funding is based on results of research initiated in Phase I and scientific and
+  technical merit and commercial potential of the Phase II application.
+Applicant Eligibility:
+  Project Grants: Universities, colleges, medical, dental and nursing schools,
+  schools of public health, laboratories, hospitals, State and local health
+  departments, other public or private institutions, both non-profit and for-profit,
+  and individuals who propose to establish, expand, and improve research
+  activities in health sciences and related fields. NRSAs: Support is provided for
+  academic and research training only, in health and health-related areas that are
+  periodically specified by the National Institutes of Health. To be eligible,
+  predoctoral awardees must have completed the baccalaureate degree and
+  postdoctoral awardees must have a professional or scientific degree (M.D.,
+  Ph.D., D.D.S., D.O., D.V.M., Sc.D., D.Eng., or equivalent domestic or foreign
+  degree). Individuals must be nominated and sponsored by a public or nonprofit
+  private institution having staff and facilities appropriate to the proposed research
+  training program. All awardees must be citizens or have been admitted to the
+  United States for permanent residence. Nonprofit domestic organizations may
+  apply for the Institutional NRSA. SBIR and STTR grants can be awarded only to
+  domestic small businesses that meet the following criteria: 1) Is independently
+  owned and operated, is not dominant in the field of operation in which it is
+  proposing, has a place of business in the United States and operates primarily
+  within the United States or makes a significant contribution to the US economy,
+  and is organized for profit; 2) Is (a) at least 51% owned and controlled by one or
+  more individuals who are citizens of, or permanent resident aliens in, the United
+  States, or (b) for SBIR only, it must be a for-profit business concern that is at
+                                                                                   1509

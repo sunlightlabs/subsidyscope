@@ -1,0 +1,182 @@
+  final payment in accordance with grant provisions and OMB Circular-133.            
+Records:                                                                             
+  The grantee is required to maintain auditable records in accordance with CFR       
+  Part 2 Subpart 215.53.                                                             
+Account Identification:                                                              
+  89-0299-0-1-050.                                                                   
+Obligations:                                                                         
+  FY 07 $36,357,377; FY 08 est $25,000,000; and FY 09 est $25,000,000.               
+Range and Average of Financial Assistance:                                           
+  The awards range from $100,000 to $4,000,000.                                      
+PROGRAM ACCOMPLISHMENTS:                                                             
+  Minority institutions' faculty and students are 1) conducting valuable research in 
+  support of the NNSA mission requirements, 2) collaborating with Lawrence           
+  Livermore National Laboratory on research projects, 3) educating students to       
+  become nuclear engineers, 4) participating in summer internships around the        
+  NNSA complex and 5) forming collaborative partnerships among the                   
+  participating institutions and other majority of institutions of higher education. 
+  From FY 05 to present, NNSA has awarded 43 financial assistance awards to 25       
+  Minority Serving Institutions (MSIs) totaling over $72,000,000 (includes $25M      
+  to be awarded by 9/30/08).                                                         
+REGULATIONS, GUIDELINES, AND LITERATURE:                                             
+  CFR Part 2 and Part 6 and OMB Circular A-21.                                       
+Regional or Local Office:                                                            
+  None.                                                                              
+Headquarters Office:                                                                 
+  Office of the Associate Administrator for Management and Administration (NA-       
+  60), National Nuclear Security Administration (NNSA), US Department of             
+  Energy (DOE), 1000 Independence Avenue, SW, Washington, DC 20585;                  
+  Telephone: 202-586-6174.                                                           
+Web Site Address:                                                                    
+  http://www.nnsa.doe.gov/.                                                          
+RELATED PROGRAMS:                                                                    
+  None.                                                                              
+EXAMPLES OF FUNDED PROJECTS:                                                         
+  None.                                                                              
+CRITERIA FOR SELECTING PROPOSALS:                                                    
+  The selection process is based on the following criteria: 1) Potential impact and  
+  relevance of proposed work; 2) technical merit; 3) qualifications of the proposed  
+  investigators; 4) quality of the proposed research plan; 5) proposed schedule,     
+  budget and available resources.                                                    
+                                                                                     
+81.124 PREDICTIVE SCIENCE ACADEMIC ALLIANCE                                          
+                                                                                     
+PROGRAM                                                                              
+   (Office of Advanced Simulation and Computing) (ASC)                               
+                                                                                     
+FEDERAL AGENCY:                                                                      
+  NATIONAL NUCLEAR SECURITY ADMINISTRATION (NNSA),                                   
+  DEPARTMENT OF ENERGY                                                               
+AUTHORIZATION:                                                                       
+  Atomic Energy Act of 1954, as amended, Section 31, Public Law 83-703, 68           
+  Stat. 919, 42 U.S.C. 2051; Energy Reorganization Act of 1974, Title 1, Section     
+  107, Public Law 93-438, 88 Stat. 1240, 42 U.S.C. 5817; Federal Nonnuclear          
+  Energy Research and Development Act of 1974, Public Law 93-577;                    
+  Department of Energy Organization Act of 1977, as amended, Public Law 95-          
+                                                                                     
+  91, 42 U.S.C. 7101.
+
+                                                                                     
+OBJECTIVES:
+
+                                                                                     
+  (1) To foster the science of building integrated, multi-scale, and multi-physics
+
+                                                                                     
+  codes with the primary focus on code validation and verification to help advance
+
+                                                                                     
+  the newly emergent predictive science in academia; (2) to promote and sustain
+
+                                                                                     
+  scientific interactions between the academic community and scientists at the
+
+                                                                                     
+  NNSA laboratories; (3) and to train scientists in specific areas of long-term
+
+                                                                                     
+  research relevant to DOE stockpile stewardship.                                    
+TYPES OF ASSISTANCE:                                                                 
+  Project Grants (Cooperative Agreements).                                           
+USES AND USE RESTRICTIONS:                                                           
+  Financial support in whole or in part may be provided for such purposes as         
+  salaries, materials and supplies, equipment, travel, publication costs, training   
+  costs, and services required for conducting research, training, related activities,
+  and advanced technology projects or assessments. Funding is provided for           
+  applied research in the field of computational science in support of the DOE       
+  NNSA Stockpile Stewardship program. Restrictions on use of funds depend on         
+  grant provisions. Funding is provided for the purpose of exploring a research      
+  idea that does not unnecessarily duplicate work already in progress or             
+  contemplated by DOE, is not already known to DOE, or has previously                
+  unrecognized merit.                                                                
+Applicant Eligibility:                                                               
+  U.S. Public and Private Education Institutions with Ph.D. granting programs can
+
+                                                                                     
+  apply.                                                                             
+Beneficiary Eligibility:
+
+
+
+                                                                                11-08
+  U.S Public and Private Education Institutions with Ph.D. granting programs can
+  apply.
+Credentials/Documentation:
+  None.
+Preapplication Coordination:
+  This profram is excluded from coverage under E.O.12372.
+Application Procedure:
+  Applications should be submitted as specified in the funding opportunity
+  announcement posted at http://www.grants.gov.
+Award Procedure:
+  Proposals will be screened for ASC programmatic relevance and then reviewed
+  for scientific and technical merit by qualified individuals. Recommendations for
+  award are made by the ASC office, Defense Programs, NNSA, and selected
+  proposals will be forwarded to the NNSA Service Center in Albuquerque, NM,
+  for grant development and award.
+Deadlines:
+  Deadlines are stated in the solicitations.
+Range of Approval/Disapproval Time:
+  Approximately 90 to 180 days.
+Appeals:
+  None.
+Renewals:
+  Applications for renewal are subject to review and acceptance by the Office of
+  Advanced Simulation and Computing.
+Formula and Matching Requirements:
+  This program has no statutory formula.
+Length and Time Phasing of Assistance:
+  The schedule of NNSA payments is arranged at the time of award.
+Reports:
+  As specified in the "DOE Federal Assistance Reporting Checklist (DOE F
+  4600.2)" to be issued to the recipient upon receipt of an award, the following
+  reports are required: progress report, special reports, financial status reports
+  (FSR SF 269), and final report. These requirements are also specified in the
+  solicitation.
+Audits:
+  Costs incurred are subject to audit throughout the grant period and/or before
+  final payment, with the extent and frequency of audit depending on the size of
+  the grant and on the particular grant provisions.
+Records:
+  Recipient is expected to maintain auditable records to substantiate the total costs
+  incurred under the grant.
+Account Identification:
+  89-0240-0-1-053.
+Obligations:
+  Project Grants (Cooperative Agreements): FY 07 not available; FY 08 est
+  $7,500,000; and FY 09 est $15,500,000.
+Range and Average of Financial Assistance:
+  $1.6M-$3.4M per PSAAP Center per Fiscal Year.
+PROGRAM ACCOMPLISHMENTS:
+  This is a new program. The funded R&D activity will help to increase U.S.
+  efforts in computational science relevant to DOE stockpile stewardship and will
+  assist in training future scientific talent in these areas.
+REGULATIONS, GUIDELINES, AND LITERATURE:
+  None.
+Regional or Local Office:
+  None.
+Headquarters Office:
+  Thuc T. Hoang, Office of Advanced Simulation and Computing, NA-
+  114/Forrestal, 1000 Independence Avenue, Washington, DC 20585. Telephone:
+  (202) 586-7050. Fax: (202) 586-0405.
+Web Site Address:
+  http://www.sandia.gov/NNSA/ASC/univ/psaap.html.
+RELATED PROGRAMS:
+  None.
+EXAMPLES OF FUNDED PROJECTS:
+  None.
+CRITERIA FOR SELECTING PROPOSALS:
+  (1) Alignment with the areas of technical scope called forth in the call for
+  application; (2) Scientific/technical merit of the project; (3) Expected impact on
+  the proposed area of research activity; (4) Consistency with the objective of this
+  academic alliances program to focus on advanced computational science
+  investigations; (5) Qualifications of the Applicant's personnel and adequacy of
+  proposed resources; (6) Feasibility of plans for carrying out the proposed
+  research, considering such factors as: appropriateness of the technical method
+  and approach, facility compatibility, other commitments, competition and
+  timing; (7) Level of interaction with NNSA/DP laboratory personnel and the
+  potential to train students in scientific areas defined by the technical scope in
+  order to build a long-term recruiting pool for the NNSA/DP laboratory complex;
+  (8) Leverage provided by cost sharing by applicant and with other funding
+  sources.
+                                                                                   1075
