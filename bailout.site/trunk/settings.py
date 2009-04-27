@@ -1,6 +1,5 @@
 # Django settings for subsidyscope project.
 import os
-import urllib
 import httplib2
 
 DEBUG = False
