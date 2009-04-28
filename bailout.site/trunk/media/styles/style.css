@@ -193,7 +193,7 @@ h1.title { clear: left; }
 
 /* Front Page bits and bobs */
 .front_left_col { padding:0 20px 0 20px; border-right:1px solid #f3f3f4; margin:15px 10px 20px 0;}
-#intro {background-image:url(/media/images/front/double_lines.png); background-position:top; background-repeat: repeat-x; padding:20px 20px 0 20px;}
+#intro {  padding:10px 15px 0 15px; margin:0;}
 
 .intro_copy { color:#333333; font-family:Georgia,"Nimbus Roman No9 L",serif;
 font-size:150%;
@@ -215,7 +215,7 @@ a.intro_more:active { text-decoration:none; padding-left:10px;}
 .updates_head h2  { display:inline; font-size:14px; padding:0 10px 0 0; font-weight:normal; margin:0;}
 .feed_icon { border:1px solid; padding:0; margin:0;}
 
-#update_item { padding:0 10px 0 0; border-top:1px solid #cbcbcb; border-bottom:1px solid #cbcbcb; margin:0 0 2px 0;}
+#update_item { padding:0 10px 0 10px; border-top:1px solid #cbcbcb; border-bottom:1px solid #cbcbcb; margin:0 0 2px 0;}
 
 #update_item p {
     font-size: 12px;
@@ -224,7 +224,7 @@ a.intro_more:active { text-decoration:none; padding-left:10px;}
     line-height: 1.5;
 }
 
-#update_item h3 { font-family:Verdana,sans-serif; font-size:130%; color:#336699; padding:0; margin:10px 0 5px 0;}
+#update_item h3 { font-family:Verdana,sans-serif; font-size:130%; color:#336699;}
 #update_item h3 a:link { text-decoration:none;}
 #update_item h3 a:visited { text-decoration:none;}
 #update_item h3 a:hover { text-decoration:none;}
