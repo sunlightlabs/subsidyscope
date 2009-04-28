@@ -114,6 +114,7 @@ class Institution(models.Model):
         ('savings and loan', 'Savings & Loan'),
         ('insurance company', 'Insurance Company'), 
         ('auto company', 'Auto Company'),
+        ('mortgage company', 'Mortgage Company'),
         ('other', 'Other')
     )
     
@@ -646,7 +647,8 @@ class Transaction(models.Model):
         ('AIFP', 'Automotive Industry Financing Program'),
         ('SSFI', 'Systematically Significant Failing Institutions'),
         ('TLGP', 'Temporary Liquidity Guarantee Program'),
-        ('CBLIIP','Consumer and Business Lending Initiative Investment Program')
+        ('CBLIIP','Consumer and Business Lending Initiative Investment Program'),
+        ('HAMP','Home Affordable Modification Program')
     )
     program = models.CharField("Program", max_length=50, choices=PROGRAM_CHOICES, blank=True, null=True, default='CPP')
 
