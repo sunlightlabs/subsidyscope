@@ -187,7 +187,7 @@
 			'desc': 'FHA Secure was a temporary initiative to permit lenders to refinance non-Federal-Housing-Administration adjustable-rate mortgages. The program made about 4,000 loans since fall 2007 and expired on December 31, 2008.'
 		}
 	},
-	
+	/*
 	'FHFA': {
         '_subtitle': 'Federal Housing Finance Administration &mdash; as of January 22, 2009',
 		'Fannie Mae and Freddie Mac': {
@@ -197,7 +197,7 @@
 			'desc': 'The Federal Housing Finance Agency and the Treasury took control of Fannie Mae and Freddie Mac, two government-sponsored enterprises, on September 6, 2008. Under the current circumstances, the Congressional Budget Office views Fannie Mae and Freddie Mac as governmental entities'
 		}
 	},
-	
+	*/
 	'NCUA': {
         '_subtitle': 'National Credit Union Administration &mdash; as of January 22, 2009',
 		'Homeowners Programs': {
