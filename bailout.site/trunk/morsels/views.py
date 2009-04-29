@@ -18,8 +18,10 @@ def ajax_save_morsel(request, morsel_path):
         m = Morsel.objects.get_for_url(url=urllib.unquote(morsel_path), name=key)        
         
         if m:
-            m.content = content
-            m.save()
+            # only bother saving it if something has changed -- otherwise the rcsfield integration will throw a git error
+            if m.content!=content:
+                m.content = content
+                m.save()
             return HttpResponse(content, mimetype='text/html')
         else:
             print "key: %s" % key
