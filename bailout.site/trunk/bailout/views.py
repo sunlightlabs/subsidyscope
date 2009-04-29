@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template.loader import render_to_string
 from django.db.models import Q
-from bailout.models import Institution, Transaction, InstitutionDailyStockPrice
+from bailout.models import Institution, Transaction, InstitutionDailyStockPrice, CountySummary
 from django.core.urlresolvers import reverse
 from helpers import JSONHttpResponse, compare_by, FileIterWrapper
 from tarp_subsidy_graphics.models import SubsidyRecord
@@ -363,13 +363,16 @@ def tarp_map_filter_institution(request, bank_id):
     
     for county in county_data.keys():
         
-        output += "%d,-,-,%s,%s,%s,%s,%s,%s\r\n" % (county,
+        output += "%d,-,-,%s,%s,%s,%s,%s,%s,%s,%s,%s\r\n" % (county,
                                         str(county_data[county]['county_deposits']), 
                                         str(county_data[county]['institution_deposits']),
                                         str(county_data[county]['deposits_percent']),
                                         str(county_data[county]['county_branches']),
                                         str(county_data[county]['institution_branches']),
-                                        str(county_data[county]['branches_percent']))
+                                        str(county_data[county]['branches_percent']),
+                                        str(county_data[county]['county_loans']),
+                                        str(county_data[county]['institution_loans']),
+                                        str(county_data[county]['loans_percent']))
                                         
     
     return HttpResponse(output, mimetype='text/csv')
@@ -379,18 +382,32 @@ def recurse_institution_summary(institution, county_data):
     for summary in institution.institutioncountysummary_set.all():
         
         if not county_data.has_key(summary.county.fips_full_code):
+            
+            county_summary = CountySummary.objects.get(county=summary.county)
+            
             county_data[summary.county.fips_full_code] = {}
-            county_data[summary.county.fips_full_code]['county_branches'] = summary.county_branches
-            county_data[summary.county.fips_full_code]['county_deposits'] = summary.county_deposits
+            county_data[summary.county.fips_full_code]['county_branches'] = county_summary.branches
+            county_data[summary.county.fips_full_code]['county_deposits'] = county_summary.deposits
+            county_data[summary.county.fips_full_code]['county_loans'] = county_summary.loans
+            
             county_data[summary.county.fips_full_code]['institution_branches'] = 0
             county_data[summary.county.fips_full_code]['institution_deposits'] = 0
+            county_data[summary.county.fips_full_code]['institution_loans'] = 0
             county_data[summary.county.fips_full_code]['branches_percent'] = 0
             county_data[summary.county.fips_full_code]['deposits_percent'] = 0
+            county_data[summary.county.fips_full_code]['loans_percent'] = 0
+        
+        if summary.institution_branches != None:
+            county_data[summary.county.fips_full_code]['institution_branches'] += summary.institution_branches
+            county_data[summary.county.fips_full_code]['institution_deposits'] += summary.institution_deposits
             
-        county_data[summary.county.fips_full_code]['institution_branches'] += summary.institution_branches
-        county_data[summary.county.fips_full_code]['institution_deposits'] += summary.institution_deposits
-        county_data[summary.county.fips_full_code]['branches_percent'] += summary.branches_percent
-        county_data[summary.county.fips_full_code]['deposits_percent'] += summary.deposits_percent
+            county_data[summary.county.fips_full_code]['branches_percent'] += summary.branches_county_percent
+            county_data[summary.county.fips_full_code]['deposits_percent'] += summary.deposits_county_percent
+        
+        if summary.institution_loans != None:
+            county_data[summary.county.fips_full_code]['institution_loans'] += summary.institution_loans
+            
+            county_data[summary.county.fips_full_code]['loans_percent'] += summary.loans_county_percent
         
     for child_institution in institution.institution_set.all():
         
