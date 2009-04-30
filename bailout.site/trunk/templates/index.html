@@ -5,71 +5,84 @@
 
 {% block content %}
 
-<style>
-/* FRONT PAGE PIECES */
-.feature_leftside { margin:15px 0 15px 15px;}
-.feature_rightside { margin:15px 15px 15px 0; padding:0 0 0 5px;}
-#feature_box { background-color:#e6ebf1;  background-image:url(/media/images/front/feature_bg_bottom.png); background-position:bottom; background-repeat:repeat-x; }
-#feature_box h2 { color: #1a4760; padding:5px 10px 0 10px; margin:0;}
-strong { font-weight:bold;}
-.feature_content { padding:5px 10px 0 10px; margin:0;}
-.feature_nav { text-align:right; display:block; padding:0 10px 10px 0; margin:0;}
-.feature_nav img { padding:0 5px 0 0;}
+<script type="text/javascript">
+$(function () {
+                        var tabContainers = $('div.tabs > div');
+                        tabContainers.hide().filter(':first').show();
+                        
+                        $('div.tabs ul.tabNavigation a').click(function () {
+                                tabContainers.hide();
+                                tabContainers.filter(this.hash).show();
+                                $('div.tabs ul.tabNavigation a').removeClass('selected');
+                                $(this).addClass('selected');
+                                return false;
+                        }).filter(':first').click();
+                });
+</script>
+	
 
-/* left side items */
-#taxonomy { margin:0; padding:0; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat: repeat-x;}
-#taxonomy h3 { font-size:130%; font-weight:bold; margin:0; padding:0;}
-#taxonomy a:link { color:#435c7a; text-decoration:none;}
-#taxonomy a:visited { color:#435c7a; text-decoration:none;}
-#taxonomy a:hover { color:#e28725; text-decoration:none;}
-#taxonomy a:active { color:#435c7a; text-decoration:none;}
-
-#taxonomy p { color:#666666;}
-.tax_item { display:block; height:75px;}
-
-#taxonomy .coming { color:#666666;}
-#taxonomy .left_tax { float:left; margin:0 50px 0 50px; width:165px;}
-/* start modules section */
-#news_box { padding:0; margin:15px 5px 0 5px;}
-
-#news_box a:link { text-decoration:none; color:#2d73bf; }
-#news_box a:visited { text-decoration:none; color:#2d73bf;  }
-#news_box a:hover { text-decoration:none; color:#2d73bf;  }
-#news_box a:active { text-decoration:none; color:#2d73bf; }
-
-
-.news_head { border-top:1px solid #cbcbcb; background-color:#f3f3f4; padding:5px 0 0 10px; border-bottom:1px solid #ffffff; color:#333333; font-size:14px; background-image:url(/media/images/front_update_head_bg_alt.png); background-repeat:repeat-x;}
-.news_head h2  { display:inline; font-size:14px; padding:0 10px 0 0; font-weight:normal; margin:0;}
-
-#news_box_items  { margin:0; padding:0; background-color:#f4f4f4;}
-#news_box_items ul { margin:0; padding:0; }
-#news_box_items li { margin:0; padding:10px; border-top:1px solid #c7c7c7;}
-
-
-
-
-</style>
 <div class="container top_solid_box">&nbsp;</div>
 <div class="container white">
-<div class="span-11">
-<div class="feature_leftside">	
-	<div id="feature_box"><img src="/media/images/tmp/feature_graphic.jpg" width="415">
-	<h2>Some Headline Goes Here and It Might Wrap if too Long</h2>	
-		<p class="feature_content"><strong>March 28, 2009&ndash;</strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+	<div class="span-11">
+		<div class="feature_leftside">
+	
+
+<!-- feature box toggle layers -->
 		
-		<div class="feature_nav"><img src="/media/images/front/feature_nav_selected.png"><img src="/media/images/front/feature_nav_unselected.png"><img src="/media/images/front/feature_nav_unselected.png"><img src="/media/images/front/feature_nav_unselected.png"></div>
-		</div>
-<!-- end feature box -->
-	<div class="updates_box">
-		<div class="updates_head">
+<div id="feature_box">
+	<div class="tabs">
+										
+				<div id="first"> <!-- assumes multiple news items -->
+					<img src="/media/images/front/feature_graphic_1.jpg" width="415">
+					<h2><a href="#">Where does this link go?</a></h2>	
+					<p class="feature_content"><strong>March 28, 2009&ndash;</strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+					
+					<ul class="feature_nav tabNavigation">
+						<li><a href="#first"><img src="/media/images/front/feature_nav_selected.png"></a></li>
+						<li><a href="#second"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
+						<li><a href="#third"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
+					</ul>
+					
+				</div> <!-- end first feature div -->
+				
+				<div id="second">
+					<img src="/media/images/front/feature_graphic_2.jpg" width="415">
+					<h2><a href="#">Second article headline</a></h2>	
+					<p class="feature_content"><strong>April 12, 2009&ndash;</strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+					<ul class="feature_nav tabNavigation">
+						<li><a href="#first"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
+						<li><img src="/media/images/front/feature_nav_selected.png"></li>
+						<li><a href="#third"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
+					</ul>
+				</div>  <!-- end second feature div -->
+				
+				<div id="third">
+					<img src="/media/images/front/feature_graphic_3.jpg" width="415">
+					<h2><a href="#">Third Article Headline</a></h2>	
+					<p class="feature_content"><strong>May 1, 2009&ndash;</strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+					
+					<ul class="feature_nav tabNavigation">
+						<li><a href="#first"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
+					 	<li><a href="#second"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
+						<li><img src="/media/images/front/feature_nav_selected.png"></li>
+					</ul>
+				</div>	 <!-- end third feature div -->			
+	</div> <!--ends tabs class-->
+</div><!-- end feature box -->
+	
+	
+		<div class="updates_box">
+			<div class="updates_head">
 			<h2>Subsidyscope Project Updates</h2>
 			<a title="Click here for news feed" href="{% url django.contrib.syndication.views.feed "updates" %}"><img src="/media/images/rss_icon.png"></a>
-		</div>
-	{# display project updates #}			{% project_updates %}
-	</div> 
+			</div>
+			{# display project updates #}			
+			{% project_updates %}
+		</div> 
 <!-- ends update box-->
 
 </div> <!-- ends feature left side -->		
+
 </div>
 	
 <div class="span-13 last">
@@ -80,21 +93,21 @@ strong { font-weight:bold;}
 		
 		<div id="taxonomy" style="">
 			<div class="left_tax">
-				<div class="tax_item"><h3><a href="#">Financial Bailout</a></h3>
-				<p>Aliquam tincidunt mauris eu risus.</p>
+				<div class="tax_item"><h3><a href="/projects/bailout/">Financial Bailout</a></h3>
+				<p>Data and Analysis of TARP, et al.</p>
 				</div>
 				<div class="tax_item"><h3 class="coming">Housing</h3>
-				<p>Coming Soon</p>
+				<p>Summer 2009</p>
 				</div>
 			</div>
 			
 			<div class="right_tax">
-				<div class="tax_item"><h3><a href="#">Transportation</a></h3>
-				<p>Aliquam tincidunt mauris eu risus.</p>
+				<div class="tax_item"><h3 class="coming">Transportation</h3>
+				<p>May 2009</p>
 				</div>
 			
 				<div class="tax_item"><h3 class="coming">Energy</h3>
-				<p>Coming Soon</p>
+				<p>Fall 2009</p>
 				</div>
 			</div>
 		</div>				
