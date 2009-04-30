@@ -195,7 +195,7 @@ def tarp_js(request):
 
 
 def tarp_xml(request):
-    transactions = Transaction.objects.select_related().order_by('date')
+    transactions = Transaction.objects.select_related().order_by('date').exclude(transaction_type__icontains='dividend')
     return render_to_response('bailout/tarp.xml', { 'transaction_list': transactions }, mimetype='text/xml')
 
 

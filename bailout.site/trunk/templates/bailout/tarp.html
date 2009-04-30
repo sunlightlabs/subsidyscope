@@ -108,6 +108,7 @@
 		<th class="date">Date</th>
 		<th class="recipient">Recipient</th>
 		<th class="price">Disbursement Received</th>
+		<th class="transaction-type">Type</th>
 		<th class="assets">Company Assets&nbsp;*</th>
 		<th class="city">City</th>
 		<th class="state">State</th>
@@ -131,6 +132,7 @@
 		<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
 		<td class="recipient">{% institution_name t.institution %}</td>
 		<td class="price">{% if t.is_negative %}<span class="negative">-${{ t.price_paid|cut:"-"|divide:1|floatformat:"-0"|intcomma}}</span>{% else %}${{ t.price_paid|divide:1|floatformat:"-0"|intcomma}}{% endif %}</td>
+		<td class="transaction-type">{{ t.transaction_type }}</td>
 		<td class="assets">{% if t.institution.total_assets_fixed %}${{ t.institution.total_assets_fixed|divide:1|floatformat:"-0"|intcomma }} {% else %}<em>not confirmed</em>{% endif %}</td>
 		<td class="city">{{ t.institution.city }}</td>
 		<td class="state">{{ t.institution.state }}</td>
