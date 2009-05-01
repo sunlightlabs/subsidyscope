@@ -100,7 +100,8 @@ INSTALLED_APPS = (
     'fed_h41',
     'sectors',
     'cfda',
-    'django_helpers'
+    'django_helpers',
+    'glossary'
 )
 
 
