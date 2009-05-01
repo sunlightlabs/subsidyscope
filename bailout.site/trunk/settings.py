@@ -3,8 +3,7 @@ import os
 import httplib2
 from django.core.exceptions import ImproperlyConfigured
 
-# DEBUG = False
-DEBUG = "Asdfasdf"
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
