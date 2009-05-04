@@ -29,7 +29,11 @@ for county in County.objects.all().order_by('state__name', 'name'):
     county_tarp_branches = Decimal('0')
     tarp_branches_percentage = Decimal('0')
     
-    county_total_lending = Decimal('0')
+    try:
+        county_total_lending = Decimal(county.countysummary.loans)
+    except:
+        county_total_lending = Decimal('0')
+        
     county_tarp_lending = Decimal('0')
     tarp_lending_percentage = Decimal('0')
     
@@ -41,9 +45,6 @@ for county in County.objects.all().order_by('state__name', 'name'):
         
             total_deposits += county_summary.institution_deposits
             county_total_deposits += county_summary.institution_deposits
-        
-        if county_summary.institution_loans != None:
-            county_total_lending += county_summary.institution_loans
          
         if tarp_participation[county_summary.institution.id]:
             
