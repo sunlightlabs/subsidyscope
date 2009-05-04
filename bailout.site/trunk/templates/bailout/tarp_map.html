@@ -22,7 +22,7 @@
 	
 
 $(document).ready(function(){
-	swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
+	swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf?v=1', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
 	
 	$('#tarpFilterInput').autocomplete('/projects/bailout/tarp/map/filter/institution/', {
 		width: 260,
@@ -250,6 +250,11 @@ function getFlexMovie(movieName) {
 				<p>In order to calculate TARP impact using bank branches and deposits we collected a complete copy of the Federal Deposit Insurance Corporation's Share of Deposits database (as of June 2008). This database tracks branch locations and deposits for all FDIC member banks as well as institutions regulated by the Office of Thrift Supervision. From this data the share of activity for a given location on an institution-by-institution basis or in aggregate for all TARP recipients is determined. As might be expected, there is a strong correlation between branch locations and deposit shares; however, we provide both metrics for completeness.</p>
 				<p>Similarly, we use data on home loan originations from the Federal Financial Institutions Examination Council's Home Mortgage Disclosure Act (HMDA) database from 2007 to track lending activity for a given institution. This data is merged using the Federal Reserve's Organizational Hierarchy database for HMDA reporting institutions.</p>
 
+
+				<p>If you'd like to download the data powering this you may do so using the link below.  The file contains banking activity figures with county names and county/state FIPS codes for integreation with data sets such those provided by the Census Bureau.  The file is in <a href="{% url glossary %}">CSV</a> format, which can be opened with any modern spreadsheet program.</p>
+				<p><a id="csv-link" href="{% media_url %}/data/tarp_cpp_banking_activity_by_county.csv">Download CSV Data &raquo;</a></p>
+				
+				
 
 				<div class="footnotes" style="border-top: 1px solid #D3D3D3; margin-top: 50px; padding-top: 10px;">
 					<p><sup>1</sup>It is also worth noting that the Treasury map suffers from data quality problems in addition to the methodological concerns described above. As of April 17, 2009, the map failed to reflect the full list of CPP transactions, including a $15 billion transaction for Bank of America issued on October 28, 2008.  As a result, the value shown for North Carolina is artificially low, showing a total for CPP funds received of $13.6 billion instead of the correct figure of $28.6 billion as of the date viewed.<p>

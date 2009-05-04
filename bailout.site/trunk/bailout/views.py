@@ -326,9 +326,9 @@ def tarp_map(request):
 def tarp_map_filter_institution_search(request):
     
     if request.GET.has_key('q') and request.GET['q'] != '':
-        transactions = Transaction.objects.select_related().filter(institution__name__icontains=request.GET['q']).order_by('institution__name')
+        transactions = Transaction.objects.select_related().filter(institution__name__icontains=request.GET['q'], program__icontains='cpp').order_by('institution__name')
     else:
-        transactions = Transaction.objects.select_related().order_by('institution__name')
+        transactions = Transaction.objects.select_related().filter(program__icontains='cpp').order_by('institution__name')
 
             
     institution_dict = {}
