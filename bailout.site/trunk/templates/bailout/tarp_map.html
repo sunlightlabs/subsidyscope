@@ -22,7 +22,7 @@
 	
 
 $(document).ready(function(){
-	swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf?v=1', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
+	swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf?v=2', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
 	
 	$('#tarpFilterInput').autocomplete('/projects/bailout/tarp/map/filter/institution/', {
 		width: 260,
@@ -73,6 +73,26 @@ $(document).ready(function(){
 
 	});
 	
+	$("#tarpFilterInput").blur(function() {
+		
+		if($("#tarpFilterInput").val() == '')
+		{
+			$("#tarpFilterInput").addClass('pre_input');
+			$("#tarpFilterInput").val('Enter company name');
+			
+			lastSearch = '';
+		}
+	});
+	
+	$("#tarpFilterInput").focus(function() {
+		if($("#tarpFilterInput").hasClass('pre_input'))
+		{
+			$("#tarpFilterInput").removeClass('pre_input');
+			$("#tarpFilterInput").val('');
+		}
+	});
+	
+	
 	$("select[@name='dataType']").change(
 		function()
 		{
@@ -97,21 +117,27 @@ $(document).ready(function(){
 			if ($("input[@name='filterType']:checked").val() == 'all')
 			{
 				$(".group").toggleClass("group_vert");
-				$('#tarpFilterInput').val('');
 				$('#tarpFilterInput').hide();
+				$("#tarpFilterInput").removeClass('pre_input');
+				$("#tarpFilterInput").val('');
+				
 				
 				showTARPShare(); 
 			}
 			else if ($("input[@name='filterType']:checked").val() == 'filter')
 			{
+				$("#tarpFilterInput").addClass('pre_input');
+				$("#tarpFilterInput").val('Enter company name');
 				$('#tarpFilterInput').show();
+				
 				showBankShare(-1);
 			}
 			$(this).blur();
 		});
 	$("input[@value='all']").attr('checked','checked');
 	$("select[@name='dataType']").val('deposits');
-	$('#tarpFilterInput').val('');
+	$("#tarpFilterInput").removeClass('pre_input');
+	$("#tarpFilterInput").val('Enter company name');
 	$('#tarpFilterInput').hide();
 	
 	
@@ -186,7 +212,7 @@ function getFlexMovie(movieName) {
 				<h2 class="type_header">Database</h2>
 				<h3 class="section_header">Mapping Geographic Impact of the Troubled Asset Relief Program (TARP)</h3>
 
-				<p>There is keen public interest in the geography of the financial crisis and the resulting bailout programs. With large sums of money being injected into financial institutions across the country, there is a desire to ensure that the money is being allocated fairly and effectively. There is also an understanding that not all banks are created equally: Some shoulder more responsibility than others, having engaged in lending and investment practices that helped lead to the crisis. And, though not all communities have the same banks, the nation as a whole is responsible for correcting the problems that have emerged. Mapping which communities have received TARP funds can provide a fresh perspective on the crisis and the bailout.</p> 
+				<p>There is keen public interest in the geography of the financial crisis and the resulting bailout programs. With large sums of money being injected into financial institutions across the country, there is a desire to ensure that the money is being allocated fairly and effectively. There is also an understanding that not all banks are created equal: Some shoulder more responsibility than others, having engaged in lending and investment practices that helped lead to the crisis. And, though not all communities have the same banks, the American taxpayer is now financially engaged in helping to correct the problems that have emerged. Mapping which communities have received TARP funds can provide a fresh perspective on the crisis and the size and scope of the bailout.</p> 
 		
 			</div>
 		</div>
@@ -197,14 +223,16 @@ function getFlexMovie(movieName) {
 		<div class="span-24">
 			
 			<div class="lr_padding">
-				<div id="map-container"  style="height: 850px; padding: 0 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
+				<div id="map-container"  style="height: 875px; padding: 0 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
 				
 					<h4>Banking Activity for TARP CPP Recipients</h4>
+				
+					<p>Mouse over a county to see banking activity for TARP CPP recipient institutions in that county.  Make a selection from the drop down menu to the right to view share of total deposits held in each county that are held by a TARP CPP recipient; share of total branches in each county that are managed by a TARP CPP recipient, or the percentage of total HMDA lending originated in each county by TARP CPP recipient banks.</p>
 				
 					<div id="table-filter" style="clear:left; margin-left: 25px; float: left;">
 				
 						<p><input type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
-						<p><input type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput"/></p>
+						<p><input type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput" value="Enter company name" class="pre_input"/></p>
 					
 					</div>	
 					
@@ -229,7 +257,7 @@ function getFlexMovie(movieName) {
 					
 					<br clear="all"/>
 					
-					<div class="gray-label">Mouse over a county to see banking activity for TARP institutions in that county.</div>
+					
 					
 				</div>
 			</div>
@@ -242,12 +270,12 @@ function getFlexMovie(movieName) {
 			<div class="tlr_padding">
 		
 		
-				<p>There have been a number of attempts at geographic analysis, including the recent launch of the Treasury Department's <a href="http://financialstability.gov/impact/index.html">Local Impact map</a>. However, these attempts have largely failed to recognize the complexity of the financial industry and for the most part do not paint a useful picture of the actual geography of funds distribution. Subsidyscope examines the current bailout mapping efforts and provides examples and data for several alternative methods.</p> 
+				<p>There have been a number of attempts at geographic analysis, including the recent launch of the Treasury Department's <a href="http://financialstability.gov/impact/index.html">Local Impact map</a>. However, these attempts have largely failed to recognize the complexity of the financial industry and for the most part do not paint a complete picture of the geography of funds distributed. Subsidyscope examines the current bailout mapping efforts and provides examples and data for several alternative methods.</p> 
 				<p>Most mapping efforts have focused on the TARP Capital Purchase Program (CPP) both because of the program's size and the transparency of the funds allocations. The CPP information provided by Treasury also includes the headquarters locations for the recipient institutions. While this information is an attractive and readily accessible geographic indicator, it is of questionable utility given the wide geographic reach of many financial institutions. Financial institutions affect communities well outside of the state in which their headquarters is located. Unfortunately, many of the available maps rely solely on this indicator, including Treasury's Local Impact map.</p> 
 				<p>An examination of the Treasury map demonstrates the shortcomings of this approach. States with large financial centers are shown receiving a majority share of CPP funds while states without a significant banking presence receive little or no funds. For example, the entire state of Arizona is shown as having received only $2.5 million in CPP funds; Montana received nothing. The lack of bank headquarters in these states may indicate an unequal distribution of funds under CPP; however, the high degree of disparity shown in this map is suspect. In reality, banks that have received TARP funds &mdash; although headquartered in other states &mdash; do engage in significant business in Arizona and Montana, a relationship not reflected in this map. As a result, this map and others using headquarters locations as an impact metric present a misleading representation of CPP funds distribution.<sup>1</sup></p> 
 				<p>Overcoming the limitations of existing maps is challenging given the complexity of the financial industry; no solution can perfectly capture the flows of money provided by the bailout. However, Subsidyscope proposes an alternative methodology to help illustrate the geographic distribution of banking activity for a given institution.</p>
 				<p>By examining existing data sets showing the geography of bank branch locations, deposits and lending activity we create three different metrics for measuring the geography of banking activity. These metrics offer a means for measuring the share of activity for a given bank within a specific region. We use the county (or county equivalent) as the core unit of geography though the underlying data could be interpreted at other levels of specificity (e.g. state or census tract). We also combine data for all organizations within a given ownership hierarchy such that the geography of subsidiary banking activity is reflected in the data for bank holding companies.</p>
-				<p>In order to calculate TARP impact using bank branches and deposits we collected a complete copy of the Federal Deposit Insurance Corporation's Share of Deposits database (as of June 2008). This database tracks branch locations and deposits for all FDIC member banks as well as institutions regulated by the Office of Thrift Supervision. From this data the share of activity for a given location on an institution-by-institution basis or in aggregate for all TARP recipients is determined. As might be expected, there is a strong correlation between branch locations and deposit shares; however, we provide both metrics for completeness.</p>
+				<p>In order to calculate TARP impact using bank branches and deposits we collected a complete copy of the Federal Deposit Insurance Corporation's Share of Deposits database (as of June 2008). This database tracks branch locations and deposits for all FDIC member banks as well as institutions regulated by the Office of Thrift Supervision. From this data we determine the share of activity for a given location on an institution-by-institution basis or in aggregate for all TARP recipients. As might be expected, there is a strong correlation between branch locations and deposit shares; however, we provide both metrics for completeness.</p>
 				<p>Similarly, we use data on home loan originations from the Federal Financial Institutions Examination Council's Home Mortgage Disclosure Act (HMDA) database from 2007 to track lending activity for a given institution. This data is merged using the Federal Reserve's Organizational Hierarchy database for HMDA reporting institutions.</p>
 
 
