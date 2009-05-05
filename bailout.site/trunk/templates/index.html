@@ -2,14 +2,13 @@
 {% load media %}
 {% load project_update_tags %}
 {% load bailout_tags %}
-
 {% block content %}
 
 <script type="text/javascript">
 $(function () {
+						// set up carousel
                         var tabContainers = $('div.tabs > div');
-                        tabContainers.hide().filter(':first').show();
-                        
+                        tabContainers.hide().filter(':first').show();                        
                         $('div.tabs ul.tabNavigation a').click(function () {
                                 tabContainers.hide();
                                 tabContainers.filter(this.hash).show();
@@ -17,7 +16,22 @@ $(function () {
                                 $(this).addClass('selected');
                                 return false;
                         }).filter(':first').click();
-                });
+                
+
+						// set up "in the news" block
+						$(function(){
+							$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
+							function(data){		
+								$.each(data.value.items, function(i,item){
+									if(i<5)
+									{
+										$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
+									}
+								});		      
+							});
+						});
+
+				});
 </script>
 	
 
@@ -31,7 +45,9 @@ $(function () {
 		
 <div id="feature_box">
 	<div class="tabs">
-										
+				
+				
+				{% carousel_entries %}					
 				<div id="first"> <!-- assumes multiple news items -->
 					<img src="/media/images/front/feature_graphic_1.jpg" width="415">
 					<h2><a href="#">Where does this link go?</a></h2>	
@@ -119,22 +135,7 @@ $(function () {
 			</div>
 			<ul id="news_box_items">				
 			</ul>	
-		</div>
-		
-		<script type="text/javascript">
-		$(function(){
-			$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
-			function(data){		
-				$.each(data.value.items, function(i,item){
-					if(i<5)
-					{
-						$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
-					}
-				});		      
-			});
-		});
-		</script>
-		
+		</div>		
 	</div>
 	
 	
