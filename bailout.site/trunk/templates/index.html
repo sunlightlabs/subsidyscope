@@ -2,6 +2,7 @@
 {% load media %}
 {% load project_update_tags %}
 {% load bailout_tags %}
+{% load carousel_tags %}
 {% block content %}
 
 <script type="text/javascript">
@@ -45,44 +46,9 @@ $(function () {
 		
 <div id="feature_box">
 	<div class="tabs">
-				
-				
-				{% carousel_entries %}					
-				<div id="first"> <!-- assumes multiple news items -->
-					<img src="/media/images/front/feature_graphic_1.jpg" width="415">
-					<h2><a href="#">Where does this link go?</a></h2>	
-					<p class="feature_content"><strong>March 28, 2009&ndash;</strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-					
-					<ul class="feature_nav tabNavigation">
-						<li><a href="#first"><img src="/media/images/front/feature_nav_selected.png"></a></li>
-						<li><a href="#second"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
-						<li><a href="#third"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
-					</ul>
-					
-				</div> <!-- end first feature div -->
-				
-				<div id="second">
-					<img src="/media/images/front/feature_graphic_2.jpg" width="415">
-					<h2><a href="#">Second article headline</a></h2>	
-					<p class="feature_content"><strong>April 12, 2009&ndash;</strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-					<ul class="feature_nav tabNavigation">
-						<li><a href="#first"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
-						<li><img src="/media/images/front/feature_nav_selected.png"></li>
-						<li><a href="#third"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
-					</ul>
-				</div>  <!-- end second feature div -->
-				
-				<div id="third">
-					<img src="/media/images/front/feature_graphic_3.jpg" width="415">
-					<h2><a href="#">Third Article Headline</a></h2>	
-					<p class="feature_content"><strong>May 1, 2009&ndash;</strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-					
-					<ul class="feature_nav tabNavigation">
-						<li><a href="#first"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
-					 	<li><a href="#second"><img src="/media/images/front/feature_nav_unselected.png"></a></li>
-						<li><img src="/media/images/front/feature_nav_selected.png"></li>
-					</ul>
-				</div>	 <!-- end third feature div -->			
+								
+		{% carousel_entries %}	
+			
 	</div> <!--ends tabs class-->
 </div><!-- end feature box -->
 	
