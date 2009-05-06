@@ -39,6 +39,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^contact/', include('contact_form.urls'), {"form_class": SubsidyContactForm, "fail_silently": False}, name="contact"),
     url(r'^sent/', 'direct_to_template', {'template': 'contact_form/contact_form_sent.html'}, name="contact_sent"),  
     url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': {'updates': ProjectUpdatesFeed}}, name="feed_project_updates"),  
+    url(r'^data/', 'direct_to_template', {'template': 'misc/data.html'}, name='datasets'),
 )
 
 urlpatterns += patterns('',
