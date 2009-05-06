@@ -459,6 +459,7 @@ class InstitutionCountySummary(models.Model):
     objects = InstitutionCountySummaryManager()
 
 
+
 class InstitutionBranch(models.Model):
     
     institution = models.ForeignKey(Institution)
@@ -494,14 +495,7 @@ class InstitutionBranch(models.Model):
     deposits = models.DecimalField('Deposits', max_digits=15, decimal_places=2, null=True)
 
 
-class InstitutionHMDAReportID(models.Model):
-    
-    institution = models.ForeignKey(Institution)
-    
-    report_year = models.IntegerField('Report Year')
-    
-    hmda_id = models.CharField("HMDA Id", max_length=100, blank=True)
-    
+
     
 class InstitutionDailyStockPriceManger(models.Manager):
     
