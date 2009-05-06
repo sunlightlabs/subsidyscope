@@ -367,26 +367,6 @@ class CountySummary(models.Model):
     objects = CountySummaryManager()
 
 
-class InstitutionCountySummary(models.Model):
-    
-    institution = models.ForeignKey(Institution)
-    
-    county = models.ForeignKey(County)
-    
-    institution_branches = models.IntegerField('Institution Branches', null=True)
-    institution_deposits = models.DecimalField('Institution Deposits', max_digits=15, decimal_places=2, null=True)
-    institution_loans = models.IntegerField('Institution Loans', null=True)
-    institution_loan_amounts = models.DecimalField('Institution Loan Amounts', max_digits=15, decimal_places=2, null=True)
-    
-    branches_county_percent = models.DecimalField('Branches County Percent', max_digits=10, decimal_places=9, null=True)
-    deposits_county_percent = models.DecimalField('Deposits County Percent', max_digits=10, decimal_places=9, null=True)
-    loans_county_percent = models.DecimalField('Loans County Percent', max_digits=10, decimal_places=9, null=True)
-    loan_amounts_county_percent = models.DecimalField('Loan Amounts County Percent', max_digits=10, decimal_places=9, null=True)
-    
-    branches_institution_percent = models.DecimalField('Branches Institution Percent', max_digits=10, decimal_places=9, null=True)
-    deposits_institution_percent = models.DecimalField('Deposits Institution Percent', max_digits=10, decimal_places=9, null=True)
-    loans_institution_percent = models.DecimalField('Loans Institution Percent', max_digits=10, decimal_places=9, null=True)
-    loan_amounts_institution_percent = models.DecimalField('Loan Amounts Institution Percent', max_digits=10, decimal_places=9, null=True)
 
 
 class InstitutionCountySummaryManager(models.Manager):
@@ -457,17 +437,25 @@ class InstitutionCountySummaryManager(models.Manager):
 class InstitutionCountySummary(models.Model):
     
     institution = models.ForeignKey(Institution)
-    county = models.ForeignKey(County)
     
-    county_branches = models.IntegerField('County Branches', null=True)
-    county_deposits = models.DecimalField('County Deposits', max_digits=15, decimal_places=2, null=True)
+    county = models.ForeignKey(County)
     
     institution_branches = models.IntegerField('Institution Branches', null=True)
     institution_deposits = models.DecimalField('Institution Deposits', max_digits=15, decimal_places=2, null=True)
+    institution_loans = models.IntegerField('Institution Loans', null=True)
+    institution_loan_amounts = models.DecimalField('Institution Loan Amounts', max_digits=15, decimal_places=2, null=True)
     
-    branches_percent = models.DecimalField('Branches Percent', max_digits=6, decimal_places=5, null=True)
-    deposits_percent = models.DecimalField('Deposits Percent', max_digits=6, decimal_places=5, null=True)
+    branches_county_percent = models.DecimalField('Branches County Percent', max_digits=10, decimal_places=9, null=True)
+    deposits_county_percent = models.DecimalField('Deposits County Percent', max_digits=10, decimal_places=9, null=True)
+    loans_county_percent = models.DecimalField('Loans County Percent', max_digits=10, decimal_places=9, null=True)
+    loan_amounts_county_percent = models.DecimalField('Loan Amounts County Percent', max_digits=10, decimal_places=9, null=True)
     
+    branches_institution_percent = models.DecimalField('Branches Institution Percent', max_digits=10, decimal_places=9, null=True)
+    deposits_institution_percent = models.DecimalField('Deposits Institution Percent', max_digits=10, decimal_places=9, null=True)
+    loans_institution_percent = models.DecimalField('Loans Institution Percent', max_digits=10, decimal_places=9, null=True)
+    loan_amounts_institution_percent = models.DecimalField('Loan Amounts Institution Percent', max_digits=10, decimal_places=9, null=True)
+
+
     objects = InstitutionCountySummaryManager()
 
 
@@ -504,7 +492,15 @@ class InstitutionBranch(models.Model):
     unique_number = models.IntegerField('Unique Number', null=True)
     
     deposits = models.DecimalField('Deposits', max_digits=15, decimal_places=2, null=True)
+
+
+class InstitutionHMDAReportID(models.Model):
     
+    institution = models.ForeignKey(Institution)
+    
+    report_year = models.IntegerField('Report Year')
+    
+    hmda_id = models.CharField("HMDA Id", max_length=100, blank=True)
     
     
 class InstitutionDailyStockPriceManger(models.Manager):
