@@ -102,7 +102,7 @@ strong { font-weight:bold;}
 .tax_item { display:block; height:75px;}
 
 #taxonomy .coming { color:#666666;}
-#taxonomy .left_tax { float:left; margin:0 50px 0 50px; width:165px;}
+#taxonomy .left_tax { float:left; margin:0 30px 0 50px; width:200px;}
 /* start modules section */
 #news_box { padding:0; margin:15px 5px 0 5px;}
 
@@ -432,3 +432,51 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
     float: left; 
     margin: 0 10px 8px 0;
 }
+
+/* data page styling */
+#data-page #big-download-icon { float:right; margin: 40px 50px 50px 50px; }
+
+#data-page ul.datasets { margin-left: 30px; margin-top: 10px;}
+#data-page ul.datasets, ul.datasets li { padding-left: 0; margin-left: 0;}		
+#data-page ul.datasets li
+{
+	width: 45%;
+	float: left;
+	margin-top: 1em;
+}
+
+#data-page ul.datasets li.odd { clear: left; margin-right: 2em;}
+#data-page ul.datasets li .downloads { margin-left: 1em;}
+#data-page ul.datasets li .updated { font-style: italic; margin-top: -1em;}
+#data-page ul.datasets li h5, ul.datasets li .downloads { float: left; padding-top: 0; margin-top: 0; margin-bottom: 0;}
+#data-page ul.datasets li p { clear: left; }
+#data-page ul.datasets li .top
+{
+	border-bottom:1px solid #C7C7C7;
+	margin-bottom: 5px;
+	padding-bottom: 2px;
+}
+#data-page ul.datasets li .top .clear { clear: left;}
+
+
+#data-page .data-section { 
+	clear: left;
+	background-color:#F4F4F4;
+	background-image:url(/media/images/feature_bg.png);
+	background-repeat:repeat-x;
+	border-bottom:1px solid #C7C7C7;
+	border-top:1px solid #C7C7C7;
+	padding: 0 10px;
+}
+
+#data-page .data-section .section-description {
+	border-top:1px solid #C7C7C7;
+	color:#666666;
+	font-size:12px;
+	font-weight:normal;
+	line-height:1.1em;
+	padding:5px 0;
+}
+#data-page .data-section h4 { margin-bottom: 0; }
+#data-page .data-section a.section-title { color: #003366; text-transform: uppercase; text-decoration: none; font-size: 1.1em;}
+/* end data page styling */

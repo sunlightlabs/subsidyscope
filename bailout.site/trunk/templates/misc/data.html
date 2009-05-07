@@ -15,59 +15,70 @@
 	</div>
 -->
 	
-	<div class="span-18">
-	<div class="full_padding">
+	<div class="span-25">
+	<div class="full_padding" id="data-page">
+		
+		<img src="{% media_url %}/images/download_icon.png" alt="Download" id="big-download-icon" />
+		
 		<h2 class="type_header">data</h2>
 		<h3 class="section_header">Downloadable Datasets</h3>
-	
 		
-		<p>Subsidyscope maintains a variety of datasets.  Some of them power the visualizations you see on the site, while others are used for behind-the-scene calculations.  All of them are freely available under the terms of the <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/us/">Creative Commons Attribution-Noncommercial 3.0 United States License</a>.</p>
+		<p>Subsidyscope maintains a variety of datasets.  Some of them power the visualizations you see on the site, while others are used for behind-the-scene calculations.  All of them are available for use under the terms of the <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/us/">Creative Commons Attribution-Noncommercial 3.0 United States License</a>.</p>
 		
 		<p>On this page you can find links to the data products that we offer and descriptions of what they contain.  Confused?  Have a suggestion?  <a href="{% url contact_form %}">Contact us</a> and we'll be happy to answer your questions.</p>
 		
-		</div>
-		</div>
+		<div class="data-section">
 
-		<div style="clear:left"></div>
-
-		<div class="span-25">
-		<div class="full_padding">
-		
-		
-		<h4>The Bailout</h4>
+		<h4><a class="section-title" href="{% url Bailout %}">The Bailout</a></h4>
+		<div class="section-description">Subsidyscope maintains a number of datasets related to the government's unprecedented intervention in the financial sector.</div>
 		
 		<ul class="datasets">
 			<li class="odd">
-				<h5>TARP Transactions</h5> 
-				<div class="downloads">(<a href="{% url tarp-csv %}">CSV</a>)</div>
+				<div class="top">
+					<h5>TARP Transactions</h5> 
+					<div class="downloads">(<a href="{% url tarp-csv %}">CSV</a>)</div>
+					<div class="clear"></div>
+				</div>
 				<p class="description">A list of the transactions occurring under the Treasury Department's <a href="{% url tarp %}">Troubled Asset Relief Program</a>. Includes purchases, repayments and dividends, as well as asset information for affected institutions.</p>
 				<p class="updated">Updated approximately weekly, depending on Treasury's schedule and variations in their formatting.</p>
 			</li>
 			
 			<li class="even">
-				<h5>FDIC Bank Failures</h5>
-				<div class="downloads">(<a href="{% url fdic_bank_failures_csv %}">CSV</a>)</div>
+				<div class="top">
+					<h5>FDIC Bank Failures</h5>
+					<div class="downloads">(<a href="{% url fdic_bank_failures_csv %}">CSV</a>)</div>
+					<div class="clear"></div>
+				</div>
 				<p class="description">The bank failures charged to the FDIC's <a href="{% url fdic_bank_failures %}">Deposit Insurance Fund</a>. Includes bank name, location, closing date, estimated charge to the DIF and the URL of the associated IG report, if available.</p>
 				<p class="updated">Updated intermittently &mdash; approximately 1-2 times per month.</p>
 			</li>
 			
 			<li class="odd">
-				<h5>FDIC QBP Snapshot</h5>
-				<div class="downloads">(<a href="{% url fdic_qbpsnapshot_csv %}">CSV</a>)</div>
+				<div class="top">
+					<h5>FDIC QBP Snapshot</h5>
+					<div class="downloads">(<a href="{% url fdic_qbpsnapshot_csv %}">CSV</a>)</div>
+					<div class="clear"></div>
+				</div>
 				<p class="description">Data from the FDIC's <a href="http://www2.fdic.gov/qbp/qbpSelect.asp?menuItem=QBP">Quarterly Banking Profile</a>, a summary of financial results for all FDIC-insured institutions.</p>
 				<p class="updated">Updated quarterly.</p>
 			</li>
 
 			<li class="even">
-				<h5>FDIC TLGP Participation</h5>
-				<div class="downloads">(<a href="{% url bailout_fdic_tlgp_csv %}">CSV</a>)</div>
+				<div class="top">
+					<h5>FDIC TLGP Participation</h5>
+					<div class="downloads">(<a href="{% url bailout_fdic_tlgp_csv %}">CSV</a>)</div>
+					<div class="clear"></div>
+				</div>
 				<p class="description">The banks that have specifically declared their status within the FDIC's <a href="{% url bailout_fdic_index %}">TLGP program</a>.</p>
 				<p class="updated">Updated as information becomes available.</p>
 			</li>			
 			
 			<li class="odd">
-				<h5>Federal Reserve H.4.1 Snapshot</h5>
-				<div class="downloads">(<a href="{% url h41_snapshot_csv %}">CSV</a>)</div>
+				<div class="top">
+					<h5>Federal Reserve H.4.1 Snapshot</h5>
+					<div class="downloads">(<a href="{% url h41_snapshot_csv %}">CSV</a>)</div>
+					<div class="clear"></div>
+				</div>
 				<p class="description">The Federal Reserve's weekly statement of factors affecting its balances.</p>
 				<p class="updated">Updated every Thursday.</p>
 			</li>
@@ -76,22 +87,7 @@
 		
 		<div style="clear:left"></div>
 		
-		<style type="text/css">
-		ul.datasets { margin-left: 30px;}
-		ul.datasets, ul.datasets li { padding-left: 0; margin-left: 0;}		
-		ul.datasets li
-		{
-			width: 45%;
-			float: left;
-			margin-top: 1em;
-		}
-		
-		ul.datasets li.odd { clear: left; margin-right: 2em;}
-		ul.datasets li .downloads { margin-left: 1em;}
-		ul.datasets li .updated { font-style: italic; margin-top: -1em;}
-		ul.datasets li h5, ul.datasets li .downloads { float: left; padding-top: 0; margin-top: 0;}
-		ul.datasets li p { clear: left; }
-		</style>
+		</div>
 	
 	</div>
 	</div>
