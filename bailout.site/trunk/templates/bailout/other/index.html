@@ -13,38 +13,30 @@
 {% endblock %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-	
-	
-	<div class="span-15">
-		<div class="full_padding">
-			
-			<h2 class="type_header">Bailout</h2>
-			<h3 class="section_header">Other Agencies</h3>			
-
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h3>Other Agencies</h3>		
+		</div>
+		
+		<div id="content_area">	
 			<p>Other government agencies have been involved in the bailout and have either acted in response to existing legislation or received authorization under recent legislation.  The Department of Housing and Urban Development (HUD) has established several programs.  The Federal Housing Finance Administration (FHFA) is also planning to streamline the loan modification process while the National Credit Union Administration (NCUA) is working to ensure its member institutions’ liquidity. </p>
 
-			<p>Hover your cursor over the name of each program (in bold) for a more detailed description of its terms.</p>
-			
+			<p>Hover your cursor over the name of each program (in bold) for a more detailed description of its terms.</p>	
 		</div>
-	</div>
-	<div class="span-4 last">&nbsp;</div>
-	<div class="span-24">
-		<div class="full_padding">
-			<div id="legend-container"></div>
 
+		<div class="non_content">
+	
+			<div id="legend-container"></div>
 			<div id="visualization-container-0"></div>
 			<div id="visualization-container-1"></div>
 			<div id="visualization-container-2"></div>			
 			
-			<a class="json" href="{% url bailout-visualization-json %}">Download as JSON</a>
-			
-			<p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.</p>
-
+				<div class="attribution"><p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.
+				<span class="source_download">[<a href="{% url bailout-visualization-json %}">Download as JSON</a>]</span>
+				</p>
+				</div>
 		</div>
 	</div>
 </div>

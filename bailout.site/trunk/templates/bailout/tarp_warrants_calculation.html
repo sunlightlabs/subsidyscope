@@ -11,19 +11,16 @@
 
 {% block content %}
 
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Treasury</h2>
+			<h3>Inconsistencies in Treasury's Description of TARP's Warrant Policy</h3>		
+		</div>
+		
+		<div id="content_area">
 
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-
-	
-<div class="span-15">
-	
-	<div class="tlr_padding">
-	<h2 class="type_header">Database</h2>
-	<h3 class="section_header">Inconsistencies in Treasury's Description of TARP's Warrant Policy</h3>
 	
 <p><strong>March 11, 2009</strong> &mdash; The Subsidyscope research team discovered inconsistencies in the Treasury Department's public documents describing the Troubled Asset Relief Program's (TARP) warrant policy, highlighting concerns about the lack of clarity in the government's explanation of the program.</p>
 
@@ -39,7 +36,7 @@
 
 <p>Take the Treasury's injection of funds into Bank of America (BAC) on October 28, 2008, for instance.  In return, the government received warrants with a strike price of $30.79, which is the 20-day average of closing stock prices before BAC applied for TARP.  If, however, the Treasury had used the date at which the contract was executed, the strike price would have been $25.94. (see graph)</p>
 
-<p style="margin-left: -125px;"><img src="{% media_url %}/images/bac_pricing.png"/><br/><em>Source: Subsidyscope (The Pew Charitable Trusts)</em></p>
+<p><img src="{% media_url %}/images/bac_pricing.png"/><br/><em>Source: Subsidyscope (The Pew Charitable Trusts)</em></p>
 
 <p>Those different dates affect the payoffs from the warrants.  Under the contract, the government will make money on the warrants only if the BAC's stock price exceeds $30.79.  Under the policy articulated by the press releases and term sheets, the government would have made money on the warrants once the stock price exceeded $25.94.  By setting a higher strike price, the government provides a larger subsidy to BAC.  However, given today's price for BAC stock (which was only $3.14 on March 6, 2009), the warrants have very little value regardless of the strike price.</p> 
 
@@ -58,10 +55,9 @@
 1. Congressional Oversight Panel, <a href="/projects/bailout/documents/22/">February Oversight Report (February 6, 2009)</a><br/>
 2. See <a href="http://www.sec.gov/Archives/edgar/data/93751/000119312508212289/d8k.htm"/>State Street Corporation's 8-K filing on October 13, 2008</a>;  
 </div>
-	
-	
-</div>
-</div>
+
+		</div>
+	</div>
 </div>
 
 

@@ -13,17 +13,29 @@
 {% endblock %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-	<div class="span-15">
-		<div class="full_padding">
-			
-			<h2 class="type_header">Bailout</h2>
-			<h3 class="section_header">Treasury Department</h3>
+<div class="container main_container">
+{% include "includes/bailout_nav.html" %}
 
+	<div class="span-24">
+		<div id="header_area">
+			<h3>The Treasury Department</h3>		
+		</div>
+		
+		<div class="non_content">	
+				<div id="legend-container"></div>
+
+				<div id="visualization-container"></div>
+
+				
+
+				<div class="attribution">
+				<p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.
+				<span class="source_download">[<a href="{% url bailout-visualization-json %}">Download as JSON</a>]</span>
+				</p>
+				</div>	
+		
+		
+		<div id="content_area">
 			<p>The Treasury Department's efforts have several components. The chart below provides funding levels for each of these programs - both funds released to date and funds authorized to be released in the future. The programs are authorized for different periods of time and receive different level of funding. Because several of these programs include terms that allow the government to receive a return on its investment, it will take time before the precise subsidy cost of each program can be determined. 
 			<a href="{% url tarp-subsidies %}">Go to our TARP Subsidies page</a> for some initial estimates on subsidy levels through the Treasury's Troubled Asset Relief Program (TARP), and <a href="{% url tarp %}">visit our TARP Disbursements page</a> to view the TARP data by transaction, recipient and date.</p>
 
@@ -32,20 +44,7 @@
 			<p>Hover your cursor over the name of each program (in bold) for a more detailed description of its terms.</p>
 			
 		</div>
-	</div>
-	<div class="span-4 last">&nbsp;</div>
 
-	<div class="span-24">
-		<div class="full_padding">
-			<div id="legend-container"></div>
-
-			<div id="visualization-container"></div>
-			
-			<a class="json" href="{% url bailout-visualization-json %}">Download as JSON</a>
-			
-			<p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.</p>
-		</div>
-</div>
 </div>
 
 

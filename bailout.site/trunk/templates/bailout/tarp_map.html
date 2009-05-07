@@ -161,21 +161,48 @@ function getFlexMovie(movieName) {
 
 </script>
 
-<div class="container top_solid_box">&nbsp;</div>
-	<div class="container white">
+
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Treasury</h2>
+			<h3>Mapping Geographic Impact of the Troubled Asset Relief Program (TARP)</h3>		
+		</div>
+		<div id="content_area">
+<p>There is keen public interest in the geography of the financial crisis and the resulting bailout programs. With large sums of money being injected into financial institutions across the country, there is a desire to ensure that the money is being allocated fairly and effectively. There is also an understanding that not all banks are created equally: Some shoulder more responsibility than others, having engaged in lending and investment practices that helped lead to the crisis. And, though not all communities have the same banks, the nation as a whole is responsible for correcting the problems that have emerged. Mapping which communities have received TARP funds can provide a fresh perspective on the crisis and the bailout.</p>
+		</div>		
 	
-		<div class="span-5">
-				{% include "includes/bailout_left_nav.html" %}
+		<div class="non_content">		
+
+				<div id="table-filter" style="clear:left; margin: 25px;">
+
+				<p><input type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
+				<p><input type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput"/></p>
+
+
+				View share of: <select name="dataType">
+					<option value="branches">Branches</option>
+					<option value="deposits">Deposits</option>
+					<option value="lending">Lending (2007 HMDA)</option>
+				</select>
+
+				</div> 
+
+
+				<div id="map-container">
+					<div id="tarpBubbleVis" style="text-align:center;">
+						<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
+
+						<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+
+					</div>
+				</div>
 		</div>
 	
-		
-		<div class="span-15">
-			
-			<div class="tlr_padding">
-				<h2 class="type_header">Database</h2>
-				<h3 class="section_header">Mapping Geographic Impact of the Troubled Asset Relief Program (TARP)</h3>
+	
+<div id="content_area">	
 
-				<p>There is keen public interest in the geography of the financial crisis and the resulting bailout programs. With large sums of money being injected into financial institutions across the country, there is a desire to ensure that the money is being allocated fairly and effectively. There is also an understanding that not all banks are created equally: Some shoulder more responsibility than others, having engaged in lending and investment practices that helped lead to the crisis. And, though not all communities have the same banks, the nation as a whole is responsible for correcting the problems that have emerged. Mapping which communities have received TARP funds can provide a fresh perspective on the crisis and the bailout.</p> 
 				<p>There have been a number of attempts at such analysis, including the recent launch of the Treasury Department's <a href="http://financialstability.gov/impact/index.html">Local Impact map</a>. However, these attempts have largely failed to recognize the geographic complexity of the financial industry and for the most part do not paint a useful picture of the actual geography of funds distribution. Subsidyscope examines the current bailout mapping efforts and provides examples and data for several alternative methods.</p> 
 				<p>Most mapping efforts have focused on the TARP Capital Purchase Program (CPP) both because of the program's size and the transparency of the funds allocations. The CPP information provided by Treasury also includes the headquarters locations for the recipient institutions. While this information is an attractive and readily accessible geographic indicator, it is of questionable utility given the wide geographic reach of many financial institutions. Financial institutions affect communities well outside of the state in which their headquarters is located. Unfortunately, many of the available maps rely solely on this indicator, including Treasury's Local Impact map.</p> 
 				<p>An examination of the Treasury map demonstrates the shortcomings of this approach. States with large financial centers are shown receiving a majority share of CPP funds while states without a significant banking presence receive little or no funds. For example, the entire state of Arizona is shown as having received only $2.5 million in CPP funds; Montana received nothing. The lack of bank headquarters in these states may indicate an unequal distribution of funds under CPP; however, the high degree of disparity shown in this map is suspect. In reality, banks that have received TARP funds &mdash; although headquartered in other states &mdash; do engage in significant business in Arizona and Montana, a relationship not reflected in this map. As a result, this map and others using headquarters locations as an impact metric present a misleading representation of CPP funds distribution.<sup>1</sup></p> 
@@ -189,38 +216,6 @@ function getFlexMovie(movieName) {
 				<div class="footnotes">
 					<p><sup>1</sup>It is also worth noting that the Treasury map suffers from data quality problems in addition to the methodological concerns described above. As of April 17, 2009, the map failed to reflect the full list of CPP transactions, including a $15 billion transaction for Bank of America issued on October 28, 2008.  As a result, the value shown for North Carolina is artificially low, showing a total for CPP funds received of $13.6 billion instead of the correct figure of $28.6 billion as of the date viewed.<p>
 				</div>
-			</div>
-
-			
-			<div class="span-4 last">&nbsp;</div>
-
-	</div>
-	<div class="span-24">
-		<div class="lr_padding">
-			<div id="table-filter" style="clear:left; margin: 25px;">
-			
-			<p><input type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
-			<p><input type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput"/></p>
-			
-			
-			View share of: <select name="dataType">
-				<option value="branches">Branches</option>
-				<option value="deposits">Deposits</option>
-				<option value="lending">Lending (2007 HMDA)</option>
-			</select>
-			
-			</div> 
-	
-			
-			<div id="map-container"><div id="tarpBubbleVis" style="text-align:center;">
-					<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
-					
-					<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
-				
-				</div>
-			</div>
-			
-			
 		</div>
 	</div>
 </div>

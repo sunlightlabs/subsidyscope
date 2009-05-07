@@ -25,19 +25,15 @@
 
 {% block content %}
 
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-
-	
-<div class="span-15">
-	
-	<div class="tlr_padding">
-	<h2 class="type_header">Database</h2>
-	<h3 class="section_header">Transactions under the Troubled Asset Relief Program (TARP)</h3>
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Treasury</h2>
+			<h3>Transactions under the Troubled Asset Relief Program (TARP)</h3>		
+		</div>
+		
+		<div id="content_area">
 	
 	<p>This page is your gateway to information on the TARP transactions. Subsidyscope has gathered data on each transaction under the TARP program. The following table shows which companies received funds, how much they received, and when they received it.  Detailed data on individual transactions can be downloaded into a spreadsheet, and the visualizations provide a quick view of the transactions over time, by recipient and by date.</p>
 
@@ -50,13 +46,8 @@
 	<p>Click each tab below for different ways to view the TARP data.</p>
 </div>
 
-	<div class="span-4 last">&nbsp;</div>
 
-</div>
-<div class="span-24">
-	<div class="lr_padding">
-	
-	
+<div class="non_content">
 	<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
 		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
 			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#transactions">Transactions</a></li>
@@ -66,15 +57,18 @@
 		</ul>
 		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="transactions">
 			
-			<div id="tarp-container"><div id="tarp" style="text-align:center;">
+			<div id="tarp-container">
+				<div id="tarp" style="text-align:center;">
 				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
 				
 			<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
 			
-			</div></div>
-			<div class="gray-label">transaction date &rarr;</div>
+				</div>
+			</div>
 			
+			<div class="gray-label">transaction date &rarr;</div>
 		</div>
+		
 		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="recipients">
 			<div id="bubbles-container"><div id="tarpBubbleVis" style="text-align:center;">
 				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
@@ -142,14 +136,12 @@
 	
 	</div>	
 	
-	
-	
-	
-	
+
 	<div class="footnotes">
-	<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
+		<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
 		
-	<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are for the quarter ending December 31, 2008 (retreived from the FDIC web site on March 13, 2009).</em></p>
+		<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are for the quarter ending December 31, 2008 (retreived from the FDIC web site on March 13, 2009).</em></p>
+		
 	</div>
 
 		</div>

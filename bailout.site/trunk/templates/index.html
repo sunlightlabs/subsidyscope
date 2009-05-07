@@ -77,7 +77,12 @@ $(function () {
 		<div id="taxonomy" style="">
 			<div class="left_tax">
 				<div class="tax_item"><h3><a href="/projects/bailout/">Financial Bailout</a></h3>
-				<p>The government's unprecedented intervention in the finance sector.</p>
+				<p>	<a href="{% url bailout_treasury_index %}">Treasury</a>, 
+					<a href="{% url bailout_fdic_index %}">FDIC</a>, 
+					<a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>, 
+					<a href="{% url bailout_other_index %}">Other Agencies</a>
+				</p>	
+
 				</div>
 				<div class="tax_item"><h3 class="coming">Housing</h3>
 				<p>Late 2009</p>

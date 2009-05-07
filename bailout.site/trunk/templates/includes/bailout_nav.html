@@ -1,0 +1,21 @@
+<!-- this will be a nav block that is specific to the section -->
+
+<div class="span-24">
+	<div id="navbar">
+		<ul id="navbar_items">
+			<li><a href="/">Home</a></li>
+			<li class="active"><a href="/projects/bailout/">Financial Bailout</a></li>
+			<li><a href="/projects/transportation/">Transportation</a></li>
+		</ul>						
+	</div>
+	<div id="sector_subnav">
+		<ul id="sector_subnav_items">
+			<li><a href="{% url bailout_treasury_index %}">Treasury</a></li>
+			<li><a href="{% url bailout_fdic_index %}">FDIC</a></li>
+			<li><a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a></li>
+			<li><a href="{% url bailout_other_index %}">Other Agencies</a></li>
+			<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>										
+		</ul>
+	</div>
+</div>	
+<!-- end nav bar -->

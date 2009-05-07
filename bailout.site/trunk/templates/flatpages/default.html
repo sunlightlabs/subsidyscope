@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>	
-<div class="container white">
-
-<div class="span-24">
-		<div class="full_padding">
+<div class="container top_solid_box">&nbsp;</div>
+	<div class="container white">
+		<div class="span-24">
+			<div id="header_area">
+				<h3>{{ flatpage.title }}</h3>		
+			</div>
+			
+			<div id="content_area">
 				{{ flatpage.content }}
+			</div>
 		</div>
-
-</div>
-
-
-</div>
+	</div>
 
 {% endblock %}
