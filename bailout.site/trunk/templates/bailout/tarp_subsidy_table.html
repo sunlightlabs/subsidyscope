@@ -36,19 +36,19 @@
 .subsidy-table .footnote td { font-size: 85%; }
 .subsidy-table tr.title td { border-top: 1px solid black; padding-top: 5px;}
 .subsidy-table tr.grand-total td { border-bottom: 1px solid #aaa;}
-.tarp-subsidy-chart img { display: block; margin: 0 auto 1em 0;}
-.tarp-subsidy-chart h3 { text-align: center; margin-top: 0.7em; margin-bottom: 0; font-size: 1.3em;}
-.tarp-subsidy-chart h4 { text-align: center; margin-bottom: 0; margin-top: 0; font-weight: normal; font-size: 1em;}
+.tarp-subsidy-chart img { display: block; margin: 0 auto 1em 0; }
+.tarp-subsidy-chart h3 { margin-top: 0.7em; margin-bottom: 0; font-size: 1.3em;}
+.tarp-subsidy-chart h4 {  margin-bottom: 0; margin-top: 0; font-weight: normal; font-size: 1em;}
 </style>
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-<div class="span-15">
-	<div class="tlr_padding">
-		<h2 class="type_header">Reference</h2>
-		<h3 class="section_header">Subsidies from the Troubled Asset Relief Program</h3>
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Treasury</h2>
+			<h3>Subsidies from the Troubled Asset Relief Program</h3>		
+		</div>
+		
+		<div id="content_area">
 		
 		<p>The Troubled Asset Relief Program (TARP) is one of the federal government's most complex programs. It's not surprising, therefore, that there are misunderstandings about the subsidies TARP provides.</p>
 
@@ -88,18 +88,9 @@
 		
 		
 				
-	</div>
-	<div class="span-4 last">&nbsp;</div>
-
-</div>
-<div class="span-24">
-	<div class="lr_padding">
-		
-		
 	
-
-</div>
-</div>
+		</div>
+	</div>
 </div> <!--ends container-->
 
 {% endblock %}

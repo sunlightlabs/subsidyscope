@@ -1,18 +1,23 @@
-{% extends "base_documents.html" %}
+{% extends "base.html" %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-<div class="span-24">
-	<div class="full_padding">
-	
-	{% if pdf.local_copy %}<a style="float: right" class="pdf-download-link" href="{{ pdf.local_copy.url|urlencode }}">Download Document &raquo;</a>{% endif %}
-	
-	<h2 class="type_header">Documents</h2>
-	<h3 class="section_header">{{ pdf.title }}</h3>
+<script type='text/javascript' src='http://www.scribd.com/javascripts/view.js'></script>
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Key Documents</h2>
+			<h3>{{ pdf.title }}</h3>		
+		</div>
+		
+		<div id="content_area">
+		{% if pdf.local_copy %}<a style="float: right" class="pdf-download-link" href="{{ pdf.local_copy.url|urlencode }}">Download Document &raquo;</a>{% endif %}
 	<p>{{ pdf.description|safe }}</p>
+		</div>
 
-<div id='embedded_flash'><a href="http://www.scribd.com"></a></div>
+		<div class="non_content">
+
+			<div id='embedded_flash'><a href="http://www.scribd.com"></a></div>
 
 <script type="text/javascript">
 	var scribd_doc = scribd.Document.getDocFromUrl( 'http://' + window.location.host + '{{ pdf.local_copy.url|urlencode }}', '{{ scribd_publisher_id }}' );    

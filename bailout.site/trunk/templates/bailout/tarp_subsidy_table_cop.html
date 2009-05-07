@@ -45,16 +45,17 @@ ul.subsidy-estimate, ul.subsidy-estimate li { list-style-type: disc;}
 .subsidy-table .program-heading { padding:5px;}
 h4.tarp_table_head { margin:0 0 0 0; padding:0;}
 </style>
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-<div class="span-15">
-	<div class="tlr_padding">
-		<h2 class="type_header">Reference</h2>
-		<h3 class="section_header">Congressional Oversight Panel (COP) Subsidy Estimates</h3>
+
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Treasury</h2>
+			<h3>Congressional Oversight Panel (COP) Subsidy Estimates</h3>		
+		</div>
 		
+		<div id="content_area">
+
 		<p>The Congressional Oversight Panel found that between 10/14/08 and 1/23/09, the Troubled Asset Relief Program (TARP): </p>
 
 		<ul class="subsidy-estimate">
@@ -75,11 +76,8 @@ h4.tarp_table_head { margin:0 0 0 0; padding:0;}
 		<p>COP's subsidy estimates (in dollar terms) are smaller than those made by the Congressional Budget Office because COP did not include subsidies to automotive companies.  After accounting for that difference, both the COP and CBO estimates are broadly similar.  Both organizations estimate similar subsidy rates.</p>
 		
 	</div>
-	<div class="span-4 last">&nbsp;</div>
-
-</div>
-<div class="span-24">
-	<div class="lr_padding">
+	
+<div class="non_content">	
 		
 			<h4 class="tarp_table_head">Congressional Oversight Panel's Estimated Subsidy of Select TARP Transactions as of January 23, 2009</h4>
 (Excluding Financing for the Automotive Industry)
@@ -238,8 +236,8 @@ h4.tarp_table_head { margin:0 0 0 0; padding:0;}
 		</table>
 		
 
-</div>
-</div>
+		</div>
+	</div>
 </div> <!--ends container-->
 
 {% endblock %}

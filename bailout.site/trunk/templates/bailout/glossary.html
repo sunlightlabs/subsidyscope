@@ -2,16 +2,16 @@
 {% load media %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-6">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Reference</h2>
+			<h3>Glossary of Terms</h3>		
+		</div>
+		
+		<div id="content_area">
 
-	<div class="span-13">
-	<div class="full_padding">
-			<h2 class="type_header">reference</h2>
-			<h3 class="section_header">Glossary of Terms</h3>
 <dl id="glossary">
 	
 <dt><a name="asset-backed-commercial-paper">Asset-backed commercial paper</a></dt>
@@ -165,16 +165,7 @@
 		
 		
 		
+		</div>
 	</div>
-	</div>
-
-	<div class="span-5 last">
-			<div>&nbsp;</div>
-	</div>
-
-
-
-
-
 </div> <!--ends container-->
 {% endblock %}

@@ -12,19 +12,15 @@
 {% endblock %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-
-	
-<div class="span-15">
-	
-	<div class="tlr_padding">
-	<h2 class="type_header">Database</h2>
-	<h3 class="section_header">Transactions under the Troubled Asset Relief Program (TARP)</h3>
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Treasury</h2>
+			<h3>Transactions under the Troubled Asset Relief Program (TARP)</h3>		
+		</div>
+		
+		<div id="content_area">
 	
 	<p>This page is your gateway to information on the TARP transactions. Subsidyscope has gathered data on each transaction under the TARP program. The following table shows which companies received funds, how much they received, and when they received it.  Detailed data on individual transactions can be downloaded into a spreadsheet, and the visualization provides a quick view of the transactions over time.</p>
 
@@ -35,11 +31,10 @@
 	<p>The amount of funding provided a company is a crucial piece of information needed to calculate the subsidies provided through TARP.  But it is not a measure of the subsidy itself.  To calculate the subsidies, the market value of the preferred stock, warrants, and loans must be deducted from the funding provided to the institution.  Although information on the subsidies to individual companies through TARP is still quite limited, some data can be found <a href="{% url tarp-subsidies %}">here</a>.</p>
 	
 	</div>
-</div>
-<div class="span-4 last">&nbsp;</div>	
+
+
+<div class="non_content">
 	
-<div class="span-24">
-	<div class="lr_padding">	
 	<h2 style="margin-top: 50px" class="section_header">TARP Recipients</h2>
 							
 
@@ -62,9 +57,9 @@
 	</script>
 	
 	<div class="footnotes">
-	<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
+		<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
 		
-	<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are as of September 30, 2008.</em></p>
+		<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are as of September 30, 2008.</em></p>
 	</div>
 	
 	

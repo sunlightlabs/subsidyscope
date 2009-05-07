@@ -2,15 +2,17 @@
 {% load media %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
+<div class="container main_container">
+{% include "includes/bailout_nav.html" %}
+
 
 	<div class="span-24">
-		<div class="full_padding">
+		<div id="header_area">
+			<h3>An Error has Occurred</h3>		
+		</div>
 		
-		<h2 class="type_header">subsidyscope</h2>
-		<h3 class="section_header">An Error has Occurred</h3>
-		<p>It appears that you have stumbled upon a page that doesn't technically exist.  Try <a href="/">here.</a></p>
+		<div id="content_area">
+			<p>It appears that you have stumbled upon a page that doesn't technically exist.  Try <a href="/">here.</a></p>
 		</div>
 	</div>
 

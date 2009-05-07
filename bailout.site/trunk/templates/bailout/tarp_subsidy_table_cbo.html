@@ -56,15 +56,16 @@ ol.footnotes { font-size: 0.8em; }
 a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 
 </style>
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-<div class="span-15">
-	<div class="tlr_padding">
-		<h2 class="type_header">Reference</h2>
-		<h3 class="section_header">Congressional Budget Office Subsidy Estimates</h3>		
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Treasury</h2>
+			<h3>Congressional Budget Office Subsidy Estimates</h3>		
+		</div>
+		
+		<div id="content_area">
+		
 
 		{% morsel top %}
 
@@ -134,13 +135,8 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 		
 		{% morsel bottom %}
 	</div>
-	<div class="span-4 last">&nbsp;</div>
-</div>
-
-		
-
-<div class="span-24">
-	<div class="lr_padding">
+	
+	<div class="non_content">
 
 	<h4 class="tarp_table_head">Congressional Budget Office's Estimated Subsidy of Select TARP Transactions</h4>
 		<table id="cbo-table" class="subsidy-table">
@@ -234,8 +230,8 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 		<li><a href="{% url bailoutpdf_detail 19 %}">Testimony of CBO Director Douglas Elmendorf to the Senate Budget Committee on January 28, 2009</a>, page 30.</li>
 		</ol>
 
-</div>
-</div>
+		</div>
+	</div>
 </div> <!--ends container-->
 
 {% endblock %}
