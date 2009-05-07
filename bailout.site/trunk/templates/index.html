@@ -21,10 +21,11 @@ $(function () {
 
 						// set up "in the news" block
 						$(function(){
+							var MAX_NEWS_ITEMS = 10;
 							$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
 							function(data){		
 								$.each(data.value.items, function(i,item){
-									if(i<5)
+									if(i<MAX_NEWS_ITEMS)
 									{
 										$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
 									}
@@ -76,20 +77,20 @@ $(function () {
 		<div id="taxonomy" style="">
 			<div class="left_tax">
 				<div class="tax_item"><h3><a href="/projects/bailout/">Financial Bailout</a></h3>
-				<p>Data and Analysis of TARP, et al.</p>
+				<p>The government's unprecedented intervention in the finance sector.</p>
 				</div>
 				<div class="tax_item"><h3 class="coming">Housing</h3>
-				<p>Summer 2009</p>
+				<p>Late 2009</p>
 				</div>
 			</div>
 			
 			<div class="right_tax">
 				<div class="tax_item"><h3 class="coming">Transportation</h3>
-				<p>May 2009</p>
+				<p>Summer 2009</p>
 				</div>
 			
 				<div class="tax_item"><h3 class="coming">Energy</h3>
-				<p>Fall 2009</p>
+				<p>Spring 2010</p>
 				</div>
 			</div>
 		</div>				
