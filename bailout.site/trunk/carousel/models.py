@@ -1,4 +1,5 @@
 from django.db import models
+import settings
 
 class CarouselEntry(models.Model):
     def __unicode__(self):
@@ -13,7 +14,7 @@ class CarouselEntry(models.Model):
         ordering = ['weight'] 
 
     def _get_image_upload_path(instance, filename):
-        return 'images/carousel_image_%s' % filename
+        return settings.MEDIA_ROOT + 'images/carousel_image_%s' % filename
     
     def _get_weight_choices():
         r = ()
