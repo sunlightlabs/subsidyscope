@@ -4,33 +4,27 @@
 {% block content %}
 
 
-<div class="container white">
-	
-	<!--
-		This is here so I don't forget about it in the future.
-		<div class="span-24">
-		<div class="subnav">
-		<h3 class="location_header"><a href="/projects/bailout/">The Financial Bailout</a> : Troubled Asset Relief Program (TARP)</h3>
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>The Financial Bailout</h2>
+			<h3>Downloadable Datasets</h3>		
 		</div>
-	</div>
--->
-	
-	<div class="span-25">
-	<div class="full_padding" id="data-page">
 		
-		<img src="{% media_url %}/images/download_icon.png" alt="Download" id="big-download-icon" />
-		
-		<h2 class="type_header">data</h2>
-		<h3 class="section_header">Downloadable Datasets</h3>
-		
+		<div id="content_area">
+		<img src="{% media_url %}/images/download_icon.png" alt="Download" id="big-download-icon" class="alignleft"/>		
 		<p>Subsidyscope maintains a variety of datasets.  Some of them power the visualizations you see on the site, while others are used for behind-the-scene calculations.  All of them are available for use under the terms of the <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/us/">Creative Commons Attribution-Noncommercial 3.0 United States License</a>.</p>
-		
 		<p>On this page you can find links to the data products that we offer and descriptions of what they contain.  Confused?  Have a suggestion?  <a href="{% url contact_form %}">Contact us</a> and we'll be happy to answer your questions.</p>
-		
-		<div class="data-section">
+		</div>
 
-		<h4><a class="section-title" href="{% url Bailout %}">The Bailout</a></h4>
-		<div class="section-description">Subsidyscope maintains a number of datasets related to the government's unprecedented intervention in the financial sector.</div>
+		<div class="non_content">
+			<div id="data-page">	
+
+				<div class="data-section">
+
+					<h4><a class="section-title" href="{% url Bailout %}">The Bailout</a></h4>
+					<div class="section-description">Subsidyscope maintains a number of datasets related to the government's unprecedented intervention in the financial sector.</div>
 		
 		<ul class="datasets">
 			<li class="odd">
@@ -87,18 +81,9 @@
 		
 		<div style="clear:left"></div>
 		
+				</div>
+			</div>
 		</div>
-	
 	</div>
-	</div>
-
-	<div class="span-5 last">
-			<div>&nbsp;</div>
-	</div>
-
-
-
-
-
 </div> <!--ends container-->
 {% endblock %}

@@ -4,6 +4,16 @@ body { background-image:url(/media/images/template/bg_gradient.png); background-
 
 .full_padding { padding: 20px 20px 20px 20px;}
 
+
+
+.aligncenter, div.aligncenter { display: block;   float:none;   margin-top:10px;   margin-bottom:10px; }
+
+.alignleft {  float: left;  margin:1.5em 1.5em 1.5em 0;}
+
+.alignright {   float: right; margin:1.5em 1.5em 1.5em 0;}
+
+
+
 /* TEMPLATE ITEMS */
 .main_container { background-color:#ffffff;}
 .white { background-color:#ffffff;}
