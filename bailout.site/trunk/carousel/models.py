@@ -14,7 +14,7 @@ class CarouselEntry(models.Model):
         ordering = ['weight'] 
 
     def _get_image_upload_path(instance, filename):
-        return settings.MEDIA_ROOT + 'images/carousel_image_%s' % filename
+        return 'images/carousel_image_%s' % filename
     
     def _get_weight_choices():
         r = ()
