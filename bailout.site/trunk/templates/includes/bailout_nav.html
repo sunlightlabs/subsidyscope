@@ -1,21 +1,50 @@
-<!-- this will be a nav block that is specific to the section -->
+<link rel="stylesheet" type="text/css" media="screen" href="/media/styles/superfish.css" />
+<script type="text/javascript" src="/media/scripts/hoverIntent.js"></script>
+<script type="text/javascript" src="/media/scripts/superfish.js"></script>
 
-<div class="span-24">
+<script type="text/javascript">  
+    $(document).ready(function(){ 
+        $("ul.sf-menu").superfish(); 
+    }); 
+</script>
+
+<!-- this nav block is specific to the BAILOUT section -->
+<div class="span-24">	
 	<div id="navbar">
 		<ul id="navbar_items">
 			<li><a href="/">Home</a></li>
-			<li class="active"><a href="/projects/bailout/">Financial Bailout</a></li>
+			<li class="active_top"><a href="/projects/bailout/">Financial Bailout</a></li>
 			<li><a href="/projects/transportation/">Transportation</a></li>
 		</ul>						
 	</div>
 	<div id="sector_subnav">
-		<ul id="sector_subnav_items">
-			<li><a href="{% url bailout_treasury_index %}">Treasury</a></li>
-			<li><a href="{% url bailout_fdic_index %}">FDIC</a></li>
-			<li><a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a></li>
-			<li><a href="{% url bailout_other_index %}">Other Agencies</a></li>
-			<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>										
+	<ul class="sf-menu">
+		<li>
+			<a class="sf-with-ul" href="{% url bailout_treasury_index %}">Treasury</a>
+			<ul>
+				<li><a href="{% url fannie_freddie_index %}">Fannie Mae/Freddie Mac</a></li>
+				<li><a href="{% url tarp %}">TARP Disbursements</a></li>
+				<li><a href="{% url tarp-subsidies %}">TARP Subsidies</a>
+				<li><a href="{% url tarp-subsidies-cop %}">COP Estimates</a></li>
+				<li><a href="{% url tarp-subsidies-cbo %}">CBO Estimates</a></li>	
+				<li><a href="{% url tarp-warrants %}">TARP Warrants</a>
+				<li><a href="{% url tarp-warrants-calculation %}">Inconsistencies in Warrant Policy</a></li>		
+			</ul>
+		</li>
+				<li>
+					<a class="sf-with-ul" href="{% url bailout_fdic_index %}">FDIC</a>
+					<ul>
+						<li><a href="{% url fdic_bank_failures %}">Bank Failures and the Deposit Insurance Fund</a></li>
+						<li><a href="{% url fdic_llp_comments %}">Legacy Loan Program Comments</a></li>
+					</ul>
+				</li>
+				<li>
+					<a class="sf-with-ul" href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>
+				</li>
+
+
+				<li><a href="{% url bailout_other_index %}">Other Agencies</a></li>
+				<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>
 		</ul>
 	</div>
-</div>	
-<!-- end nav bar -->
+</div>
