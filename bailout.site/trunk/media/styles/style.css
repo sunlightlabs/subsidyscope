@@ -93,6 +93,11 @@ h1.technique-eight span {
 #header_area h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
 #header_area h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
 
+#header_area_flat {margin:20px 20px 20px 20px; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat:repeat-x;}
+#header_area_flat h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
+#header_area_flat h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
+
+
 #content_area { margin:20px;}
 #content_area p { width:650px;} 
 .non_content { margin:20px 0 20px 0; padding:0 20px 0 20px;}
