@@ -25,8 +25,17 @@
 		</div>
 
 		<div class="span-12 last">
-			<div id="search_box_header">&nbsp;</div>
+			<div id="search_box_header">
+				<div id="mailing_list_box">
+					<form action="/mailinglist/subscribe/" method="post" id="update_email">
+					Sign up for email updates&nbsp;
+					<input type="text" id="email-textbox" name="email">
+					<input type="submit" class="submit" value="Sign Up">
+					</form>
+				<div id="email-validation-error">This does not appear to be a valid email address.</div>
+			</div>
 		</div>
+	</div>
 
 		<div class="span-24">
 			<div id="header_spacer">&nbsp;</div>
