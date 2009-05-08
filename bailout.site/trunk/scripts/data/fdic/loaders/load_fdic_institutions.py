@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 
 fdic_datarun = DataRun.objects.get(id=16)
 
-data_dir = '../data/sept08/'
+data_dir = '../data/dec08/'
 
 # load hier_institutions
 
