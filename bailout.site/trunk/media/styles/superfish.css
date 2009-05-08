@@ -82,10 +82,10 @@ ul.sf-menu li li li.sfHover ul {
 	text-decoration: none;
 }
 
-.sf-menu li a:link { color:#4c4f54; text-decoration:none;}
-.sf-menu li a:visited { color:#666666;  text-decoration:none;}
-.sf-menu li a:hover { color:#2d73bf;  text-decoration:none;}
-.sf-menu li a:active { color:#4c4f54;  text-decoration:none;}
+.sf-menu li a:link { color:#4c4f54; text-decoration:none;     padding:3px 0 3px 10px;}
+.sf-menu li a:visited { color:#666666;  text-decoration:none;     padding:3px 0 3px 10px;}
+.sf-menu li a:hover { color:#2d73bf;  text-decoration:none;     padding:3px 0 3px 10px;}
+.sf-menu li a:active { color:#4c4f54;  text-decoration:none;     padding:3px 0 3px 10px;}
 
 
 .sf-menu li li {
