@@ -1,5 +1,26 @@
-{% include "includes/header_documents.html" %}
-{% include "includes/page_top.html" %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+{% load media %}
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link  href="{% media_url %}/favicon.ico" rel="shortcut icon" type="image/ico" />
+	        {% css "screen.css" %}
+        	{% css_print "print.css" %}
+        	{% css_ie "ie.css" %}
+        	{% css "style.css" %}
+	        {% js "jquery-1.2.6.min.js" %}
+			{% js "jquery.scrollTo-1.4.0-min.js" %}
+			{% js "jquery.localscroll-1.2.6-min.js" %}
+			{% js "jquery.serialScroll-1.2.1-min.js" %}
+			{% js "subsidy.js" %}
+			<script type='text/javascript' src='http://www.scribd.com/javascripts/view.js'></script>			
+
+
+	        <title>{% block title %}Subsidyscope.com{% endblock %}</title>
+</head>
+<body>
+{% include "includes/top_default_header.html" %}
 {% block content %}
 {% endblock %}
-{% include "includes/footer.html" %}
+{% include "includes/bottom_default_footer.html" %}

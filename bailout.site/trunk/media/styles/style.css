@@ -62,6 +62,8 @@ h1.technique-eight span {
 
 #mailing_list_box { }
 /* NAVBAR */
+
+/* NAVBAR */
 #navbar { background-color:#336699; padding:5px 0 0 0; margin:0; height:27px; background-image:url(/media/images/template/sector_nav_bg.png); background-position: 0px -7px; }
 #navbar_items ul { margin:0; padding:0;}
 #navbar_items li { display:inline; font-family:verdana; font-weight:bold; color:#ffffff; padding: 8px 20px 0 0;}
@@ -73,7 +75,7 @@ h1.technique-eight span {
 #navbar_items a:visited { color: #fff; text-decoration: none; }
 #navbar_items a:hover {  text-decoration:underline;}
 
-#navbar li.active a { background-image:url(/media/images/template/sector_nav_selected_bg.png); color:#2b5b8e; border-top:1px solid #2f4867;
+#navbar li.active_top a { background-image:url(/media/images/template/sector_nav_selected_bg.png); color:#2b5b8e; border-top:1px solid #2f4867;
 	border-left:1px solid #2f4867; border-right:1px solid #2f4867; padding-bottom:10px; background-position:top; background-repeat:repeat-x;}
 
 #sector_subnav { background-color:#f4f4f4; padding:10px 0 0 10px; background-image:url(/media/images/template/sector_subnav_bg.png); background-repeat:repeat-x; height:25px; background-position:bottom;}
@@ -85,10 +87,16 @@ h1.technique-eight span {
 #sector_subnav_items a:visited { color: #435c7a; text-decoration: none; }
 #sector_subnav_items a:hover {  text-decoration:underline;}
 
+
 /* CONTENT AREA */
-#header_area {margin:20px; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat:repeat-x;}
+#header_area {margin:0 20px 20px 20px; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat:repeat-x;}
 #header_area h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
 #header_area h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
+
+#header_area_flat {margin:20px 20px 20px 20px; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat:repeat-x;}
+#header_area_flat h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
+#header_area_flat h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
+
 
 #content_area { margin:20px;}
 #content_area p { width:650px;} 
@@ -152,7 +160,7 @@ strong { font-weight:bold;}
 
 #taxonomy p { color:#666666;}
 .tax_item { display:block; height:75px;}
-.tax_item p { font-size:.9%;}
+.tax_item p { font-size:10px;}
 
 
 #taxonomy .coming { color:#666666;}
