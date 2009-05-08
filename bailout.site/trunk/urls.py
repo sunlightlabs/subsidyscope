@@ -40,6 +40,8 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^sent/', 'direct_to_template', {'template': 'contact_form/contact_form_sent.html'}, name="contact_sent"),  
     url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': {'updates': ProjectUpdatesFeed}}, name="feed_project_updates"),  
     url(r'^data/', 'direct_to_template', {'template': 'misc/data.html'}, name='datasets'),
+    url(r'^rss/', 'direct_to_template', {'template': 'misc/rss.html'}, name='about_rss'),
+    url(r'^staff/', 'direct_to_template', {'template': 'misc/staff.html'}, name='staff'),
 )
 
 urlpatterns += patterns('',

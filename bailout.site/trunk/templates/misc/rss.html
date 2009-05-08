@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load media %}
+
+{% block content %}
+
+
+<div class="container main_container" id="rss-page">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Subsidyscope</h2>
+			<h3>About RSS</h3>		
+		</div>
+		
+		<div id="content_area">
+		<img src="{% media_url %}/images/rss_icon_large.png" alt="RSS" id="big-rss-icon" class="alignleft"/>		
+		<p>Really Simple Syndication, or RSS, is a technology that makes it easier to receive notifications when websites are updated.  Through the use of a desktop or web-based application called a <em>feed reader</em>, users can subscribe to sites' RSS feeds and stay up-to-date on changes to their favorite sites' content.  There are many different feed readers available.  Some of the most popular free ones are <a href="http://www.google.com/reader">Google Reader</a> (web), <a href="http://www.newsgator.com/Individuals/FeedDemon/Default.aspx">FeedDemon</a> (Windows) and <a href="http://www.newsgator.com/INDIVIDUALS/NETNEWSWIRE/">NetNewsWire</a> (Mac).  You can find <a href="http://en.wikipedia.org/wiki/Comparison_of_feed_aggregators">a detailed comparison of these and other feed readers at Wikipedia</a>.  Feed readers are typically used by entering a website's URL or RSS feed URL. The reader then periodically checks the feed for updates to the site and displays them to the user.</p>
+
+		<p>Subsidyscope provides an RSS feed of its project updates.  For most significant updates to the site, a message is sent to our list of email subscribers. You may join this list by entering your email into the text box at the top of this page.  Email subscription may be a better option for users who are not comfortable using RSS, but such users should take note that in order to avoid overwhelming our subscribers, we do not send an email for every project update.  RSS is the best way for users to be sure that they see every update to Subsidyscope.</p>
+
+		<p>You may also subscribe to our "In The News" RSS feed, which contains links to stories and resources that we consider to be worth sharing.  In the future Subsidyscope may also offer RSS feeds connected to our <a href="{% url datasets %}">datasets</a>, in order to help researchers and developers stay abreast of when our site's data is updated.</p>
+
+		<p>For more information about RSS, please refer to <a href="http://en.wikipedia.org/wiki/RSS">Wikipedia's article on the subject</a>.</p>
+
+		<h4>Subsidyscope RSS Feeds</h4>
+		<ul id="available-feeds">
+			<li><a href="{% url feed_project_updates updates%}">Project Updates Feed</a></li>
+			<li><a href="http://feeds.delicious.com/v2/rss/subsidyscope?count=15">"In The News" Feed</a></li>
+		</ul>
+
+		</div>
+
+	</div>
+</div> <!--ends container-->
+{% endblock %}

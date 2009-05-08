@@ -57,7 +57,7 @@ $(function () {
 		<div class="updates_box">
 			<div class="updates_head">
 			<h2>Subsidyscope Project Updates</h2>
-			<a title="Click here for news feed" href="{% url django.contrib.syndication.views.feed "updates" %}"><img src="/media/images/rss_icon.png"></a>
+			<a title="Click here for news feed" href="{% url django.contrib.syndication.views.feed "updates" %}"><img src="/media/images/rss_icon.png"></a><span id="rss-explanation">&nbsp;(<a href="{% url about_rss %}">What's this?</a>)</span>
 			</div>
 			{# display project updates #}			
 			{% project_updates %}

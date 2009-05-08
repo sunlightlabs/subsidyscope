@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load media %}
+
+{% block content %}
+
+
+<div class="container main_container" id="staff-page">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Subsidyscope</h2>
+			<h3>Staff</h3>		
+		</div>
+		
+		<div id="content_area">				
+		<p>Subsidyscope is a project of <a href="http://www.pewtrusts.org">The Pew Charitable Trusts</a>, with research and technical implementation by<br/><a href="http://www.sunlightfoundation.com">The Sunlight Foundation</a>.  Here are the people who have made it possible.</p>
+		
+
+			<div class="staff-list">
+				<h4>Pew Charitable Trusts</h4>
+				<ul>
+					<li>Anthony Campo</li>
+					<li>Michael Crowley</li>
+					<li>Douglas Hamilton</li>
+					<li>Lori Metcalf</li>
+					<li>John Morton</li>
+					<li>Marcus Peacock</li>
+				</ul>
+			</div>
+
+			<div class="staff-list">
+				<h4>Sunlight Foundation</h4>
+				<ul>
+					<li>Lisa Chiu</li>
+					<li>Sarah Dorsey</li>
+					<li>Greg Elin</li>
+					<li>David James</li>
+					<li>Jim Morris</li>
+					<li>Kerry Mitchell</li>
+					<li>Ryan Sibley</li>
+					<li>Tom Lee</li>
+					<li>Kevin Webb</li>
+				</ul>
+			</div>
+			
+			<div class="clear"></div>
+	
+			
+
+			<style type="text/css">
+			#staff-page .staff-list { float: left; margin-right: 50px;}
+			#staff-page .clear { clear: left; }
+			</style>
+		
+		</div>
+		
+	
+		
+	</div>
+</div> <!--ends container-->
+{% endblock %}
