@@ -70,7 +70,7 @@ ul.sf-menu li li li.sfHover ul {
 	color: #435c7a;
 	
 }
-.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+.sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
     color: #435c7a; 
     text-decoration: none; 
     padding:3px 0 3px 10px;
@@ -80,8 +80,14 @@ ul.sf-menu li li li.sfHover ul {
 	background:		transparent;
 	color: #435c7a; 
 	text-decoration: none;
-
 }
+
+.sf-menu li a:link { color:#4c4f54; text-decoration:none;}
+.sf-menu li a:visited { color:#666666;  text-decoration:none;}
+.sf-menu li a:hover { color:#2d73bf;  text-decoration:none;}
+.sf-menu li a:active { color:#4c4f54;  text-decoration:none;}
+
+
 .sf-menu li li {
 	background:		#e6e6e6;
     padding:5px 0 5px 0;
