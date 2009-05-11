@@ -100,11 +100,11 @@ h1.technique-eight span {
 
 
 /* CONTENT AREA */
-#header_area {margin:20px 20px 20px 20px; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat:repeat-x;}
+#header_area {margin:10px 20px 20px 20px; background-image:url(/media/images/double_lines.gif); background-position:bottom; background-repeat:repeat-x;}
 #header_area h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
 #header_area h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
 
-#header_area_flat {margin:20px 20px 20px 20px; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat:repeat-x;}
+#header_area_flat {margin:20px 20px 20px 20px; background-image:url(/media/images/double_lines.gif); background-position:bottom; background-repeat:repeat-x;}
 #header_area_flat h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
 #header_area_flat h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
 
@@ -162,7 +162,7 @@ strong { font-weight:bold;}
 
 /* MORE FRONT PAGE PIECES */
 /* left side items */
-#taxonomy { margin:0; padding:0; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat: repeat-x;}
+#taxonomy { margin:0; padding:0; background-image:url(/media/images/double_lines.gif); background-position:bottom; background-repeat: repeat-x;}
 #taxonomy h3 { font-size:130%; font-weight:bold; margin:0; padding:0;}
 #taxonomy a:link { color:#1a4760; text-decoration:none;}
 #taxonomy a:visited { color:#435c7a; text-decoration:none;}
@@ -195,7 +195,7 @@ strong { font-weight:bold;}
 /* END FRONT PAGE PIECES */
 /* Front Page bits and bobs */
 .front_left_col { padding:0 20px 0 20px; border-right:1px solid #f3f3f4; margin:15px 10px 20px 0;}
-#intro {background-image:url(/media/images/front/double_lines.png); background-position:top; background-repeat: repeat-x; padding:20px 20px 0 20px;}
+#intro {background-image:url(/media/images/double_lines.gif);  background-repeat: repeat-x; padding:20px 20px 0 20px;}
 
 .intro_copy { color:#333333; font-family:Georgia,"Nimbus Roman No9 L",serif;
 font-size:150%;
