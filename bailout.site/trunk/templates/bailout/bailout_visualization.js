@@ -201,6 +201,6 @@ function DrawBailoutVisualizationLegend(target_node, p_to_date, p_future)
 
 function DrawBailoutVisualization(target_node, agency)
 {
-	$(document).pngFix(); // IE transparency fix
+//	$(document).pngFix(); // IE transparency fix
 	BAILOUT_init(target_node, agency);    
 }
