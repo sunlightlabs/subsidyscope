@@ -4,8 +4,6 @@ body { background-image:url(/media/images/template/bg_gradient.png); background-
 
 .full_padding { padding: 20px 20px 20px 20px;}
 
-
-
 .aligncenter, div.aligncenter { display: block;   float:none;   margin-top:10px;   margin-bottom:10px; }
 
 .alignleft {  float: left;  margin:1.5em 1.5em 1.5em 0;}
@@ -73,7 +71,7 @@ h1.technique-eight span {
 /* NAVBAR */
 
 /* NAVBAR */
-#navbar { background-color:#336699; padding:5px 0 0 0; margin:0; height:27px; background-image:url(/media/images/template/sector_nav_bg.png); background-position: 0px -7px; }
+#navbar { background-color:#336699; padding:5px 0 0 0; margin:0; height:27px; background-image:url(/media/images/template/sector_nav_bg.png); background-position: 0px -7px; overflow:hidden;}
 #navbar_items ul { margin:0; padding:0;}
 #navbar_items li { display:inline; font-family:verdana; font-weight:bold; color:#ffffff; padding: 8px 20px 0 0;}
 
@@ -87,7 +85,11 @@ h1.technique-eight span {
 #navbar li.active_top a { background-image:url(/media/images/template/sector_nav_selected_bg.png); color:#2b5b8e; border-top:1px solid #2f4867;
 	border-left:1px solid #2f4867; border-right:1px solid #2f4867; padding-bottom:10px; background-position:top; background-repeat:repeat-x;}
 
-#sector_subnav { background-color:#f4f4f4; padding:10px 0 0 10px; background-image:url(/media/images/template/sector_subnav_bg.png); background-repeat:repeat-x; height:25px; background-position:bottom;}
+    #navbar li.active_top a:visited { color:#2b5b8e;}
+    #navbar li.active_top a:hover { color:#2b5b8e;}
+    #navbar li.active_top a:active { color:#2b5b8e;}    
+
+#sector_subnav {  padding:10px 0 0 10px; background-image:url(/media/images/template/sector_subnav_bg.png); background-repeat:repeat-x; height:25px; background-position:bottom;}
 #sector_subnav_items ul { margin:0; padding:0;}
 #sector_subnav_items li { display:inline; padding:0; padding-right:40px; font-family:verdana; font-weight:normal;}
 
@@ -98,7 +100,7 @@ h1.technique-eight span {
 
 
 /* CONTENT AREA */
-#header_area {margin:0 20px 20px 20px; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat:repeat-x;}
+#header_area {margin:20px 20px 20px 20px; background-image:url(/media/images/front/double_lines.png); background-position:bottom; background-repeat:repeat-x;}
 #header_area h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
 #header_area h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
 
