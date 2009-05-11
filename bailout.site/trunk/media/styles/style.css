@@ -83,7 +83,7 @@ h1.technique-eight span {
 #navbar_items a:hover {  text-decoration:underline;}
 
 #navbar li.active_top a { background-image:url(/media/images/template/sector_nav_selected_bg.png); color:#2b5b8e; border-top:1px solid #2f4867;
-	border-left:1px solid #2f4867; border-right:1px solid #2f4867; padding-bottom:10px; background-position:top; background-repeat:repeat-x;}
+	border-left:1px solid #2f4867; border-right:1px solid #2f4867; padding-bottom:10px; background-position: 0px 1px; background-repeat:repeat-x;}
 
     #navbar li.active_top a:visited { color:#2b5b8e;}
     #navbar li.active_top a:hover { color:#2b5b8e;}
