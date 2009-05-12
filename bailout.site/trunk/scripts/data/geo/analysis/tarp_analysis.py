@@ -60,7 +60,7 @@ for county in County.objects.all().order_by('state__name', 'name'):
                 tarp_lending_percentage += county_summary.loans_county_percent
                 
 
-    print '%05d,%02d,%03d,%s,%s,%s,%s,%s,%s,%s,%s,%s' % (county.fips_full_code,
+    print '%s,%s,%05d,%02d,%03d,%s,%s,%s,%s,%s,%s,%s,%s,%s' % (county.state.name,county.name_complete,county.fips_full_code,
                                                     county.state.fips_state_code,
                                                     county.fips_county_code,
                                                     county_total_deposits.quantize(Decimal('0')),
