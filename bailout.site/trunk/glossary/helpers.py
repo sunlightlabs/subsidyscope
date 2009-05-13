@@ -1,11 +1,18 @@
-import models
+from models import Item
+from django.core.urlresolvers import reverse
 
-def glossarize(instring):
-    # run through each possibility in the glossary
-    outstring = instring.replace("TARP", """<a href="/glossary#tarp">TARP</a>""")
-    return outstring
 
-# TODO: write a function that:
-# * takes a string as input
-# * returns a string, where certain keywords are transformed
-#   into hyperlinks to the glossary
+def glossarize(plain):
+    """
+    Converts a string into a hyperlinked string.
+
+    It looks at one glossary item at a time.
+    Longer glossary items match first.
+    """
+    out = plain
+    base_url = reverse("glossary")
+    for item in Item.objects.order_by(''):
+        url = reverse("glossary")
+        link = """<a href="%s#%s">%s</a>""" % (base_url, item.slug, item.term)
+        out = out.replace(item.term, link)
+    return out
