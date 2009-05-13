@@ -17,7 +17,6 @@ class HelperTestCase(unittest.TestCase):
         self.assertEquals(slug, 'troubled-assets')
 
     def test_glossarize_with_1_glossary_item(self):
-        
         self.create_warrant()
         plain = 'the warrants were issued'
         actual = helpers.glossarize(plain)
