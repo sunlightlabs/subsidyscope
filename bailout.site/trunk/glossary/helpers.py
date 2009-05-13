@@ -11,7 +11,7 @@ def glossarize(plain):
     """
     out = plain
     base_url = reverse("glossary")
-    for item in Item.objects.order_by(''):
+    for item in Item.objects.order_by('-term_length'):
         url = reverse("glossary")
         link = """<a href="%s#%s">%s</a>""" % (base_url, item.slug, item.term)
         out = out.replace(item.term, link)
