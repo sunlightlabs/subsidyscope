@@ -8,19 +8,32 @@ class HelperTestCase(unittest.TestCase):
     def setUp(self):
         self.glossary_base_url = "/projects/bailout/glossary/"
 
+    def tearDown(self):
+        Item.objects.all().delete()
+
     def test_autogeneration_of_slug(self):
         item = self.create_troubled_asset()
         slug = item.slug
         self.assertEquals(slug, 'troubled-assets')
 
     def test_glossarize_with_1_glossary_item(self):
+        
         self.create_warrant()
         plain = 'the warrants were issued'
         actual = helpers.glossarize(plain)
         expected = 'the <a href="%s#warrants">warrants</a> were issued' % self.glossary_base_url
         self.assertEquals(actual, expected)
 
-    # def test_glossarize_with_2_glossary_items(self):
+    def test_glossarize_with_2_glossary_items(self):
+        Item.objects.all().delete()
+        self.create_warrant()
+        self.create_troubled_asset()
+        plain = '... the warrants were issued ... the definition of troubled assets ...'
+        actual = helpers.glossarize(plain)
+        expected = '... the <a href="%s#warrants">warrants</a> were issued ... the definition of <a href="%s#troubled-assets">troubled assets</a> ...' % (self.glossary_base_url, self.glossary_base_url)
+        self.assertEquals(actual, expected)
+
+    # --------------------
 
     def create_warrant(self):
         """This helper function creates a glossary item where the slug is
@@ -50,6 +63,3 @@ class HelperTestCase(unittest.TestCase):
         item.definition = definition
         item.save()
         return item
-
-if __name__ == '__main__':
-    unittest.main()
