@@ -99,7 +99,8 @@ INSTALLED_APPS = (
     'fdic_bank_failures',
     'fed_h41',
     'sectors',
-    'cfda'
+    'cfda',
+    'faads'
 )
 
 
