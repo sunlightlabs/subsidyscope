@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 class Item(models.Model):
     slug        = models.SlugField(db_index=True, unique=True)
     term        = models.CharField(max_length=255, unique=True, db_index=True)
-    term_length = models.IntegerField(null=True, db_index=True)
+    term_length = models.IntegerField(db_index=True)
     definition  = models.TextField()
 
     def __unicode__(self):
