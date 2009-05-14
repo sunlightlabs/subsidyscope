@@ -29,7 +29,7 @@ class Command(BaseCommand):
 
         log = Logger(int(options.get('verbosity', 1)))
         log.info("Attempting to import data for these apps: %s" % ", ".join(app_names), 1)
-        apps_with_import_dirs = self.get_import_dirs_for_each_app(app_names, log)
+        apps_with_import_dirs = self.get_import_dirs_for_app_names(app_names, log)
         files_found = 0
 
         for app in apps_with_import_dirs:
@@ -47,13 +47,21 @@ class Command(BaseCommand):
             log.notice("No files were imported", 0)
 
     def convert_model_to_filename(self, model):
+        """
+        Converts a model object to a filename.
+        """
         return "%s.%s" % (model.__name__.lower(), self.format)
 
-    def get_import_dirs_for_each_app(self, app_names, log):
+    def get_import_dirs_for_app_names(self, app_names, log):
+        """
+        When given a list of app names, returns a dictionary where keys
+        are app objects and values are valid import directories.
+        """
+
         from django.db.models import get_app
         from django.core.exceptions import ImproperlyConfigured
         import sys
-        
+
         import_dirs = {}
         for app_name in app_names:
             try:
@@ -61,8 +69,16 @@ class Command(BaseCommand):
             except ImproperlyConfigured:
                 log.error("Cannot find app labeled %s" % app_name)
                 sys.exit(1)
-            base_path = os.path.dirname(app.__file__)
-            full_path = os.path.join(base_path, self.import_subdir)
-            if os.path.exists(full_path):
-                import_dirs[app] = full_path
-            return import_dirs
+            import_dir = self.get_import_dir_for_app(app, log)
+            if import_dir:
+                import_dirs[app] = import_dir
+        return import_dirs
+    
+    def get_import_dir_for_app(self, app, log):
+        """
+        Returns the import directory for a given app.
+        Returns None if the directory does not exist.
+        """
+        base = os.path.dirname(app.__file__)
+        path = os.path.join(base, self.import_subdir)
+        return path if os.path.exists(path) else None

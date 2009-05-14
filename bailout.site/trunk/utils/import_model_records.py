@@ -1,10 +1,12 @@
 import sys
 from utils.logger import Logger
-# from django.core.exceptions import ValidationError
-
-# from django. import IntegrityError
 
 def import_model_records(model, records, log=Logger()):
+    """
+    Imports a list of dictionaries specified by the 'records'
+    parameter into the model specified by the 'model' parameter.
+    The 'log' parameter is optional.
+    """
     record_count = 0
     for record in records:
         instance = model()
