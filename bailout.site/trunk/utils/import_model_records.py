@@ -17,8 +17,12 @@ def import_model_records(model, records, log=Logger()):
             # instead!  However, I am not sure how to import those, since
             # they vary across database backend types.
             import traceback
+
+            # Display one line of traceback.  This is enough to clue in
+            # the user as to what went wrong, but not so much that it is
+            # overwhelming.
             traceback.print_exc(1)
             sys.exit(1)
         record_count += 1
-    log.info("%s records imported into %s" % \
+    log.info("%s records imported into the '%s' model" % \
         (record_count, model.__name__), 1)
