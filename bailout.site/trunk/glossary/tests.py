@@ -35,8 +35,8 @@ class HelperTestCase(unittest.TestCase):
     # --------------------
 
     def create_warrant(self):
-        """This helper function creates a glossary item where the slug is
-        already specified.
+        """
+        Creates a glossary item where the slug is already specified.
         """
         return self.create_item(
             "warrants",
@@ -45,8 +45,9 @@ class HelperTestCase(unittest.TestCase):
         )
 
     def create_troubled_asset(self):
-        """This helper function creates a glossary items where the slug is
-        not given.  So the model should automatically generate one.
+        """
+        Creates a glossary items where the slug is not given,
+        therefore the model should automatically generate one.
         """
         return self.create_item(
             "troubled assets",
