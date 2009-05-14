@@ -1,4 +1,6 @@
 from django.core.management.base import NoArgsCommand
+from django.core.management import call_command
+import os.path
 
 # This custom command works for the built-in python shell,
 # but it does work out of the box for iPython.
@@ -31,11 +33,9 @@ class Command(NoArgsCommand):
     help = "Runs shell with all app models imported"
     
     def handle_noargs(self, **options):
-        import os.path
         our_path = os.path.abspath(os.path.dirname(__file__))
-        shell_startup_script = os.path.abspath(os.path.join(our_path, '..', 'startup.py'))
-        os.environ["PYTHONSTARTUP"] = shell_startup_script
+        os.environ["PYTHONSTARTUP"] = os.path.abspath(
+            os.path.join(our_path, '..', 'extras', 'startup.py'))
 
-        from django.core.management import call_command
         verbosity = int(options.get('verbosity', 1))
         call_command('shell', verbosity=verbosity)
