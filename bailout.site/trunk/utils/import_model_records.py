@@ -1,6 +1,7 @@
 import sys
 from utils.logger import Logger
 
+
 def import_model_records(model, records, log=Logger()):
     """
     Imports a list of dictionaries specified by the 'records'
@@ -15,9 +16,9 @@ def import_model_records(model, records, log=Logger()):
         try:
             instance.save()
         except Exception:
-            # It would be better to catch DatabaseError or IntegrityError
-            # instead!  However, I am not sure how to import those, since
-            # they vary across database backend types.
+            # I would prefer catching DatabaseError or IntegrityError
+            # instead.  At this point, I am unsure on how to import those,
+            # since they vary across database backend types.
             import traceback
 
             # Display one line of traceback.  This is enough to clue in

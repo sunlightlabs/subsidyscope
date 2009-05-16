@@ -1,6 +1,6 @@
 from models import Item
 from django.core.urlresolvers import reverse
-
+from utils.multiple_sub import multiple_sub
 
 def glossarize(plain):
     """
@@ -9,9 +9,9 @@ def glossarize(plain):
     It looks at one glossary item at a time.
     Longer glossary items match first.
     """
-    out = plain
     base_url = reverse("glossary")
-    for item in Item.objects.order_by('-term_length'):
-        link = """<a href="%s#%s">%s</a>""" % (base_url, item.slug, item.term)
-        out = out.replace(item.term, link)
-    return out
+    items = Item.objects.order_by('-term_length')
+    def link(item):
+        return """<a href="%s#%s">%s</a>""" % (base_url, item.slug, item.term)
+    mapping = [(item.term, link(item)) for item in items]
+    return multiple_sub(plain, mapping)
