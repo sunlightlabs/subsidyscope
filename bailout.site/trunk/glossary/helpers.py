@@ -1,14 +1,17 @@
 from models import Item
 from django.core.urlresolvers import reverse
-from utils.multiple_sub import multiple_sub
+from utils.msub import msub_first
+from utils.msub import msub_global
 
 
 def glossarize(plain):
     """
     Converts a string into a hyperlinked string.
 
-    It looks at one glossary item at a time.
-    Longer glossary items match first.
+    Notes:
+    * Only the first occurence for each term is replaced.
+    * It looks at one glossary item at a time.
+    * Longer glossary items match first.
     """
     base_url = reverse("glossary")
     items = Item.objects.order_by('-term_length')
@@ -17,4 +20,4 @@ def glossarize(plain):
         return """<a href="%s#%s">%s</a>""" % (base_url, item.slug, item.term)
 
     mapping = [(item.term, link(item)) for item in items]
-    return multiple_sub(plain, mapping)
+    return msub_global(plain, mapping)

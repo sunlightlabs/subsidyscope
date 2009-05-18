@@ -1,7 +1,6 @@
 import helpers
-import unittest
 from models import Item
-
+import unittest
 
 class HelperTestCase(unittest.TestCase):
 
@@ -35,20 +34,19 @@ class HelperTestCase(unittest.TestCase):
         self.assertEquals(actual, expected)
 
     def test_glossarize_with_overlapping_glossary_items_v1(self):
-        """create a "loan" then a "loan guarantee"""
+        'create a "loan" then a "loan guarantee"'
         self.create_loan()
         self.create_loan_guarantee()
         self.assert_ok_with_2_overlapping_glossary_items()
 
     def test_glossarize_with_2_overlapping_glossary_items_v2(self):
-        """create a "loan guarantee" then a "loan"""
+        'create a "loan guarantee" then a "loan"'
         self.create_loan_guarantee()
         self.create_loan()
         self.assert_ok_with_2_overlapping_glossary_items()
 
     def assert_ok_with_2_overlapping_glossary_items(self):
-        """create a "loan" then a "loan guarantee"""
-        """helper for test_glossarize_with_overlapping_glossary_items_"""
+        'helper for test_glossarize_with_overlapping_glossary_items_'
         plain = 'the loan guarantee was'
         actual = helpers.glossarize(plain)
         expected = 'the <a href="%s#loan-guarantee">loan guarantee</a> was' \
