@@ -2,6 +2,7 @@
 {% load humanize %}
 {% load bailout_tags %}
 {% load media %}
+{% load glossary_tags %}
 
 {% block additional_css %}
 	{% css "ui.theme.css" %}
@@ -24,6 +25,7 @@
 {% endblock %}
 
 {% block content %}
+{% filter glossarize %}
 
 <div class="container top_solid_box">&nbsp;</div>
 <div class="container white">
@@ -163,4 +165,5 @@
 	</div>
 </div>
 
+{% endfilter %}
 {% endblock %}
