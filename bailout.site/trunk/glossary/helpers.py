@@ -17,7 +17,9 @@ def glossarize(plain):
     items = Item.objects.order_by('-term_length')
 
     def link(item):
-        return """<a href="%s#%s">%s</a>""" % (base_url, item.slug, item.term)
+        # Note that the asterisk (*) has special meaning for msub_first and
+        # msub_global.
+        return """<a href="%s#%s">*</a>""" % (base_url, item.slug)
 
     mapping = [(item.term, link(item)) for item in items]
     return msub_first(plain, mapping)
