@@ -23,10 +23,13 @@ def glossarize(plain):
 
     mapping = []
     for item in items:
-        term = item.term
         hyperlink = link(item)
+        term = item.term
         mapping.extend([
             (r"\b%s\b" % term, hyperlink),
             (r"\b%s\b" % pluralize(term), hyperlink)
         ])
+        acronym = item.acronym
+        if acronym:
+            mapping.append((r"\b%s\b" % acronym, hyperlink))
     return msub_first(plain, mapping)
