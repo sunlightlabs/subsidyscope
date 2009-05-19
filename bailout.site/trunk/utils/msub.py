@@ -32,6 +32,11 @@ def msub_global(source, rep_list):
     >>> xform = [('loan', '<*>'), ('loan guarantee', '<*>')]
     >>> msub_global(text, xform)
     'the <Loan> Guarantee was'
+
+    >>> text = 'the Federal Deposit Insurance Corporation acted'
+    >>> xform = [('Federal Deposit Insurance Corporation', '<*>'), ('Deposit Insurance', '<*>')]
+    >>> msub_first(text, xform)
+    'the <Federal Deposit Insurance Corporation> acted'
     """
     old_items = [a for a, b in rep_list]
     escaped = map(re.escape, old_items)
@@ -40,7 +45,7 @@ def msub_global(source, rep_list):
 
     def lookup(match):
         key = match.group(0).lower()
-        return _replace(match, rep_dict[key])
+        return _replace_token(match, rep_dict[key])
 
     return regex.sub(lookup, source)
 
@@ -73,6 +78,11 @@ def msub_first(string, rep_list):
     >>> xform = [('loan', '<*>'), ('loan guarantee', '<*>')]
     >>> msub_first(text, xform)
     'the <Loan> Guarantee was'
+    
+    >>> text = 'the Federal Deposit Insurance Corporation acted'
+    >>> xform = [('Federal Deposit Insurance Corporation', '<*>'), ('Deposit Insurance', '<*>')]
+    >>> msub_first(text, xform)
+    'the <Federal Deposit Insurance Corporation> acted'
     """
     result = string
     dirties = []
@@ -85,7 +95,7 @@ def msub_first(string, rep_list):
                 if match_count < 1:
                     new = _replace_token(m, replace)
                     result = result[:a] + new + result[b:]
-                    dirties.append((a, a + len(replace)))
+                    dirties.append((a, a + len(new)))
                 else:
                     dirties.append((a, b))
                 match_count += 1
