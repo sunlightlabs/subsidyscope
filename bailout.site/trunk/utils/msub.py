@@ -76,21 +76,22 @@ def msub_first(string, rep_list):
     """
     result = string
     dirties = []
-    for old, new in rep_list:
-        matches = re.finditer(re.escape(old), result, re.IGNORECASE)
+    for pattern, replace in rep_list:
+        matches = re.finditer(pattern, result, re.IGNORECASE)
         match_count = 0
         for m in matches:
             if _clean_match(m, dirties):
                 a, b = m.start(), m.end()
                 if match_count < 1:
-                    result = result[:a] + _replace(m, new) + result[b:]
-                    dirties.append((a, a + len(new)))
+                    new = _replace_token(m, replace)
+                    result = result[:a] + new + result[b:]
+                    dirties.append((a, a + len(replace)))
                 else:
                     dirties.append((a, b))
                 match_count += 1
     return result
 
-def _replace(match, new):
+def _replace_token(match, new):
     token = re.escape('*')
     return re.sub(token, match.group(0), new, 1)
 
