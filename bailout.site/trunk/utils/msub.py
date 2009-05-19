@@ -13,29 +13,29 @@ def msub_global(source, rep_list):
     Borrowed code from "Replacing Multiple Patterns in a Single Pass"
     from Chapter 1 of the O'Reilly Python Cookbook.
 
-    >>> text = 'abcb'
+    >>> s = 'abcb'
     >>> xform = [('b', '<black>'), ('c', '<cat>'), ('a', '<air>'), ]
-    >>> msub_global(text, xform)
+    >>> msub_global(s, xform)
     '<air><black><cat><black>'
 
-    >>> text = 'Equity considerations mean that'
+    >>> s = 'Equity considerations mean that'
     >>> xform = [('equity', '<*>')]
-    >>> msub_global(text, xform)
+    >>> msub_global(s, xform)
     '<Equity> considerations mean that'
 
-    >>> text = 'the Loan Guarantee was'
+    >>> s = 'the Loan Guarantee was'
     >>> xform = [('loan guarantee', '<*>'), ('loan', '<*>')]
-    >>> msub_global(text, xform)
+    >>> msub_global(s, xform)
     'the <Loan Guarantee> was'
 
-    >>> text = 'the Loan Guarantee was'
+    >>> s = 'the Loan Guarantee was'
     >>> xform = [('loan', '<*>'), ('loan guarantee', '<*>')]
-    >>> msub_global(text, xform)
+    >>> msub_global(s, xform)
     'the <Loan> Guarantee was'
 
-    >>> text = 'the Federal Deposit Insurance Corporation acted'
+    >>> s = 'the Federal Deposit Insurance Corporation acted'
     >>> xform = [('Federal Deposit Insurance Corporation', '<*>'), ('Deposit Insurance', '<*>')]
-    >>> msub_first(text, xform)
+    >>> msub_first(s, xform)
     'the <Federal Deposit Insurance Corporation> acted'
     """
     old_items = [a for a, b in rep_list]
@@ -59,33 +59,38 @@ def msub_first(string, rep_list):
 
     Replacement is done with multiple passes.
 
-    >>> text = 'abcb'
+    >>> s = 'abcb'
     >>> xform = [('b', '<black>'), ('c', '<cat>'), ('a', '<air>')]
-    >>> msub_first(text, xform)
+    >>> msub_first(s, xform)
     '<air><black><cat>b'
 
-    >>> text = 'Equity considerations mean that'
+    >>> s = 'Equity considerations mean that'
     >>> xform = [('equity', '<*>')]
-    >>> msub_first(text, xform)
+    >>> msub_first(s, xform)
     '<Equity> considerations mean that'
 
-    >>> text = 'the Loan Guarantee was'
+    >>> s = 'the Loan Guarantee was'
     >>> xform = [('loan guarantee', '<*>'), ('loan', '<*>')]
-    >>> msub_first(text, xform)
+    >>> msub_first(s, xform)
     'the <Loan Guarantee> was'
 
-    >>> text = 'the Loan Guarantee was'
+    >>> s = 'the Loan Guarantee was'
     >>> xform = [('loan', '<*>'), ('loan guarantee', '<*>')]
-    >>> msub_first(text, xform)
+    >>> msub_first(s, xform)
     'the <Loan> Guarantee was'
     
-    >>> text = 'the Federal Deposit Insurance Corporation acted'
+    >>> s = 'the Federal Deposit Insurance Corporation acted'
     >>> xform = [('Federal Deposit Insurance Corporation', '<*>'), ('Deposit Insurance', '<*>')]
-    >>> msub_first(text, xform)
+    >>> msub_first(s, xform)
     'the <Federal Deposit Insurance Corporation> acted'
+    
+    >>> s = 'showing <a href="/media/20090131.csv">evidence</a> that'
+    >>> xform = [('csv', '<*>'), ('media', '<*>')]
+    >>> msub_first(s, xform)
+    'showing <a href="/media/20090131.csv">evidence</a> that'
     """
+    dirties = _selected_html_tag_spans(string)
     result = string
-    dirties = []
     for pattern, replace in rep_list:
         matches = re.finditer(pattern, result, re.IGNORECASE)
         match_count = 0
@@ -101,7 +106,34 @@ def msub_first(string, rep_list):
                 match_count += 1
     return result
 
+def _selected_html_tag_spans(string):
+    """
+    This is a very naive and lightweight way to find the spans (i.e. the
+    start and finish) of HTML tags.
+    
+    For example:
+    >>> f = _selected_html_tag_spans
+    >>> s1 = "According to <a href='http://cnn.com'>CNN</a>, "
+    >>> f(s1)
+    [(13, 45)]
+    >>> s2 = "the <a name='p02'>anchor</a> reported"
+    >>> f(s1 + s2)
+    [(13, 45), (51, 75)]
+    >>> f("<strong>hello</strong> there <div>world</div>!")
+    []
+
+    >>> s = 'showing <a href="/media/x_20090131.csv">evidence</a> that'
+    >>> f(s)
+    [(8, 52)]
+    """
+    pattern = '<a[^>]*>.*?</a>'
+    matches = re.finditer(pattern, string, re.IGNORECASE)
+    return [m.span() for m in matches]
+
 def _replace_token(match, new):
+    """
+    Replaces the token (*) with the match result.
+    """
     token = re.escape('*')
     return re.sub(token, match.group(0), new, 1)
 
