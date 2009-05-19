@@ -32,7 +32,6 @@ def msub_global(source, rep_list):
     >>> xform = [('loan', '<*>'), ('loan guarantee', '<*>')]
     >>> msub_global(text, xform)
     'the <Loan> Guarantee was'
-
     """
     old_items = [a for a, b in rep_list]
     escaped = map(re.escape, old_items)
@@ -85,8 +84,7 @@ def msub_first(string, rep_list):
                 a, b = m.start(), m.end()
                 if match_count < 1:
                     result = result[:a] + _replace(m, new) + result[b:]
-                    b = a + len(new)
-                    dirties.append((a, b))
+                    dirties.append((a, a + len(new)))
                 else:
                     dirties.append((a, b))
                 match_count += 1
