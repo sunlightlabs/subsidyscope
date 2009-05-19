@@ -23,27 +23,28 @@
 - term: Common Stock
   slug: common-stock
   definition: "Also called equity, is purchased, giving stockholders (shareholders) ownership and voting rights in a company, as well as entitlement to shares of the company's profits through dividends and/or capital appreciation."
-- term: Credit Default Swaps
-  slug: credit-default-swaps
-  definition: "A credit default swap is a type of insurance arrangement in which the buyer pays a premium at periodic intervals in exchange for a contingent payment in the event that a third party defaults. The size of the premium paid relative to the contingent payment generally increases with the likelihood of default."
-- term: Credit extended to AIG
+- term: Credit Default Swap
+  acronym: CDS
+  slug: credit-default-swap
+  definition: "A type of insurance arrangement in which the buyer pays a premium at periodic intervals in exchange for a contingent payment in the event that a third party defaults. The size of the premium paid relative to the contingent payment generally increases with the likelihood of default."
+- term: Credit Extended to AIG
   slug: credit-extended-to-aig
   definition: "In the fall of 2008, the Fed made two lines of credit available to AIG. The credit was intended to supply cash needed by AIG to compensate for a loss of liquidity due to devaluing assets."
-- term: Comma Separated Values
+- term: Comma Separated Value
   acronym: CSV
   slug: csv
   definition: "A CSV is a computer file format used for data tables that are in list form such as a financial spreadsheet. Each category is separated by commas and each line represents a row. CSVs help move such data between two different computer programs and can be opened in nearly all modern spreadsheet programs."
-- term: Currency Swaps
-  slug: currency-swaps
+- term: Currency Swap
+  slug: currency-swap
   definition: "The Fed is contracting with 14 foreign central banks to make U.S. dollars available temporarily. After a set period of time the original amounts of the dollars will be exchanged for the foreign currency."
 - term: Daily Closing Price
   slug: daily-closing-price
   definition: "The price of the last transaction for a given stock or bond at the end of a daily trading session."
-- term: Deposit insurance
+- term: Deposit Insurance
   slug: deposit-insurance
   definition: "A federal guarantee that each depositor at participating banks and thrifts will receive the total amount of their deposit up to a certain level if the financial institution becomes insolvent. (That level is currently $250,000, which is a temporary increase that took place in October 2008 from the regular guarantee amount of $100,000. Pending legislation would make the temporary increase in the deposit insurance limit to $250,000 permanent beyond 2009)."
-- term: Dividends
-  slug: dividends
+- term: Dividend
+  slug: dividend
   definition: "Earnings of a corporation that are distributed to stockholders, in proportion to the amount of stock owned, and usually paid on a quarterly basis."
 - term: Emergency Economic Stabilization Act
   acronym: EESA
@@ -51,18 +52,20 @@
   definition: "The Emergency Economic Stabilization Act of 2008 (EESA) was signed into law on October 3, 2008.  See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov</a>."
 - term: Equity
   slug: equity
+  synonyms:
+  - Equity Share
   definition: "Ownership interest of shareholders in a corporation.  Also called equity shares."
 - term: Exercise Price
   slug: exercise-price
   definition: "Also called strike price.  The specified price on an option contract at which the contract may be exercised, where the call option buyer has the right to buy the stock - and a put option buyer has the right to sell the stock-at the exercise price."
 - term: Federal Agency Debt Security
-  slug: federal-agency-debt-securities
+  slug: federal-agency-debt-security
   definition: "The Fed is purchasing up to $200 billion in debt issued by Fannie Mae, Freddie Mac and the Federal Home Loan Banks."
 - term: Insolvent
   slug: insolvent
   definition: "A firm whose liabilities exceed its assets."
-- term: Interest Rates
-  slug: interest-rates
+- term: Interest Rate
+  slug: interest-rate
   definition: "A rate charged to a borrower for the use of loaned money."
 - term: In-the-Money Warrant
   slug: in-the-money-warrant
@@ -96,8 +99,8 @@
 - term: Newly Issued Security
   slug: newly-issued-security
   definition: "A stock or bond publicly offered for the first time in an Initial Public Offering, or an additional issuance of stocks or bonds by a public company."
-- term: Non-Interest-Bearing Accounts
-  slug: non-interest-bearing-accounts
+- term: Non-Interest-Bearing Account
+  slug: non-interest-bearing-account
   definition: "Accounts that do not earn interest."
 - term: Out-of-the-Money Warrant
   slug: out-of-the-money-warrant
@@ -116,7 +119,9 @@
   definition: "Unsecured debt is debt that has no collateral, Senior unsecured debt ranks ahead of any unsecured debt in the right of repayment in the event of default."
 - term: Stock Price
   slug: stock-price
-  definition: "Also share price, is the price of a single share of a company's stock, the ownership of which makes the possessor a shareholder of the company."
+  synonyms:
+  - Share Price
+  definition: "The price of a single share of a company's stock, the ownership of which makes the possessor a shareholder of the company.  Also called share price."
 - term: Strike Price
   slug: strike-price
   definition: "See exercise price."
