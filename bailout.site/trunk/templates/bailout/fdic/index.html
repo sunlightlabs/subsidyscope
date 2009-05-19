@@ -27,13 +27,14 @@
 			
 			<h2 class="type_header">Bailout</h2>
 			<h3 class="section_header">FDIC</h3>
-
-			<p>The Federal Deposit Insurance Corporation administers several programs aimed at strengthening the banking sector. In an effort to encourage new bank lending and interbank borrowing, the FDIC created the Temporary Liquidity Guarantee Program (TLGP), which has two components. The Transaction Account Guarantee Option guarantees new {% glossary_link "senior unsecured debt" %} issued by financial institutions. The Debt Guarantee Option guarantees certain deposits in checking accounts and other <a href="{% url glossary %}#non-interest-bearing-accounts">non-interest-bearing accounts</a>.</p>
+            
+			{% filter glossarize %}
+			<p>The Federal Deposit Insurance Corporation administers several programs aimed at strengthening the banking sector. In an effort to encourage new bank lending and interbank borrowing, the FDIC created the Temporary Liquidity Guarantee Program (TLGP), which has two components. The Transaction Account Guarantee Option guarantees new senior unsecured debt issued by financial institutions. The Debt Guarantee Option guarantees certain deposits in checking accounts and other non-interest-bearing accounts.</p>
 
 			<p>As a result of a Freedom of Information Act request, Subsidyscope has obtained a list showing <a href="{% media_url %}/data/tlgp_opt_in_source_20090131.csv">which of the more than 14,000 banks, bank holding companies and thrift holding companies in the United States were participating in the TLGP as of Jan. 31, 2009</a>. The document includes the institution's name and location as well as its FDIC or Office of Thrift Supervision identification number and TLGP participation status. Users also may <a href="{% url index %}">search for a specific bank or financial institution on the Subsidyscope Web site</a> to find out whether it is participating in the TLGP.</p>
 
-			<p>In addition to the TLGP, the FDIC has temporarily raised the maximum amount of <a href="{% url glossary %}#deposit-insurance">deposit insurance</a> from $100,000 to $250,000 through 2009. If a bank fails and does not have enough resources to pay back insured depositors in full, the FDIC’s Deposit Insurance Fund makes up the difference. The fund is supported by fees imposed on the banking industry and may also tap a backstop line of credit from the Treasury if the fees are insufficient to cover losses. The fund seemed in little danger of being depleted until the recent financial crisis unfolded. However, as data and graphics compiled by Subsidyscope illustrate, <a href="{% url fdic_bank_failures %}">there have been a soaring number of bank failures and rapid depletion of the FDIC fund since early 2008</a>. Hover your cursor over the name of each program (in bold) for a more detailed description of its terms.</p>
-
+			<p>In addition to the TLGP, the FDIC has temporarily raised the maximum amount of deposit insurance from $100,000 to $250,000 through 2009. If a bank fails and does not have enough resources to pay back insured depositors in full, the FDIC’s Deposit Insurance Fund makes up the difference. The fund is supported by fees imposed on the banking industry and may also tap a backstop line of credit from the Treasury if the fees are insufficient to cover losses. The fund seemed in little danger of being depleted until the recent financial crisis unfolded. However, as data and graphics compiled by Subsidyscope illustrate, <a href="{% url fdic_bank_failures %}">there have been a soaring number of bank failures and rapid depletion of the FDIC fund since early 2008</a>. Hover your cursor over the name of each program (in bold) for a more detailed description of its terms.</p>
+		{% endfilter %}
 
 		</div>
 	</div>
