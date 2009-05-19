@@ -2,7 +2,7 @@ from models import Item
 from django.core.urlresolvers import reverse
 from utils.msub import msub_first
 from utils.msub import msub_global
-
+from utils.pluralize import pluralize
 
 def glossarize(plain):
     """
@@ -22,4 +22,6 @@ def glossarize(plain):
         return """<a href="%s#%s">*</a>""" % (base_url, item.slug)
 
     mapping = [(item.term, link(item)) for item in items]
+    plurals = [(pluralize(term), link) for term, link in mapping]
+    mapping.extend(plurals)
     return msub_first(plain, mapping)
