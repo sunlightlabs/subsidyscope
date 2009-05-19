@@ -48,10 +48,10 @@
 - term: Emergency Economic Stabilization Act
   acronym: EESA
   slug: eesa
-  definition: "The Emergency Economic Stabilization Act of 2008 (EESA) was signed into law on October 3, 2008.  Read more at <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov/roadtostability/programs.htm</a>."
+  definition: "The Emergency Economic Stabilization Act of 2008 (EESA) was signed into law on October 3, 2008.  See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov</a>."
 - term: Equity
   slug: equity
-  definition: "Ownership interest of shareholders in a corporation (also equity shares)."
+  definition: "Ownership interest of shareholders in a corporation.  Also called equity shares."
 - term: Exercise Price
   slug: exercise-price
   definition: "Also called strike price.  The specified price on an option contract at which the contract may be exercised, where the call option buyer has the right to buy the stock - and a put option buyer has the right to sell the stock-at the exercise price."
@@ -66,7 +66,7 @@
   definition: "A rate charged to a borrower for the use of loaned money."
 - term: In-the-Money Warrant
   slug: in-the-money-warrant
-  definition: "In-the-money means that the current stock price is above the exercise (or strike) price of the warrant. (See also: Out-of-the-Money definition)"
+  definition: "In-the-money means that the current stock price is above the exercise (or strike) price of the warrant. (Also see: out-of-the-money warrant.)"
 - term: Legacy Loans Program
   acronym: LLP
   slug: legacy-loans-program
@@ -101,7 +101,7 @@
   definition: "Accounts that do not earn interest."
 - term: Out-of-the-Money Warrant
   slug: out-of-the-money-warrant
-  definition: "Out-of-the-money means that the current stock price is below the exercise (or strike) price. (See also, In-the-Money definition)"
+  definition: "Out-of-the-money means that the current stock price is below the exercise (or strike) price. (Also see: in-the-money warrant.)"
 - term: Preferred Stock
   slug: preferred-stock
   definition: "Refers to shares of stock or equity in a company that provides a specific dividend to be paid before dividends are paid to common stockholders, and preferred stock shares take precedence over common stock shares if the company liquidates. While preferred stockholders typically receive fixed dividends, they do not usually have voting rights in the company."
@@ -137,7 +137,7 @@
 - term: Troubled Asset Relief Program
   acronym: TARP
   slug: tarp
-  definition: "The Troubled Assets Relief Program (TARP) was established under the EESA with the specific goal of stabilizing the United States financial system and preventing a systemic collapse.  (See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov/roadtostability/programs.htm</a>)"
+  definition: "The Troubled Assets Relief Program (TARP) was established under the EESA with the specific goal of stabilizing the United States financial system and preventing a systemic collapse.  (See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov</a>)"
 - term: Term Securities Lending Facility
   acronym: TSLF
   slug: tslf
