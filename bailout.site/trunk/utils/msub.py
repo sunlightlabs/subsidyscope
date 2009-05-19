@@ -13,6 +13,11 @@ def msub_global(source, rep_list):
     Borrowed code from "Replacing Multiple Patterns in a Single Pass"
     from Chapter 1 of the O'Reilly Python Cookbook.
 
+    >>> text = 'Equity considerations mean that'
+    >>> xform = [('equity', '<equity>')]
+    >>> msub_global(text, xform)
+    '<equity> considerations mean that'
+
     >>> text = 'the loan guarantee was'
     >>> xform = [('loan guarantee', '<loan guarantee>'), ('loan', '<loan>')]
     >>> msub_global(text, xform)
@@ -30,11 +35,12 @@ def msub_global(source, rep_list):
     """
     old_items = [a for a, b in rep_list]
     escaped = map(re.escape, old_items)
-    regex = re.compile("|".join(escaped))
+    regex = re.compile("|".join(escaped), re.IGNORECASE)
     rep_dict = dict(rep_list)
 
     def lookup(match):
-        return rep_dict[match.group(0)]
+        key = match.group(0).lower()
+        return rep_dict[key]
 
     return regex.sub(lookup, source)
 
@@ -47,6 +53,11 @@ def msub_first(string, rep_list):
     Only replaces one time for each tuple.
 
     Replacement is done with multiple passes.
+
+    >>> text = 'Equity considerations mean that'
+    >>> xform = [('equity', '<equity>')]
+    >>> msub_first(text, xform)
+    '<equity> considerations mean that'
 
     >>> text = 'the loan guarantee was'
     >>> xform = [('loan guarantee', '<loan guarantee>'), ('loan', '<loan>')]
@@ -66,7 +77,7 @@ def msub_first(string, rep_list):
     result = string
     dirties = []
     for old, new in rep_list:
-        matches = re.finditer(re.escape(old), result)
+        matches = re.finditer(re.escape(old), result, re.IGNORECASE)
         match_count = 0
         for m in matches:
             if _clean_match(m, dirties):
