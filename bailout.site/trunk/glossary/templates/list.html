@@ -13,7 +13,14 @@
             <h3 class="section_header">Glossary of Terms</h3>
             <dl id="glossary">
                 {% for item in glossary_items %}
-                <dt><a name="{{ item.slug }}">{{ item.term }}</a></dt>
+                {% spaceless %}
+                <dt>
+                    <a name="{{ item.slug }}">
+                        {{ item.term }}
+                        {% if item.acronym %}({{ item.acronym }}){% endif %}
+                    </a>
+                </dt>
+                {% endspaceless %}
                 <dd>{{ item.definition|safe }}</dd>
                 {% endfor %}
             </dl>
