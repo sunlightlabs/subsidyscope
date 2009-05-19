@@ -25,7 +25,6 @@
 {% endblock %}
 
 {% block content %}
-{% filter glossarize %}
 
 <div class="container top_solid_box">&nbsp;</div>
 <div class="container white">
@@ -40,10 +39,11 @@
 	<div class="tlr_padding">
 	<h2 class="type_header">Database</h2>
 	<h3 class="section_header">Transactions under the Troubled Asset Relief Program (TARP)</h3>
-	
+
+	{% filter glossarize %}
 	<p>This page is your gateway to information on the TARP transactions. Subsidyscope has gathered data on each transaction under the TARP program. The following table shows which companies received funds, how much they received, and when they received it.  Detailed data on individual transactions can be downloaded into a spreadsheet, and the visualizations provide a quick view of the transactions over time, by recipient and by date.</p>
 
-	<p>Although the government has provided a few companies with <a href="{% url glossary %}">loans</a> under TARP, nearly all the transactions have been purchases of equity stakes in those companies.  In exchange for funding from TARP, the government usually receives <a href="{% url glossary %}">preferred stock</a> and <a href="{% url glossary %}">warrants</a> from the company. For information on the value of warrants purchased through TARP, including daily stock prices, <a href="{% url tarp-warrants %}">click here</a>.</p>
+	<p>Although the government has provided a few companies with loans under TARP, nearly all the transactions have been purchases of equity stakes in those companies.  In exchange for funding from TARP, the government usually receives preferred stock and warrants from the company. For information on the value of warrants purchased through TARP, including daily stock prices, <a href="{% url tarp-warrants %}">click here</a>.</p>
 
 	<p>The amount of funding provided through a TARP transaction can be found in the "Disbursements Received" column of the table (this corresponds to what the Treasury Department calls "Prices Paid" in its publications). The table also includes information on the size of those companies, as measured by their assets.</p>
 
@@ -54,6 +54,7 @@
 	<p><i>(Updated 5/08/09)</i></p>
 	
 	<p>Click each tab below for different ways to view the TARP data.</p>
+	{% endfilter %}
 	
 </div>
 
@@ -165,5 +166,4 @@
 	</div>
 </div>
 
-{% endfilter %}
 {% endblock %}
