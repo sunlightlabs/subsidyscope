@@ -8,6 +8,7 @@ class Item(models.Model):
     term        = models.CharField(max_length=255, unique=True, db_index=True)
     term_length = models.IntegerField(db_index=True)
     acronym     = models.CharField(max_length=32, db_index=True)
+    synonym     = models.CharField(max_length=255, db_index=True)
     definition  = models.TextField()
 
     def __unicode__(self):

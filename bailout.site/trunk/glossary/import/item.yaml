@@ -1,5 +1,6 @@
 ---
 - term: Asset-Backed Commercial Paper
+  acronym: ABCP
   slug: asset-backed-commercial-paper
   definition: "A corporate debt due within a year, and backed by assets such as real estate, autos and other commercial assets. Asset-backed commercial paper is similar to a mortgage-backed security; both are packages of loans resold to other investors. However, asset-backed commercial paper includes assets other than home mortgages."
 - term: Asset-Backed Commercial Paper Money Market Mutual Fund Liquidity Facility Facility
@@ -52,8 +53,7 @@
   definition: "The Emergency Economic Stabilization Act of 2008 (EESA) was signed into law on October 3, 2008.  See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov</a>."
 - term: Equity
   slug: equity
-  synonyms:
-  - Equity Share
+  synonym: Equity Share
   definition: "Ownership interest of shareholders in a corporation.  Also called equity shares."
 - term: Exercise Price
   slug: exercise-price
@@ -82,7 +82,7 @@
   definition: "A commitment on the part of the guaranteeing agency or enterprise to pay off a loan if the borrower defaults."  
 - term: Maiden Lane LLC
   slug: maiden-lane-i
-  definition: "The Fed created Maiden Lane LLC and extended a $29 billion credit line to the LLC for JPMorgan Chase to acquire certain assets of Bear Stearns. The LLC will manage those assets to maximize the likelihood that the investment is repaid."
+  definition: "The Fed created Maiden Lane and extended a $29 billion credit line to the LLC for JPMorgan Chase to acquire certain assets of Bear Stearns. The LLC will manage those assets to maximize the likelihood that the investment is repaid."
 - term: Maiden Lane II LLC
   slug: maiden-lane-ii
   definition: "The Fed created Maiden Lane II to purchase residential mortgage-backed securities from AIG."
@@ -119,8 +119,7 @@
   definition: "Unsecured debt is debt that has no collateral, Senior unsecured debt ranks ahead of any unsecured debt in the right of repayment in the event of default."
 - term: Stock Price
   slug: stock-price
-  synonyms:
-  - Share Price
+  synonym: Share Price
   definition: "The price of a single share of a company's stock, the ownership of which makes the possessor a shareholder of the company.  Also called share price."
 - term: Strike Price
   slug: strike-price

@@ -14,6 +14,8 @@ def glossarize(plain):
     * Longer glossary items match first.
     """
     base_url = reverse("glossary")
+
+    # Do an initial sort
     items = Item.objects.order_by('-term_length')
 
     def link(item):
@@ -32,4 +34,14 @@ def glossarize(plain):
         acronym = item.acronym
         if acronym:
             mapping.append((r"\b%s\b" % acronym, hyperlink))
+        synonym = item.synonym
+        if synonym:
+            mapping.extend([
+                (r"\b%s\b" % synonym, hyperlink),
+                (r"\b%s\b" % pluralize(synonym), hyperlink)
+            ])
+    
+    # Do final sort: longer strings towards the front
+    mapping.sort(cmp=lambda x, y: len(y[0]) - len(x[0]))
+
     return msub_first(plain, mapping)
