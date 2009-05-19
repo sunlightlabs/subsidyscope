@@ -50,7 +50,7 @@
 - term: Emergency Economic Stabilization Act
   acronym: EESA
   slug: eesa
-  definition: "The Emergency Economic Stabilization Act of 2008 (EESA) was signed into law on October 3, 2008.  See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov</a>."
+  definition: "The Emergency Economic Stabilization Act of 2008 (EESA) was signed into law on October 3, 2008.  See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>www.financialstability.gov</a>."
 - term: Equity
   slug: equity
   synonym: Equity Share
@@ -61,6 +61,10 @@
 - term: Federal Agency Debt Security
   slug: federal-agency-debt-security
   definition: "The Fed is purchasing up to $200 billion in debt issued by Fannie Mae, Freddie Mac and the Federal Home Loan Banks."
+- term: Federal Deposit Insurance Corporation
+  acronym: FDIC
+  slug: fdic
+  definition: "The Federal Deposit Insurance Corporation (FDIC) preserves and promotes public confidence in the U.S. financial system by insuring deposits in banks and thrift institutions for up to $250,000 (through December 31, 2009); by identifying, monitoring and addressing risks to the deposit insurance funds; and by limiting the effect on the economy and the financial system when a bank or thrift institution fails. (from <a href='http://www.fdic.gov/help/faq.html'>fdic.gov</a>) "
 - term: Insolvent
   slug: insolvent
   definition: "A firm whose liabilities exceed its assets."
@@ -141,7 +145,7 @@
 - term: Troubled Asset Relief Program
   acronym: TARP
   slug: tarp
-  definition: "The Troubled Assets Relief Program (TARP) was established under the EESA with the specific goal of stabilizing the United States financial system and preventing a systemic collapse.  (See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov</a>)"
+  definition: "The Troubled Assets Relief Program (TARP) was established under the EESA with the specific goal of stabilizing the United States financial system and preventing a systemic collapse.  (See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>www.financialstability.gov</a>)"
 - term: Term Securities Lending Facility
   acronym: TSLF
   slug: tslf
