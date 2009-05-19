@@ -21,7 +21,12 @@ def glossarize(plain):
         # msub_global.
         return """<a href="%s#%s">*</a>""" % (base_url, item.slug)
 
-    mapping = [(item.term, link(item)) for item in items]
-    plurals = [(pluralize(term), link) for term, link in mapping]
-    mapping.extend(plurals)
+    mapping = []
+    for item in items:
+        term = item.term
+        hyperlink = link(item)
+        mapping.extend([
+            (r"\b%s\b" % term, hyperlink),
+            (r"\b%s\b" % pluralize(term), hyperlink)
+        ])
     return msub_first(plain, mapping)
