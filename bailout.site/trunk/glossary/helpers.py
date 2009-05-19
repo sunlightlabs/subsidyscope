@@ -20,4 +20,4 @@ def glossarize(plain):
         return """<a href="%s#%s">%s</a>""" % (base_url, item.slug, item.term)
 
     mapping = [(item.term, link(item)) for item in items]
-    return msub_global(plain, mapping)
+    return msub_first(plain, mapping)

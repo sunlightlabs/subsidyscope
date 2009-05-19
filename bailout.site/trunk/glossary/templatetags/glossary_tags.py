@@ -8,8 +8,7 @@ register = template.Library()
 @stringfilter
 def glossarize(value):
     """
-    Custom template tag.
-    A filter.
+    Add hyperlinks to specific glossary terms.
     """
     return glossary.helpers.glossarize(value)
 

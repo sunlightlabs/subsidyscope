@@ -13,15 +13,20 @@ def msub_global(source, rep_list):
     Borrowed code from "Replacing Multiple Patterns in a Single Pass"
     from Chapter 1 of the O'Reilly Python Cookbook.
 
-    >>> fowl = 'duck duck goose duck duck'
-    >>> sounds = [('duck', 'quack'), ('goose', 'honk')]
-    >>> msub_global(fowl, sounds)
-    'quack quack honk quack quack'
-
-    >>> text = 'the blue dog jumped over the yellow fox'
-    >>> xform = [('dog', 'cat'), ('cat jumped over', 'cat clawed')]
+    >>> text = 'the loan guarantee was'
+    >>> xform = [('loan guarantee', '<loan guarantee>'), ('loan', '<loan>')]
     >>> msub_global(text, xform)
-    'the blue cat jumped over the yellow fox'
+    'the <loan guarantee> was'
+
+    >>> text = 'the loan guarantee was'
+    >>> xform = [('loan', '<loan>'), ('loan guarantee', '<loan guarantee>')]
+    >>> msub_global(text, xform)
+    'the <loan> guarantee was'
+
+    >>> text = 'abcb'
+    >>> xform = [('b', '<black>'), ('c', '<cat>'), ('a', '<air>'), ]
+    >>> msub_global(text, xform)
+    '<air><black><cat><black>'
     """
     old_items = [a for a, b in rep_list]
     escaped = map(re.escape, old_items)
@@ -33,49 +38,102 @@ def msub_global(source, rep_list):
 
     return regex.sub(lookup, source)
 
-def msub_first(source, rep_list):
+def msub_first(string, rep_list):
     """
-    Do a multiple substitution on the 'source' parameter. The
-    'rep_list' parameter is a list of replacements, where each list item is a
-    tuple: (old, new).
+    Do a multiple substitution on the 'string' parameter. The 'rep_list'
+    parameter is a list of replacements, where each list item is a tuple:
+    (old, new).
 
     Only replaces one time for each tuple.
-    
+
     Replacement is done with multiple passes.
 
-    >>> fowl = 'duck duck goose duck duck'
-    >>> sounds = [('duck', 'quack'), ('goose', 'honk')]
-    >>> msub_first(fowl, sounds)
-    'quack duck honk duck duck'
-
-    >>> text = 'the blue dog jumped over the yellow fox'
-    >>> xform = [('dog', 'cat'), ('cat jumped over', 'cat clawed')]
+    >>> text = 'the loan guarantee was'
+    >>> xform = [('loan guarantee', '<loan guarantee>'), ('loan', '<loan>')]
     >>> msub_first(text, xform)
-    'the blue cat jumped over the yellow fox'
+    'the <loan guarantee> was'
+
+    >>> text = 'the loan guarantee was'
+    >>> xform = [('loan', '<loan>'), ('loan guarantee', '<loan guarantee>')]
+    >>> msub_first(text, xform)
+    'the <loan> guarantee was'
+
+    >>> text = 'abcb'
+    >>> xform = [('b', '<black>'), ('c', '<cat>'), ('a', '<air>')]
+    >>> msub_first(text, xform)
+    '<air><black><cat>b'
     """
-    # First phase: find matches for tuples
-    matches = []
+    result = string
+    dirties = []
     for old, new in rep_list:
-        regex = re.compile(re.escape(old))
-        m = regex.search(source)
-        if m: matches.append(m)
-
-    # Second phase: do replacements
-    rep_dict = dict(rep_list)
-    result = source
-    length_correction = 0
-    for m in matches:
-        old = m.group(0)
-        if any([old == a for a, b in rep_list]):
-            new = rep_dict[old]
-            a = m.start() + length_correction
-            b = m.end() + length_correction
-            result = result[:a] + new + result[b:]
-            length_correction += len(new) - len(old)
-
-    # Note: this function is split into two phases in order to only replace
-    # the first occurrence of a given term.
+        matches = re.finditer(re.escape(old), result)
+        match_count = 0
+        for m in matches:
+            if _clean_match(m, dirties):
+                a, b = m.start(), m.end()
+                if match_count < 1:
+                    result = result[:a] + new + result[b:]
+                    b = a + len(new)
+                    dirties.append((a, b))
+                else:
+                    dirties.append((a, b))
+                match_count += 1
     return result
+
+def _clean_match(match, dirties):
+    """
+    >>> m = re.search('me', '---me---')
+
+    >>> _clean_match(m, [])
+    True
+    >>> _clean_match(m, [(0, 1)])
+    True
+    >>> _clean_match(m, [(1, 2)])
+    True
+    >>> _clean_match(m, [(2, 3)])
+    True
+    >>> _clean_match(m, [(3, 4)])
+    False
+    >>> _clean_match(m, [(4, 5)])
+    False
+    >>> _clean_match(m, [(5, 6)])
+    True
+    >>> _clean_match(m, [(6, 7)])
+    True
+    >>> _clean_match(m, [(7, 8)])
+    True
+
+    >>> _clean_match(m, [(0, 2)])
+    True
+    >>> _clean_match(m, [(1, 3)])
+    True
+    >>> _clean_match(m, [(2, 4)])
+    False
+    >>> _clean_match(m, [(3, 5)])
+    False
+    >>> _clean_match(m, [(4, 6)])
+    False
+    >>> _clean_match(m, [(5, 7)])
+    True
+    >>> _clean_match(m, [(6, 8)])
+    True
+    """
+    ma, mb = match.start(), match.end() - 1
+
+    # Return false if  (ma, mb) overlaps any dirties.
+    for d0, d1 in dirties:
+        a, b = d0, d1 - 1
+        if a <= ma and ma <= b:
+            return False
+        elif a <= mb and mb <= b:
+            return False
+        elif ma <= a and a <= mb:
+            return False
+        elif ma <= b and b <= mb:
+            return False
+
+    # If no dirties, we have a clean match.
+    return True
 
 if __name__ == "__main__":
     import doctest
