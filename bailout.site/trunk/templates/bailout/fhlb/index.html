@@ -1,0 +1,97 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load webdesign %}
+{% load media %}
+{% load morsel_tags %}
+
+{% block additional_js %}
+	{% js "swfobject.js" %}
+{% endblock %}
+
+{% block additional_css %}
+	<style type="text/css">@import "{% url bailout-visualization-css %}";</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+	
+	<div class="span-5">
+			{% include "includes/bailout_left_nav.html" %}
+	</div>
+	
+	<div class="span-15">
+		<div class="tlr_padding">
+		
+			<h2 class="type_header">Bailout</h2>
+			<h3 class="section_header">{% morsel title %}</h3>
+			
+			{% morsel top %}
+			
+		</div>
+	</div>
+			
+	<div class="span-4 last">&nbsp;</div>
+			
+		
+	<div class="span-24">
+			
+		<div class="lr_padding">
+
+			<div style="padding: 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;" >		
+	
+			{% morsel graph1 %}
+			
+			</div>
+		</div>
+	</div>
+
+	<div class="span-5">&nbsp;</div>
+
+	<div class="span-15">
+			
+		<div class="tlr_padding">
+			
+			{% morsel middle %}
+			
+			</div>
+	</div>
+			
+	<div class="span-4 last">&nbsp;</div>
+			
+		
+	<div class="span-24">
+			
+		<div class="lr_padding">
+
+			<div style="padding: 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;" >		
+	
+			{% morsel graph2 %}
+			
+			</div>
+		</div>
+	</div>
+
+	<div class="span-5">&nbsp;</div>
+
+	<div class="span-15">
+			
+		<div class="tlr_padding">
+			
+			{% morsel bottom %}
+			
+		</div>
+	</div>
+	
+
+	<div class="span-4 last">&nbsp;</div>
+	
+	<div class="span-24">
+		<div class="full_padding">
+
+		</div>
+	</div>
+</div>
+
+{% endblock %}
