@@ -13,25 +13,26 @@ def msub_global(source, rep_list):
     Borrowed code from "Replacing Multiple Patterns in a Single Pass"
     from Chapter 1 of the O'Reilly Python Cookbook.
 
-    >>> text = 'Equity considerations mean that'
-    >>> xform = [('equity', '<equity>')]
-    >>> msub_global(text, xform)
-    '<equity> considerations mean that'
-
-    >>> text = 'the loan guarantee was'
-    >>> xform = [('loan guarantee', '<loan guarantee>'), ('loan', '<loan>')]
-    >>> msub_global(text, xform)
-    'the <loan guarantee> was'
-
-    >>> text = 'the loan guarantee was'
-    >>> xform = [('loan', '<loan>'), ('loan guarantee', '<loan guarantee>')]
-    >>> msub_global(text, xform)
-    'the <loan> guarantee was'
-
     >>> text = 'abcb'
     >>> xform = [('b', '<black>'), ('c', '<cat>'), ('a', '<air>'), ]
     >>> msub_global(text, xform)
     '<air><black><cat><black>'
+
+    >>> text = 'Equity considerations mean that'
+    >>> xform = [('equity', '<*>')]
+    >>> msub_global(text, xform)
+    '<Equity> considerations mean that'
+
+    >>> text = 'the Loan Guarantee was'
+    >>> xform = [('loan guarantee', '<*>'), ('loan', '<*>')]
+    >>> msub_global(text, xform)
+    'the <Loan Guarantee> was'
+
+    >>> text = 'the Loan Guarantee was'
+    >>> xform = [('loan', '<*>'), ('loan guarantee', '<*>')]
+    >>> msub_global(text, xform)
+    'the <Loan> Guarantee was'
+
     """
     old_items = [a for a, b in rep_list]
     escaped = map(re.escape, old_items)
@@ -40,7 +41,7 @@ def msub_global(source, rep_list):
 
     def lookup(match):
         key = match.group(0).lower()
-        return rep_dict[key]
+        return _replace(match, rep_dict[key])
 
     return regex.sub(lookup, source)
 
@@ -54,25 +55,25 @@ def msub_first(string, rep_list):
 
     Replacement is done with multiple passes.
 
-    >>> text = 'Equity considerations mean that'
-    >>> xform = [('equity', '<equity>')]
-    >>> msub_first(text, xform)
-    '<equity> considerations mean that'
-
-    >>> text = 'the loan guarantee was'
-    >>> xform = [('loan guarantee', '<loan guarantee>'), ('loan', '<loan>')]
-    >>> msub_first(text, xform)
-    'the <loan guarantee> was'
-
-    >>> text = 'the loan guarantee was'
-    >>> xform = [('loan', '<loan>'), ('loan guarantee', '<loan guarantee>')]
-    >>> msub_first(text, xform)
-    'the <loan> guarantee was'
-
     >>> text = 'abcb'
     >>> xform = [('b', '<black>'), ('c', '<cat>'), ('a', '<air>')]
     >>> msub_first(text, xform)
     '<air><black><cat>b'
+
+    >>> text = 'Equity considerations mean that'
+    >>> xform = [('equity', '<*>')]
+    >>> msub_first(text, xform)
+    '<Equity> considerations mean that'
+
+    >>> text = 'the Loan Guarantee was'
+    >>> xform = [('loan guarantee', '<*>'), ('loan', '<*>')]
+    >>> msub_first(text, xform)
+    'the <Loan Guarantee> was'
+
+    >>> text = 'the Loan Guarantee was'
+    >>> xform = [('loan', '<*>'), ('loan guarantee', '<*>')]
+    >>> msub_first(text, xform)
+    'the <Loan> Guarantee was'
     """
     result = string
     dirties = []
@@ -83,13 +84,17 @@ def msub_first(string, rep_list):
             if _clean_match(m, dirties):
                 a, b = m.start(), m.end()
                 if match_count < 1:
-                    result = result[:a] + new + result[b:]
+                    result = result[:a] + _replace(m, new) + result[b:]
                     b = a + len(new)
                     dirties.append((a, b))
                 else:
                     dirties.append((a, b))
                 match_count += 1
     return result
+
+def _replace(match, new):
+    token = re.escape('*')
+    return re.sub(token, match.group(0), new, 1)
 
 def _clean_match(match, dirties):
     """
