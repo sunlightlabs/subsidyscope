@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal
 from cfda.models import ProgramDescription
 
 class RawFAADSRecord(models.Model):
@@ -54,7 +55,7 @@ class RawFAADSRecord(models.Model):
         ('L', "Late reporting of an action occurring in a prior quarter")
     )
 
-    cfda_program_number = models.ForeignKey(ProgramDescription)
+    cfda_program_number = models.CharField("CFDA Program Number", max_length=7)
     sai = models.CharField("State Application Identifier", max_length=20)
     recipient_name = models.CharField("Recipient Name", max_length=45)
     recipient_city_code = models.CharField("Recipient City Code", max_length=5, help_text="FIPS 55-3 place code")
@@ -91,8 +92,24 @@ class RawFAADSRecord(models.Model):
     state_name = models.CharField("State Name", max_length=25)
     project_description = models.TextField("Project Description")
     
+    def extract_faads_field(self, line, fieldname):
+        record_positions = self.SOURCE_FILE_RECORD_POSITIONS[fieldname]
+        transform = lambda x: x.strip()
+        if len(record_positions)>2 and callable(record_positions[2]):
+            transform = record_positions[2]
+        return transform(line[(record_positions[0]-1):(record_positions[1])])
+       
+    
+    def process_faads_line(self, line):
+        for field in self._meta.fields:
+            if field.name in self.SOURCE_FILE_RECORD_POSITIONS:                    
+                setattr(self, field.name, self.extract_faads_field(line, field.name))
+                
+                    
+        
+
     SOURCE_FILE_RECORD_POSITIONS = {
-        "cfda_program_number": (1, 7), 
+        "cfda_program_number": (1, 7, lambda x: ProgramDescription.objects.filter(program_number=Decimal(x.strip()))[0]), 
         "sai": (8, 27), 
         "recipient_name": (28, 72), 
         "recipient_city_code": (73, 77), 
