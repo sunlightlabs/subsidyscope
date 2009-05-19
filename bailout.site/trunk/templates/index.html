@@ -6,34 +6,73 @@
 {% block content %}
 
 <script type="text/javascript">
+var carouselInterval = null;
+var initialTabToShowIndex = 0;
+
+function handleCarouselClick(tabToFadeIn)
+{
+	var tabContainers = $('div.tabs > div');
+	tabContainers.each(function(i){						
+		if($(this).css('display')!='none')
+		{
+			$(this).fadeOut(300, function(){									
+				tabToFadeIn.fadeIn(300);
+			});
+		}
+		else
+		{
+			$(this).hide();
+		}
+	});						
+
+  $('div.tabs ul.tabNavigation a').removeClass('selected');
+  $('div.tabs ul.tabNavigation a[href=#' + tabToFadeIn.attr('id') + ']').addClass('selected');
+  return false;	
+}
+
 $(function () {
-						// set up carousel
-                        var tabContainers = $('div.tabs > div');
-                        tabContainers.hide().filter(':first').show();                        
-                        $('div.tabs ul.tabNavigation a').click(function () {
-                                tabContainers.hide();
-                                tabContainers.filter(this.hash).show();
-                                $('div.tabs ul.tabNavigation a').removeClass('selected');
-                                $(this).addClass('selected');
-                                return false;
-                        }).filter(':first').click();
-                
 
-						// set up "in the news" block
-						$(function(){
-							var MAX_NEWS_ITEMS = 10;
-							$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
-							function(data){		
-								$.each(data.value.items, function(i,item){
-									if(i<MAX_NEWS_ITEMS)
-									{
-										$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
-									}
-								});		      
-							});
-						});
+		var tabContainers = $('div.tabs > div');				
+		tabContainers.hide().filter(':eq(' + initialTabToShowIndex + ')').show();                        
+		$('div.tabs ul.tabNavigation a').click(function() {		        
+			clearInterval(carouselInterval);
+			handleCarouselClick($(this.hash));		
+		});	
+    
+		// set up carousel auto-rotation
+		carouselInterval = setInterval(function(){
+			var buttonToClick = null;
+			var selectedTabButton = $('div.tabs ul.tabNavigation a.selected');
+			if (selectedTabButton.length==0)
+				// if nothing has been clicked, the "selected" class won't be set
+				selectedTabButton = $('div.tabs ul.tabNavigation a:eq(' + initialTabToShowIndex + ')');
+			
+			// if there's a selected button, click the next one
+			buttonToClick = selectedTabButton.parent().next().find('a');
+			// ...unless it was the last one, in which case click the first one
+			if(buttonToClick.length==0)
+					buttonToClick = $('div.tabs ul.tabNavigation a:first');
 
-				});
+			if(buttonToClick.length>0)
+				handleCarouselClick($(buttonToClick.attr('href')));
+		}, 8000);
+
+		
+		// set up "in the news" block
+		$(function(){
+			var MAX_NEWS_ITEMS = 10;
+			$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
+			function(data){		
+				$.each(data.value.items, function(i,item){
+					if(i<MAX_NEWS_ITEMS)
+					{
+						$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
+					}
+				});		      
+			});
+		});
+
+});
 </script>
 	
 
