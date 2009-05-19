@@ -13,8 +13,9 @@
 - term: Call Option
   definition: "An agreement that gives an investor the right (but not the obligation) to buy a stock, bond, commodity, or other instrument at a specified price within a specific time period. Call options give the holder the right to 'call in' and buy an asset. The holder profits on a call when the underlying asset increases in price."
   slug: call-option
-- term: Certificates of Deposit
-  slug: certificates-of-deposit
+- term: Certificate of Deposit
+  acronym: CD
+  slug: certificate-of-deposit
   definition: "A short-term deposit offered by banks and thrifts where depositors agree to keep their money in the account for a specified amount of time in exchange for a specified interest rate. Depositors face a penalty if money is withdrawn before the CD matures."
 - term: Commercial Paper
   slug: commercial-paper
@@ -47,7 +48,7 @@
 - term: Emergency Economic Stabilization Act
   acronym: EESA
   slug: eesa
-  definition: "The Emergency Economic Stabilization Act of 2008 (EESA) was signed into law on October 3, 2008.  Read more at <a href="http://www.financialstability.gov/roadtostability/programs.htm">http://www.financialstability.gov/roadtostability/programs.htm</a>."
+  definition: "The Emergency Economic Stabilization Act of 2008 (EESA) was signed into law on October 3, 2008.  Read more at <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov/roadtostability/programs.htm</a>."
 - term: Equity
   slug: equity
   definition: "Ownership interest of shareholders in a corporation (also equity shares)."
@@ -136,7 +137,7 @@
 - term: Troubled Asset Relief Program
   acronym: TARP
   slug: tarp
-  definition: "The Troubled Assets Relief Program (TARP) was established under the EESA with the specific goal of stabilizing the United States financial system and preventing a systemic collapse.  (See <a href="http://www.financialstability.gov/roadtostability/programs.htm">http://www.financialstability.gov/roadtostability/programs.htm</a>)"
+  definition: "The Troubled Assets Relief Program (TARP) was established under the EESA with the specific goal of stabilizing the United States financial system and preventing a systemic collapse.  (See <a href='http://www.financialstability.gov/roadtostability/programs.htm'>http://www.financialstability.gov/roadtostability/programs.htm</a>)"
 - term: Term Securities Lending Facility
   acronym: TSLF
   slug: tslf
