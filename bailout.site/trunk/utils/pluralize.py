@@ -11,6 +11,8 @@ def pluralize(noun):
     'dairies'
     >>> pluralize('Box')
     'Boxes'
+    >>> pluralize('Debt Security')
+    'Debt Securities'
     
     Borrowed heavily from an example from "Diving into Python":
     http://www.diveintopython.org/dynamic_functions/stage6.html
