@@ -86,16 +86,16 @@
 - term: Maiden Lane III LLC
   slug: maiden-lane-iii
   definition: "The Fed created Maiden Lane III to purchase multi-sector collateralized debt obligations on which AIG had written credit default swap contracts."
-- term: Money-Market Mutual Funds
-  slug: money-market-mutual-funds
+- term: Money-Market Mutual Fund
+  slug: money-market-mutual-fund
   definition: "An open-end mutual fund which invests only in money markets. Such funds invest in short term (one day to one year) debt such as Treasury bills, certificates of deposit, and commercial paper. The primary goal is the preservation of principal with modest dividends. Most deposits are not FDIC insured."
-- term: Mortgage-Backed Securities
+- term: Mortgage-Backed Security
   acronym: MBS
-  slug: mortgage-backed-securities
+  slug: mortgage-backed-security
   definition: "Debt obligations that represent claims to the cash flows from pools of mortgage loans, most commonly on residential property. Mortgage loans are purchased from banks, mortgage companies, and other originators and then assembled into pools by a governmental, quasi-governmental, or private entity. The entity then issues securities that represent claims on the principal and interest payments made by borrowers on the loans in the pool, a process known as securitization."
-- term: Newly Issued Securities
-  slug: newly-issued-securities
-  definition: "Stocks or bonds publicly offered for the first time in an Initial Public Offering, or an additional issuance of stocks or bonds by a public company."
+- term: Newly Issued Security
+  slug: newly-issued-security
+  definition: "A stock or bond publicly offered for the first time in an Initial Public Offering, or an additional issuance of stocks or bonds by a public company."
 - term: Non-Interest-Bearing Accounts
   slug: non-interest-bearing-accounts
   definition: "Accounts that do not earn interest."
