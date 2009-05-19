@@ -13,10 +13,13 @@ def pluralize(noun):
     'Boxes'
     >>> pluralize('Debt Security')
     'Debt Securities'
+    >>> pluralize('')
+    ''
     
     Borrowed heavily from an example from "Diving into Python":
     http://www.diveintopython.org/dynamic_functions/stage6.html
     """
+    if noun == '': return ''
     rules = [
         ('^(sheep|deer|fish|moose)$' , '($)'   , '\1'   ),
         ('^(aircraft|series|haiku)$' , '($)'   , '\1'   ),
