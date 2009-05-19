@@ -29,8 +29,7 @@ def glossarize(plain):
         term = item.term
         mapping.extend([
             (r"\b%s\b" % term, hyperlink),
-            (r"\b%s\b" % pluralize(term), hyperlink)
-        ])
+            (r"\b%s\b" % pluralize(term), hyperlink)])
         acronym = item.acronym
         if acronym:
             mapping.append((r"\b%s\b" % acronym, hyperlink))
@@ -38,8 +37,7 @@ def glossarize(plain):
         if synonym:
             mapping.extend([
                 (r"\b%s\b" % synonym, hyperlink),
-                (r"\b%s\b" % pluralize(synonym), hyperlink)
-            ])
+                (r"\b%s\b" % pluralize(synonym), hyperlink)])
     
     # Do final sort: longer strings towards the front
     mapping.sort(cmp=lambda x, y: len(y[0]) - len(x[0]))
