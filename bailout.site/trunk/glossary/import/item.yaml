@@ -65,6 +65,10 @@
   acronym: FDIC
   slug: fdic
   definition: "The Federal Deposit Insurance Corporation (FDIC) preserves and promotes public confidence in the U.S. financial system by insuring deposits in banks and thrift institutions for up to $250,000 (through December 31, 2009); by identifying, monitoring and addressing risks to the deposit insurance funds; and by limiting the effect on the economy and the financial system when a bank or thrift institution fails. (from <a href='http://www.fdic.gov/help/faq.html'>fdic.gov</a>) "
+- term: Federal Information Processing Standard
+  acronym: FIPS
+  slug: fips
+  definition: "A set of standards developed by the National Institute of Standards and Technology for encoding government data. Most commonly known for its numeric codes defining U.S. geographic locations (e.g. states, counties and cities)."
 - term: Insolvent
   slug: insolvent
   definition: "A firm whose liabilities exceed its assets."
