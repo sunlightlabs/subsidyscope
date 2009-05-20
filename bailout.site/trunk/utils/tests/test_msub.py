@@ -65,13 +65,14 @@ class MsubFirstTestCase(unittest.TestCase, SharedExamples):
         r = msub_first(s, x)
         self.assertEqual(r, 'more <a href="/media/1.csv">data</a> that')
 
-    def test_two_paragraphs(self):
+    def test_two_replacements(self):
         "Text inside of tags should be off-limits"
-        p0 = '<p>Jeremy and James</p>'
-        p1 = '<p>Go <a href="http://bit.ly/2348">here</a>.</p>\n\n\t\t'
-        p2 = '<p>A <a href="http://site.com/2009.csv">link</a>!</p>'
-        s = p0 + p1 + p2
-        x = [('csv', '<*>')]
+        p1 = '<p>TARP allows the United States Department of the Treasury to purchase or insure up to $700 billion of "troubled" assets.</p>'
+        p2 = '<p>A <a href="/data/2009.csv">link</a>!</p>'
+        s = "".join([p1, p2])
+        x = [
+            ('treasury', '<a href="/glossary/#treasury">*</a>'),
+            ('csv',      '<a href="/glossary/#csv">*</a>')]
         r = msub_first(s, x)
         self.assertEqual(r, s)
 
