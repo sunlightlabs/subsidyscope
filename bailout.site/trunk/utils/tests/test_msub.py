@@ -67,14 +67,12 @@ class MsubFirstTestCase(unittest.TestCase, SharedExamples):
 
     def test_two_replacements(self):
         "Text inside of tags should be off-limits"
-        p1 = '<p>TARP allows the United States Department of the Treasury to purchase or insure up to $700 billion of "troubled" assets.</p>'
-        p2 = '<p>A <a href="/data/2009.csv">link</a>!</p>'
-        s = "".join([p1, p2])
+        s = """TARP allows the United States Department of the Treasury to purchase or insure up to $700 billion of "troubled" assets.  See this <a href="/data/2009.csv">link</a> for more information."""
         x = [
             ('treasury', '<a href="/glossary/#treasury">*</a>'),
             ('csv',      '<a href="/glossary/#csv">*</a>')]
         r = msub_first(s, x)
-        self.assertEqual(r, s)
+        self.assertEqual(r, """TARP allows the United States Department of the <a href="/glossary/#treasury">Treasury</a> to purchase or insure up to $700 billion of "troubled" assets.  See this <a href="/data/2009.csv">link</a> for more information.""")
 
 
 class CleanMatchTest(unittest.TestCase):

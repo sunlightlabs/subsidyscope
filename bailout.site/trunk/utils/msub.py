@@ -60,6 +60,8 @@ def msub_first(string, rep_list):
                 if match_count < 1:
                     new = _replace_token(m, replace)
                     result = result[:a] + new + result[b:]
+                    delta = len(new) - len(m.group(0))
+                    dirties = _adjust_dirties(dirties, a, delta)
                     dirties.append((a, a + len(new)))
                 else:
                     dirties.append((a, b))
@@ -72,7 +74,7 @@ def _selected_html_tag_spans(string):
     This is a very naive and lightweight way to find the spans (i.e. the
     start and finish) of fragments.  By fragment I mean a start tag,
     its contents, and its end tag.  Only certain HTML tags are considered.
-
+    
     For example:
     >>> f = _selected_html_tag_spans
     >>> s1 = "According to <a href='http://cnn.com'>CNN</a>, "
@@ -104,7 +106,7 @@ def _clean_match(match, dirties):
     """
     Is the match clean, e.g. does the string match occur in
     a place that does not overlap any of the dirty spans?
-
+    
     >>> m = re.search('me', '---me---')
     >>> f = _clean_match
     >>> f(m, [(0, 1), (2, 3)])
@@ -115,7 +117,7 @@ def _clean_match(match, dirties):
     False
     """
     ma, mb = match.start(), match.end() - 1
-
+    
     # Return false if (ma, mb) overlaps any dirties.
     for d0, d1 in dirties:
         a, b = d0, d1 - 1
@@ -127,9 +129,34 @@ def _clean_match(match, dirties):
             return False
         elif ma <= b and b <= mb:
             return False
-
+    
     # If no dirties, we have a clean match.
     return True
+
+
+def _adjust_dirties(dirties, offset, delta):
+    """
+    Adjust (correct) dirties to account for changes to the string
+    that occur after 'offset'.
+    >>> dirties = [(3, 4), (30, 40)]
+    >>> _adjust_dirties(dirties, 30, 5)
+    [(3, 4), (35, 45)]
+
+    Raises an exception if offset lies inside any of the dirty spans:
+    >>> _adjust_dirties(dirties, 35, 5)
+    Traceback (most recent call last):
+        ...
+    StandardError
+    """
+    new = []
+    for a, b in dirties:
+        if a >= offset and b >= offset:
+            new.append((a + delta, b + delta))
+        elif a < offset and b < offset:
+            new.append((a, b))
+        else:
+            raise StandardError
+    return new
 
 if __name__ == "__main__":
     import doctest
