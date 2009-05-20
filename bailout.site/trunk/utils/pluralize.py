@@ -45,8 +45,7 @@ def pluralize(noun):
         ('[sxz]$'                    , '$'      , 'es'    ),
         ('[^aeioudgkprt]h$'          , '$'      , 'es'    ),
         ('(qu|[^aeiou])y$'           , 'y$'     , 'ies'   ),
-        ('$'                         , '$'      , 's'     )
-    ]
+        ('$'                         , '$'      , 's'     )]
     for pattern, search, replace in rules:
         result = re.search(pattern, noun) and re.sub(search, replace, noun)
         if result:

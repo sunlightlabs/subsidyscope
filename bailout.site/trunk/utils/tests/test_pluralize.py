@@ -1,6 +1,7 @@
 import unittest
 from utils.pluralize import pluralize
 
+
 class PluralizeTestCase(unittest.TestCase):
 
     def test_s_endings(self):
@@ -10,20 +11,17 @@ class PluralizeTestCase(unittest.TestCase):
             ('human',         'humans'),
             ('instrument',    'instruments'),
             ('loan',          'loans'),
-            ('Transaction',   'Transactions')
-        ])
+            ('Transaction',   'Transactions')])
 
     def test_es_endings(self):
         self.assertPlurals([
-            ('box',           'boxes')
-        ])
+            ('box',           'boxes')])
 
     def test_ies_endings(self):
         self.assertPlurals([
             ('Secretary',     'Secretaries'),
             ('dairy',         'dairies'),
-            ('Debt Security', 'Debt Securities')
-        ])
+            ('Debt Security', 'Debt Securities')])
 
     def test_irregulars(self):
         self.assertPlurals([
@@ -31,14 +29,12 @@ class PluralizeTestCase(unittest.TestCase):
             ('life',          'lives'),
             ('ox',            'oxen'),
             ('person',        'people'),
-            ('woman',         'women')
-        ])
+            ('woman',         'women')])
 
     def test_unchanging_nouns(self):
         self.assertPlurals([
             ('data',          'data'),
-            ('fish',          'fish')
-        ])
+            ('fish',          'fish')])
 
     def assertPlurals(self, pairs):
         for pair in pairs:

@@ -4,7 +4,6 @@ from utils.msub import msub_global
 from utils.no_self_wrapper import no_self_wrapper
 
 
-
 class SharedExamples():
 
     def test_interwoven_matches_1(self):
@@ -40,7 +39,6 @@ class SharedExamples():
 
 
 class MsubGlobalTestCase(unittest.TestCase, SharedExamples):
-    
     function_to_test = no_self_wrapper(msub_global)
 
     def test_independence_of_replacements(self):
@@ -49,8 +47,8 @@ class MsubGlobalTestCase(unittest.TestCase, SharedExamples):
         r = msub_global(s, x)
         self.assertEqual(r, '<air><black><cat><black>')
 
+
 class MsubFirstTestCase(unittest.TestCase, SharedExamples):
-    
     function_to_test = no_self_wrapper(msub_first)
 
     def test_independence_of_replacements(self):
