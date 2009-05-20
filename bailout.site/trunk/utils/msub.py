@@ -107,46 +107,12 @@ def _clean_match(match, dirties):
 
     >>> m = re.search('me', '---me---')
     >>> f = _clean_match
-    >>> f(m, [])
-    True
-    >>> f(m, [(0, 1)])
-    True
-    >>> f(m, [(1, 2)])
-    True
-    >>> f(m, [(2, 3)])
-    True
-    >>> f(m, [(3, 4)])
-    False
-    >>> f(m, [(4, 5)])
-    False
-    >>> f(m, [(5, 6)])
-    True
-    >>> f(m, [(6, 7)])
-    True
-    >>> f(m, [(7, 8)])
-    True
-
     >>> f(m, [(0, 1), (2, 3)])
     True
     >>> f(m, [(0, 1), (3, 4)])
     False
     >>> f(m, [(3, 4), (0, 1)])
     False
-
-    >>> f(m, [(0, 2)])
-    True
-    >>> f(m, [(1, 3)])
-    True
-    >>> f(m, [(2, 4)])
-    False
-    >>> f(m, [(3, 5)])
-    False
-    >>> f(m, [(4, 6)])
-    False
-    >>> f(m, [(5, 7)])
-    True
-    >>> f(m, [(6, 8)])
-    True
     """
     ma, mb = match.start(), match.end() - 1
 

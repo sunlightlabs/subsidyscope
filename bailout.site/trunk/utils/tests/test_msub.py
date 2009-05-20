@@ -1,6 +1,8 @@
 import unittest
+import re
 from utils.msub import msub_first
 from utils.msub import msub_global
+from utils.msub import _clean_match
 from utils.no_self_wrapper import no_self_wrapper
 
 
@@ -37,7 +39,6 @@ class SharedExamples():
         r = self.function_to_test(s, x)
         self.assertEqual(r, '<Equity> considerations mean that')
 
-
 class MsubGlobalTestCase(unittest.TestCase, SharedExamples):
     function_to_test = no_self_wrapper(msub_global)
 
@@ -58,10 +59,47 @@ class MsubFirstTestCase(unittest.TestCase, SharedExamples):
         self.assertEqual(r, '<air><black><cat>b')
 
     def test_link_to_csv(self):
+        "Text inside of tags should be off-limits"
         s = 'more <a href="/media/1.csv">data</a> that'
         x = [('csv', '<*>'), ('media', '<*>')]
         r = msub_first(s, x)
         self.assertEqual(r, 'more <a href="/media/1.csv">data</a> that')
+
+    def test_two_paragraphs(self):
+        "Text inside of tags should be off-limits"
+        p0 = '<p>Jeremy and James</p>'
+        p1 = '<p>Go <a href="http://bit.ly/2348">here</a>.</p>\n\n\t\t'
+        p2 = '<p>A <a href="http://site.com/2009.csv">link</a>!</p>'
+        s = p0 + p1 + p2
+        x = [('csv', '<*>')]
+        r = msub_first(s, x)
+        self.assertEqual(r, s)
+
+
+class CleanMatchTest(unittest.TestCase):
+    
+    def test_simple(self):
+        m = re.search('me', '---me---')
+        list = [
+            ([],       True),
+            ([(0, 1)], True),
+            ([(1, 2)], True),
+            ([(2, 3)], True),
+            ([(3, 4)], False),
+            ([(4, 5)], False),
+            ([(5, 6)], True),
+            ([(6, 7)], True),
+            ([(7, 8)], True),
+            ([(0, 2)], True),
+            ([(1, 3)], True),
+            ([(2, 4)], False),
+            ([(3, 5)], False),
+            ([(4, 6)], False),
+            ([(5, 7)], True),
+            ([(6, 8)], True)]
+        for spans, expected in list:
+            result = _clean_match(m, spans)
+            self.assertEqual(result, expected)
 
 if __name__ == '__main__':
     unittest.main()
