@@ -49,9 +49,6 @@ def msub_first(string, rep_list):
     >>> msub_first(s, xform)
     'the <Federal Deposit Insurance Corp.> acted'
     """
-    print "===== msub_first ====="
-    print "string : %s" % string
-    print "rep_list : %s" % rep_list
     dirties = _selected_html_tag_spans(string)
     result = string
     for pattern, replace in rep_list:
@@ -60,9 +57,6 @@ def msub_first(string, rep_list):
         for m in matches:
             if _clean_match(m, dirties):
                 a, b = m.start(), m.end()
-                print "    clean_match."
-                print "    m.group(0) : %s" % m.group(0)
-                print "    (a, b) : (%s, %s)" % (a, b)
                 if match_count < 1:
                     new = _replace_token(m, replace)
                     result = result[:a] + new + result[b:]
@@ -70,9 +64,6 @@ def msub_first(string, rep_list):
                     dirties = _adjust_dirties(dirties, a, delta)
                     new_dirty = (a, a + len(new))
                     dirties.append(new_dirty)
-                    print "    new : %s" % new
-                    print "    result : %s" % result
-                    print "    new_dirty : %s" % str(new_dirty)
                 else:
                     dirties.append((a, b))
                 match_count += 1
@@ -159,19 +150,13 @@ def _adjust_dirties(dirties, offset, delta):
     StandardError
     """
     new = []
-    print "        _adjust_dirties"
-    print "        dirties, offset, delta : %s, %s, %s" % (dirties, offset, delta)
     for a, b in dirties:
-        print "            (a, b) : (%s, %s)" % (a, b)
         if a >= offset and (b - 1) >= offset:
             new.append((a + delta, b + delta))
         elif a < offset and (b - 1) < offset:
             new.append((a, b))
         else:
-            print "            ** unexpected **"
-            # raise StandardError
-
-    print "        new dirties : %s" % new
+            raise StandardError
     return new
 
 if __name__ == "__main__":
