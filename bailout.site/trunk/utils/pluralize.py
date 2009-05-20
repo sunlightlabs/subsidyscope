@@ -19,15 +19,13 @@ def pluralize(noun):
     Borrowed heavily from an example from "Diving into Python":
     http://www.diveintopython.org/dynamic_functions/stage6.html
     """
-    if noun == '':
-        return ''
-    if noun == 'data':
-        return 'data'
     rules = [
+        ('^$'                        , ''       , ''      ),
         ('^(person)$'                , 'erson$' , 'eople' ),
         ('^(ox)$'                    , 'x$'     , 'xen'   ),
-        ('^(sheep|deer|fish|moose)$' , '$'      , '\1'    ),
-        ('^(aircraft|series|haiku)$' , '$'      , '\1'    ),
+        ('^(sheep|deer|fish|moose)$' , '(.*)'   , '\\1'   ),
+        ('^(aircraft|series|haiku)$' , '(.*)'   , '\\1'   ),
+        ('^(data)$'                  , '(.*)'   , '\\1'   ),
         ('[ml]ouse$'                 , 'ouse$'  , 'ice'   ),
         ('child$'                    , '$'      , 'ren'   ),
         ('booth$'                    , '$'      , 's'     ),
