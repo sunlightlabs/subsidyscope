@@ -2,22 +2,24 @@ from django.core.management.base import BaseCommand
 from optparse import make_option
 import os
 
-# Similar to loaddata but calls save() explicitly for each record.
-# This means that custom save logic will run.
-# Currently, only YAML is supported.
+
 class Command(BaseCommand):
+    """
+    Similar to loaddata but calls save() explicitly for each record. This
+    means that custom save logic will run. Currently, only YAML is supported.
+    """
 
     import_subdir = "import"
     format = "yaml"
 
     option_list = BaseCommand.option_list + (
-        make_option('--verbosity', action='store', dest='verbosity', default='1',
-            type='choice', choices=['0', '1', '2'],
-            help='Verbosity level; 0=minimal output, 1=normal output, 2=all output'),
-    )
+        make_option('--verbosity', action='store',
+        dest='verbosity', default='1',
+        type='choice', choices=['0', '1', '2'],
+        help='Verbosity level; 0=minimal, 1=normal, 2=max'), )
     help = 'Import data from <app>/%s/*.%s' % (import_subdir, format)
     args = "app [app ...]"
-    
+
     def handle(self, *app_names, **options):
         from django.db.models import get_models
         from utils.exit_if import exit_if
@@ -28,8 +30,9 @@ class Command(BaseCommand):
         exit_if(len(app_names) == 0, "Please specify one or more app names.")
 
         log = Logger(int(options.get('verbosity', 1)))
-        log.info("Attempting to import data for these apps: %s" % ", ".join(app_names), 1)
-        apps_with_import_dirs = self.get_import_dirs_for_app_names(app_names, log)
+        log.info("Attempting to import data for apps: %s" %
+            ", ".join(app_names), 1)
+        apps_with_import_dirs = self.get_import_dirs(app_names, log)
         files_found = 0
 
         for app in apps_with_import_dirs:
@@ -52,7 +55,7 @@ class Command(BaseCommand):
         """
         return "%s.%s" % (model.__name__.lower(), self.format)
 
-    def get_import_dirs_for_app_names(self, app_names, log):
+    def get_import_dirs(self, app_names, log):
         """
         When given a list of app names, returns a dictionary where keys
         are app objects and values are valid import directories.
@@ -69,12 +72,12 @@ class Command(BaseCommand):
             except ImproperlyConfigured:
                 log.error("Cannot find app labeled %s" % app_name)
                 sys.exit(1)
-            import_dir = self.get_import_dir_for_app(app, log)
+            import_dir = self.get_import_dir(app, log)
             if import_dir:
                 import_dirs[app] = import_dir
         return import_dirs
-    
-    def get_import_dir_for_app(self, app, log):
+
+    def get_import_dir(self, app, log):
         """
         Returns the import directory for a given app.
         Returns None if the directory does not exist.
