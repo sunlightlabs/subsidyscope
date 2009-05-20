@@ -75,7 +75,7 @@ def _selected_html_tag_spans(string):
     This is a very naive and lightweight way to find the spans (i.e. the
     start and finish) of fragments.  By fragment I mean a start tag,
     its contents, and its end tag.  Only certain HTML tags are considered.
-    
+
     For example:
     >>> f = _selected_html_tag_spans
     >>> s1 = "According to <a href='http://cnn.com'>CNN</a>, "
@@ -107,7 +107,7 @@ def _clean_match(match, dirties):
     """
     Is the match clean, e.g. does the string match occur in
     a place that does not overlap any of the dirty spans?
-    
+
     >>> m = re.search('me', '---me---')
     >>> f = _clean_match
     >>> f(m, [(0, 1), (2, 3)])
@@ -118,7 +118,7 @@ def _clean_match(match, dirties):
     False
     """
     ma, mb = match.start(), match.end() - 1
-    
+
     # Return false if (ma, mb) overlaps any dirties.
     for d0, d1 in dirties:
         a, b = d0, d1 - 1
@@ -130,7 +130,7 @@ def _clean_match(match, dirties):
             return False
         elif ma <= b and b <= mb:
             return False
-    
+
     # If no dirties, we have a clean match.
     return True
 
