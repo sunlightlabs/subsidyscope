@@ -4,6 +4,7 @@ from utils.msub import msub_first
 from utils.msub import msub_global
 from utils.pluralize import pluralize
 
+
 def glossarize(plain):
     """
     Converts a string into a hyperlinked string.
@@ -31,7 +32,7 @@ def glossarize(plain):
         for variant in variations:
             if variant:
                 mapping.append((r"\b%s\b" % variant, hyperlink))
-    
+
     # Do final sort: longer strings towards the front
     mapping.sort(cmp=lambda x, y: len(y[0]) - len(x[0]))
     return msub_first(plain, mapping)
