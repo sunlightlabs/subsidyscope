@@ -163,9 +163,9 @@ def _adjust_dirties(dirties, offset, delta):
     print "        dirties, offset, delta : %s, %s, %s" % (dirties, offset, delta)
     for a, b in dirties:
         print "            (a, b) : (%s, %s)" % (a, b)
-        if a >= offset and b >= offset:
+        if a >= offset and (b - 1) >= offset:
             new.append((a + delta, b + delta))
-        elif a < offset and b < offset:
+        elif a < offset and (b - 1) < offset:
             new.append((a, b))
         else:
             print "            ** unexpected **"
