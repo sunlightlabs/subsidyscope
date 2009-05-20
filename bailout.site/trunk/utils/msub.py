@@ -109,7 +109,8 @@ def msub_first(string, rep_list):
 def _selected_html_tag_spans(string):
     """
     This is a very naive and lightweight way to find the spans (i.e. the
-    start and finish) of HTML tags.
+    start and finish) of fragments.  By fragment I mean a start tag,
+    its contents, and its end tag.  Only certain HTML tags are considered.
     
     For example:
     >>> f = _selected_html_tag_spans
@@ -121,10 +122,9 @@ def _selected_html_tag_spans(string):
     [(13, 45), (51, 75)]
     >>> f("<strong>hello</strong> there <div>world</div>!")
     []
-
-    >>> s = 'showing <a href="/media/x_20090131.csv">evidence</a> that'
+    >>> s = 'showing <a href="/media/20090131.csv">evidence</a> that'
     >>> f(s)
-    [(8, 52)]
+    [(8, 50)]
     """
     pattern = '<a[^>]*>.*?</a>'
     matches = re.finditer(pattern, string, re.IGNORECASE)
@@ -139,45 +139,55 @@ def _replace_token(match, new):
 
 def _clean_match(match, dirties):
     """
+    Is the match clean, e.g. does the string match occur in
+    a place that does not overlap any of the dirty spans?
+    
     >>> m = re.search('me', '---me---')
+    >>> f = _clean_match
+    >>> f(m, [])
+    True
+    >>> f(m, [(0, 1)])
+    True
+    >>> f(m, [(1, 2)])
+    True
+    >>> f(m, [(2, 3)])
+    True
+    >>> f(m, [(3, 4)])
+    False
+    >>> f(m, [(4, 5)])
+    False
+    >>> f(m, [(5, 6)])
+    True
+    >>> f(m, [(6, 7)])
+    True
+    >>> f(m, [(7, 8)])
+    True
+    
+    >>> f(m, [(0, 1), (2, 3)])
+    True
+    >>> f(m, [(0, 1), (3, 4)])
+    False
+    >>> f(m, [(3, 4), (0, 1)])
+    False
 
-    >>> _clean_match(m, [])
+    >>> f(m, [(0, 2)])
     True
-    >>> _clean_match(m, [(0, 1)])
+    >>> f(m, [(1, 3)])
     True
-    >>> _clean_match(m, [(1, 2)])
-    True
-    >>> _clean_match(m, [(2, 3)])
-    True
-    >>> _clean_match(m, [(3, 4)])
+    >>> f(m, [(2, 4)])
     False
-    >>> _clean_match(m, [(4, 5)])
+    >>> f(m, [(3, 5)])
     False
-    >>> _clean_match(m, [(5, 6)])
-    True
-    >>> _clean_match(m, [(6, 7)])
-    True
-    >>> _clean_match(m, [(7, 8)])
-    True
-
-    >>> _clean_match(m, [(0, 2)])
-    True
-    >>> _clean_match(m, [(1, 3)])
-    True
-    >>> _clean_match(m, [(2, 4)])
+    >>> f(m, [(4, 6)])
     False
-    >>> _clean_match(m, [(3, 5)])
-    False
-    >>> _clean_match(m, [(4, 6)])
-    False
-    >>> _clean_match(m, [(5, 7)])
+    >>> f(m, [(5, 7)])
     True
-    >>> _clean_match(m, [(6, 8)])
+    >>> f(m, [(6, 8)])
     True
     """
     ma, mb = match.start(), match.end() - 1
 
-    # Return false if  (ma, mb) overlaps any dirties.
+    # Return false if (ma, mb) overlaps any dirties.
     for d0, d1 in dirties:
         a, b = d0, d1 - 1
         if a <= ma and ma <= b:
