@@ -4,12 +4,12 @@ from django.template.defaultfilters import slugify
 
 
 class Item(models.Model):
-    slug        = models.SlugField(db_index=True, unique=True)
     term        = models.CharField(max_length=255, unique=True, db_index=True)
-    term_length = models.IntegerField(db_index=True)
     acronym     = models.CharField(max_length=32, db_index=True)
+    slug        = models.SlugField(db_index=True, unique=True)
     synonym     = models.CharField(max_length=255, db_index=True)
     definition  = models.TextField()
+    term_length = models.IntegerField(db_index=True)
 
     def __unicode__(self):
         return u"%s" % self.term
@@ -25,5 +25,3 @@ class Item(models.Model):
     def autogenerate_slug_if_blank(self):
         if self.term and not self.slug:
             self.slug = slugify(self.term)
-
-admin.site.register(Item)
