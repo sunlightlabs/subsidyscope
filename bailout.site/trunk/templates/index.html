@@ -6,8 +6,59 @@
 {% block content %}
 
 <script type="text/javascript">
-var carouselInterval = null;
-var initialTabToShowIndex = 0;
+function setCookie( name, value, expires, path, domain, secure )
+{
+	var today = new Date();
+	today.setTime( today.getTime() );
+
+	if ( expires )
+		expires = expires * 1000 * 60 * 60 * 24;
+		
+	var expires_date = new Date( today.getTime() + (expires) );
+
+	document.cookie = name + "=" +escape( value ) + ( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) + ( ( path ) ? ";path=" + path : "" ) + ( ( domain ) ? ";domain=" + domain : "" ) + ( ( secure ) ? ";secure" : "" );
+}
+
+
+function getCookie( check_name ) {
+	// first we'll split this cookie up into name/value pairs
+	// note: document.cookie only returns name=value, not the other components
+	var a_all_cookies = document.cookie.split( ';' );
+	var a_temp_cookie = '';
+	var cookie_name = '';
+	var cookie_value = '';
+	var b_cookie_found = false; // set boolean t/f default f
+
+	for ( i = 0; i < a_all_cookies.length; i++ )
+	{
+		// now we'll split apart each name=value pair
+		a_temp_cookie = a_all_cookies[i].split( '=' );
+
+		// and trim left/right whitespace while we're at it
+		cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, '');
+
+		// if the extracted name matches passed check_name
+		if ( cookie_name == check_name )
+		{
+			b_cookie_found = true;
+			// we need to handle case where cookie has no value but exists (no = sign, that is):
+			if ( a_temp_cookie.length > 1 )
+			{
+				cookie_value = unescape( a_temp_cookie[1].replace(/^\s+|\s+$/g, '') );
+			}
+			// note that in cases where cookie is initialized but no value, null is returned
+			return cookie_value;
+			break;
+		}
+		a_temp_cookie = null;
+		cookie_name = '';
+	}
+	if ( !b_cookie_found )
+	{
+		return null;
+	}
+}
+
 
 function handleCarouselClick(tabToFadeIn)
 {
@@ -32,45 +83,59 @@ function handleCarouselClick(tabToFadeIn)
 
 $(function () {
 
-		var tabContainers = $('div.tabs > div');				
-		tabContainers.hide().filter(':eq(' + initialTabToShowIndex + ')').show();                        
-		$('div.tabs ul.tabNavigation a').click(function() {		        
-			clearInterval(carouselInterval);
-			handleCarouselClick($(this.hash));		
-		});	
-    
-		// set up carousel auto-rotation
-		carouselInterval = setInterval(function(){
-			var buttonToClick = null;
-			var selectedTabButton = $('div.tabs ul.tabNavigation a.selected');
-			if (selectedTabButton.length==0)
-				// if nothing has been clicked, the "selected" class won't be set
-				selectedTabButton = $('div.tabs ul.tabNavigation a:eq(' + initialTabToShowIndex + ')');
-			
-			// if there's a selected button, click the next one
-			buttonToClick = selectedTabButton.parent().next().find('a');
-			// ...unless it was the last one, in which case click the first one
-			if(buttonToClick.length==0)
-					buttonToClick = $('div.tabs ul.tabNavigation a:first');
+	// handle initial cookie index
+	var SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME = 'SubsidyscopeInitialCarouselIndex';
+	var carouselInterval = null;
+	var initialTabToShowIndex = getCookie(SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME);
+	if (initialTabToShowIndex==null)
+	{
+		initialTabToShowIndex = 0;
+	}
+	else
+	{
+		initialTabToShowIndex = parseInt(initialTabToShowIndex);
+	}
+	setCookie(SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME, ((initialTabToShowIndex+1) % $('div.tabs > div').length), 30);
 
-			if(buttonToClick.length>0)
-				handleCarouselClick($(buttonToClick.attr('href')));
-		}, 8000);
-
+	var tabContainers = $('div.tabs > div');				
+	tabContainers.hide().filter(':eq(' + initialTabToShowIndex + ')').show();                        
+	$('div.tabs ul.tabNavigation a').click(function() {		        
+		clearInterval(carouselInterval);
+		handleCarouselClick($(this.hash));		
+	});	
+   
+	// set up carousel auto-rotation
+	carouselInterval = setInterval(function(){
+		var buttonToClick = null;
+		var selectedTabButton = $('div.tabs ul.tabNavigation a.selected');
+		if (selectedTabButton.length==0)
+			// if nothing has been clicked, the "selected" class won't be set
+			selectedTabButton = $('div.tabs ul.tabNavigation a:eq(' + initialTabToShowIndex + ')');
 		
-		// set up "in the news" block
-		$(function(){
-			var MAX_NEWS_ITEMS = 10;
-			$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
-			function(data){		
-				$.each(data.value.items, function(i,item){
-					if(i<MAX_NEWS_ITEMS)
-					{
-						$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
-					}
-				});		      
-			});
+		// if there's a selected button, click the next one
+		buttonToClick = selectedTabButton.parent().next().find('a');
+		// ...unless it was the last one, in which case click the first one
+		if(buttonToClick.length==0)
+				buttonToClick = $('div.tabs ul.tabNavigation a:first');
+
+		if(buttonToClick.length>0)
+			handleCarouselClick($(buttonToClick.attr('href')));
+	}, 8000);
+
+	
+	// set up "in the news" block
+	$(function(){
+		var MAX_NEWS_ITEMS = 10;
+		$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
+		function(data){		
+			$.each(data.value.items, function(i,item){
+				if(i<MAX_NEWS_ITEMS)
+				{
+					$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
+				}
+			});		      
 		});
+	});
 
 });
 </script>
