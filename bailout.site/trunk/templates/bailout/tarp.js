@@ -54,7 +54,8 @@ function TARP_init()
 	    $('#tarp-data-table tr').hover(
     		function(){
     			var transaction_id = this.id.replace(/row\-/,'');
-    			TARP_highlight_graph_rect(transaction_id);
+    			if(!($(this).find('.transaction-type').text().match(/dividend payment/i)))
+    			    TARP_highlight_graph_rect(transaction_id);
     			TARP_highlight_table_row(transaction_id);
     		},
     		function(){
@@ -109,7 +110,7 @@ function TARP_init()
             2: {
                 sorter:'money'
             },
-            3: {
+            4: {
                 sorter:'money'
             }
         },

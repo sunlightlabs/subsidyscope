@@ -74,7 +74,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'urls'
 
 INSTALLED_APPS = (
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.flatpages',
@@ -100,7 +100,8 @@ INSTALLED_APPS = (
     'fed_h41',
     'sectors',
     'cfda',
-    'django_helpers'
+    'django_helpers',
+    'glossary'
 )
 
 
