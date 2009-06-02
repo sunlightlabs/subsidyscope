@@ -647,8 +647,9 @@ class Transaction(models.Model):
         ('AIFP', 'Automotive Industry Financing Program'),
         ('SSFI', 'Systematically Significant Failing Institutions'),
         ('TLGP', 'Temporary Liquidity Guarantee Program'),
-        ('CBLIIP','Consumer and Business Lending Initiative Investment Program'),
-        ('HAMP','Home Affordable Modification Program')
+        ('CBLIIP', 'Consumer and Business Lending Initiative Investment Program'),
+        ('HAMP', 'Home Affordable Modification Program'),
+        ('ASSP', 'Automotive Supplier Support Program')
     )
     program = models.CharField("Program", max_length=50, choices=PROGRAM_CHOICES, blank=True, null=True, default='CPP')
 
