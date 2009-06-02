@@ -27,8 +27,19 @@ def glossarize(plain):
     mapping = []
     for item in items:
         hyperlink = link(item)
-        variations = [item.term, pluralize(item.term),
-            item.acronym, item.synonym, pluralize(item.synonym)]
+        variations = []
+        
+        if item.term != '':
+            variations.append(item.term)
+            variations.append(pluralize(item.term))
+        
+        if item.acronym != '':
+            variations.append(item.acronym)
+            
+        if item.synonym != '':
+            variations.append(item.synonym)
+            variations.append(pluralize(item.synonym))
+            
         for variant in variations:
             if variant:
                 mapping.append((r"\b%s\b" % variant, hyperlink))

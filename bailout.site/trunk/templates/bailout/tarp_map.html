@@ -1,6 +1,8 @@
 {% extends "base_tarp.html" %}
-{% load bailout_tags %}
 {% load media %}
+{% load bailout_tags %}
+{% load morsel_tags %}
+{% load glossary_tags %}
 
 
 {% block additional_css %}
@@ -212,8 +214,7 @@ function getFlexMovie(movieName) {
 				<h2 class="type_header">Database</h2>
 				<h3 class="section_header">Mapping Geographic Impact of the Troubled Asset Relief Program (TARP)</h3>
 
-				<p>There is keen public interest in ensuring that the large sums of money injected into financial institutions across the country through the Troubled Asset Relief Program (TARP) are being allocated fairly and effectively. Mapping which communities received TARP funds can assist in this evaluation and provide a fresh perspective on the size and scope of the bailout. A number of attempts at geographic analysis, including the recent launch of the Treasury Department's <a href="http://financialstability.gov/impact/index.html">Local Impact map</a>, have largely failed to recognize the complexity of the financial industry and do not paint a complete picture of the geography of funds distributed. Subsidyscope improves upon such efforts and presents a map that provides a richer context for analyzing the reach of TARP funds throughout the country.</p> 
-		
+				{% morsel top %}
 			</div>
 		</div>
 			
@@ -225,10 +226,8 @@ function getFlexMovie(movieName) {
 			<div class="lr_padding">
 				<div id="map-container"  style="padding: 0 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
 				
-					<h4>Banking Activity for TARP CPP Recipients</h4>
-				
-					<p>Mouse over a county to see banking activity for TARP Capital Purchase Program (CPP) recipient institutions in that county.  Make a selection from the drop down menu to the right to view share of total deposits held in each county that are held by a TARP CPP recipient; share of total branches in each county that are managed by a TARP CPP recipient, or the percentage of total HMDA lending originated in each county by TARP CPP recipient banks. The geography of mortgage lending differs substantially from branch/deposit geography as many banks accept loan applications online or through local mortgage brokers. For example, Citigroup, which operates very few bank branches nationwide, issues loans in nearly every county through brokerage and online sales.</p>
-				
+					{% morsel caption %}
+					
 					<div id="table-filter" style="clear:left; margin-left: 25px; float: left;">
 				
 						<p><input type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
@@ -270,19 +269,9 @@ function getFlexMovie(movieName) {
 			<div class="tlr_padding">
 		
 		
-				<p>Most mapping efforts have focused on the TARP Capital Purchase Program (CPP) both because of the program's size and the transparency of the funds allocations. The Treasury provides headquarters locations for the recipient institutions in the CPP information on its Web site, which is an attractive and readily accessible geographic indicator. However, using a bank's headquarters to map its reach is of questionable utility given that many financial institutions affect communities well outside of the state in which their headquarters is located. Unfortunately, many of the available maps rely solely on this indicator, including Treasury's Local Impact map.</p>
-				<p>A closer look at the Treasury map demonstrates the shortcomings of this approach. States with large financial centers are shown receiving a majority share of CPP funds while states without a significant banking presence receive little or no funds. For example, the entire state of Arizona is shown as having received only $2.5 million in CPP funds; Montana is shown as having received nothing. The lack of bank headquarters in these states may indicate an unequal distribution of funds under CPP; however, the high degree of disparity shown in Treasury's map is suspect. In reality, banks that have received TARP funds &mdash; although headquartered in other states &mdash; do engage in significant business in Arizona and Montana, a relationship not reflected in this map. As a result, this map and others use bank headquarters locations as an impact metric present a misleading representation of CPP funds distribution.*</p>
-				<p>While no mapping technique can perfectly capture the flows of money provided by the bailout,  Subsidyscope's alternative methodology uses government data sets to illustrate the geography of bank branch locations, deposits and lending activity. These three metrics for measuring the geography of banking activity offer a means for estimating the share of activity for a given bank within a specific region. We use the county (or county equivalent) as the core unit of geography though the underlying data could be interpreted at other levels of specificity (e.g. state or census tract). We also combine data for all organizations within a given ownership hierarchy such that the geography of subsidiary banking activity is reflected in the data for bank holding companies.</p>
-				<p>In order to calculate TARP impact using bank branches and deposits we collected a complete copy of the Federal Deposit Insurance Corporation's Summary of Deposits database (as of June 2008). This database tracks branch locations and deposits for all FDIC member banks as well as institutions regulated by the Office of Thrift Supervision. From this data we determine the share of activity for a given location on an institution-by-institution basis or in aggregate for all TARP recipients. As might be expected, there is a strong correlation between branch locations and deposit shares; however, we provide both metrics for completeness.</p>
-				<p>Similarly, we use data on home loan originations from the Federal Financial Institutions Examination Council's Home Mortgage Disclosure Act (HMDA) database from 2007 to track lending activity for a given institution. This data is merged using the Federal Reserve's Organizational Hierarchy database for HMDA reporting institutions. The geography of mortgage lending differs substantially from branch/deposit geography as many banks accept loan applications online or through local mortgage brokers. For example, Citigroup, which operates very few bank branches nationwide, issues loans in nearly every county through brokerage and online sales.</p>			
-				<p>To download the data powering this visualization use the link below.  The file contains banking activity figures with county/state names and <a href="{% url glossary %}">FIPS</a> codes for integration with data sets such those provided by the Census Bureau.  The file is in <a href="{% url glossary %}">CSV</a> format, which can be opened with any modern spreadsheet program.</p>
-				<p><a id="csv-link" href="{% media_url %}/data/tarp_cpp_banking_activity_by_county.csv">Download CSV Data &raquo;</a></p>
-				
-				
+				{% morsel bottom %}
 
-				<div class="footnotes" style="border-top: 1px solid #D3D3D3; margin-top: 50px; padding-top: 10px;">
-					<p>*It is also worth noting that the Treasury map suffers from data quality problems in addition to the methodological concerns described above. As of April 17, 2009, the map failed to reflect the full list of CPP transactions, including a $15 billion transaction for Bank of America issued on October 28, 2008.  As a result, the value shown for North Carolina is artificially low, showing a total for CPP funds received of $13.6 billion instead of the correct figure of $28.6 billion as of the date viewed.<p>
-				</div>
+
 			</div>
 
 			

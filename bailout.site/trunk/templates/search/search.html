@@ -1,27 +1,47 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>Search</h2>
 
-    <form method="get" action=".">
-        <table>
-            {{ form.as_table }}
-            <tr>
-                <td>&nbsp;</td>
-                <td>
-                    <input type="submit" value="Search">
-                </td>
-            </tr>
-        </table>
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
 
-        {% if page.object_list %}
-            {% for result in page.object_list %}
-                <p>
-                    {{ result.object.content }}
-                </p>
-            {% endfor %}
-        {% else %}
-            <p>No results found.</p>
-        {% endif %}
-    </form>
+	<div class="span-5">
+	</div>
+
+	
+	<div class="span-15">
+	
+		<div class="tlr_padding">
+		    <h2>Search</h2>
+		    
+		    <form action="." method="GET">
+				{{ form.as_p }}
+				<input type="submit" value="Submit" />
+			</form>
+				    
+			{% if cfda_result_set %}
+			<strong>CFDA Programs:</strong>
+			<ul>
+				{% for cfda in cfda_result_set %}
+					<li  style="margin-bottom: 15px;"><strong><a href="{{ cfda.object.id }}/">{{ cfda.title }}</a></strong><br/>{{ cfda.object.short_description }}</li>
+				{% endfor %} 
+			</ul>
+			{% endif %}
+
+			{% if page_result_set %}
+			<strong>Site Pages:</strong>
+			<ul>
+				{% for page in page_result_set %}
+					<li  style="margin-bottom: 15px;"><strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text %}{{ text }}{% endfor %}</li>
+				{% endfor %} 
+			</ul>
+			{% endif %}
+	    </div>
+	</div>
+	
+	<div class="span-4 last">&nbsp;</div>
+	
+</div> 
+   
+   
 {% endblock %}

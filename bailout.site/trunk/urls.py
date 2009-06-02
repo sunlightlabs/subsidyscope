@@ -6,7 +6,9 @@ from contact_form.forms import ContactForm
 from bailout.views import *
 from project_updates.feeds import ProjectUpdatesFeed
 import django.contrib.syndication.views
+import haystack 
 
+haystack.autodiscover()
 admin.autodiscover()
 
 class SubsidyContactForm(ContactForm):
@@ -46,6 +48,10 @@ urlpatterns += patterns('',
 )
 urlpatterns += patterns('',
     url(r'^morsels/', include('morsels.urls'))
+)
+
+urlpatterns += patterns('',
+    url(r'^search/', include('search.urls'))
 )
 
 if settings.DEBUG:

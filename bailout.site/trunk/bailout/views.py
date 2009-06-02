@@ -320,7 +320,7 @@ def tarp_csv(request):
 
 def tarp_map(request):
     
-    return render_to_response('bailout/tarp_map.html')
+    return render_to_response('bailout/tarp_map.html', context_instance=RequestContext(request))
 
 
 def tarp_map_filter_institution_search(request):

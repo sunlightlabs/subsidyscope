@@ -47,3 +47,12 @@ class ProgramDescription(models.Model):
     examples_of_funded_projects = models.TextField("Examples of funded projects",blank=True,default="")
     criteria_for_selecting_proposals = models.TextField("Criteria for selecting proposals",blank=True,default="")
     cfda_edition = models.IntegerField("CFDA Edition")
+
+    def short_description(self):
+        
+        if len(self.objectives) < 200:
+            return self.objectives
+        else:
+            return self.objectives[:200] + '...'
+        
+    

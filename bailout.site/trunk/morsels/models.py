@@ -2,12 +2,17 @@ from managers import MorselManager
 from exceptions import LockedError
 
 from django.db import models
+from django.template import Context, Template
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
 from rcsfield.fields import RcsTextField
 from rcsfield.manager import RevisionManager
 
 class Page(models.Model):
+    
+    class Meta:
+        verbose_name = 'Morsel Page'
+        ordering = ['url']
     
     url = models.CharField(_('url'), max_length=100, db_index=True, unique=True,
         help_text=_("""
@@ -48,6 +53,17 @@ class Morsel(models.Model):
 
     def __unicode__(self):
         return u'%s -- %s' % (self.page.url, self.name)
+
+    def get_flat_text(self):
+        import lxml.html
+    
+        c = Context()
+        t = Template(self.content)
+        raw_output = t.render(c)
+        
+        t = lxml.html.fromstring(raw_output)
+    
+        return t.text_content()
 
     def delete(self):
         if self.locked:
