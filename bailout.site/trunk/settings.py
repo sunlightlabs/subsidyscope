@@ -89,6 +89,7 @@ INSTALLED_APPS = (
     'contact_form',
     'sunlightcore',
     'spammer',
+    'haystack',
     #'django_evolution',
     'etl',
     'geo',
@@ -168,6 +169,12 @@ MAILINGLIST_REQUIRED_FIELDS = {
 SCRIBD_API_KEY = '***REMOVED***'
 SCRIBD_API_SECRET = '***REMOVED***'
 SCRIBD_PUBLISHER_ID = '***REMOVED***'
+
+# Haystack
+HAYSTACK_SEARCH_ENGINE = 'whoosh' 
+
+
+
 
 # RCSField
 if DEBUG == True:
