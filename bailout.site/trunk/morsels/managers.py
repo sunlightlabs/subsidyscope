@@ -22,15 +22,15 @@ class MorselManager(models.Manager):
                 url = url[:ix]
     
         path = url[:-1].split('/')
-        urls = ['/'.join(path + [name])]
+        urls = ['/'.join(path)]
         while inherit is True and len(path) > 1:
             path = path[:-1]
-            urls.append('/'.join(path + [name]))
+            urls.append('/'.join(path))
     
         qs = self.get_query_set()
         if SITES:
             qs = qs.filter(sites=Site.objects.get_current())
         try:
-            return qs.filter(url__in=urls).order_by('-url')[0]
+            return qs.filter(page__url__in=urls, name=name).order_by('-page__url')[0]
         except IndexError:
             return None

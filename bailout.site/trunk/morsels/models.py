@@ -7,19 +7,33 @@ from django.contrib.sites.models import Site
 from rcsfield.fields import RcsTextField
 from rcsfield.manager import RevisionManager
 
-class Morsel(models.Model):
+class Page(models.Model):
+    
     url = models.CharField(_('url'), max_length=100, db_index=True, unique=True,
         help_text=_("""
             The URL of the page in which this morsel should be shown, followed by an optional
             name. Examples: '/', '/contact/', '/contact/sidebar'.
             Make sure to have leading and trailing slashes for the page url, but no slash
             after the morsel name."""))
+    
     title = models.CharField(_('title'), max_length=80, blank=True)
+
+    sites = models.ManyToManyField(Site, verbose_name=_('sites'))
+    
+    def __unicode__(self):
+        
+        return u'%s' % (self.url)
+    
+
+class Morsel(models.Model):
+    
+    page = models.ForeignKey(Page) 
+    
+    name = models.CharField(_('name'), max_length=100, db_index=True)
     
     content = RcsTextField("Content")    
     # objects = RevisionManager()
     
-    sites = models.ManyToManyField(Site, verbose_name=_('sites'))
     locked = models.BooleanField(_('locked'), default=False,
         help_text=_("""
             Locked morsels cannot be deleted. Think twice before unlocking a morsel,
@@ -30,10 +44,10 @@ class Morsel(models.Model):
     class Meta:
         verbose_name = _('morsel')
         verbose_name_plural = _('morsels')
-        ordering = ('url',)
+        ordering = ('name',)
 
     def __unicode__(self):
-        return u'%s -- %s' % (self.url, self.title)
+        return u'%s -- %s' % (self.page.url, self.name)
 
     def delete(self):
         if self.locked:

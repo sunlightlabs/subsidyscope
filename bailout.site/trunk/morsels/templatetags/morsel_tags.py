@@ -3,7 +3,7 @@ from django.template import Library, Node
 from django.utils.safestring import mark_safe
 from django.conf import settings
 from django.core.urlresolvers import reverse
-import glossary.helpers
+from django.template import Template
 import urllib 
 
 typogrify = lambda a: a
@@ -66,7 +66,10 @@ class MorselNode(Node):
             output = '%s<div class="jeditable-morsel" id="%s" rel="%s">%s</div>' % (js, self.name, reverse('morsels_ajax_save', None, (urllib.quote(context['request'].path, safe=''),)), output)           
             context['messages'].append(self.JS_SIGNAL)
 
-        return mark_safe(glossary.helpers.glossarize(output))
+
+        output_template = Template(output) 
+        
+        return mark_safe(output_template.render(context))
 
     render.allow_tags = True
 
