@@ -34,6 +34,32 @@ class HelperTestCase(unittest.TestCase):
             % (self.glossary_base_url, self.glossary_base_url)
         self.assertEquals(actual, expected)
 
+    def test_glossarize_with_blank_acronym(self):
+        """
+        A glossary item with a blank acronym could mistakenly get pluralized
+        into 's'. This would result in unexpected matches to 's (apostrophe s)
+        """
+        self.create_loan_guarantee()
+        plain = "the Treasury Department's reliance on loan guarantees is ..."
+        actual = helpers.glossarize(plain)
+        expected = "the Treasury Department's reliance on " \
+            '<a href="%s#loan-guarantee">loan guarantees</a> is ...' \
+            % (self.glossary_base_url,)
+        self.assertEquals(actual, expected)
+
+    def test_glossarize_with_blank_synonym(self):
+        """
+        A glossary item with a blank synonym could mistakenly get pluralized
+        into 's'. This would result in unexpected matches to 's (apostrophe s)
+        """
+        self.create_abcp()
+        plain = "the Treasury Department's reliance on ABCP is ..."
+        actual = helpers.glossarize(plain)
+        expected = "the Treasury Department's reliance on " \
+            '<a href="%s#abcp">ABCP</a> is ...' \
+            % (self.glossary_base_url,)
+        self.assertEquals(actual, expected)
+
     def test_glossarize_with_overlapping_glossary_items_v1(self):
         'create a "loan" then a "loan guarantee"'
         self.create_loan()
@@ -61,11 +87,11 @@ class HelperTestCase(unittest.TestCase):
         Creates a glossary item where the slug is already specified.
         """
         return self.create_item(
-            "warrants",
-            "warrants",
-            """Options to buy stock (equity) at a specific price within a
-            certain time frame. In this case, the specific terms will be
-            agreed upon between Treasury and the respective bank.
+            term = "warrants",
+            slug = "warrants",
+            definition = """Options to buy stock (equity) at a specific price
+            within a certain time frame. In this case, the specific terms will
+            be agreed upon between Treasury and the respective bank.
             """)
 
     def create_troubled_asset(self):
@@ -74,11 +100,11 @@ class HelperTestCase(unittest.TestCase):
         therefore the model should automatically generate one.
         """
         return self.create_item(
-            "troubled assets",
-            "",
-            """In relation to TARP, troubled assets are defined as any
-            residential or commercial mortgages - or any stocks and bonds,
-            debt or other instruments based on such mortgages - that
+            term = "troubled assets",
+            slug = "",
+            definition = """In relation to TARP, troubled assets are defined
+            as any residential or commercial mortgages - or any stocks and
+            bonds, debt or other instruments based on such mortgages - that
             originated or were issued on or before March 14, 2008, the
             purchase of which the Treasury Secretary determines promotes
             financial market stability. The term can also apply to any other
@@ -94,31 +120,52 @@ class HelperTestCase(unittest.TestCase):
         item ("loan guarantee").
         """
         return self.create_item(
-            "loan",
-            "",
-            """A sum of money given from one party to another for use over a
-            period of time. The money is paid back according to terms agreed
-            upon by both parties, including the specified interest rates and
-            the timeframe over which the loan will be repaid.""")
+            term = "loan",
+            slug = "",
+            definition = """A sum of money given from one party to another for
+            use over a period of time. The money is paid back according to
+            terms agreed upon by both parties, including the specified
+            interest rates and the timeframe over which the loan will be
+            repaid.""")
 
     def create_loan_guarantee(self):
         """
         Creates a glossary item ("loan guarantee") that contains another
-        item ("loan").
+        item ("loan").  Note that the acronym is not defined.
         """
         return self.create_item(
-            "loan guarantee",
-            "",
-            """A commitment on the part of the guaranteeing agency or
-            enterprise to pay off a loan if the borrower defaults.""")
+            term = "loan guarantee",
+            slug = "",
+            definition = """A commitment on the part of the guaranteeing
+            agency or enterprise to pay off a loan if the borrower
+            defaults.""")
+
+    def create_abcp(self):
+        """
+        Creates a glossary item with an associated acronym.
+        """
+        return self.create_item(
+            term = "Asset-Backed Commercial Paper",
+            slug = "",
+            definition = """A corporate debt due within a year, and backed by
+            assets such as real estate, autos and other commercial assets.
+            Asset-backed commercial paper is similar to a mortgage-backed
+            security; both are packages of loans resold to other investors.
+            However, asset-backed commercial paper includes assets other than
+            home mortgages.""",
+            acronym = "ABCP")
 
     # --------------------
 
-    def create_item(self, term, slug, definition):
+    def create_item(self, term, slug, definition, acronym="", synonym=""):
         item = Item()
         item.term = term
         if slug:
             item.slug = slug
         item.definition = definition
+        if acronym:
+            item.acronym = acronym
+        if synonym:
+            item.synonym = synonym
         item.save()
         return item
