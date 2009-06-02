@@ -34,7 +34,7 @@ def tarp_index(request):
     visualization_settings = tarp_visualization_settings()
     visualization_settings['width'] = len(transactions) * (visualization_settings['bar_width'] + visualization_settings['bar_margin'])
     
-    return render_to_response('bailout/tarp.html', {'transaction_list': transactions, 'visualization_settings': visualization_settings})
+    return render_to_response('bailout/tarp.html', {'transaction_list': transactions, 'visualization_settings': visualization_settings}, context_instance=RequestContext(request))
 
 def tarp_warrants(request):
 
