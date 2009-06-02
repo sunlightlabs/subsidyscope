@@ -99,6 +99,7 @@ INSTALLED_APPS = (
     'fdic_bank_failures',
     'fed_h41',
     'sectors',
+    'tax_expenditures',
     'cfda',
     'django_helpers',
     'glossary'
