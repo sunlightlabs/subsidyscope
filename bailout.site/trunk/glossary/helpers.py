@@ -5,7 +5,7 @@ from utils.msub import msub_global
 from utils.pluralize import pluralize
 
 
-def glossarize(plain):
+def glossarize(plain, id_list=None):
     """
     Converts a string into a hyperlinked string.
 
@@ -14,6 +14,10 @@ def glossarize(plain):
     * It looks at one glossary item at a time.
     * Longer glossary items match first.
     """
+    
+    if not id_list: 
+        id_list = {} 
+
     base_url = reverse("glossary")
 
     # Do initial sort
@@ -42,8 +46,9 @@ def glossarize(plain):
             
         for variant in variations:
             if variant:
-                mapping.append((r"\b%s\b" % variant, hyperlink))
+                mapping.append((r"\b%s\b" % variant, hyperlink, item.id))
 
     # Do final sort: longer strings towards the front
     mapping.sort(cmp=lambda x, y: len(y[0]) - len(x[0]))
-    return msub_first(plain, mapping)
+    text, id_list = msub_first(plain, mapping, id_list)
+    return text, id_list

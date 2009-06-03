@@ -32,11 +32,12 @@ def msub_global(source, rep_list):
     return regex.sub(lookup, source)
 
 
-def msub_first(string, rep_list):
+def msub_first(string, rep_list, id_list):
     """
     Do a multiple substitution on the 'string' parameter. The 'rep_list'
     parameter is a list of replacements, where each list item is a tuple:
-    (old, new).
+    (old, new, item_id). The 'id_list' is a dict of item_ids that have 
+    already been replaced elsewhere in the render context.  
 
     Only replaces one time for each tuple.
 
@@ -51,13 +52,12 @@ def msub_first(string, rep_list):
     """
     dirties = _selected_html_tag_spans(string)
     result = string
-    for pattern, replace in rep_list:
+    for pattern, replace, id in rep_list:
         matches = re.finditer(pattern, result, re.IGNORECASE)
-        match_count = 0
         for m in matches:
             if _clean_match(m, dirties):
                 a, b = m.start(), m.end()
-                if match_count < 1:
+                if not id_list.has_key(id):
                     new = _replace_token(m, replace)
                     result = result[:a] + new + result[b:]
                     delta = len(new) - len(m.group(0))
@@ -66,8 +66,8 @@ def msub_first(string, rep_list):
                     dirties.append(new_dirty)
                 else:
                     dirties.append((a, b))
-                match_count += 1
-    return result
+                id_list[id] = True
+    return result, id_list
 
 
 def _selected_html_tag_spans(string):

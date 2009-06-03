@@ -5,15 +5,37 @@ import glossary.helpers
 register = template.Library()
 
 
-@register.filter
-@stringfilter
-def glossarize(value):
+@register.tag
+def glossarize(parser, token):
     """
-    Add hyperlinks to matching glossary terms.
+    Add hyperlinks to matching glossary terms between
+    {% glosserize %} content {% endglossarize %}
     """
-    return glossary.helpers.glossarize(value)
+    
+    nodelist = parser.parse(('endglossarize',))
+    parser.delete_first_token()
+    
+    return GlossarizeNode(nodelist)
 
-glossarize.is_safe = True
+class GlossarizeNode(template.Node):
+    
+    def __init__(self, nodelist):    
+        self.nodelist = nodelist
+        
+    def render(self, context):
+        
+        if context.has_key('glossarize'):
+            id_list = context['glossarize']
+        else:
+            id_list = {}
+            
+        raw_output = self.nodelist.render(context)
+        processed_output, id_list = glossary.helpers.glossarize(raw_output, id_list)
+        
+        context['glossarize'] = id_list 
+        
+        return processed_output
+
 
 
 @register.simple_tag
