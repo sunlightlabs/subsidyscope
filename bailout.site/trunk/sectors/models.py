@@ -17,3 +17,8 @@ class Sector(models.Model):
     def image_url_large(self):
         
         return settings.MEDIA_URL + 'images/sector/' + str(self.id) + '_lg.png'
+
+# fund type
+
+# budget function
+
