@@ -171,11 +171,17 @@ strong { font-weight:bold;}
 
 #taxonomy p { color:#666666;}
 .tax_item { display:block; height:75px;}
-.tax_item p { font-size:10px;}
+.tax_item p { font-size:10px; line-height:12px;}
 
 
 #taxonomy .coming { color:#666666;}
 #taxonomy .left_tax { float:left; margin:0 30px 0 50px; width:200px;}
+
+#tax_icon { float:left; width:38px; margin-right:5px;}
+
+
+
+
 /* start modules section */
 #news_box { padding:0; margin:15px 5px 0 5px;}
 
@@ -241,7 +247,10 @@ a.intro_more:active { text-decoration:none; padding-left:10px;}
 #update_item a.readmore:hover { text-decoration:none; background-color:#ffffcc; }
 #update_item a.readmore:active {text-decoration:none; }
 
+#update_headline { width:90%; float:left;}
+#update_icon { padding-top:10px; text-align:right;}
 
+.update_copy { clear:both;}
 /*  Featured box */
 #featured_vis_boxes { margin:15px 15px 30px 0;}
 .featured_vis { border:1px solid #c7c7c7; height:100px; width:293px;}
