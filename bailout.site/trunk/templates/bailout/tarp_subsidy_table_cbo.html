@@ -56,15 +56,17 @@ ol.footnotes { font-size: 0.8em; }
 a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 
 </style>
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-<div class="span-15">
-	<div class="tlr_padding">
-		<h2 class="type_header">{% morsel_sector_title %}</h2>
-		<h3 class="section_header">{% morsel_page_title %}</h3>		
+
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>{% morsel_sector_title %}</h2>
+			<h3>{% morsel_page_title %}</h3>		
+		</div>
+		
+		<div id="content_area">
+		
 
 		{% morsel text1 %}
 
@@ -74,18 +76,13 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 		
 		{% morsel text2 %}
 	</div>
-	<div class="span-4 last">&nbsp;</div>
-</div>
-
-		
-
-<div class="span-24">
-	<div class="lr_padding">
+	
+	<div class="non_content">
 
 	{% morsel table2 %}
 
-</div>
-</div>
+		</div>
+	</div>
 </div> <!--ends container-->
 
 {% endblock %}

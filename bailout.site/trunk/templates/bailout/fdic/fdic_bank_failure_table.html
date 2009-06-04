@@ -13,20 +13,17 @@
 
 {% block content %}
 
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-	
-	<div class="span-18">
-		<div class="full_padding">
-			
-			<h2 class="type_header">Bailout</h2>
-			<h3 class="section_header" style="font-size:20px">Bank Failures</h3>
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>FDIC</h2>
+			<h3>Bank Failures</h3>		
+		</div>
+		
+		<div id="content_area">
 
-			<p>The following table lists the bank failures that have occurred since 2000.  When available, the IG Report associated with each bank failure is linked from the bank's name.</p>
+		<p>The following table lists the bank failures that have occurred since 2000.  When available, the IG Report associated with each bank failure is linked from the bank's name.</p>
 
 			<table id="bank-failures">
 			<thead>
@@ -64,14 +61,6 @@
 			table#bank-failures td.notes{ text-align: center; font-size: 0.8em;}
 			</style>	
 			
-			</div>
-	</div>
-	
-
-	<div class="span-4 last">&nbsp;</div>
-	
-	<div class="span-24">
-		<div class="full_padding">
 		</div>
 	</div>
 </div>

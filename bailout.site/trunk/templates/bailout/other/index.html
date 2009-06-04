@@ -15,6 +15,32 @@
 
 {% block content %}
 
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h3>{% morsel_page_title %}</h3>		
+		</div>
+		
+		<div id="content_area">	
+			{% morsel text1 %}
+		</div>
+
+		<div class="non_content">
+	
+			<div id="legend-container"></div>
+			<div id="visualization-container-0"></div>
+			<div id="visualization-container-1"></div>
+			<div id="visualization-container-2"></div>			
+			
+				<div class="attribution"><p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.
+				<span class="source_download">[<a href="{% url bailout-visualization-json %}">Download as JSON</a>]</span>
+				</p>
+				</div>
+		</div>
+	</div>
+</div>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	DrawBailoutVisualizationLegend($('#legend-container')); 
@@ -23,41 +49,5 @@ $(document).ready(function(){
 		DrawBailoutVisualization($('#visualization-container-'+i), agencies[i]);	
 });		
 </script>
-
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-	
-	
-	<div class="span-15">
-		<div class="full_padding">
-			
-			<h2 class="type_header">{% morsel_sector_title %}</h2>
-			<h3 class="section_header">{% morsel_page_title %}</h3>			
-
-			{% morsel text1 %}
-			
-		</div>
-	</div>
-	<div class="span-4 last">&nbsp;</div>
-	<div class="span-24">
-		<div class="full_padding">
-			<div id="legend-container"></div>
-
-			<div id="visualization-container-0"></div>
-			<div id="visualization-container-1"></div>
-			<div id="visualization-container-2"></div>			
-			
-			<a class="json" href="{% url bailout-visualization-json %}">Download as JSON</a>
-			
-			<p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.</p>
-
-		</div>
-	</div>
-</div>
-
-
 
 {% endblock %}

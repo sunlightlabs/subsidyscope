@@ -21,8 +21,6 @@
 
 <script type="text/javascript">
 
-	
-
 $(document).ready(function(){
 	swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf?v=4', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
 	
@@ -200,30 +198,34 @@ function getFlexMovie(movieName) {
 
 </script>
 
-<div class="container top_solid_box">&nbsp;</div>
-	<div class="container white">
-	
-		<div class="span-5">
-				{% include "includes/bailout_left_nav.html" %}
-		</div>
-	
-		
-		<div class="span-15">
-			
-			<div class="tlr_padding">
-				<h2 class="type_header">{% morsel_sector_title %}</h2>
-				<h3 class="section_header">{% morsel_page_title %}</h3>
 
-				{% morsel text1 %}
-			</div>
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>{% morsel_sector_title %}</h2>
+			<h3>{% morsel_page_title %}</h3>		
 		</div>
-			
-		<div class="span-4 last">&nbsp;</div>
-			
-		
-		<div class="span-24">
-			
-			<div class="lr_padding">
+		<div id="content_area">
+			{% morsel text1 %}
+		</div>		
+	
+		<div class="non_content">		
+
+				<div id="table-filter" style="clear:left; margin: 25px;">
+
+				<p><input type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
+				<p><input type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput"/></p>
+
+
+				View share of: <select name="dataType">
+					<option value="branches">Branches</option>
+					<option value="deposits">Deposits</option>
+					<option value="lending">Lending (2007 HMDA)</option>
+				</select>
+
+				</div> 
+
 				<div id="map-container"  style="padding: 0 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
 				
 					{% morsel caption %}
@@ -255,30 +257,15 @@ function getFlexMovie(movieName) {
 					</div>
 					
 					<br clear="all"/>
-					
-					
-					
+										
 				</div>
-			</div>
 		</div>
-
-		<div class="span-5">&nbsp;</div>
-
-		<div class="span-15">
-			
-			<div class="tlr_padding">
-		
-		
-				{% morsel text2 %}
-
-
-			</div>
-
-			
-			<div class="span-4 last">&nbsp;</div>
+	
+		<div id="content_area">	
+			{% morsel text2 %} 
+		</div>
+	
 	</div>
-	
-	
 	
 </div>
 			

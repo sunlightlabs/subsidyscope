@@ -9,24 +9,22 @@
 {% endblock %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-	<div class="span-15">
-		<div class="full_padding">
-			
-			<h2 class="type_header">{% morsel_sector_title %}</h2>
-			<h3 class="section_header">{% morsel_page_title %}</h3>
 
-			{% morsel text1 %}
-			
+<div class="container main_container">
+{% include "includes/bailout_nav.html" %}
+
+
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Treasury</h2>
+			<h3>{% morsel_page_title %}</h3>		
 		</div>
-	</div>
-	
-	<div class="span-23" style="clear:left">
-		<div class="full_padding">			
+		
+		<div id="content_area">
+			{% morsel text1 %}
+		</div>
+
+		<div class="non_content">			
 
 <style type="text/css">
 .subsidy-table	{ width: 100%; border-left: 0 !important; border-top: 1px solid #a5a5a5 !important;}
@@ -188,7 +186,6 @@ td.bottom-line-item { padding-top: 1em;}
 	<li id="footnote-2"><a name="footnote-2"></a>Congressional Budget Office. "<a href="{% url bailoutpdf_detail 40 %}">A Preliminary Analysis of the President's Budget and an Update CBO's Budget and Economic Outlook</a>." March 2009, p.7.</li>
 	</ol>
 
-		</div>	
 	</div>
 </div>
 

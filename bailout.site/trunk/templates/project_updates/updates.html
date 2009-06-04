@@ -1,11 +1,14 @@
 {% load media %}
 
-
 {% for item in items %}
 <div id="update_item">
-<h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
-<p><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} 
-	<a style="font-size: 10px; color: #aaa; border: none; float: right;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
+	<div id="update_headline"><h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3></div>
+	  {% if item.sectors %}
+			<div id="update_icon">{% for sector in item.sectors.all %}<img src="{% media_url %}/images/sector_icons/{{ sector.id }}_sm.png" alt="{{ sector.name }}: Project Update" border="0" />{% endfor %}
+			</div>
+		{% endif %}
+		<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} 
+			<a style="font-size: 10px; color: #aaa; border: none; float: right;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
 </p>
 
 </div>

@@ -1,31 +1,28 @@
-{% extends "base.html" %}
+{% extends "base_about.html" %}
 
 {% block content %}
 
-<!-- Hate to do this, but we're still waiting on Pew... -->
-	
-<!-- <div class="container top_solid_box">&nbsp;</div> -->
-
-<div class="container white">
-	<div class="span-24">
-		<div class="full_padding">
-		
-		<h2 class="type_header">subsidyscope</h2>
-		<h3 class="section_header">Contact Us</h3>
-			<div id="contact_form">
-    			<form action="." method="post" id="contactus">
+<div class="container top_solid_box">&nbsp;</div>
+	<div class="container white">
+		<div class="span-24">
+			<div id="header_area_flat">
+				<h3>Contact Subsidyscope</h3>		
+			</div>
+			
+			<div id="content_area">	
+				<p>For press inquiries, please contact Jeremy Ratner at 202-552-2137.</p>
+				<div id="contact_form">
+    				<form action="." method="post" id="contactus">
 					<ul>
 			    		{{ form.as_ul }}	
         	    		<li><p class="submit"><input type="submit" value="Send your question or comment to Subsidyscope"></p></li>
 					</ul>
-    			</form>
-			</div>
-
-		<p>For press inquiries, please contact Jeremy Ratner at 202-552-2137.</p>
+    				</form>
+				</div>
 		
+			</div>
 		</div>
 	</div>
-</div>
 
 
 

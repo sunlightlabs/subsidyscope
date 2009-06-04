@@ -595,7 +595,7 @@ class TransactionManager(models.Manager):
         
         for transaction in transactions:
             if transaction.institution.stock_symbol:
-                print transaction.institution.stock_symbol
+                # print transaction.institution.stock_symbol
                 transaction.calculateStrikePrice()
     
     def getLastTransactionDate(self, institution=None):
@@ -686,7 +686,7 @@ class Transaction(models.Model):
                 
                 average = total / len(prices)
             
-                print average
+                # print average
             
                 self.warrant_calculated_strike_price = average
                 self.save()
@@ -754,7 +754,7 @@ class Transaction(models.Model):
         
     def is_negative(self):
         """ returns true if the transaction amount is negative. convenience method for templating. """
-        print self.price_paid, self.price_paid<0
+        # print self.price_paid, self.price_paid<0
         return self.price_paid<0
     
             

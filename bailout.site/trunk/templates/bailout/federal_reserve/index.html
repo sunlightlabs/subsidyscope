@@ -4,17 +4,50 @@
 {% load media %}
 {% load morsel_tags %}
 
+
 {% block additional_js %}
 	{% js "swfobject.js" %}
 {% endblock %}
 
 {% block content %}
-<script type="text/javascript">
+
+<div class="container main_container">
+{% include "includes/bailout_nav.html" %}
+
+	<div class="span-24">
+		<div id="header_area">
+			<h3>Federal Reserve</h3>		
+		</div>
+		
+		<div id="content_area">
+			{% morsel text1 %}			
+		</div>
+		
+		<div class="non_content">
+
+			<h4>Factors Affecting Federal Reserve Balances</h4>
+			<div id="fed-h41">				
+				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
+				<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
+			</div>
+
+				<div class="attribution">Source: <a href="http://www.subsidyscope.com">www.subsidyscope.com</a>. Data from <a href="http://www.federalreserve.gov/releases/h41/">The Federal Reserve</a> <span class="source_download">[<a href="{% url h41_snapshot_csv %}">Download CSV</a>]
+				</div>
+
+			</div>
+			</div>
+
+			
+		<div id="content_area">
+			{% morsel text2 %}
+		</div>
+				
+			<script type="text/javascript">
 			$(function(){
 				var d = new Date();
-				swfobject.embedSWF('{% media_url %}/scripts/fed_h41_1.3.swf', 'fed-h41', 550, 400, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', 
+				swfobject.embedSWF('{% media_url %}/scripts/fed_h41_1.3.swf', 'fed-h41', 900, 400, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', 
 				{
-					width: 550,
+					width: 900,
 					height: 400,	       
 					data_url: 'http://' + window.location.host + '{% url h41_snapshot_xml %}?' + d.getTime(),
 					timeline_data_url: 'http://' + window.location.host + '{% url fed_news_xml %}?' + d.getTime(),
@@ -28,34 +61,6 @@
 				);			
 			});
 			</script>
-
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
-	<div class="span-15">
-		<div class="full_padding">
-			
-			<h2 class="type_header">{% morsel_sector_title %}</h2>
-			<h3 class="section_header">{% morsel_page_title %}</h3>
-
-			{% morsel text1 %}			
-
-			<div><h4 style="text-align: center">Factors Affecting Federal Reserve Balances</h3><div id="fed-h41" style="text-align:center;">				
-				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
-				<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
-			</div>
-			
-			<div class="attribution">Source: <a href="http://www.subsidyscope.com">www.subsidyscope.com</a>. Data from <a href="http://www.federalreserve.gov/releases/h41/">The Federal Reserve</a> (<a href="{% url h41_snapshot_csv %}">Download CSV</a>).</div>
-			</div>
-			
-
-			{% morsel text2 %}			
-
-		</div>	
-	</div>
-</div>
 
 
 {% endblock %}

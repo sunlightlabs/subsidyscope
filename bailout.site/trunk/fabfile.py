@@ -36,6 +36,12 @@ def push_fixture(fixture_name=None, restart_server=False):
     if restart_server is True:
         run('/home/subsidyscope/run-this.sh')
 
+def push_carousel():
+    # sync images
+    run('rsync -r -v -z --exclude=".*" -e "ssh -i $(live_ssh_keyfile_for_staging)" $(live_login_for_staging):$(staging_project_root)/media/images/carousel_image_* $(live_project_root)/media/images/')
+    # push fixture
+    push_fixture('carousel')    
+
 
 # DEPRECATED FOR DATA-HEAVY APPLICATIONS
 def pull_fixture(fixture_name=None):

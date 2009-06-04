@@ -103,7 +103,8 @@ INSTALLED_APPS = (
     'tax_expenditures',
     'cfda',
     'django_helpers',
-    'glossary'
+    'glossary',
+    'carousel'
 )
 
 

@@ -8,38 +8,32 @@
 	{% css "ui.theme.css" %}
 {% endblock %}
 
-
-
 {% block content %}
 
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>{% morsel_sector_title %}</h2>
+			<h3>{% morsel_page_title %}</h3>		
+		</div>
+		
+		<div id="content_area">
 
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
+	
+			{% morsel text1 %}
+
+			<p><img src="{% media_url %}/images/bac_pricing.png"/><br/><em>Source: Subsidyscope (The Pew Charitable Trusts)</em></p>
+
+			{% morsel text2 %}
+	
+			<div class="footnotes">
+			1. Congressional Oversight Panel, <a href="/projects/bailout/documents/22/">February Oversight Report (February 6, 2009)</a><br/>
+			2. See <a href="http://www.sec.gov/Archives/edgar/data/93751/000119312508212289/d8k.htm"/>State Street Corporation's 8-K filing on October 13, 2008</a>;  
+			</div>
+
+		</div>
 	</div>
-
-	
-<div class="span-15">
-	
-	<div class="tlr_padding">
-	<h2 class="type_header">{% morsel_sector_title %}</h2>
-	<h3 class="section_header">{% morsel_page_title %}</h3>
-	
-	{% morsel text1 %}
-	
-<p style="margin-left: -125px;"><img src="{% media_url %}/images/bac_pricing.png"/><br/><em>Source: Subsidyscope (The Pew Charitable Trusts)</em></p>
-
-	{% morsel text2 %}
-	
-<div class="footnotes">
-1. Congressional Oversight Panel, <a href="/projects/bailout/documents/22/">February Oversight Report (February 6, 2009)</a><br/>
-2. See <a href="http://www.sec.gov/Archives/edgar/data/93751/000119312508212289/d8k.htm"/>State Street Corporation's 8-K filing on October 13, 2008</a>;  
-</div>
-	
-	
-</div>
-</div>
 </div>
 
 

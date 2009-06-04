@@ -24,22 +24,19 @@
 
 {% block content %}
 
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
+<div class="container main_container">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>{% morsel_sector_title %}</h2>
+			<h3>{% morsel_page_title %}</h3>		
+		</div>
+		
+		<div id="content_area">
 
-	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
-	</div>
+		{% morsel text1 %}
 
-	
-<div class="span-15">
-	
-	<div class="tlr_padding">
-	<h2 class="type_header">{% morsel_sector_title %}</h2>
-	<h3 class="section_header">{% morsel_page_title %}</h3>
-	
-	{% morsel text1 %}
-	
+
 	<p>Based on the closing prices on <b>{{ last_date|date:"F j, Y" }}</b>,   
 	
 	{% if in_money %}
@@ -63,12 +60,7 @@
 	
 </div>
 
-	<div class="span-4 last">&nbsp;</div>
-
-</div>
-<div class="span-24">
-	<div class="lr_padding">
-	
+<div class="non_content">
 	
 	<div id="table-filter" style="clear:left; padding-top: 15px;">Filter transactions by recipient: <input size="30" id="tarpFilterInput"/></div> 
 	
@@ -116,9 +108,6 @@
 	</table>
 	
 	</div>	
-	
-	
-	
 	
 	
 	<div class="footnotes">

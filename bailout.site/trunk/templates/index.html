@@ -2,86 +2,253 @@
 {% load media %}
 {% load project_update_tags %}
 {% load bailout_tags %}
-
+{% load carousel_tags %}
 {% block content %}
+
+<script type="text/javascript">
+function setCookie( name, value, expires, path, domain, secure )
+{
+	var today = new Date();
+	today.setTime( today.getTime() );
+
+	if ( expires )
+		expires = expires * 1000 * 60 * 60 * 24;
+		
+	var expires_date = new Date( today.getTime() + (expires) );
+
+	document.cookie = name + "=" +escape( value ) + ( ( expires ) ? ";expires=" + expires_date.toGMTString() : "" ) + ( ( path ) ? ";path=" + path : "" ) + ( ( domain ) ? ";domain=" + domain : "" ) + ( ( secure ) ? ";secure" : "" );
+}
+
+
+function getCookie( check_name ) {
+	// first we'll split this cookie up into name/value pairs
+	// note: document.cookie only returns name=value, not the other components
+	var a_all_cookies = document.cookie.split( ';' );
+	var a_temp_cookie = '';
+	var cookie_name = '';
+	var cookie_value = '';
+	var b_cookie_found = false; // set boolean t/f default f
+
+	for ( i = 0; i < a_all_cookies.length; i++ )
+	{
+		// now we'll split apart each name=value pair
+		a_temp_cookie = a_all_cookies[i].split( '=' );
+
+		// and trim left/right whitespace while we're at it
+		cookie_name = a_temp_cookie[0].replace(/^\s+|\s+$/g, '');
+
+		// if the extracted name matches passed check_name
+		if ( cookie_name == check_name )
+		{
+			b_cookie_found = true;
+			// we need to handle case where cookie has no value but exists (no = sign, that is):
+			if ( a_temp_cookie.length > 1 )
+			{
+				cookie_value = unescape( a_temp_cookie[1].replace(/^\s+|\s+$/g, '') );
+			}
+			// note that in cases where cookie is initialized but no value, null is returned
+			return cookie_value;
+			break;
+		}
+		a_temp_cookie = null;
+		cookie_name = '';
+	}
+	if ( !b_cookie_found )
+	{
+		return null;
+	}
+}
+
+
+function handleCarouselClick(tabToFadeIn)
+{
+	var tabContainers = $('div.tabs > div');
+	tabContainers.each(function(i){						
+		if($(this).css('display')!='none')
+		{
+			$(this).fadeOut(300, function(){									
+				tabToFadeIn.fadeIn(300);
+			});
+		}
+		else
+		{
+			$(this).hide();
+		}
+	});						
+
+  $('div.tabs ul.tabNavigation a').removeClass('selected');
+  $('div.tabs ul.tabNavigation a[href=#' + tabToFadeIn.attr('id') + ']').addClass('selected');
+  return false;	
+}
+
+$(function () {
+
+	// handle initial cookie index
+	var SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME = 'SubsidyscopeInitialCarouselIndex';
+	var carouselInterval = null;
+	var initialTabToShowIndex = getCookie(SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME);
+	if (initialTabToShowIndex==null)
+	{
+		initialTabToShowIndex = 0;
+	}
+	else
+	{
+		initialTabToShowIndex = parseInt(initialTabToShowIndex);
+	}
+	setCookie(SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME, ((initialTabToShowIndex+1) % $('div.tabs > div').length), 30);
+
+	var tabContainers = $('div.tabs > div');				
+	tabContainers.hide().filter(':eq(' + initialTabToShowIndex + ')').show();                        
+	$('div.tabs ul.tabNavigation a').click(function() {		        
+		clearInterval(carouselInterval);
+		handleCarouselClick($(this.hash));		
+	});	
+   
+	// set up carousel auto-rotation
+	carouselInterval = setInterval(function(){
+		var buttonToClick = null;
+		var selectedTabButton = $('div.tabs ul.tabNavigation a.selected');
+		if (selectedTabButton.length==0)
+			// if nothing has been clicked, the "selected" class won't be set
+			selectedTabButton = $('div.tabs ul.tabNavigation a:eq(' + initialTabToShowIndex + ')');
+		
+		// if there's a selected button, click the next one
+		buttonToClick = selectedTabButton.parent().next().find('a');
+		// ...unless it was the last one, in which case click the first one
+		if(buttonToClick.length==0)
+				buttonToClick = $('div.tabs ul.tabNavigation a:first');
+
+		if(buttonToClick.length>0)
+			handleCarouselClick($(buttonToClick.attr('href')));
+	}, 8000);
+
+	
+	// set up "in the news" block
+	$(function(){
+		var MAX_NEWS_ITEMS = 10;
+		$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
+		function(data){		
+			$.each(data.value.items, function(i,item){
+				if(i<MAX_NEWS_ITEMS)
+				{
+					$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
+				}
+			});		      
+		});
+	});
+
+});
+</script>
+	
+
 <div class="container top_solid_box">&nbsp;</div>
 <div class="container white">
+	<div class="span-11">
+		<div class="feature_leftside">
 	
-<div class="span-16">
-	<div class="front_left_col">
-		<div id="intro">
-			<p class="intro_copy"><strong>Subsidyscope</strong>, launched by The Pew Charitable Trusts, aims to raise public awareness about the role of federal subsidies in the economy. Over the next two years, the project will build this subsidy database industry sector by industry sector. <a href="/about/" class="intro_more">Read More »</a></p>
+
+<!-- feature box toggle layers -->
 		
-		</div>
+<div id="feature_box">
+	<div class="tabs">
+								
+		{% carousel_entries %}	
+			
+	</div> <!--ends tabs class-->
+</div><!-- end feature box -->
 	
-			<div class="updates_box">
-				<div class="updates_head">
-				<h2>Subsidyscope Project Updates</h2>
-				<a title="Click here for news feed" href="{% url django.contrib.syndication.views.feed "updates" %}"><img src="/media/images/rss_icon.png">
-				</a>
+	
+		<div class="updates_box">
+			<div class="updates_head">
+			<h2>Subsidyscope Project Updates</h2>
+			<a title="Click here for news feed" href="{% url django.contrib.syndication.views.feed "updates" %}"><img src="/media/images/rss_icon.png"></a><span id="rss-explanation">&nbsp;(<a href="{% url about_rss %}">What's this?</a>)</span>
+			</div>
+			{# display project updates #}			
+			{% project_updates %}
+		</div> 
+<!-- ends update box-->
+
+</div> <!-- ends feature left side -->		
+
+</div>
+	
+<div class="span-13 last">
+	<div class="feature_rightside">
+		<div id="intro">
+		<p class="intro_copy"><strong>Subsidyscope</strong>, launched by The Pew Charitable Trusts, aims to raise public awareness about the role of federal subsidies in the economy. <a href="/about/" class="intro_more">Read More »</a></p>		
+		</div>
+		
+		<div id="taxonomy" style="">
+			<div class="left_tax">
+				<div class="tax_item">
+					<div id="tax_icon"><a href="/projects/bailout/"><img src="/media/images/sector_icons/1_lg.png" border="0" alt="Financial Bailout"></a></div>	
+					<div>	
+						<h3><a href="/projects/bailout/">Financial Bailout</a></h3>
+						<p>	<a href="{% url bailout_treasury_index %}">Treasury</a>, 
+							<a href="{% url bailout_fdic_index %}">FDIC</a>, 
+							<a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>, 
+							<a href="{% url bailout_other_index %}">Other Agencies</a>
+						</p>	
+					</div>
+				</div>
+				
+				<div class="tax_item">
+					<div id="tax_icon"><img src="/media/images/icon_lrg_energy_grey.png" border="0" alt="Energy"></div>	
+						<div>
+							<h3 class="coming">Energy</h3>
+							<p>Coming soon</p>
+						</div>
+					</div>
 				</div>
 			
+			<div class="right_tax">
+				<div class="tax_item">
+					<div id="tax_icon"><img src="/media/images/sector_icons/2_lg_gray.png" border="0" alt="Transportation"></div>	
+						<div><h3 class="coming">Transportation</h3>
+							<p>Summer 2009</p>
+						</div>	
+				</div>
 			
-				{# display project updates #}		
-				{% project_updates %}
-			
-			
-			</div> <!-- ends update box-->
-			
-
-		</div>
-</div>
-
-<div class="span-8 last">
+				<div class="tax_item">
+					<div id="tax_icon"><img src="/media/images/icon_lrg_housing_grey.png" border="0" alt="Housing"></div>	
+						<div>	
+							<h3 class="coming">Housing</h3>
+							<p>Coming soon</p>
+						</div>
+					</div>
+				
+			</div>
+		</div>				
+	</div>
 	
-	<div id="featured_vis_boxes">
-		<h3>Featured Visualizations</h3>
-		<div class="featured_vis">
-		<a href="/projects/bailout/tarp/"><img src="/media/images/feature_tarp_transactions_293x100.gif"></a>
-		</div>
-		<a href="/projects/bailout/tarp/"><span class="featured_vis_title">TARP Transactions</span></a>
-
-		<div class="featured_vis">
-		<a href="/projects/bailout/tarp/#recipients"><img src="/media/images/feature_tarp_recipients_293x100.gif"></a>
-		</div>
-		<a href="/projects/bailout/tarp/#recipients"><span class="featured_vis_title">TARP Recipients</span></a>
-		
-		<div class="featured_vis">
-		<a href="/projects/bailout/tarp/subsidies/"><img src="/media/images/feature_tarp_subsidies_293x100.gif"></a>
-		</div>
-		<a href="/projects/bailout/tarp/subsidies/"><span class="featured_vis_title">TARP Subsidy Rates</span></a>
-	</div>	
-	
-	<!--
-	<div id="featured_project">
-		<h2 class="featured">Featured Visualizations</h2>
-		
-		
-		<a href="/projects/bailout/tarp/">
-		<img src="http://media.sunlightprojects.org/subsidyscope/images/frontpage/feature_graphic_260_200.png" class="featured_img">
-		</a>
-		<h3><a href="/projects/bailout/tarp/">TARP Database</a></h3>
-		<p>Data on the payments made to banks and other financial institutions as part of the Troubled Asset Relief Program.
-		<span class="gotofeature"><a href="/projects/bailout/tarp"><img src="{% media_url %}/images/feature_arrow_right.png"></a></span>
-		</p>
-	</div>	
--->
-	
-	{% bank_search %}
-	
-	{% tarp_warrant_tracker %}
-	
-	
-	
-	<div class="front_about">
-		<h3 class="front_about_head">Who is Involved?</h3>			
-		<p>Subsidyscope is guided by a broad and bipartisan <a href="/board/">advisory board</a> of top experts in federal spending, taxes, and finance. <a href="http://www.sunlightfoundation.com">The Sunlight Foundation</a>, Pew's research and technology partner, is developing the database and Web site to facilitate the distribution of data across the Web. </p>
+	<div class="span-5">
+		<div id="news_box">
+			<div class="news_head"><h2>In The News</h2><a title="Click here for news feed" href="http://feeds.delicious.com/v2/rss/subsidyscope?count=15"><img src="/media/images/rss_icon.png"></a>
+			</div>
+			<ul id="news_box_items">				
+			</ul>	
+		</div>		
 	</div>
 	
 	
-</div>
+	<div class="span-8 last">
 		
-<div class="span-24">&nbsp;</div>
+		{% bank_search %}
+
+		{% tarp_warrant_tracker %}
+		
+		<div class="front_about">
+			<h3 class="front_about_head">Who is Involved?</h3>			
+			<p>Subsidyscope is guided by a broad and bipartisan <a href="/board/">advisory board</a> of top experts in federal spending, taxes, and finance. <a href="http://www.sunlightfoundation.com">The Sunlight Foundation</a>, Pew's research and technology partner, is developing the database and Web site to facilitate the distribution of data across the Web. </p>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	
+</div>	
 	
 </div> <!--ends container-->
 {% endblock %}
