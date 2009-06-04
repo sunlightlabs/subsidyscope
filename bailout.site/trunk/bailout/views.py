@@ -86,11 +86,11 @@ def tarp_warrants(request):
     
     return render_to_response('bailout/tarp_warrants.html', {'transactions':transactions, 'last_date':last_date, 'in_money':in_money, 'total_transactions':total_transactions, 
                                                              'out_percentage':out_percentage, 'citi_stock':citi_stock, 'citi_strike':citi_strike, 'citi_percentage':citi_percentage,
-                                                             'aig_stock':aig_stock, 'aig_strike':aig_strike, 'aig_percentage':aig_percentage })
+                                                             'aig_stock':aig_stock, 'aig_strike':aig_strike, 'aig_percentage':aig_percentage }, context_instance=RequestContext(request))
 
 def tarp_warrants_calculation(request):
     
-    return render_to_response('bailout/tarp_warrants_calculation.html')
+    return render_to_response('bailout/tarp_warrants_calculation.html', context_instance=RequestContext(request))
 
 
 def _get_scale_bound(data):
@@ -181,7 +181,7 @@ def tarp_subsidies(request):
         amounts_received_chart.marker(marker_text, '000000', 0, i, 10, -1)
         i = i+1
     
-    return render_to_response('bailout/tarp_subsidy_table.html', { 'estimated_subsidies_chart': estimated_subsidies_chart.img(), 'subsidy_rate_chart': subsidy_rate_chart.img(), 'amounts_received_chart': amounts_received_chart.img(), 'estimated_subsidies': estimated_subsidies, 'subsidy_rates': subsidy_rates, 'amounts_received': amounts_received, 'names': ' '.join(names), 'colors': '|'.join(colors)})
+    return render_to_response('bailout/tarp_subsidy_table.html', { 'estimated_subsidies_chart': estimated_subsidies_chart.img(), 'subsidy_rate_chart': subsidy_rate_chart.img(), 'amounts_received_chart': amounts_received_chart.img(), 'estimated_subsidies': estimated_subsidies, 'subsidy_rates': subsidy_rates, 'amounts_received': amounts_received, 'names': ' '.join(names), 'colors': '|'.join(colors)}, context_instance=RequestContext(request))
 
 def tarp_js(request):
 

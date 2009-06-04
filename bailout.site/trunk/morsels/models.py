@@ -1,4 +1,4 @@
-from managers import MorselManager
+from managers import MorselManager, PageManager
 from exceptions import LockedError
 
 from django.db import models
@@ -7,12 +7,15 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
 from rcsfield.fields import RcsTextField
 from rcsfield.manager import RevisionManager
+from sectors.models import Sector 
 
 class Page(models.Model):
     
     class Meta:
         verbose_name = 'Morsel Page'
         ordering = ['url']
+    
+    sector = models.ForeignKey(Sector)
     
     url = models.CharField(_('url'), max_length=100, db_index=True, unique=True,
         help_text=_("""
@@ -24,6 +27,8 @@ class Page(models.Model):
     title = models.CharField(_('title'), max_length=80, blank=True)
 
     sites = models.ManyToManyField(Site, verbose_name=_('sites'))
+    
+    objects = PageManager()
     
     def __unicode__(self):
         

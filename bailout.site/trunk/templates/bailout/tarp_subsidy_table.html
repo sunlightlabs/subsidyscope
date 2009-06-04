@@ -2,6 +2,7 @@
 {% load media %}
 {% load charts %}
 {% load webdesign %}
+{% load morsel_tags %}
 
 {% block content %}
 
@@ -47,29 +48,26 @@
 	</div>
 <div class="span-15">
 	<div class="tlr_padding">
-		<h2 class="type_header">Reference</h2>
-		<h3 class="section_header">Subsidies from the Troubled Asset Relief Program</h3>
+		<h2 class="type_header">{% morsel_sector_title %}</h2>
+		<h3 class="section_header">{% morsel_page_title %}</h3>
 		
-		<p>The Troubled Asset Relief Program (TARP) is one of the federal government's most complex programs. It's not surprising, therefore, that there are misunderstandings about the subsidies TARP provides.</p>
-
-		<p>Subsidies arise under the program because the federal government offers financing to companies at terms that are substantially more generous than what private markets would provide.  In some cases, the company receives a government loan at below-market interest rates; in other cases, the company receives an above-market price for the sale of stock to the government.</p>
-
+		{% morsel text1 %}
+		
 		<div class="tarp-subsidy-chart">
 			<h3>Total Disbursement</h3>
 			<h4>Selected Companies as of 1/23/09 (billions)</h4>
 			{{ amounts_received_chart|safe }}
 		</div>
-
-		<p>In nearly all TARP transactions, the Treasury purchases <a href="{% url glossary %}">preferred stock</a> and <a href="{% url glossary %}">warrants</a> from a company requesting funds.  Although the stock and warrants give the federal government a claim on the company's future profits, the market value of those claims is generally expected to be worth much less than the initial disbursement to the company. As a result, the government will provide an implicit subsidy to the company through TARP financing.  The size of the subsidy is the difference between the initial disbursement and the market value of the preferred stock and warrants.</p>
-
+		
+		{% morsel text2 %}
+		
 		<div class="tarp-subsidy-chart">
 			<h3>Estimated Subsidy</h3>
 			<h4>Selected Companies as of 1/23/09 (billions)</h4>
 			{{ estimated_subsidies_chart|safe }}
 		</div>
 
-		<p>This analysis highlights a critical distinction between the funds disbursed to companies and the subsidies provided to them.  The two concepts are not the same.  As long as the preferred stock and warrants that the government receives from companies are not worthless, the subsidies provided by TARP are smaller than the program's disbursements. A useful measure for understanding this distinction is the <a href="{% url glossary %}"><em>subsidy rate</em></a>, which is the ratio of the subsidy to the disbursement. The subsidy rate shows the share of the disbursement that reflects a true subsidy cost to the government.</p>
-
+		{% morsel text3 %}
 		
 		<div class="tarp-subsidy-chart">
 			<h3>Subsidy Rate (Subsidy/Total Disbursement)</h3>
@@ -77,15 +75,7 @@
 			{{ subsidy_rate_chart|safe }}
 		</div>
 
-		<p>Both the <a href="{% url tarp-subsidies-cop %}">Congressional Oversight Panel</a> and the <a href="{% url tarp-subsidies-cbo %}">Congressional Budget Office</a> have begun providing estimates of the TARP subsidies and subsidy rates. Among the institutions receiving some of the largest subsidies, the estimators find tremendous variation in subsidy rates (see below). The numbers from both agencies reflect estimates at a specific point in time. For example, the COP estimates reflected the subsidy costs to the government when the government purchased the preferred stock and warrants from the companies.  However, because the subsidy estimates depend on market conditions, those subsidy estimates can change over time.  If market conditions deteriorate, as they have for a number of financial companies, the size of the subsidies will increase.</p>
-				
-		
-		<p>&nbsp;</p>
-		
-		
-		<p><small>Source for GM Corp and GMAC LLC: Congressional Budget Office, <a href="{% url bailoutpdf_detail 15 %}">The Troubled Asset Relief Program: Report on Transactions Through December 31, 2008</a>, 01/09; All other data from: Congressional Oversight Panel, <a href="{% url bailoutpdf_detail 22 %}">February Oversight Report, Valuing Treasury's Acquisitions</a>, 2/6/09.</small></p>
-		<p><small>* The figure for Citigroup is a combination of the subsidies it received through two separate programs (Capital Purchase Program and Systemically Significant Failing Institutions) and that were individually estimated by COP.</small></p>
-		
+		{% morsel text4 %}
 		
 				
 	</div>

@@ -1,4 +1,4 @@
-from morsels.models import Morsel
+from morsels.models import Morsel, Page
 from django.template import Library, Node
 from django.utils.safestring import mark_safe
 from django.conf import settings
@@ -97,6 +97,56 @@ def morsel(parser, token):
         name = name[1:-1]
 
     return MorselNode(name, as_var, inherit)
+
+
+class MorselPageTitleNode(Node):
+
+    JS_SIGNAL = '<!-- ADDED JS -->'
+
+    def __init__(self, show_sector):
+        self.show_sector = show_sector
+        
+
+    def render(self, context):  
+                
+        page = Page.objects.get_for_current(context, u'', False)
+        
+        title = page.title
+        
+        if self.show_sector:
+            title = page.sector.name + ': ' + title
+        
+        return title
+
+@register.tag
+def morsel_page_title(parser, token):
+    tokens = token.split_contents()
+
+    try:
+        tokens.remove(u'show_sector')
+        show_sector = True
+    except ValueError:
+        show_sector = False
+
+    return MorselPageTitleNode(show_sector)
+
+
+class MorselSectorTitleNode(Node):
+
+    JS_SIGNAL = '<!-- ADDED JS -->'
+
+    def render(self, context):  
+                
+        page = Page.objects.get_for_current(context, u'', False)
+        
+        return page.sector.name
+
+
+
+@register.tag
+def morsel_sector_title(parser, token):
+
+    return MorselSectorTitleNode()
 
 class WithMorselNode(Node):
     def __init__(self, name, as_var, inherit, nodelist):
