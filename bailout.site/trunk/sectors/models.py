@@ -11,12 +11,16 @@ class Sector(models.Model):
     name = models.CharField("Name", max_length=40)
     
     def image_url_small(self):
-        
-        return settings.MEDIA_URL + 'images/sector/' + str(self.id) + '_sm.png'
+
+        return 'http://dev.subsidyscope.com/media/' + 'images/sector_icons/' + str(self.id) + '_sm.png'
+    
+        #return settings.MEDIA_URL + 'images/sector_icons/' + str(self.id) + '_sm.png'
 
     def image_url_large(self):
         
-        return settings.MEDIA_URL + 'images/sector/' + str(self.id) + '_lg.png'
+        return 'http://dev.subsidyscope.com/media/' + 'images/sector_icons/' + str(self.id) + '_lg.png'
+        
+        #return settings.MEDIA_URL + 'images/sector_icons/' + str(self.id) + '_lg.png'
 
 # fund type
 
