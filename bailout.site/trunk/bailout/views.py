@@ -34,7 +34,7 @@ def tarp_index(request):
     visualization_settings = tarp_visualization_settings()
     visualization_settings['width'] = len(transactions) * (visualization_settings['bar_width'] + visualization_settings['bar_margin'])
     
-    return render_to_response('bailout/tarp.html', {'transaction_list': transactions, 'visualization_settings': visualization_settings})
+    return render_to_response('bailout/tarp.html', {'transaction_list': transactions, 'visualization_settings': visualization_settings}, context_instance=RequestContext(request))
 
 def tarp_warrants(request):
 
@@ -86,11 +86,11 @@ def tarp_warrants(request):
     
     return render_to_response('bailout/tarp_warrants.html', {'transactions':transactions, 'last_date':last_date, 'in_money':in_money, 'total_transactions':total_transactions, 
                                                              'out_percentage':out_percentage, 'citi_stock':citi_stock, 'citi_strike':citi_strike, 'citi_percentage':citi_percentage,
-                                                             'aig_stock':aig_stock, 'aig_strike':aig_strike, 'aig_percentage':aig_percentage })
+                                                             'aig_stock':aig_stock, 'aig_strike':aig_strike, 'aig_percentage':aig_percentage }, context_instance=RequestContext(request))
 
 def tarp_warrants_calculation(request):
     
-    return render_to_response('bailout/tarp_warrants_calculation.html')
+    return render_to_response('bailout/tarp_warrants_calculation.html', context_instance=RequestContext(request))
 
 
 def _get_scale_bound(data):
@@ -181,7 +181,7 @@ def tarp_subsidies(request):
         amounts_received_chart.marker(marker_text, '000000', 0, i, 10, -1)
         i = i+1
     
-    return render_to_response('bailout/tarp_subsidy_table.html', { 'estimated_subsidies_chart': estimated_subsidies_chart.img(), 'subsidy_rate_chart': subsidy_rate_chart.img(), 'amounts_received_chart': amounts_received_chart.img(), 'estimated_subsidies': estimated_subsidies, 'subsidy_rates': subsidy_rates, 'amounts_received': amounts_received, 'names': ' '.join(names), 'colors': '|'.join(colors)})
+    return render_to_response('bailout/tarp_subsidy_table.html', { 'estimated_subsidies_chart': estimated_subsidies_chart.img(), 'subsidy_rate_chart': subsidy_rate_chart.img(), 'amounts_received_chart': amounts_received_chart.img(), 'estimated_subsidies': estimated_subsidies, 'subsidy_rates': subsidy_rates, 'amounts_received': amounts_received, 'names': ' '.join(names), 'colors': '|'.join(colors)}, context_instance=RequestContext(request))
 
 def tarp_js(request):
 
@@ -195,7 +195,7 @@ def tarp_js(request):
 
 
 def tarp_xml(request):
-    transactions = Transaction.objects.select_related().order_by('date')
+    transactions = Transaction.objects.select_related().order_by('date').exclude(transaction_type__icontains='dividend')
     return render_to_response('bailout/tarp.xml', { 'transaction_list': transactions }, mimetype='text/xml')
 
 
@@ -320,15 +320,19 @@ def tarp_csv(request):
 
 def tarp_map(request):
     
-    return render_to_response('bailout/tarp_map.html')
+    return render_to_response('bailout/tarp_map.html', context_instance=RequestContext(request))
 
 
 def tarp_map_filter_institution_search(request):
     
     if request.GET.has_key('q') and request.GET['q'] != '':
-        transactions = Transaction.objects.select_related().filter(institution__name__icontains=request.GET['q']).order_by('institution__name')
+        transactions = Transaction.objects.select_related().filter(institution__name__istartswith=request.GET['q'], program__icontains='cpp').order_by('-institution__total_assets')
+        
+        if transactions.count() == 0:
+            transactions = Transaction.objects.select_related().filter(institution__name__icontains=request.GET['q'], program__icontains='cpp').order_by('-institution__total_assets')
+        
     else:
-        transactions = Transaction.objects.select_related().order_by('institution__name')
+        transactions = Transaction.objects.select_related().filter(program__icontains='cpp').order_by('-institution__total_assets')
 
             
     institution_dict = {}
@@ -419,7 +423,7 @@ def recurse_institution_summary(institution, county_data):
 
 def tarp_timeline_visualization_json(request):
     
-    transactions = Transaction.objects.select_related().order_by('date')
+    transactions = Transaction.objects.select_related().order_by('date').exclude(transaction_type__icontains='dividend')
     
     summary = []
     
@@ -433,7 +437,7 @@ def tarp_timeline_visualization_json(request):
 
 def tarp_institution_visualization_json(request):
     
-    transactions = Transaction.objects.select_related().order_by('date')
+    transactions = Transaction.objects.select_related().order_by('date').exclude(transaction_type__icontains='dividend')
     
     summary_dict = {}
     assets_dict = {}

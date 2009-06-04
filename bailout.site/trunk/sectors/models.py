@@ -8,3 +8,7 @@ class Sector(models.Model):
         verbose_name = 'Sector'
 
     name = models.CharField("Name", max_length=40)
+
+# fund type
+
+# budget function

@@ -66,8 +66,9 @@ h2#graph-header { padding-top: 10px; }
 .tarp-table td { padding: 10px;}
 
 .tarp-table .date { width: 75px; }
-.tarp-table .recipient { width: 247px; }
+.tarp-table .recipient { width: 208px; }
 .tarp-table .price { width: 107px; }
+.tarp-table td.transaction-type { width: 40px; }
 .tarp-table .program { width: 70px; }
 .tarp-table .strike { width: 70px; }
 .tarp-table .current { width: 70px; }
@@ -78,8 +79,10 @@ h2#graph-header { padding-top: 10px; }
 .tarp-table .city { width: 122px; }
 .tarp-table .state { width: 52px; }
 
+
 .tarp-table td.date { text-align: center; }
 .tarp-table td.price { text-align: right; }
+.tarp-table td.transaction-type { text-align: center; }
 .tarp-table td.strike { text-align: right; }
 .tarp-table td.current { text-align: right; }
 .tarp-table td.warrants { text-align: right; }

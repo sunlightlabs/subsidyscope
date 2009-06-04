@@ -2,6 +2,7 @@
 {% load humanize %}
 {% load webdesign %}
 {% load media %}
+{% load morsel_tags %}
 
 {% block additional_js %}
 	{% js "jquery.pngFix.pack.js" %}
@@ -13,6 +14,16 @@
 {% endblock %}
 
 {% block content %}
+
+<script type="text/javascript">
+$(document).ready(function(){
+	DrawBailoutVisualizationLegend($('#legend-container')); 
+	var agencies = ['HUD', 'FHFA', 'NCUA'];
+	for(var i=0;i<agencies.length;i++)
+		DrawBailoutVisualization($('#visualization-container-'+i), agencies[i]);	
+});		
+</script>
+
 <div class="container top_solid_box">&nbsp;</div>
 <div class="container white">
 	<div class="span-5">
@@ -23,12 +34,10 @@
 	<div class="span-15">
 		<div class="full_padding">
 			
-			<h2 class="type_header">Bailout</h2>
-			<h3 class="section_header">Other Agencies</h3>			
+			<h2 class="type_header">{% morsel_sector_title %}</h2>
+			<h3 class="section_header">{% morsel_page_title %}</h3>			
 
-			<p>Other government agencies have been involved in the bailout and have either acted in response to existing legislation or received authorization under recent legislation.  The Department of Housing and Urban Development (HUD) has established several programs.  The Federal Housing Finance Administration (FHFA) is also planning to streamline the loan modification process while the National Credit Union Administration (NCUA) is working to ensure its member institutions’ liquidity. </p>
-
-			<p>Hover your cursor over the name of each program (in bold) for a more detailed description of its terms.</p>
+			{% morsel text1 %}
 			
 		</div>
 	</div>
@@ -49,13 +58,6 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-$(document).ready(function(){
-	DrawBailoutVisualizationLegend($('#legend-container')); 
-	var agencies = ['HUD', 'FHFA', 'NCUA'];
-	for(var i=0;i<agencies.length;i++)
-		DrawBailoutVisualization($('#visualization-container-'+i), agencies[i]);	
-});		
-</script>
+
 
 {% endblock %}

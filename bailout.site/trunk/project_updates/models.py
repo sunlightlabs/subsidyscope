@@ -1,4 +1,5 @@
 from django.db import models
+import sectors.models
 import sunlightcore.management.commands.mediasync
 
 class ProjectUpdate(models.Model):
@@ -33,5 +34,6 @@ class ProjectUpdate(models.Model):
     text = models.TextField('Text', default='')
     extended_text = models.TextField('Extended Text', default='', blank=True)
     slug = models.SlugField('Slug', default='')
-    project = models.CharField("Project", max_length=50, choices=PROJECT_CHOICES, blank=True, null=True, default='Bailout')
+    #project = models.CharField("Project", max_length=50, choices=PROJECT_CHOICES, blank=True, null=True, default='Bailout')
+    sectors = models.ManyToManyField(sectors.models.Sector, blank=True)
     published = models.BooleanField('Published?', default=False)

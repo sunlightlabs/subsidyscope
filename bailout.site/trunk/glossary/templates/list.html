@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load media %}
+
+{% block content %}
+<div class="container top_solid_box">&nbsp;</div>
+<div class="container white">
+    <div class="span-6">
+        {% include "includes/bailout_left_nav.html" %}
+    </div>
+    <div class="span-13">
+        <div class="full_padding">
+            <h2 class="type_header">reference</h2>
+            <h3 class="section_header">Glossary of Terms</h3>
+            <dl id="glossary">
+                {% for item in glossary_items %}
+                {% spaceless %}
+                <dt>
+                    <a name="{{ item.slug }}">
+                        {{ item.term }}
+                        {% if item.acronym %}({{ item.acronym }}){% endif %}
+                    </a>
+                </dt>
+                {% endspaceless %}
+                <dd>{{ item.definition|safe }}</dd>
+                {% endfor %}
+            </dl>
+            <p>
+                <em>
+                    <strong>Sources</strong>:
+                    Federal Reserve,
+                    Special Inspector General for TARP,
+                    Congressional Budget Office,
+                    <a href="http://investorwords.com">investorwords.com</a>,
+                    <a href="http://investopedia.com">investopedia.com</a>,
+                    <a href="http://businessdictioanry.com">businessdictionary.com</a>,
+                    <a href="http://nolo.com">nolo.com</a>,
+                    <a href="http://teachmefinance.com">teachmefinance.com</a>,
+                    <a href="http://trading-glossary.com">trading-glossary.com</a>,
+                    <a href="http://useconomy.about.com">useconomy.about.com</a>
+                </em>
+            </p>
+        </div>
+    </div>
+    <div class="span-5 last">
+        <div>&nbsp;</div>
+    </div>
+</div> <!--ends container-->
+{% endblock %}

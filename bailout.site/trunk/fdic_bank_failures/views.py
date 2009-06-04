@@ -1,6 +1,7 @@
 from fdic_bank_failures.models import BankFailure, QBPSnapshot
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
+from django.template import RequestContext
 import csv
 import string
 import datetime
@@ -15,7 +16,7 @@ def fdic_bank_failures(request):
     crisis_start = datetime.datetime(2009,1,1)
     end_date = datetime.datetime(2009, 12, 31)
     recent_failed_banks = BankFailure.objects.filter(closing_date__gte=crisis_start).filter(closing_date__lte=end_date).order_by('-closing_date')    
-    return render_to_response('bailout/fdic/bank_failures.html', { 'num_failures': int2word(recent_failed_banks.count()), 'last_failure_year': recent_failed_banks[0].closing_date.strftime('%Y'), 'last_failure_month_day': recent_failed_banks[0].closing_date.strftime('%B %d') })
+    return render_to_response('bailout/fdic/bank_failures.html', { 'num_failures': int2word(recent_failed_banks.count()), 'last_failure_year': recent_failed_banks[0].closing_date.strftime('%Y'), 'last_failure_month_day': recent_failed_banks[0].closing_date.strftime('%B %d') }, context_instance=RequestContext(request))
         
 
 def fdic_bank_failures_table(request):

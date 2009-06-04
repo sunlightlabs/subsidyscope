@@ -1,6 +1,7 @@
 # Django settings for subsidyscope project.
 import os
 import httplib2
+from django.core.exceptions import ImproperlyConfigured
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
@@ -73,7 +74,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'urls'
 
 INSTALLED_APPS = (
-	'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.flatpages',
@@ -88,6 +89,7 @@ INSTALLED_APPS = (
     'contact_form',
     'sunlightcore',
     'spammer',
+    'haystack',
     #'django_evolution',
     'etl',
     'geo',
@@ -98,7 +100,10 @@ INSTALLED_APPS = (
     'fdic_bank_failures',
     'fed_h41',
     'sectors',
-    'cfda'
+    'tax_expenditures',
+    'cfda',
+    'django_helpers',
+    'glossary'
 )
 
 
@@ -153,12 +158,11 @@ def constant_contact_signup(recipient):
     http = httplib2.Http()
     http.add_credentials(user, CONSTANTCONTACT_PASSWORD)
     response, content = http.request('http://api.constantcontact.com/ws/customers/subsidyscope/contacts', 'POST', body=xml, headers={'Content-Type': 'application/atom+xml'})
-    pass    
     
 MAILINGLIST_SUBSCRIBE_CALLBACK = constant_contact_signup
 MAILINGLIST_SUBSCRIBED_URL = "/mailinglist/subscribed/"
 MAILINGLIST_REQUIRED_FIELDS = {
-    "email":    u"A valid email address is required",
+    "email": u"A valid email address is required",
 }
 
 # Scribd
@@ -166,8 +170,21 @@ SCRIBD_API_KEY = '***REMOVED***'
 SCRIBD_API_SECRET = '***REMOVED***'
 SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
+# Haystack
+HAYSTACK_SEARCH_ENGINE = 'whoosh' 
+HAYSTACK_WHOOSH_PATH = 'whoosh'
+
+
+
 # RCSField
-RCS_BACKEND = 'gitcore' # uses git-python
+if DEBUG == True:
+    # We rely on the GitPython package ('gitcore')
+    RCS_BACKEND = 'gitcore'
+elif DEBUG == False:
+    # ./manage.py test requires that RCS_BACKEND = 'test'
+    RCS_BACKEND = 'test'
+else:
+    raise ImproperlyConfigured('DEBUG must be either True or False')
 
 # Feedburner
 FEEDBURNER = { 'feeds/updates': 'http://feedproxy.google.com/subsidyscope' }

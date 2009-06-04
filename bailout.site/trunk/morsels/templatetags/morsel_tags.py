@@ -1,8 +1,9 @@
-from morsels.models import Morsel
+from morsels.models import Morsel, Page
 from django.template import Library, Node
 from django.utils.safestring import mark_safe
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.template import Template
 import urllib 
 
 typogrify = lambda a: a
@@ -65,7 +66,10 @@ class MorselNode(Node):
             output = '%s<div class="jeditable-morsel" id="%s" rel="%s">%s</div>' % (js, self.name, reverse('morsels_ajax_save', None, (urllib.quote(context['request'].path, safe=''),)), output)           
             context['messages'].append(self.JS_SIGNAL)
 
-        return mark_safe(output)
+
+        output_template = Template(output) 
+        
+        return mark_safe(output_template.render(context))
 
     render.allow_tags = True
 
@@ -93,6 +97,56 @@ def morsel(parser, token):
         name = name[1:-1]
 
     return MorselNode(name, as_var, inherit)
+
+
+class MorselPageTitleNode(Node):
+
+    JS_SIGNAL = '<!-- ADDED JS -->'
+
+    def __init__(self, show_sector):
+        self.show_sector = show_sector
+        
+
+    def render(self, context):  
+                
+        page = Page.objects.get_for_current(context, u'', False)
+        
+        title = page.title
+        
+        if self.show_sector:
+            title = page.sector.name + ': ' + title
+        
+        return title
+
+@register.tag
+def morsel_page_title(parser, token):
+    tokens = token.split_contents()
+
+    try:
+        tokens.remove(u'show_sector')
+        show_sector = True
+    except ValueError:
+        show_sector = False
+
+    return MorselPageTitleNode(show_sector)
+
+
+class MorselSectorTitleNode(Node):
+
+    JS_SIGNAL = '<!-- ADDED JS -->'
+
+    def render(self, context):  
+                
+        page = Page.objects.get_for_current(context, u'', False)
+        
+        return page.sector.name
+
+
+
+@register.tag
+def morsel_sector_title(parser, token):
+
+    return MorselSectorTitleNode()
 
 class WithMorselNode(Node):
     def __init__(self, name, as_var, inherit, nodelist):

@@ -36,6 +36,7 @@ urlpatterns = patterns('',
     url(r'^federal-reserve/$', 'bailout.views.agency_landing_page', {'agency': 'federal_reserve'}, name='bailout_federal_reserve_index'),
     url(r'^federal-reserve/h41', include('fed_h41.urls')),
     url(r'^treasury/fannie-freddie/$', 'bailout.views.agency_landing_page', {'agency': 'fannie_freddie'}, name='fannie_freddie_index'),
+    url(r'^fhlb/$', 'bailout.views.agency_landing_page', {'agency': 'fhlb'}, name='fhlb_index'),
     url(r'^other/$', 'bailout.views.agency_landing_page', {'agency': 'other'}, name='bailout_other_index'),
     
     url(r'^tarp/visualization/data/$', 'bailout.views.tarp_timeline_visualization_json', name='tarp-timeline-visualization-json'),

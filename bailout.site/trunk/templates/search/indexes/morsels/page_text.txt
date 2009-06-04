@@ -1,0 +1,8 @@
+{{ object.title }}
+
+{% for morsel in object.morsel_set.all %}
+
+	{{ morsel.get_flat_text }}
+
+{% endfor %}
+

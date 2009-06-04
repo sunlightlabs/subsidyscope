@@ -19,7 +19,7 @@ tarp_deposits = Decimal('0')
 total_branches = Decimal('0')
 tarp_branches = Decimal('0')
 
-for county in County.objects.all():
+for county in County.objects.all().order_by('state__name', 'name'):
  
     county_total_deposits = Decimal('0')
     county_tarp_deposits = Decimal('0')
@@ -29,7 +29,11 @@ for county in County.objects.all():
     county_tarp_branches = Decimal('0')
     tarp_branches_percentage = Decimal('0')
     
-    county_total_lending = Decimal('0')
+    try:
+        county_total_lending = Decimal(county.countysummary.loans)
+    except:
+        county_total_lending = Decimal('0')
+        
     county_tarp_lending = Decimal('0')
     tarp_lending_percentage = Decimal('0')
     
@@ -41,9 +45,6 @@ for county in County.objects.all():
         
             total_deposits += county_summary.institution_deposits
             county_total_deposits += county_summary.institution_deposits
-        
-        if county_summary.institution_loans != None:
-            county_total_lending += county_summary.institution_loans
          
         if tarp_participation[county_summary.institution.id]:
             
@@ -59,7 +60,7 @@ for county in County.objects.all():
                 tarp_lending_percentage += county_summary.loans_county_percent
                 
 
-    print '%05d,%02d,%03d,%s,%s,%s,%s,%s,%s,%s,%s,%s' % (county.fips_full_code,
+    print '%s,%s,%05d,%02d,%03d,%s,%s,%s,%s,%s,%s,%s,%s,%s' % (county.state.name,county.name_complete,county.fips_full_code,
                                                     county.state.fips_state_code,
                                                     county.fips_county_code,
                                                     county_total_deposits.quantize(Decimal('0')),

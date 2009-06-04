@@ -1,7 +1,8 @@
 from settings import *
 
 DATABASE_ENGINE   = 'mysql'
-DATABASE_NAME     = 'ss_staging'
+DATABASE_NAME     = 'ss_dev'
+# DATABASE_NAME     = 'ss_staging'
 DATABASE_USER     = 'root'
 DATABASE_PASSWORD = ''
 DATABASE_HOST     = 'localhost'

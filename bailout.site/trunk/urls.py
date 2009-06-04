@@ -6,7 +6,9 @@ from contact_form.forms import ContactForm
 from bailout.views import *
 from project_updates.feeds import ProjectUpdatesFeed
 import django.contrib.syndication.views
+import haystack 
 
+haystack.autodiscover()
 admin.autodiscover()
 
 class SubsidyContactForm(ContactForm):
@@ -26,12 +28,12 @@ class SubsidyContactForm(ContactForm):
 urlpatterns = patterns('',
     url(r'^admin/(.*)', admin.site.root),
     url(r'^mailinglist/', include('spammer.urls')),
+	url(r'^projects/bailout/glossary/', include('glossary.urls')),
 )
 
 urlpatterns += patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'index.html'}, name="index"),   
     url(r'^projects/bailout/', include('bailout.urls')),
-    url(r'^projects/bailout/glossary/', 'direct_to_template', {'template': 'bailout/glossary.html'}, name="glossary"),
     url(r'^crossdomain\.xml$', 'direct_to_template', {'template': 'crossdomain.xml', 'mimetype':'text/x-cross-domain-policy', 'extra_context': {'crossdomain_additions': getattr(settings, 'FLASH_CROSSDOMAIN_ADDITIONS', '')}}, name="crossdomain_xml"),  
     url(r'^projects/', redirect_to_bailout, name="projects"),
     url(r'^updates/', include('project_updates.urls')),
@@ -46,6 +48,10 @@ urlpatterns += patterns('',
 )
 urlpatterns += patterns('',
     url(r'^morsels/', include('morsels.urls'))
+)
+
+urlpatterns += patterns('',
+    url(r'^search/', include('search.urls'))
 )
 
 if settings.DEBUG:

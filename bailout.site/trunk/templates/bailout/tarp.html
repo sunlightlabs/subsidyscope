@@ -2,6 +2,8 @@
 {% load humanize %}
 {% load bailout_tags %}
 {% load media %}
+{% load glossary_tags %}
+{% load morsel_tags %}
 
 {% block additional_css %}
 	{% css "ui.theme.css" %}
@@ -29,25 +31,18 @@
 <div class="container white">
 
 	<div class="span-5">
-			{% include "includes/bailout_left_nav.html" %}
+		{% include "includes/bailout_left_nav.html" %}
 	</div>
 
 	
 <div class="span-15">
 	
 	<div class="tlr_padding">
-	<h2 class="type_header">Database</h2>
-	<h3 class="section_header">Transactions under the Troubled Asset Relief Program (TARP)</h3>
+	<h2 class="type_header">{% morsel_sector_title %}</h2>
+	<h3 class="section_header">{% morsel_page_title %}</h3>
+
+	{% morsel text1 %}
 	
-	<p>This page is your gateway to information on the TARP transactions. Subsidyscope has gathered data on each transaction under the TARP program. The following table shows which companies received funds, how much they received, and when they received it.  Detailed data on individual transactions can be downloaded into a spreadsheet, and the visualizations provide a quick view of the transactions over time, by recipient and by date.</p>
-
-	<p>Although the government has provided a few companies with <a href="{% url glossary %}">loans</a> under TARP, nearly all the transactions have been purchases of <a href="{% url glossary %}">equity</a> stakes in those companies.  In exchange for funding from TARP, the government usually receives <a href="{% url glossary %}">preferred stock</a> and <a href="{% url glossary %}">warrants</a> from the company. For information on the value of warrants purchased through TARP, including daily stock prices, <a href="{% url tarp-warrants %}">click here</a>.</p>
-
-	<p>The amount of funding provided through a TARP transaction can be found in the "Disbursements Received" column of the table (this corresponds to what the Treasury Department calls "Prices Paid" in its publications). The table also includes information on the size of those companies, as measured by their assets.</p>
-
-	<p>The amount of funding provided to a company is a crucial piece of information needed to calculate the subsidies provided through TARP.  But it is not a measure of the subsidy itself.  To calculate the subsidies, the market value of the preferred stock, warrants, and loans must be deducted from the funding provided to the institution.  Although information on the subsidies to individual companies through TARP is still quite limited, some data can be found <a href="{% url tarp-subsidies %}">here</a>.</p>
-	
-	<p>Click each tab below for different ways to view the TARP data.</p>
 </div>
 
 	<div class="span-4 last">&nbsp;</div>
@@ -108,6 +103,7 @@
 		<th class="date">Date</th>
 		<th class="recipient">Recipient</th>
 		<th class="price">Disbursement Received</th>
+		<th class="transaction-type">Type</th>
 		<th class="assets">Company Assets&nbsp;*</th>
 		<th class="city">City</th>
 		<th class="state">State</th>
@@ -131,6 +127,7 @@
 		<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
 		<td class="recipient">{% institution_name t.institution %}</td>
 		<td class="price">{% if t.is_negative %}<span class="negative">-${{ t.price_paid|cut:"-"|divide:1|floatformat:"-0"|intcomma}}</span>{% else %}${{ t.price_paid|divide:1|floatformat:"-0"|intcomma}}{% endif %}</td>
+		<td class="transaction-type">{{ t.transaction_type }}</td>
 		<td class="assets">{% if t.institution.total_assets_fixed %}${{ t.institution.total_assets_fixed|divide:1|floatformat:"-0"|intcomma }} {% else %}<em>not confirmed</em>{% endif %}</td>
 		<td class="city">{{ t.institution.city }}</td>
 		<td class="state">{{ t.institution.state }}</td>

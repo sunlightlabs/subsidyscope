@@ -2,6 +2,7 @@
 {% load humanize %}
 {% load bailout_tags %}
 {% load media %}
+{% load morsel_tags %}
 
 {% block additional_css %}
 	{% css "ui.theme.css" %}
@@ -22,37 +23,14 @@
 <div class="span-15">
 	
 	<div class="tlr_padding">
-	<h2 class="type_header">Database</h2>
-	<h3 class="section_header">Inconsistencies in Treasury's Description of TARP's Warrant Policy</h3>
+	<h2 class="type_header">{% morsel_sector_title %}</h2>
+	<h3 class="section_header">{% morsel_page_title %}</h3>
 	
-<p><strong>March 11, 2009</strong> &mdash; The Subsidyscope research team discovered inconsistencies in the Treasury Department's public documents describing the Troubled Asset Relief Program's (TARP) warrant policy, highlighting concerns about the lack of clarity in the government's explanation of the program.</p>
-
-<p>The <a href="{% url glossary %}">warrants</a> give the government the right to purchase stock in companies receiving TARP funds at a specified price (called the <a href="{% url glossary %}">strike price</a>).  Because the warrants have value, they offset some of the costs to the government of providing TARP funds to the companies.  The less the warrants are worth, the larger the net (subsidy) costs to the government.</p>
-
-<p>The value of the warrants is determined by many factors, but one of the most important factors is the difference between the price of the company's stock and the strike price of the warrant.  If the <a href="{% url glossary %}">stock price</a> is above the strike price, the government can make money. If the stock price is below the strike price, however, the government does not make any money by exercising the warrant. In other words, the higher the strike price, the lower the value of the warrants to the government--and the larger the net subsidy cost to the government. <a href="{% url tarp-warrants %}">Subsidyscope presents a table</a> providing data on the Treasury's warrant purchases, and their daily payoff based on current stock prices.</p>
-
-<p>The Treasury Department describes its policies on pricing TARP warrants in both press releases and an accompanying <a href="http://www.ustreas.gov/press/releases/reports/termsheet.pdf">term sheet on its Web site</a>.  In those documents, Treasury said that the strike price would be "the market price for the common stock on the date of the Senior Preferred investment (calculated on a 20-day trailing average)."</p>  
-
-<p>However, the Subsidyscope research team discovered that Treasury is following a different policy in practice.  In the actual contracts signed between Treasury and companies receiving TARP funds, the strike price is apparently calculated using the average of closing prices on the 20 trading days before the company applied for the TARP funds.</p>  
-
-<p>The two methods can result in significantly different strike prices.  Because stock prices of many financial companies have been declining, the strike price calculated at the time of application is generally higher than the price would have been if it was calculated at the execution of the contract when the investment is made.</p> 
-
-<p>Take the Treasury's injection of funds into Bank of America (BAC) on October 28, 2008, for instance.  In return, the government received warrants with a strike price of $30.79, which is the 20-day average of closing stock prices before BAC applied for TARP.  If, however, the Treasury had used the date at which the contract was executed, the strike price would have been $25.94. (see graph)</p>
-
+	{% morsel text1 %}
+	
 <p style="margin-left: -125px;"><img src="{% media_url %}/images/bac_pricing.png"/><br/><em>Source: Subsidyscope (The Pew Charitable Trusts)</em></p>
 
-<p>Those different dates affect the payoffs from the warrants.  Under the contract, the government will make money on the warrants only if the BAC's stock price exceeds $30.79.  Under the policy articulated by the press releases and term sheets, the government would have made money on the warrants once the stock price exceeded $25.94.  By setting a higher strike price, the government provides a larger subsidy to BAC.  However, given today's price for BAC stock (which was only $3.14 on March 6, 2009), the warrants have very little value regardless of the strike price.</p> 
-
-<p>Inconsistencies in the Treasury Department's description of the warrant program do not affect any of the subsidy estimates prepared by governmental organizations such as the Congressional Budget Office or the Congressional Oversight Panel, nor do they affect any of the subsidy estimates <a href="{% url tarp-subsidies %}">presented on the Subsidyscope web site</a>. All of those estimates were developed using the strike prices in the actual signed contracts between Treasury and the companies receiving TARP funds.</p>
-
-<p>Moreover, further analysis suggests that had Treasury used the alternative strike prices in the contracts, the aggregate subsidy costs of the TARP program would have been only slightly lower.  The warrants provide only a small fraction of the TARP subsidies; most of the subsidies are actually channeled through the government's purchases of preferred stock.</p> 
-
-<p>For example, the BAC warrants account for about 3 percent of the total market value of the assets (preferred stock and warrants) that the government received from BAC.<sup>1</sup>  So, even if the terms of the warrants had been considerably more favorable to the government, the aggregate subsidies provided to BAC would have been only slightly lower.  Analysis of the warrants provided to other companies confirms this general conclusion.  On average, warrants account for only 4 percent of the total assets that the government received for the 10 largest TARP transactions.</p>
-
-<p>Furthermore, Treasury's decision to use the date of application as the key date for determining the strike price probably makes more sense from an administrative perspective than using the date that the warrants are issued.  If the issue dates had been used, neither Treasury nor the bank receiving TARP funds would have known the exact terms of the warrant until 4 pm on the day before the contract was signed, which would have limited the amount of time that Treasury and bank staff had to review the terms of the contract.  More deals could have fallen apart at the last minute (which would have raised overall administrative costs of the TARP program), and some institutions might have been deterred from seeking TARP money, which would have undermined the goals of the program.</p> 
-
-<p>Nevertheless, inconsistencies in the documents that the Treasury Department uses to describe TARP to the public highlight a need for government officials to improve their communication about the program and reduce misunderstandings.  Miscommunications from the government have consequences: at least one bank relied on the Treasury's description of TARP program in its SEC filing and as a result, inadvertently misstated the terms of the warrants.<sup>2</sup></p> 
-	
+	{% morsel text2 %}
 	
 <div class="footnotes">
 1. Congressional Oversight Panel, <a href="/projects/bailout/documents/22/">February Oversight Report (February 6, 2009)</a><br/>
