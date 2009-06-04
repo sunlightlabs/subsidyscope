@@ -4,7 +4,7 @@
 {% for item in items %}
 <div id="update_item">
 	<div id="update_headline"><h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3></div>
-		<div id="update_icon"><img src="/media/images/icon_sm_bailout.png" alt="Bailout: Project Update" border="0"></div>
+		<div id="update_icon"><img src="/media/images/sector_icons/1_sm.png" alt="Bailout: Project Update" border="0"></div>
 		<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} 
 			<a style="font-size: 10px; color: #aaa; border: none; float: right;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
 </p>
