@@ -18,4 +18,4 @@ class ProgramDescriptionIndex(indexes.SearchIndex):
         return ProgramDescription.objects.all()
     
 
-site.register(ProgramDescription, ProgramDescriptionIndex)
+#site.register(ProgramDescription, ProgramDescriptionIndex)

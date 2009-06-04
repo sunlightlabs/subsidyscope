@@ -14,9 +14,9 @@
 		<div class="tlr_padding">
 		    <h2>Search</h2>
 		    
-		    <form action="." method="GET">
-				{{ form.as_p }}
-				<input type="submit" value="Submit" />
+		    <form id="update_email" action="." method="GET">
+				{{ form.query }}
+				<input class="submit" type="submit" value="Search"/>
 			</form>
 				    
 			{% if cfda_result_set %}
@@ -27,14 +27,19 @@
 				{% endfor %} 
 			</ul>
 			{% endif %}
-
+			<p>&nbsp;</p>
 			{% if page_result_set %}
-			<strong>Site Pages:</strong>
-			<ul>
+			<strong>Results:</strong>
+			<ul style="padding-top: 15px;">
 				{% for page in page_result_set %}
-					<li  style="margin-bottom: 15px;"><strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text %}{{ text }}{% endfor %}</li>
+					<li  style="padding-bottom: 15px; margin-bottom: 15px; width: 800px; border-bottom: 1px solid #CCCCCC;"><strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text %}{{ text }}{% endfor %}</li>
 				{% endfor %} 
 			</ul>
+			{% else %}
+				<ul>
+					<em>No results found.</em>
+				</ul>
+				<p>&nbsp;</p>
 			{% endif %}
 	    </div>
 	</div>
