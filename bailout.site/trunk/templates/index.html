@@ -180,28 +180,42 @@ $(function () {
 		
 		<div id="taxonomy" style="">
 			<div class="left_tax">
-				<div class="tax_item"><h3><a href="/projects/bailout/">Financial Bailout</a></h3>
-				<p>	<a href="{% url bailout_treasury_index %}">Treasury</a>, 
-					<a href="{% url bailout_fdic_index %}">FDIC</a>, 
-					<a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>, 
-					<a href="{% url bailout_other_index %}">Other Agencies</a>
-				</p>	
-
+				<div class="tax_item">
+					<div id="tax_icon"><a href="/projects/bailout/"><img src="/media/images/icon_lrg_bailout.png" border="0" alt="Financial Bailout"></a></div>	
+					<div>	
+						<h3><a href="/projects/bailout/">Financial Bailout</a></h3>
+						<p>	<a href="{% url bailout_treasury_index %}">Treasury</a>, 
+							<a href="{% url bailout_fdic_index %}">FDIC</a>, 
+							<a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>, 
+							<a href="{% url bailout_other_index %}">Other Agencies</a>
+						</p>	
+					</div>
 				</div>
 				
-				<div class="tax_item"><h3 class="coming">Energy</h3>
-				<p>Coming soon</p>
+				<div class="tax_item">
+					<div id="tax_icon"><img src="/media/images/icon_lrg_energy_grey.png" border="0" alt="Energy"></div>	
+						<div>
+							<h3 class="coming">Energy</h3>
+							<p>Coming soon</p>
+						</div>
+					</div>
 				</div>
-			</div>
 			
 			<div class="right_tax">
-				<div class="tax_item"><h3 class="coming">Transportation</h3>
-				<p>Summer 2009</p>
+				<div class="tax_item">
+					<div id="tax_icon"><img src="/media/images/icon_lrg_transportation_grey.png" border="0" alt="Transportation"></div>	
+						<div><h3 class="coming">Transportation</h3>
+							<p>Summer 2009</p>
+						</div>	
 				</div>
 			
-				<div class="tax_item"><h3 class="coming">Housing</h3>
-				<p>Coming soon</p>
-				</div>
+				<div class="tax_item">
+					<div id="tax_icon"><img src="/media/images/icon_lrg_housing_grey.png" border="0" alt="Housing"></div>	
+						<div>	
+							<h3 class="coming">Housing</h3>
+							<p>Coming soon</p>
+						</div>
+					</div>
 				
 			</div>
 		</div>				
