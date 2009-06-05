@@ -113,7 +113,7 @@ class MorselPageTitleNode(Node):
         
         title = page.title
         
-        if self.show_sector:
+        if self.show_sector and page.sector:
             title = page.sector.name + ': ' + title
         
         return title
@@ -139,7 +139,8 @@ class MorselSectorTitleNode(Node):
                 
         page = Page.objects.get_for_current(context, u'', False)
         
-        return page.sector.name
+        if page.sector:
+            return page.sector.name
 
 
 

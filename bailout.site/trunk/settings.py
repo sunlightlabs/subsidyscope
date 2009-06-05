@@ -173,7 +173,6 @@ SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
 # Haystack
 HAYSTACK_SEARCH_ENGINE = 'whoosh' 
-HAYSTACK_WHOOSH_PATH = 'whoosh'
 
 
 
