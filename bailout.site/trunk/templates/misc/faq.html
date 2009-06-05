@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load media %}
+{% load morsel_tags %}
+
+{% block content %}
+
+
+<div class="container main_container" id="faq-page">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Subsidyscope</h2>
+			<h3>Frequently Asked Questions</h3>		
+		</div>
+		
+		<div id="content_area">				
+		
+			{% morsel text1 %}
+			
+			<p class="question">What is Subsidyscope?</p>
+
+			<p class="answer">A project of The Pew Charitable Trusts, Subsidyscope aims to raise public awareness about the role of federal subsidies in the economy. Over the next two years, the project will build a subsidy database industry sector by industry sector.</p>
+
+			<p class="question">Who is involved in Subsidyscope?</p>
+
+			<p class="answer">Subsidyscope is an initiative of The Pew Charitable Trusts (link), in conjunction with the Sunlight Foundation as its technology partner. The project is guided by a broad and bipartisan advisory board of top experts in federal spending, taxes, and finance. Project staff members are listed here.</p>
+
+			<p class="question">What is The Pew Charitable Trusts?</p>
+
+			<p class="answer">The Pew Charitable Trusts is a nonpartisan, non-profit organization driven by the power of knowledge to solve today's most challenging problems. Pew applies a rigorous, analytical approach to improve public policy, inform the public and stimulate civic life.</p>
+
+			<p class="question">What is the Sunlight Foundation?</p>
+
+			<p class="answer">The Sunlight Foundation has the non-partisan mission of using the revolutionary power of the Internet to make information about Congress and the federal government more meaningfully accessible to citizens. Through its projects and grant-making, Sunlight serves as a catalyst for greater political transparency and to foster more openness and accountability in government. Sunlight’s ultimate goal is to strengthen the relationship between citizens and their elected officials and to foster public trust in Congress.</p>
+
+			<p class="question">Do you take positions on which subsidies are good or bad?</p>
+
+			<p class="answer">No, Subsidyscope is not taking an advocacy position on specific subsidies. The goal of the project is to raise awareness and increase transparency around government subsidies.</p>
+
+			<p class="question">Can I reuse the data or visualizations on your site?</p>
+
+			<p class="answer">Yes, as long as proper attribution to Subsidyscope.com is provided.</p>
+
+			<p class="question">Why is a database needed?</p>
+
+			<p class="answer">In the past several months, the federal government has intervened in the nation’s economy in unprecedented ways. Those actions have raised many citizens’ awareness of the role of subsidies in the economy and heightened concerns about their size, not only in the financial sector, but in other sectors as well. Yet, despite growing public concerns, comprehensive and high-quality information about the true scale of government subsidies is still lacking. Moreover, in light of the scarcity of resources in today’s fiscally challenged environment, such a database could help policymakers and the public make more informed decisions about public policy.</p>
+
+			<p class="question">What is included in Subsidyscope’s database? </p>
+				
+			<p class="answer">Subsidies for each sector will include:</p>
+				
+				<ul>
+					<li>direct payments made by government to businesses and individuals</li>
+					<li>tax breaks for corporations and individuals</li>
+					<li>loan guarantees and other types of financial support</li>
+				</ul>
+				
+			<p class="answer">Subsidies regarding tariffs and regulations will not be included at this time.</p>
+
+			<p class="question">I have a story idea, who can I contact?</p>
+
+			<p class="answer">See the <a href="{% url contact_form %}">contact us</a> page.</p>
+				
+		</div>
+		
+	
+		
+	</div>
+</div> <!--ends container-->
+{% endblock %}
