@@ -185,7 +185,7 @@ strong { font-weight:bold;}
 
 /* start modules section */
 #news_box { padding:0; margin:15px 5px 0 5px;}
-
+#news_box p { padding: 5px 10px 5px 10px;}
 #news_box a:link { text-decoration:none; color:#2d73bf; }
 #news_box a:visited { text-decoration:none; color:#2d73bf;  }
 #news_box a:hover { text-decoration:none; color:#2d73bf;  }
@@ -376,7 +376,7 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 }
 
 /* data page styling */
-#data-page #big-download-icon { float:right; margin: 40px 50px 50px 50px; }
+#big-download-icon { float:right; margin: 20px 50px 20px 50px; }
 
 #data-page ul.datasets { margin-left: 30px; margin-top: 10px;}
 #data-page ul.datasets, ul.datasets li { padding-left: 0; margin-left: 0;}		
