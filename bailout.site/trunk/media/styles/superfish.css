@@ -33,6 +33,7 @@
 	display:		block;
 	position:		relative;
 }
+
 .sf-menu li:hover ul,
 .sf-menu li.sfHover ul {
 	left:			0;
@@ -57,6 +58,10 @@ ul.sf-menu li li li:hover ul,
 ul.sf-menu li li li.sfHover ul {
 	left:			10em; /* match ul width */
 	top:			0;
+}
+
+.sf-menu li li.subitem a {
+	padding-left:25px;
 }
 
 /*** DEMO SKIN ***/
