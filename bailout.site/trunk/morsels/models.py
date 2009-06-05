@@ -15,7 +15,7 @@ class Page(models.Model):
         verbose_name = 'Morsel Page'
         ordering = ['url']
     
-    sector = models.ForeignKey(Sector)
+    sector = models.ForeignKey(Sector, blank=True, null=True)
     
     url = models.CharField(_('url'), max_length=100, db_index=True, unique=True,
         help_text=_("""
