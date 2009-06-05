@@ -129,7 +129,24 @@ $(function () {
 		$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
 		function(data){		
 			$.each(data.value.items, function(i,item){
-				if(i<MAX_NEWS_ITEMS)
+				var oldDelicious = false;
+				// if(item.category.length>1)
+				if(typeof(item.category)!='undefined')
+				{
+					if(typeof(item.category.length)!='undefined')
+					{
+						for(c in item.category)
+							if(item.category[c].content=='olddelicious')
+								oldDelicious = true;
+					}
+					else
+					{
+						if(item.category.content=='olddelicious')
+							oldDelicious = true;
+					}
+				}
+
+				if((i<MAX_NEWS_ITEMS) && !(oldDelicious))
 				{
 					$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
 				}

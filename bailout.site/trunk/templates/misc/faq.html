@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load media %}
+{% load morsel_tags %}
+
+{% block content %}
+
+
+<div class="container main_container" id="faq-page">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Subsidyscope</h2>
+			<h3>Frequently Asked Questions</h3>		
+		</div>
+		
+		<div id="content_area">				
+		
+			{% morsel text1 %}			
+				
+		</div>
+		
+	
+		
+	</div>
+</div> <!--ends container-->
+{% endblock %}
