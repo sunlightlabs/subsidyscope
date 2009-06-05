@@ -90,6 +90,7 @@ INSTALLED_APPS = (
     'sunlightcore',
     'spammer',
     'haystack',
+    'csv_generator',
     #'django_evolution',
     'etl',
     'geo',
