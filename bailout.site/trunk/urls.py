@@ -7,7 +7,9 @@ from bailout.views import *
 from project_updates.feeds import ProjectUpdatesFeed
 import django.contrib.syndication.views
 import haystack 
+import csv_generator 
 
+csv_generator.autodiscover()
 haystack.autodiscover()
 admin.autodiscover()
 
