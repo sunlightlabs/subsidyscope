@@ -5,10 +5,19 @@ last_date = InstitutionDailyStockPrice.objects.getLastUpdate()
 
 class TransactionCSV(CSVFile):
     
-    description = 'TARP Transactions data.'
+    # meta
+    
     filename = 'tarp_transactions'
     
+    description = 'TARP Transactions data.'
+    
+    # order rows by - passed into a .order_by() call on model
+    
     order_by = '-date'
+    
+    # fields defined as a list of tuples
+    # each field is defined as 
+    # (column header, model attribute/function, documentation string)
     
     fields = [
             ('Date', 'date',
