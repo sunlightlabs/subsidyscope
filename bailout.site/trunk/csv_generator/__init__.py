@@ -29,8 +29,6 @@ class CSVFile():
     filename = None
     model = None
     
-    
-    
     def __init__(self, model):
         self.model = model 
     
@@ -44,7 +42,7 @@ class CSVFile():
         
         print 'Generating CSV metadata for %s: %s' % (self.app_name, filename)
         
-        output_path = os.path.join(settings.CSV_OUTPUT_PATH, self.model._meta.app_label)
+        output_path = os.path.join(settings.CSV_OUTPUT_PATH, self.app_name)
         
         if not os.path.exists(output_path):
             os.makedirs(output_path)
@@ -74,11 +72,14 @@ class CSVFile():
         
     def generate_data(self):         
         
+        if self.app_name == None:
+            self.app_name = self.model._meta.app_label
+        
         filename = self.filename + '.csv'
         
-        print 'Generating CSV for %s: %s' % (self.model._meta.app_label, filename)
+        print 'Generating CSV for %s: %s' % (self.app_name, filename)
         
-        output_path = os.path.join(settings.CSV_OUTPUT_PATH, self.model._meta.app_label)
+        output_path = os.path.join(settings.CSV_OUTPUT_PATH, self.app_name)
         
         if not os.path.exists(output_path):
             os.makedirs(output_path)
@@ -108,6 +109,9 @@ class CSVFile():
                     temp = getattr(temp, p)
                     if callable(temp):
                         temp = temp()
+                    
+                    if len(f) == 4 and temp:
+                        temp = f[3](temp)
                         
                 record.append(temp)
     
