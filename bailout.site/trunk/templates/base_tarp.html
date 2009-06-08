@@ -15,7 +15,7 @@
 	        {% js "jquery-1.2.6.min.js" %}
 			{% block additional_js %}{% endblock additional_js%}
 
-	        <title>{% block title %}Subsidyscope.com{% endblock %} &mdash; {% morsel_page_title show_sector%}</title>
+	        <title>{% block title %}Subsidyscope.com{% endblock %}{% morsel_page_title show_sector page_title %}</title>
 </head>
 <body>
 {% include "includes/top_default_header.html" %}
