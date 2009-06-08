@@ -108,15 +108,20 @@ class MorselPageTitleNode(Node):
         
 
     def render(self, context):  
-                
+        
         page = Page.objects.get_for_current(context, u'', False)
         
-        title = page.title
+        if page:
         
-        if self.show_sector and page.sector:
-            title = page.sector.name + ': ' + title
+            title = page.title
+            
+            if self.show_sector and page.sector:
+                title = page.sector.name + ': ' + title
+            
+            return title
         
-        return title
+        else:
+            return ''
 
 @register.tag
 def morsel_page_title(parser, token):
@@ -139,8 +144,11 @@ class MorselSectorTitleNode(Node):
                 
         page = Page.objects.get_for_current(context, u'', False)
         
-        if page.sector:
-            return page.sector.name
+        if page:
+            if page.sector:
+                return page.sector.name
+        else:
+            return ''
 
 
 
