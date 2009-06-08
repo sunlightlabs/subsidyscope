@@ -6,7 +6,7 @@ register = Library()
 
 class ProjectUpdateNode(Node):
     def render(self, context):
-        project_updates = ProjectUpdate.objects.filter(published=True).order_by('-date')
+        project_updates = ProjectUpdate.objects.filter(published=True).order_by('-date')[:4]
         return render_to_string('project_updates/updates.html', {'items': project_updates})
 
 # this could be done more easily with the @register.simple_tag decorator, it turns out
