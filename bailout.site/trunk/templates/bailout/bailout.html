@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 {% load media %}
+{% load morsel_tags %}
 
 {% block content %}
 <div class="container main_container">
 	{% include "includes/bailout_nav.html" %}
 	<div class="span-24">
 		<div id="header_area">
-			<h3>The Financial Bailout</h3>		
+			<h3>{% morsel_page_title %}</h3>		
 		</div>
 		
 		<div id="content_area">
-			<p>In recent months, the federal government has intervened in the nation’s economy in unprecedented ways. Those actions have raised citizens’ awareness about the role of subsidies in the economy and heightened concerns about their size and scope. However, it is hard to find comprehensive data on the financial interventions in a single, easy-to-use Web site.</p>
 
-			<p>To fill this gap, Subsidyscope &ndash; an initiative of <a href="http://www.pewtrusts.org/">The Pew Charitable Trusts</a> &ndash; is pulling together data on the financial institutions that are receiving benefits from the various federal programs so users can understand how and where taxpayer dollars are being spent.</p>
+			{% morsel text1 %}
+			
 		</div>
 	</div>
 </div> <!--ends container-->

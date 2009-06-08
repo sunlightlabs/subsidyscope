@@ -14,8 +14,8 @@
 		<ul id="navbar_items">
 			<li><a href="/">Home</a></li>
 			<li class="active_top"><a href="/projects/bailout/">Financial Bailout</a></li>
-			<li><a href="/projects/transportation/">Transportation</a></li>
-		</ul>						
+			<li class="inactive_top"><a href="/faq/#future-sectors">Future Sectors</a></li>
+		</ul>							
 	</div>
 	<div id="sector_subnav">
 	<ul class="sf-menu">
@@ -25,10 +25,10 @@
 				<li><a href="{% url fannie_freddie_index %}">Fannie Mae/Freddie Mac</a></li>
 				<li><a href="{% url tarp %}">TARP Disbursements</a></li>
 				<li><a href="{% url tarp-subsidies %}">TARP Subsidies</a>
-				<li><a href="{% url tarp-subsidies-cop %}">COP Estimates</a></li>
-				<li><a href="{% url tarp-subsidies-cbo %}">CBO Estimates</a></li>	
+				<li class="subitem"><a href="{% url tarp-subsidies-cop %}">COP Estimates</a></li>
+				<li class="subitem"><a href="{% url tarp-subsidies-cbo %}">CBO Estimates</a></li>	
 				<li><a href="{% url tarp-warrants %}">TARP Warrants</a>
-				<li><a href="{% url tarp-warrants-calculation %}">Inconsistencies in Warrant Policy</a></li>		
+				<li class="subitem"><a href="{% url tarp-warrants-calculation %}">Inconsistencies in Warrant Policy</a></li>		
 			</ul>
 		</li>
 				<li>

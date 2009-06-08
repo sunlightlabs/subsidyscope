@@ -47,6 +47,8 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^rss/', 'direct_to_template', {'template': 'misc/rss.html'}, name='about_rss'),
     url(r'^staff/', 'direct_to_template', {'template': 'misc/staff.html'}, name='staff'),
     url(r'^faq/', 'direct_to_template', {'template': 'misc/faq.html'}, name='faq'),
+    url(r'^press/', 'direct_to_template', {'template': 'misc/press.html'}, name='press'),
+    url(r'^board/', 'direct_to_template', {'template': 'misc/board.html'}, name='board'),
 )
 
 urlpatterns += patterns('',

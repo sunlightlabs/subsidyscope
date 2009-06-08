@@ -103,20 +103,29 @@ class MorselPageTitleNode(Node):
 
     JS_SIGNAL = '<!-- ADDED JS -->'
 
-    def __init__(self, show_sector):
+    def __init__(self, show_sector, page_title):
+        self.page_title = page_title
         self.show_sector = show_sector
         
 
     def render(self, context):  
-                
+        
         page = Page.objects.get_for_current(context, u'', False)
         
-        title = page.title
+        if page:
         
-        if self.show_sector and page.sector:
-            title = page.sector.name + ': ' + title
+            title = page.title
+            
+            if self.show_sector and page.sector:
+                title = page.sector.name + ': ' + title
+            
+            if self.page_title:
+                return ' &mdash; ' + title
+            else:
+                return title
         
-        return title
+        else:
+            return ''
 
 @register.tag
 def morsel_page_title(parser, token):
@@ -127,27 +136,50 @@ def morsel_page_title(parser, token):
         show_sector = True
     except ValueError:
         show_sector = False
+        
+    try:
+        tokens.remove(u'page_title')
+        page_title = True
+    except ValueError:
+        page_title = False
 
-    return MorselPageTitleNode(show_sector)
+    return MorselPageTitleNode(show_sector, page_title)
 
 
 class MorselSectorTitleNode(Node):
 
     JS_SIGNAL = '<!-- ADDED JS -->'
 
+    def __init__(self, page_title):
+        self.page_title = page_title
+
     def render(self, context):  
                 
         page = Page.objects.get_for_current(context, u'', False)
         
-        if page.sector:
-            return page.sector.name
+        if page:
+            if page.sector:
+                if self.page_title:
+                    return ' &mdash; ' + page.sector.name
+                else:
+                    return page.sector.name
+        else:
+            return ''
 
 
 
 @register.tag
 def morsel_sector_title(parser, token):
+    
+    tokens = token.split_contents()
 
-    return MorselSectorTitleNode()
+    try:
+        tokens.remove(u'page_title')
+        page_title = True
+    except ValueError:
+        page_title = False
+
+    return MorselSectorTitleNode(page_title)
 
 class WithMorselNode(Node):
     def __init__(self, name, as_var, inherit, nodelist):

@@ -25,15 +25,24 @@ def autodiscover():
 
 class CSVFile():
     
+    app_name = None
+    filename = None
+    model = None
+    
+    
+    
     def __init__(self, model):
         self.model = model 
     
     def generate_metadata(self):     
     
+        if self.app_name == None:
+            self.app_name = self.model._meta.app_label
+        
         filename = self.filename + '_metadata.txt'
         csv_filename = self.filename + '.csv'
         
-        print 'Generating CSV metadata for %s: %s' % (self.model._meta.app_label, filename)
+        print 'Generating CSV metadata for %s: %s' % (self.app_name, filename)
         
         output_path = os.path.join(settings.CSV_OUTPUT_PATH, self.model._meta.app_label)
         

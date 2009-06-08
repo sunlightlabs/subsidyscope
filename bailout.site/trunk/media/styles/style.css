@@ -67,6 +67,17 @@ h1.technique-eight span {
 #update_email .submit { border:1px solid #899eab; color#:2f4867; background-color:#f6f8fb; padding:0 3px 0 3px;}
 #email-validation-error { background-color: #ffff88; color: black; border: 1px solid black; padding: 5px; float: right; margin-right: 20px; display: none;}
 
+#search_box { }
+
+/* email updates */
+#search_box {color:#2f4867; font-size:12px; text-align:right; padding:10px 20px 0 0; font-family:Helvetica Neue, Arial, Helvetica, sans-serif; margin:0;}
+#search_box input { margin-right:5px; padding:0; font-size: 14px;}
+#search_form  {padding:0 0 0 0; margin:0;}
+#search_form .submit { border:1px solid #899eab; color#:2f4867; background-color:#f6f8fb; padding:0 3px 0 3px;}
+
+
+
+
 
 /* NAVBAR */
 
@@ -81,6 +92,9 @@ h1.technique-eight span {
 #navbar_items a:link { color: #fff; text-decoration: none; }
 #navbar_items a:visited { color: #fff; text-decoration: none; }
 #navbar_items a:hover {  text-decoration:underline;}
+
+#navbar li.inactive_top a { display:inline; font-family:verdana; font-weight:bold; color:#ccc; padding: 8px 20px 0 0;}
+
 
 #navbar li.active_top a { background-image:url(/media/images/template/sector_nav_selected_bg.png); color:#2b5b8e; border-top:1px solid #2f4867;
 	border-left:1px solid #2f4867; border-right:1px solid #2f4867; padding-bottom:10px; background-position: 0px 1px; background-repeat:repeat-x;}

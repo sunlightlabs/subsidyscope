@@ -2,17 +2,14 @@
 
 {% block content %}
 
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-
-	<div class="span-5">
-	</div>
-
-	
-	<div class="span-15">
-	
-		<div class="tlr_padding">
-		    <h2>Search</h2>
+<div class="container top_solid_box" id="staff-page">
+	<div class="span-24">
+		<div id="header_area_flat">
+			<h2>Subsidyscope</h2>
+			<h3>Search</h3>		
+		</div>
+		
+		<div id="content_area">	
 		    
 		    <form id="update_email" action="." method="GET">
 				{{ form.query }}
@@ -39,11 +36,9 @@
 				<p>&nbsp;</p>
 			{% endif %}
 	    </div>
+		
+	
+		
 	</div>
-	
-	<div class="span-4 last">&nbsp;</div>
-	
-</div> 
-   
-   
+</div> <!--ends container-->
 {% endblock %}
