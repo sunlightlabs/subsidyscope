@@ -126,9 +126,13 @@ $(function () {
 	// set up "in the news" block
 	$(function(){
 		var MAX_NEWS_ITEMS = 10;
-		$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
-		function(data){		
-			$.each(data.value.items, function(i,item){
+		//$.getJSON('http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?',
+		$.ajax({
+		  url: "http://pipes.yahoo.com/pipes/pipe.run?_id=mP_UbrA53hGDlgAZpgt1Yg&_render=json&_callback=?",
+		  cache: false,
+		  dataType: "json",
+		  success: function(data){		
+			$.each(data.value.items, function(i,item){	
 				var oldDelicious = false;
 				// if(item.category.length>1)
 				if(typeof(item.category)!='undefined')
@@ -148,10 +152,11 @@ $(function () {
 
 				if((i<MAX_NEWS_ITEMS) && !(oldDelicious))
 				{
-					$('<a>').attr('href',item.link).text(item.title).appendTo('#news_box_items').wrap('<li>');
+					var link = $('<li><a href="' + item.link + '">' + item.title + '</a></li>');
+					$('#news_box_items').append(link);
 				}
 			});		      
-		});
+		}});
 	});
 
 });
