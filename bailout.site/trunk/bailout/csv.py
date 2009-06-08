@@ -88,5 +88,7 @@ class TransactionCSV(CSVFile):
             ]
     
 class FDICBankFailureCSV(CSVFile):
+    
+    pass 
 
 manager.register(Transaction, TransactionCSV)
