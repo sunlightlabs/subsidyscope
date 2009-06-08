@@ -15,7 +15,7 @@ body { background-image:url(/media/images/template/bg_gradient.png); background-
 /* TEMPLATE ITEMS */
 .main_container { background-color:#ffffff;}
 .white { background-color:#ffffff;}
-.top_solid_box { background-color:#ffffff; height:6px;  background-image:url(/media/images/divider_bar.png); background-repeat:repeat-x;}
+.top_solid_box { background-color:#ffffff;  background-image:url(/media/images/divider_bar.png); background-repeat:repeat-x;}
 
 
 /* SEARCH BOX HEAD */
@@ -442,3 +442,8 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 
 #faq-page p.question { font-weight: bold; margin-bottom: 0.5em;}
 #faq-page ul { list-style-type: disc; }
+
+ul.press-releases li
+{
+    margin-bottom: 1em;
+}
