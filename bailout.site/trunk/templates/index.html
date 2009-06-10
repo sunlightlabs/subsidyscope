@@ -123,6 +123,29 @@ $(function () {
 	}, 8000);
 
 	
+	function DeliciousItemHasTag(item, tag)
+	{
+		var hasTag = false;
+		if(typeof(item.category)!='undefined')
+		{
+			if(typeof(item.category.length)!='undefined')
+			{
+				for(c in item.category)
+					if(item.category[c].content==tag)
+					{
+						hasTag = true;
+						break;
+					}						
+			}
+			else
+			{
+				if(item.category.content==tag)
+					hasTag = true;
+			}
+		}
+		return hasTag;
+	}
+	
 	// set up "in the news" block
 	$(function(){
 		var MAX_NEWS_ITEMS = 10;
@@ -133,24 +156,7 @@ $(function () {
 		  dataType: "json",
 		  success: function(data){		
 			$.each(data.value.items, function(i,item){	
-				var oldDelicious = false;
-				// if(item.category.length>1)
-				if(typeof(item.category)!='undefined')
-				{
-					if(typeof(item.category.length)!='undefined')
-					{
-						for(c in item.category)
-							if(item.category[c].content=='olddelicious')
-								oldDelicious = true;
-					}
-					else
-					{
-						if(item.category.content=='olddelicious')
-							oldDelicious = true;
-					}
-				}
-
-				if((i<MAX_NEWS_ITEMS) && !(oldDelicious))
+				if((i<MAX_NEWS_ITEMS) && !(DeliciousItemHasTag(item, 'olddelicious') && !(DeliciousItemHasTag(item, 'nohp'))))
 				{
 					var link = $('<li><a href="' + item.link + '">' + item.title + '</a></li>');
 					$('#news_box_items').append(link);
