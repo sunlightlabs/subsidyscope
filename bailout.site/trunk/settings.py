@@ -176,6 +176,10 @@ SCRIBD_PUBLISHER_ID = '***REMOVED***'
 HAYSTACK_SEARCH_ENGINE = 'whoosh' 
 
 
+# Auth 
+
+LOGIN_URL = '/subsidysort/login/'
+
 
 # RCSField
 if DEBUG == True:
