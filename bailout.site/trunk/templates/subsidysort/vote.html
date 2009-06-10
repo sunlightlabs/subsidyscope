@@ -6,6 +6,9 @@
 
 <p>{{ item.description }}</p>
 
+{% if item.url %}
+<p><a href="{{ item.url }}">View CFDA Program Data &raquo;</a></p>
+{% endif %}
 <p>&nbsp;</p>
 
 <form action="." method="POST">

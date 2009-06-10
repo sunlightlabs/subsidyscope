@@ -3,12 +3,18 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.forms import ModelForm
 
+from cfda.models import ProgramDescription
 from subsidysort.models import * 
 
 class VoteForm(ModelForm):
     
     class Meta():
         model = Vote
+        
+class CFDAForm(ModelForm):
+    
+    class Meta():
+        model = ProgramDescription
          
 
 @login_required
@@ -67,6 +73,14 @@ def vote(request, item_id):
         vote_form = VoteForm()
     
     return render_to_response('subsidysort/vote.html', {'item':item, 'vote_form':vote_form})
+
+def cfda(request, cfda_id):
+    
+    program = ProgramDescription.objects.get(id=int(cfda_id))
+    
+    cfda_form = CFDAForm(instance=program)
+    
+    return render_to_response('subsidysort/cfda.html', {'cfda_form':cfda_form, 'program':program})
 
 def login(request):
     
