@@ -65,7 +65,7 @@ def vote(request, item_id):
             if item.vote_set.filter(user=request.user).count() == 0:
                 return HttpResponseRedirect('/subsidysort/vote/%d/' % item.id)
         
-        return redirect('/subsidysort/task/%d/' % item.task.id)
+        return HttpResponseRedirect('/subsidysort/task/%d/' % item.task.id)
     
     try:    
         vote = item.vote_set.get(user=request.user)
