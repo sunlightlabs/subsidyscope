@@ -65,11 +65,14 @@ h1.technique-eight span {
 #mailing_list_box { }
 
 /* email updates */
-#mailing_list_box {color:#2f4867; font-size:12px; text-align:right; padding:10px 20px 0 0; font-family:Helvetica Neue, Arial, Helvetica, sans-serif; margin:0;}
-#mailing_list_box input { margin-right:5px; padding:0;}
-#update_email {padding:0 0 0 0; margin:0;}
-#update_email .submit { border:1px solid #899eab; color#:2f4867; background-color:#f6f8fb; padding:0 3px 0 3px;}
-#email-validation-error { background-color: #ffff88; color: black; border: 1px solid black; padding: 5px; float: right; margin-right: 20px; display: none;}
+form#email-subscribe { display: inline; margin: 0;}
+form#email-subscribe input { font-size: 9px; }
+form#email-subscribe input.text { color: #aaa; height: 12px;}
+form#email-subscribe input.text:focus { color: #000;}
+form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #899EAB; height: 18px; padding: 2px 3px;}
+#email-message { display:none; position: absolute; left: auto; margin-top: 26px; padding: 2px 4px; border: 1px solid;}
+#email-message.instruction { border-color: #7B630F; color: #7B630F; background-color: #FFFCDA;}
+#email-message.warning { border-color: #c00; color: #800; background-color: #FFCCCC;}
 
 #search_box { }
 
