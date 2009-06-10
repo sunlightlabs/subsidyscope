@@ -18,7 +18,7 @@
                 {% for item in glossary_items %}
                 {% spaceless %}
                 <dt>
-                    <a name="{{ item.slug }}">
+                    <a name="{{ item.slug }}" href="#{{ item.slug }}">
                         {{ item.term }}
                         {% if item.acronym %}({{ item.acronym }}){% endif %}
                     </a>
