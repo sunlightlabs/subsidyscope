@@ -78,9 +78,7 @@ def cfda(request, cfda_id):
     
     program = ProgramDescription.objects.get(id=int(cfda_id))
     
-    cfda_form = CFDAForm(instance=program)
-    
-    return render_to_response('subsidysort/cfda.html', {'cfda_form':cfda_form, 'program':program})
+    return render_to_response('subsidysort/cfda.html', {'program':program})
 
 def login(request):
     
