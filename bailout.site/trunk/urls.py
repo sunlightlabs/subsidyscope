@@ -31,6 +31,8 @@ urlpatterns = patterns('',
     url(r'^admin/(.*)', admin.site.root),
     url(r'^mailinglist/', include('spammer.urls')),
 	url(r'^projects/bailout/glossary/', include('glossary.urls')),
+    
+    url(r'^subsidysort/', include('subsidysort.urls')),
 )
 
 urlpatterns += patterns('django.views.generic.simple',

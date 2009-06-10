@@ -1,0 +1,12 @@
+{% extends "subsidysort/sort_base.html" %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block content %}
+<ul>
+	{% for task in tasks %}
+		<li><strong><a href="{% url subsidysort-task task.id %}">{{ task.name }}</strong><br/>{{ task.description }}</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}

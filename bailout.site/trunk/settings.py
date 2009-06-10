@@ -90,6 +90,7 @@ INSTALLED_APPS = (
     'spammer',
     'haystack',
     'csv_generator',
+    'subsidysort',
     #'django_evolution',
     'etl',
     'geo',

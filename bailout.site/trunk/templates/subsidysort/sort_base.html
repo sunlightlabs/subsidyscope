@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" >
+<head>
+<title>SubsidySort</title>
+<link rel="stylesheet" type="text/css" href="***REMOVED***css/dashboard.css" />
+
+
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class="dashboard">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+			<h1 id="site-name">SubsidySort</h1>
+        </div>
+        
+        <div id="user-tools">Welcome, <strong>Kevin</strong>. <a href="password_change/">Change password</a> / <a href="/admin/logout/">Log out</a></div>
+
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+        
+
+    <!-- Content -->
+    <div id="content" class="colMS">
+        
+        <h1>{% block title %}{% endblock %}</h1>
+        
+		<div id="content-main">
+
+		{% block content %}
+		{% endblock %}
+		
+		</div>
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+
+</html>
