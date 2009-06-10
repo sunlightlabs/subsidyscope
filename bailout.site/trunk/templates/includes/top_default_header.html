@@ -1,14 +1,49 @@
 
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+		$('form#email-subscribe').submit(function(){
+			var valid = ($('form#email-subscribe input.text').val().match(/^\s*[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\s*$/i)!=null);
+			if(!valid)
+			{
+				if($('#email-message').css('display')!='none')
+				{
+					$('#email-message').fadeOut(400, function(){ $('#email-message').addClass('warning').text('This does not appear to be a valid email address.').fadeIn(400); });
+				}
+				else
+				{
+					$('#email-message').addClass('warning').text('This does not appear to be a valid email address.').fadeIn(400);
+				}
+				
+			}
+
+			return valid;
+		});
+		
+		$('form#email-subscribe input.text').focus(function(){			
+			$('#email-message').css('left',$('form#email-subscribe input.text').position().left).removeClass('warning').text('Please enter your email address.').fadeIn(400);
+			if($(this).val()=='Get Email Updates')
+				$(this).val('');
+		});
+		$('form#email-subscribe input.text').blur(function(){
+			$('#email-message').fadeOut(400);
+		});
+	});
+	</script>
+
 	<div class="top_nav_bg">
 		<div class="container">
-			<div class="span-24 top_nav_header_height"> 
+			<div class="span-24 top_nav_header_height">				
 				<ul id="top_nav_header">
+					<li><span id="email-message" class="instruction">Please enter your email address.</span><form action="/mailinglist/subscribe/" method="post" id="email-subscribe"><input type="text" value="Get Email Updates" class="text" name="email" />&nbsp;<input class="submit" type="submit" value="Subscribe" /></form></li>
+					<li>&nbsp;</li>
 					<li><a href="/">Home</a></li>
 					<li><a href="/faq/">FAQ</a></li>
 					<li><a href="/board/">Board</a></li>
 					<li><a href="/press/">Press</a></li>
 					<li class="last"><a href="/contact/">Contact</a></li>
-				</ul>
+				</ul>		
 			</div>
 		</div>	
 	</div>

@@ -65,11 +65,14 @@ h1.technique-eight span {
 #mailing_list_box { }
 
 /* email updates */
-#mailing_list_box {color:#2f4867; font-size:12px; text-align:right; padding:10px 20px 0 0; font-family:Helvetica Neue, Arial, Helvetica, sans-serif; margin:0;}
-#mailing_list_box input { margin-right:5px; padding:0;}
-#update_email {padding:0 0 0 0; margin:0;}
-#update_email .submit { border:1px solid #899eab; color#:2f4867; background-color:#f6f8fb; padding:0 3px 0 3px;}
-#email-validation-error { background-color: #ffff88; color: black; border: 1px solid black; padding: 5px; float: right; margin-right: 20px; display: none;}
+form#email-subscribe { display: inline; margin: 0;}
+form#email-subscribe input { font-size: 9px; }
+form#email-subscribe input.text { color: #aaa; height: 12px;}
+form#email-subscribe input.text:focus { color: #000;}
+form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #899EAB; height: 18px; padding: 2px 3px;}
+#email-message { display:none; position: absolute; left: auto; margin-top: 26px; padding: 2px 4px; border: 1px solid;}
+#email-message.instruction { border-color: #7B630F; color: #7B630F; background-color: #FFFCDA;}
+#email-message.warning { border-color: #c00; color: #800; background-color: #FFCCCC;}
 
 #search_box { }
 
@@ -129,7 +132,8 @@ h1.technique-eight span {
 
 #content_area { margin:20px;}
 #content_area p { width:850px; font-size: 120%; } 
-#content_area ol, #content_area ul { font-size: 120%; }
+#content_area ol, #content_area ul, #content_area dl { font-size: 120%; }
+#content_area dl dt a { text-decoration: none; color: black;}
 .non_content { margin:20px 0 20px 0; padding:0 20px 0 20px;}
 
 .attribution { font-size: 0.9em; margin-bottom: 20px; display:block; text-align:right; padding-right:20px;}
@@ -213,7 +217,7 @@ strong { font-weight:bold;}
 #news_box a:active { text-decoration:none; color:#2d73bf; }
 
 
-.news_head { border-top:1px solid #cbcbcb; background-color:#f3f3f4; padding:5px 0 0 10px; border-bottom:1px solid #ffffff; color:#333333; font-size:14px; background-image:url(/media/images/front_update_head_bg_alt.png); background-repeat:repeat-x;}
+.news_head { border-top:1px solid #cbcbcb; background-color:#f3f3f4; padding:5px 0 0 10px; border-bottom:1px solid #ffffff; color:#333333; font-size:14px; background-image:url(/media/images/front_update_head_bg_alt.png); background-repeat:repeat-x; background-position: bottom left;}
 .news_head h2  { display:inline; font-size:14px; padding:0 10px 0 0; font-weight:normal; margin:0;}
 
 #news_box_items  { margin:0; padding:0; background-color:#f4f4f4;}
