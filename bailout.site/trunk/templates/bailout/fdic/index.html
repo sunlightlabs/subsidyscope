@@ -21,14 +21,6 @@
 		<div id="header_area">
 			<h3>{% morsel_page_title %}</h3>		
 		</div>
-			<div class="non_content">
-				<div id="legend-container"></div>
-
-				<div id="visualization-container"></div>
-
-				<div class="attribution">Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09. <span class="source_download">[<a href="{% url bailout-visualization-json %}">Download as JSON</a>]</span></div>
-			
-			</div>
 		
 		<div id="content_area">
 
@@ -37,13 +29,6 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-$(document).ready(function(){
-	DrawBailoutVisualizationLegend($('#legend-container')); 
-	DrawBailoutVisualization($('#visualization-container'), 'FDIC');	
-});		
-</script>
 
 
 {% endblock %}
