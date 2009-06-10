@@ -6,11 +6,6 @@ from django.core.exceptions import ImproperlyConfigured
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-try:
-    from local_settings import *
-except ImportError, exp:    
-    pass
-
 
 ADMINS = (
     ('Kevin Webb', 'kwebb@sunlightfoundation.com'),
@@ -112,10 +107,10 @@ INSTALLED_APPS = (
     'carousel'
 )
 
-try:
-    INSTALLED_APPS = INSTALLED_APPS + INSTALLED_LOCAL_APPS
-except:
-    pass
+#try:
+#    INSTALLED_APPS = INSTALLED_APPS + INSTALLED_LOCAL_APPS
+#except:
+#    pass
 
 EMAIL_HOST = "smtp.sunlightlabs.com"
 EMAIL_PORT = "25"
@@ -204,3 +199,8 @@ FEEDBURNER = { 'feeds/updates': 'http://feedproxy.google.com/subsidyscope' }
 
 # Django Morsels
 MORSELS_USE_JEDITABLE = True
+
+try:
+    from local_settings import *
+except ImportError, exp:    
+    pass

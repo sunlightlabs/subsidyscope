@@ -67,7 +67,7 @@ def vote(request, item_id):
         
         return redirect('/subsidysort/task/%d/' % item.task.id)
     
-    try:
+    try:    
         vote = item.vote_set.get(user=request.user)
         vote_form = VoteForm(instance=vote)
     except: 
