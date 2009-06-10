@@ -1,0 +1,25 @@
+{% extends "subsidysort/sort_base.html" %}
+
+{% block title %}{{ item.unique_id }} &mdash; {{ item.name }}{% endblock %}
+
+{% block content %}
+
+<p>{{ item.description }}</p>
+
+{% if item.url %}
+<p><a href="{{ item.url }}">View CFDA Program Data &raquo;</a></p>
+{% endif %}
+<p>&nbsp;</p>
+
+<form action="." method="POST">
+<table>
+	{{ vote_form.as_table }}
+</table>
+<input type="submit" value="Submit Vote"/>
+</form>
+
+<p>
+	<a href="{% url subsidysort-task item.task.id %}">&laquo; Return to List</a>
+</p>
+
+{% endblock %}

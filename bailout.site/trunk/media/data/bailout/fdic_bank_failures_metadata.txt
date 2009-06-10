@@ -1,0 +1,36 @@
+Metadata for fdic_bank_failures.csv
+Generated on Jun 08, 2009
+
+
+File Description: FDIC Bank Failures
+
+
+Field Descriptions:
+
+	Failed Institution
+	
+
+	City
+	
+
+	State
+	
+
+	Date of Bank Closure
+	
+
+	Estimated Loss to the Deposit Insurance Fund (exact)
+	
+
+	Estimated Loss to the Deposit Insurance Fund (lower range)
+	
+
+	Estimated Loss to the Deposit Insurance Fund (upper range)
+	
+
+	Notes
+	
+
+	Report
+	
+

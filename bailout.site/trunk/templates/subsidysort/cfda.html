@@ -1,0 +1,14 @@
+{% extends "subsidysort/sort_base.html" %}
+
+{% block title %}{{ program.program_number }} &mdash; {{ program.program_title }}{% endblock %}
+
+{% block content %}
+
+<p>&nbsp;</p>
+
+<table>
+	{{ cfda_form.as_table }}
+</table>
+<
+
+{% endblock %}

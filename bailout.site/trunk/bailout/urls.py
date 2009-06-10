@@ -2,13 +2,13 @@ from django import forms
 from django.conf import settings
 from django.conf.urls.defaults import *
 from bailout.models import *
-from django.views.generic.simple import direct_to_template
+from django.views.generic.simple import direct_to_template, redirect_to
 import bailout_pdfs
-
+  
 urlpatterns = patterns('',
     url(r'^tarp/$', 'bailout.views.tarp_index', name="tarp"),
     url(r'^tarp/visualization\.js$', 'bailout.views.tarp_js', name="tarp-javascript"),    
-    url(r'^tarp/csv/$', 'bailout.views.tarp_csv', name="tarp-csv"),
+    url(r'^tarp/csv/$', redirect_to, {'url':'/media/data/bailout/tarp_transactions.csv'}, name="tarp-csv"),
     url(r'^tarp\.xml$', 'bailout.views.tarp_xml', name="tarp-xml"),
     url(r'^documents/', include('bailout_pdfs.urls')),
     url(r'^json/', direct_to_template, {'template': 'bailout/bailout_programs.json', 'mimetype': 'text/javascript'}, name='bailout-JSON'),

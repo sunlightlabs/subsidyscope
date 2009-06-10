@@ -1,11 +1,11 @@
 Metadata for tarp_transactions.csv
-Generated on: Jun 05, 2009
+Generated on Jun 08, 2009
 
 
- File Description: TARP Transactions data.
+File Description: TARP Transactions data.
 
 
- Field Descriptions:
+Field Descriptions:
 
 	Date
 	TARP Transaction Date
