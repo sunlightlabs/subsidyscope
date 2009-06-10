@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% load media %}
+{% load morsel_tags %}
 
 {% block content %}
-<div class="container top_solid_box">&nbsp;</div>
-<div class="container white">
-    <div class="span-6">
-        {% include "includes/bailout_left_nav.html" %}
-    </div>
-    <div class="span-13">
-        <div class="full_padding">
-            <h2 class="type_header">reference</h2>
-            <h3 class="section_header">Glossary of Terms</h3>
+
+<div class="container main_container">
+{% include "includes/bailout_nav.html" %}
+
+	<div class="span-24">
+		<div id="header_area">
+			<h3>Glossary of Terms</h3>		
+		</div>
+		
+		<div id="content_area">
+
             <dl id="glossary">
                 {% for item in glossary_items %}
                 {% spaceless %}
@@ -41,8 +44,5 @@
             </p>
         </div>
     </div>
-    <div class="span-5 last">
-        <div>&nbsp;</div>
-    </div>
-</div> <!--ends container-->
+</div>
 {% endblock %}
