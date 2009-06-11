@@ -29,7 +29,7 @@ body { background-image:url(/media/images/template/bg_gradient.png); background-
 
 #top_nav_header { text-align:right; margin:5px 0 0 0;}
 #top_nav_header ul { margin:0; padding:0;}
-#top_nav_header li { margin:0; padding:0; display:inline; padding-left:20px;}
+#top_nav_header li { margin:0; padding:0; padding-left:20px;}
 #top_nav_header li.last { padding-right:20px;}
 
 #top_nav_header a:link { color:#4380b0; text-decoration:none;}
@@ -65,14 +65,16 @@ h1.technique-eight span {
 #mailing_list_box { }
 
 /* email updates */
-form#email-subscribe { display: inline; margin: 0;}
+#email-form-container { overflow: hidden; width: 0px; padding-left: 0;}
+form#email-subscribe { display: flock; width: 200px; text-align: left; padding: 0; margin: 0;}
 form#email-subscribe input { font-size: 9px; }
 form#email-subscribe input.text { color: #aaa; height: 12px;}
 form#email-subscribe input.text:focus { color: #000;}
 form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #899EAB; height: 18px; padding: 2px 3px;}
-#email-message { display:none; position: absolute; left: auto; margin-top: 26px; padding: 2px 4px; border: 1px solid;}
+#email-message { display:none; position: absolute; width: 190px; text-align: left; left: auto; margin-top: 26px; padding: 2px 4px; border: 1px solid;}
 #email-message.instruction { border-color: #7B630F; color: #7B630F; background-color: #FFFCDA;}
 #email-message.warning { border-color: #c00; color: #800; background-color: #FFCCCC;}
+ul#top_nav_header li { display: block !important; float: right;}
 
 #search_box { }
 
