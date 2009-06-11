@@ -1,5 +1,5 @@
 Metadata for tarp_transactions.csv
-Generated on Jun 08, 2009
+Generated on Jun 11, 2009
 
 
 File Description: TARP Transactions data.
@@ -58,10 +58,10 @@ Field Descriptions:
 	Warrant Received
 	
 
-	Stock Price (as of close 2009-04-08)
+	Stock Price (as of close 2009-06-04)
 	
 
-	In/Out of Money (as of close 2009-04-08)
+	In/Out of Money (as of close 2009-06-04)
 	
 
 	Subsidy Rate Estimate (percentage)

@@ -1,5 +1,5 @@
 Metadata for federal_reserve_h41.csv
-Generated on Jun 08, 2009
+Generated on Jun 11, 2009
 
 
 File Description: Federal Reserve H41 Snapshot

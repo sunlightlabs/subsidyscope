@@ -1,5 +1,5 @@
 Metadata for fdic_bank_failures.csv
-Generated on Jun 08, 2009
+Generated on Jun 11, 2009
 
 
 File Description: FDIC Bank Failures
