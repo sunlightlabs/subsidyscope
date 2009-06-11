@@ -131,11 +131,11 @@ class CSVManager():
         if not csv_class:
             csv_class = CSVFile
         
-        if not isinstance(model, ModelBase):
-            raise AttributeError('The model being registered must derive from Model.')
+        #if not isinstance(model, ModelBase):
+        #    raise AttributeError('The model being registered must derive from Model.')
         
-        if model in self._registry:
-            raise AlreadyRegistered('The model %s is already registered' % model.__class__)
+        #if model in self._registry:
+        #    raise AlreadyRegistered('The model %s is already registered' % model.__class__)
         
         self._registry[model] = csv_class(model)
         
