@@ -458,3 +458,28 @@ ul.press-releases li
 {
     margin-bottom: 1em;
 }
+
+/* extra nav for FDIC and Treasury */
+.section-floating-nav
+{
+	float: right;
+	background-color: #FFFCDA;
+	background-repeat: repeat-x;
+	background-image: url(/media/images/front_involved_bg.png);
+	border: 1px solid #CFB762;
+	color: #7B630F;
+	margin: 0 0 15px 15px;
+	padding: 10px 15px;
+}
+.section-floating-nav ul { margin-bottom: 0px;}
+.section-floating-nav ul, .section-floating-nav ul li { margin-left: 0; padding-left: 0;}
+.section-floating-nav li.subitem { padding-left: 15px;}
+.section-floating-nav ul li a, .section-floating-nav ul li a:visited, .section-floating-nav ul li a:link, .section-floating-nav ul li a:active, .section-floating-nav ul li a:hover
+{
+	color: #7B630F;
+	text-decoration: none;
+	font-size: 12px;
+}
+.section-floating-nav ul li a:hover { text-decoration: underline;}
+.section-floating-nav ul li.overview-link { display: none; }
+.section-floating-nav ul li a.active { font-weight: bold;}
