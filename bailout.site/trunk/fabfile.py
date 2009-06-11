@@ -323,3 +323,16 @@ def push_tarp():
     subsidyscope_setup()
     push_fixture_from_staging_to_live_via_mysql('etl')
     push_fixture_from_staging_to_live_via_mysql('bailout', backup=False) # only backup before the first operation so we can roll back properly
+
+def new_h41_to_local():
+    subsidyscope_setup()
+    local('Users/thomaslee/Projects/subsidyscope-etl/h41/import_new_h41.sh')
+    
+def new_h41_to_staging():
+    subsidyscope_setup()
+    push_fixture_from_local_to_staging_via_mysql('fed_h41')
+    local('ssh -i $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging) "python ~/lib/python/subsidyscope/manage.py generatecsv')
+
+def new_h41_to_live():
+    push_fixture_from_staging_to_live_via_mysql('fed_h41')
+    
