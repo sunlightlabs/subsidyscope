@@ -30,7 +30,10 @@
 		<li>
 			<a class="sf-with-ul" href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>
 		</li>
-		<li><a href="{% url bailout_other_index %}">Other Agencies</a></li>
+		<li>
+			<a href="{% url bailout_other_index %}">Other Agencies</a>
+			{% include "includes/bailout_other_nav.html" %}
+		</li>
 		<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>
 	</ul>
 	</div>

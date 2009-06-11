@@ -16,11 +16,11 @@ def autodiscover():
             continue
 
         try:
-            imp.find_module('csv', app_path)
+            imp.find_module('csv_def', app_path)
         except ImportError:
             continue
         
-        __import__("%s.csv" % app)
+        __import__("%s.csv_def" % app)
 
 
 class CSVFile():
