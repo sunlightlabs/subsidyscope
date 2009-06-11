@@ -6,6 +6,7 @@ from django.core.exceptions import ImproperlyConfigured
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
+
 ADMINS = (
     ('Kevin Webb', 'kwebb@sunlightfoundation.com'),
     ('Tom Lee','tlee@sunlightfoundation.com'),
@@ -74,7 +75,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'urls'
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.markup',
@@ -90,7 +90,6 @@ INSTALLED_APPS = (
     'spammer',
     'haystack',
     'csv_generator',
-    'subsidysort',
     #'django_evolution',
     'etl',
     'geo',
@@ -108,6 +107,10 @@ INSTALLED_APPS = (
     'carousel'
 )
 
+#try:
+#    INSTALLED_APPS = INSTALLED_APPS + INSTALLED_LOCAL_APPS
+#except:
+#    pass
 
 EMAIL_HOST = "smtp.sunlightlabs.com"
 EMAIL_PORT = "25"
@@ -175,6 +178,10 @@ SCRIBD_PUBLISHER_ID = '***REMOVED***'
 # Haystack
 HAYSTACK_SEARCH_ENGINE = 'whoosh' 
 
+
+# Auth 
+
+LOGIN_URL = '/subsidysort/login/'
 
 
 # RCSField

@@ -75,4 +75,4 @@ class Vote(models.Model):
     
     comments = models.TextField(blank=True)
     
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)

@@ -5,7 +5,7 @@
 {% block content %}
 <ul>
 	{% for task in tasks %}
-		<li><strong><a href="{% url subsidysort-task task.id %}">{{ task.name }}</strong><br/>{{ task.description }}</li>
+		<li><strong><a href="{% url subsidysort-task task.id %}">{{ task.name }}</strong></a><br/>{{ task.description }}</li>
 	{% endfor %}
 </ul>
 

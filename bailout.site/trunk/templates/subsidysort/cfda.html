@@ -1,4 +1,5 @@
 {% extends "subsidysort/sort_base.html" %}
+{% load subsidysort_tags %}
 
 {% block title %}{{ program.program_number }} &mdash; {{ program.program_title }}{% endblock %}
 
@@ -7,8 +8,10 @@
 <p>&nbsp;</p>
 
 <table>
-	{{ cfda_form.as_table }}
+	{% for field in program|get_fields %}
+		<tr><th>{{ field.name }}:</th><td>{{ field.value }}</td></tr>
+	{% endfor %}
 </table>
-<
+
 
 {% endblock %}
