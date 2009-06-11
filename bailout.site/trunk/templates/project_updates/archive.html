@@ -21,7 +21,7 @@
 						<div id="update_icon">{% for sector in item.sectors.all %}<img src="{% media_url %}/images/sector_icons/{{ sector.id }}_sm.png" alt="{{ sector.name }}: Project Update" border="0" />{% endfor %}
 						</div>
 					{% endif %}
-					<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} 
+					<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {% if item.extended_text %}{{ item.extended_text|safe }}{% else %}{{ item.text|safe }}{% endif %}
 						<a style="font-size: 10px; color: #aaa; border: none; float: right;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
 			</p>
 			

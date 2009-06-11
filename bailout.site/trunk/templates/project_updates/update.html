@@ -12,15 +12,19 @@
 		
 		<div id="content_area">
 			<div id="update_item">
-				<p style="margin-top:1em"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} </p>
+				<p style="margin-top:1em"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; 
 	
 				{% if item.extended_text %}
 
-					<p>{{ item.extended_text|safe }}</p>
+					{{ item.extended_text|safe }}
 
-					{% if item.link %}<p><a href="{{ item.link }}" class="readmore">View</a></p>{% endif %}
+				{% else %}
+				
+					{{ item.text|safe }}
 
 				{% endif %}
+				
+				</p>
 			</div>
 		</div>
 	</div>
