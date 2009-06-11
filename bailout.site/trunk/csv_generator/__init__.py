@@ -89,7 +89,7 @@ class CSVFile():
         if os.path.exists(output_file_path):
             os.remove(output_file_path)
         
-        csv_file = open(output_file_path, 'w')
+        csv_file = open(output_file_path, 'wb')
         
         writer = csv.writer(csv_file)
         
