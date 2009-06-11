@@ -5,8 +5,6 @@
 {% load morsel_tags %}
 
 {% block additional_js %}
-	{% js "jquery.pngFix.pack.js" %}
-	<script src="{% url bailout-visualization-js %}" type="text/javascript"></script>
 {% endblock %}
 
 {% block additional_css %}
@@ -24,6 +22,12 @@
 		</div>		
 		
 		<div id="content_area">
+					
+			<div class="section-floating-nav">
+				<h3 class="front_about_head">Treasury</h3>
+				{% include "includes/bailout_treasury_nav.html" %}
+			</div>
+
 			{% morsel text1 %}
 		</div>
 
