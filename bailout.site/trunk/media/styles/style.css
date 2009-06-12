@@ -174,6 +174,9 @@ h4.footer { font-size:12px; margin:0; padding:0;}
 #feature_box h2 a:visited { text-decoration:none; color: #435c7a;}
 #feature_box h2 a:hover { text-decoration:none; color: #bf5004;}
 #feature_box h2 a:active { text-decoration:none; color: #1a4760;}
+#feature_box .tabs > div { display: none; }
+#feature_box .tabs > div:first-child { display: block; }
+#feature_box .feature_circle img { display: none;}
 
 
 strong { font-weight:bold;}
@@ -181,11 +184,12 @@ strong { font-weight:bold;}
 .feature_nav { text-align:right; display:block; padding:0 10px 10px 0; margin:0;}
 .feature_nav img { padding:0; margin:0;}
 .tabNavigation ul { margin:0; padding:0;}
-
+.carousel-tab { margin-bottom: 1.6em; }
+.feature_nav { margin-bottom:0 !important; }
 .feature_nav li {  margin:0; padding:0; list-style-type: none;} 
 .tabNavigation li { display:inline; margin:0; padding:0 5px 0 0; list-style-type: none;}
 
-#feature_circle li { margin:0; padding:0 8px 0 0; }
+.feature_circle li { margin:0 !important; padding:0 8px 0 0 !important; }
 
 
 /* MORE FRONT PAGE PIECES */

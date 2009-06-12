@@ -97,11 +97,18 @@ $(function () {
 	}
 	setCookie(SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME, ((initialTabToShowIndex+1) % $('div.tabs > div').length), 30);
 
-	var tabContainers = $('div.tabs > div');				
+	// handle initial tab display
+	var tabContainers = $('div.tabs > div');
 	tabContainers.hide().filter(':eq(' + initialTabToShowIndex + ')').show();                        
+
+	// unhide the tab nav
+	$('#feature_box .feature_circle img').css('display','inline');
+		
+	// establish handlers for clicking the tab nav
 	$('div.tabs ul.tabNavigation a').click(function() {		        
 		clearInterval(carouselInterval);
-		handleCarouselClick($(this.hash));		
+		handleCarouselClick($(this.hash));
+		return false;
 	});	
    
 	// set up carousel auto-rotation
