@@ -8,8 +8,8 @@
 			</div>
 		{% endif %}
 		<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} 
-			<a style="font-size: 10px; color: #aaa; border: none; float: right;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
-</p>
+			{% if item.link %}<a href="{{ item.link }}">Read More &raquo;</a>{% endif %}
+		</p>
 
 </div>
 {% endfor %}
