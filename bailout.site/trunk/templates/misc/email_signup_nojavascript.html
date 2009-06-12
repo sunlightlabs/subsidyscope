@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load media %}
+
+{% block content %}
+
+{# fallback page for those attempting to subscribe without Javascript #}
+
+<div class="container main_container" id="rss-page">
+	{% include "includes/bailout_nav.html" %}
+	<div class="span-24">
+		<div id="header_area">
+			<h2>Subsidyscope</h2>
+			<h3>Get Email Updates</h3>		
+		</div>
+		
+		<div id="content_area">
+			
+		<p>Subsidyscope sends occasional email updates to those interested in hearing about the project's status.  To add yourself to our list, please use the form below.  Your email address will not be shared with other organizations, and you can easily unsubscribe at any time by using the links contained in the mailings.</p>
+
+		<form action="/mailinglist/subscribe/" method="post">
+			<input type="text" value="" class="text" name="email" />&nbsp;<input class="submit" type="submit" value="Subscribe" />
+		</form>
+
+		</div>
+
+	</div>
+</div> <!--ends container-->
+{% endblock %}
