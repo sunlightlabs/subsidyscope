@@ -13,8 +13,8 @@
 		</div>
 		
 		<div id="content_area">
-		<img src="{% media_url %}/images/rss_icon_large.png" alt="RSS" id="big-rss-icon" class="alignleft"/>		
-		<p>Really Simple Syndication, or RSS, is a technology that makes it easier to receive notifications when websites are updated.  Through the use of a desktop or web-based application called a <em>feed reader</em>, users can subscribe to sites' RSS feeds and stay up-to-date on changes to their favorite sites' content.  There are many different feed readers available.  Some of the most popular free ones are <a href="http://www.google.com/reader">Google Reader</a> (web), <a href="http://www.newsgator.com/Individuals/FeedDemon/Default.aspx">FeedDemon</a> (Windows) and <a href="http://www.newsgator.com/INDIVIDUALS/NETNEWSWIRE/">NetNewsWire</a> (Mac).  You can find <a href="http://en.wikipedia.org/wiki/Comparison_of_feed_aggregators">a detailed comparison of these and other feed readers at Wikipedia</a>.  Feed readers are typically used by entering a website's URL or RSS feed URL. The reader then periodically checks the feed for updates to the site and displays them to the user.</p>
+			
+		<p><img src="{% media_url %}/images/rss_icon_large.png" alt="RSS" id="big-rss-icon" class="alignleft"/>Really Simple Syndication, or RSS, is a technology that makes it easier to receive notifications when websites are updated.  Through the use of a desktop or web-based application called a <em>feed reader</em>, users can subscribe to sites' RSS feeds and stay up-to-date on changes to their favorite sites' content.  There are many different feed readers available.  Some of the most popular free ones are <a href="http://www.google.com/reader">Google Reader</a> (web), <a href="http://www.newsgator.com/Individuals/FeedDemon/Default.aspx">FeedDemon</a> (Windows) and <a href="http://www.newsgator.com/INDIVIDUALS/NETNEWSWIRE/">NetNewsWire</a> (Mac).  You can find <a href="http://en.wikipedia.org/wiki/Comparison_of_feed_aggregators">a detailed comparison of these and other feed readers at Wikipedia</a>.  Feed readers are typically used by entering a website's URL or RSS feed URL. The reader then periodically checks the feed for updates to the site and displays them to the user.</p>
 
 		<p>Subsidyscope provides an RSS feed of its project updates.  For most significant updates to the site, a message is sent to our list of email subscribers. You may join this list by entering your email into the text box at the top of this page.  Email subscription may be a better option for users who are not comfortable using RSS, but such users should take note that in order to avoid overwhelming our subscribers, we do not send an email for every project update.  RSS is the best way for users to be sure that they see every update to Subsidyscope.</p>
 
@@ -24,7 +24,7 @@
 
 		<h4>Subsidyscope RSS Feeds</h4>
 		<ul id="available-feeds">
-			<li><a href="{% url feed_project_updates updates%}">Project Updates Feed</a></li>
+			<li><a href="{% url django.contrib.syndication.views.feed "updates" %}">Project Updates Feed</a></li>
 			<li><a href="http://feeds.delicious.com/v2/rss/subsidyscope?count=15">"In The News" Feed</a></li>
 		</ul>
 
