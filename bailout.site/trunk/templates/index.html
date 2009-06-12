@@ -156,7 +156,7 @@ $(function () {
 		  dataType: "json",
 		  success: function(data){		
 			$.each(data.value.items, function(i,item){	
-				if((i<MAX_NEWS_ITEMS) && !(DeliciousItemHasTag(item, 'olddelicious') && !(DeliciousItemHasTag(item, 'nohp'))))
+				if((i<MAX_NEWS_ITEMS) && !(DeliciousItemHasTag(item, 'olddelicious')) && !(DeliciousItemHasTag(item, 'nohp')))
 				{
 					var link = $('<li><a href="' + item.link + '">' + item.title + '</a></li>');
 					$('#news_box_items').append(link);
