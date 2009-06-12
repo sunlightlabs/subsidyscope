@@ -487,3 +487,20 @@ ul.press-releases li
 .section-floating-nav ul li a:hover { text-decoration: underline;}
 .section-floating-nav ul li.overview-link { display: none; }
 .section-floating-nav ul li a.active { font-weight: bold;}
+
+.jeditable-morsel:hover
+{
+    background-color: #FFFCDA;
+}
+.jeditable-morsel-label { 
+    display: none;
+    position: absolute;
+    margin-left: -44px;
+    background-image: url(/media/images/jeditable-label-text.png);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-color: #FFFCDA;
+    width: 44px;
+    height: 315px;
+}
+.jeditable-morsel:hover .jeditable-morsel-label { display: block;}
