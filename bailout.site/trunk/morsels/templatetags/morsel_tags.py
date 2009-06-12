@@ -32,26 +32,28 @@ class MorselNode(Node):
         if getattr(settings,'MORSELS_USE_JEDITABLE',False):
             js = """
             <script type="text/javascript">
-            if(typeof($)=='undefined') { 
+            if(typeof(jQuery)=='undefined') { 
                 document.write('<script type="text/javascript" src="%sjquery.js"></' + 'script>');
             }
             </script>
             <script type="text/javascript" src="%sjquery.jeditable.js"></script>
             <script type="text/javascript">
-            $(document).ready(function(){
-                $('.jeditable-morsel').each(function(i){
-                    $(this).editable($(this).attr('rel'), 
+            jQuery(document).ready(function(){
+                jQuery('.jeditable-morsel').each(function(i){
+                    jQuery(this).editable(jQuery(this).attr('rel'), 
                     {
                         type      : 'textarea',
                         cancel    : 'Cancel',
                         submit    : 'OK',
                         indicator : 'Saving...',
-                        tooltip   : 'Click to edit...'
+                        tooltip   : 'Double-click to edit...',
+                        event     : 'dblclick',
+                        loadurl   : '%s'                                                
                     });
                 });
             });
             </script>
-            """ % (settings.MORSELS_JAVASCRIPT_PATH, settings.MORSELS_JAVASCRIPT_PATH)
+            """ % (settings.MORSELS_JAVASCRIPT_PATH, settings.MORSELS_JAVASCRIPT_PATH, reverse('morsels_ajax_load', None, (urllib.quote(context['request'].path, safe=''),)))
             if self.JS_SIGNAL in context['messages']:
                 js = ""
             
@@ -63,7 +65,7 @@ class MorselNode(Node):
             
         output = typogrify(morsel.content)
         if getattr(settings,'MORSELS_USE_JEDITABLE',False) and context['user'].is_authenticated():
-            output = '%s<div class="jeditable-morsel" id="%s" rel="%s">%s</div>' % (js, self.name, reverse('morsels_ajax_save', None, (urllib.quote(context['request'].path, safe=''),)), output)           
+            output = '%s<div class="jeditable-morsel" id="%s" rel="%s"><div class="jeditable-morsel-label"></div>%s</div>' % (js, self.name, reverse('morsels_ajax_save', None, (urllib.quote(context['request'].path, safe=''),)), output)           
             context['messages'].append(self.JS_SIGNAL)
 
 
