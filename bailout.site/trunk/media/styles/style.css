@@ -495,12 +495,13 @@ ul.press-releases li
 .jeditable-morsel-label { 
     display: none;
     position: absolute;
-    margin-left: -44px;
+    margin-left: -22px;
     background-image: url(/media/images/jeditable-label-text.png);
     background-repeat: no-repeat;
-    background-position: top left;
+    background-position: 0px 10px;
     background-color: #FFFCDA;
-    width: 44px;
-    height: 315px;
+    width: 22px;
+    padding: 10px 0;
+    height: 158px;
 }
 .jeditable-morsel:hover .jeditable-morsel-label { display: block;}
