@@ -13,7 +13,7 @@ def carousel_entries():
     out = ""
     i = 0
     for c in entries:
-        out = out + '<div id="tab-%d"><img src="%s" width="415"><h2><a href="%s">%s</a></h2><p class="feature_content"><strong>%s&nbsp;&ndash;&nbsp;</strong>%s</p><ul class="feature_nav tabNavigation" id="feature_circle">' % (i, c.image.url, c.link, c.title, c.date.strftime('%m/%d/%y'), c.text)
+        out = out + '<div id="tab-%d" class="carousel-tab"><img src="%s" width="415"><h2><a href="%s">%s</a></h2><p class="feature_content"><strong>%s&nbsp;&ndash;&nbsp;</strong>%s</p><ul class="feature_nav tabNavigation feature_circle">' % (i, c.image.url, c.link, c.title, c.date.strftime('%m/%d/%y'), c.text)
 
         for tab_i in range(0, num_entries):
             selected = 'unselected'

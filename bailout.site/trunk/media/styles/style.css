@@ -174,6 +174,9 @@ h4.footer { font-size:12px; margin:0; padding:0;}
 #feature_box h2 a:visited { text-decoration:none; color: #435c7a;}
 #feature_box h2 a:hover { text-decoration:none; color: #bf5004;}
 #feature_box h2 a:active { text-decoration:none; color: #1a4760;}
+#feature_box .tabs > div { display: none; }
+#feature_box .tabs > div:first-child { display: block; }
+#feature_box .feature_circle img { display: none;}
 
 
 strong { font-weight:bold;}
@@ -181,11 +184,12 @@ strong { font-weight:bold;}
 .feature_nav { text-align:right; display:block; padding:0 10px 10px 0; margin:0;}
 .feature_nav img { padding:0; margin:0;}
 .tabNavigation ul { margin:0; padding:0;}
-
+.carousel-tab { margin-bottom: 1.6em; }
+.feature_nav { margin-bottom:0 !important; }
 .feature_nav li {  margin:0; padding:0; list-style-type: none;} 
 .tabNavigation li { display:inline; margin:0; padding:0 5px 0 0; list-style-type: none;}
 
-#feature_circle li { margin:0; padding:0 8px 0 0; }
+.feature_circle li { margin:0 !important; padding:0 8px 0 0 !important; }
 
 
 /* MORE FRONT PAGE PIECES */
@@ -211,20 +215,22 @@ strong { font-weight:bold;}
 
 
 /* start modules section */
-#news_box { padding:0; margin:15px 5px 0 5px;}
-#news_box p { padding: 5px 10px 5px 10px;}
-#news_box a:link { text-decoration:none; color:#2d73bf; }
-#news_box a:visited { text-decoration:none; color:#2d73bf;  }
-#news_box a:hover { text-decoration:none; color:#2d73bf;  }
-#news_box a:active { text-decoration:none; color:#2d73bf; }
+.news_box { padding:0; margin:15px 5px 0 5px;}
+.news_box p { padding: 5px 10px 5px 10px;}
+.news_box a:link { text-decoration:none; color:#2d73bf; }
+.news_box a:visited { text-decoration:none; color:#2d73bf;  }
+.news_box a:hover { text-decoration:none; color:#2d73bf;  }
+.news_box a:active { text-decoration:none; color:#2d73bf; }
 
 
 .news_head { border-top:1px solid #cbcbcb; background-color:#f3f3f4; padding:5px 0 0 10px; border-bottom:1px solid #ffffff; color:#333333; font-size:14px; background-image:url(/media/images/front_update_head_bg_alt.png); background-repeat:repeat-x; background-position: bottom left;}
 .news_head h2  { display:inline; font-size:14px; padding:0 10px 0 0; font-weight:normal; margin:0;}
 
-#news_box_items  { margin:0; padding:0; background-color:#f4f4f4;}
-#news_box_items ul { margin:0; padding:0; }
-#news_box_items li { margin:0; padding:10px; border-top:1px solid #c7c7c7;}
+.news_box_items  { margin:0 !important; padding:0; background-color:#f4f4f4;}
+.news_box_items ul { margin:0; padding:0; }
+.news_box_items li { margin:0 !important; padding:10px; border-top:1px solid #c7c7c7;}
+
+#subsidyscope-in-the-news { display: none; } /* hide initially, since this feature doesn't work w/o Javascript. unhide in JS. */
 
 /* END FRONT PAGE PIECES */
 /* Front Page bits and bobs */
@@ -485,3 +491,21 @@ ul.press-releases li
 .section-floating-nav ul li a:hover { text-decoration: underline;}
 .section-floating-nav ul li.overview-link { display: none; }
 .section-floating-nav ul li a.active { font-weight: bold;}
+
+.jeditable-morsel:hover
+{
+    background-color: #FFFCDA;
+}
+.jeditable-morsel-label { 
+    display: none;
+    position: absolute;
+    margin-left: -22px;
+    background-image: url(/media/images/jeditable-label-text.png);
+    background-repeat: no-repeat;
+    background-position: 0px 10px;
+    background-color: #FFFCDA;
+    width: 22px;
+    padding: 10px 0;
+    height: 158px;
+}
+.jeditable-morsel:hover .jeditable-morsel-label { display: block;}

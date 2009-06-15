@@ -2,6 +2,7 @@ from django import forms
 from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from django.views.generic.simple import direct_to_template
 from contact_form.forms import ContactForm
 from bailout.views import *
 from project_updates.feeds import ProjectUpdatesFeed
@@ -16,7 +17,7 @@ admin.autodiscover()
 class SubsidyContactForm(ContactForm):
     attrs_dict = { 'class': 'required' }    
     from_email = "bounce@sunlightfoundation.com"
-    recipient_list = ['kwebb@sunlightfoundation.com', 'tlee@sunlightfoundation.com', 'subsidyscope@pewtrusts.org']
+    recipient_list = ['kwebb@sunlightfoundation.com', 'tlee@sunlightfoundation.com', 'jmorris@sunlightfoundation.com', 'subsidyscope@pewtrusts.org']
     subject = "[SubsidyScope.com] Contact form submission"
     
     name = forms.CharField(max_length=100,
@@ -29,6 +30,7 @@ class SubsidyContactForm(ContactForm):
 
 urlpatterns = patterns('',
     url(r'^admin/(.*)', admin.site.root),
+    url(r'^mailinglist-subscribe/', direct_to_template, {'template': 'misc/email_signup_nojavascript.html'}, name="email_signup_nojavascript"),
     url(r'^mailinglist/', include('spammer.urls')),
 	url(r'^projects/bailout/glossary/', include('glossary.urls')),
     

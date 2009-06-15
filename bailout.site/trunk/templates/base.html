@@ -6,9 +6,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link  href="{% media_url %}/favicon.ico" rel="shortcut icon" type="image/ico" />
-	<link rel="alternate" type="application/rss+xml" title="Subsidyscope Project Updates" href="/feeds/updates/"></link>
+	<link rel="alternate" type="application/rss+xml" title="Subsidyscope Project Updates" href="{% url django.contrib.syndication.views.feed "updates" %}"></link>
 	{% css "screen.css" %}
-    {% css_print "print.css" %}
+	{% css_print "print.css" %}
 	{% css_ie "ie.css" %}
 	{% css "style.css" %}
 	{% js "jquery-1.2.6.min.js" %}

@@ -34,3 +34,22 @@ def ajax_save_morsel(request, morsel_path):
             %s
             """ % content            
             return HttpResponse(error_msg, mimetype='text/html')
+            
+@login_required
+def ajax_load_morsel(request, morsel_path):
+    """
+    Save a POSTed revision to a jEditable textarea
+    """
+    if request.method=='GET':
+        if not morsel_path.startswith('/'):
+            morsel_path = '/' + morsel_path 
+        key = request.GET['id']
+        m = Morsel.objects.get_for_url(url=urllib.unquote(morsel_path), name=key)        
+        if m:
+            return HttpResponse(m.content, mimetype='text/html')
+        else:
+            print "morsel_path: %s" % morsel_path
+            error_msg = """
+            Failed to load morsel. Has your session timed out? If so, please log in again.
+            """
+            return HttpResponse(error_msg, mimetype='text/html')            

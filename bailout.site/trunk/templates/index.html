@@ -97,11 +97,18 @@ $(function () {
 	}
 	setCookie(SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME, ((initialTabToShowIndex+1) % $('div.tabs > div').length), 30);
 
-	var tabContainers = $('div.tabs > div');				
+	// handle initial tab display
+	var tabContainers = $('div.tabs > div');
 	tabContainers.hide().filter(':eq(' + initialTabToShowIndex + ')').show();                        
+
+	// unhide the tab nav
+	$('#feature_box .feature_circle img').css('display','inline');
+		
+	// establish handlers for clicking the tab nav
 	$('div.tabs ul.tabNavigation a').click(function() {		        
 		clearInterval(carouselInterval);
-		handleCarouselClick($(this.hash));		
+		handleCarouselClick($(this.hash));
+		return false;
 	});	
    
 	// set up carousel auto-rotation
@@ -156,12 +163,13 @@ $(function () {
 		  dataType: "json",
 		  success: function(data){		
 			$.each(data.value.items, function(i,item){	
-				if((i<MAX_NEWS_ITEMS) && !(DeliciousItemHasTag(item, 'olddelicious') && !(DeliciousItemHasTag(item, 'nohp'))))
+				if((i<MAX_NEWS_ITEMS) && !(DeliciousItemHasTag(item, 'olddelicious')) && !(DeliciousItemHasTag(item, 'nohp')))
 				{
 					var link = $('<li><a href="' + item.link + '">' + item.title + '</a></li>');
-					$('#news_box_items').append(link);
+					$('#subsidyscope-in-the-news .news_box_items').append(link);
 				}
 			});		      
+			$('#subsidyscope-in-the-news').show();
 		}});
 	});
 
@@ -203,7 +211,7 @@ $(function () {
 <div class="span-13 last">
 	<div class="feature_rightside">
 		<div id="intro">
-		<p class="intro_copy"><strong>Subsidyscope</strong>, launched by The Pew Charitable Trusts, aims to raise public awareness about the role of federal subsidies in the economy. <a href="/about/" class="intro_more">Read More »</a></p>		
+		<p class="intro_copy"><strong>Subsidyscope</strong>, launched by The Pew Charitable Trusts, aims to raise public awareness about the role of federal subsidies in the economy. <a href="{% url faq %}" class="intro_more">Read More »</a></p>		
 		</div>
 		
 		<div id="taxonomy" style="">
@@ -250,22 +258,22 @@ $(function () {
 	</div>
 	
 	<div class="span-5">
-		<div id="news_box">
+		<div class="news_box">
 			<div class="news_head"><h2>Downloadable Data</h2>
 			</div>	
 			<p><a href="{% url datasets %}"><img src="{% media_url %}/images/download_icon_small.png" class="alignright" style="margin: 1em 0.25em 1em 0.6em"/></a>Subsidyscope releases all of its data in open formats. <a href="{% url datasets %}">Learn more</a>.</p>
 		</div>	
 		
-		<div id="news_box">
+		<div class="news_box">
 			<div class="news_head"><h2>Contact Us</h2>
 			</div>
 			<p>Have a suggestion, question or concern? <a href="{% url contact_form %}">Let us know</a>.</p>
 		</div>	
 		
-		<div id="news_box">
+		<div class="news_box" id="subsidyscope-in-the-news">
 			<div class="news_head"><h2>Subsidyscope In The News</h2><a title="Click here for news feed" href="http://feeds.delicious.com/v2/rss/subsidyscope?count=15"><img src="/media/images/rss_icon.png"></a>
 			</div>
-			<ul id="news_box_items">				
+			<ul class="news_box_items">				
 			</ul>	
 		</div>
 	</div>
