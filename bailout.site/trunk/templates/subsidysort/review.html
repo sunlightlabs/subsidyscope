@@ -1,0 +1,36 @@
+{% extends "subsidysort/sort_base.html" %}
+
+{% block title %}{{ task.name }}{% endblock %}
+
+{% block content %}
+
+<p>{{ task.description }}</p>
+
+{% if items %}
+
+<ul>
+	{% for item in items  %}
+		<li style="margin-bottom: 25px; background: {% cycle '#fff' '#ddd' %};"><strong><a href="{{ item.url }}">{{ item.unique_id }} &mdash;  {{ item.name }}</a></strong><br/>
+		( {{ item.sumVotes }} )
+		<br/>
+		
+		<table>
+		{% for vote in item.vote_set.all  %}
+		
+			<tr>
+				<td>{{ vote.user.first_name }}</td>
+				<td>{{ vote.decision }}</td>
+				<td>{% for tag in vote.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+				<td width="50%">{{ vote.comments }}</td>
+			</tr>
+			
+		{% endfor %}
+		</table>
+		
+		</li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+
+{% endblock %}

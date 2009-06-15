@@ -55,9 +55,31 @@ class Item(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()    
     unique_id = models.CharField(max_length=255)
-    url = models.URLField()    
+    url = models.URLField()  
+    
+    def sumVotes(self):
+        
+        votes = {}
+        
+        for vote in self.vote_set.all():  
+            
+            if vote.decision:
+                
+                if not votes.has_key(vote.decision):
+                    votes[vote.decision] = 0
+    
+                votes[vote.decision] += 1
+        
+        summary = ''
+                
+        for decision in votes:
+            
+            summary += '%s: %d ' % (decision, votes[decision])
+            
+        return summary
     
     
+
 class Vote(models.Model):
     
     user = models.ForeignKey(User, editable=False)

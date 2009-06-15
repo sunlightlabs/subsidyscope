@@ -8,6 +8,7 @@ import bailout_pdfs
 urlpatterns = patterns('',
     url(r'^$', 'subsidysort.views.main', name='subsidysort-main'),
     url(r'^task/(?P<task_id>[0-9]+)/$', 'subsidysort.views.task', name='subsidysort-task'),
+    url(r'^review/(?P<task_id>[0-9]+)/$', 'subsidysort.views.review', name='subsidysort-review'),
     url(r'^vote/(?P<item_id>[0-9]+)/$', 'subsidysort.views.vote', name='subsidysort-vote'),
     url(r'^cfda/(?P<cfda_id>[0-9]+)/$', 'subsidysort.views.cfda', name='subsidysort-cfda'),
     url(r'^login/$', 'subsidysort.views.login', name='subsidysort-login'),
