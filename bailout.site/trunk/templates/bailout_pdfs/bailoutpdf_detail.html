@@ -10,7 +10,7 @@
 			<h3>{{ pdf.title }}</h3>		
 		</div>
 		
-		<div id="content_area">
+		<div class="content_area">
 		{% if pdf.local_copy %}<a style="float: right" class="pdf-download-link" href="{{ pdf.local_copy.url|urlencode }}">Download Document &raquo;</a>{% endif %}
 	<p>{{ pdf.description|safe }}</p>
 		</div>
