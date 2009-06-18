@@ -91,7 +91,7 @@ def vote(request, item_id):
         
         items = Item.objects.filter(task=item.task)
                         
-        return HttpResponseRedirect('/subsidysort/vote/%d/' % item_id + 1)
+        return HttpResponseRedirect('/subsidysort/vote/%d/' % int(item_id) + 1)
 
     
     try:    
