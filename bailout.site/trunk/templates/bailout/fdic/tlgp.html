@@ -3,6 +3,7 @@
 {% load webdesign %}
 {% load media %}
 {% load morsel_tags %}
+{% load glossary_tags %}
 
 {% block additional_js %}
 {% endblock %}
@@ -22,8 +23,12 @@
 		</div>		
 		
 		<div id="content_area">
+
+			{% glossarize %}
 			
-			{% morsel text1 %}
+				{% morsel text1 %}
+				
+			{% endglossarize %}
 			
 			<div class="non_content">		
 			
@@ -35,14 +40,21 @@
 				
 			</div>
 		
+			{% glossarize %}
 			
-			{% morsel text2 %}
+				{% morsel text2 %}
+				
+			{% endglossarize %}
 			
 			<div class="non_content">	
 
 				<div style="padding: 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;" >		
+			
+				{% glossarize %}
 		
-				{% morsel graph2 %}
+					{% morsel graph2 %}
+					
+				{% endglossarize %}
 				
 				</div>
 			</div>
