@@ -4,9 +4,37 @@
 
 {% block content %}
 
+<script>
+
+function update_filter()
+{
+	if($('#filter_tag').val() == -1)
+	{
+		$('#filter_form').attr('action', '/subsidysort/review/1/');
+		$('#filter_form').submit();
+	}
+	else
+	{
+		$('#filter_form').attr('action', '/subsidysort/review/1/tag/' + $('#filter_tag').val() + '/');
+		$('#filter_form').submit();
+	}
+}
+
+{% if selected_tag.id %}
+$(function(){
+	$('#filter_tag').val({{ selected_tag.id }});
+});
+{% endif %}
+
+</script>
+
 <p>{{ task.description }}</p>
 
 <p>view: <a href="/subsidysort/review/{{ task.id }}/">all items</a> | <a href="/subsidysort/review/{{ task.id }}/yes/">unanimous yes</a> | <a href="/subsidysort/review/{{ task.id }}/no/">unanimous no</a> | <a href="/subsidysort/review/{{ task.id }}/split/">split vote</a></p>
+
+<form id="filter_form" method="get" action="">
+</form>
+<p>filter tag: <select id="filter_tag" onchange="update_filter();"><option value="-1">show all</option>{% for tag in tags %}<option value="{{ tag.id }}">{{ tag.name }}</option>{% endfor %}</select></p>
 
 {% if items %}
 
