@@ -25,6 +25,7 @@ def main(request):
     
     return render_to_response('subsidysort/main.html', { 'tasks':tasks, 'user':request.user})
 
+
 @login_required
 def task(request, task_id):
     
@@ -45,15 +46,32 @@ def task(request, task_id):
 
 
 @login_required
-def review(request, task_id):
+def review(request, task_id, show='all'):
     
     task = Task.objects.get(id=task_id)
     
     items = Item.objects.filter(task=task)
     
-    return render_to_response('subsidysort/review.html', {'task':task, 'items':items } )
-                              
-
+    final_items = []
+    
+    if show == 'all':
+        final_items = items
+        
+    else:
+        for item in items:
+            
+            votes = item.getVotes()
+            
+            if show == 'yes' and votes.has_key('yes') and len(votes) == 1: 
+                final_items.append(item)
+            elif show == 'no' and votes.has_key('no') and len(votes) == 1:
+                final_items.append(item)    
+            elif show == 'split' and len(votes) > 1:
+                final_items.append(item)
+                 
+        
+    return render_to_response('subsidysort/review.html', {'task':task, 'items':final_items, 'user':request.user} )
+                            
 
 @login_required
 def vote(request, item_id):
@@ -87,6 +105,7 @@ def vote(request, item_id):
     
     return render_to_response('subsidysort/vote.html', {'item':item, 'vote_form':vote_form, 'user':request.user})
 
+
 @login_required
 def cfda(request, cfda_id):
     
@@ -111,10 +130,12 @@ def login(request):
     else:
         return render_to_response('subsidysort/login.html')  
 
+
 def logout(request):
     
     logout_auth(request)
     return render_to_response('subsidysort/login.html')
+
 
 def change_password(request):
     

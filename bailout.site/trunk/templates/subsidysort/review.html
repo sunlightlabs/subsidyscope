@@ -6,20 +6,27 @@
 
 <p>{{ task.description }}</p>
 
+<p>view: <a href="/subsidysort/review/{{ task.id }}/">all items</a> | <a href="/subsidysort/review/{{ task.id }}/yes/">unanimous yes</a> | <a href="/subsidysort/review/{{ task.id }}/no/">unanimous no</a> | <a href="/subsidysort/review/{{ task.id }}/split/">split vote</a></p>
+
 {% if items %}
+
+<p>Items for review ({{ items|length }}):</p>
 
 <ul>
 	{% for item in items  %}
 		<li style="margin-bottom: 25px; background: {% cycle '#fff' '#ddd' %};"><strong><a href="{{ item.url }}">{{ item.unique_id }} &mdash;  {{ item.name }}</a></strong><br/>
-		( {{ item.sumVotes }} )
+		( {{ item.voteSummary }} )
 		<br/>
 		
 		<table>
+		<tr><th></th><th>vote</th><th>primary</th><th>secondary tags</th><th>comments</th></tr>
+		
 		{% for vote in item.vote_set.all  %}
 		
 			<tr>
 				<td>{{ vote.user.first_name }}</td>
 				<td>{{ vote.decision }}</td>
+				<td>{{ vote.primary_purpose }}</td>
 				<td>{% for tag in vote.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
 				<td width="50%">{{ vote.comments }}</td>
 			</tr>

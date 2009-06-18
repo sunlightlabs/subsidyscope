@@ -2,41 +2,11 @@ from django.db import models
 
 from django.contrib.auth.models import User 
 
-try:
-    from threading import local
-except ImportError:
-    from django.utils._threading_local import local
-
-_thread_locals = local()
-def get_current_user():
-    return getattr(_thread_locals, 'user', None)
-
-
 class Task(models.Model):
 
     name = models.CharField(max_length=255)
     description = models.TextField()
 
-#class ReviewPass(models.Model):
-#    
-#    task = models.ForeignKey(Task)
-#    
-#    pass_order = models.IntegerField()
-#    
-#    name = models.CharField(max_length=255)
-#    description = models.TextField()
-#    
-#    def status(self):
-#        
-#        user = get_current_user()
-#        
-#        items = taks.item_set.all().count()
-#        
-#        items_voted = Vote.objects.filter(user=user, review_pass=self).count()
-#        
-#        return '%d/%d complete' % (items_voted, items)
-    
-    
 class Tag(models.Model):
     
     task = models.ForeignKey(Task) 
@@ -57,7 +27,7 @@ class Item(models.Model):
     unique_id = models.CharField(max_length=255)
     url = models.URLField()  
     
-    def sumVotes(self):
+    def getVotes(self):
         
         votes = {}
         
@@ -69,6 +39,13 @@ class Item(models.Model):
                     votes[vote.decision] = 0
     
                 votes[vote.decision] += 1
+        
+        return votes
+    
+    
+    def voteSummary(self):
+        
+        votes = self.getVotes()
         
         summary = ''
                 
@@ -97,4 +74,8 @@ class Vote(models.Model):
     
     comments = models.TextField(blank=True)
     
-    tags = models.ManyToManyField(Tag, blank=True)
+    primary_purpose = models.ForeignKey(Tag, verbose_name="Primary Tag", related_name='primary_purpose', null=True, blank=True)
+    tags = models.ManyToManyField(Tag, verbose_name="Secondary Tags", null=True, blank=True)
+    
+
+
