@@ -90,9 +90,12 @@ def vote(request, item_id):
         vote.save()
         
         items = Item.objects.filter(task=item.task)
-                        
-        return HttpResponseRedirect('/subsidysort/vote/%d/' % item.id + 1)
-
+        
+        for item in items:
+            if item.vote_set.filter(user=request.user).count() == 0:
+                return HttpResponseRedirect('/subsidysort/vote/%d/' % item.id)
+        
+        return HttpResponseRedirect('/subsidysort/task/%d/' % item.task.id)
     
     try:    
         vote = item.vote_set.get(user=request.user)
