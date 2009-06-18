@@ -1,0 +1,69 @@
+{% extends "base_tarp.html" %}
+{% load humanize %}
+{% load webdesign %}
+{% load media %}
+{% load morsel_tags %}
+{% load glossary_tags %}
+
+{% block additional_js %}
+{% endblock %}
+
+{% block additional_css %}
+	<style type="text/css">@import "{% url bailout-visualization-css %}";</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="container main_container">
+{% include "includes/bailout_nav.html" %}
+
+	<div class="span-24">
+		<div id="header_area">
+			<h3>{% morsel_page_title %}</h3>		
+		</div>		
+		
+		<div id="content_area">
+
+			{% glossarize %}
+			
+				{% morsel text1 %}
+				
+			{% endglossarize %}
+			
+			<div class="non_content">		
+			
+				<div style="padding: 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;" >		
+		
+				{% morsel graph1 %}
+				
+				</div>
+				
+			</div>
+		
+			{% glossarize %}
+			
+				{% morsel text2 %}
+				
+			{% endglossarize %}
+			
+			<div class="non_content">	
+
+				<div style="padding: 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;" >		
+			
+				{% glossarize %}
+		
+					{% morsel graph2 %}
+					
+				{% endglossarize %}
+				
+				</div>
+			</div>
+	
+			
+			{% morsel text3 %}
+			
+			
+		</div>
+</div>
+
+{% endblock %}
