@@ -161,7 +161,7 @@ def constant_contact_signup(recipient):
     user = '%s%%%s' % (CONSTANTCONTACT_API_KEY, CONSTANTCONTACT_LOGIN)
     http = httplib2.Http()
     http.add_credentials(user, CONSTANTCONTACT_PASSWORD)
-    response, content = http.request('http://api.constantcontact.com/ws/customers/subsidyscope/contacts', 'POST', body=xml, headers={'Content-Type': 'application/atom+xml'})
+    response, content = http.request('https://api.constantcontact.com/ws/customers/subsidyscope/contacts', 'POST', body=xml, headers={'Content-Type': 'application/atom+xml'})
     
 MAILINGLIST_SUBSCRIBE_CALLBACK = constant_contact_signup
 MAILINGLIST_SUBSCRIBED_URL = "/mailinglist/subscribed/"

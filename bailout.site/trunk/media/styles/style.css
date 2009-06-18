@@ -132,10 +132,10 @@ ul#top_nav_header li { display: block !important; float: right;}
 #header_area_flat h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
 
 
-#content_area { margin:20px;}
-#content_area p { width:850px; font-size: 120%; } 
-#content_area ol, #content_area ul, #content_area dl { font-size: 120%; }
-#content_area dl dt a { text-decoration: none; color: black;}
+.content_area { margin:20px;}
+.content_area p { width:850px; font-size: 120%; } 
+.content_area ol, .content_area ul, .content_area dl { font-size: 120%; }
+.content_area dl dt a { text-decoration: none; color: black;}
 .non_content { margin:20px 0 20px 0; padding:0 20px 0 20px;}
 
 .attribution { font-size: 0.9em; margin-bottom: 20px; display:block; text-align:right; padding-right:20px;}
