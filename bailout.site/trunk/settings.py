@@ -104,6 +104,8 @@ INSTALLED_APPS = (
     'django_helpers',
     'glossary',
     'carousel'
+    'cfda',
+    'faads'
 )
 
 #try:
