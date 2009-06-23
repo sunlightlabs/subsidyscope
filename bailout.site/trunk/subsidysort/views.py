@@ -48,7 +48,7 @@ def task(request, task_id):
 
 
 @login_required
-def review(request, task_id, show='all', tag_id=None):
+def review(request, task_id, show='all', tag_id=None, tag_location=None):
     
     task = Task.objects.get(id=task_id)
     
@@ -73,7 +73,12 @@ def review(request, task_id, show='all', tag_id=None):
                 final_items.append(item)
          
     selected_tag = None
-                 
+
+    try:
+        tag_location = int(tag_location)
+    except:
+        tag_location = -1
+    
     if tag_id and int(tag_id):
         
         tag_id = int(tag_id)
@@ -82,13 +87,21 @@ def review(request, task_id, show='all', tag_id=None):
         
         final = User.objects.get(id=14)
         
-        final_items = Item.objects.filter(Q(vote__user=final) & (Q(vote__primary_purpose=selected_tag) | Q(vote__tags=selected_tag)))
+        
+            
+        if tag_location == 1:
+            final_items = Item.objects.filter(Q(vote__user=final) & Q(vote__primary_purpose=selected_tag))
+        elif tag_location == 2:
+            final_items = Item.objects.filter(Q(vote__user=final) & Q(vote__tags=selected_tag))
+        else:
+            final_items = Item.objects.filter(Q(vote__user=final) & (Q(vote__primary_purpose=selected_tag) | Q(vote__tags=selected_tag)))    
       
     
     tags = Tag.objects.all()
 
-    return render_to_response('subsidysort/review.html', {'task':task, 'items':final_items, 'user':request.user, 'tags':tags, 'selected_tag':selected_tag} )
+    return render_to_response('subsidysort/review.html', {'task':task, 'items':final_items, 'user':request.user, 'tags':tags, 'selected_tag':selected_tag, 'tag_location':tag_location } )
                             
+
 
 @login_required
 def vote(request, item_id):

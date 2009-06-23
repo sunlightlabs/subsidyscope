@@ -15,7 +15,11 @@ function update_filter()
 	}
 	else
 	{
-		$('#filter_form').attr('action', '/subsidysort/review/1/tag/' + $('#filter_tag').val() + '/');
+		if($('#tag_location').val() == -1)
+			$('#filter_form').attr('action', '/subsidysort/review/1/tag/' + $('#filter_tag').val() + '/');
+		else
+			$('#filter_form').attr('action', '/subsidysort/review/1/tag/' + $('#filter_tag').val() + '/' + $('#tag_location').val() + '/');
+		
 		$('#filter_form').submit();
 	}
 }
@@ -23,6 +27,7 @@ function update_filter()
 {% if selected_tag.id %}
 $(function(){
 	$('#filter_tag').val({{ selected_tag.id }});
+	$('#tag_location').val({{tag_location}});
 });
 {% endif %}
 
@@ -34,7 +39,12 @@ $(function(){
 
 <form id="filter_form" method="get" action="">
 </form>
-<p>filter tag: <select id="filter_tag" onchange="update_filter();"><option value="-1">show all</option>{% for tag in tags %}<option value="{{ tag.id }}">{{ tag.name }}</option>{% endfor %}</select></p>
+<p>filter tag: <select id="filter_tag" onchange="update_filter();"><option value="-1">show all</option>{% for tag in tags %}<option value="{{ tag.id }}">{{ tag.name }}</option>{% endfor %}</select>
+<select id="tag_location" onchange="update_filter();">
+	<option value="-1">primary/secondary</option>
+	<option value="1">primary</option>
+	<option value="2">secondary</option>
+</select></p>
 
 {% if items %}
 
