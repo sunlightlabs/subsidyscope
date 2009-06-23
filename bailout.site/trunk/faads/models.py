@@ -1,11 +1,14 @@
 from django.db import models
 from decimal import Decimal
 from cfda.models import ProgramDescription
+from decimal import Decimal
+import sys
+import MySQLdb
 
 def generate_model_entries(obj):
-    type(obj).objects.all().delete()
+    obj.objects.all().delete()
     for code,name in obj.OPTIONS:
-        x = type(obj)()
+        x = obj()
         x.code = code
         x.name = name
         x.save()
@@ -17,7 +20,6 @@ class AssistanceType(models.Model):
         verbose_name = 'Assistance Type'
     code = models.IntegerField("Numeric Code", max_length=2, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=False)    
-    generate_entries = generate_model_entries
 
     OPTIONS = (
         (2, "Block grant (A)"),
@@ -38,11 +40,10 @@ class ActionType(models.Model):
         return self.name
     class Meta:
         verbose_name = 'Action Type'
-    code = models.IntegerField("Numeric Code", max_length=2, blank=False)
-    name = models.CharField("Descriptive Name", max_length=255, blank=False)    
-    generate_entries = generate_model_entries    
+    code = models.CharField("Character Code", max_length=1, blank=False)
+    name = models.CharField("Descriptive Name", max_length=255, blank=False)     
 
-    TYPE_OF_ACTION_CHOICES = (
+    OPTIONS = (
         ("A", "New assistance action"),
         ("B", "Continuation"),
         ("C", "Revision"),
@@ -57,8 +58,6 @@ class RecipientType(models.Model):
         verbose_name = 'Recipient Type'    
     code = models.IntegerField("Numeric Code", max_length=2, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=False)
-
-    generate_entries = generate_model_entries
 
     OPTIONS = (
         (0, "State government"),
@@ -84,8 +83,6 @@ class RecordType(models.Model):
         verbose_name = 'Record Type'    
     code = models.IntegerField("Numeric Code", max_length=2, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=False)
-
-    generate_entries = generate_model_entries
 
     OPTIONS = (
          (1, "County aggregate reporting"),
@@ -161,126 +158,179 @@ class Record(models.Model):
     business_identifier = models.CharField("Business Identifier", max_length=3, blank=True, default='')
     rec_flag = models.CharField("Recovery(?) Flag", max_length=1, blank=True, default='')
     
-    field_mapping = [
-    #   'django field name': 'FAADS field name' OR callable that returns value when passed row
-        'fyq': 'fyq',
-        'cfda_program': 'cfda_program_num',
-        'sai_number': 'sai_number',
-        'recipient_name': 'recipient_name',
-        'recipient_city_code': 'recipient_city_code',
-        'recipient_city_name': 'recipient_city_name',
-        'recipient_county_code': 'recipient_county_code',
-        'recipient_county_name': 'recipient_county_name',
-        'recipient_state_code': 'recipient_state_code',
-        'recipient_zip_code': 'recipient_zip',
-        'recipient_type': 'recipient_type', # NEED LAMBDA
-        'action_type': 'action_type', # NEED LAMBDA
-        'recipient_congressional_district': 'recipient_cong_district',
-        'agency_code': 'agency_code',
-        'federal_award_identifier_number_core': 'federal_award_id',
-        'federal_award_identifier_number_modification': 'federal_award_mod',
-        'federal_funding_amount': 'fed_funding_amount',
-        'non_federal_funding_amount': non_fed_funding_amount'',
-        'total_funding_amount': 'total_funding_amount',
-        'obligation_action_date': 'obligation_action_date', # NEED DATE LAMBDA
-        'starting_date': 'starting_date', # NEED DATE LAMBDA
-        'ending_date': 'ending_date', # NEED DATE LAMBDA
-        'assistance_type': 'assistance_type',
-        'record_type': 'record_type',
-        'correction_late_indicator': 'correction_late_ind',
-        'fyq_correction': 'fyq_correction',
-        'principal_place_code': 'principal_place_code',
-        'principal_place_state': 'principal_place_state',
-        'principal_place_state_code': 'principal_place_state_code',
-        'principal_place_county_or_city': 'principal_place_cc',
-        'principal_place_zip_code': 'principal_place_zip',
-        'principal_place_congressional_district': 'principal_place_cd',
-        'cfda_program_title': 'cfda_program_title',
-        'agency_name': 'agency_name',
-        'recipient_state_name': 'recipient_state_name',
-        'project_description': 'project_description',
-        'duns_number': 'duns_no',
-        'duns_confidence_code': 'duns_conf_code',
-        'progsrc_agen_code': 'progsrc_agen_code',
-        'progsrc_acnt_code': 'progsrc_acnt_code',
-        'progsrc_subacnt_code': 'progsrc_subacnt_code',
-        'recipient_address_1': 'receip_addr1',
-        'recipient_address_2': 'receip_addr2',
-        'recipient_address_3': 'receip_addr3',
-        'face_loan_guran': 'face_loan_guran',
-        'orig_sub_guran': 'orig_sub_guran',
-        'parent_duns': 'parent_duns_no',
-        'record_id': 'record_id',
-        'fiscal_year': 'fiscal_year',
-        'award_id': 'award_id',
-        'recipient_category_type': 'recip_cat_type',
-        'asistance_category_type': 'asst_cat_type',
-        'recipient_congressional_district': 'recipient_cd',
-        'major_agency_category': 'maj_agency_cat',
-        'mod_name': 'mod_name',
-        'recipient_id': 'recip_id',
-        'lookup_record_id': 'lookup_record_id',
-        'lookup_recipient_id': 'lookup_recip_id',
-        'business_identifier': 'business_identifier',
-        'rec_flag': 'rec_flag',
-    ]
     
+    
+    
+class FAADSLoader(object):
+    """docstring for FAADSLoader"""
 
-    # # DEPRECATED -- ONLY APPLICABLE TO CENSUS FAADS FORMAT
-    #    
-    # def extract_faads_field(self, line, fieldname):
-    #     record_positions = self.SOURCE_FILE_RECORD_POSITIONS[fieldname]
-    #     transform = lambda x: x.strip()
-    #     if len(record_positions)>2 and callable(record_positions[2]):
-    #         transform = record_positions[2]
-    #     return transform(line[(record_positions[0]-1):(record_positions[1])])
-    #    
-    # 
-    # def process_faads_line(self, line):
-    #     for field in self._meta.fields:
-    #         if field.name in self.SOURCE_FILE_RECORD_POSITIONS:                    
-    #             setattr(self, field.name, self.extract_faads_field(line, field.name))
-    #             
-    # 
-    # SOURCE_FILE_RECORD_POSITIONS = {
-    #     "cfda_program_number": (1, 7, lambda x: ProgramDescription.objects.filter(program_number=Decimal(x.strip()))[0]), 
-    #     "sai": (8, 27), 
-    #     "recipient_name": (28, 72), 
-    #     "recipient_city_code": (73, 77), 
-    #     "recipient_city_name": (78, 98),
-    #     "recipient_county_code": (99, 101), 
-    #     "recipient_county_name": (102, 122), 
-    #     "recipient_state_code": (123, 124), 
-    #     "recipient_zip_code": (125, 133), 
-    #     "type_of_recipient": (134, 135), 
-    #     "type_of_action": (136, 136), 
-    #     "recipient_congressional_district": (137, 138), 
-    #     "federal_agency_organizational_unit_code": (139, 142), 
-    #     "federal_award_identifier_number_core": (143, 158), 
-    #     "federal_award_identifier_number_modification": (159, 162), 
-    #     "federal_funding_sign": (163, 163), 
-    #     "federal_funding_amount": (164, 173), 
-    #     "non_federal_funding_sign": (174, 174), 
-    #     "non_federal_funding_amount": (175, 184), 
-    #     "total_funding_sign": (185, 185), 
-    #     "total_funding_amount": (186, 196), 
-    #     "obligation_action_date": (197, 204), 
-    #     "starting_date": (205, 212), 
-    #     "ending_date": (213, 220), 
-    #     "type_of_assistance_action": (221, 222), 
-    #     "record_type": (223, 223), 
-    #     "correction_late_indicator": (224, 224), 
-    #     "fiscal_year_and_quarter_correction": (225, 229), 
-    #     "principal_place_of_performance_code_state": (230, 231), 
-    #     "principal_place_of_performance_code_county_or_city": (232, 236), 
-    #     "principal_place_of_performance_state": (237, 261), 
-    #     "principal_place_of_performance_county_or_city": (262, 286),     
-    #     "cfda_program_title": (287, 360), 
-    #     "federal_agency_name": (361, 432), 
-    #     "state_name": (433, 457), 
-    #     "project_description": (458, 606), 
-    # }
+    MYSQL = {
+        'user': 'root',
+        'password': '',
+        'database': 'usaspending',
+        'host': '127.0.0.1',
+        'port': 3306
+    }
 
+    def __init__(self):
+        super(FAADSLoader, self).__init__()
+
+        # cache record type objects            
+        TODO = (ActionType, AssistanceType, RecordType, RecipientType)
+        for t in TODO:
+            setattr(self, t.__name__, {})
+            for i in t.OPTIONS:
+                i_code = i[0]
+                match = t.objects.filter(code=i_code)
+                if len(match)==1:
+                    getattr(self,t.__name__)[i_code] = match[0]
+    
+        # cache CFDA program objects
+        self.cfda_programs = {}
+        for p in ProgramDescription.objects.filter(sectors__name__icontains='transportation'):
+            self.cfda_programs[p.program_number] = p            
+        
+    
+        self.FIELD_MAPPING = {
+        #   'django field name': 'FAADS field name' OR callable that returns value when passed row
+            'fyq': 'fyq',
+            'cfda_program': (self.lookup_cfda_program, {}),
+            'sai_number': 'sai_number',
+            'recipient_name': 'recipient_name',
+            'recipient_city_code': 'recipient_city_code',
+            'recipient_city_name': 'recipient_city_name',
+            'recipient_county_code': 'recipient_county_code',
+            'recipient_county_name': 'recipient_county_name',
+            'recipient_state_code': 'recipient_state_code',
+            'recipient_zip_code': 'recipient_zip',
+            'recipient_type': (self.lookup_fk_field, {'type_name': 'RecipientType', 'code_extractor': lambda x: x.get('recipient_type')}),
+            'action_type': (self.lookup_fk_field, {'type_name': 'ActionType', 'code_extractor': lambda x: x.get('action_type')}),
+            'recipient_congressional_district': 'recipient_cong_district',
+            'agency_code': 'agency_code',
+            'federal_award_identifier_number_core': 'federal_award_id',
+            'federal_award_identifier_number_modification': 'federal_award_mod',
+            'federal_funding_amount': 'fed_funding_amount',
+            'non_federal_funding_amount': 'non_fed_funding_amount',
+            'total_funding_amount': 'total_funding_amount',
+            'obligation_action_date': (self.extract_date, {'date_field_name': 'obligation_action_date'}),
+            'starting_date': (self.extract_date, {'date_field_name': 'starting_date'}),
+            'ending_date': (self.extract_date, {'date_field_name': 'ending_date'}),
+            'assistance_type': (self.lookup_fk_field, {'type_name': 'AssistanceType', 'code_extractor': lambda x: x.get('assistance_type') }),
+            'record_type': (self.lookup_fk_field, {'type_name': 'RecordType', 'code_extractor': lambda x: x.get('record_type')}),
+            'correction_late_indicator': 'correction_late_ind',
+            'fyq_correction': 'fyq_correction',
+            'principal_place_code': 'principal_place_code',
+            'principal_place_state': 'principal_place_state',
+            'principal_place_state_code': 'principal_place_state_code',
+            'principal_place_county_or_city': 'principal_place_cc',
+            'principal_place_zip_code': 'principal_place_zip',
+            'principal_place_congressional_district': 'principal_place_cd',
+            'cfda_program_title': 'cfda_program_title',
+            'agency_name': 'agency_name',
+            'recipient_state_name': 'recipient_state_name',
+            'project_description': 'project_description',
+            'duns_number': 'duns_no',
+            'duns_confidence_code': 'duns_conf_code',
+            'progsrc_agen_code': 'progsrc_agen_code',
+            'progsrc_acnt_code': 'progsrc_acnt_code',
+            'progsrc_subacnt_code': 'progsrc_subacnt_code',
+            'recipient_address_1': 'receip_addr1',
+            'recipient_address_2': 'receip_addr2',
+            'recipient_address_3': 'receip_addr3',
+            'face_loan_guran': 'face_loan_guran',
+            'orig_sub_guran': 'orig_sub_guran',
+            'parent_duns': 'parent_duns_no',
+            'record_id': 'record_id',
+            'fiscal_year': 'fiscal_year',
+            'award_id': 'award_id',
+            'recipient_category_type': 'recip_cat_type',
+            'asistance_category_type': 'asst_cat_type',
+            'recipient_congressional_district': 'recipient_cd',
+            'major_agency_category': 'maj_agency_cat',
+            'mod_name': 'mod_name',
+            'recipient_id': 'recip_id',
+            'lookup_record_id': 'lookup_record_id',
+            'lookup_recipient_id': 'lookup_recip_id',
+            'business_identifier': 'business_identifier',
+            'rec_flag': 'rec_flag',
+        }
+    
+    def extract_date(self, *args, **kwargs):
+        record = args[0]
+        date_raw = record[kwargs['date_field_name']]
+        try:
+            return datetime.strptime(date_raw, '%Y-%m-%d')
+        except Exception, e:
+            return None
+
+    def lookup_cfda_program(self, *args, **kwargs):
+        record = args[0]
+        try:
+            cfda = Decimal(record['cfda_program_num'])
+            return self.cfda_programs.get(cfda, False)
+        except Exception, e:
+            return False
+        
+    
+    def lookup_fk_field(self, *args, **kwargs):
+        record = args[0]
+        code_extractor = kwargs.get('code_extractor')
+        value = code_extractor(record)
+        
+        type_name = kwargs.get('type_name')
+        
+        lookup_object = getattr(self, type_name, None)
+        if lookup_object is not None:
+            return lookup_object.get(value)
+        else:
+            return None
+
+    def process_record(self, faads_record):
+        django_record = Record()
+        
+        failed_fields = []
+        for fieldname, grabber in self.FIELD_MAPPING:            
+            if type(grabber)==tuple and callable(grabber[0]):
+                func = grabber[0]
+                args = [faads_record]
+                kwargs = grabber[1]
+                extracted_value = func(faads_record, *args, **kwargs)
+                if extracted_value is not False:
+                    setattr(django_record, extracted_value)
+                else:
+                    setattr(django_record, None)
+                    failed_fields.append(fieldname)
+            else:
+                setattr(django_record, faads_record.get(grabber))
+
+        if len(failed_fields):
+            sys.stderr.write("%d: failed to extract fields %s\n" % (faads_record['record_id'], ', '.join(failed_fields)))
+
+        django_record.save()        
+                    
+    def do_import(self):
+        conn = MySQLdb.connect (host=FAADSLoader.MYSQL['host'], user=FAADSLoader.MYSQL['user'], passwd=FAADSLoader.MYSQL['password'], db=FAADSLoader.MYSQL['database'], port=FAADSLoader.MYSQL['port'])
+        cursor = conn.cursor()   
+        sql = "SELECT * FROM faads_main_sf ORDER BY record_id ASC"
+        print "Executing query"
+        cursor.execute(sql)
+        i = 0
+        while True:
+            print "Entering loop"
+            row = cursor.fetchone(how=1)
+            if row is None:
+                break
+            else:
+                print "Processing row"
+                self.process_record(row)
+            i = i + 1
+            print "Finished iteration %d" % i
+
+        cursor.close()
+        conn.close()
+        
+        
+  
     
 
 
