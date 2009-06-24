@@ -32,6 +32,7 @@ class AssistanceType(models.Model):
         (9, "Insurance (G)"),
         (10, "Direct payment with unrestricted use (D)"),
         (11, "Other reimbursable, contingent, intangible or indirect financial assistance"),    
+        (12, "Unknown")
     )
 
 
@@ -107,7 +108,7 @@ class Record(models.Model):
     recipient_county_name = models.CharField("Recipient County Name", max_length=21, blank=True, default='')
     recipient_state_code = models.CharField("Recipient State Code", max_length=2, blank=True, default='', help_text="FIPS PUB 5-1") # NORMALIZE
     recipient_zip_code = models.CharField("Recipient Zip Code", max_length=9, blank=True, default='')
-    recipient_type = models.ForeignKey(RecipientType)
+    recipient_type = models.ForeignKey(RecipientType, blank=True, null=True)
     action_type = models.ForeignKey(ActionType)
     recipient_congressional_district = models.IntegerField("Recipient Congressional District", blank=True, null=True)
     agency_code = models.CharField("Agency Code", max_length=4, blank=True, default='')
@@ -119,7 +120,7 @@ class Record(models.Model):
     obligation_action_date = models.DateField("Obligation Action Date", blank=True, null=True)
     starting_date = models.DateField("Starting Date", blank=True, null=True)
     ending_date = models.DateField("Ending Date", blank=True, null=True)
-    assistance_type = models.ForeignKey(AssistanceType)
+    assistance_type = models.ForeignKey(AssistanceType, blank=True, null=True)
     record_type = models.ForeignKey(RecordType)
     correction_late_indicator = models.CharField("Correction/Late Indicator", max_length=1, blank=True, default='')
     fyq_correction = models.CharField("FYQ Correction", max_length=5, blank=True, default='')
@@ -149,7 +150,7 @@ class Record(models.Model):
     award_id = models.IntegerField("Award ID", max_length=11, blank=True, null=True)
     recipient_category_type = models.CharField("Recipient Category Type", max_length=1, blank=True, default='')
     asistance_category_type = models.CharField("Assistance Category Type", max_length=1, blank=True, default='')
-    recipient_congressional_district = models.CharField("Recipient Congressional District", max_length=3, blank=True, default='')
+    recipient_congressional_district = models.CharField("Recipient Congressional District", max_length=4, blank=True, default='')
     major_agency_category = models.CharField("Major Agency Category", max_length=2, blank=True, default='')
     mod_name = models.CharField("Modified(?) Name", max_length=45, blank=True, default='')
     recipient_id = models.IntegerField("Recipient ID", max_length=11, blank=True, null=True)
@@ -174,6 +175,12 @@ class FAADSLoader(object):
 
     def __init__(self):
         super(FAADSLoader, self).__init__()
+
+        # reload FK models
+        generate_model_entries(ActionType)
+        generate_model_entries(RecipientType)
+        generate_model_entries(AssistanceType)
+        generate_model_entries(RecordType)
 
         # cache record type objects            
         TODO = (ActionType, AssistanceType, RecordType, RecipientType)
@@ -203,7 +210,7 @@ class FAADSLoader(object):
             'recipient_county_name': 'recipient_county_name',
             'recipient_state_code': 'recipient_state_code',
             'recipient_zip_code': 'recipient_zip',
-            'recipient_type': (self.lookup_fk_field, {'type_name': 'RecipientType', 'code_extractor': lambda x: x.get('recipient_type')}),
+            'recipient_type': (self.lookup_fk_field, {'type_name': 'RecipientType', 'code_extractor': self.extract_recipient_type_safely }),
             'action_type': (self.lookup_fk_field, {'type_name': 'ActionType', 'code_extractor': lambda x: x.get('action_type')}),
             'recipient_congressional_district': 'recipient_cong_district',
             'agency_code': 'agency_code',
@@ -215,31 +222,31 @@ class FAADSLoader(object):
             'obligation_action_date': (self.extract_date, {'date_field_name': 'obligation_action_date'}),
             'starting_date': (self.extract_date, {'date_field_name': 'starting_date'}),
             'ending_date': (self.extract_date, {'date_field_name': 'ending_date'}),
-            'assistance_type': (self.lookup_fk_field, {'type_name': 'AssistanceType', 'code_extractor': lambda x: x.get('assistance_type') }),
-            'record_type': (self.lookup_fk_field, {'type_name': 'RecordType', 'code_extractor': lambda x: x.get('record_type')}),
+            'assistance_type': (self.lookup_fk_field, {'type_name': 'AssistanceType', 'code_extractor': self.extract_assistance_type_safely }),
+            'record_type': (self.lookup_fk_field, {'type_name': 'RecordType', 'code_extractor': lambda x: int(x.get('record_type', -1))}),
             'correction_late_indicator': 'correction_late_ind',
             'fyq_correction': 'fyq_correction',
             'principal_place_code': 'principal_place_code',
             'principal_place_state': 'principal_place_state',
             'principal_place_state_code': 'principal_place_state_code',
             'principal_place_county_or_city': 'principal_place_cc',
-            'principal_place_zip_code': 'principal_place_zip',
-            'principal_place_congressional_district': 'principal_place_cd',
+            'principal_place_zip_code': (self.make_null_emptystring, {'field_name': 'principal_place_zip'}),
+            'principal_place_congressional_district': (self.make_null_emptystring, {'field_name': 'principal_place_cd'}),
             'cfda_program_title': 'cfda_program_title',
             'agency_name': 'agency_name',
             'recipient_state_name': 'recipient_state_name',
             'project_description': 'project_description',
-            'duns_number': 'duns_no',
-            'duns_confidence_code': 'duns_conf_code',
-            'progsrc_agen_code': 'progsrc_agen_code',
-            'progsrc_acnt_code': 'progsrc_acnt_code',
-            'progsrc_subacnt_code': 'progsrc_subacnt_code',
-            'recipient_address_1': 'receip_addr1',
-            'recipient_address_2': 'receip_addr2',
-            'recipient_address_3': 'receip_addr3',
+            'duns_number': (self.make_null_emptystring, {'field_name': 'duns_no'}),
+            'duns_confidence_code': (self.make_null_emptystring, {'field_name': 'duns_conf_code'}),
+            'progsrc_agen_code': (self.make_null_emptystring, {'field_name': 'progsrc_agen_code'}),
+            'progsrc_acnt_code': (self.make_null_emptystring, {'field_name': 'progsrc_acnt_code'}),
+            'progsrc_subacnt_code': (self.make_null_emptystring, {'field_name': 'progsrc_subacnt_code'}),
+            'recipient_address_1': (self.make_null_emptystring, {'field_name': 'receip_addr1'}),
+            'recipient_address_2': (self.make_null_emptystring, {'field_name': 'receip_addr2'}),
+            'recipient_address_3': (self.make_null_emptystring, {'field_name': 'receip_addr3'}),
             'face_loan_guran': 'face_loan_guran',
             'orig_sub_guran': 'orig_sub_guran',
-            'parent_duns': 'parent_duns_no',
+            'parent_duns': (self.make_null_emptystring, {'field_name': 'parent_duns_no'}),
             'record_id': 'record_id',
             'fiscal_year': 'fiscal_year',
             'award_id': 'award_id',
@@ -251,9 +258,32 @@ class FAADSLoader(object):
             'recipient_id': 'recip_id',
             'lookup_record_id': 'lookup_record_id',
             'lookup_recipient_id': 'lookup_recip_id',
-            'business_identifier': 'business_identifier',
+            'business_identifier': (self.make_null_emptystring, {'field_name': 'business_identifier'}),
             'rec_flag': 'rec_flag',
         }
+        
+    def extract_recipient_type_safely(self,x):
+        r = x.get('recipient_type')
+        if r is None or r=='':
+            return None
+        else:
+            return int(r)
+    
+    def extract_assistance_type_safely(self,x):
+        r = x.get('assistance_type')
+        if r is None or r=='':
+            return None
+        else:
+            return int(r)
+    
+    def make_null_emptystring(self, *args, **kwargs):
+        record = args[0]
+        field_name = kwargs['field_name']
+        if record[field_name] is None:
+            return ''
+        else:
+            return record[field_name]
+
     
     def extract_date(self, *args, **kwargs):
         record = args[0]
@@ -281,50 +311,54 @@ class FAADSLoader(object):
         
         lookup_object = getattr(self, type_name, None)
         if lookup_object is not None:
-            return lookup_object.get(value)
+            return lookup_object.get(value, False)
         else:
-            return None
+            return False
 
     def process_record(self, faads_record):
         django_record = Record()
         
         failed_fields = []
-        for fieldname, grabber in self.FIELD_MAPPING:            
+        for attrname in self.FIELD_MAPPING:            
+            grabber = self.FIELD_MAPPING[attrname]
             if type(grabber)==tuple and callable(grabber[0]):
                 func = grabber[0]
                 args = [faads_record]
                 kwargs = grabber[1]
                 extracted_value = func(faads_record, *args, **kwargs)
                 if extracted_value is not False:
-                    setattr(django_record, extracted_value)
+                    setattr(django_record, attrname, extracted_value)
                 else:
-                    setattr(django_record, None)
-                    failed_fields.append(fieldname)
+                    failed_fields.append(attrname)                    
             else:
-                setattr(django_record, faads_record.get(grabber))
+                setattr(django_record, attrname, faads_record.get(grabber))
 
         if len(failed_fields):
-            sys.stderr.write("%d: failed to extract fields %s\n" % (faads_record['record_id'], ', '.join(failed_fields)))
+            sys.stderr.write("%d: failed to extract field(s) %s\n" % (faads_record['record_id'], ', '.join(failed_fields)))
 
-        django_record.save()        
+        try:
+            django_record.save()        
+        except Exception, e:
+            sys.stderr.write("%d: failed to save / %s\n" % (faads_record['record_id'], str(e)))
+
                     
     def do_import(self):
-        conn = MySQLdb.connect (host=FAADSLoader.MYSQL['host'], user=FAADSLoader.MYSQL['user'], passwd=FAADSLoader.MYSQL['password'], db=FAADSLoader.MYSQL['database'], port=FAADSLoader.MYSQL['port'])
-        cursor = conn.cursor()   
-        sql = "SELECT * FROM faads_main_sf ORDER BY record_id ASC"
+        conn = MySQLdb.connect(host=FAADSLoader.MYSQL['host'], user=FAADSLoader.MYSQL['user'], passwd=FAADSLoader.MYSQL['password'], db=FAADSLoader.MYSQL['database'], port=FAADSLoader.MYSQL['port'], cursorclass=MySQLdb.cursors.DictCursor)
+        cursor = conn.cursor()
+        sql = "SELECT * FROM faads_main_sf_sample WHERE TRIM(cfda_program_num) IN ('%s') ORDER BY record_id ASC" % ("','".join(map(lambda x: str(x), self.cfda_programs.keys())))
         print "Executing query"
         cursor.execute(sql)
         i = 0
         while True:
-            print "Entering loop"
-            row = cursor.fetchone(how=1)
+            sys.stdout.write("Entering loop... ")
+            row = cursor.fetchone()
             if row is None:
                 break
             else:
-                print "Processing row"
+                sys.stdout.write("Processing row... ")
                 self.process_record(row)
             i = i + 1
-            print "Finished iteration %d" % i
+            sys.stdout.write("Finished iteration %d\n" % i)
 
         cursor.close()
         conn.close()
