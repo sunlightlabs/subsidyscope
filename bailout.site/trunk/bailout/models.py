@@ -115,6 +115,7 @@ class Institution(models.Model):
         ('insurance company', 'Insurance Company'), 
         ('auto company', 'Auto Company'),
         ('mortgage company', 'Mortgage Company'),
+        ('credit union', 'Credit Union'),
         ('other', 'Other')
     )
     
