@@ -1,0 +1,68 @@
+ABE	Lehigh Valley International Airport 	Allentown	PA	 507,203
+ACY	Atlantic City International Airport 	Egg Harbor Twp	NJ	508,879
+ALB	Albany International Airport 	Albany	NY	1,536,263
+AMA	Amarillo International Airport 	Amarillo	TX	419,055
+BHM	Birmingham International Airport 	Birmingham	AL	1,498,651
+BIL	Billings Logan International Airport 	Billings	MT	395,086
+BOI	Boise Airport 	Boise	ID	1,451,728
+BTR	Baton Rouge International Airport 	Baton Rouge	LA	368,354
+BTV	Burlington International Airport 	South Burlington	VT	627,423
+CAE	Columbia Metropolitan Airport 	Columbia	SC	625,825
+CAK	Akron-Canton Airport 	North Canton	OH	671,278
+CHS	Charleston International Airport 	Charleston	SC	909,084
+CID	Cedar Rapids Eastern Iowa Airport 	Cedar Rapids	IA	473,770
+COS	Colorado Springs Airport 	Colorado Springs	CO	1,024,656
+CRP	Corpus Christi International Airport 	Corpus Christi	TX	391,952
+DAY	Dayton International Airport 	Dayton	OH	1,442,849
+DSM	Des Moines International Airport 	Des Moines	IA	975,859
+ELP	El Paso International Airport 	El Paso	TX	1,555,212
+FAI	Fairbanks International Airport 	Fairbanks	AK	420,394
+FAT	Fresno Air Terminal 	Fresno	CA	538,394
+FNT	Bishop International Airport 	Flint	MI	596,484
+GCN	Grand Canyon National Park Airport 	Grand Canyon	AZ	368,330
+GEG	Spokane International Airport 	Spokane	WA	1,508,921
+GPT	Gulfport-Biloxi International Airport 	Gulfport	MS	437,099
+GRB	Austin Straubel International Airport 	Green Bay	WI	400,699
+GRR	Gerald R. Ford International Airport 	Grand Rapids	MI	1,074,816
+GSO	Piedmont Triad International Airport 	Greensboro	NC	1,339,579
+GSP	Greenville/Spartanburg Airport 	Greenville	SC	780,842
+GUM	Guam International Airport 	Agana	GU	1,336,766
+HPN	Westchester County Airport 	White Plains	NY	462,981
+HRL	Valley International Airport 	Harlingen	TX	433,385
+HSV	Huntsville International Airport 	Huntsville	AL	585,058
+ICT	Wichita Mid-Continent Airport 	Wichita	KS	729,051
+ISP	Macarthur Airport 	Islip	NY	986,103
+ITO	Hilo International Airport 	Hilo	HI	647,533
+JAN	Jackson-Evers International Airport 	Jackson	MS	639,947
+JNU	Juneau International Airport 	Juneau	AK	377,505
+KOA	Kona International Airport 	Keahole	HI	1,260,328
+LBB	Lubbock International Airport 	Lubbock	TX	534,388
+LEX	Blue Grass Airport 	Lexington	KY	582,328
+LGB	Long Beach Airport 	Long Beach	CA	1,425,875
+LIH	Lihue Airport 	Lihue	HI	1,233,883
+LIT	Little Rock National Airport 	Little Rock	AR	1,138,249
+MAF	Midland International Airport 	Midland	TX	414,883
+MDT	Harrisburg International Airport 	Harrisburg	PA	688,610
+MLI	Quad City International Airport 	Moline	IL	441,359
+MSN	Dane County Regional Airport 	Madison	WI	846,369
+MYR	Myrtle Beach Airport 	Myrtle Beach	SC	748,608
+OKC	Will Rogers World Airport 	Oklahoma City	OK	1,695,096
+PHF	Newport News/Williamsburg International Airport 	Newport News	VA	451,113
+PIE	St. Petersburg-Clearwater International Airport 	Saint Petersburg	FL	666,904
+PNS	Pensacola Regional Airport 	Pensacola	FL	734,921
+PSP	Palm Springs International Airport 	Palm Springs	CA	687,098
+PWM	Portland International Jetport 	Portland	ME	687,344
+RIC	Richmond International Airport 	Richmond	VA	1,251,406
+ROC	Greater Rochester International Airport 	Rochester	NY	1,364,869
+SAV	Savannah/Hilton Head International Airport 	Savannah	GA	957,208
+SBA	Santa Barbara Airport 	Santa Barbara	CA	417,285
+SBN	South Bend Regional Airport 	South Bend	IN	397,565
+SFB	Orlando Sanford International Airport 	Sanford	FL	926,820
+SRQ	Sarasota-Bradenton International Airport 	Sarasota	FL	562,398
+STT	Cyril E King Airport 	Charlotte Amalie	VI	557,101
+SYR	Syracuse Hancock International Airport 	Syracuse	NY	1,130,236
+TLH	Tallahassee Regional Airport 	Tallahassee	FL	585,263
+TUL	Tulsa International Airport 	Tulsa	OK	1,462,799
+TYS	Mcghee Tyson Airport 	Knoxville	TN	782,135
+VPS	Fort Walton Beach Airport 	Valparaiso	FL	380,871
+XNA	Northwest Arkansas Regional Airport 	Fayetteville	AR	492,855
