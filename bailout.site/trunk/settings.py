@@ -104,7 +104,8 @@ INSTALLED_APPS = (
     'django_helpers',
     'glossary',
     'carousel',
-   'faads'
+    'search',
+    'faads'
 )
 
 #try:
@@ -176,7 +177,7 @@ SCRIBD_API_SECRET = '***REMOVED***'
 SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
 # Haystack
-HAYSTACK_SEARCH_ENGINE = 'whoosh' 
+HAYSTACK_SEARCH_ENGINE = 'solr' 
 
 
 # Auth 
