@@ -94,7 +94,7 @@ class RecordType(models.Model):
 
 class Record(models.Model):
     def __unicode__(self):
-        return self.name
+        return "%s - %s - %s" % (self.fiscal_year, self.federal_funding_amount, self.recipient_name)
     class Meta:
         verbose_name = 'FAADS Record'
     
