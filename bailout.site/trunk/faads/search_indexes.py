@@ -40,17 +40,31 @@ class RecordIndex(indexes.SearchIndex):
     
     def prepare_federal_amount(self, object):
         
-        return int(object.federal_funding_amount)
+        if object.federal_funding_amount:
+            return int(object.federal_funding_amount)
+        else:
+            return 0
     
     def prepare_non_federal_amount(self, object):
         
-        return int(object.non_federal_funding_amount)
+        if object.non_federal_funding_amount:
+            return int(object.non_federal_funding_amount)
+        else:
+            return 0
     
     def prepare_total_amount(self, object):
+    
+        if object.total_funding_amount:
+            return int(object.total_funding_amount)
+        else:
+            return 0
+    
+    def prepare_fiscal_year(self, object):
         
-        return int(object.total_funding_amount)
-    
-    
+        if object.fiscal_year:
+            return int(object.fiscal_year)
+        else:
+            return 0
     
     
     def get_query_set(self):
