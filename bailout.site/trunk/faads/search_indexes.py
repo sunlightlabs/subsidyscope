@@ -20,17 +20,23 @@ class RecordIndex(indexes.SearchIndex):
     description = indexes.CharField(document=True, model_attr='project_description')
     
     recipient = indexes.CharField(model_attr='recipient_name')
-    recipient_location = indexes.CharField(model_attr='recipient_name')
-    
-    url = indexes.CharField(model_attr='url')
+    recipient_location = indexes.CharField(model_attr='recipient_county_name')
     
     def prepare_cfda_program(self, object):
         
         return '%s' % (object.cfda_program.program_number)
     
+    def prepare_recipient(self, object):
+        
+        return '%s' % (object.recipient_name)
+    
     def prepare_recipient_location(self, object):
         
         return '%s, %s' % (object.recipient_city_name, object.recipient_county_name)
+    
+    def prepare_description(self, object):
+        
+        return '%s' % (object.project_description)
     
     def prepare_federal_amount(self, object):
         
@@ -43,6 +49,7 @@ class RecordIndex(indexes.SearchIndex):
     def prepare_total_amount(self, object):
         
         return int(object.total_funding_amount)
+    
     
     
     
