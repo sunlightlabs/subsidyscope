@@ -159,9 +159,7 @@ class Record(models.Model):
     business_identifier = models.CharField("Business Identifier", max_length=3, blank=True, default='')
     rec_flag = models.CharField("Recovery(?) Flag", max_length=1, blank=True, default='')
     
-    
-    
-    
+
 class FAADSLoader(object):
     """docstring for FAADSLoader"""
 
@@ -174,13 +172,7 @@ class FAADSLoader(object):
     }
 
     def __init__(self):
-        super(FAADSLoader, self).__init__()
-
-        # reload FK models
-        generate_model_entries(ActionType)
-        generate_model_entries(RecipientType)
-        generate_model_entries(AssistanceType)
-        generate_model_entries(RecordType)
+        super(FAADSLoader, self).__init__()        
 
         # cache record type objects            
         TODO = (ActionType, AssistanceType, RecordType, RecipientType)
@@ -261,7 +253,16 @@ class FAADSLoader(object):
             'business_identifier': (self.make_null_emptystring, {'field_name': 'business_identifier'}),
             'rec_flag': 'rec_flag',
         }
-        
+    
+    def reset_faads_import(self):
+        # reload FK models
+        generate_model_entries(ActionType)
+        generate_model_entries(RecipientType)
+        generate_model_entries(AssistanceType)
+        generate_model_entries(RecordType)
+        Record.objects.all().delete()
+
+    
     def extract_recipient_type_safely(self,x):
         r = x.get('recipient_type')
         if r is None or r=='':
@@ -342,10 +343,18 @@ class FAADSLoader(object):
             sys.stderr.write("%d: failed to save / %s\n" % (faads_record['record_id'], str(e)))
 
                     
-    def do_import(self):
+    def do_import(self, table_name='faads_main_sf'):
+        from django.db import connection
+        cursor = connection.cursor()
+        cursor.execute("SELECT MAX(record_id) AS max_record_id FROM faads_record;")
+        row = cursor.fetchone()
+        max_record_id = row[0]
+        if max_record_id is None:
+            max_record_id = 0
+        
         conn = MySQLdb.connect(host=FAADSLoader.MYSQL['host'], user=FAADSLoader.MYSQL['user'], passwd=FAADSLoader.MYSQL['password'], db=FAADSLoader.MYSQL['database'], port=FAADSLoader.MYSQL['port'], cursorclass=MySQLdb.cursors.DictCursor)
         cursor = conn.cursor()
-        sql = "SELECT * FROM faads_main_sf_sample WHERE TRIM(cfda_program_num) IN ('%s') ORDER BY record_id ASC" % ("','".join(map(lambda x: str(x), self.cfda_programs.keys())))
+        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id>%d ORDER BY record_id ASC LIMIT 10000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
         print "Executing query"
         cursor.execute(sql)
         i = 0
