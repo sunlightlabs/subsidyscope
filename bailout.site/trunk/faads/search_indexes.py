@@ -6,12 +6,12 @@ from faads.models import Record
 
 class RecordIndex(indexes.SearchIndex):
     
-    type = 'site'
+    type = 'faads'
     
     cfda_program = indexes.CharField(model_attr='cfda_program')
     
     fiscal_year = indexes.IntegerField(model_attr='fiscal_year')
-#    obligation_date = indexes.DateField(model_attr='obligation_action_date')
+    obligation_date = indexes.DateField(model_attr='obligation_action_date')
     
     non_federal_amount = indexes.IntegerField(model_attr='non_federal_funding_amount')
     federal_amount = indexes.IntegerField(model_attr='federal_funding_amount')
@@ -24,7 +24,7 @@ class RecordIndex(indexes.SearchIndex):
     
     def prepare_cfda_program(self, object):
         
-        return '%s' % (object.cfda_program.program_number)
+        return None #'%s' % (object.cfda_program.program_number)
     
     def prepare_recipient(self, object):
         
@@ -65,6 +65,13 @@ class RecordIndex(indexes.SearchIndex):
             return int(object.fiscal_year)
         else:
             return 0
+        
+    def prepare_obligation_date(self, object):
+        
+        if object.obligation_action_date != None:
+            return object.obligation_action_date
+        else:
+            return datetime.date(1900, 1, 1)       
     
     
     def get_query_set(self):
