@@ -211,9 +211,9 @@ class FAADSLoader(object):
             'federal_funding_amount': 'fed_funding_amount',
             'non_federal_funding_amount': 'non_fed_funding_amount',
             'total_funding_amount': 'total_funding_amount',
-            'obligation_action_date': (self.extract_date, {'date_field_name': 'obligation_action_date'}),
-            'starting_date': (self.extract_date, {'date_field_name': 'starting_date'}),
-            'ending_date': (self.extract_date, {'date_field_name': 'ending_date'}),
+            'obligation_action_date': 'obligation_action_date',
+            'starting_date': 'starting_date',
+            'ending_date': 'ending_date',
             'assistance_type': (self.lookup_fk_field, {'type_name': 'AssistanceType', 'code_extractor': self.extract_assistance_type_safely }),
             'record_type': (self.lookup_fk_field, {'type_name': 'RecordType', 'code_extractor': lambda x: int(x.get('record_type', -1))}),
             'correction_late_indicator': 'correction_late_ind',
@@ -253,6 +253,7 @@ class FAADSLoader(object):
             'business_identifier': (self.make_null_emptystring, {'field_name': 'business_identifier'}),
             'rec_flag': 'rec_flag',
         }
+        
     
     def reset_faads_import(self):
         # reload FK models
@@ -277,6 +278,7 @@ class FAADSLoader(object):
         else:
             return int(r)
     
+    
     def make_null_emptystring(self, *args, **kwargs):
         record = args[0]
         field_name = kwargs['field_name']
@@ -284,15 +286,7 @@ class FAADSLoader(object):
             return ''
         else:
             return record[field_name]
-
-    
-    def extract_date(self, *args, **kwargs):
-        record = args[0]
-        date_raw = record[kwargs['date_field_name']]
-        try:
-            return datetime.strptime(date_raw, '%Y-%m-%d')
-        except Exception, e:
-            return None
+            
 
     def lookup_cfda_program(self, *args, **kwargs):
         record = args[0]
@@ -315,6 +309,7 @@ class FAADSLoader(object):
             return lookup_object.get(value, False)
         else:
             return False
+            
 
     def process_record(self, faads_record):
         django_record = Record()
