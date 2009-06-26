@@ -101,38 +101,58 @@ class EASRoute(models.Model):
               
         total_flights = 0
         total_time = 0
-        total_passengers =0
-        
+        total_passengers = 0
+        total_distance = 0
+    
         try:
-            distances = []
+            
             
             for route in routes:
                 
                 total_flights += route.departures_performed
                 total_time += route.ramp_time
                 total_passengers += route.passengers
-                
-                distances.append(route.distance)
-            
-            min_distance = min(distances)    
-            max_distance = max(distances)
-            
-            total_subsidy = self.eas_flight_subsidy * total_flights
-            
-            passenger_subsidy = float(total_subsidy) / float(total_passengers)
-            
-            passenger_mile_subsidy = passenger_subsidy / float(max_distance)
-            
-            print self
-            print '\tFlights: %d' % total_flights
-            print '\tTotal Subsidy: $%d' % total_subsidy
-            print '\tPassenger Subsidy: %f' % passenger_subsidy
-            print '\tPassenger Mile Subsidy: %f' % passenger_mile_subsidy
+                total_distance += (route.distance * route.departures_performed) 
+           
+           
+            return total_flights, total_passengers, total_time, total_distance
+        
+#            min_distance = min(distances)    
+#            max_distance = max(distances)
+#            avg_flights = total_flights / float(len(flights.keys()))
+#            
+#            weekly_subsidy = float(self.eas_weekly_flights) * 4.25
+#            
+#            allowed_flights = float(self.eas_weekly_flights) * 4.25
+#            
+#            total_subsidy = self.eas_flight_subsidy * total_flights
+#            
+#            weekly_subsidy = float(total_subsidy) / 52
+#            weekly_subsidy_max = self.eas_flight_subsidy * self.eas_weekly_flights
+#            
+#            
+#            passenger_subsidy = float(total_subsidy) / float(total_passengers)
+#            
+#            passenger_mile_subsidy = passenger_subsidy / float(max_distance)
+#            
+#            print self
+#            print '\tFlights: %d' % total_flights
+#            print '\tAverage Flights (allowed - months): %f (%d - %d)' % (avg_flights, allowed_flights, len(flights.keys()))
+#            print '\tPassengers: %d' % total_passengers
+#            print '\tTotal Subsidy: $%d (%d - %d)' % (total_subsidy, weekly_subsidy, weekly_subsidy_max)
+#            print '\tPassenger Subsidy: %f' % passenger_subsidy
+#            print '\tPassenger Mile Subsidy: %f' % passenger_mile_subsidy
         except:
-            pass
+            return 0, 0, 0, 0
         
         
-    
+        
+#class RouteStatisticsManager(models.Manager):
+#    
+#    def calcAirportTraffic(self, airport):
+#        
+#        
+        
 class RouteStatistics(models.Model):
     
     carrier = models.ForeignKey(Carrier)
@@ -155,5 +175,7 @@ class RouteStatistics(models.Model):
     
     ramp_time = models.IntegerField()
     flight_time = models.IntegerField()
+    
+    objects = RouteStatisticsManager()
     
     
