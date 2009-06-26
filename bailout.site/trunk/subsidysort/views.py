@@ -121,11 +121,11 @@ def vote(request, item_id):
         
         items = Item.objects.filter(task=item.task)
         
-        for item in items:
-            if item.vote_set.filter(user=request.user).count() == 0:
-                return HttpResponseRedirect('/subsidysort/vote/%d/' % item.id)
-        
-        return HttpResponseRedirect('/subsidysort/task/%d/' % item.task.id)
+#        for item in items:
+#            if item.vote_set.filter(user=request.user).count() == 0:
+#                return HttpResponseRedirect('/subsidysort/vote/%d/' % item.id)
+#        
+        return HttpResponseRedirect('/subsidysort/review/%d/' % item.task.id)
     
     try:    
         vote = item.vote_set.get(user=request.user)

@@ -53,7 +53,7 @@ $(function(){
 <ul>
 	{% for item in items  %}
 		<li style="margin-bottom: 25px; background: {% cycle '#fff' '#ddd' %};"><strong><a href="{{ item.url }}">{{ item.unique_id }} &mdash;  {{ item.name }}</a></strong><br/>
-		( {{ item.voteSummary }} )
+		( {{ item.voteSummary }} ) <a href="/subsidysort/vote/{{ item.id }}/">Edit Item</a>
 		<br/>
 		
 		<table>
@@ -71,6 +71,8 @@ $(function(){
 			
 		{% endfor %}
 		</table>
+		
+		
 		
 		</li>
 	{% endfor %}
