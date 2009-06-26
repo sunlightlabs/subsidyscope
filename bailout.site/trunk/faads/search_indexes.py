@@ -24,7 +24,7 @@ class RecordIndex(indexes.SearchIndex):
     
     def prepare_cfda_program(self, object):
         
-        return None #'%s' % (object.cfda_program.program_number)
+        return '%s' % (object.cfda_program.program_number)
     
     def prepare_recipient(self, object):
         
