@@ -1,6 +1,7 @@
 from django.db import models
 from decimal import Decimal
 from cfda.models import ProgramDescription
+from geo.models import *
 from decimal import Decimal
 import sys
 import MySQLdb
@@ -109,6 +110,8 @@ class Record(models.Model):
     recipient_state_code = models.CharField("Recipient State Code", max_length=2, blank=True, default='', help_text="FIPS PUB 5-1") # NORMALIZE
     recipient_zip_code = models.CharField("Recipient Zip Code", max_length=9, blank=True, default='')
     recipient_type = models.ForeignKey(RecipientType, blank=True, null=True)
+    recipient_state = models.ForeignKey(State, related_name='recipient_state', blank=True, null=True)
+    recipient_county = models.ForeignKey(County, related_name='recipient_county', blank=True, null=True)
     action_type = models.ForeignKey(ActionType)
     recipient_congressional_district = models.IntegerField("Recipient Congressional District", blank=True, null=True)
     agency_code = models.CharField("Agency Code", max_length=4, blank=True, default='')
@@ -125,9 +128,11 @@ class Record(models.Model):
     correction_late_indicator = models.CharField("Correction/Late Indicator", max_length=1, blank=True, default='')
     fyq_correction = models.CharField("FYQ Correction", max_length=5, blank=True, default='')
     principal_place_code = models.CharField("Principal Place of Performance Code", max_length=7, blank=True, default='') # NORMALIZE
-    principal_place_state = models.CharField("Principal Place of Performance State", max_length=25, blank=True, default='') # NORMALIZE
+    principal_place_state = models.ForeignKey(State, related_name='principal_place_state', blank=True, null=True)
+    principal_place_county = models.ForeignKey(County, related_name='principal_place_county', blank=True, null=True)
+    principal_place_state_name = models.CharField("Principal Place of Performance State", max_length=25, blank=True, default='') # NORMALIZE
     principal_place_state_code = models.CharField("Principal Place of Performance State Code", max_length=2, blank=True, default='') # NORMALIZE
-    principal_place_county_or_city = models.CharField("Principal Place of Performance County/City", max_length=25, blank=True, default='') # NORMALIZE
+    principal_place_county_or_city_name = models.CharField("Principal Place of Performance County/City", max_length=25, blank=True, default='') # NORMALIZE
     principal_place_zip_code = models.CharField("Principal Place of Performance Zip Code", max_length=9, blank=True, default='') # NORMALIZE
     principal_place_congressional_district = models.CharField("Principal Place Congressional District", max_length=2, blank=True, default='') # NORMALIZE
     cfda_program_title = models.CharField("CFDA Program Title", max_length=74, blank=True, default='')
@@ -171,8 +176,14 @@ class FAADSLoader(object):
         'port': 3306
     }
 
+    
+
     def __init__(self):
+        
+        
         super(FAADSLoader, self).__init__()        
+
+        self.faads_matcher = FAADSMatcher()
 
         # cache record type objects            
         TODO = (ActionType, AssistanceType, RecordType, RecipientType)
@@ -202,6 +213,8 @@ class FAADSLoader(object):
             'recipient_county_name': 'recipient_county_name',
             'recipient_state_code': 'recipient_state_code',
             'recipient_zip_code': 'recipient_zip',
+            'recipient_county':  (self.lookup_recipient_county, {}),
+            'recipient_state':  (self.lookup_recipient_state, {}),
             'recipient_type': (self.lookup_fk_field, {'type_name': 'RecipientType', 'code_extractor': self.extract_recipient_type_safely }),
             'action_type': (self.lookup_fk_field, {'type_name': 'ActionType', 'code_extractor': lambda x: x.get('action_type')}),
             'recipient_congressional_district': 'recipient_cong_district',
@@ -219,9 +232,11 @@ class FAADSLoader(object):
             'correction_late_indicator': 'correction_late_ind',
             'fyq_correction': 'fyq_correction',
             'principal_place_code': 'principal_place_code',
-            'principal_place_state': 'principal_place_state',
+            'principal_place_state': (self.lookup_principal_place_state, {}),
+            'principal_place_county': (self.lookup_principal_place_county, {}),
+            'principal_place_state_name': 'principal_place_state',
             'principal_place_state_code': 'principal_place_state_code',
-            'principal_place_county_or_city': 'principal_place_cc',
+            'principal_place_county_or_city_name': 'principal_place_cc',
             'principal_place_zip_code': (self.make_null_emptystring, {'field_name': 'principal_place_zip'}),
             'principal_place_congressional_district': (self.make_null_emptystring, {'field_name': 'principal_place_cd'}),
             'cfda_program_title': 'cfda_program_title',
@@ -295,7 +310,83 @@ class FAADSLoader(object):
             return self.cfda_programs.get(cfda, False)
         except Exception, e:
             return False
+    
         
+    def lookup_recipient_county(self, *args, **kwargs):
+        
+        record = args[0]
+        
+        try:
+            recipient_state_code = int(record['recipient_state_code'])
+           
+            state = self.faads_matcher.matcher.matchFips(recipient_state_code)
+            
+            if state:
+                recipient_county_code = int(record['recipient_county_code'])
+         
+                county_matcher = self.faads_matcher.matcher.getCountyMatcher(state)
+                county = county_matcher.matchFips(recipient_county_code)
+                
+                if county:
+                    return county
+                else:
+                    return None
+            else:
+                return None
+                
+        except Exception, e:
+            return None
+    
+    def lookup_recipient_state(self, *args, **kwargs):
+        
+        record = args[0]
+        
+        try:
+            recipient_state_code = int(record['recipient_state_code'])
+           
+            state = self.faads_matcher.matcher.matchFips(recipient_state_code)
+            
+            if state:
+                return state
+            else:
+                return None
+        
+        except Exception, e:
+            return None 
+    
+    def lookup_principal_place_state(self, *args, **kwargs):
+        
+        record = args[0]
+        
+        try:
+            principal_place_code = record['principal_place_code']
+           
+            state, county = self.faads_matcher.matchPrincipalPlace(principal_place_code)
+            
+            if state:
+                return state
+            else:
+                return None
+        
+        except Exception, e:
+            return None 
+    
+    def lookup_principal_place_county(self, *args, **kwargs):
+        
+        record = args[0]
+        
+        try:
+            principal_place_code = record['principal_place_code']
+           
+            state, county = self.faads_matcher.matchPrincipalPlace(principal_place_code)
+            
+            if county:
+                return county
+            else:
+                return None
+        
+        except Exception, e:
+            return None 
     
     def lookup_fk_field(self, *args, **kwargs):
         record = args[0]
@@ -346,10 +437,10 @@ class FAADSLoader(object):
         max_record_id = row[0]
         if max_record_id is None:
             max_record_id = 0
-        
+               
         conn = MySQLdb.connect(host=FAADSLoader.MYSQL['host'], user=FAADSLoader.MYSQL['user'], passwd=FAADSLoader.MYSQL['password'], db=FAADSLoader.MYSQL['database'], port=FAADSLoader.MYSQL['port'], cursorclass=MySQLdb.cursors.DictCursor)
         cursor = conn.cursor()
-        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id>%d ORDER BY record_id ASC LIMIT 10000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
+        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 10000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
         print "Executing query"
         cursor.execute(sql)
         i = 0

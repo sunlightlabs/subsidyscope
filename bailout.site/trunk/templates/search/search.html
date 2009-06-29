@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load search_tags %}
+
 {% block content %}
 
 <div class="container top_solid_box" id="staff-page">
@@ -26,7 +28,7 @@
 					<div style="float: right; text-transform:uppercase; color: #999; height: 15px;">
 						<img style="margin-right: 5px; vertical-align: top;" src="http://dev.subsidyscope.com/media/images/sector_icons/1_sm.png"/>
 						<strong>Bailout</strong></div>
-					<strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text %}{{ text }}{% endfor %}</li>
+					<strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
 				{% endfor %} 
 			</ul>
 			{% else %}

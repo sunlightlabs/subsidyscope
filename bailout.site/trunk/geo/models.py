@@ -16,7 +16,7 @@ class StateMatcher():
         self.county_matchers = {}
         
         for state in State.objects.all():
-            
+                
             self.name_list[state.name.lower()] = state
             self.abbreviation_list[state.abbreviation.lower()] = state
             self.fips_list[state.fips_state_code] = state
@@ -88,6 +88,8 @@ class State(models.Model):
  
     objects = StateManager()
 
+    def __unicode__(self):
+        return self.name
 
 class CountyMatcher():
     
@@ -144,6 +146,48 @@ class CountyMatcher():
         except:
             return False
  
+
+class FAADSMatcher():
+ 
+    def __init__(self):
+        
+        self.matcher = StateMatcher(match_counties=True)
+    
+    # matches FAADS principal_place_codes to state/county objects
+
+    def matchPrincipalPlace(self, place_code):
+        
+        state = None
+        county = None
+        
+        try:
+            state_code = int(place_code[0:2])
+            
+            state = self.matcher.matchFips(state_code)
+            
+        except:
+            state_code = None
+        
+        if state:
+            
+            try:    
+                county_code = int(place_code[2:].strip('*'))
+                
+                county_matcher = self.matcher.getCountyMatcher(state)
+                county = county_matcher.matchFips(county_code)
+                
+                if not county:
+                    county = None
+                
+            except:
+                pass
+                
+        return state, county 
+    
+        
+    
+        
+        
 class CountyManager(models.Manager):
     
     def matchCounty(self, county, state):
@@ -162,7 +206,7 @@ class CountyManager(models.Manager):
             
         else:
             return False
- 
+
 class County(models.Model):
 
     name = models.CharField("Name", max_length=100)
@@ -197,3 +241,6 @@ class County(models.Model):
     mdiv_code = models.IntegerField(null=True) # metro div area 
     
     objects = CountyManager()
+    
+    def __unicode__(self):
+        return self.name
