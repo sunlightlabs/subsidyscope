@@ -1,6 +1,7 @@
 from django.db import models
 from decimal import Decimal
 from cfda.models import ProgramDescription
+from geo.models import 
 from decimal import Decimal
 import sys
 import MySQLdb
@@ -109,6 +110,10 @@ class Record(models.Model):
     recipient_state_code = models.CharField("Recipient State Code", max_length=2, blank=True, default='', help_text="FIPS PUB 5-1") # NORMALIZE
     recipient_zip_code = models.CharField("Recipient Zip Code", max_length=9, blank=True, default='')
     recipient_type = models.ForeignKey(RecipientType, blank=True, null=True)
+    
+    recipient_state = models.ForeignKey(State)
+    recipient_county = models.ForeignKey(County)
+    
     action_type = models.ForeignKey(ActionType)
     recipient_congressional_district = models.IntegerField("Recipient Congressional District", blank=True, null=True)
     agency_code = models.CharField("Agency Code", max_length=4, blank=True, default='')
