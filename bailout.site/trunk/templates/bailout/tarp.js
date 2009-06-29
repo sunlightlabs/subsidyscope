@@ -37,7 +37,7 @@ function TARP_init()
 	/* bubbles viz */
 	
 	
-	swfobject.embedSWF('{% media_url %}/scripts/tarp-bubbles.swf', 'tarpBubbleVis', 700, 550, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
+	swfobject.embedSWF('{% media_url %}/scripts/tarp-bubbles.swf', 'tarpBubbleVis', 700, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
 	
 	/* end bubbles viz */
 	

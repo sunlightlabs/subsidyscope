@@ -1,0 +1,33 @@
+ATL	Atlanta International Airport 	Atlanta	GA	 41,123,857
+BOS	Boston Logan International Airport 	Boston	MA	12,758,020
+BWI	Baltimore/Washington International Airport 	BWI Airport	MD	10,103,563
+CLT	Charlotte/Douglas International Airport 	Charlotte	NC	12,499,476
+CVG	Cincinnati/Northern Kentucky International Airport 	Cincinnati	OH	10,864,547
+DCA	Ronald Reagan Washington National Airport 	Washington	DC	7,661,532
+DEN	Denver International Airport 	Denver	CO	20,407,002
+DFW	Dallas/Fort Worth International Airport 	Dallas	TX	28,063,035
+DTW	Detroit Metro Airport 	Detroit	MI	17,046,176
+EWR	Newark Liberty International Airport 	Newark	NJ	15,827,675
+FLL	Fort Lauderdale Hollywood International Airport 	Fort Lauderdale	FL	10,040,598
+HNL	Honolulu International Airport 	Honolulu	HI	9,579,076
+IAD	Washington Dulles International Airport 	Washington	DC	10,961,614
+IAH	Bush Intercontinental Airport 	Houston	TX	17,322,065
+JFK	John F. Kennedy International Airport 	New York	NY	18,586,863
+LAS	Mccarran International Airport 	Las Vegas	NV	19,943,025
+LAX	Los Angeles International Airport 	Los Angeles	CA	28,925,341
+LGA	La Guardia Airport 	New York	NY	12,312,561
+MCO	Orlando International Airport 	Orlando	FL	15,270,347
+MDW	Chicago Midway Airport 	Chicago	IL	9,238,592
+MIA	Miami International Airport 	Miami	FL	14,515,591
+MSP	Minneapolis/St. Paul International Airport 	Minneapolis	MN	17,482,627
+OAK	Oakland International Airport 	Oakland	CA	6,923,690
+ORD	Chicago O'Hare International Airport 	Chicago	IL	36,100,147
+PHL	Philadelphia International Airport 	Philadelphia	PA	13,824,332
+PHX	Phoenix Sky Harbor International Airport 	Phoenix	AZ	19,336,099
+PIT	Pittsburgh International Airport 	Pittsburgh	PA	6,606,117
+SAN	San Diego International Airport 	San Diego	CA	8,135,832
+SEA	Seattle/Tacoma International Airport 	Seattle	WA	14,092,285
+SFO	San Francisco International Airport 	San Francisco	CA	15,605,822
+SLC	Salt Lake City International Airport 	Salt Lake City	UT	8,884,880
+STL	Lambert-St. Louis International Airport 	Saint Louis	MO	6,377,628
+TPA	Tampa International Airport 	Tampa	FL	8,436,025

@@ -16,6 +16,8 @@ class Tag(models.Model):
     def __unicode__(self):
         return self.name
 
+    class Meta():
+        ordering = ['name']
     
 
 class Item(models.Model):

@@ -4,9 +4,47 @@
 
 {% block content %}
 
+<script>
+
+function update_filter()
+{
+	if($('#filter_tag').val() == -1)
+	{
+		$('#filter_form').attr('action', '/subsidysort/review/1/');
+		$('#filter_form').submit();
+	}
+	else
+	{
+		if($('#tag_location').val() == -1)
+			$('#filter_form').attr('action', '/subsidysort/review/1/tag/' + $('#filter_tag').val() + '/');
+		else
+			$('#filter_form').attr('action', '/subsidysort/review/1/tag/' + $('#filter_tag').val() + '/' + $('#tag_location').val() + '/');
+		
+		$('#filter_form').submit();
+	}
+}
+
+{% if selected_tag.id %}
+$(function(){
+	$('#filter_tag').val({{ selected_tag.id }});
+	$('#tag_location').val({{tag_location}});
+});
+{% endif %}
+
+</script>
+
 <p>{{ task.description }}</p>
 
 <p>view: <a href="/subsidysort/review/{{ task.id }}/">all items</a> | <a href="/subsidysort/review/{{ task.id }}/yes/">unanimous yes</a> | <a href="/subsidysort/review/{{ task.id }}/no/">unanimous no</a> | <a href="/subsidysort/review/{{ task.id }}/split/">split vote</a></p>
+
+<form id="filter_form" method="get" action="">
+</form>
+<p>filter tag: <select id="filter_tag" onchange="update_filter();"><option value="-1">show all</option>{% for tag in tags %}<option value="{{ tag.id }}">{{ tag.name }}</option>{% endfor %}</select>
+<select id="tag_location" onchange="update_filter();">
+	<option value="-1">primary/secondary</option>
+	<option value="1">primary</option>
+	<option value="2">secondary</option>
+</select></p>
 
 {% if items %}
 
@@ -15,7 +53,7 @@
 <ul>
 	{% for item in items  %}
 		<li style="margin-bottom: 25px; background: {% cycle '#fff' '#ddd' %};"><strong><a href="{{ item.url }}">{{ item.unique_id }} &mdash;  {{ item.name }}</a></strong><br/>
-		( {{ item.voteSummary }} )
+		( {{ item.voteSummary }} ) <a href="/subsidysort/vote/{{ item.id }}/">Edit Item</a>
 		<br/>
 		
 		<table>
@@ -23,9 +61,9 @@
 		
 		{% for vote in item.vote_set.all  %}
 		
-			<tr>
+			<tr {% ifequal vote.user.id 14 %}style="background: #ccd; font-weight: bold;"{% endifequal %}>
 				<td>{{ vote.user.first_name }}</td>
-				<td>{{ vote.decision }}</td>
+				<td>{% if vote.decision %}{{ vote.decision }}{% endif %}</td>
 				<td>{{ vote.primary_purpose }}</td>
 				<td>{% for tag in vote.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
 				<td width="50%">{{ vote.comments }}</td>
@@ -33,6 +71,8 @@
 			
 		{% endfor %}
 		</table>
+		
+		
 		
 		</li>
 	{% endfor %}
