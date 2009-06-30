@@ -1,5 +1,19 @@
+import re
+
 from django.db import models
 import sectors.models
+from  budget_accounts.models import BudgetAccount
+
+class ProgramDescriptionManager(models.Manager):
+
+    def parseBudgetAcounts(self):
+        
+        import haystack
+        haystack.sites.site.unregister(ProgramDescription)
+        
+        for program in self.all():
+            program.parseBudgetAcounts()
+    
 
 class ProgramDescription(models.Model):
 
@@ -47,6 +61,22 @@ class ProgramDescription(models.Model):
     examples_of_funded_projects = models.TextField("Examples of funded projects",blank=True,default="")
     criteria_for_selecting_proposals = models.TextField("Criteria for selecting proposals",blank=True,default="")
     cfda_edition = models.IntegerField("CFDA Edition")
+
+    budget_accounts = models.ManyToManyField(BudgetAccount)
+
+    objects = ProgramDescriptionManager()   
+
+    def parseBudgetAcounts(self):
+        
+        accounts = re.match('([0-9]{2,2}-[0-9]{4,4}-[0-9]{1,1}-[0-9]{1,1}-[0-9]{3,3})', self.account_identification)
+        
+        if accounts:
+            for account_number in accounts.groups():
+                
+                account = BudgetAccount.objects.createBudgetAccount(account_number.strip('.').strip())
+                self.budget_accounts.add(account)
+                self.save()
+        
 
     def short_description(self):
         
