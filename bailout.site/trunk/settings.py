@@ -105,7 +105,8 @@ INSTALLED_APPS = (
     'glossary',
     'carousel',
     'search',
-    'faads'
+    'faads',
+    'budget_accounts'
 )
 
 #try:

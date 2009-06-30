@@ -5,3 +5,68 @@
 {{ object.program_note }}
 
 {{ object.objectives }}
+
+{{ object.federal_agency }}
+
+{{ object.major_agency }}
+
+{{ object.minor_agency }}
+
+{{ object.authorization }}
+
+{{ object.types_of_assistance }}
+
+{{ object.uses_and_use_restrictions }}
+
+{{ object.applicant_eligibility }}
+
+{{ object.beneficiary_eligibility }}
+
+{{ object.credentials_documentation }}
+
+{{ object.preapplication_coordination }}
+
+{{ object.application_procedure }}
+
+{{ object.deadlines }}
+
+{{ object.range_of_approval_disapproval_time }}
+
+{{ object.appeals }}
+
+{{ object.renewals }}
+
+{{ object.formula_and_matching_requirements }}
+
+{{ object.length_and_time_phasing_of_assistance }}
+
+{{ object.reports }}
+
+{{ object.audits }}
+
+{{ object.records }}
+
+{{ object.audits }}
+
+{{ object.obligations }}
+
+{{ object.range_and_average_of_financial_assistance }}
+
+{{ object.program_accomplishments }}
+
+{{ object.regulations_guidelines_and_literature }}
+
+{{ object.regional_or_local_office }}
+
+{{ object.headquarters_office }}
+
+{{ object.web_site_address }}
+
+{{ object.related_programs }}
+
+{{ object.examples_of_funded_projects }}
+
+{{ object.criteria_for_selecting_proposals }}
+
+{{ object.web_site_address }}
+

@@ -8,7 +8,20 @@ class RecordIndex(indexes.SearchIndex):
     
     type = 'faads'
     
-    cfda_program = indexes.CharField(model_attr='cfda_program')
+    cfda_program = indexes.CharField(model_attr='cfda_program__program_number')
+    
+    budget_function = indexes.MultiValueField() # many-to-many via cfda program description
+    funding_type = indexes.MultiValueField() # many-to-many via cfda program description
+    
+    #program_vote = indexes.MultiValueField()  --- tbd
+    
+    sector = indexes.IntegerField() 
+    subsector = indexes.IntegerField()
+    
+    action_type = indexes.IntegerField(model_attr='action_type__id')
+    recipient_type = indexes.IntegerField(model_attr='recipient_type__id')
+    record_type = indexes.IntegerField(model_attr='record_type__id')
+    assistance_type = indexes.IntegerField(model_attr='assistance_type__id')
     
     fiscal_year = indexes.IntegerField(model_attr='fiscal_year')
     obligation_date = indexes.DateField(model_attr='obligation_action_date')
@@ -17,26 +30,69 @@ class RecordIndex(indexes.SearchIndex):
     federal_amount = indexes.IntegerField(model_attr='federal_funding_amount')
     total_amount = indexes.IntegerField(model_attr='total_funding_amount')
     
-    description = indexes.CharField(document=True, model_attr='project_description')
+    text = indexes.CharField(document=True, model_attr='project_description')
     
     recipient = indexes.CharField(model_attr='recipient_name')
-    recipient_location = indexes.CharField(model_attr='recipient_county_name')
+    recipient_county = indexes.IntegerField(model_attr='recipient_county__id')
+    recipient_state = indexes.IntegerField(model_attr='recipient_state__id')
+    
+    principal_place_state = indexes.IntegerField(model_attr='principal_place_state__id')
+    principal_place_county = indexes.IntegerField(model_attr='principal_place_county__id')
+    
     
     def prepare_cfda_program(self, object):
         
         return '%s' % (object.cfda_program.program_number)
     
-    def prepare_recipient(self, object):
+    def prepare_budget_function(self, object):
         
-        return '%s' % (object.recipient_name)
+        budget_functions = []
+        
+        for budget_account in object.cfda_program.budget_accounts.all():
+            budget_functions.append(budget_account.budget_function.id)
+        
+        return budget_functions
     
-    def prepare_recipient_location(self, object):
+    def prepare_funding_type(self, object):
         
-        return '%s, %s' % (object.recipient_city_name, object.recipient_county_name)
+        funding_types = []
+        
+        for budget_account in object.cfda_program.budget_accounts.all():
+            funding_types.append(budget_account.fund_code)
+        
+        return funding_types
     
-    def prepare_description(self, object):
+    
+    def prepare_action_type(self, object):
         
-        return '%s' % (object.project_description)
+        return object.action_type.id
+    
+    def prepare_recipient_type(self, object):
+        
+        return object.recipient_type.id
+    
+    def prepare_record_type(self, object):
+        
+        return object.record_type.id
+    
+    def prepare_assistance_type(self, object):
+        
+        return object.assistance_type.id
+    
+    
+    def prepare_fiscal_year(self, object):
+        
+        if object.fiscal_year:
+            return int(object.fiscal_year)
+        else:
+            return 0
+        
+    def prepare_obligation_date(self, object):
+        
+        if object.obligation_action_date != None:
+            return object.obligation_action_date
+        else:
+            return datetime.date(1900, 1, 1)       
     
     def prepare_federal_amount(self, object):
         
@@ -59,19 +115,41 @@ class RecordIndex(indexes.SearchIndex):
         else:
             return 0
     
-    def prepare_fiscal_year(self, object):
+
+    def prepare_recipient(self, object):
         
-        if object.fiscal_year:
-            return int(object.fiscal_year)
+        return '%s' % (object.recipient_name)
+    
+    
+    
+    def prepare_recipient_county(self, object):
+        
+        if object.recipient_county:
+            return object.recipient_county.id
+        else:
+            return 0
+    
+    def prepare_recipient_state(self, object):
+        
+        if object.recipient_state:
+            return object.recipient_state.id
         else:
             return 0
         
-    def prepare_obligation_date(self, object):
         
-        if object.obligation_action_date != None:
-            return object.obligation_action_date
+    def prepare_principal_place_county(self, object):
+        
+        if object.principal_place_county:
+            return object.principal_place_county.id
         else:
-            return datetime.date(1900, 1, 1)       
+            return 0
+    
+    def prepare_principal_place_state(self, object):
+        
+        if object.principal_place_state:
+            return object.principal_place_state.id
+        else:
+            return 0
     
     
     def get_query_set(self):
