@@ -64,25 +64,37 @@ class RecordIndex(indexes.SearchIndex):
     
     
     def prepare_action_type(self, object):
-        
-        return object.action_type.id
+               
+        if object.action_type != None:
+            return object.action_type.id
+        else:
+            return 0
     
     def prepare_recipient_type(self, object):
         
-        return object.recipient_type.id
+        if object.recipient_type != None:
+            return object.recipient_type.id
+        else:
+            return 0
     
     def prepare_record_type(self, object):
         
-        return object.record_type.id
+        if object.record_type != None:
+            return object.record_type.id
+        else:
+            return 0
     
     def prepare_assistance_type(self, object):
         
-        return object.assistance_type.id
+        if object.assistance_type != None:
+            return object.assistance_type.id
+        else:
+            return 0
     
     
     def prepare_fiscal_year(self, object):
         
-        if object.fiscal_year:
+        if object.fiscal_year != None:
             return int(object.fiscal_year)
         else:
             return 0
