@@ -1,0 +1,35 @@
+ABQ	Albuquerque International Sunport 	Albuquerque	NM	 3,079,172
+ANC	Anchorage International Airport 	Anchorage	AK	2,439,969
+AUS	Austin-Bergstrom International Airport 	Austin	TX	3,446,564
+BDL	Bradley International Airport 	Windsor Locks	CT	3,326,461
+BNA	Nashville International Airport 	Nashville	TN	4,298,703
+BUF	Buffalo Niagara International Airport 	Buffalo	NY	2,206,385
+BUR	Burbank Bob Hope Airport 	Burbank	CA	2,455,574
+CLE	Cleveland Hopkins International Airport 	Cleveland	OH	5,389,196
+CMH	Port Columbus International Airport 	Columbus	OH	3,071,447
+DAL	Dallas Love Field 	Dallas	TX	2,945,909
+HOU	Hobby Airport 	Houston	TX	3,960,890
+IND	Indianapolis International Airport 	Indianapolis	IN	3,992,097
+JAX	Jacksonville International Airport 	Jacksonville	FL	2,619,494
+MCI	Kansas City International Airport 	Kansas City	MO	5,040,595
+MEM	Memphis Airport 	Memphis	TN	5,295,062
+MHT	Manchester Airport 	Manchester	NH	1,973,142
+MKE	General Mitchell International Airport 	Milwaukee	WI	3,302,604
+MSY	New Orleans International Airport 	New Orleans	LA	4,839,400
+OGG	Kahului Airport 	Kahului	HI	2,695,000
+OMA	Eppley Airfield 	Omaha	NE	1,892,379
+ONT	Ontario International Airport 	Ontario	CA	3,291,726
+ORF	Norfolk International Airport 	Norfolk	VA	1,895,472
+PBI	Palm Beach International Airport 	West Palm Beach	FL	3,281,656
+PDX	Portland International Airport 	Portland	OR	6,379,884
+PVD	T.F. Green Airport 	Providence	RI	2,732,524
+RDU	Raleigh-Durham International Airport 	Rdu Airport	NC	4,371,883
+RNO	Reno-Tahoe International Airport 	Reno	NV	2,478,179
+RSW	Southwest Florida International Airport 	Fort Myers	FL	3,320,019
+SAT	San Antonio International Airport 	San Antonio	TX	3,376,750
+SDF	Louisville International Airport 	Louisville	KY	1,720,377
+SJC	San Jose International Airport 	San Jose	CA	5,269,849
+SJU	Luis Munoz Marin International Airport	San Juan	PR	5,222,456
+SMF	Sacramento International Airport 	Sacramento	CA	4,795,970
+SNA	John Wayne Airport 	Orange County	CA	4,621,107
+TUS	Tucson International Airport 	Tucson	AZ	1,863,790

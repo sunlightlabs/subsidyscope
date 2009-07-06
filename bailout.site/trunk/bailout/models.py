@@ -115,6 +115,7 @@ class Institution(models.Model):
         ('insurance company', 'Insurance Company'), 
         ('auto company', 'Auto Company'),
         ('mortgage company', 'Mortgage Company'),
+        ('credit union', 'Credit Union'),
         ('other', 'Other')
     )
     
@@ -132,6 +133,7 @@ class Institution(models.Model):
         ('FDIC', 'Federal Deposit Insurance Corporation'),
         ('Federal Reserve', 'Federal Reserve Board'),
         ('Thrift', 'Office of Thrift Supervision'),
+        ('NCUA', 'National Credit Union Administration'),
         ('Other', 'Other')
     )
     regulator = models.CharField("Federal Regulator", max_length=15, choices=REGULATOR_CHOICES, blank=True, null=True)
