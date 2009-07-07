@@ -106,7 +106,7 @@ INSTALLED_APPS = (
     'carousel',
     'search',
     'faads',
-    'budget_accounts'
+    'budget_accounts',
     'transportation'
 )
 
