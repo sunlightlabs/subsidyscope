@@ -24,12 +24,12 @@ class AssistanceType(models.Model):
 
     OPTIONS = (
         (2, "Block grant (A)"),
-        (3, "Formula grant (A)"),
-        (4, "Project grant (B)"),
-        (5, "Cooperative agreement (B)"),
-        (6, "Direct payment for specified use, as a subsidy or other non-reimbursable direct financial aid (C)"),
-        (7, "Direct loan (D)"),
-        (8, "Guaranteed/insured loan (F)"),
+        (3, "Formula grant (A)"), # present in transportation
+        (4, "Project grant (B)"), # present in transportation
+        (5, "Cooperative agreement (B)"), # present in transportation
+        (6, "Direct payment for specified use, as a subsidy or other non-reimbursable direct financial aid (C)"), # present in transportation
+        (7, "Direct loan (D)"), # present in transportation
+        (8, "Guaranteed/insured loan (F)"), # present in transportation
         (9, "Insurance (G)"),
         (10, "Direct payment with unrestricted use (D)"),
         (11, "Other reimbursable, contingent, intangible or indirect financial assistance"),    
@@ -46,10 +46,10 @@ class ActionType(models.Model):
     name = models.CharField("Descriptive Name", max_length=255, blank=False)     
 
     OPTIONS = (
-        ("A", "New assistance action"),
-        ("B", "Continuation"),
-        ("C", "Revision"),
-        ("D", "Funding adjustment to completed project")        
+        ("A", "New assistance action"), # present in transportation
+        ("B", "Continuation"), # present in transportation
+        ("C", "Revision"), # present in transportation
+        ("D", "Funding adjustment to completed project")
     )
 
 
@@ -62,19 +62,19 @@ class RecipientType(models.Model):
     name = models.CharField("Descriptive Name", max_length=255, blank=False)
 
     OPTIONS = (
-        (0, "State government"),
-        (1, "County government"),
-        (2, "City or township government"),
-        (4, "Special district government"),
-        (5, "Independent school district"),
-        (6, "State controlled institution of higher education"),
-        (11, "Indian tribe"),
-        (12, "Other nonprofit"),
-        (20, "Private higher education"),
-        (21, "Individual"),
-        (22, "Profit organization"),
-        (23, "Small business"),
-        (25, "All other")
+        (0, "State government"), # present in transportation
+        (1, "County government"), # present in transportation
+        (2, "City or township government"), # present in transportation
+        (4, "Special district government"), # present in transportation
+        (5, "Independent school district"), # present in transportation
+        (6, "State controlled institution of higher education"), # present in transportation
+        (11, "Indian tribe"), # present in transportation
+        (12, "Other nonprofit"), # present in transportation
+        (20, "Private higher education"), # present in transportation
+        (21, "Individual"), # present in transportation
+        (22, "Profit organization"), # present in transportation
+        (23, "Small business"), # present in transportation
+        (25, "All other") # present in transportation
     )
 
 
@@ -88,7 +88,7 @@ class RecordType(models.Model):
 
     OPTIONS = (
          (1, "County aggregate reporting"),
-         (2, "Action-by-action reporting")
+         (2, "Action-by-action reporting") # present in transportation
      )    
 
 
