@@ -48,7 +48,7 @@ urlpatterns = patterns('',
     url(r'^search/bank/summary/(?P<bank_id>[0-9]+)/$', 'bailout.views.bank_summary', name='bank-summary'),
 
     url(r'^$', direct_to_template, {'template': 'bailout/bailout.html'}, name='Bailout'),    
-    
+        
 )
 
 
