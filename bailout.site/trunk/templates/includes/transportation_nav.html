@@ -1,0 +1,39 @@
+<link rel="stylesheet" type="text/css" media="screen" href="/media/styles/superfish.css" />
+<script type="text/javascript" src="/media/scripts/hoverIntent.js"></script>
+<script type="text/javascript" src="/media/scripts/superfish.js"></script>
+
+<script type="text/javascript">  
+    $(document).ready(function(){ 
+        $("ul.sf-menu").superfish(); 
+    }); 
+</script>
+
+<div class="span-24">	
+	<div id="navbar">
+		<ul id="navbar_items">
+			<li><a href="/">Home</a></li>
+			<li class="inactive_top"><a href="/projects/bailout/">Financial Bailout</a></li>
+                        <li class="active_top"><a href="/projects/transportation/">Transportation</a></li>
+			<li class="inactive_top"><a href="/faq/#future-sectors">Future Sectors</a></li>
+		</ul>							
+	</div>
+	<div id="sector_subnav">
+	<ul class="sf-menu">
+            <li>
+                    <a class="sf-with-ul" href="{% url transportation-direct-payments %}">Direct Payments</a>
+            </li>
+            <li>
+                    <a class="sf-with-ul" href="{% url transportation-tax-expenditures %}">Tax Expenditures</a>
+            </li>
+            <li>
+                    <a class="sf-with-ul" href="{% url transportation-contracts %}">Contracts</a>
+            </li>
+            <li>
+                    <a class="sf-with-ul" href="{% url transportation-backgrounders %}">Backgrounders</a>
+            </li>
+            <li>
+                    <a class="sf-with-ul" href="{% url transportation-docs %}">Docs</a>
+            </li>
+        </ul>
+    </div>
+</div>
