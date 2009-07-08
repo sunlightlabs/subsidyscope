@@ -2,6 +2,7 @@ from pysolr import Solr
 from django.db import models
 from decimal import Decimal
 from faads.models import *
+from haystack.query import SearchQuerySet
 import cfda.models
 import django.db.models.fields
 from django.core.cache import cache
@@ -85,41 +86,48 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_fieldname': 'cfda_program', 
             'solr_fieldname': 'cfda_program', 
-            'fk_transformation': lambda x: CFDA_PROGRAM_FK_LOOKUP.get(str(x).strip(), None) 
+            'mysql_fk_transformation': lambda x: CFDA_PROGRAM_FK_LOOKUP.get(str(x).strip(), None),
+            'solr_fk_transformation': lambda x: str(x),
+            'aggregate': True
         },
                 
         'action_type': {
             'type': 'fk',
             'mysql_fieldname': 'action_type', 
             'solr_fieldname': 'action_type',
-            'fk_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(x, None) 
+            'mysql_fk_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(x, None),
+            'aggregate': True
         },
         
         'recipient_type': {
             'type': 'fk',
             'mysql_fieldname': 'recipient_type', 
             'solr_fieldname': 'recipient_type', 
-            'fk_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(x, None) 
+            'mysql_fk_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(x, None) ,
+            'aggregate': True
         },
         
         'record_type': {
             'type': 'fk',
             'mysql_fieldname': 'record_type', 
             'solr_fieldname': 'record_type', 
-            'fk_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(x, None) 
+            'mysql_fk_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(x, None),
+            'aggregate': True
         },
 
         'assistance_type': {
             'type': 'fk',
             'mysql_fieldname': 'assistance_type',
             'solr_fieldname': 'assistance_type',
-            'fk_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(x, None)
+            'mysql_fk_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(x, None),
+            'aggregate': True
         },
 
         'fiscal_year': {
             'type': 'range',
             'mysql_field': 'fiscal_year',
-            'solr_field': 'fiscal_year'    
+            'solr_field': 'fiscal_year',
+            'aggregate': True
         },
 
         'obligation_action_date': {
@@ -156,7 +164,7 @@ class FAADSSearch():
             'solr_field': 'recipient'
         }
 
-
+        # # TODO: implement geo filtering
         # 'FIELD_RECIPIENT_COUNTY': 'recipient_county',
         # 'FIELD_RECIPIENT_STATE': 'recipient_state',
         # 'FIELD_PRINCIPAL_PLACE_STATE': 'principal_place_state',
@@ -175,12 +183,13 @@ class FAADSSearch():
         self.use_solr = False
         self.order_by = None
         self.cache = True
+        self.SearchQuerySet = None
         
         self.field_objects = {}
         for field in Record._meta.fields:
             self.field_objects[field.name] = field
     
-    # clone function (to enable chainable filtering) blatantly stolen from haystack (which presumably stole it from Django)
+    # clone function to enable chainable filtering (blatantly stolen from haystack (which presumably stole it from Django))
     def _clone(self, klass=None):
 
         if klass is None:
@@ -193,6 +202,8 @@ class FAADSSearch():
         clone.cache = self.cache
         clone.field_objects = self.field_objects.copy()
         clone.filters = self.filters[:]
+        if self.SearchQuerySet is not None:
+            clone.SearchQuerySet = self.SearchQuerySet._clone()
         
         return clone
     
@@ -205,10 +216,10 @@ class FAADSSearch():
         fs = ''
         for i,f in enumerate(self.filters):
             fs += "%d:{%s|%s|%s}" % (i, str(f[0]), str(f[1]), str(f[2]))
-        return md5(fs).hexdigest() # avoid key length problems...
+        return md5(fs).hexdigest() # avoid key length problems
            
                     
-    def filter(self, filter_by, filter_value, filter_conjunction=CONJUNCTION_AND):   
+    def filter(self, filter_by, filter_value, filter_conjunction=CONJUNCTION_AND):  
 
         field_lookup = FAADSSearch.FIELD_MAPPINGS.get(filter_by,None)
         if field_lookup is None:
@@ -224,12 +235,130 @@ class FAADSSearch():
             
         return clone
     
+    def _build_solr_query(self):
+        query = ''
+        for i,f in enumerate(self.filters):
+            filter_field = f[0]
+            filter_value = f[1]
+            filter_conjunction = f[2]
+            
+            if i>0:
+                query += " %s " % filter_conjunction['solr'] 
+
+
+            # deal with queries against foreign key fields
+            if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
+                fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_fk_transformation', lambda x: x)
+
+                if type(filter_value) not in (list, tuple):
+                    filter_value = (filter_value,)
+                
+                fk_values = []
+                for value in filter_value:
+                    fk_value = fk_transformation(value)
+                    if fk_value is not None:
+                        fk_values.append(str(fk_value))
+                
+                query += '(%s:(%s))' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_fieldname'], ' OR '.join(fk_values))
+
+
+            # deal with range-type queries 
+            elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
+                clause_parts = []
+                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_range_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
+                for range_specifier in filter_value:
+                    if range_specifier is None:
+                        clause_parts.append('*')
+                    else:
+                        clause_parts.append(str(range_transformation(range_specifier)))
+                        
+                query += '(%s:[%s])' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_field'], ' TO '.join(clause_parts))
+
+            # text queries (all of which get sent to solr)
+            elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='text':
+                query += '(%s:%s)' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_field'], filter_value)
+
+        return query
+
+        
+    def _build_mysql_query(self):
+        
+        # TODO: figure out what this block is supposed to do
+        # # budget_function or funding_type fields require join through budget_account model
+        #             # ick! punting on this for now...
+        #             if self.aggregate_by == FAADSSearch.FIELD_MAPPINGS['FIELD_BUDGET_FUNCTION'] or self.aggregate_by == FAADSSearch.FIELD_MAPPINGS['FIELD_FUNDING_TYPE']:
+        #                 raise Exception('Currently not handling many-to-many joins on MySQL queries.')
+        
+        # # check to ensure we're not aggregating in an unsupported manner
+        #             filter_fields = map(lambda x: x[0], self.filters)
+        #             if FAADSSearch.FIELD_MAPPINGS['FIELD_BUDGET_FUNCTION'] in filter_fields or FAADSSearch.FIELD_MAPPINGS['FIELD_FUNDING_TYPE'] in filter_fields:
+        #                 raise Exception('Currently not handling many-to-many joins on MySQL queries.')
+
+        if self.aggregate_by is None:
+            raise Exception("Must specify an aggregate field prior to MySQL query construction")
+
+        if self.aggregate_by == FAADSSearch.FIELD_MAPPINGS['fiscal_year']:
+            # an exception to the field naming rule...
+            aggregate_field = self.aggregate_by['mysql_field']
+        else:
+            # otherwise append id to all foreign key fields to match db schema
+            aggregate_field = self.aggregate_by['mysql_field'] + '_id'
+
+        sql_parameters = [] # uses proper django.db SQL-escaping, in case we ever introduce nonnumeric database queries for some reason
+        
+        sql = " SELECT %s as field, sum(total_funding_amount) as value FROM faads_record WHERE " % aggregate_field            
+        
+        for i,f in enumerate(self.filters):
+            
+            filter_field = f[0]
+            filter_value = f[1]
+            filter_conjunction = f[2]
+
+            # add conjunction if this isn't the first part of the clause
+            if i>0:
+                sql += " %s " % filter_conjunction['mysql']
+            
+            # deal with queries against foreign key fields (there are many of them!)
+            if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
+                
+                fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_fk_transformation', lambda x: x)
+
+                if type(filter_value) not in (list, tuple):
+                    filter_value = (filter_value,)
+                
+                fk_values = []
+                for value in filter_value:
+                    fk_value = fk_transformation(value)
+                    if fk_value is not None:
+                        fk_values.append(str(fk_value))
+                
+                sql += ' ( %s_id IN (%s) ) ' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_fieldname'], ','.join(fk_values))
+               
+            # deal with range-type queries 
+            elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
+                # okay, I admit this may be too cute for its own good. the goal is just to build '( date>%s AND date<%s )' with options for leaving either off via None
+                clause_parts = []
+                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_range_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
+                range_comparators = ('>=', '<=')
+                for j, range_specifier in enumerate(filter_value):
+                    if range_specifier is not None:
+                        clause_parts.append(FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_field'] + range_comparators[j] + "%s")
+                        sql_parameters.append(range_transformation(range_specifier))
+                sql += ' ( %s ) ' % (' AND '.join(clause_parts))
+
+        sql += " GROUP BY %s " % aggregate_field
+
+        return (sql, sql_parameters)
+        
     
     def aggregate(self, aggregate_by):
         
         self.aggregate_by = self.FIELD_MAPPINGS.get(aggregate_by, None)
         if self.aggregate_by is None:
             raise Exception("Cannot aggregate by %s - not a valid field" % aggregate_by)
+        elif not self.aggregate_by.get('aggregate', False):
+            raise Exception("Cannot aggregate by %s - incompatible field type" % aggregate_by)
+        
 
         # check for cached result
         if self.cache:
@@ -241,135 +370,99 @@ class FAADSSearch():
         if self.use_solr:                        
             
             solr = Solr(settings.HAYSTACK_SOLR_URL)
-
-            query = ''
-            for i,f in enumerate(self.filters):
-                filter_field = f[0]
-                filter_value = f[1]
-                filter_conjunction = f[2]
-                
-                if i>0:
-                    query += " %s " % filter_conjunction['solr'] 
-
-                query += filter_field + ": %d " % filter_value
-
-
-            solr_result = solr.search(q=query % (self.filter_by, self.filter_value), 
-                        rows=FAADSSearch.SOLR_MAX_RECORDS,
-                        fl='total_amount,%s' % (self.aggregate_by))
-            
+            query = self._build_solr_query()
+            solr_result = solr.search(q=query, rows=FAADSSearch.SOLR_MAX_RECORDS, fl='total_amount,%s' % (self.aggregate_by['solr_field']))            
             result = {}
             
             # aggregation
             for doc in solr_result.docs:
-                
-                key = int(doc[self.aggregate_by])
-                
+                key = int(doc[self.aggregate_by['solr_field']])                
                 if not result.has_key(key):
-                    result[key] = Decimal(0)
-                
+                    result[key] = Decimal(0)                
                 result[key] += Decimal(str(doc['total_amount'])) 
             
-            cache.set(self.get_query_cache_key(), result)
-            
-            return result
             
         # handling key based aggregation with db group by/sum
         else:
             
             from django.db import connection
-            cursor = connection.cursor()    
+            cursor = connection.cursor()                
             
-            
-            # TODO: determine if this is necessary -- IDs will be consistent, after all... may be that rewriting the codes on output is more appropriate
-            if self.aggregate_by == FAADSSearch.FIELD_MAPPINGS['fiscal_year']:
-                # an exception to the field naming rule...
-                aggregate_field = self.aggregate_by['mysql_field']
-            else:
-                # otherwise append id to all foreign key fields to match db schema
-                aggregate_field = self.aggregate_by['mysql_field'] + '_id'
-            
-            # TODO: figure out what this block is supposed to do
-            # # budget_function or funding_type fields require join through budget_account model
-            #             # ick! punting on this for now...
-            #             if self.aggregate_by == FAADSSearch.FIELD_MAPPINGS['FIELD_BUDGET_FUNCTION'] or self.aggregate_by == FAADSSearch.FIELD_MAPPINGS['FIELD_FUNDING_TYPE']:
-            #                 raise Exception('Currently not handling many-to-many joins on MySQL queries.')
-            
-            # # check to ensure we're not aggregating in an unsupported manner
-            #             filter_fields = map(lambda x: x[0], self.filters)
-            #             if FAADSSearch.FIELD_MAPPINGS['FIELD_BUDGET_FUNCTION'] in filter_fields or FAADSSearch.FIELD_MAPPINGS['FIELD_FUNDING_TYPE'] in filter_fields:
-            #                 raise Exception('Currently not handling many-to-many joins on MySQL queries.')
-
-            sql_parameters = [] # uses proper django.db SQL-escaping, in case we ever introduce nonnumeric database queries for some reason
-            sql = " SELECT %s as field, sum(total_funding_amount) as value FROM faads_record WHERE " % aggregate_field
-            
-            for i,f in enumerate(self.filters):
-                
-                filter_field = f[0]
-                filter_value = f[1]
-                filter_conjunction = f[2]
-
-                # add conjunction if this isn't the first part of the clause
-                if i>0:
-                    sql += " %s " % filter_conjunction['mysql']
-                
-                # deal with queries against foreign key fields (there are many of them!)
-                if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
-                    successfully_mapped_fk_field = False
-                    fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_fk_transformation', FAADSSearch.FIELD_MAPPINGS[filter_field].get('fk_transformation', lambda x: x))
-
-                    if type(filter_value) not in (list, tuple):
-                        filter_value = (filter_value,)
-                    
-                    fk_values = []
-                    for value in filter_value:
-                        fk_value = fk_transformation(value)
-                        if fk_value is not None:
-                            fk_values.append(str(fk_value))
-                    
-                    sql += ' ( %s_id IN (%s) ) ' % (filter_field, ','.join(fk_values))
-                   
-                # deal with range-type queries 
-                elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
-                    # okay, I admit this may be too cute for its own good. the goal is just to build '( date>%s AND date<%s )' with options for leaving either off via None
-                    clause_parts = []
-                    range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_range_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
-                    range_comparators = ('>=', '<=')
-                    for j, range_specifier in enumerate(filter_value):
-                        if range_specifier is not None:
-                            clause_parts.append(FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_field'] + range_comparators[j] + "%s")
-                            sql_parameters.append(range_transformation(range_specifier))
-                    sql += ' ( %s ) ' % (' AND '.join(clause_parts))
-                
-                
-            sql += " GROUP BY %s " % aggregate_field
-            
-            print sql
-            print sql_parameters
-            
+            sql, sql_parameters = self._build_mysql_query()                                
+                        
             cursor.execute(sql, sql_parameters)
             
-            result = {}
-            
+            result = {}            
             for row in cursor.fetchall():
                 result[row[0]] = row[1]
     
-            cache.set(self.get_query_cache_key(), result)
+        cache.set(self.get_query_cache_key(), result)
     
-            return result
+        return result    
     
-    def results(start=0, limit=100):
+    def _run_solr_query_if_necessary(self):
+        # run raw solr query
+        if self.SearchQuerySet is None:
+            self.SearchQuerySet = SearchQuerySet().raw_search(self._build_solr_query()).models(Record)
+    
+    def results(self):
 
-        # can get results using Haystack... 
-            
-        pass 
-    
+        self._run_solr_query_if_necessary()
+        return self.SearchQuerySet.all()
+        
+        # commented code was move toward using haystack API -- seems pointless
+        
+        # 
+        # # order AND filters first, then OR filters
+        # and_filters = {}
+        # or_filters = {}
+        # for f in self.filters:
+        #     filter_field = f[0]
+        #     filter_value = f[1]
+        #     filter_conjunction = f[2]
+        # 
+        #     # select appropriate target list
+        #     target_filter_list = and_filters
+        #     if f[2]==FAADSSearch.CONJUNCTION_OR:
+        #         target_filter_list = or_filters
+        #                         
+        #     # deal with fk
+        #     if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
+        #         
+        #         field_operator = filter_field + '__in'
+        #         fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_fk_transformation', lambda x: x)
+        #         
+        #         if type(filter_value) not in (list, tuple):
+        #             filter_value = (filter_value,)
+        #         
+        #         fk_values = []
+        #         for value in filter_value:
+        #             fk_value = fk_transformation(value)
+        #             if fk_value is not None:
+        #                 fk_values.append(str(fk_value))                                        
+        # 
+        #         target_filter_list[field_operator] = fk_values                
+        #     
+        #     # deal with range
+        #     if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
+        #         clause_parts = []
+        #         range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_range_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
+        #         filter_operators = ('__gte', '__lte')
+        #         for i, range_specifier in enumerate(filter_value):
+        #             if range_specifier is not None:
+        #                 target_filter_list[filter_field + filter_operators[i]] = filter_value
+        #                 
+        #         query += '(%s:[%s])' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_field'], ' TO '.join(clause_parts))
+        # 
+        #     # deal with text
+        #     elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='text':
+        #         target_filter_list[filter_field] = filter_value
+                
+                    
     def count(self):
+        self._run_solr_query_if_necessary()
+        return self.SearchQuerySet.count()
         
-        pass
-        
-def test():
-    print FAADSSearch().use_cache(False).filter('cfda_program','20.205').aggregate('fiscal_year')
-    # faads.search.FAADSSearch().filter('cfda_program','97.090').aggregate('fiscal_year')
+# faads.search.FAADSSearch().filter('cfda_program','20.205').filter('text','highway').aggregate('fiscal_year')
 
     
