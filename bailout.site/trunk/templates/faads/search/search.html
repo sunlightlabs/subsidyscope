@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load media %}
+{% load morsel_tags %}
+
+{% block content %}
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>Search</h3>
+        </div>
+        <div class="content_area">    
+					<form action="{% url faads.views.search %}" method="POST">
+					{{ form.as_p }}
+					<input type="submit" value="Submit" />
+					</form>
+				
+        </div>
+</div>
+
+{% endblock %}

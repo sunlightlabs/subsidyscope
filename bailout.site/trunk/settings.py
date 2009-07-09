@@ -108,7 +108,8 @@ INSTALLED_APPS = (
     'search',
     'faads',
     'budget_accounts',
-    'transportation'
+    'transportation',
+    'tagging'
 )
 
 #try:
