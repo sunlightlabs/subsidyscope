@@ -1,9 +1,9 @@
-import re
 
 from django.db import models
 import sectors.models
 from  budget_accounts.models import BudgetAccount
-
+from tagging.fields import TagField
+from tagging.models import Tag
 class ProgramDescriptionManager(models.Manager):
 
     def parseBudgetAcounts(self):
@@ -63,8 +63,12 @@ class ProgramDescription(models.Model):
     cfda_edition = models.IntegerField("CFDA Edition")
 
     budget_accounts = models.ManyToManyField(BudgetAccount)
+    primary_tag = models.ForeignKey(Tag)
+    secondary_tags = TagField()
 
     objects = ProgramDescriptionManager()   
+
+    
 
     def parseBudgetAcounts(self):
         

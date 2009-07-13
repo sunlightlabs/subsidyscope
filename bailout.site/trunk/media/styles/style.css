@@ -142,6 +142,61 @@ ul#top_nav_header li { display: block !important; float: right;}
 .source_download {padding-left:20px;}
 
 
+.category {
+    font-size: .8em;
+    color: gray;
+}
+.slash {
+    margin: 0 5px 0 10px;
+    font-weight: bold;
+    font-size: 1em;
+}
+.floatright {
+    float: right;
+}
+.inline-box{
+    width: 38%;
+    border: 1px solid #afafaf;
+    padding: 5px;
+    margin: 2px 0 2px 4px;
+    font-size: .85em;
+    color: #4f4f4f;
+}
+.inline-box ul {
+    margin-left: 0;
+}
+.sencase{
+    text-transform: capitalize;
+}
+.hide {
+    left: -99999px;
+}
+
+ul.programs {
+    font-size: 1em;
+    border-bottom: 1px solid #afafaf;
+    float: left;
+    margin-left:0px;
+    width: 100%;
+}
+ul.programs li{
+    float: left;
+    margin-right: 25px;
+    margin-left: 0px;
+}
+span.programs-container{
+    width: 100%;
+    float:left;
+}
+.programs-search{
+    width: 300px;
+}
+#program-listing li{
+    border-bottom: 1px solid #afafaf;
+    padding-bottom: 4px;
+    margin-top:10px;
+    text-transform: capitalize;
+}
 /* FOOTER */
 .footer_container { padding-top:20px; background-repeat:repeat-x; padding:20px 0 20px 0; border-top:1px solid #c6c6c6; }
 
