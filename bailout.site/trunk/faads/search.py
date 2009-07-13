@@ -238,12 +238,13 @@ class FAADSSearch():
         clone.cache = u
         return clone
             
-    def get_query_cache_key(self):
+    def get_query_cache_key(self, aggregate_by=''):
         fs = ''
         for i,f in enumerate(self.filters):
             fs += "%d:{%s|%s|%s}" % (i, str(f[0]), str(f[1]), str(f[2]))
+        fs += aggregate_by
         h = md5(fs).hexdigest() # avoid key length problems
-        return h
+        return str(h)
                     
     def filter(self, filter_by, filter_value, filter_conjunction=CONJUNCTION_AND):  
 
@@ -370,8 +371,8 @@ class FAADSSearch():
 
         sql += " GROUP BY %s " % aggregate_field
 
-        print sql 
-        print sql_parameters
+        # print sql 
+        # print sql_parameters
         return (sql, sql_parameters)
         
     
@@ -386,7 +387,7 @@ class FAADSSearch():
         
         # check for cached result
         if self.cache:
-            cached_result = cache.get(self.get_query_cache_key())
+            cached_result = cache.get(self.get_query_cache_key(aggregate_by=aggregate_by))            
             if cached_result is not None:
                 return cached_result
     
@@ -420,7 +421,7 @@ class FAADSSearch():
             for row in cursor.fetchall():
                 result[row[0]] = row[1]
     
-        cache.set(self.get_query_cache_key(), result)
+        cache.set(self.get_query_cache_key(aggregate_by=aggregate_by), result)
     
         return result    
     
