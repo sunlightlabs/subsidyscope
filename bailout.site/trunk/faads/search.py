@@ -6,7 +6,7 @@ from haystack.query import SearchQuerySet
 import cfda.models
 import django.db.models.fields
 from django.core.cache import cache
-from md5 import md5
+from md5 import md5 
 import settings
 
 """
@@ -84,8 +84,8 @@ class FAADSSearch():
          
         'cfda_program': {
             'type': 'fk',
-            'mysql_fieldname': 'cfda_program', 
-            'solr_fieldname': 'cfda_program', 
+            'mysql_field': 'cfda_program', 
+            'solr_field': 'cfda_program', 
             'mysql_fk_transformation': lambda x: CFDA_PROGRAM_FK_LOOKUP.get(str(x).strip(), None),
             'solr_fk_transformation': lambda x: str(x),
             'aggregate': True
@@ -93,32 +93,32 @@ class FAADSSearch():
                 
         'action_type': {
             'type': 'fk',
-            'mysql_fieldname': 'action_type', 
-            'solr_fieldname': 'action_type',
+            'mysql_field': 'action_type', 
+            'solr_field': 'action_type',
             'mysql_fk_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(x, None),
             'aggregate': True
         },
         
         'recipient_type': {
             'type': 'fk',
-            'mysql_fieldname': 'recipient_type', 
-            'solr_fieldname': 'recipient_type', 
+            'mysql_field': 'recipient_type', 
+            'solr_field': 'recipient_type', 
             'mysql_fk_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(x, None) ,
             'aggregate': True
         },
         
         'record_type': {
             'type': 'fk',
-            'mysql_fieldname': 'record_type', 
-            'solr_fieldname': 'record_type', 
+            'mysql_field': 'record_type', 
+            'solr_field': 'record_type', 
             'mysql_fk_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(x, None),
             'aggregate': True
         },
 
         'assistance_type': {
             'type': 'fk',
-            'mysql_fieldname': 'assistance_type',
-            'solr_fieldname': 'assistance_type',
+            'mysql_field': 'assistance_type',
+            'solr_field': 'assistance_type',
             'mysql_fk_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(x, None),
             'aggregate': True
         },
@@ -162,13 +162,35 @@ class FAADSSearch():
         'recipient': {
             'type': 'text',
             'solr_field': 'recipient'
+        },
+        
+        'recipient_state': {
+            'type': 'fk',
+            'mysql_field': 'recipient_state', 
+            'solr_field': 'recipient_state', 
+            'aggregate': True
+        },
+        
+        'recipient_county': {
+            'type': 'fk',
+            'mysql_field': 'recipient_county', 
+            'solr_field': 'recipient_county', 
+            'aggregate': True
+        },
+        
+        'principal_place_state': {
+            'type': 'fk',
+            'mysql_field': 'principal_place_state', 
+            'solr_field': 'principal_place_state', 
+            'aggregate': True
+        },
+        
+        'principal_place_county': {
+            'type': 'fk',
+            'mysql_field': 'principal_place_county', 
+            'solr_field': 'principal_place_county', 
+            'aggregate': True
         }
-
-        # # TODO: implement geo filtering
-        # 'FIELD_RECIPIENT_COUNTY': 'recipient_county',
-        # 'FIELD_RECIPIENT_STATE': 'recipient_state',
-        # 'FIELD_PRINCIPAL_PLACE_STATE': 'principal_place_state',
-        # 'FIELD_PRINCIPAL_PLACE_COUNTY': 'principal_place_county'
     }
     
     CONJUNCTION_AND = {'solr': 'AND', 'mysql': 'AND'}
@@ -302,48 +324,54 @@ class FAADSSearch():
 
         sql_parameters = [] # uses proper django.db SQL-escaping, in case we ever introduce nonnumeric database queries for some reason
         
-        sql = " SELECT %s as field, sum(total_funding_amount) as value FROM faads_record WHERE " % aggregate_field            
+        sql = " SELECT %s as field, sum(total_funding_amount) as value FROM faads_record " % aggregate_field            
         
-        for i,f in enumerate(self.filters):
+        if len(self.filters) > 0:
             
-            filter_field = f[0]
-            filter_value = f[1]
-            filter_conjunction = f[2]
-
-            # add conjunction if this isn't the first part of the clause
-            if i>0:
-                sql += " %s " % filter_conjunction['mysql']
-            
-            # deal with queries against foreign key fields (there are many of them!)
-            if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
+            sql += " WHERE "
+        
+            for i,f in enumerate(self.filters):
                 
-                fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_fk_transformation', lambda x: x)
-
-                if type(filter_value) not in (list, tuple):
-                    filter_value = (filter_value,)
+                filter_field = f[0]
+                filter_value = f[1]
+                filter_conjunction = f[2]
+    
+                # add conjunction if this isn't the first part of the clause
+                if i>0:
+                    sql += " %s " % filter_conjunction['mysql']
                 
-                fk_values = []
-                for value in filter_value:
-                    fk_value = fk_transformation(value)
-                    if fk_value is not None:
-                        fk_values.append(str(fk_value))
-                
-                sql += ' ( %s_id IN (%s) ) ' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_fieldname'], ','.join(fk_values))
-               
-            # deal with range-type queries 
-            elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
-                # okay, I admit this may be too cute for its own good. the goal is just to build '( date>%s AND date<%s )' with options for leaving either off via None
-                clause_parts = []
-                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_range_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
-                range_comparators = ('>=', '<=')
-                for j, range_specifier in enumerate(filter_value):
-                    if range_specifier is not None:
-                        clause_parts.append(FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_field'] + range_comparators[j] + "%s")
-                        sql_parameters.append(range_transformation(range_specifier))
-                sql += ' ( %s ) ' % (' AND '.join(clause_parts))
+                # deal with queries against foreign key fields (there are many of them!)
+                if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
+                    
+                    fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_fk_transformation', lambda x: x)
+    
+                    if type(filter_value) not in (list, tuple):
+                        filter_value = (filter_value,)
+                    
+                    fk_values = []
+                    for value in filter_value:
+                        fk_value = fk_transformation(value)
+                        if fk_value is not None:
+                            fk_values.append(str(fk_value))
+                    
+                    sql += ' ( %s_id IN (%s) ) ' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_field'], ','.join(fk_values))
+                   
+                # deal with range-type queries 
+                elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
+                    # okay, I admit this may be too cute for its own good. the goal is just to build '( date>%s AND date<%s )' with options for leaving either off via None
+                    clause_parts = []
+                    range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_range_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
+                    range_comparators = ('>=', '<=')
+                    for j, range_specifier in enumerate(filter_value):
+                        if range_specifier is not None:
+                            clause_parts.append(FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_field'] + range_comparators[j] + "%s")
+                            sql_parameters.append(range_transformation(range_specifier))
+                    sql += ' ( %s ) ' % (' AND '.join(clause_parts))
 
         sql += " GROUP BY %s " % aggregate_field
 
+        print sql 
+        print sql_parameters
         return (sql, sql_parameters)
         
     
