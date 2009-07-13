@@ -211,6 +211,10 @@ class FAADSSearch():
         for field in Record._meta.fields:
             self.field_objects[field.name] = field
     
+    def __len__(self):
+        return self.count()
+
+    
     # clone function to enable chainable filtering (blatantly stolen from haystack (which presumably stole it from Django))
     def _clone(self, klass=None):
 
@@ -234,12 +238,13 @@ class FAADSSearch():
         clone.cache = u
         return clone
             
-    def get_query_cache_key(self):
+    def get_query_cache_key(self, aggregate_by=''):
         fs = ''
         for i,f in enumerate(self.filters):
             fs += "%d:{%s|%s|%s}" % (i, str(f[0]), str(f[1]), str(f[2]))
-        return md5(fs).hexdigest() # avoid key length problems
-           
+        fs += aggregate_by
+        h = md5(fs).hexdigest() # avoid key length problems
+        return str(h)
                     
     def filter(self, filter_by, filter_value, filter_conjunction=CONJUNCTION_AND):  
 
@@ -250,7 +255,10 @@ class FAADSSearch():
             raise Exception("'%s' is a ranged field. Please pass a tuple or list of length 2 (None==wildcard)")
 
         clone = self._clone()
-        
+
+        # invalidate existing queryset, if any
+        self.SearchQuerySet = None        
+
         clone.filters.append( (filter_by, filter_value, filter_conjunction) )
         if not clone.use_solr and (clone.FIELD_MAPPINGS[filter_by]['type']=='text'):
             clone.use_solr = True
@@ -363,8 +371,8 @@ class FAADSSearch():
 
         sql += " GROUP BY %s " % aggregate_field
 
-        print sql 
-        print sql_parameters
+        # print sql 
+        # print sql_parameters
         return (sql, sql_parameters)
         
     
@@ -379,7 +387,7 @@ class FAADSSearch():
         
         # check for cached result
         if self.cache:
-            cached_result = cache.get(self.get_query_cache_key())
+            cached_result = cache.get(self.get_query_cache_key(aggregate_by=aggregate_by))            
             if cached_result is not None:
                 return cached_result
     
@@ -413,23 +421,33 @@ class FAADSSearch():
             for row in cursor.fetchall():
                 result[row[0]] = row[1]
     
-        cache.set(self.get_query_cache_key(), result)
+        cache.set(self.get_query_cache_key(aggregate_by=aggregate_by), result)
     
         return result    
     
     def _run_solr_query_if_necessary(self):
         # run raw solr query
         if self.SearchQuerySet is None:
-            self.SearchQuerySet = SearchQuerySet().raw_search(self._build_solr_query()).models(Record)
+            query = self._build_solr_query()
+            self.SearchQuerySet = SearchQuerySetWrapper().raw_search(query)
     
     def results(self):
-
         self._run_solr_query_if_necessary()
-        return self.SearchQuerySet.all()        
-                
+        return self.SearchQuerySet
                     
     def count(self):
         self._run_solr_query_if_necessary()
-        return self.SearchQuerySet.count()
+        return self.SearchQuerySet.__len__()
+        
+class SearchQuerySetWrapper(SearchQuerySet):
+    """ overrides the __len__() function to provide a correct hit count for raw searches """
+    def __init__(self, *args, **kwargs):
+        super(SearchQuerySetWrapper, self).__init__(*args, **kwargs)    
+
+    def count(self):
+        try:
+            return int(self.query._hit_count)
+        except Exception, e:
+            return 0
         
     

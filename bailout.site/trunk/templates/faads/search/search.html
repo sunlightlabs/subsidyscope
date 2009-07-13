@@ -1,6 +1,97 @@
 {% extends "base.html" %}
 {% load media %}
 {% load morsel_tags %}
+{% load webdesign %}
+{% load humanize %}
+{% load search_tags %}
+
+{% block additional_css %}
+{% css "arc90_multiselect.css" %}
+{% css "jquery-ui/jquery-ui-1.7.2.custom.css" %}
+<style type="text/css">
+.field-wrapper { clear: left;}
+
+#text-query-text-wrapper input#id_text_query
+{
+  width: 80%;
+  font-size: 1.1em;
+}
+
+#text-query-type-wrapper ul
+{
+  margin-left: 0; padding-left: 0;
+}
+
+#text-query-type-wrapper ul li 
+{ 
+  margin-left: 0;
+  padding-left: 0;
+  list-style-type: none;
+  display: inline;
+  font-size: 0.8em;
+}
+
+.cfda-float
+{
+  float: left;
+}
+
+#obligation-date-wrapper { padding-right: 50px;}
+#obligation-date-wrapper, obligation-amount-wrapper { float: left;}
+
+
+#cfda-programs { width: 250px; }
+#cfda-or { width: 50px; text-align: center; padding: 0px 20px; font-style: italic;}
+#cfda-tags { width: 231px; }
+#cfda-tags select { width: 230px;}
+
+
+#assistance-action-recipient-wrapper .dropdown-wrapper
+{
+  float: left;
+  padding-right: 50px;
+}
+
+#id_tags
+{
+  padding: 3px;
+}
+
+#faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
+#faads-search-results td { font-size: 0.9em;}
+#faads-search-results td.amount { text-align: right;}
+
+
+.pagination { text-align: center; font-size: 1.2em; margin-top: 20px;}
+.pagination .current { padding: 0 20px; text-align: center; }
+</style>
+{% endblock %}
+
+{% block additional_js %}
+
+	{% js "arc90_multiselect.js" %}
+	{% js "ui.core.js" %}
+	{% js "ui.datepicker.js" %}
+	
+	<script language="javascript" type="text/javascript">  		
+	$(function(){
+		$('select[multiple]').multiSelect(  
+      {  
+        select_all_min: 3,  
+        no_selection: "No criteria selected",  
+        selected_text: " selected"  
+      });
+      
+    $('#multiSelect-id_cfda_programs-title').text('Select specific CFDA programs')
+    
+    $('#obligation-date-wrapper input[type=text]').datepicker();
+  
+	});
+	
+	
+	</script>
+	
+{% endblock %}
 
 {% block content %}
 
@@ -11,10 +102,119 @@
             <h3>Search</h3>
         </div>
         <div class="content_area">    
-					<form action="{% url faads.views.search %}" method="POST">
-					{{ form.as_p }}
-					<input type="submit" value="Submit" />
+	
+					<p>{% lorem %}</p>
+	
+					<form action="{% url faads.views.search %}" method="GET">
+
+						
+
+
+					<div class="field-wrapper" id="text-query-wrapper">
+					  <label for="text_query">Text</label>
+						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
+						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
+					</div>
+
+          <label for="cfda_programs">CFDA Programs</label>                   
+					<div class="field-wrapper" id="cfda-wrapper">
+						<div class="cfda-float" id="cfda-tags">{{ form.tags }}{{ form.tags.errors }}</div>
+						<div class="cfda-float" id="cfda-or">&ndash;&nbsp;or&nbsp;&ndash;</div>
+						<div class="cfda-float" id="cfda-programs">{{ form.cfda_programs }}{{ form.cfda_programs.errors }}</div>
+					</div>
+
+					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
+						<div class="dropdown-wrapper">
+						  <label for="assistance_type">Assistance Type</label>
+							{{ form.assistance_type }}
+							{{ form.assistance_type.errors }}
+						</div>
+						<div class="dropdown-wrapper">
+						  <label for="action_type">Action Type</label>
+							{{ form.action_type }}
+							{{ form.action_type.errors }}
+						</div>
+						<div class="dropdown-wrapper">
+						  <label for="recipient_type">Recipient Type</label>
+							{{ form.recipient_type }}
+							{{ form.recipient_type.errors }}
+						</div>
+					</div>			
+					
+					<div class="field-wrapper">
+  					<div id="obligation-date-wrapper">
+  					  <label for="obligation_date_start">Obligation Date</label>
+  					  <div class="range-wrapper">
+  						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
+  						{{ form.obligation_date_start.errors }}
+  						{{ form.obligation_date_end.errors }}
+  						</div>
+  						{# fiscal year ? #}
+  					</div>
+					
+  					<div id="obligation-amount-wrapper">
+  					  <label for="obligation_amount_minimum">Obligation Amount</label>
+  					  <div class="range-wrapper">
+  						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
+  						{{ form.obligation_amount_minimum.errors }}
+  						{{ form.obligation_amount_maximum.errors }}
+  						</div>
+  					</div>
+          </div>
+
+					<input type="submit" value="Search" class="faads-search-submit" />
 					</form>
+				
+				    {% if not faads_results and ran_search %}
+				      <div id="no-faads-results-found">No records matching your search criteria were found</div>
+				    {% endif %}
+				    
+			      {% if faads_results and ran_search %}				    
+				      <table id="faads-search-results">
+				        <thead>
+				          <tr>
+				            <th class="obligation-date">Obligation Date</th>
+				            <th class="cfda-program">CFDA Program</th>
+				            <th class="recipient-name">Recipient Name</th>
+				            <th class="recipient-location">Recipient Location</th>
+				            <th class="place-of-performance">Place of Performance</th>
+				            <th class="description">Description</th>
+                    <th class="amount">Amount</th>                    
+				          </tr>
+				        </thead>
+
+				        <tbody>
+                {% for result in faads_results.django_object_list %}
+                  <tr class="{% cycle "odd" "even" %}">
+                    <td class="obligation-date">{{ result.obligation_action_date }}</td>
+                    <td class="cfda-program">&nbsp;</td>
+                    <td class="recipient-name">{{ result.recipient_name }}</td>
+                    <td class="recipient-location">{{ result.recipient_city_name }}, {{ result.recipient_state_name }}</td>
+                    <td class="place-of-performance">{{ result.principal_place_county_or_city_name }}, {{ result.principal_place_state_name }}</td>
+                    <td class="description">{{ result.project_description }}</td>
+                    <td class="amount">${{ result.federal_funding_amount|floatformat:"-0"|intcomma }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+
+              <div class="pagination">
+                  <span class="step-links">
+                      {% if faads_results.has_previous %}
+                          <a href="?{{ querystring }}&page={{ faads_results.previous_page_number }}">&laquo; previous</a>
+                      {% endif %}
+
+                      <span class="current">
+                          Page {{ faads_results.number }} of {{ faads_results.paginator.num_pages|intcomma }}
+                      </span>
+
+                      {% if faads_results.has_next %}
+                          <a href="?{{ querystring }}&page={{ faads_results.next_page_number }}">next &raquo;</a>
+                      {% endif %}
+                  </span>
+              </div>
+
+            {% endif %}				
 				
         </div>
 </div>

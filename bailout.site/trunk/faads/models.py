@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models, reset_queries
 from decimal import Decimal
 from cfda.models import ProgramDescription
 from geo.models import *
@@ -440,7 +440,7 @@ class FAADSLoader(object):
                
         conn = MySQLdb.connect(host=FAADSLoader.MYSQL['host'], user=FAADSLoader.MYSQL['user'], passwd=FAADSLoader.MYSQL['password'], db=FAADSLoader.MYSQL['database'], port=FAADSLoader.MYSQL['port'], cursorclass=MySQLdb.cursors.DictCursor)
         cursor = conn.cursor()
-        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 10000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
+        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
         print "Executing query"
         cursor.execute(sql)
         i = 0
@@ -453,6 +453,8 @@ class FAADSLoader(object):
                 sys.stdout.write("Processing row... ")
                 self.process_record(row)
             i = i + 1
+            if (i%1000)==0:
+                reset_queries()
             sys.stdout.write("Finished iteration %d\n" % i)
 
         cursor.close()
