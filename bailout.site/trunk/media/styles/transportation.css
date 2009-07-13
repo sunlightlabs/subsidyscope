@@ -1,0 +1,34 @@
+/* Transportation */
+
+#sector_feature_box { background-color:#000; }
+#sector_feature_box_attr { color:#e6e6e6; padding:0 5px 0 0; text-align:right;}
+
+.sector_header_icon { vertical-align:middle; padding-right:5px;}
+.sector_header { font-size:18px; font-weight:bold; font-family:Verdana; color:#bf5004; text-transform:uppercase;}
+
+.sector_intro_copy { color:#333333; font-family:Georgia,"Nimbus Roman No9 L",serif;
+font-size:150%;
+font-weight:normal;
+letter-spacing:0pt;
+line-height:1.65em;
+padding:0;
+margin:0;}
+
+#sector_taxonomy_box { margin:0; padding:0 0 20px 0;}
+#sector_taxonomy_box_bottom { background-image:url(/media/images/double_lines.gif); background-position:top; background-repeat: repeat-x; clear:both; }
+#sector_taxonomy h3 { font-size:130%; font-weight:bold; margin:0; padding:0;}
+
+#sector_taxonomy_box img { padding-right:5px;}
+
+#sector_taxonomy ul {  padding:0; margin:0;}
+#sector_taxonomy li { float:left; margin:0 0 20px 0; padding:0 0 0 40px; width:100px; font-size:16px; color:#2b5b8e;}
+#sector_taxonomy a:link { color:#1a4760; text-decoration:none;}
+#sector_taxonomy a:visited { color:#435c7a; text-decoration:none;}
+#sector_taxonomy a:hover { color:#bf5004; text-decoration:none;}
+#sector_taxonomy a:active { color:#1a4760; text-decoration:none;}
+
+
+#sector_left_tax
+#sector_tax_item
+#sector_tax_icon
+
