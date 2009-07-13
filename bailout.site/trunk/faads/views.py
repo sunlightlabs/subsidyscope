@@ -1,6 +1,6 @@
 from django.conf import settings
 from django import forms
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.http import Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -10,9 +10,10 @@ from faads.models import *
 from sectors.models import Sector
 from haystack.query import SearchQuerySet
 from decimal import Decimal
+import faads.search
+import re
 
-RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20)
-
+RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
 
 def MakeFAADSSearchFormClass(sector=None):
     
@@ -59,15 +60,15 @@ def MakeFAADSSearchFormClass(sector=None):
       
         # free text query
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
-        text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient'), (1, 'Description'), (2, 'Both')), coerce=int)
+        text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
         # CFDA programs and tags
-        cfda_program = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False)
-        tags = forms.MultipleChoiceField(choices=(('tag1', 'Tag 1'), ('tag2', 'Tag 2')), required=False)
+        cfda_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=map(lambda x: x[0], cfda_program_choices), widget=forms.SelectMultiple(attrs={'class':'fieldwidth-230px'}))
+        tags = forms.ChoiceField(choices=(('-', 'Select CFDA Programs by Function'), ('tag1', 'Tag 1'), ('tag2', 'Tag 2')), initial=('-'), required=False, widget=forms.Select(attrs={'class':'fieldwidth-230px'}))
 
-        assistance_type = forms.MultipleChoiceField(label="Assistance Type", choices=assistance_type_options)
-        action_type = forms.MultipleChoiceField(label="Action Type", choices=action_type_options)        
-        recipient_type = forms.MultipleChoiceField(label="Recipient Type", choices=recipient_type_options)
+        assistance_type = forms.MultipleChoiceField(label="Assistance Type", choices=assistance_type_options, initial=map(lambda x: x[0], assistance_type_options))
+        action_type = forms.MultipleChoiceField(label="Action Type", choices=action_type_options, initial=map(lambda x: x[0], action_type_options))        
+        recipient_type = forms.MultipleChoiceField(label="Recipient Type", choices=recipient_type_options, initial=map(lambda x: x[0], recipient_type_options))
     
         obligation_date_start = forms.DateField(label="Obligation Date Start", required=False)
         obligation_date_end = forms.DateField(label="Obligation Date End", required=False)
@@ -101,31 +102,71 @@ def search(request, sector_name=None):
             
     
     
-    if request.method == 'GET' and request.GET.has_key('query'):
+    if request.method == 'GET' and request.GET.has_key('text_query'):
         
-        formclass = MakeFAADSSearchFormClass(sector=sector)
+        formclass = MakeFAADSSearchFormClass(sector=sector)            
         form = formclass(request.GET)
         
-        if form.is_valid():
-            query = form.cleaned_data['query']
-            page_result_set = SearchQuerySet().auto_query(query).models(Page).highlight()
+        if form.is_valid():            
+                                    
+            faads_result_set = faads.search.FAADSSearch().use_cache(False)
             
-#            if form.cleaned_data.has_key('search_scope'):
-#                search_scope = form.cleaned_data['search_scope']
-#            else:
-#                search_scope = 'all'
-#            
-#            
-#            if search_scope == 'site' or search_scope == 'all':
-#                page_result_set = SearchQuerySet().auto_query(query).highlight()
-#                
-#            if search_scope == 'cfda' or search_scope == 'all':
-#                cfda_result_set = SearchQuerySet().models(ProgramDescription).auto_query(query)
+            if form.cleaned_data['text_query'] is not None and len(form.cleaned_data['text_query'].strip())>0:
+                if form.cleaned_data['text_query_type']==2:
+                    faads_result_set = faads_result_set.filter('recipient', form.cleaned_data['text_query']).filter('text', form.cleaned_data['text_query'], faads.search.FAADSSearch.CONJUNCTION_OR)
+                elif form.cleaned_data['text_query_type']==1:
+                    faads_result_set = faads_result_set.filter('text', form.cleaned_data['text_query'])
+                elif form.cleaned_data['text_query_type']==0:
+                    faads_result_set = faads_result_set.filter('recipient', form.cleaned_data['text_query'])
+            
+            if len(form.cleaned_data['cfda_programs'])<len(form.fields['cfda_programs'].choices):
+                faads_result_set = faads_result_set.filter('cfda_program', form.cleaned_data['cfda_programs'])
+            
+            if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
+                faads_result_set = faads_result_set.filter('assistance_type', form.cleaned_data['assistance_type'])
+                
+            if len(form.cleaned_data['recipient_type'])<len(form.fields['recipient_type'].choices):
+                faads_result_set = faads_result_set.filter('recipient_type', form.cleaned_data['recipient_type'])
+
+            if len(form.cleaned_data['action_type'])<len(form.fields['action_type'].choices):
+                faads_result_set = faads_result_set.filter('action_type', form.cleaned_data['action_type'])
+                
+            if form.cleaned_data['obligation_date_start'] is not None or form.cleaned_data['obligation_date_end'] is not None:
+                faads_result_set = faads_result_set.filter('obligation_action_date', (form.cleaned_data['obligation_date_start'], form.cleaned_data['obligation_date_end']))
+
+            if form.cleaned_data['obligation_amount_minimum'] is not None or form.cleaned_data['obligation_amount_maximum'] is not None:
+                faads_result_set = faads_result_set.filter('total_funding_amount', (form.cleaned_data['obligation_amount_minimum'], form.cleaned_data['obligation_amount_maximum']))
+
+            faads_results = faads_result_set.results()
+            print "!!!!", faads_results
+            paginator = Paginator(faads_results, RESULTS_PER_PAGE)
+            
+            try:
+                page = int(request.GET.get('page','1'))
+            except Exception, e:
+                page = 1
+                
+            try:
+                faads_results_page = paginator.page(page)
+            except (EmptyPage, InvalidPage):
+                faads_results_page = paginator.page(paginator.num_pages)
+                
+            if faads_results_page:
+                django_id_list = map(lambda x: int(getattr(x, 'pk', -1)), faads_results_page.object_list)
+                faads_results_page.django_object_list = Record.objects.filter(id__in=django_id_list).select_related()
+                            
+            ran_search = True
+            re_search = re.compile(r'page=\d+')
+            querystring = re_search.sub('',request.META['QUERY_STRING'])
+            querystring.replace('&&','&')
         
     else:
+        ran_search = False
+        querystring = ''
+        faads_results_page = None
         formclass = MakeFAADSSearchFormClass(sector=sector)
-        form = formclass(request.GET, initial={'text_query':'xyz'})
+        form = formclass()
         
-    return render_to_response('faads/search/search.html', {'page_result_set':page_result_set, 'cfda_result_set':cfda_result_set, 'form':form})
+    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'querystring':querystring})
 
 

@@ -189,6 +189,10 @@ class FAADSSearch():
         for field in Record._meta.fields:
             self.field_objects[field.name] = field
     
+    def __len__(self):
+        return self.count()
+
+    
     # clone function to enable chainable filtering (blatantly stolen from haystack (which presumably stole it from Django))
     def _clone(self, klass=None):
 
@@ -216,8 +220,8 @@ class FAADSSearch():
         fs = ''
         for i,f in enumerate(self.filters):
             fs += "%d:{%s|%s|%s}" % (i, str(f[0]), str(f[1]), str(f[2]))
-        return md5(fs).hexdigest() # avoid key length problems
-           
+        h = md5(fs).hexdigest() # avoid key length problems
+        return h
                     
     def filter(self, filter_by, filter_value, filter_conjunction=CONJUNCTION_AND):  
 
@@ -228,7 +232,10 @@ class FAADSSearch():
             raise Exception("'%s' is a ranged field. Please pass a tuple or list of length 2 (None==wildcard)")
 
         clone = self._clone()
-        
+
+        # invalidate existing queryset, if any
+        self.SearchQuerySet = None        
+
         clone.filters.append( (filter_by, filter_value, filter_conjunction) )
         if not clone.use_solr and (clone.FIELD_MAPPINGS[filter_by]['type']=='text'):
             clone.use_solr = True
@@ -392,16 +399,26 @@ class FAADSSearch():
     def _run_solr_query_if_necessary(self):
         # run raw solr query
         if self.SearchQuerySet is None:
-            self.SearchQuerySet = SearchQuerySet().raw_search(self._build_solr_query()).models(Record)
+            query = self._build_solr_query()
+            self.SearchQuerySet = SearchQuerySetWrapper().raw_search(query)
     
     def results(self):
-
         self._run_solr_query_if_necessary()
-        return self.SearchQuerySet.all()        
-                
+        return self.SearchQuerySet
                     
     def count(self):
         self._run_solr_query_if_necessary()
-        return self.SearchQuerySet.count()
+        return self.SearchQuerySet.__len__()
+        
+class SearchQuerySetWrapper(SearchQuerySet):
+    """ overrides the __len__() function to provide a correct hit count for raw searches """
+    def __init__(self, *args, **kwargs):
+        super(SearchQuerySetWrapper, self).__init__(*args, **kwargs)    
+
+    def count(self):
+        try:
+            return int(self.query._hit_count)
+        except Exception, e:
+            return 0
         
     
