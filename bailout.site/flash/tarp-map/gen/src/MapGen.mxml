@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" width="850" height="900" layout="absolute">
+	<mx:Script source="MapGen.as"/>
+	
+	<mx:Canvas id="mapCanvas" x="10" y="51" width="800" height="800">
+	</mx:Canvas>
+	<mx:ApplicationControlBar x="10" y="10" width="800">
+	
+	
+		<mx:Button label="Load Shapefile" click="loadShapefile();"/>
+		<mx:Button label="Set Scale" enabled="false"/>
+		<mx:Button label="Select Data Fields" enabled="false"/>
+		<mx:Button label="Export Mapfile" textAlign="center" enabled="true" click="saveFile();"/>
+	</mx:ApplicationControlBar>
+	
+</mx:WindowedApplication>
