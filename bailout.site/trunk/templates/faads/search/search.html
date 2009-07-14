@@ -7,7 +7,8 @@
 
 {% block additional_css %}
 {% css "arc90_multiselect.css" %}
-{% css "jquery-ui/jquery-ui-1.7.2.custom.css" %}
+{% css "jquery-ui/ui.all.css" %}
+
 <style type="text/css">
 .field-wrapper { clear: left;}
 
@@ -64,6 +65,10 @@
 
 .pagination { text-align: center; font-size: 1.2em; margin-top: 20px;}
 .pagination .current { padding: 0 20px; text-align: center; }
+
+#tabs ul { margin-bottom: 0px;}
+#tabs ul, #tabs ul li { margin-left: 0;}
+#tabs ul li { font-size: 0.8em;}
 </style>
 {% endblock %}
 
@@ -71,6 +76,7 @@
 
 	{% js "arc90_multiselect.js" %}
 	{% js "ui.core.js" %}
+	{% js "ui.tabs.js" %}
 	{% js "ui.datepicker.js" %}
 	
 	<script language="javascript" type="text/javascript">  		
@@ -85,6 +91,8 @@
     $('#multiSelect-id_cfda_programs-title').text('Select specific CFDA programs')
     
     $('#obligation-date-wrapper input[type=text]').datepicker();
+  
+    $('#tabs').tabs();
   
 	});
 	
@@ -169,7 +177,17 @@
 				      <div id="no-faads-results-found">No records matching your search criteria were found</div>
 				    {% endif %}
 				    
-			      {% if faads_results and ran_search %}				    
+			      {% if faads_results and ran_search %}		
+			      
+			      <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+          		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+          			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#faads-result-table">Results</a></li>
+          			<li class="ui-state-default ui-corner-top"><a href="#faads-result-graph">By Year</a></li>
+          			<li class="ui-state-default ui-corner-top"><a href="#faads-result-map">By Location</a></li>
+          		</ul>
+          		
+          		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-table">
+			      		    
 				      <table id="faads-search-results">
 				        <thead>
 				          <tr>
@@ -185,7 +203,7 @@
 
 				        <tbody>
                 {% for result in faads_results.django_object_list %}
-                  <tr class="{% cycle "odd" "even" %}">
+                  <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.record_id }}">
                     <td class="obligation-date">{{ result.obligation_action_date }}</td>
                     <td class="cfda-program">&nbsp;</td>
                     <td class="recipient-name">{{ result.recipient_name }}</td>
@@ -214,6 +232,17 @@
                   </span>
               </div>
 
+              </div>
+              
+              <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-graph">
+                  Graph goes here.
+              </div>
+              
+              <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-map">
+                  Map goes here.
+              </div>
+
+            </div>
             {% endif %}				
 				
         </div>
