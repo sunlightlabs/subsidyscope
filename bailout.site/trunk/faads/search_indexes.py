@@ -8,12 +8,10 @@ class RecordIndex(indexes.SearchIndex):
     
     type = 'faads'
     
-    cfda_program = indexes.CharField(model_attr='cfda_program__program_number')
+    cfda_program = indexes.IntegerField(model_attr='cfda_program__id')
     
     budget_function = indexes.MultiValueField() # many-to-many via cfda program description
     funding_type = indexes.MultiValueField() # many-to-many via cfda program description
-    
-    #program_vote = indexes.MultiValueField()  --- tbd
     
     sector = indexes.IntegerField() 
     subsector = indexes.IntegerField()
@@ -68,28 +66,28 @@ class RecordIndex(indexes.SearchIndex):
         if object.action_type != None:
             return object.action_type.id
         else:
-            return 0
+            return None
     
     def prepare_recipient_type(self, object):
         
         if object.recipient_type != None:
             return object.recipient_type.id
         else:
-            return 0
+            return None
     
     def prepare_record_type(self, object):
         
         if object.record_type != None:
             return object.record_type.id
         else:
-            return 0
+            return None
     
     def prepare_assistance_type(self, object):
         
         if object.assistance_type != None:
             return object.assistance_type.id
         else:
-            return 0
+            return None
     
     
     def prepare_fiscal_year(self, object):
@@ -97,35 +95,35 @@ class RecordIndex(indexes.SearchIndex):
         if object.fiscal_year != None:
             return int(object.fiscal_year)
         else:
-            return 0
+            return None
         
     def prepare_obligation_date(self, object):
         
         if object.obligation_action_date != None:
             return object.obligation_action_date
         else:
-            return datetime.date(1900, 1, 1)       
+            return None       
     
     def prepare_federal_amount(self, object):
         
         if object.federal_funding_amount:
             return int(object.federal_funding_amount)
         else:
-            return 0
+            return None
     
     def prepare_non_federal_amount(self, object):
         
         if object.non_federal_funding_amount:
             return int(object.non_federal_funding_amount)
         else:
-            return 0
+            return None
     
     def prepare_total_amount(self, object):
     
         if object.total_funding_amount:
             return int(object.total_funding_amount)
         else:
-            return 0
+            return None
     
 
     def prepare_recipient(self, object):
@@ -139,14 +137,14 @@ class RecordIndex(indexes.SearchIndex):
         if object.recipient_county:
             return object.recipient_county.id
         else:
-            return 0
+            return None
     
     def prepare_recipient_state(self, object):
         
         if object.recipient_state:
             return object.recipient_state.id
         else:
-            return 0
+            return None
         
         
     def prepare_principal_place_county(self, object):
@@ -154,14 +152,14 @@ class RecordIndex(indexes.SearchIndex):
         if object.principal_place_county:
             return object.principal_place_county.id
         else:
-            return 0
+            return None
     
     def prepare_principal_place_state(self, object):
         
         if object.principal_place_state:
             return object.principal_place_state.id
         else:
-            return 0
+            return None
     
     
     def get_query_set(self):
