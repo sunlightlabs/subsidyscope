@@ -1,8 +1,10 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as login_auth, logout as logout_auth
 from django.forms import ModelForm
+from django.db.models import Q
 
 from cfda.models import ProgramDescription
 from subsidysort.models import * 
@@ -46,7 +48,7 @@ def task(request, task_id):
 
 
 @login_required
-def review(request, task_id, show='all'):
+def review(request, task_id, show='all', tag_id=None, tag_location=None):
     
     task = Task.objects.get(id=task_id)
     
@@ -58,6 +60,7 @@ def review(request, task_id, show='all'):
         final_items = items
         
     else:
+        
         for item in items:
             
             votes = item.getVotes()
@@ -68,10 +71,37 @@ def review(request, task_id, show='all'):
                 final_items.append(item)    
             elif show == 'split' and len(votes) > 1:
                 final_items.append(item)
-                 
+         
+    selected_tag = None
+
+    try:
+        tag_location = int(tag_location)
+    except:
+        tag_location = -1
+    
+    if tag_id and int(tag_id):
         
-    return render_to_response('subsidysort/review.html', {'task':task, 'items':final_items, 'user':request.user} )
+        tag_id = int(tag_id)
+        
+        selected_tag = Tag.objects.get(id=tag_id)
+        
+        final = User.objects.get(id=14)
+        
+        
+            
+        if tag_location == 1:
+            final_items = Item.objects.filter(Q(vote__user=final) & Q(vote__primary_purpose=selected_tag))
+        elif tag_location == 2:
+            final_items = Item.objects.filter(Q(vote__user=final) & Q(vote__tags=selected_tag))
+        else:
+            final_items = Item.objects.filter(Q(vote__user=final) & (Q(vote__primary_purpose=selected_tag) | Q(vote__tags=selected_tag)))    
+      
+    
+    tags = Tag.objects.all()
+
+    return render_to_response('subsidysort/review.html', {'task':task, 'items':final_items, 'user':request.user, 'tags':tags, 'selected_tag':selected_tag, 'tag_location':tag_location } )
                             
+
 
 @login_required
 def vote(request, item_id):
@@ -91,11 +121,11 @@ def vote(request, item_id):
         
         items = Item.objects.filter(task=item.task)
         
-        for item in items:
-            if item.vote_set.filter(user=request.user).count() == 0:
-                return HttpResponseRedirect('/subsidysort/vote/%d/' % item.id)
-        
-        return HttpResponseRedirect('/subsidysort/task/%d/' % item.task.id)
+#        for item in items:
+#            if item.vote_set.filter(user=request.user).count() == 0:
+#                return HttpResponseRedirect('/subsidysort/vote/%d/' % item.id)
+#        
+        return HttpResponseRedirect('/subsidysort/review/%d/' % item.task.id)
     
     try:    
         vote = item.vote_set.get(user=request.user)

@@ -10,6 +10,7 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Kevin Webb', 'kwebb@sunlightfoundation.com'),
     ('Tom Lee','tlee@sunlightfoundation.com'),
+    ('Kaitlin Lee','klee@sunlightfoundation.com')
 )
 
 MANAGERS = ADMINS
@@ -182,6 +183,8 @@ SCRIBD_PUBLISHER_ID = '***REMOVED***'
 # Haystack
 HAYSTACK_SEARCH_ENGINE = 'solr' 
 HAYSTACK_SOLR_URL = 'http://127.0.0.1:8180/solr'
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
 
 # Auth 
 

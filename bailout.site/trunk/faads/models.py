@@ -1,10 +1,11 @@
-from django.db import models
+from django.db import models, reset_queries
 from decimal import Decimal
 from cfda.models import ProgramDescription
 from geo.models import *
 from decimal import Decimal
 import sys
 import MySQLdb
+import settings
 
 def generate_model_entries(obj):
     obj.objects.all().delete()
@@ -24,12 +25,12 @@ class AssistanceType(models.Model):
 
     OPTIONS = (
         (2, "Block grant (A)"),
-        (3, "Formula grant (A)"),
-        (4, "Project grant (B)"),
-        (5, "Cooperative agreement (B)"),
-        (6, "Direct payment for specified use, as a subsidy or other non-reimbursable direct financial aid (C)"),
-        (7, "Direct loan (D)"),
-        (8, "Guaranteed/insured loan (F)"),
+        (3, "Formula grant (A)"), # present in transportation
+        (4, "Project grant (B)"), # present in transportation
+        (5, "Cooperative agreement (B)"), # present in transportation
+        (6, "Direct payment for specified use, as a subsidy or other non-reimbursable direct financial aid (C)"), # present in transportation
+        (7, "Direct loan (D)"), # present in transportation
+        (8, "Guaranteed/insured loan (F)"), # present in transportation
         (9, "Insurance (G)"),
         (10, "Direct payment with unrestricted use (D)"),
         (11, "Other reimbursable, contingent, intangible or indirect financial assistance"),    
@@ -46,10 +47,10 @@ class ActionType(models.Model):
     name = models.CharField("Descriptive Name", max_length=255, blank=False)     
 
     OPTIONS = (
-        ("A", "New assistance action"),
-        ("B", "Continuation"),
-        ("C", "Revision"),
-        ("D", "Funding adjustment to completed project")        
+        ("A", "New assistance action"), # present in transportation
+        ("B", "Continuation"), # present in transportation
+        ("C", "Revision"), # present in transportation
+        ("D", "Funding adjustment to completed project")
     )
 
 
@@ -62,19 +63,19 @@ class RecipientType(models.Model):
     name = models.CharField("Descriptive Name", max_length=255, blank=False)
 
     OPTIONS = (
-        (0, "State government"),
-        (1, "County government"),
-        (2, "City or township government"),
-        (4, "Special district government"),
-        (5, "Independent school district"),
-        (6, "State controlled institution of higher education"),
-        (11, "Indian tribe"),
-        (12, "Other nonprofit"),
-        (20, "Private higher education"),
-        (21, "Individual"),
-        (22, "Profit organization"),
-        (23, "Small business"),
-        (25, "All other")
+        (0, "State government"), # present in transportation
+        (1, "County government"), # present in transportation
+        (2, "City or township government"), # present in transportation
+        (4, "Special district government"), # present in transportation
+        (5, "Independent school district"), # present in transportation
+        (6, "State controlled institution of higher education"), # present in transportation
+        (11, "Indian tribe"), # present in transportation
+        (12, "Other nonprofit"), # present in transportation
+        (20, "Private higher education"), # present in transportation
+        (21, "Individual"), # present in transportation
+        (22, "Profit organization"), # present in transportation
+        (23, "Small business"), # present in transportation
+        (25, "All other") # present in transportation
     )
 
 
@@ -88,7 +89,7 @@ class RecordType(models.Model):
 
     OPTIONS = (
          (1, "County aggregate reporting"),
-         (2, "Action-by-action reporting")
+         (2, "Action-by-action reporting") # present in transportation
      )    
 
 
@@ -168,15 +169,6 @@ class Record(models.Model):
 class FAADSLoader(object):
     """docstring for FAADSLoader"""
 
-    MYSQL = {
-        'user': 'root',
-        'password': '',
-        'database': 'usaspending',
-        'host': '127.0.0.1',
-        'port': 3306
-    }
-
-    
 
     def __init__(self):
         
@@ -438,9 +430,9 @@ class FAADSLoader(object):
         if max_record_id is None:
             max_record_id = 0
                
-        conn = MySQLdb.connect(host=FAADSLoader.MYSQL['host'], user=FAADSLoader.MYSQL['user'], passwd=FAADSLoader.MYSQL['password'], db=FAADSLoader.MYSQL['database'], port=FAADSLoader.MYSQL['port'], cursorclass=MySQLdb.cursors.DictCursor)
+        conn = MySQLdb.connect(host=settings.FAADS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FAADS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FAADS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FAADS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FAADS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
         cursor = conn.cursor()
-        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 10000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
+        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
         print "Executing query"
         cursor.execute(sql)
         i = 0
@@ -453,6 +445,7 @@ class FAADSLoader(object):
                 sys.stdout.write("Processing row... ")
                 self.process_record(row)
             i = i + 1
+        
             sys.stdout.write("Finished iteration %d\n" % i)
 
         cursor.close()
