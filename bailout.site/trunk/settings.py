@@ -107,7 +107,8 @@ INSTALLED_APPS = (
     'search',
     'faads',
     'budget_accounts',
-    'transportation'
+    'transportation',
+    'tagging'
 )
 
 #try:
@@ -180,7 +181,7 @@ SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
 # Haystack
 HAYSTACK_SEARCH_ENGINE = 'solr' 
-
+HAYSTACK_SOLR_URL = 'http://127.0.0.1:8180/solr'
 
 # Auth 
 
