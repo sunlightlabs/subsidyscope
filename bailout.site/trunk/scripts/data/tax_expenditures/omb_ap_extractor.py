@@ -122,7 +122,7 @@ def process_file(year):
                         print individual_amounts
                     
                     
-                    for i in range(-2, 5):
+                    for i in range(0, 5):
                         individual_estimate = individual_amounts[i]
                         corp_estimate = corp_amounts[i]
                         
