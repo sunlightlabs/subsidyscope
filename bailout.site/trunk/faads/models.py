@@ -1,10 +1,11 @@
-from django.db import models
+from django.db import models, reset_queries
 from decimal import Decimal
 from cfda.models import ProgramDescription
 from geo.models import *
 from decimal import Decimal
 import sys
 import MySQLdb
+import settings
 
 def generate_model_entries(obj):
     obj.objects.all().delete()
@@ -168,15 +169,6 @@ class Record(models.Model):
 class FAADSLoader(object):
     """docstring for FAADSLoader"""
 
-    MYSQL = {
-        'user': 'root',
-        'password': '',
-        'database': 'usaspending',
-        'host': '127.0.0.1',
-        'port': 3306
-    }
-
-    
 
     def __init__(self):
         
@@ -438,9 +430,9 @@ class FAADSLoader(object):
         if max_record_id is None:
             max_record_id = 0
                
-        conn = MySQLdb.connect(host=FAADSLoader.MYSQL['host'], user=FAADSLoader.MYSQL['user'], passwd=FAADSLoader.MYSQL['password'], db=FAADSLoader.MYSQL['database'], port=FAADSLoader.MYSQL['port'], cursorclass=MySQLdb.cursors.DictCursor)
+        conn = MySQLdb.connect(host=settings.FAADS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FAADS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FAADS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FAADS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FAADS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
         cursor = conn.cursor()
-        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 10000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
+        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
         print "Executing query"
         cursor.execute(sql)
         i = 0
@@ -453,6 +445,7 @@ class FAADSLoader(object):
                 sys.stdout.write("Processing row... ")
                 self.process_record(row)
             i = i + 1
+        
             sys.stdout.write("Finished iteration %d\n" % i)
 
         cursor.close()
