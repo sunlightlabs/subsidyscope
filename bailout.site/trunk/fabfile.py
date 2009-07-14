@@ -207,10 +207,11 @@ def drop_and_reload_live_models(app=None):
 def get_staging_mysql_string():
     """ returns mysql string for staging server """
     subsidyscope_setup()    
+    local('touch $(local_project_root)/local_settings_staging.py && rm -f $(local_project_root)/local_settings_staging.py')
     local('scp -C -i $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging):$(staging_project_root)/local_settings.py $(local_project_root)/local_settings_staging.py')
     import local_settings_staging
     assert local_settings_staging.DATABASE_ENGINE=='mysql', "staging site appears not to be using mysql"
-    local('rm $(local_project_root)/local_settings_staging.py')
+    local('touch $(local_project_root)/local_settings_staging.py && rm -f $(local_project_root)/local_settings_staging.py')
     return get_mysql_string(local_settings_staging)
     
     
@@ -228,7 +229,7 @@ def get_live_mysql_string():
     local('mv local_settings.py.subsidyscope.com local_settings_live.py')
     import local_settings_live
     assert local_settings_live.DATABASE_ENGINE=='mysql', "live site appears not to be using mysql"
-    local('rm local_settings_live.py')
+    local('touch local_settings_live.py && rm -f local_settings_live.py')
     return get_mysql_string(local_settings_live)
 
 
@@ -325,14 +326,18 @@ def push_tarp():
     push_fixture_from_staging_to_live_via_mysql('bailout', backup=False) # only backup before the first operation so we can roll back properly
 
 def new_h41_to_local():
+    """ imports today's H41 file to the local database (run first) """
     subsidyscope_setup()
-    local('Users/thomaslee/Projects/subsidyscope-etl/h41/import_new_h41.sh')
+    local('/Users/thomaslee/Projects/subsidyscope-etl/h41/import_new_h41.sh')
+    local('python $(local_project_root)/manage.py generatecsv')
     
 def new_h41_to_staging():
+    """ pushes the local fed_h41 fixture to the staging site and regenerates CSVs (run second) """
     subsidyscope_setup()
     push_fixture_from_local_to_staging_via_mysql('fed_h41')
-    local('ssh -i $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging) "python ~/lib/python/subsidyscope/manage.py generatecsv')
+    local('ssh -i $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging) "export PYTHONPATH=$(staging_python_root):$PYTHONPATH && python ~/lib/python/subsidyscope/manage.py generatecsv"')
 
 def new_h41_to_live():
+    """ pushes the staging fed_h41 fixture to live and regenerates CSVs (run third) """
     push_fixture_from_staging_to_live_via_mysql('fed_h41')
-    
+    run('export PYTHONPATH=$(live_python_root):$PYTHONPATH && python $(live_project_root)/manage.py generatecsv')

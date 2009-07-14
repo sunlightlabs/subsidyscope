@@ -22,3 +22,4 @@ class Sector(models.Model):
 
 # budget function
 
+# recipient type
