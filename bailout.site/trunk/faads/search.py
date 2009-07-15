@@ -87,7 +87,7 @@ class FAADSSearch():
             'mysql_field': 'cfda_program', 
             'solr_field': 'cfda_program', 
             'mysql_fk_transformation': lambda x: CFDA_PROGRAM_FK_LOOKUP.get(str(x).strip(), None),
-            'solr_fk_transformation': lambda x: str(x),
+            'solr_fk_transformation': lambda x: x,
             'aggregate': True
         },
                 
@@ -95,7 +95,8 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'action_type', 
             'solr_field': 'action_type',
-            'mysql_fk_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(x, None),
+            'mysql_fk_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(str(x), None),
+            'solr_fk_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(str(x), None),
             'aggregate': True
         },
         
@@ -103,7 +104,8 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'recipient_type', 
             'solr_field': 'recipient_type', 
-            'mysql_fk_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(x, None) ,
+            'mysql_fk_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(int(x), None) ,
+            'solr_fk_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(int(x), None),
             'aggregate': True
         },
         
@@ -111,7 +113,8 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'record_type', 
             'solr_field': 'record_type', 
-            'mysql_fk_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(x, None),
+            'mysql_fk_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(int(x), None),
+            'solr_fk_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(int(x), None),
             'aggregate': True
         },
 
@@ -119,7 +122,8 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'assistance_type',
             'solr_field': 'assistance_type',
-            'mysql_fk_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(x, None),
+            'mysql_fk_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(int(x), None),
+            'solr_fk_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(int(x), None),
             'aggregate': True
         },
 
@@ -133,7 +137,8 @@ class FAADSSearch():
         'obligation_action_date': {
             'type': 'range',
             'mysql_field': 'obligation_action_date',
-            'solr_field': 'obligation_date'
+            'solr_field': 'obligation_date',
+            'solr_range_transformation': lambda x: str(x) + 'T00:00:00Z'
         },
 
         'non_federal_funding_amount': {
@@ -285,11 +290,12 @@ class FAADSSearch():
                 
                 fk_values = []
                 for value in filter_value:
-                    fk_value = fk_transformation(value)
+                    fk_value = fk_transformation(value)                    
                     if fk_value is not None:
                         fk_values.append(str(fk_value))
                 
-                query += '(%s:(%s))' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_fieldname'], ' OR '.join(fk_values))
+                if len(fk_values):                
+                    query += '(%s:(%s))' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_field'], ' OR '.join(fk_values))
 
 
             # deal with range-type queries 
@@ -429,7 +435,8 @@ class FAADSSearch():
         # run raw solr query
         if self.SearchQuerySet is None:
             query = self._build_solr_query()
-            self.SearchQuerySet = SearchQuerySetWrapper().raw_search(query)
+            print query
+            self.SearchQuerySet = SearchQuerySetWrapper().raw_search(query, rows=50)
     
     def results(self):
         self._run_solr_query_if_necessary()
@@ -438,7 +445,69 @@ class FAADSSearch():
     def count(self):
         self._run_solr_query_if_necessary()
         return self.SearchQuerySet.__len__()
+
+    def get_haystack_queryset(self, order_by='-obligation_date'):
+        """ Returns a Haystack QuerySet object with the appropriate filters """
+
+        # order AND filters first, then OR filters
+        and_filters = {}
+        or_filters = {}
+        for f in self.filters:
+            filter_field = f[0]
+            filter_value = f[1]
+            filter_conjunction = f[2]
+
+            # select appropriate target list
+            target_filter_list = and_filters
+            if f[2]==FAADSSearch.CONJUNCTION_OR:
+                target_filter_list = or_filters
+                        
+            # deal with fk
+            if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
         
+                field_operator = filter_field + '__in'
+                fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_fk_transformation', lambda x: x)
+        
+                if type(filter_value) not in (list, tuple):
+                    filter_value = (filter_value,)
+        
+                fk_values = []
+                for value in filter_value:
+                    fk_value = fk_transformation(value)
+                    if fk_value is not None:
+                        fk_values.append(str(fk_value))                                        
+
+                target_filter_list[field_operator] = fk_values                
+    
+            # deal with range
+            if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
+                clause_parts = []
+                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_range_transformation', lambda x: x) # putting this in plac
+                filter_operators = ('__gte', '__lte')
+                for i, range_specifier in enumerate(filter_value):
+                    if range_specifier is not None:
+                        target_filter_list[filter_field + filter_operators[i]] = filter_value
+                
+
+            # deal with text
+            elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='text':
+                target_filter_list[filter_field] = filter_value
+    
+        s = SearchQuerySet().models(Record)
+        
+        if len(and_filters):
+            s = s.filter_and(**and_filters)
+        
+        if len(or_filters):
+            s = s.filter_or(**or_filters)
+        
+        s = s.order_by(order_by)
+        
+        return s
+        
+
+
+    
 class SearchQuerySetWrapper(SearchQuerySet):
     """ overrides the __len__() function to provide a correct hit count for raw searches """
     def __init__(self, *args, **kwargs):

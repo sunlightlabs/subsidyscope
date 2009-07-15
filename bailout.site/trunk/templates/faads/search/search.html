@@ -202,15 +202,15 @@
 				        </thead>
 
 				        <tbody>
-                {% for result in faads_results.django_object_list %}
-                  <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.record_id }}">
-                    <td class="obligation-date">{{ result.obligation_action_date }}</td>
+                {% for result in faads_results.object_list %}
+                  <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.object.record_id }}">
+                    <td class="obligation-date">{{ result.object.obligation_action_date }}</td>
                     <td class="cfda-program">&nbsp;</td>
-                    <td class="recipient-name">{{ result.recipient_name }}</td>
-                    <td class="recipient-location">{{ result.recipient_city_name }}, {{ result.recipient_state_name }}</td>
-                    <td class="place-of-performance">{{ result.principal_place_county_or_city_name }}, {{ result.principal_place_state_name }}</td>
-                    <td class="description">{{ result.project_description }}</td>
-                    <td class="amount">${{ result.federal_funding_amount|floatformat:"-0"|intcomma }}</td>
+                    <td class="recipient-name">{{ result.object.recipient_name }}</td>
+                    <td class="recipient-location">{{ result.object.recipient_city_name }}, {{ result.object.recipient_state_name }}</td>
+                    <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name }}, {{ result.object.principal_place_state_name }}</td>
+                    <td class="description">{{ result.object.project_description }}</td>
+                    <td class="amount">${{ result.object.federal_funding_amount|floatformat:"-0"|intcomma }}</td>
                   </tr>
                 {% endfor %}
                 </tbody>

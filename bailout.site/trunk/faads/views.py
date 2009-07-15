@@ -137,9 +137,24 @@ def search(request, sector_name=None):
             if form.cleaned_data['obligation_amount_minimum'] is not None or form.cleaned_data['obligation_amount_maximum'] is not None:
                 faads_result_set = faads_result_set.filter('total_funding_amount', (form.cleaned_data['obligation_amount_minimum'], form.cleaned_data['obligation_amount_maximum']))
 
-            faads_results = faads_result_set.results()
-            print "!!!!", faads_results
+            # faads_results = faads_result_set.get_haystack_queryset()
+
+            faads_results = SearchQuerySet().filter(text='trail').order_by('-obligation_date')
+
+            # while True:
+            #     print "filling cache"
+            #     cache_length = len(faads_results._result_cache)
+            #     faads_results._fill_cache()                                
+            #     new_cache_length = len(faads_results._result_cache)                
+            #     if new_cache_length==cache_length or new_cache_length>=RESULTS_PER_PAGE:
+            #         break                
+                                        
             paginator = Paginator(faads_results, RESULTS_PER_PAGE)
+
+            # print dir(faads_results)
+            # print "### %d" % len(faads_results)
+            # print dir(paginator)
+            # print paginator.count, paginator.per_page, paginator.num_pages
             
             try:
                 page = int(request.GET.get('page','1'))
@@ -151,14 +166,20 @@ def search(request, sector_name=None):
             except (EmptyPage, InvalidPage):
                 faads_results_page = paginator.page(paginator.num_pages)
                 
-            if faads_results_page:
-                django_id_list = map(lambda x: int(getattr(x, 'pk', -1)), faads_results_page.object_list)
-                faads_results_page.django_object_list = Record.objects.filter(id__in=django_id_list).select_related()
-                            
+            # print faads_results_page.object_list
+                
+            # if faads_results_page:
+            #     django_id_list = map(lambda x: int(getattr(x, 'pk', -1)), faads_results_page.object_list)
+            #     alt_django_id_list = map(lambda x: int(getattr(x,'id',-1).replace('faads.record.','')), faads_results_page.object_list)
+            #     print django_id_list
+            #     print '---------------'
+            #     print alt_django_id_list
+            #     faads_results_page.django_object_list = Record.objects.in_bulk(django_id_list)
+            
             ran_search = True
+            
             re_search = re.compile(r'page=\d+')
-            querystring = re_search.sub('',request.META['QUERY_STRING'])
-            querystring.replace('&&','&')
+            querystring = re_search.sub('',request.META['QUERY_STRING']).replace('&&','&')
         
     else:
         ran_search = False
