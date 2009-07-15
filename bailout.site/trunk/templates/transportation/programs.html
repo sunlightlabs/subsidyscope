@@ -35,7 +35,7 @@
             {% endifnotequal %}
             </p>
             {% if chartdata %}
-            <h5>Program Spending</h5>
+            <h5>Program Obligations</h5>
             <span id="spendingchart" style="margin-top:10px;"><!--Alternative chart pic goes here maybe?--></span>
             {% endif %}
         </div>
@@ -52,7 +52,7 @@
         function open_flash_chart_data() {
             return JSON.stringify(data);
         }   
-        swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "spendingchart", "650", "400", "9.0.0", "expressInstall.swf");
+        swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "spendingchart", "800", "400", "9.0.0", "expressInstall.swf");
     {% endif %}
 $(document).ready(function(){
     $(".js-show").click(function(){$(this).siblings('span.hide').show().end().hide();return false;});
