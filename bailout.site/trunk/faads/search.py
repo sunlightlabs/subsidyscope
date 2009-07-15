@@ -331,7 +331,7 @@ class FAADSSearch():
 
         sql_parameters = [] # uses proper django.db SQL-escaping, in case we ever introduce nonnumeric database queries for some reason
         
-        sql = " SELECT %s as field, sum(total_funding_amount) as value FROM faads_record " % aggregate_field            
+        sql = " SELECT %s as field, sum(federal_funding_amount) as value FROM faads_record " % aggregate_field            
         
         if len(self.filters) > 0:
             
@@ -402,7 +402,7 @@ class FAADSSearch():
             
             solr = Solr(settings.HAYSTACK_SOLR_URL)
             query = self._build_solr_query()
-            solr_result = solr.search(q=query, rows=FAADSSearch.SOLR_MAX_RECORDS, fl='total_amount,%s' % (self.aggregate_by['solr_field']))            
+            solr_result = solr.search(q=query, rows=FAADSSearch.SOLR_MAX_RECORDS, fl='federal_amount,%s' % (self.aggregate_by['solr_field']))            
             result = {}
             
             # aggregation
@@ -410,7 +410,7 @@ class FAADSSearch():
                 key = int(doc[self.aggregate_by['solr_field']])                
                 if not result.has_key(key):
                     result[key] = Decimal(0)                
-                result[key] += Decimal(str(doc['total_amount'])) 
+                result[key] += Decimal(str(doc['federal_amount'])) 
             
             
         # handling key based aggregation with db group by/sum
