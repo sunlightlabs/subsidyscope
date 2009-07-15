@@ -44,24 +44,23 @@ function TARP_init()
 	
 	/* by date viz */
 	
-	swfobject.embedSWF('{% media_url %}/scripts/TARPVis.swf', 'tarpTimelineVis', 900, 300, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
+	swfobject.embedSWF('{% media_url %}/scripts/TARPVis.swf', 'tarpTimelineVis', 880, 300, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
 	
 	/* end by-date viz */
-	
-	$('#tabs').tabs();
-	
 
-	    $('#tarp-data-table tr').hover(
-    		function(){
-    			var transaction_id = this.id.replace(/row\-/,'');
-    			if(!($(this).find('.transaction-type').text().match(/dividend payment/i)))
-    			    TARP_highlight_graph_rect(transaction_id);
-    			TARP_highlight_table_row(transaction_id);
-    		},
-    		function(){
-			
-    		}
-    	);
+
+	$('#tabs').tabs();
+
+    $('#tarp-data-table tr').hover(
+		function(){
+			var transaction_id = this.id.replace(/row\-/,'');
+			if(!($(this).find('.transaction-type').text().match(/dividend payment/i)))
+			    TARP_highlight_graph_rect(transaction_id);
+			TARP_highlight_table_row(transaction_id);
+		},
+		function(){		
+		}
+	);
 
     
     // add parser through the tablesorter addParser method 
@@ -209,8 +208,6 @@ function TARP_init()
 		}
 
 	});
-		
-	
 	
 	
 	
