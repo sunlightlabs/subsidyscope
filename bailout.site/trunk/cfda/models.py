@@ -4,6 +4,7 @@ import sectors.models
 from  budget_accounts.models import BudgetAccount
 from tagging.fields import TagField
 from tagging.models import Tag
+from tagging.managers import ModelTagManager
 class ProgramDescriptionManager(models.Manager):
 
     def parseBudgetAcounts(self):
@@ -67,7 +68,7 @@ class ProgramDescription(models.Model):
     secondary_tags = TagField()
 
     objects = ProgramDescriptionManager()   
-
+    tags = ModelTagManager()
     
 
     def parseBudgetAcounts(self):
