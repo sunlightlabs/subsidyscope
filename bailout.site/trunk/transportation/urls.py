@@ -8,6 +8,7 @@ from django.views.generic.simple import direct_to_template, redirect_to
 
 urlpatterns = patterns('', 
     url(r'^direct-payments/search/', 'faads.views.search', {'sector_name': 'transportation'}, name='transportation-faads-search'),
+    url(r'^direct-payments/programs/faads/(?P<cfda_id>[0-9]+)/', 'transportation.views.getFAADSLineItems', name='cfda-FAADS'),
     url(r'^direct-payments/programs/(?P<cfda_id>[0-9]+)/', 'transportation.views.getProgram', name='cfda-programpage'),
     url(r'^direct-payments/programs/$', 'transportation.views.getProgramIndex', name='cfdaprograms-index'),
     url(r'^direct-payments/', direct_to_template, {'template': 'transportation/direct_payments.html'}, name='transportation-direct-payments'),
