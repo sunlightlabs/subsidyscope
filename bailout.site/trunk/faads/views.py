@@ -1,7 +1,7 @@
 from django.conf import settings
 from django import forms
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from morsels.models import Page
@@ -12,6 +12,12 @@ from haystack.query import SearchQuerySet
 from decimal import Decimal
 import faads.search
 import re
+from django.core.urlresolvers import reverse
+import zlib
+import base64
+import urllib
+import pickle
+
 
 RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
 
@@ -102,44 +108,53 @@ def search(request, sector_name=None):
             
     
     
-    if request.method == 'GET' and request.GET.has_key('text_query'):
+    if request.method == 'POST' and request.POST.has_key('text_query'):
         
         formclass = MakeFAADSSearchFormClass(sector=sector)            
-        form = formclass(request.GET)
+        form = formclass(request.POST)
         
-        if form.is_valid():            
-                                    
-            faads_result_set = faads.search.FAADSSearch().use_cache(False)
+        if form.is_valid():
+            data_string = urllib.quote(base64.b64encode(zlib.compress(pickle.dumps(request.POST))))
+            redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % data_string)
+            return HttpResponseRedirect(redirect_url)
+            
+        
+    if request.method == 'GET' and request.GET.has_key('q'):
+        
+        formclass = MakeFAADSSearchFormClass(sector=sector)            
+        form = formclass(pickle.loads(zlib.decompress(base64.b64decode(urllib.unquote(request.GET['q'])))))
+        
+        if form.is_valid():
+            
+            faads_search_query = faads.search.FAADSSearch().use_cache(False)
             
             if form.cleaned_data['text_query'] is not None and len(form.cleaned_data['text_query'].strip())>0:
                 if form.cleaned_data['text_query_type']==2:
-                    faads_result_set = faads_result_set.filter('recipient', form.cleaned_data['text_query']).filter('text', form.cleaned_data['text_query'], faads.search.FAADSSearch.CONJUNCTION_OR)
+                    faads_search_query = faads_search_query.filter('recipient', form.cleaned_data['text_query']).filter('text', form.cleaned_data['text_query'], faads.search.FAADSSearch.CONJUNCTION_OR)
                 elif form.cleaned_data['text_query_type']==1:
-                    faads_result_set = faads_result_set.filter('text', form.cleaned_data['text_query'])
+                    faads_search_query = faads_search_query.filter('text', form.cleaned_data['text_query'])
                 elif form.cleaned_data['text_query_type']==0:
-                    faads_result_set = faads_result_set.filter('recipient', form.cleaned_data['text_query'])
+                    faads_search_query = faads_search_query.filter('recipient', form.cleaned_data['text_query'])
             
             if len(form.cleaned_data['cfda_programs'])<len(form.fields['cfda_programs'].choices):
-                faads_result_set = faads_result_set.filter('cfda_program', form.cleaned_data['cfda_programs'])
+                faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['cfda_programs'])
             
             if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
-                faads_result_set = faads_result_set.filter('assistance_type', form.cleaned_data['assistance_type'])
+                faads_search_query = faads_search_query.filter('assistance_type', form.cleaned_data['assistance_type'])
                 
             if len(form.cleaned_data['recipient_type'])<len(form.fields['recipient_type'].choices):
-                faads_result_set = faads_result_set.filter('recipient_type', form.cleaned_data['recipient_type'])
+                faads_search_query = faads_search_query.filter('recipient_type', form.cleaned_data['recipient_type'])
 
             if len(form.cleaned_data['action_type'])<len(form.fields['action_type'].choices):
-                faads_result_set = faads_result_set.filter('action_type', form.cleaned_data['action_type'])
+                faads_search_query = faads_search_query.filter('action_type', form.cleaned_data['action_type'])
                 
             if form.cleaned_data['obligation_date_start'] is not None or form.cleaned_data['obligation_date_end'] is not None:
-                faads_result_set = faads_result_set.filter('obligation_action_date', (form.cleaned_data['obligation_date_start'], form.cleaned_data['obligation_date_end']))
+                faads_search_query = faads_search_query.filter('obligation_action_date', (form.cleaned_data['obligation_date_start'], form.cleaned_data['obligation_date_end']))
 
             if form.cleaned_data['obligation_amount_minimum'] is not None or form.cleaned_data['obligation_amount_maximum'] is not None:
-                faads_result_set = faads_result_set.filter('total_funding_amount', (form.cleaned_data['obligation_amount_minimum'], form.cleaned_data['obligation_amount_maximum']))
+                faads_search_query = faads_search_query.filter('total_funding_amount', (form.cleaned_data['obligation_amount_minimum'], form.cleaned_data['obligation_amount_maximum']))
 
-            # faads_results = faads_result_set.get_haystack_queryset()
-
-            faads_results = SearchQuerySet().filter(text='trail').order_by('-obligation_date')
+            faads_results = faads_search_query.get_haystack_queryset()
 
             # while True:
             #     print "filling cache"
@@ -148,26 +163,26 @@ def search(request, sector_name=None):
             #     new_cache_length = len(faads_results._result_cache)                
             #     if new_cache_length==cache_length or new_cache_length>=RESULTS_PER_PAGE:
             #         break                
-                                        
+                                    
             paginator = Paginator(faads_results, RESULTS_PER_PAGE)
 
             # print dir(faads_results)
             # print "### %d" % len(faads_results)
             # print dir(paginator)
             # print paginator.count, paginator.per_page, paginator.num_pages
-            
+        
             try:
                 page = int(request.GET.get('page','1'))
             except Exception, e:
                 page = 1
-                
+            
             try:
                 faads_results_page = paginator.page(page)
             except (EmptyPage, InvalidPage):
                 faads_results_page = paginator.page(paginator.num_pages)
-                
+            
             # print faads_results_page.object_list
-                
+            
             # if faads_results_page:
             #     django_id_list = map(lambda x: int(getattr(x, 'pk', -1)), faads_results_page.object_list)
             #     alt_django_id_list = map(lambda x: int(getattr(x,'id',-1).replace('faads.record.','')), faads_results_page.object_list)
@@ -175,11 +190,11 @@ def search(request, sector_name=None):
             #     print '---------------'
             #     print alt_django_id_list
             #     faads_results_page.django_object_list = Record.objects.in_bulk(django_id_list)
-            
+        
             ran_search = True
-            
-            re_search = re.compile(r'page=\d+')
-            querystring = re_search.sub('',request.META['QUERY_STRING']).replace('&&','&')
+        
+            querystring = "&q=%s" % request.GET['q']
+        
         
     else:
         ran_search = False
@@ -188,6 +203,6 @@ def search(request, sector_name=None):
         formclass = MakeFAADSSearchFormClass(sector=sector)
         form = formclass()
         
-    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'querystring':querystring})
+    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'querystring': querystring})
 
 

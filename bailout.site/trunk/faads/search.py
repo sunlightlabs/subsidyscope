@@ -8,6 +8,11 @@ import django.db.models.fields
 from django.core.cache import cache
 from md5 import md5 
 import settings
+import zlib
+import base64
+import urllib
+import pickle
+
 
 """
 
@@ -202,7 +207,7 @@ class FAADSSearch():
     CONJUNCTION_OR = {'solr': 'OR', 'mysql': 'OR'}
     
     
-    def __init__(self):
+    def __init__(self, query_string=None):
         
         self.filters = []
          
@@ -215,7 +220,8 @@ class FAADSSearch():
         self.field_objects = {}
         for field in Record._meta.fields:
             self.field_objects[field.name] = field
-    
+            
+
     def __len__(self):
         return self.count()
 
@@ -237,7 +243,7 @@ class FAADSSearch():
             clone.SearchQuerySet = self.SearchQuerySet._clone()
         
         return clone
-    
+        
     def use_cache(self, u=True):
         clone = self._clone()
         clone.cache = u
