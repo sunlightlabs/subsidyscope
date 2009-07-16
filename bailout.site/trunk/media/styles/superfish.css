@@ -109,9 +109,9 @@ ul.sf-menu li li li.sfHover ul {
 .sf-menu li li li {
 	background:		#e6e6e6;
 }
-.sf-menu li:hover { 	background:		#e6e6e6; background-image:url(/media/images/template/sector_subnav_bg_selected.png); background-position:bottom;}
-.sf-menu li.sfHover { 	background:		#e6e6e6; background-image:url(/media/images/template/sector_subnav_bg_selected.png); background-position:bottom;}
-
+/*.sf-menu li:hover {   background:     #e6e6e6; background-image:url(/media/images/template/sector_subnav_bg_selected.png); background-position:bottom;}
+.sf-menu li.sfHover {   background:     #e6e6e6; background-image:url(/media/images/template/sector_subnav_bg_selected.png); background-position:bottom;}
+*/
 .sf-menu a:focus {
 	outline:		0;
     padding:3px 0 3px 10px;
