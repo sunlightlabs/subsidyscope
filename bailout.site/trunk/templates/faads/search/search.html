@@ -61,6 +61,7 @@
 #faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
 #faads-search-results td { font-size: 0.9em;}
 #faads-search-results td.amount { text-align: right;}
+#faads-search-results td.cfda-program,#faads-search-results td.obligation-date { text-align: center;}
 
 
 .pagination { text-align: center; font-size: 1.2em; margin-top: 20px;}
@@ -69,6 +70,8 @@
 #tabs ul { margin-bottom: 0px;}
 #tabs ul, #tabs ul li { margin-left: 0;}
 #tabs ul li { font-size: 0.8em;}
+
+.faads-search-submit { font-size: 1.2em; margin-top: 1em;}
 </style>
 {% endblock %}
 
@@ -87,12 +90,25 @@
         no_selection: "No criteria selected",  
         selected_text: " selected"  
       });
+    
+    $('#id_tags').change(function(){
+      var cfda_program_numbers = $(this).val().split(',');
+      $('#cfda-programs input[type=checkbox]').attr('checked', false);
+      for(var i=0; i<cfda_program_numbers.length; i++)
+      {
+        var program_number = cfda_program_numbers[i];
+        $('#cfda-programs input[value=' + program_number + ']').attr('checked',true);
+      }
+      $(this).val('');
+    });
+    
       
     $('#multiSelect-id_cfda_programs-title').text('Select specific CFDA programs')
     
     $('#obligation-date-wrapper input[type=text]').datepicker();
   
     $('#tabs').tabs();
+        
   
 	});
 	
@@ -107,7 +123,7 @@
     {% include "includes/transportation_nav.html" %}
     <div class="span-24">
         <div id="header_area">
-            <h3>Search</h3>
+            <h3>Search Direct Payments</h3>
         </div>
         <div class="content_area">    
 	
@@ -202,7 +218,7 @@
                 {% for result in faads_results.object_list %}
                   <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.object.record_id }}">
                     <td class="obligation-date">{{ result.object.obligation_action_date }}</td>
-                    <td class="cfda-program">&nbsp;</td>
+                    <td class="cfda-program">{{ result.object.cfda_program.program_number }}</td>
                     <td class="recipient-name">{{ result.object.recipient_name }}</td>
                     <td class="recipient-location">{{ result.object.recipient_city_name }}, {{ result.object.recipient_state_name }}</td>
                     <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name }}, {{ result.object.principal_place_state_name }}</td>
