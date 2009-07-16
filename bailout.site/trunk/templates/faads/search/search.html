@@ -307,7 +307,16 @@
               </div>
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-graph">
-                  Graph goes here.
+                <span id="resultsgraph"></span>  
+                {% js "json2.js" %}
+                <script type="text/javascript" charset="utf-8">
+                    var data = {"elements":[{"type":"bar_3d", "colour": "#088F1b","text":"CFDA Estimate", "tip": "CFDA #val#", "values":[null, null, null, null, null, 36924964306, 37933741690, 40248148610, 41620631862, 41772990045]}, { "tip": "FAADS #val#","type": "bar_3d", "on-show": {"type:":"grow-up"}, "text": "FAADs Data", "values": [24825876722.00, 26979995636.00, 42134994154.00, 36005167720.00, 31914878758.00, 34682246791.00, 46106012053.00, 45072344099.00, 27756929470.00, 9460538507.00]}], "title": {"text": ""}, "bg_colour": "#FFFFFF", "x_axis": {"3d": 5, "colour": "#909090", "tick-height": 20, "labels": {"labels":["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009"]}}, "y_axis": {"colour": "#909090", "min": 0, "max": 50000000000.00}, "x_legend": {"text": "Years", "style": "{font-size:12px;}"}, "y_legend":{"text": "US Dollars ($)", "style":"{font-size:12px;}"}};
+                    function open_flash_chart_data() {
+                        return JSON.stringify(data);
+                    }           
+                    swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "resultsgraph", "900", "400", "9.0.0", "expressInstall.swf");
+                    
+                </script>
               </div>
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-map">
