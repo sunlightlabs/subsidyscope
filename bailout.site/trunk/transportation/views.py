@@ -7,6 +7,8 @@ from tagging.models import Tag
 from sectors.models import Sector
 from faads.search import *
 from faads.models import *
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from datetime import *
 
 def getProgram(request, cfda_id):
 
@@ -76,8 +78,26 @@ def getProgramIndex(request):
 
 def getFAADSLineItems(request, cfda_id):
     program = ProgramDescription.objects.get(id=cfda_id)
-    faads = Record.objects.filter(cfda_program=program)
-    return render_to_response('transportation/faadslineitems.html', {'program':program, 'faads': faads}, context_instance=RequestContext(request))
+    
+    try:
+        fy = int(request.GET.get('year', date.today().year))
+    except ValueError:
+        fy = date.today().year 
+    faads = Record.objects.filter(cfda_program=program, fiscal_year=fy)
+    years = Record.objects.filter(cfda_program=program).values('fiscal_year').distinct()
+    yearlist = []
+    for y in years:
+        yearlist.append(y['fiscal_year'])
+    paginator = Paginator(faads, 50)
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+    try:
+        faads = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        faads = paginator.page(paginator.num_pages)
+    return render_to_response('transportation/faadslineitems.html', {'page': page, 'year': fy, 'program':program, 'faads': faads, 'fy': fy, 'years': yearlist}, context_instance=RequestContext(request))
 
 
 

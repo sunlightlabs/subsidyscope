@@ -82,6 +82,8 @@
 	{% js "ui.tabs.js" %}
 	{% js "ui.datepicker.js" %}
 	
+	{% js "swfobject.js" %}
+	
 	<script language="javascript" type="text/javascript">  		
 	$(function(){
 		$('select[multiple]').multiSelect(  
@@ -89,6 +91,10 @@
         select_all_min: 3,  
         no_selection: "No criteria selected",  
         selected_text: " selected"  
+        
+        
+        
+	
       });
     
     $('#id_tags').change(function(){
@@ -108,11 +114,78 @@
     $('#obligation-date-wrapper input[type=text]').datepicker();
   
     $('#tabs').tabs();
-        
-  
+    
+    
+    swfobject.embedSWF('{% media_url %}/scripts/HighwayMapVis.swf?v=4', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
+	
+	
+		$("select[name='dataType']").change(
+		function()
+		{
+			if ($("select[name='dataType']").val() == 'counties')
+			{	
+				showCounties();
+			}
+			else if ($("select[name='dataType']").val() == 'counties_pop')
+			{
+				showCountiesPop();
+			}
+			else if ($("select[name='dataType']").val() == 'states')
+			{
+				showStates();
+			}
+			else if ($("select[name='dataType']").val() == 'states_pop')
+			{
+				showStatesPop();
+			}
+			
+		});
 	});
 	
 	
+	function showCounties()
+	{
+		var flex = null;
+		flex = getFlexMovie("mapVis");
+		if((flex!=null) && (flex.showCounties!=null))
+		    flex.showCounties();	
+	}
+	
+	function showCountiesPop()
+	{
+		var flex = null;
+		flex = getFlexMovie("mapVis");
+		if((flex!=null) && (flex.showCountiesPop!=null))
+		    flex.showCountiesPop();	
+	}
+	
+	function showStates()
+	{
+		var flex = null;
+		flex = getFlexMovie("mapVis");
+		if((flex!=null) && (flex.showCountiesPop!=null))
+		    flex.showStates();	
+	}
+	
+	function showStatesPop()
+	{
+		var flex = null;
+		flex = getFlexMovie("mapVis");
+		if((flex!=null) && (flex.showCountiesPop!=null))
+		    flex.showStatesPop();	
+	}
+		
+	function getFlexMovie(movieName) 
+	{
+	    if (navigator.appName.indexOf("Microsoft") != -1) 
+	    {
+	        return window[movieName]
+	    }
+	    else 
+	    {
+	        return document[movieName]
+    	}
+	}
 	</script>
 	
 {% endblock %}
@@ -248,11 +321,41 @@
               </div>
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-graph">
-                  Graph goes here.
+                <span id="resultsgraph"></span>  
+                {% js "json2.js" %}
+                <script type="text/javascript" charset="utf-8">
+                    var data = {"elements":[{ "type": "bar_3d", "on-show": {"type:":"grow-up"}, "values": [24825876722.00, 26979995636.00, 42134994154.00, 36005167720.00, 31914878758.00, 34682246791.00, 46106012053.00, 45072344099.00, 27756929470.00, 9460538507.00]}], "title": {"text": ""}, "bg_colour": "#FFFFFF", "x_axis": {"3d": 5, "colour": "#909090", "tick-height": 20, "labels": {"labels":["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009"]}}, "y_axis": {"colour": "#909090", "min": 0, "max": 50000000000.00}, "x_legend": {"text": "Years", "style": "{font-size:12px;}"}, "y_legend":{"text": "US Dollars ($)", "style":"{font-size:12px;}"}};
+                    function open_flash_chart_data() {
+                        return JSON.stringify(data);
+                    }           
+                    swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf");
+                    
+                </script>
               </div>
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-map">
-                  Map goes here.
+                  
+                  	<div style="float: right;  margin-right: 25px;">
+						View: <select name="dataType">
+							<option value="counties">Counties</option>
+							<option value="counties_pop">Counties (per capita)</option>
+							<option value="states">States</option>
+							<option value="states_pop">States (per capita)</option>
+						</select>
+					</div>
+					
+					<br clear="all"/> 
+					
+					<div style="margin-left: 50px;">
+						<div id="mapVis" >
+							<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
+							
+							<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+						
+						</div>
+					</div>
+                  
+                  
               </div>
 
             </div>
