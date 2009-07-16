@@ -58,6 +58,7 @@
   padding: 3px;
 }
 
+#faads-search-results { width: 876px;}
 #faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
 #faads-search-results td { font-size: 0.9em;}
 #faads-search-results td.amount { text-align: right;}
@@ -99,6 +100,7 @@
     
     $('#id_tags').change(function(){
       var cfda_program_numbers = $(this).val().split(',');
+      var label = $(this).get(0).options[$(this).get(0).selectedIndex].text;
       $('#cfda-programs input[type=checkbox]').attr('checked', false);
       for(var i=0; i<cfda_program_numbers.length; i++)
       {
@@ -106,6 +108,7 @@
         $('#cfda-programs input[value=' + program_number + ']').attr('checked',true);
       }
       $(this).val('');
+      $('#multiSelect-id_cfda_programs-title').text('All ' + label + ' Programs');
     });
     
       
