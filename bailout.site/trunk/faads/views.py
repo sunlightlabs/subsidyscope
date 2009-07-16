@@ -93,6 +93,11 @@ def MakeFAADSSearchFormClass(sector=None):
     
     return FAADSSearchForm
 
+def compress_querydict(obj):
+    return urllib.quote(base64.b64encode(zlib.compress(pickle.dumps(obj))))
+
+def decompress_querydict(s):
+    return pickle.loads(zlib.decompress(base64.b64decode(urllib.unquote(s))))
 
 def search(request, sector_name=None):
     
@@ -114,15 +119,14 @@ def search(request, sector_name=None):
         form = formclass(request.POST)
         
         if form.is_valid():
-            data_string = urllib.quote(base64.b64encode(zlib.compress(pickle.dumps(request.POST))))
-            redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % data_string)
+            redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
             return HttpResponseRedirect(redirect_url)
             
         
     if request.method == 'GET' and request.GET.has_key('q'):
         
         formclass = MakeFAADSSearchFormClass(sector=sector)            
-        form = formclass(pickle.loads(zlib.decompress(base64.b64decode(urllib.unquote(request.GET['q'])))))
+        form = formclass(decompress_querydict(request.GET['q']))
         
         if form.is_valid():
             
@@ -193,7 +197,7 @@ def search(request, sector_name=None):
         
             ran_search = True
         
-            querystring = "&q=%s" % request.GET['q']
+            querystring = "&q=%s" % urllib.quote(request.GET['q'])
         
         
     else:
