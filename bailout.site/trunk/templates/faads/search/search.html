@@ -58,9 +58,11 @@
   padding: 3px;
 }
 
+#faads-search-results { width: 876px;}
 #faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
 #faads-search-results td { font-size: 0.9em;}
 #faads-search-results td.amount { text-align: right;}
+#faads-search-results td.cfda-program,#faads-search-results td.obligation-date { text-align: center;}
 
 
 .pagination { text-align: center; font-size: 1.2em; margin-top: 20px;}
@@ -69,6 +71,8 @@
 #tabs ul { margin-bottom: 0px;}
 #tabs ul, #tabs ul li { margin-left: 0;}
 #tabs ul li { font-size: 0.8em;}
+
+.faads-search-submit { font-size: 1.2em; margin-top: 1em;}
 </style>
 {% endblock %}
 
@@ -93,6 +97,20 @@
         
 	
       });
+    
+    $('#id_tags').change(function(){
+      var cfda_program_numbers = $(this).val().split(',');
+      var label = $(this).get(0).options[$(this).get(0).selectedIndex].text;
+      $('#cfda-programs input[type=checkbox]').attr('checked', false);
+      for(var i=0; i<cfda_program_numbers.length; i++)
+      {
+        var program_number = cfda_program_numbers[i];
+        $('#cfda-programs input[value=' + program_number + ']').attr('checked',true);
+      }
+      $(this).val('');
+      $('#multiSelect-id_cfda_programs-title').text('All ' + label + ' Programs');
+    });
+    
       
     $('#multiSelect-id_cfda_programs-title').text('Select specific CFDA programs')
     
@@ -101,7 +119,7 @@
     $('#tabs').tabs();
     
     
-    	swfobject.embedSWF('{% media_url %}/scripts/HighwayMapVis.swf?v=4', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
+    swfobject.embedSWF('{% media_url %}/scripts/HighwayMapVis.swf?v=4', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
 	
 	
 		$("select[name='dataType']").change(
@@ -125,7 +143,6 @@
 			}
 			
 		});
-  
 	});
 	
 	
@@ -182,7 +199,7 @@
     {% include "includes/transportation_nav.html" %}
     <div class="span-24">
         <div id="header_area">
-            <h3>Search</h3>
+            <h3>Search Direct Payments</h3>
         </div>
         <div class="content_area">    
 	
@@ -277,7 +294,7 @@
                 {% for result in faads_results.object_list %}
                   <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.object.record_id }}">
                     <td class="obligation-date">{{ result.object.obligation_action_date }}</td>
-                    <td class="cfda-program">&nbsp;</td>
+                    <td class="cfda-program">{{ result.object.cfda_program.program_number }}</td>
                     <td class="recipient-name">{{ result.object.recipient_name }}</td>
                     <td class="recipient-location">{{ result.object.recipient_city_name }}, {{ result.object.recipient_state_name }}</td>
                     <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name }}, {{ result.object.principal_place_state_name }}</td>
@@ -307,7 +324,16 @@
               </div>
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-graph">
-                  Graph goes here.
+                <span id="resultsgraph"></span>  
+                {% js "json2.js" %}
+                <script type="text/javascript" charset="utf-8">
+                    var data = {"elements":[{ "type": "bar_3d", "on-show": {"type:":"grow-up"}, "values": [24825876722.00, 26979995636.00, 42134994154.00, 36005167720.00, 31914878758.00, 34682246791.00, 46106012053.00, 45072344099.00, 27756929470.00, 9460538507.00]}], "title": {"text": ""}, "bg_colour": "#FFFFFF", "x_axis": {"3d": 5, "colour": "#909090", "tick-height": 20, "labels": {"labels":["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009"]}}, "y_axis": {"colour": "#909090", "min": 0, "max": 50000000000.00}, "x_legend": {"text": "Years", "style": "{font-size:12px;}"}, "y_legend":{"text": "US Dollars ($)", "style":"{font-size:12px;}"}};
+                    function open_flash_chart_data() {
+                        return JSON.stringify(data);
+                    }           
+                    swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf");
+                    
+                </script>
               </div>
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-map">
