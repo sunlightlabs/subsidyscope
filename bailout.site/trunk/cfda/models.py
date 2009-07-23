@@ -1,10 +1,10 @@
-
 from django.db import models
 import sectors.models
 from  budget_accounts.models import BudgetAccount
 from tagging.fields import TagField
 from tagging.models import Tag
 from tagging.managers import ModelTagManager
+
 class ProgramDescriptionManager(models.Manager):
 
     def parseBudgetAcounts(self):
@@ -24,7 +24,7 @@ class ProgramDescription(models.Model):
         verbose_name = 'CFDA Program Description'
         ordering = ['program_number']
 
-    program_number = models.DecimalField("Program number", max_digits=7, decimal_places=3)
+    program_number = models.CharField("Program number", max_length=7)
     program_title = models.CharField("Program title", max_length=255)
     sectors = models.ManyToManyField(sectors.models.Sector, blank=True)
     program_note = models.TextField("Program note", default="", blank=True)
@@ -61,11 +61,13 @@ class ProgramDescription(models.Model):
     related_programs = models.TextField("Related programs",blank=True,default="")
     examples_of_funded_projects = models.TextField("Examples of funded projects",blank=True,default="")
     criteria_for_selecting_proposals = models.TextField("Criteria for selecting proposals",blank=True,default="")
-    cfda_edition = models.IntegerField("CFDA Edition")
+
+    cfda_edition = models.IntegerField("CFDA Edition", blank=True, null=True)
+    load_date = models.DateTimeField("Load Date", auto_now=True)    
 
     budget_accounts = models.ManyToManyField(BudgetAccount)
-    primary_tag = models.ForeignKey(Tag)
-    secondary_tags = TagField()
+    primary_tag = models.ForeignKey(Tag, blank=True, null=True)
+    secondary_tags = TagField(blank=True, null=True)
 
     objects = ProgramDescriptionManager()   
     tags = ModelTagManager()
