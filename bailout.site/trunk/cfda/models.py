@@ -1,6 +1,6 @@
 from django.db import models
 import sectors.models
-from  budget_accounts.models import BudgetAccount
+from budget_accounts.models import BudgetAccount
 from tagging.fields import TagField
 from tagging.models import Tag
 from tagging.managers import ModelTagManager
@@ -61,6 +61,11 @@ class ProgramDescription(models.Model):
     related_programs = models.TextField("Related programs",blank=True,default="")
     examples_of_funded_projects = models.TextField("Examples of funded projects",blank=True,default="")
     criteria_for_selecting_proposals = models.TextField("Criteria for selecting proposals",blank=True,default="")
+
+    recipient_type = models.ForeignKey('faads.RecipientType', blank=True)
+    action_type = models.ForeignKey('faads.ActionType', blank=True)
+    record_type = models.ForeignKey('faads.RecordType', blank=True)
+    assistance_type = models.ForeignKey('faads.AssistanceType', blank=True)
 
     cfda_edition = models.IntegerField("CFDA Edition", blank=True, null=True)
     load_date = models.DateTimeField("Load Date", auto_now=True)    
