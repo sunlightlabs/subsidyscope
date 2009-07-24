@@ -1,0 +1,53 @@
+{% extends "budget_capture/capture_base.html" %}
+
+{% block title %}{{ budget_data.item.cfda_program.program_number }} &mdash; {{ budget_data.item.cfda_program.program_title }}{% endblock %}
+
+{% block content %}
+
+<p>{{ item.description }}</p>
+
+<p><a href="{% url budget_capture-cfda budget_data.item.cfda_program.id %}">View CFDA Program Data &raquo;</a></p>
+
+<p>&nbsp;</p>
+
+<form action="." method="POST">
+<table>
+	{{ budgetdata_form.as_table }}
+</table>
+
+{{ budgetdata_years_formset.management_form }}
+{{ budgetdata_years_formset.non_form_errors.as_ul }}
+<table id="formset" class="form">
+{% for form in budgetdata_years_formset.forms %}
+  {% if forloop.first %}
+  <thead><tr>
+    {% for field in form %}
+    <th>{{ field.label }}</th>
+    {% endfor %}
+    
+  </tr></thead>
+  {% endif %}
+  <tr class="{% cycle row1,row2 %}">
+  {% for field in form %}
+    <td>
+      {{ field.errors.as_ul }}
+      {{ field }}
+    </td>
+  {% endfor %}
+  </tr>
+{% endfor %}
+</table>
+
+
+
+	
+<input type="submit" value="Save"/>
+</form>
+
+<p><a href="{% url budget_capture-task budget_data.item.task.id %}">&laquo; Back to list</a></p>
+
+
+<p>
+</p>
+
+{% endblock %}
