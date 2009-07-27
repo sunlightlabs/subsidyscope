@@ -20,7 +20,7 @@ class Item(models.Model):
     cfda_program = models.ForeignKey(ProgramDescription)
     
     def __unicode__(self):
-        return self.cfda_program.program_number
+        return str(self.cfda_program.program_number)
     
 
 class BudgetData(models.Model):
