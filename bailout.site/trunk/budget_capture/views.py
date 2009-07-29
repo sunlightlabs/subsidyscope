@@ -25,7 +25,7 @@ class BudgetDataForm(ModelForm):
     class Meta():
         model = BudgetData
         
-BudgetDataFormset = inlineformset_factory(BudgetData, BudgetDataFiscalYear, extra=10, max_num=10, can_delete=False)
+BudgetDataFormset = inlineformset_factory(BudgetData, BudgetDataFiscalYear, extra=10, max_num=10, can_delete=True)
 
 @login_required
 def main(request):

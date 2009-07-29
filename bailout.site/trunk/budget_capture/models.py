@@ -71,7 +71,14 @@ class BudgetDataFiscalYear(models.Model):
     
     budget_data = models.ForeignKey(BudgetData, editable=False)
     
+    
+       
     fiscal_year = models.IntegerField("Fiscal Year")
     
     amount = models.DecimalField("Amount", max_digits=15, decimal_places=2)
+
+    
+    citation = models.URLField("Data citation (URL)", blank=True)
+    
+    transactional_data_available = models.URLField("Transactional data (URL)", blank=True)
         
