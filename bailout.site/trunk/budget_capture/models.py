@@ -29,6 +29,21 @@ class BudgetData(models.Model):
     
     user = models.ForeignKey(User, editable=False)
     
+    notes = models.TextField("Notes", blank=True)
+    
+    
+
+class BudgetDataFiscalYear(models.Model):
+    
+    budget_data = models.ForeignKey(BudgetData, editable=False)
+    
+    
+       
+    fiscal_year = models.IntegerField("Fiscal Year")
+    
+    amount = models.DecimalField("Amount", max_digits=15, decimal_places=2)
+
+    
     DATA_TYPE_AUTHORIZATION = 1
     DATA_TYPE_APPROPRIATION = 2
     DATA_TYPE_OBLIGATION = 3
@@ -59,20 +74,6 @@ class BudgetData(models.Model):
     
     data_source = models.IntegerField("Data source", choices=DATA_SOURCE_CHOICES)
     
-    notes = models.TextField("Notes", blank=True)
-    
-    
-
-class BudgetDataFiscalYear(models.Model):
-    
-    budget_data = models.ForeignKey(BudgetData, editable=False)
-    
-    
-       
-    fiscal_year = models.IntegerField("Fiscal Year")
-    
-    amount = models.DecimalField("Amount", max_digits=15, decimal_places=2)
-
     
     citation = models.CharField("Data citation (URL)", max_length=200, blank=True)
     

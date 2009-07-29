@@ -19,11 +19,10 @@ class CFDAForm(ModelForm):
         
 class BudgetDataForm(ModelForm):
     
-
     class Meta():
         model = BudgetData
         
-BudgetDataFormset = inlineformset_factory(BudgetData, BudgetDataFiscalYear, extra=10, max_num=10, can_delete=True)
+BudgetDataFormset = inlineformset_factory(BudgetData, BudgetDataFiscalYear, extra=10, max_num=20, can_delete=True)
 
 @login_required
 def main(request):
