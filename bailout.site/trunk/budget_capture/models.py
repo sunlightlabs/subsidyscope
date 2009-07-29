@@ -59,10 +59,6 @@ class BudgetData(models.Model):
     
     data_source = models.IntegerField("Data source", choices=DATA_SOURCE_CHOICES)
     
-    citation = models.URLField("Data citation (URL)", blank=True)
-    
-    transactional_data_available = models.URLField("Transactional data (URL)", blank=True)
-    
     notes = models.TextField("Notes", blank=True)
     
     
@@ -78,7 +74,7 @@ class BudgetDataFiscalYear(models.Model):
     amount = models.DecimalField("Amount", max_digits=15, decimal_places=2)
 
     
-    citation = models.URLField("Data citation (URL)", blank=True)
+    citation = models.CharField("Data citation (URL)", max_length=200, blank=True)
     
-    transactional_data_available = models.URLField("Transactional data (URL)", blank=True)
+    transactional_data_available = models.CharField("Transactional data (URL)", max_length=200, blank=True)
         

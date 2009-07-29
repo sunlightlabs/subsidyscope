@@ -19,8 +19,6 @@ class CFDAForm(ModelForm):
         
 class BudgetDataForm(ModelForm):
     
-    citation = forms.URLField(widget=forms.TextInput(attrs={'size':'40'})) 
-    transactional_data_available = forms.URLField(widget=forms.TextInput(attrs={'size':'40'})) 
 
     class Meta():
         model = BudgetData
