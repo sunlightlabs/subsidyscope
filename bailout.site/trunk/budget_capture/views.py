@@ -85,6 +85,8 @@ def edit(request, data_id):
         if budgetdata_form.is_valid() and budgetdata_years_formset.is_valid():
             budgetdata_form.save()
             budgetdata_years_formset.save()
+            
+            return HttpResponseRedirect('/budget_capture/edit/%d/' % budgetdata_form.instance.id)
         
     else:
         budgetdata_form = BudgetDataForm(instance=budget_data, prefix='data')
