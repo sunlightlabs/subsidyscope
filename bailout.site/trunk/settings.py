@@ -146,6 +146,12 @@ def constant_contact_signup(recipient):
     CONSTANTCONTACT_LOGIN = 'subsidyscope'
     CONSTANTCONTACT_PASSWORD = 'yAsw4pre'
 
+    #temp hack until CC is fixed
+    emaillog = open("emaillog.txt", "a")
+    emaillog.write("%s\n" % recipient.email)
+    emaillog.close()
+
+
     # time on the entry is unimportant -- req'd by ATOM spec, but thrown away by CC
     # contactList is the URI for the "Updates" list    
     xml = """<entry xmlns="http://www.w3.org/2005/Atom">
