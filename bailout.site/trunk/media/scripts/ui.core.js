@@ -1,5 +1,5 @@
 /*
- * jQuery UI @VERSION
+ * jQuery UI 1.7.2
  *
  * Copyright (c) 2009 AUTHORS.txt (http://jqueryui.com/about)
  * Dual licensed under the MIT (MIT-LICENSE.txt)
@@ -14,7 +14,7 @@ var _remove = $.fn.remove,
 
 //Helper functions and ui object
 $.ui = {
-	version: "@VERSION",
+	version: "1.7.2",
 
 	// $.ui.plugin is deprecated.  Use the proxy pattern instead.
 	plugin: {
@@ -135,19 +135,6 @@ if (isFF2) {
 
 //jQuery plugins
 $.fn.extend({
-	_focus: $.fn.focus,
-	focus: function(delay, fn) {
-		return typeof delay === 'number'
-			? this.each(function() {
-				var elem = this;
-				setTimeout(function() {
-					$(elem).focus();
-					(fn && fn.call(elem));
-				}, delay);
-			})
-			: this._focus.apply(this, arguments);
-	},
-	
 	remove: function() {
 		// Safari has a native remove event which actually removes DOM elements,
 		// so we have to use triggerHandler instead of trigger (#3037).
@@ -216,45 +203,52 @@ $.extend($.expr[':'], {
 
 // $.widget is a factory to create jQuery plugins
 // taking some boilerplate code out of the plugin code
-$.widget = function(name, prototype) {
-	var namespace = name.split(".")[0],
-		fullName;
-	name = name.split(".")[1];
-	fullName = namespace + '-' + name;
+function getter(namespace, plugin, method, args) {
+	function getMethods(type) {
+		var methods = $[namespace][plugin][type] || [];
+		return (typeof methods == 'string' ? methods.split(/,?\s+/) : methods);
+	}
 
-	// create selector for plugin
-	$.expr[':'][fullName] = function(elem) {
-		return !!$.data(elem, name);
-	};
-	
+	var methods = getMethods('getter');
+	if (args.length == 1 && typeof args[0] == 'string') {
+		methods = methods.concat(getMethods('getterSetter'));
+	}
+	return ($.inArray(method, methods) != -1);
+}
+
+$.widget = function(name, prototype) {
+	var namespace = name.split(".")[0];
+	name = name.split(".")[1];
+
 	// create plugin method
 	$.fn[name] = function(options) {
 		var isMethodCall = (typeof options == 'string'),
-			args = Array.prototype.slice.call(arguments, 1),
-			returnValue = this;
+			args = Array.prototype.slice.call(arguments, 1);
 
 		// prevent calls to internal methods
 		if (isMethodCall && options.substring(0, 1) == '_') {
-			return returnValue;
+			return this;
 		}
 
-		(isMethodCall
-			? this.each(function() {
-				var instance = $.data(this, name),
-					methodValue = (instance && $.isFunction(instance[options])
-						? instance[options].apply(instance, args)
-						: instance);
-				if (methodValue !== instance && methodValue !== undefined) {
-					returnValue = methodValue;
-					return false;
-				}
-			})
-			: this.each(function() {
-				($.data(this, name) ||
-					$.data(this, name, new $[namespace][name](this, options))._init());
-			}));
+		// handle getter methods
+		if (isMethodCall && getter(namespace, name, options, args)) {
+			var instance = $.data(this[0], name);
+			return (instance ? instance[options].apply(instance, args)
+				: undefined);
+		}
 
-		return returnValue;
+		// handle initialization and non-getter methods
+		return this.each(function() {
+			var instance = $.data(this, name);
+
+			// constructor
+			(!instance && !isMethodCall &&
+				$.data(this, name, new $[namespace][name](this, options))._init());
+
+			// method call
+			(instance && isMethodCall && $.isFunction(instance[options]) &&
+				instance[options].apply(instance, args));
+		});
 	};
 
 	// create widget constructor
@@ -265,9 +259,9 @@ $.widget = function(name, prototype) {
 		this.namespace = namespace;
 		this.widgetName = name;
 		this.widgetEventPrefix = $[namespace][name].eventPrefix || name;
-		this.widgetBaseClass = fullName;
+		this.widgetBaseClass = namespace + '-' + name;
 
-		this.options = $.extend(true, {},
+		this.options = $.extend({},
 			$.widget.defaults,
 			$[namespace][name].defaults,
 			$.metadata && $.metadata.get(element)[name],
@@ -291,6 +285,10 @@ $.widget = function(name, prototype) {
 
 	// add widget prototype
 	$[namespace][name].prototype = $.extend({}, $.widget.prototype, prototype);
+
+	// TODO: merge getter and getterSetter properties from widget prototype
+	// and plugin prototype
+	$[namespace][name].getterSetter = 'option';
 };
 
 $.widget.prototype = {
@@ -299,8 +297,6 @@ $.widget.prototype = {
 		this.element.removeData(this.widgetName)
 			.removeClass(this.widgetBaseClass + '-disabled' + ' ' + this.namespace + '-state-disabled')
 			.removeAttr('aria-disabled');
-
-		return this;
 	},
 
 	option: function(key, value) {
@@ -318,8 +314,6 @@ $.widget.prototype = {
 		$.each(options, function(key, value) {
 			self._setData(key, value);
 		});
-
-		return self;
 	},
 	_getData: function(key) {
 		return this.options[key];
@@ -338,11 +332,9 @@ $.widget.prototype = {
 
 	enable: function() {
 		this._setData('disabled', false);
-		return this;
 	},
 	disable: function() {
 		this._setData('disabled', true);
-		return this;
 	},
 
 	_trigger: function(type, event, data) {
@@ -352,7 +344,6 @@ $.widget.prototype = {
 
 		event = $.Event(event);
 		event.type = eventName;
-		data = data || {};
 
 		// copy original event properties over to the new event
 		// this would happen if we could call $.event.fix instead of $.Event
@@ -520,7 +511,7 @@ $.ui.mouse = {
 };
 
 $.ui.mouse.defaults = {
-	cancel: ':input,option',
+	cancel: null,
 	distance: 1,
 	delay: 0
 };

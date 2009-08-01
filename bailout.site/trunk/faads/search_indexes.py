@@ -40,7 +40,7 @@ class RecordIndex(indexes.SearchIndex):
     
     def prepare_cfda_program(self, object):
         
-        return '%s' % (object.cfda_program.program_number)
+        return '%s' % (object.cfda_program.id)
     
     def prepare_budget_function(self, object):
         

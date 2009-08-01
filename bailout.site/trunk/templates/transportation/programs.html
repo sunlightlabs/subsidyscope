@@ -13,29 +13,31 @@
         <div id="header_area">
             <h3>{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{primarytag.name}}</span></h3>
         </div>
-        <div class="content_area">    
+        <div class="content_area inlinepara">    
             <h5>Program Summary and Objectives</h5>
             <span class="floatright inline-box">
             <ul>
-                <li class="sencase"><strong>Federal Agency:&nbsp;</strong> {{ program.federal_agency|lower}}</li>
+                <li class="sencase"><strong>Federal Agency:&nbsp;</strong> {{ program.federal_agency|lower|safe}}</li>
                 <li><strong>Program Website:&nbsp;</strong>{{program.web_site_address}}</li>
                 <li><strong>Authorization:&nbsp;</strong>{{program.authorization}}</li>
                 <li><strong>Headquarters:&nbsp;</strong>{{program.headquarters_office}}</li>
             </ul>        
             </span>
-            <p>{{objectives}}{% ifnotequal objectives2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{objectives2}}</span>
+            <p>{{objectives|safe}}{% ifnotequal objectives2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{objectives2|safe}}</span>
             {% endifnotequal %}
             </p>
             <h5>Obligations</h5>
-            <p>{{program.obligations}}</p>
+            <p>{{program.obligations|safe}}</p>
             <h5>Examples of Projects Funded</h5>
-            <p>{{program.examples_of_funded_projects}}</p>
+            <p>{{program.examples_of_funded_projects|safe}}</p>
             <h5>Program Accomplishments</h5>
-            <p>{{accomps}}{% ifnotequal accomps2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{accomps2}}</span>
+            <p>{{accomps|safe}}{% ifnotequal accomps2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{accomps2|safe}}</span>
             {% endifnotequal %}
             </p>
-            <h5>Program Spending</h5>
+            {% if chartdata %}
+            <h5>Program Obligations</h5>
             <span id="spendingchart" style="margin-top:10px;"><!--Alternative chart pic goes here maybe?--></span>
+            {% endif %}
         </div>
 </div>
 <script type="text/javascript" charset="utf-8">
@@ -50,7 +52,7 @@
         function open_flash_chart_data() {
             return JSON.stringify(data);
         }   
-        swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "spendingchart", "650", "400", "9.0.0", "expressInstall.swf");
+        swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "spendingchart", "900", "400", "9.0.0", "expressInstall.swf");
     {% endif %}
 $(document).ready(function(){
     $(".js-show").click(function(){$(this).siblings('span.hide').show().end().hide();return false;});

@@ -148,7 +148,7 @@ table#tarp-header-table thead tr .headerSortDown {
 /* tabs stuff */
 #tabs ul, #tabs ul li { margin-left: 0; margin-bottom: 0;}
 .ui-tabs-panel { padding: 10px; font-size: 1em;}
-div.ui-tabs-nav { border-right: 0; }
+/*div.ui-tabs-nav { border-right: 0; }*/
 .ui-tabs-nav a, .ui-tabs-nav a:link, .ui-tabs-nav a:hover, .ui-tabs-nav a:active, .ui-tabs-nav a:visited { text-decoration: none;}
 
 

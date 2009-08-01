@@ -99,3 +99,23 @@ class BudgetAccount(models.Model):
 
     objects = BudgetAccountManager()
 
+
+class BudgetAuthorityHistory(models.Model):
+    
+    budget_account = models.ForeignKey(BudgetAccount)
+    
+    fiscal_year = models.IntegerField()
+    
+    authority = models.DecimalField(max_digits=15, decimal_places=2)
+    
+    
+class BudgetOutlayHistory(models.Model):
+    
+    budget_account = models.ForeignKey(BudgetAccount)
+    
+    fiscal_year = models.IntegerField()
+
+    outlay = models.DecimalField(max_digits=15, decimal_places=2)
+    
+    
+    

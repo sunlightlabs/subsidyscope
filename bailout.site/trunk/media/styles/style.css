@@ -154,6 +154,9 @@ ul#top_nav_header li { display: block !important; float: right;}
 .floatright {
     float: right;
 }
+.inlinepara p {
+    display: inline; 
+}
 .inline-box{
     width: 38%;
     border: 1px solid #afafaf;
