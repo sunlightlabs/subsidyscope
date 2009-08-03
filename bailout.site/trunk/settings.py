@@ -13,6 +13,7 @@ ADMINS = (
     ('Kaitlin Lee','klee@sunlightfoundation.com')
 )
 
+
 MANAGERS = ADMINS
 
 # Local time zone for this installation. Choices can be found here:
@@ -109,7 +110,8 @@ INSTALLED_APPS = (
     'faads',
     'budget_accounts',
     'transportation',
-    'tagging'
+    'tagging',
+    'aip'
 )
 
 #try:
