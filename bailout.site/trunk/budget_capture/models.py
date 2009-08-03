@@ -48,7 +48,7 @@ class BudgetDataFiscalYear(models.Model):
     DATA_TYPE_APPROPRIATION = 2
     DATA_TYPE_OBLIGATION = 3
     DATA_TYPE_ALLOCATION_APPORTIONMENT = 4
-    DATA_TYPE_OTHER = 4
+    DATA_TYPE_OTHER = 5
     
     DATA_TYPE_CHOICES = (
         (DATA_TYPE_AUTHORIZATION, 'Authorization'),
