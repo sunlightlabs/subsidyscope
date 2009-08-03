@@ -3,10 +3,70 @@
 {% load media %}
 
 {% block content %}
+<style>
+#portsearch input.term {
+    width: 32%;
+    margin-left: 3px;
+}
+#portsearch label {
+    font-weight: normal;
+}
+#portsearch .submit {
+    background-color: #F6F8FB;
+    border: 1px solid #899EAB;
+    font-size: .8em;
+    padding: 0 3px;
+    margin-left: 15px;
+}
+.searchterms, .options {
+    display:block;
+    margin-top: 15px;
+}
+.options select {
+    font-size: .9em;
+}
+.searchterms span {
+    margin: 0 20px;
+}
+.results {
+    margin-top:20px;
+    border-top: 1px solid #EFEFEF;
+}
+
+</style>
+
 <div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
     <span class="span-24">
-        <div id="header_area"><h3></h3></div>
+        <div id="header_area"><h3>Airport Improvement Program Grant Search</h3></div>
         <div class="content_area">
+        <p> Some information about AIP and how to use the search goes here maybe. </p>
+        <strong>Search By: </strong>
+        <form id="portsearch">
+            <span class="searchterms"><label>Airport Name:</label><input class="term" type="text" name="portname" /><span><em> &mdash; or &mdash;</em></span><label>Airport Code:</label><input class="term" type="text" name="portcode" /><input type="submit" class="submit" value="Search"/></span>
+            <span class="options"><label>filter by year: </label><select name="yearfilter"><option value="all">All available</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option></select>
+        </form>
+        {% if error %}
+            {{error}}
+        {% endif %}
+ 
+        {% if grants %}
+        <div class="results">
+            <table>
+            <tr><th>Airport Name</th><th>Total Grants (2005-08)</th><th>City</th><th>State</th></tr>
+            {% for port in grants %}
+                <tr><td>{{port.0.name}}</td><td>
+                {{port.1}}
+                </td><td>{{port.0.city}}</td><td>{{port.0.state}}</td></tr>
+            {% endfor %}
+            </table>
+        </div>
+        {% endif %} 
+        {% if port %}
+        <div class="results">
+            {{port.name}}
+        </div>
+        {% endif %}
 
         </div>
     </span>
