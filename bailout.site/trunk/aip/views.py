@@ -9,8 +9,8 @@ def index(request):
     error = None
     if request.method == 'GET' and request.GET:
         if request.GET.__contains__('portname') and request.GET['portname'] != '':
-            ports = Airport.objects.filter(name__icontains=request.GET['portname'])
-            if ports and len(ports) > 1:
+            ports = Airport.objects.filter(name__icontains=(request.GET['portname'].strip(' ')))
+            if ports and len(ports) >= 1:
                 grants = []
                 for p in ports:
                     pgrants = GrantRecord.objects.filter(airport=p)
