@@ -35,6 +35,7 @@ urlpatterns = patterns('',
 	url(r'^projects/bailout/glossary/', include('glossary.urls')),
     
     url(r'^subsidysort/', include('subsidysort.urls')),
+    url(r'^budget_capture/', include('budget_capture.urls')),
 )
 
 urlpatterns += patterns('django.views.generic.simple',
