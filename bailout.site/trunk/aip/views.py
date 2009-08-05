@@ -20,7 +20,7 @@ def index(request):
                     grants.append((p, money))
                 return render_to_response('aip/index.html', {'ports':ports, 'grants': grants})
             else:
-                error = "<span>No airport matched the name provided</span>"
+                error = "No airport matched the name provided"
         elif request.GET.__contains__('portcode'):
             ports = Airport.objects.get(code__iexact=request.GET['portcode'])
             if ports:
@@ -32,9 +32,9 @@ def index(request):
                 grants.append((ports, money))
                 return render_to_response('aip/index.html', {'port':ports, 'grants': grants, 'params':[request.GET['portname'], request.GET['portcode']]})
             else:
-                error = "<span>No airport matched the code you specified</span>"
+                error = "No airport matched the code you specified"
         else:
-            error = "<span>Must specify and airport name or airport code</span>"
+            error = "Must specify and airport name or airport code"
         if error:
             return render_to_response('aip/index.html', {'error': error, 'params': [request.GET['portname'], request.GET['portcode']]})
     else: 

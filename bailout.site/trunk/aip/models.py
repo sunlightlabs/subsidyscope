@@ -27,6 +27,7 @@ class GrantRecord(models.Model):
     description = models.CharField("Description of grant purpose", max_length=5000)
     service_level = models.CharField("Service level of airport (passenger or private)", max_length=5)
     region = models.CharField("Region code for airport", max_length=5)
+    stimulus = models.BooleanField("Stimulus money", default=False)
 
 class Enplanements(models.Model):
     class Meta:
