@@ -5,7 +5,7 @@
 
 <ul>
 {% for item in items %}
-  <li><strong>{{ item.date|date:"F j, Y" }}</strong> {% if item.source %}({{ item.source }}) {% endif %}&mdash;{{ item.text }}: <a href="{{ item.link }}">{{ item.link }}</a></li>
+  <li><a href="{{ item.link }}"><strong>{{ item.date|date:"F j, Y" }}</strong> {% if item.source %}({{ item.source }}) {% endif %}&mdash;{{ item.text }}</a></li>
 {% endfor %}
 </ul>
 </div>
