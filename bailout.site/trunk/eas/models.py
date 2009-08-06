@@ -147,11 +147,10 @@ class EASRoute(models.Model):
         
         
         
-#class RouteStatisticsManager(models.Manager):
-#    
-#    def calcAirportTraffic(self, airport):
-#        
-#        
+class RouteStatisticsManager(models.Manager):
+
+    pass
+    
         
 class RouteStatistics(models.Model):
     
