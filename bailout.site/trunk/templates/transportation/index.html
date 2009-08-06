@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load media %}
 {% load morsel_tags %}
-
+{% load project_update_tags %}
 {% block content %}
 <!-- old from top
  <div class="span-24">
@@ -29,16 +29,11 @@
 			<div class="updates_box">
 				<div class="updates_head">
 				<h2>Transportation Sector Updates</h2>
+                <a title="Click here for news feed" href="{%url django.contrib.syndication.views.feed "updates" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
 				</div>
-			
-				<div id="update_item">
-					<div id="update_headline"><h3>Integer vitae libero ac risus egestas</h3></div>
-					<div id="update_icon"><img src="/media/images/sector_icons/transportation/trans_sm.png" alt="Transportation Sector: Project Update" border="0" /></div>		
-				<p class="update_copy"><span class="update_date">June 30, 2009</span> &ndash; The estimated subsidy rate for transactions made under the Troubled Asset Relief Program has risen by 4 percent, according to a recent report by the Congressional Budget Office. In January, the CBO estimated the subsidy rate – the percentage of the initial TARP disbursement that reflects the true cost to the federal government of purchasing shares of stock from financial institutions – to be 32 percent, based on $293 billion in transactions. In a June 17 report, the CBO subsidy rate estimate rose to 36 percent, based on $439 billion in transactions. The new estimate includes assistance to the auto industry and $70 billion in repayments by TARP recipients.  <a href="/projects/bailout/documents/53/">Read More</a>
-				</p>
-
-				</div>
-			</div> 	<!-- ends update box-->
+		        {% project_updates 2 %}	
+            
+            </div> 	<!-- ends update box-->
 		</div> <!-- ends feature left side -->		
 	</div> <!-- ends span 11 -->
 
