@@ -109,6 +109,7 @@ INSTALLED_APPS = (
     'budget_accounts',
     'transportation',
     'tagging',
+    'news_briefs'
 )
 
 #try:

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load media %}
 {% load project_update_tags %}
+{% load news_brief_tags %}
 {% load bailout_tags %}
 {% load carousel_tags %}
 {% block content %}
@@ -280,6 +281,8 @@ $(function () {
 	
 	
 	<div class="span-8 last">
+		
+		{% news_briefs %}
 		
 		{% bank_search %}
 

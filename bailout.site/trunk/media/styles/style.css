@@ -508,4 +508,10 @@ ul.press-releases li
     padding: 10px 0;
     height: 158px;
 }
+
 .jeditable-morsel:hover .jeditable-morsel-label { display: block;}
+
+/* NEWS BRIEFS */
+#news-briefs h3 { font-size: 14px;}
+#news-briefs ul, #news-briefs ul li { padding-left: 0; margin-left: 0;}
+#news-briefs ul li { margin-bottom: 1em; padding-right: 10px;}

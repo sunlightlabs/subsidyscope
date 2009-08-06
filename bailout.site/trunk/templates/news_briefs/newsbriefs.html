@@ -1,0 +1,11 @@
+{% load media %}
+
+<div id="news-briefs">
+<h3>News Briefs</h3>
+
+<ul>
+{% for item in items %}
+  <li><strong>{{ item.date|date:"F j, Y" }}</strong> {% if item.source %}({{ item.source }}) {% endif %}&mdash;{{ item.text }}: <a href="{{ item.link }}">{{ item.link }}</a></li>
+{% endfor %}
+</ul>
+</div>
