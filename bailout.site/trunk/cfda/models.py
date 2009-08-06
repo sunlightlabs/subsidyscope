@@ -11,13 +11,13 @@ from tagging.managers import ModelTagManager
 
 class ProgramDescriptionManager(models.Manager):
 
-    def parseBudgetAcounts(self):
+    def parseBudgetAccounts(self):
         
         import haystack
         haystack.sites.site.unregister(ProgramDescription)
         
         for program in self.all():
-            program.parseBudgetAcounts()
+            program.parseBudgetAccounts()
     
 
 class ProgramDescription(models.Model):
@@ -82,7 +82,7 @@ class ProgramDescription(models.Model):
     tags = ModelTagManager()
     
 
-    def parseBudgetAcounts(self):
+    def parseBudgetAccounts(self):
         
         accounts = re.findall('([0-9]{2,2}-[0-9]{4,4}-[0-9]{1,1}-[0-9]{1,1}-[0-9]{3,3})', self.account_identification)
         
