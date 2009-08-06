@@ -89,7 +89,6 @@ INSTALLED_APPS = (
     'spammer',
     'haystack',
     'csv_generator',
-    #'django_evolution',
     'etl',
     'geo',
     'bailout',
@@ -100,14 +99,10 @@ INSTALLED_APPS = (
     'fed_h41',
     'sectors',
     'tax_expenditures',
-    'cfda',
     'django_helpers',
     'glossary',
     'carousel',
     'search',
-    'faads',
-    'budget_accounts',
-    'transportation',
     'tagging',
     'news_briefs'
 )
