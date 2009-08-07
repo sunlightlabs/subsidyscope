@@ -23,7 +23,7 @@
             </ul></span>
             <ul id="program-listing">
                 {%for prog in programs %}
-                    <li class="tag{{prog.primary_tag.id}}"><a href="/projects/transportation/direct-payments/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
+                    <li class="tag{{prog.primary_tag.id}}"><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
                 {% endfor %}
             </ul>
         </div>
