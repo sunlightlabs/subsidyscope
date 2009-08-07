@@ -101,4 +101,9 @@ class ProgramDescription(models.Model):
         else:
             return self.objectives[:200] + '...'
         
+
+class ProgramBudgetEstimate(models.Model):
+    
+    program = models.ForeignKey(ProgramDescription)
+    
     
