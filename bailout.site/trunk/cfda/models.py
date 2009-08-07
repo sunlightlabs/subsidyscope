@@ -1,9 +1,13 @@
+import re
+
+
 from django.db import models
 import sectors.models
 from budget_accounts.models import BudgetAccount
 from tagging.fields import TagField
 from tagging.models import Tag
 from tagging.managers import ModelTagManager
+
 
 class ProgramDescriptionManager(models.Manager):
 
@@ -80,10 +84,10 @@ class ProgramDescription(models.Model):
 
     def parseBudgetAcounts(self):
         
-        accounts = re.match('([0-9]{2,2}-[0-9]{4,4}-[0-9]{1,1}-[0-9]{1,1}-[0-9]{3,3})', self.account_identification)
+        accounts = re.findall('([0-9]{2,2}-[0-9]{4,4}-[0-9]{1,1}-[0-9]{1,1}-[0-9]{3,3})', self.account_identification)
         
         if accounts:
-            for account_number in accounts.groups():
+            for account_number in accounts:
                 
                 account = BudgetAccount.objects.createBudgetAccount(account_number.strip('.').strip())
                 self.budget_accounts.add(account)
