@@ -20,6 +20,7 @@ class ProgramDescriptionManager(models.Manager):
             program.parseBudgetAccounts()
     
 
+
 class ProgramDescription(models.Model):
 
     def __unicode__(self):
@@ -102,8 +103,54 @@ class ProgramDescription(models.Model):
             return self.objectives[:200] + '...'
         
 
-class ProgramBudgetEstimate(models.Model):
+
+class ProgramBudgetEstimateDescription(models.Model):
     
     program = models.ForeignKey(ProgramDescription)
+    
+    DATA_TYPE_AUTHORIZATION = 1
+    DATA_TYPE_APPROPRIATION = 2
+    DATA_TYPE_OBLIGATION = 3
+    DATA_TYPE_ALLOCATION_APPORTIONMENT = 4
+    DATA_TYPE_OTHER = 5
+    
+    DATA_TYPE_CHOICES = (
+        (DATA_TYPE_AUTHORIZATION, 'Authorization'),
+        (DATA_TYPE_APPROPRIATION, 'Appropriation'),
+        (DATA_TYPE_OBLIGATION, 'Obligation'),
+        (DATA_TYPE_ALLOCATION_APPORTIONMENT, 'Allocation/Apportionment'),
+        (DATA_TYPE_OTHER, 'Other'))
+
+    data_type = models.IntegerField("Data type", choices=DATA_TYPE_CHOICES)
+    
+    DATA_SOURCE_AGENCY = 1
+    DATA_SOURCE_LEGISLATION = 2
+    DATA_SOURCE_APPORTIONMENT_NOTICE = 3
+    DATA_SOURCE_CFDA = 4
+    DATA_SOURCE_OTHER = 5
+    
+    DATA_SOURCE_CHOICES = (
+        (DATA_SOURCE_AGENCY, 'Agency'),
+        (DATA_SOURCE_LEGISLATION, 'Legislation'),
+        (DATA_SOURCE_APPORTIONMENT_NOTICE, 'Apportionment Notice'),
+        (DATA_SOURCE_CFDA, 'CFDA'),
+        (DATA_SOURCE_OTHER, 'Other'))
+    
+    data_source = models.IntegerField("Data source", choices=DATA_SOURCE_CHOICES)
+    
+    notes = models.TextField("Notes", blank=True,default="")
+    
+    citation = models.CharField("Citation URL", max_length=255, blank=True,default="")
+    
+ 
+    
+class ProgramBudgetAnnualEstimate(models.Model):
+
+    budget_estimate = models.ForeignKey(ProgramBudgetEstimateDescription)
+    
+    fiscal_year = models.IntegerField("Fiscal Year")
+    
+    annual_amount = models.DecimalField("Annual Amount", max_digits=15, decimal_places=2)
+    
     
     
