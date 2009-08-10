@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load media %}
+{% load morsel_tags %}
+
+{% block content %}
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>{% morsel_page_title %}</h3>
+        </div>
+        <div class="content_area">    
+          
+          {% morsel sidebar1 as sidebar %}
+          {% if sidebar.content %}
+          <div class="section-floating-nav">          		    
+    		    {% morsel sidebar1 %}
+    			</div>
+    			{% endif %}
+          
+          {% morsel text1 %}
+
+        </div>
+</div>
+
+{% endblock %}
