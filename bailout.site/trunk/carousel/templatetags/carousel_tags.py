@@ -6,9 +6,11 @@ import settings
 register = Library()
 
 @register.simple_tag
-def carousel_entries():
+def carousel_entries(sector_id):
     
     entries = CarouselEntry.objects.filter(published=True).order_by('weight')
+    if sector_id:
+        entries = entries.filter(sector=sector_id)
     num_entries = entries.count()
     out = ""
     i = 0
