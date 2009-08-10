@@ -8,6 +8,7 @@ def index(request):
     grants = None
     error = None
     type = None
+    blockgs = 0
     if request.method == 'GET' and request.GET:
         if request.GET.__contains__('portname') and request.GET['portname'] != '':
             ports = Airport.objects.filter(name__icontains=(request.GET['portname'].strip(' ')))
@@ -15,6 +16,9 @@ def index(request):
         elif request.GET.__contains__('state'):
             ports = Airport.objects.filter(state__iexact=request.GET['state'])
             type = "state"
+            bgrants = BlockGrant.objects.filter(state__iexact=request.GET['state'])
+            for b in bgrants:
+                blockgs += b.amount
         if ports and len(ports) >= 1:
             grants = []
             total = 0
@@ -25,7 +29,8 @@ def index(request):
                     money += m.amount
                 total += money
                 grants.append((p, money))
-            return render_to_response('aip/index.html', {'ports':ports, 'grants': grants, 'total': total, 'type': type})
+            total += blockgs
+            return render_to_response('aip/index.html', {'ports':ports, 'grants': grants, 'total': total, 'type': type, 'blockgrants': blockgs})
         elif request.GET.__contains__('portcode'):
             ports = Airport.objects.get(code__iexact=request.GET['portcode'])
             if ports:

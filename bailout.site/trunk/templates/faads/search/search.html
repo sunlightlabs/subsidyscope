@@ -92,10 +92,6 @@
         select_all_min: 3,  
         no_selection: "No criteria selected",  
         selected_text: " selected"  
-        
-        
-        
-	
       });
     
     $('#id_tags').change(function(){
@@ -199,11 +195,11 @@
     {% include "includes/transportation_nav.html" %}
     <div class="span-24">
         <div id="header_area">
-            <h3>Search Direct Payments</h3>
+            <h3>{% morsel_page_title %}</h3>
         </div>
         <div class="content_area">    
 	
-					<p>{% lorem %}</p>
+					<p>{% morsel text1 %}</p>
 	
 					<form action="{% url faads.views.search %}" method="POST">
 
