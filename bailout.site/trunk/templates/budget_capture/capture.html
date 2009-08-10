@@ -1,0 +1,24 @@
+{% extends "budget_capture/capture_base.html" %}
+
+{% block title %}{{ item.cfda_program.program_number }} &mdash; {{ item.cfda_program.program_title }}{% endblock %}
+
+{% block content %}
+
+<p>{{ item.description }}</p>
+
+<p><a href="{% url budget_capture-cfda item.cfda_program.id %}">View CFDA Program Data &raquo;</a></p>
+
+<p>&nbsp;</p>
+
+<form action="." method="POST">
+<table>
+	{{ form.as_table }}
+</table>
+<input type="submit" value="Submit and Enter Annual Figures"/>
+</form>
+
+<p>
+	<a href="{% url subsidysort-task item.task.id %}">&laquo; Return to List</a>
+</p>
+
+{% endblock %}

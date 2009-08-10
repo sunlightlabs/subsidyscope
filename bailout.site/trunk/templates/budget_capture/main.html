@@ -1,0 +1,12 @@
+{% extends "budget_capture/capture_base.html" %}
+
+{% block title %}Tasks{% endblock %}
+
+{% block content %}
+<ul>
+	{% for task in tasks %}
+		<li><strong><a href="{% url budget_capture-task task.id %}">{{ task.name }}</strong></a><br/>{{ task.description }}</li>
+	{% endfor %}
+</ul>
+
+{% endblock %}
