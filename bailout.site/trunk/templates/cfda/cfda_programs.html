@@ -8,10 +8,9 @@
 <div class="container main_container">
     {% include navname %}
     <div class="span-24">
-        <div id="header_area"><h3>CFDA Programs</h3></div>
+        <div id="header_area"><h3>{% morsel_page_title %}</h3></div>
         <div class="content_area">
-                    {% morsel text1 %}
-                    {% lorem %}
+            {% morsel text1 %}
             <h5>Program Listing</h5>
             <span class="programs-container"><ul class="programs">
                 <li><strong>Filter: </strong><select class="js-select">
@@ -24,7 +23,7 @@
             </ul></span>
             <ul id="program-listing">
                 {%for prog in programs %}
-                    <li class="tag{{prog.primary_tag.id}}"><a href="/projects/transportation/direct-payments/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
+                    <li class="tag{{prog.primary_tag.id}}"><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
                 {% endfor %}
             </ul>
         </div>

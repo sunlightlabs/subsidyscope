@@ -65,7 +65,7 @@ def MakeFAADSSearchFormClass(sector=None):
     tag_choices = [('', 'Select CFDA Programs by Function')]
     cfda_program_tags = ProgramDescription.tags.all().order_by('name')
     for tag in cfda_program_tags:
-        tag_choices.append( (','.join(map(lambda x: x.program_number, ProgramDescription.objects.filter(primary_tag=tag))), tag.name) )
+        tag_choices.append( (','.join(map(lambda x: str(x.program_number), ProgramDescription.objects.filter(primary_tag=tag))), tag.name) )
     
     class FAADSSearchForm(forms.Form):
       
