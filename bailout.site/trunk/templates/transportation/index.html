@@ -51,9 +51,15 @@
 
 				<div id="sector_taxonomy_box" style="">
 					<ul id="sector_taxonomy">
-						<li><img src="/media/images/sector_icons/transportation/transportation_general.png"><a href="/projects/transportation/">General</a></li>
-						<li><img src="/media/images/sector_icons/transportation/transportation_aviation.png"><a href="/projects/transportation/">Aviation</a></li><li><img src="/media/images/sector_icons/transportation/transportation_highways.png"><a href="/projects/transportation/">Highways</a></li></ul>
-					<ul id="sector_taxonomy"><li><img src="/media/images/sector_icons/transportation/transportation_transit.png"><a href="/projects/transportation/">Transit</a></li><li><img src="/media/images/sector_icons/transportation/transportation_rail.png"><a href="/projects/transportation/">Rail</a></li><li><img src="/media/images/sector_icons/transportation/transportation_maritime.png"><a href="/projects/transportation/">Maritime</a></li></ul>
+						<li><img src="/media/images/sector_icons/transportation/transportation_general.png"><a href="{% url transportation-general %}">General</a></li>
+						<li><img src="/media/images/sector_icons/transportation/transportation_aviation.png"><a href="{% url transportation-aviation %}">Aviation</a></li>
+						<li><img src="/media/images/sector_icons/transportation/transportation_highways.png"><a href="{% url transportation-highways %}">Highways</a></li>
+					</ul>
+					<ul id="sector_taxonomy">
+					  <li><img src="/media/images/sector_icons/transportation/transportation_transit.png"><a href="{% url transportation-transit %}">Transit</a></li>
+					  <li><img src="/media/images/sector_icons/transportation/transportation_rail.png"><a href="{% url transportation-rail %}">Rail</a></li>
+					  <li><img src="/media/images/sector_icons/transportation/transportation_maritime.png"><a href="{% url transportation-maritime %}">Maritime</a></li>
+					</ul>
 				</div>
 				<div id="sector_taxonomy_box_bottom">&nbsp;</div>
 		</div>
