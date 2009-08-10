@@ -65,10 +65,8 @@ class Morsel(models.Model):
         c = Context()
         t = Template(self.content)
         raw_output = t.render(c)
-        
-        t = lxml.html.fromstring(raw_output)
     
-        return t.text_content()
+        return raw_output
 
     def delete(self):
         if self.locked:
