@@ -1,6 +1,5 @@
 from django.db import models
 from sectors.models import Sector, Subsector
-from budget_accounts.models import BudgetAccount
 from tagging.fields import TagField
 from tagging.models import Tag
 from tagging.managers import ModelTagManager
