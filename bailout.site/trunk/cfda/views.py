@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
-from cfda.models import ProgramDescription
+from cfda.models import *
 from tagging.models import Tag
 from sectors.models import Sector
 from faads.search import *
@@ -24,10 +24,18 @@ def getProgram(request, cfda_id, sector_name):
     if len(accomps) > 800:
         accomps2 = accomps[800:]
         accomps = accomps[:800]
+    chartdata = ""
+    prog_desc = None
+    estimates = "["
     data = FAADSSearch().filter('cfda_program', program.program_number).aggregate('fiscal_year')
+    try:
+        prog_desc = ProgramBudgetEstimateDescription.objects.get(program=program)
+        budget_est = ProgramBudgetAnnualEstimate.objects.filter(budget_estimate=prog_desc) 
+    except  ProgramBudgetEstimateDescription.DoesNotExist:
+        budget_est = None
+        estimates = ""
     length = len(data)
     if length > 0:
-        chartdata = '{"elements":[{"type":"bar_3d", "colour": "#088F1b","text":"CFDA Estimate", "tip": "CFDA #val#", "values":[null, null, null, null, null, 36924964306, 37933741690, 40248148610, 41620631862, 41772990045]}, { "tip": "FAADS #val#","type": "bar_3d", "on-show": {"type:":"grow-up"}, "text": "FAADs Data", "values": ['
         xaxis = '"x_axis": {"3d": 5, "colour": "#909090", "tick-height": 20, "labels": {"labels":['
         count = 1
         min = -1
@@ -35,14 +43,24 @@ def getProgram(request, cfda_id, sector_name):
         years = data.keys()
         years.sort()
         for point in years:
+            if budget_est:
+                try:
+                    yearitem = budget_est.filter(fiscal_year=point)
+                    if yearitem:
+                        year_est = yearitem[0].annual_amount
+                        if year_est > max: max = year_est
+                        if min == -1 or year_est < min: min = year_est
+                        estimates += str(year_est)
+                    if count != length:
+                        estimates += ', '
+                except ProgramBudgetAnnualEstimate.DoesNotExist:
+                    estimates += "0"
+                    if count !=length:
+                        estimates += ','
             xaxis += '"%s"' % point
             chartdata += '%s' % data[point]
-            if data[point] > max:
-                max = data[point]
-            if min == -1:
-                min = data[point]
-            elif data[point] < min:
-                min = data[point]
+            if data[point] > max: max = data[point]
+            if min == -1 or data[point] < min: min = data[point]
             if count != length:
                 xaxis +=', '
                 chartdata += ', '
@@ -65,7 +83,10 @@ def getProgram(request, cfda_id, sector_name):
             modnum = 10000000000
         max = max + (modnum-(max % modnum))
         min = 0
-        chartdata += ']}], "title": {"text": ""}, "bg_colour": "#FFFFFF", '+ xaxis + ', "y_axis": {"colour": "#909090", "min": %s, "max": %s}, "x_legend": {"text": "Years", "style": "{font-size:12px;}"}, "y_legend":{"text": "US Dollars ($)", "style":"{font-size:12px;}"}}' % (min, max)   
+        if estimates != "": 
+			estimates = '{"type":"bar_3d", "colour": "#088F1b","text":"%s", "tip": "%s: $#val#", "values":%s]},' % (ProgramBudgetEstimateDescription.DATA_TYPE_CHOICES[prog_desc.data_type][1], ProgramBudgetEstimateDescription.DATA_TYPE_CHOICES[prog_desc.data_type][1], estimates)
+		
+        chartdata = '{"elements":[%s{ "tip": "FAADS: $#val#","type": "bar_3d", "on-show": {"type:":"grow-up"}, "text": "FAADs Data", "values": [%s]}], "title": {"text": ""}, "bg_colour": "#FFFFFF", %s, "y_axis": {"colour": "#909090", "min": %s, "max": %s}, "x_legend": {"text": "Years", "style": "{font-size:12px;}"}, "y_legend":{"text": "US Dollars ($)", "style":"{font-size:12px;}"}}' % (estimates, chartdata, xaxis, min, max)   
     else: 
         chartdata = ""
     return render_to_response('cfda/programs.html', {'program': program, 'primarytag': tag, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'chartdata':chartdata, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"})
