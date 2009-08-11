@@ -48,6 +48,8 @@ def getProgram(request, cfda_id, sector_name):
                     yearitem = budget_est.filter(fiscal_year=point)
                     if yearitem:
                         year_est = yearitem[0].annual_amount
+                        if year_est > max: max = year_est
+                        if min == -1 or year_est < min: min = year_est
                         estimates += str(year_est)
                     if count != length:
                         estimates += ', '
@@ -57,12 +59,8 @@ def getProgram(request, cfda_id, sector_name):
                         estimates += ','
             xaxis += '"%s"' % point
             chartdata += '%s' % data[point]
-            if data[point] > max:
-                max = data[point]
-            if min == -1:
-                min = data[point]
-            elif data[point] < min:
-                min = data[point]
+            if data[point] > max: max = data[point]
+            if min == -1 or data[point] < min: min = data[point]
             if count != length:
                 xaxis +=', '
                 chartdata += ', '
