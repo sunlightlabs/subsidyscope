@@ -14,6 +14,9 @@ csv_generator.autodiscover()
 haystack.autodiscover()
 admin.autodiscover()
 
+def redirect_to_index(request):
+    return HttpResponseRedirect(reverse('index'))
+
 class SubsidyContactForm(ContactForm):
     attrs_dict = { 'class': 'required' }    
     from_email = "bounce@sunlightfoundation.com"
@@ -44,7 +47,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^projects/bailout/', include('bailout.urls')),     
     url(r'^projects/transportation/aip/', include('aip.urls')),   
     url(r'^projects/transportation/', include('transportation.urls')),    
-    url(r'^projects/', redirect_to_bailout, name="projects"),
+    url(r'^projects/', redirect_to_index, name="projects"),
     url(r'^updates/', include('project_updates.urls')),
     url(r'^about/', 'direct_to_template', {'template': 'about.html'}, name="about"),
     url(r'^contact/', include('contact_form.urls'), {"form_class": SubsidyContactForm, "fail_silently": False}, name="contact"),
