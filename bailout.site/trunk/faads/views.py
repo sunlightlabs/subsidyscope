@@ -192,6 +192,6 @@ def search(request, sector_name=None):
             formclass = MakeFAADSSearchFormClass(sector=sector)
             form = formclass()
         
-    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'querystring': querystring})
+    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'querystring': querystring}, context_instance=RequestContext(request))
 
 
