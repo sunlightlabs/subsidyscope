@@ -42,12 +42,20 @@ def getDataSeries(cfda_id):
             cfdaseries.append(data[point])
     return {'labels': labels, 'cfdaseries':cfdaseries, 'budgetseries':budgetseries, 'estimateDescription': prog_desc}
 
-def buildChart(cfda_id):
-    data = getDataSeries(cfda_id)
-    labels = ["%s" %d  for d in data['labels']]
-    cfdaseries = [int(d) for d in data['cfdaseries']]
-    budgetseries = [int(d) for d in data['budgetseries']]
-    prog_desc = data['estimateDescription']
+
+def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
+    if labels: labels = ["%s" %d  for d in labels]
+    if type(cfdaseries).__name__ == 'dict': 
+        sortedyears = cfdaseries.keys()
+        sortedyears.sort()
+        temp = []
+        labels = []
+        for y in sortedyears:
+            temp.append(cfdaseries[y])
+            labels.append(y)
+        cfdaseries = temp
+    elif cfdaseries: cfdaseries = [int(d) for d in cfdaseries]
+    if budgetseries: budgetseries = [int(d) for d in budgetseries]
     cfdamax=0
     budgetmax=0
     json= {"elements":[]}
@@ -71,7 +79,6 @@ def buildChart(cfda_id):
 
     return dumps(json)
 
-
 def getProgram(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=int(cfda_id))
     tag = Tag.objects.get(id=program.primary_tag_id)
@@ -87,7 +94,10 @@ def getProgram(request, cfda_id, sector_name):
     if len(accomps) > 800:
         accomps2 = accomps[800:]
         accomps = accomps[:800]
-    return render_to_response('cfda/programs.html', {'program': program, 'primarytag': tag, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'chartdata': buildChart(cfda_id), 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
+    
+    data = getDataSeries(cfda_id)
+    jsonstring = buildChart(data['cfdaseries'], data['budgetseries'], data['labels'], data['estimateDescription'])
+    return render_to_response('cfda/programs.html', {'program': program, 'primarytag': tag, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'chartdata': jsonstring, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
 
 def getProgramIndex(request, sector_name):
     tags = Tag.objects.all()
