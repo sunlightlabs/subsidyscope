@@ -10,6 +10,67 @@ from faads.search import *
 from faads.models import *
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from datetime import *
+from simplejson import * 
+
+def getDataSeries(cfda_id):
+    program = ProgramDescription.objects.get(id=int(cfda_id))
+    data = FAADSSearch().filter('cfda_program', program.program_number).aggregate('fiscal_year')
+    labels = []
+    cfdaseries = []
+    budgetseries = []
+    prog_desc = None
+    try:
+        prog_desc = ProgramBudgetEstimateDescription.objects.get(program=program)
+        budget_est = ProgramBudgetAnnualEstimate.objects.filter(budget_estimate=prog_desc) 
+    except  ProgramBudgetEstimateDescription.DoesNotExist:
+        budget_est = None
+    if len(data) > 0:
+        years = data.keys()
+        years.sort()
+        for point in years:
+            if budget_est:
+                try:
+                    yearitem = budget_est.filter(fiscal_year=point)
+                    if yearitem:
+                        budgetseries.append(yearitem[0].annual_amount)
+                    else: budgetseries.append(0)
+                except ProgramBudgetAnnualEstimate.DoesNotExist:
+                    budgetseries.append(0)
+                    if count !=length:
+                        estimates += ','
+            labels.append(point)
+            cfdaseries.append(data[point])
+    return {'labels': labels, 'cfdaseries':cfdaseries, 'budgetseries':budgetseries, 'estimateDescription': prog_desc}
+
+def buildChart(cfda_id):
+    data = getDataSeries(cfda_id)
+    labels = ["%s" %d  for d in data['labels']]
+    cfdaseries = [int(d) for d in data['cfdaseries']]
+    budgetseries = [int(d) for d in data['budgetseries']]
+    prog_desc = data['estimateDescription']
+    cfdamax=0
+    budgetmax=0
+    json= {"elements":[]}
+    if cfdaseries:
+        json["elements"].append({"type": "bar_3d", "tip":"FAADS: $#val#", "text":"FAADS data", "values": cfdaseries})
+        cfdamax = max(cfdaseries)
+    if budgetseries:
+        json["elements"].append({"type":"bar_3d","tip": ProgramBudgetEstimateDescription.DATA_TYPE_CHOICES[prog_desc.data_type][1]+": $#val#", "colour": "#088f1b", "text": ProgramBudgetEstimateDescription.DATA_TYPE_CHOICES[prog_desc.data_type][1], "values":budgetseries})
+        budgetmax = max(budgetseries)
+    json["title"] = {"text":""}
+    json["bg_colour"] = "#FFFFFF"
+    json["x_axis"] = {"3d": 5, "colour":"#909090", "tick-height":20, "labels": {"labels":labels}}
+    mod = 1000
+    maximum = max(cfdamax, budgetmax)
+    while maximum % mod != maximum:
+        mod = mod * 10
+    maximum = maximum + (mod-(maximum % mod))
+    json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
+    json["x_legend"] = {"text": "Years", "style": "{font-size:12px;}"}
+    json["y_legend"] = {"text": "US Dollars($)", "style": "{font-size: 12px;}"}
+
+    return dumps(json)
+
 
 def getProgram(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=int(cfda_id))
@@ -18,78 +79,15 @@ def getProgram(request, cfda_id, sector_name):
     objectives2 = ''
     accomps = program.program_accomplishments
     accomps2 = ''
+    citation = ''
+    url = ''
     if len(objectives) > 800:
         objectives2 =  objectives[800:]
         objectives = objectives[:800] 
     if len(accomps) > 800:
         accomps2 = accomps[800:]
         accomps = accomps[:800]
-    chartdata = ""
-    prog_desc = None
-    estimates = "["
-    data = FAADSSearch().filter('cfda_program', program.program_number).aggregate('fiscal_year')
-    try:
-        prog_desc = ProgramBudgetEstimateDescription.objects.get(program=program)
-        budget_est = ProgramBudgetAnnualEstimate.objects.filter(budget_estimate=prog_desc) 
-    except  ProgramBudgetEstimateDescription.DoesNotExist:
-        budget_est = None
-        estimates = ""
-    length = len(data)
-    if length > 0:
-        xaxis = '"x_axis": {"3d": 5, "colour": "#909090", "tick-height": 20, "labels": {"labels":['
-        count = 1
-        min = -1
-        max = 10
-        years = data.keys()
-        years.sort()
-        for point in years:
-            if budget_est:
-                try:
-                    yearitem = budget_est.filter(fiscal_year=point)
-                    if yearitem:
-                        year_est = yearitem[0].annual_amount
-                        if year_est > max: max = year_est
-                        if min == -1 or year_est < min: min = year_est
-                        estimates += str(year_est)
-                    if count != length:
-                        estimates += ', '
-                except ProgramBudgetAnnualEstimate.DoesNotExist:
-                    estimates += "0"
-                    if count !=length:
-                        estimates += ','
-            xaxis += '"%s"' % point
-            chartdata += '%s' % data[point]
-            if data[point] > max: max = data[point]
-            if min == -1 or data[point] < min: min = data[point]
-            if count != length:
-                xaxis +=', '
-                chartdata += ', '
-            count += 1
-        xaxis += ']}}'
-        modnum = min 
-        if max > 1000:
-            modnum = 1000;
-        if max > 100000:
-            modnum = 100000
-        if max > 1000000:
-            modnum = 1000000
-        if max > 10000000:
-            modnum = 10000000
-        if max > 100000000:
-            modnum = 100000000
-        if max > 1000000000:
-            modnum = 1000000000
-        if max > 10000000000:
-            modnum = 10000000000
-        max = max + (modnum-(max % modnum))
-        min = 0
-        if estimates != "": 
-			estimates = '{"type":"bar_3d", "colour": "#088F1b","text":"%s", "tip": "%s: $#val#", "values":%s]},' % (ProgramBudgetEstimateDescription.DATA_TYPE_CHOICES[prog_desc.data_type][1], ProgramBudgetEstimateDescription.DATA_TYPE_CHOICES[prog_desc.data_type][1], estimates)
-		
-        chartdata = '{"elements":[%s{ "tip": "FAADS: $#val#","type": "bar_3d", "on-show": {"type:":"grow-up"}, "text": "FAADs Data", "values": [%s]}], "title": {"text": ""}, "bg_colour": "#FFFFFF", %s, "y_axis": {"colour": "#909090", "min": %s, "max": %s}, "x_legend": {"text": "Years", "style": "{font-size:12px;}"}, "y_legend":{"text": "US Dollars ($)", "style":"{font-size:12px;}"}}' % (estimates, chartdata, xaxis, min, max)   
-    else: 
-        chartdata = ""
-    return render_to_response('cfda/programs.html', {'program': program, 'primarytag': tag, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'chartdata':chartdata, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"})
+    return render_to_response('cfda/programs.html', {'program': program, 'primarytag': tag, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'chartdata': buildChart(cfda_id), 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
 
 def getProgramIndex(request, sector_name):
     tags = Tag.objects.all()
