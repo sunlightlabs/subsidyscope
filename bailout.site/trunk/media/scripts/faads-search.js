@@ -65,63 +65,30 @@ $(function(){
     // tabs-ify results section
     $('#tabs').tabs();
 
-    swfobject.embedSWF('{% media_url %}/scripts/HighwayMapVis.swf?v=4', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
-
-
-	$("select[name='dataType']").change(
+    $("select[name='dataType']").change(
 	function()
 	{
-		if ($("select[name='dataType']").val() == 'counties')
+		if ($("select[name='dataType']").val() == 'state')
 		{	
-			showCounties();
+			setDataField(1);
 		}
-		else if ($("select[name='dataType']").val() == 'counties_pop')
+		else if ($("select[name='dataType']").val() == 'state_per_capital')
 		{
-			showCountiesPop();
+			setDataField(3);
 		}
-		else if ($("select[name='dataType']").val() == 'states')
-		{
-			showStates();
-		}
-		else if ($("select[name='dataType']").val() == 'states_pop')
-		{
-			showStatesPop();
-		}
-		
 	});
+	
 });
 
 
-function showCounties()
-{
-	var flex = null;
-	flex = getFlexMovie("mapVis");
-	if((flex!=null) && (flex.showCounties!=null))
-	    flex.showCounties();	
-}
 
-function showCountiesPop()
+	
+function setDataField(fieldId)
 {
 	var flex = null;
 	flex = getFlexMovie("mapVis");
-	if((flex!=null) && (flex.showCountiesPop!=null))
-	    flex.showCountiesPop();	
-}
-
-function showStates()
-{
-	var flex = null;
-	flex = getFlexMovie("mapVis");
-	if((flex!=null) && (flex.showCountiesPop!=null))
-	    flex.showStates();	
-}
-
-function showStatesPop()
-{
-	var flex = null;
-	flex = getFlexMovie("mapVis");
-	if((flex!=null) && (flex.showCountiesPop!=null))
-	    flex.showStatesPop();	
+	if((flex!=null) && (flex.setDataField!=null))
+	    flex.setDataField(fieldId);	
 }
 	
 function getFlexMovie(movieName) 

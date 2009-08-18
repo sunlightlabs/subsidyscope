@@ -1,7 +1,7 @@
 from django.conf import settings
 from django import forms
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from morsels.models import Page
@@ -10,6 +10,8 @@ from cfda.models import ProgramDescription
 from faads.models import *
 from sectors.models import Sector, Subsector
 from haystack.query import SearchQuerySet
+from geo.models import State
+from cfda.views import buildChart
 from decimal import Decimal
 import faads.search
 import re
@@ -226,7 +228,8 @@ def search(request, sector_name=None):
     
     # default values, for safety's sake
     form = None
-    querystring = ''
+    query = ''
+    encoded_querystring = ''
     ran_search = False
     faads_results_page = None
     
@@ -262,7 +265,8 @@ def search(request, sector_name=None):
     
             ran_search = True
     
-            querystring = "&q=%s" % urllib.quote(request.GET['q'])
+            query = urllib.quote(request.GET['q'])
+
         
         # we just wandered into the search without a prior submission        
         else:
@@ -279,11 +283,80 @@ def search(request, sector_name=None):
                 subsectors = Subsector.objects.filter(parent_sector=sector).filter(id__in=subsector_ids)        
         
             ran_search = False
-            querystring = ''
+            query = ''
             faads_results_page = None
             formclass = MakeFAADSSearchFormClass(sector=sector, subsectors=subsectors)
             form = formclass()
         
-    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'querystring': querystring}, context_instance=RequestContext(request))
+    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'query': query}, context_instance=RequestContext(request))
 
+def annual_chart_data(request, sector_name=None):
+
+    
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+        
+            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+                   
+            faads_results = faads_search_query.aggregate('fiscal_year')
+    
+            chart_json = buildChart(faads_results)
+            
+            return HttpResponse(chart_json, mimetype="text/plain")
+
+    return Http404()
+
+
+def map_data(request, sector_name=None):
+    
+
+        
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation
+    states = {}
+    
+    for state in State.objects.all():
+    
+        states[state.id] = state
+        
+    
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+        
+            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+                   
+            faads_results = faads_search_query.aggregate('recipient_state')
+
+            max_state_total = 0
+            max_per_capital_total = 0
+            
+            per_capita_totals = {}
+            
+            for state_id in faads_results:
+                if states.has_key(state_id) and states[state_id].population:
+                    per_capita_totals[state_id] =  faads_results[state_id] / states[state_id].population
+                    
+                    if per_capita_totals[state_id] > max_per_capital_total:
+                        max_per_capital_total = per_capita_totals[state_id]
+                    
+                    if faads_results[state_id] > max_state_total:
+                        max_state_total = faads_results[state_id]
+                    
+        
+            results = []
+            
+            for state_id in per_capita_totals:
+                if states.has_key(state_id):
+                    line = '%d,%.02f,%.03f,%.02f,%.03f' % (states[state_id].fips_state_code, 
+                                                           faads_results[state_id], 
+                                                           faads_results[state_id] / max_state_total, 
+                                                           per_capita_totals[state_id],
+                                                           per_capita_totals[state_id] / max_per_capital_total)
+
+                    results.append(line)
+                
+            
+            return HttpResponse('\n'.join(results), mimetype="text/plain")
+                
+    return Http404()
 
