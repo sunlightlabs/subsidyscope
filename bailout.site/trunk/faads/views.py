@@ -5,9 +5,10 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from morsels.models import Page
+from tagging.models import TaggedItem, Tag
 from cfda.models import ProgramDescription
 from faads.models import *
-from sectors.models import Sector
+from sectors.models import Sector, Subsector
 from haystack.query import SearchQuerySet
 from decimal import Decimal
 import faads.search
@@ -21,14 +22,31 @@ import pickle
 
 RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
 
-def MakeFAADSSearchFormClass(sector=None):
+def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     
+    # fill CFDA program list
     cfda_programs = ProgramDescription.objects.all()
     if sector is not None:
         cfda_programs = cfda_programs.filter(sectors=sector)
     cfda_program_choices = []
+    initial_cfda_program_choices = []
     for c in cfda_programs:
-        cfda_program_choices.append( (str(c.program_number), c.program_title) )
+        cfda_program_choices.append( (c.id, c.program_title) )        
+        # if no subsector has been defined, check all boxes
+        if len(subsectors)==0:
+            initial_cfda_program_choices.append(c.id)
+        # if a subsector was defined, only check the programs within it
+        else:
+            for subsector in c.subsectors.all():
+                if subsector in subsectors:
+                    initial_cfda_program_choices.append(c.id)
+                    break
+
+    # subsectors
+    subsector_choices = None
+    if sector is not None:
+        subsector_choices = map(lambda x: (x.id, x.name), Subsector.objects.filter(parent_sector=sector).order_by('name'))
+        
     
     action_type_options = (
         ("A", "New assistance action"),
@@ -62,10 +80,9 @@ def MakeFAADSSearchFormClass(sector=None):
         (25, "All other")
     )
 
-    tag_choices = [('', 'Select CFDA Programs by Function')]
+    tag_choices = []
     cfda_program_tags = ProgramDescription.tags.all().order_by('name')
-    for tag in cfda_program_tags:
-        tag_choices.append( (','.join(map(lambda x: str(x.program_number), ProgramDescription.objects.filter(primary_tag=tag))), tag.name) )
+    tag_choices = map(lambda x: (x.id, x.name), cfda_program_tags)
     
     class FAADSSearchForm(forms.Form):
       
@@ -73,9 +90,28 @@ def MakeFAADSSearchFormClass(sector=None):
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
-        # CFDA programs and tags
-        cfda_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=map(lambda x: x[0], cfda_program_choices), widget=forms.SelectMultiple(attrs={'class':'fieldwidth-230px'}))
-        tags = forms.ChoiceField(choices=tag_choices, initial=('-'), required=False, widget=forms.Select(attrs={'class':'fieldwidth-230px'}))
+        # CFDA programs, subsectors and tags
+        cfda_program_selection_choices = (('tag', 'Tag'), ('subsector', 'Subsector'), ('program', 'Program'))
+        if not subsector_choices:
+            cfda_program_selection_choices = (('tag', 'Tag'), ('program', 'Program'))
+        
+        cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'tag')
+
+        cfda_programs_1 = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices[:len(cfda_program_choices)/2], required=False, initial=initial_cfda_program_choices, widget=forms.CheckboxSelectMultiple(attrs={'class':'fieldwidth-230px'}))
+        cfda_programs_2 = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices[len(cfda_program_choices)/2:], required=False, initial=initial_cfda_program_choices, widget=forms.CheckboxSelectMultiple(attrs={'class':'fieldwidth-230px'}))
+
+        tags_1 = forms.MultipleChoiceField(choices=tag_choices[:len(tag_choices)/2], initial=('-'), required=False, widget=forms.CheckboxSelectMultiple)
+        tags_2 = forms.MultipleChoiceField(choices=tag_choices[len(tag_choices)/2:], initial=('-'), required=False, widget=forms.CheckboxSelectMultiple)
+        tags_exclude_secondary = forms.BooleanField(label="Only include programs having the selected tag(s) as their primary function?", required=False, initial=True)
+
+        if subsector_choices:
+            subsectors_1 = forms.MultipleChoiceField(choices=subsector_choices[:len(subsector_choices)/3], required=False, widget=forms.CheckboxSelectMultiple)
+            subsectors_2 = forms.MultipleChoiceField(choices=subsector_choices[len(subsector_choices)/3:len(subsector_choices)*2/3], required=False, widget=forms.CheckboxSelectMultiple)
+            subsectors_3 = forms.MultipleChoiceField(choices=subsector_choices[len(subsector_choices)*2/3:], required=False, widget=forms.CheckboxSelectMultiple)
+        else:
+            subsectors_1 = False
+            subsectors_2 = False
+            subsectors_3 = False            
 
         assistance_type = forms.MultipleChoiceField(label="Assistance Type", choices=assistance_type_options, initial=map(lambda x: x[0], assistance_type_options))
         action_type = forms.MultipleChoiceField(label="Action Type", choices=action_type_options, initial=map(lambda x: x[0], action_type_options))        
@@ -104,6 +140,88 @@ def compress_querydict(obj):
 def decompress_querydict(s):
     return pickle.loads(zlib.decompress(base64.b64decode(urllib.unquote(s))))
 
+def get_sector_by_name(sector_name=None):
+    if sector_name is not None:
+        sector = Sector.objects.filter(name__icontains=sector_name)
+        if len(sector)==1:
+            sector = sector[0]
+        else:
+            sector = None
+    return sector
+
+
+def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed_string):
+    """ Returns a form object and a FAADSSearch object that have been constructed from a search key (a compressed POST querydict) """
+
+    # retrieve the sector and create an appropriate form object to handle validation of the querydict
+    sector = get_sector_by_name(sector_name)
+    formclass = MakeFAADSSearchFormClass(sector=sector)            
+    form = formclass(decompress_querydict(querydict_as_compressed_string))
+
+    # validate querydict -- no monkey business!
+    if form.is_valid():
+    
+        faads_search_query = faads.search.FAADSSearch()
+    
+        # handle text search
+        if form.cleaned_data['text_query'] is not None and len(form.cleaned_data['text_query'].strip())>0:
+            if form.cleaned_data['text_query_type']==2:
+                faads_search_query = faads_search_query.filter('recipient', form.cleaned_data['text_query']).filter('text', form.cleaned_data['text_query'], faads.search.FAADSSearch.CONJUNCTION_OR)
+            elif form.cleaned_data['text_query_type']==1:
+                faads_search_query = faads_search_query.filter('text', form.cleaned_data['text_query'])
+            elif form.cleaned_data['text_query_type']==0:
+                faads_search_query = faads_search_query.filter('recipient', form.cleaned_data['text_query'])
+    
+        
+        # handle program selection
+        # by tag
+        if form.cleaned_data['cfda_program_selection_method']=='tag':
+            selected_tags = Tag.objects.filter(id__in=(form.cleaned_data['tags_1'] + form.cleaned_data['tags_2']))
+
+            if form.cleaned_data['tags_exclude_secondary']:
+                programs_with_tag = ProgramDescription.objects.filter(primary_tag__in=selected_tags)
+            else:
+                programs_with_tag = ProgramDescription.objects.filter(Q(primary_tag__in=selected_tags) | Q(secondary_tags__in=selected_tags))
+
+            if len(programs_with_tag):
+                faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
+        # by subsector
+        elif form.cleaned_data['cfda_program_selection_method']=='subsector':
+            programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['subsectors_1'] + form.cleaned_data['subsectors_2'] + form.cleaned_data['subsectors_3']))
+            if len(programs_in_subsector):
+                faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_in_subsector))
+        # by CFDA program 
+        elif form.cleaned_data['cfda_program_selection_method']=='program':
+            selected_programs = form.cleaned_data['cfda_programs_1'] + form.cleaned_data['cfda_programs_2']
+            if len(selected_programs):
+                faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['cfda_programs_1'] + form.cleaned_data['cfda_programs_2'])
+            
+        # handle assistance type
+        if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
+            faads_search_query = faads_search_query.filter('assistance_type', form.cleaned_data['assistance_type'])
+        
+        # handle recipient type
+        if len(form.cleaned_data['recipient_type'])<len(form.fields['recipient_type'].choices):
+            faads_search_query = faads_search_query.filter('recipient_type', form.cleaned_data['recipient_type'])
+
+        # handle action type
+        if len(form.cleaned_data['action_type'])<len(form.fields['action_type'].choices):
+            faads_search_query = faads_search_query.filter('action_type', form.cleaned_data['action_type'])
+        
+        # handle obligation date range
+        if form.cleaned_data['obligation_date_start'] is not None or form.cleaned_data['obligation_date_end'] is not None:
+            faads_search_query = faads_search_query.filter('obligation_action_date', (form.cleaned_data['obligation_date_start'], form.cleaned_data['obligation_date_end']))
+
+        # handle obligation amount range
+        if form.cleaned_data['obligation_amount_minimum'] is not None or form.cleaned_data['obligation_amount_maximum'] is not None:
+            faads_search_query = faads_search_query.filter('total_funding_amount', (form.cleaned_data['obligation_amount_minimum'], form.cleaned_data['obligation_amount_maximum']))
+
+        return (form, faads_search_query)
+
+    else:
+        raise(Exception("Data in querydict did not pass form validation"))
+
+
 def search(request, sector_name=None):
     
     # default values, for safety's sake
@@ -113,12 +231,7 @@ def search(request, sector_name=None):
     faads_results_page = None
     
     # retrieve the sector object based on the passed name
-    if sector_name is not None:
-        sector = Sector.objects.filter(name__icontains=sector_name)
-        if len(sector)==1:
-            sector = sector[0]
-        else:
-            sector = None    
+    sector = get_sector_by_name(sector_name)
     
     # if this is a POSTback, package the request into a querystring and redirect
     if request.method == 'POST' and request.POST.has_key('text_query'):        
@@ -132,64 +245,43 @@ def search(request, sector_name=None):
     # if this is a get w/ a querystring, unpack the form 
     if request.method == 'GET':
         if request.GET.has_key('q'):
-        
-            formclass = MakeFAADSSearchFormClass(sector=sector)            
-            form = formclass(decompress_querydict(request.GET['q']))
-        
-            if form.is_valid():
-            
-                faads_search_query = faads.search.FAADSSearch()
-            
-                if form.cleaned_data['text_query'] is not None and len(form.cleaned_data['text_query'].strip())>0:
-                    if form.cleaned_data['text_query_type']==2:
-                        faads_search_query = faads_search_query.filter('recipient', form.cleaned_data['text_query']).filter('text', form.cleaned_data['text_query'], faads.search.FAADSSearch.CONJUNCTION_OR)
-                    elif form.cleaned_data['text_query_type']==1:
-                        faads_search_query = faads_search_query.filter('text', form.cleaned_data['text_query'])
-                    elif form.cleaned_data['text_query_type']==0:
-                        faads_search_query = faads_search_query.filter('recipient', form.cleaned_data['text_query'])
-            
-                if len(form.cleaned_data['cfda_programs'])<len(form.fields['cfda_programs'].choices):
-                    faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['cfda_programs'])
-            
-                if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
-                    faads_search_query = faads_search_query.filter('assistance_type', form.cleaned_data['assistance_type'])
-                
-                if len(form.cleaned_data['recipient_type'])<len(form.fields['recipient_type'].choices):
-                    faads_search_query = faads_search_query.filter('recipient_type', form.cleaned_data['recipient_type'])
+                    
+            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            faads_results = faads_search_query.get_haystack_queryset()          
+            paginator = Paginator(faads_results, RESULTS_PER_PAGE)
 
-                if len(form.cleaned_data['action_type'])<len(form.fields['action_type'].choices):
-                    faads_search_query = faads_search_query.filter('action_type', form.cleaned_data['action_type'])
-                
-                if form.cleaned_data['obligation_date_start'] is not None or form.cleaned_data['obligation_date_end'] is not None:
-                    faads_search_query = faads_search_query.filter('obligation_action_date', (form.cleaned_data['obligation_date_start'], form.cleaned_data['obligation_date_end']))
-
-                if form.cleaned_data['obligation_amount_minimum'] is not None or form.cleaned_data['obligation_amount_maximum'] is not None:
-                    faads_search_query = faads_search_query.filter('total_funding_amount', (form.cleaned_data['obligation_amount_minimum'], form.cleaned_data['obligation_amount_maximum']))
-
-                faads_results = faads_search_query.get_haystack_queryset()
-
-          
-                paginator = Paginator(faads_results, RESULTS_PER_PAGE)
-                try:
-                    page = int(request.GET.get('page','1'))
-                except Exception, e:
-                    page = 1
-            
-                try:
-                    faads_results_page = paginator.page(page)
-                except (EmptyPage, InvalidPage):
-                    faads_results_page = paginator.page(paginator.num_pages)        
+            try:
+                page = int(request.GET.get('page','1'))
+            except Exception, e:
+                page = 1
         
-                ran_search = True
-        
-                querystring = "&q=%s" % urllib.quote(request.GET['q'])
+            try:
+                faads_results_page = paginator.page(page)
+            except (EmptyPage, InvalidPage):
+                faads_results_page = paginator.page(paginator.num_pages)        
+    
+            ran_search = True
+    
+            querystring = "&q=%s" % urllib.quote(request.GET['q'])
         
         # we just wandered into the search without a prior submission        
         else:
+        
+            subsectors = []
+            if sector is not None and request.GET.has_key('subsectors'):
+                re_sanitize = re.compile(u'[^\,\d]')
+                querystring_input = re_sanitize.sub('', request.GET['subsectors']) # sanitize querystring input, because why not?
+                subsector_ids = []
+                try:
+                    subsector_ids = querystring_input.split(",")
+                except:
+                    pass
+                subsectors = Subsector.objects.filter(parent_sector=sector).filter(id__in=subsector_ids)        
+        
             ran_search = False
             querystring = ''
             faads_results_page = None
-            formclass = MakeFAADSSearchFormClass(sector=sector)
+            formclass = MakeFAADSSearchFormClass(sector=sector, subsectors=subsectors)
             form = formclass()
         
     return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'querystring': querystring}, context_instance=RequestContext(request))
