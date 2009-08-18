@@ -40,7 +40,7 @@
 	
 					<p>{% morsel text1 %}</p>
 	
-					<form action="{% url faads.views.search %}" method="POST">
+					<form action="{% url faads.views.search %}" method="POST" id="faads-search-form">
 
 					<fieldset{% if ran_search %} class="collapsed"{% endif %} id="text-query-wrapper">
 					  <legend>Text</legend>

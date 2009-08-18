@@ -113,9 +113,9 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
             subsectors_2 = False
             subsectors_3 = False            
 
-        assistance_type = forms.MultipleChoiceField(label="Assistance Type", choices=assistance_type_options, initial=map(lambda x: x[0], assistance_type_options))
-        action_type = forms.MultipleChoiceField(label="Action Type", choices=action_type_options, initial=map(lambda x: x[0], action_type_options))        
-        recipient_type = forms.MultipleChoiceField(label="Recipient Type", choices=recipient_type_options, initial=map(lambda x: x[0], recipient_type_options))
+        assistance_type = forms.MultipleChoiceField(label="Assistance Type", choices=assistance_type_options, initial=map(lambda x: x[0], assistance_type_options), widget=forms.CheckboxSelectMultiple)
+        action_type = forms.MultipleChoiceField(label="Action Type", choices=action_type_options, initial=map(lambda x: x[0], action_type_options), widget=forms.CheckboxSelectMultiple)
+        recipient_type = forms.MultipleChoiceField(label="Recipient Type", choices=recipient_type_options, initial=map(lambda x: x[0], recipient_type_options), widget=forms.CheckboxSelectMultiple)
     
         obligation_date_start = forms.DateField(label="Obligation Date Start", required=False)
         obligation_date_end = forms.DateField(label="Obligation Date End", required=False)

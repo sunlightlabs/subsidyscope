@@ -64,21 +64,20 @@
 
 .faads-search-submit { font-size: 1.2em; margin-top: 1em;}
 
-fieldset ul li { margin-bottom: 5px; }
+#faads-search-form fieldset ul, #faads-search-form fieldset ul li { margin-left: 0;, font-size: 100%;} 
+#faads-search-form fieldset ul li label { font-size: 11px; margin-bottom: 5px; font-weight: normal;}
 
 #program-selector { display: inline;}
 #program-selector ul, #program-selector ul li { font-size: 100%; display:inline; margin-left: 0;}
-#program-selector ul li label { font-weight: bold; font-size: 1em;}
+#program-selector ul li label { font-weight: bold; font-size: 100% !important; font-weight: bold !important;}
 
 #program-selection-program ul { width: 48%; float: left;}
 #program-selection-program ul, #program-selection-program ul li, #program-selection-program ul li label { margin-left: 0; font-weight: normal; }
 #program-selection-program ul li { clear: left;}
-#program-selection-program ul li label { font-size: 11px;}
 #program-selection-program ul li label input { margin-right: 5px;}
 #program-selection-program .program-title { width: 390px; padding-top: 6px; line-height: 98%;}
 #program-selection-program ul li label input { display: block; float: left;}
 #program-selection-program .program-title { display: block; }
-
 
 #program-selection-tag ul { float: left; margin: 0 120px;}
 #program-selection-tag ul li, #program-selection-tag ul li label { margin-left: 0; font-weight: normal; }
@@ -86,6 +85,9 @@ fieldset ul li { margin-bottom: 5px; }
 
 #program-selection-subsector ul { float: left; margin: 0 100px;}
 #program-selection-subsector ul li, #program-selection-subsector ul li label { margin-left: 0; font-weight: normal; font-size: 11px;}
+
+#assistance-action-recipient-wrapper .dropdown-wrapper ul, #assistance-action-recipient-wrapper .dropdown-wrapper ul li { margin-left: 0;}
+#assistance-action-recipient-wrapper .dropdown-wrapper ul li { font-weight: normal; }
 
 fieldset legend { background-color: yellow; padding-right: 18px !important; cursor: pointer;}
 fieldset.collapsed legend { background: url(/media/images/desc.gif) right 6px no-repeat;}
