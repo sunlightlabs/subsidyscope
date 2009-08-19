@@ -48,10 +48,6 @@ aggregation using solr:
 
 # preload fk lookup tables
 
-CFDA_PROGRAM_FK_LOOKUP = {}
-for c in cfda.models.ProgramDescription.objects.all():
-    CFDA_PROGRAM_FK_LOOKUP[str(c.program_number)] = c.id
-
 ACTION_TYPE_FK_LOOKUP = {}
 for a in ActionType.objects.all():
     ACTION_TYPE_FK_LOOKUP[a.code] = a.id
@@ -413,10 +409,11 @@ class FAADSSearch():
             
             # aggregation
             for doc in solr_result.docs:
-                key = int(doc[self.aggregate_by['solr_field']])                
-                if not result.has_key(key):
-                    result[key] = Decimal(0)                
-                result[key] += Decimal(str(doc['federal_amount'])) 
+                if doc.has_key(self.aggregate_by['solr_field']):
+                    key = int(doc[self.aggregate_by['solr_field']])                
+                    if not result.has_key(key):
+                        result[key] = Decimal(0)                
+                    result[key] += Decimal(str(doc['federal_amount'])) 
             
             
         # handling key based aggregation with db group by/sum
