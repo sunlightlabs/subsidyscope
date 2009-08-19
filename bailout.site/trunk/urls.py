@@ -39,6 +39,7 @@ urlpatterns = patterns('',
 	url(r'^projects/bailout/glossary/', include('glossary.urls')),
     
     url(r'^subsidysort/', include('subsidysort.urls')),
+    url(r'^budget_capture/', include('budget_capture.urls')),
 )
 
 urlpatterns += patterns('django.views.generic.simple',
@@ -60,7 +61,8 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^faq/', 'direct_to_template', {'template': 'misc/faq.html'}, name='faq'),
     url(r'^press/', 'direct_to_template', {'template': 'misc/press.html'}, name='press'),
     url(r'^board/', 'direct_to_template', {'template': 'misc/board.html'}, name='board'),
-    url(r'^methodology/', direct_to_template, {'template': 'generic.html'}, name='methodology')    
+    url(r'^methodology/', direct_to_template, {'template': 'generic.html'}, name='methodology'),
+    url(r'^data-quality/$', direct_to_template, { 'template': 'bailout/bailout.html'}, name='data-quality'),
 )
 
 urlpatterns += patterns('',
