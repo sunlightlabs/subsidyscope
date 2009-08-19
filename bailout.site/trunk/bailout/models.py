@@ -89,9 +89,12 @@ class InstitutionManager(models.Manager):
 class Institution(models.Model):
     def __unicode__(self):
         if self.fdic_number:
-            return "%s (FDIC: %i)" % (self.name, self.fdic_number)
-        else:
-            return self.name
+            if self.tarp_participant:
+                return "%s (FDIC: %i) TARP Participant" % (self.name, self.fdic_number)
+            else:
+                return "%s (FDIC: %i) " % (self.name, self.fdic_number)
+        
+        return self.name
     class Meta:
         verbose_name = 'TARP Institution'
         ordering = ['name'] 

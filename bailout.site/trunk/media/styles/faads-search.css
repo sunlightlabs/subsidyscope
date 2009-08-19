@@ -1,0 +1,99 @@
+.field-wrapper { clear: left;}
+
+#text-query-text-wrapper input#id_text_query
+{
+  width: 870px;
+  font-size: 1.1em;
+}
+
+#text-query-type-wrapper ul
+{
+  margin-left: 0; 
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+#text-query-type-wrapper ul li 
+{ 
+  margin-left: 0;
+  padding-left: 0;
+  list-style-type: none;
+  display: inline;
+  font-size: 0.8em;
+}
+
+.cfda-float
+{
+  float: left;
+}
+
+#obligation-date-wrapper { padding-right: 50px;}
+#obligation-date-wrapper, obligation-amount-wrapper { float: left;}
+
+
+#cfda-programs { width: 250px; }
+#cfda-or { width: 50px; text-align: center; padding: 0px 20px; font-style: italic;}
+#cfda-tags { width: 231px; }
+#cfda-tags select { width: 230px;}
+
+
+#assistance-action-recipient-wrapper .dropdown-wrapper
+{
+  float: left;
+  padding-right: 50px;
+}
+
+#id_tags
+{
+  padding: 3px;
+}
+
+#faads-search-results { width: 876px;}
+#faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
+#faads-search-results td { font-size: 0.9em;}
+#faads-search-results td.amount { text-align: right;}
+#faads-search-results td.cfda-program,#faads-search-results td.obligation-date { text-align: center;}
+
+
+.pagination { text-align: center; font-size: 1.2em; margin-top: 20px;}
+.pagination .current { padding: 0 20px; text-align: center; }
+
+#tabs ul { margin-bottom: 0px;}
+#tabs ul, #tabs ul li { margin-left: 0;}
+#tabs ul li { font-size: 0.8em;}
+
+.faads-search-submit { font-size: 1.2em; margin-top: 1em;}
+
+#faads-search-form fieldset ul, #faads-search-form fieldset ul li { margin-left: 0;, font-size: 100%;} 
+#faads-search-form fieldset ul li label { font-size: 11px; margin-bottom: 5px; font-weight: normal;}
+
+#program-selector { display: inline;}
+#program-selector ul, #program-selector ul li { font-size: 100%; display:inline; margin-left: 0;}
+#program-selector ul li label { font-weight: bold; font-size: 100% !important; font-weight: bold !important;}
+
+#program-selection-program ul { width: 48%; float: left;}
+#program-selection-program ul, #program-selection-program ul li, #program-selection-program ul li label { margin-left: 0; font-weight: normal; }
+#program-selection-program ul li { clear: left;}
+#program-selection-program ul li label input { margin-right: 5px;}
+#program-selection-program .program-title { width: 390px; padding-top: 6px; line-height: 98%;}
+#program-selection-program ul li label input { display: block; float: left;}
+#program-selection-program .program-title { display: block; }
+
+#program-selection-tag ul { float: left; margin: 0 120px;}
+#program-selection-tag ul li, #program-selection-tag ul li label { margin-left: 0; font-weight: normal; }
+#program-selection-tag ul li label { font-size: 11px;}
+
+#program-selection-subsector ul { float: left; margin: 0 100px;}
+#program-selection-subsector ul li, #program-selection-subsector ul li label { margin-left: 0; font-weight: normal; font-size: 11px;}
+
+#assistance-action-recipient-wrapper .dropdown-wrapper ul, #assistance-action-recipient-wrapper .dropdown-wrapper ul li { margin-left: 0;}
+#assistance-action-recipient-wrapper .dropdown-wrapper ul li { font-weight: normal; }
+
+fieldset legend { background-color: yellow; padding-right: 18px !important; cursor: pointer;}
+fieldset.collapsed legend { background: url(/media/images/desc.gif) right 6px no-repeat;}
+fieldset legend { background: url(/media/images/asc.gif) right 6px no-repeat;}
+
+fieldset.collapsed * { display: none; }
+fieldset.collapsed .program-selection-target { display: none !important;}
+fieldset.collapsed legend { display: block !important;}
+fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0; /*background-position: 8px right;*/}

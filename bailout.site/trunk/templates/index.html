@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load media %}
 {% load project_update_tags %}
+{% load news_brief_tags %}
 {% load bailout_tags %}
 {% load carousel_tags %}
 {% block content %}
@@ -119,7 +120,7 @@ $(function () {
 				<div class="tax_item">
 					<div id="tax_icon"><img src="/media/images/sector_icons/2_lg_gray.png" border="0" alt="Transportation"></div>	
 						<div><h3 class="coming">Transportation</h3>
-							<p>Summer 2009</p>
+							<p>Fall 2009</p>
 						</div>	
 				</div>
 			
@@ -158,6 +159,8 @@ $(function () {
 	
 	
 	<div class="span-8 last">
+		
+		{% news_briefs %}
 		
 		{% bank_search %}
 

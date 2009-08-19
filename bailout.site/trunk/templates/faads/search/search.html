@@ -6,186 +6,27 @@
 {% load search_tags %}
 
 {% block additional_css %}
-{% css "arc90_multiselect.css" %}
+{# {% css "arc90_multiselect.css" %} #}
 {% css "jquery-ui/ui.all.css" %}
-
-<style type="text/css">
-.field-wrapper { clear: left;}
-
-#text-query-text-wrapper input#id_text_query
-{
-  width: 80%;
-  font-size: 1.1em;
-}
-
-#text-query-type-wrapper ul
-{
-  margin-left: 0; padding-left: 0;
-}
-
-#text-query-type-wrapper ul li 
-{ 
-  margin-left: 0;
-  padding-left: 0;
-  list-style-type: none;
-  display: inline;
-  font-size: 0.8em;
-}
-
-.cfda-float
-{
-  float: left;
-}
-
-#obligation-date-wrapper { padding-right: 50px;}
-#obligation-date-wrapper, obligation-amount-wrapper { float: left;}
-
-
-#cfda-programs { width: 250px; }
-#cfda-or { width: 50px; text-align: center; padding: 0px 20px; font-style: italic;}
-#cfda-tags { width: 231px; }
-#cfda-tags select { width: 230px;}
-
-
-#assistance-action-recipient-wrapper .dropdown-wrapper
-{
-  float: left;
-  padding-right: 50px;
-}
-
-#id_tags
-{
-  padding: 3px;
-}
-
-#faads-search-results { width: 876px;}
-#faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
-#faads-search-results td { font-size: 0.9em;}
-#faads-search-results td.amount { text-align: right;}
-#faads-search-results td.cfda-program,#faads-search-results td.obligation-date { text-align: center;}
-
-
-.pagination { text-align: center; font-size: 1.2em; margin-top: 20px;}
-.pagination .current { padding: 0 20px; text-align: center; }
-
-#tabs ul { margin-bottom: 0px;}
-#tabs ul, #tabs ul li { margin-left: 0;}
-#tabs ul li { font-size: 0.8em;}
-
-.faads-search-submit { font-size: 1.2em; margin-top: 1em;}
-</style>
+{% css "faads-search.css" %}
 {% endblock %}
 
 {% block additional_js %}
 
-	{% js "arc90_multiselect.js" %}
+  {# {% js "arc90_multiselect.js" %} #}
 	{% js "ui.core.js" %}
 	{% js "ui.tabs.js" %}
 	{% js "ui.datepicker.js" %}
 	
 	{% js "swfobject.js" %}
+	{% js "faads-search.js" %}
 	
-	<script language="javascript" type="text/javascript">  		
-	$(function(){
-		$('select[multiple]').multiSelect(  
-      {  
-        select_all_min: 3,  
-        no_selection: "No criteria selected",  
-        selected_text: " selected"  
-      });
+
+<script language="javascript" type="text/javascript">  		
+	
+	document.write('<style type="text/css">.program-selection-target { display: none; }</style>');
     
-    $('#id_tags').change(function(){
-      var cfda_program_numbers = $(this).val().split(',');
-      var label = $(this).get(0).options[$(this).get(0).selectedIndex].text;
-      $('#cfda-programs input[type=checkbox]').attr('checked', false);
-      for(var i=0; i<cfda_program_numbers.length; i++)
-      {
-        var program_number = cfda_program_numbers[i];
-        $('#cfda-programs input[value=' + program_number + ']').attr('checked',true);
-      }
-      $(this).val('');
-      $('#multiSelect-id_cfda_programs-title').text('All ' + label + ' Programs');
-    });
-    
-      
-    $('#multiSelect-id_cfda_programs-title').text('Select specific CFDA programs')
-    
-    $('#obligation-date-wrapper input[type=text]').datepicker();
-  
-    $('#tabs').tabs();
-    
-    
-    swfobject.embedSWF('{% media_url %}/scripts/HighwayMapVis.swf?v=4', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
-	
-	
-		$("select[name='dataType']").change(
-		function()
-		{
-			if ($("select[name='dataType']").val() == 'counties')
-			{	
-				showCounties();
-			}
-			else if ($("select[name='dataType']").val() == 'counties_pop')
-			{
-				showCountiesPop();
-			}
-			else if ($("select[name='dataType']").val() == 'states')
-			{
-				showStates();
-			}
-			else if ($("select[name='dataType']").val() == 'states_pop')
-			{
-				showStatesPop();
-			}
-			
-		});
-	});
-	
-	
-	function showCounties()
-	{
-		var flex = null;
-		flex = getFlexMovie("mapVis");
-		if((flex!=null) && (flex.showCounties!=null))
-		    flex.showCounties();	
-	}
-	
-	function showCountiesPop()
-	{
-		var flex = null;
-		flex = getFlexMovie("mapVis");
-		if((flex!=null) && (flex.showCountiesPop!=null))
-		    flex.showCountiesPop();	
-	}
-	
-	function showStates()
-	{
-		var flex = null;
-		flex = getFlexMovie("mapVis");
-		if((flex!=null) && (flex.showCountiesPop!=null))
-		    flex.showStates();	
-	}
-	
-	function showStatesPop()
-	{
-		var flex = null;
-		flex = getFlexMovie("mapVis");
-		if((flex!=null) && (flex.showCountiesPop!=null))
-		    flex.showStatesPop();	
-	}
-		
-	function getFlexMovie(movieName) 
-	{
-	    if (navigator.appName.indexOf("Microsoft") != -1) 
-	    {
-	        return window[movieName]
-	    }
-	    else 
-	    {
-	        return document[movieName]
-    	}
-	}
-	</script>
+</script>
 	
 {% endblock %}
 
@@ -201,59 +42,96 @@
 	
 					<p>{% morsel text1 %}</p>
 	
-					<form action="{% url faads.views.search %}" method="POST">
+					<form action="{% url faads.views.search %}" method="POST" id="faads-search-form">
 
-					<div class="field-wrapper" id="text-query-wrapper">
-					  <label for="text_query">Text</label>
+					<fieldset{% if ran_search %} class="collapsed"{% endif %} id="text-query-wrapper">
+					  <legend>Text</legend>
 						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
 						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
-					</div>
+					</fieldset>
 
-          <label for="cfda_programs">CFDA Programs</label>                   
-					<div class="field-wrapper" id="cfda-wrapper">
-						<div class="cfda-float" id="cfda-tags">{{ form.tags }}{{ form.tags.errors }}</div>
-						<div class="cfda-float" id="cfda-or">&ndash;&nbsp;or&nbsp;&ndash;</div>
-						<div class="cfda-float" id="cfda-programs">{{ form.cfda_programs }}{{ form.cfda_programs.errors }}</div>
-					</div>
 
-					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
-						<div class="dropdown-wrapper">
-						  <label for="assistance_type">Assistance Type</label>
-							{{ form.assistance_type }}
-							{{ form.assistance_type.errors }}
-						</div>
-						<div class="dropdown-wrapper">
-						  <label for="action_type">Action Type</label>
-							{{ form.action_type }}
-							{{ form.action_type.errors }}
-						</div>
-						<div class="dropdown-wrapper">
-						  <label for="recipient_type">Recipient Type</label>
-							{{ form.recipient_type }}
-							{{ form.recipient_type.errors }}
-						</div>
-					</div>			
-					
-					<div class="field-wrapper">
-  					<div id="obligation-date-wrapper">
-  					  <label for="obligation_date_start">Obligation Date</label>
-  					  <div class="range-wrapper">
-  						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
-  						{{ form.obligation_date_start.errors }}
-  						{{ form.obligation_date_end.errors }}
+          <fieldset{% if ran_search %} class="collapsed"{% endif %}>
+            <legend>Select Programs</legend>
+
+            <p>Choose programs by: <span id="program-selector">{{ form.cfda_program_selection_method }}</span></p>
+              <!--<div id="program-selector"><span><input type="radio" name="program-selection-type" value="tag">&nbsp;Tag</span><span><input type="radio" name="program-selection-type" value="subsector">&nbsp;Mode</span><span><input type="radio" name="program-selection-type" value="program">&nbsp;Individual Program</span></div>-->
+
+            </p>
+            <div id="program-selection-tag" class="program-selection-target">
+              <p>Subsidyscope assigns "tags" to each program to classify the functions it is designed to perform (for more detail, see our <a href="{% url methodology %}">methodology section</a>). Choosing a tag will select the set of programs associated with that function. You may also choose whether to only include programs with the selected tag(s) as their primary function, or all programs that are related to the tag.</p>
+
+              {{ form.tags_1 }}
+              {{ form.tags_2 }}
+              {{ form.tags_3 }}
+              {{ form.tags_1.errors }}{{ form.tags_2.errors }}{{ form.tags_3.errors }}
+              
+              <p style="clear:left; padding-top: 1.5em">{{ form.tags_exclude_secondary }}&nbsp;Only include programs having the selected tag(s) as their primary function</p>
+            </div>
+            
+            {% if form.subsectors_1 %}
+            <div id="program-selection-subsector" class="program-selection-target">
+              {{ form.subsectors_1 }}
+              {{ form.subsectors_2 }}
+              {{ form.subsectors_3 }}
+              {{ form.subsectors_1.errors }}{{ form.subsectors_2.errors }}{{ form.subsectors_3.errors }}
+            </div>
+            {% endif %}
+
+            <div id="program-selection-program" class="program-selection-target">
+              {{ form.cfda_programs_1 }}
+              {{ form.cfda_programs_2 }}
+              {{ form.cfda_programs_1.errors }}{{ form.cfda_programs_2.errors }}
+            </div>
+
+          </fieldset>
+
+          <fieldset{% if ran_search %} class="collapsed"{% endif %}>
+            <legend>Expenditure Type</legend>
+
+  					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
+  						<div class="dropdown-wrapper">
+  						  <label for="assistance_type">Assistance Type</label>
+  							{{ form.assistance_type }}
+  							{{ form.assistance_type.errors }}
   						</div>
-  						{# fiscal year ? #}
-  					</div>
-					
-  					<div id="obligation-amount-wrapper">
-  					  <label for="obligation_amount_minimum">Obligation Amount</label>
-  					  <div class="range-wrapper">
-  						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
-  						{{ form.obligation_amount_minimum.errors }}
-  						{{ form.obligation_amount_maximum.errors }}
+  						<div class="dropdown-wrapper">
+  						  <label for="action_type">Action Type</label>
+  							{{ form.action_type }}
+  							{{ form.action_type.errors }}
   						</div>
-  					</div>
-          </div>
+  						<div class="dropdown-wrapper">
+  						  <label for="recipient_type">Recipient Type</label>
+  							{{ form.recipient_type }}
+  							{{ form.recipient_type.errors }}
+  						</div>
+  					</div>			
+					</fieldset>
+					
+					<fieldset{% if ran_search %} class="collapsed"{% endif %}>
+					  <legend>Expenditure Range</legend>
+  					<div class="field-wrapper">
+    					<div id="obligation-date-wrapper">
+    					  <label for="obligation_date_start">Obligation Date</label>
+    					  <div class="range-wrapper">
+    						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
+    						{{ form.obligation_date_start.errors }}
+    						{{ form.obligation_date_end.errors }}
+    						</div>
+    						{# fiscal year ? #}
+    					</div>
+					
+    					<div id="obligation-amount-wrapper">
+    					  <label for="obligation_amount_minimum">Obligation Amount</label>
+    					  <div class="range-wrapper">
+    						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
+    						{{ form.obligation_amount_minimum.errors }}
+    						{{ form.obligation_amount_maximum.errors }}
+    						</div>
+    					</div>
+            </div>
+          </fieldset>
+            
 
 					<input type="submit" value="Search" class="faads-search-submit" />
 					</form>
@@ -304,7 +182,7 @@
               <div class="pagination">
                   <span class="step-links">
                       {% if faads_results.has_previous %}
-                          <a href="?page={{ faads_results.previous_page_number }}{{ querystring|safe }}">&laquo; previous</a>
+                          <a href="?page={{ faads_results.previous_page_number }}&q={{ query|safe }}">&laquo; previous</a>
                       {% endif %}
 
                       <span class="current">
@@ -312,7 +190,7 @@
                       </span>
 
                       {% if faads_results.has_next %}
-                          <a href="?page={{ faads_results.next_page_number }}{{ querystring|safe }}">next &raquo;</a>
+                          <a href="?page={{ faads_results.next_page_number }}&q={{ query|safe }}">next &raquo;</a>
                       {% endif %}
                   </span>
               </div>
@@ -323,23 +201,24 @@
                 <span id="resultsgraph"></span>  
                 {% js "json2.js" %}
                 <script type="text/javascript" charset="utf-8">
-                    var data = {"elements":[{ "type": "bar_3d", "on-show": {"type:":"grow-up"}, "values": [24825876722.00, 26979995636.00, 42134994154.00, 36005167720.00, 31914878758.00, 34682246791.00, 46106012053.00, 45072344099.00, 27756929470.00, 9460538507.00]}], "title": {"text": ""}, "bg_colour": "#FFFFFF", "x_axis": {"3d": 5, "colour": "#909090", "tick-height": 20, "labels": {"labels":["2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009"]}}, "y_axis": {"colour": "#909090", "min": 0, "max": 50000000000.00}, "x_legend": {"text": "Years", "style": "{font-size:12px;}"}, "y_legend":{"text": "US Dollars ($)", "style":"{font-size:12px;}"}};
-                    function open_flash_chart_data() {
-                        return JSON.stringify(data);
-                    }           
-                    swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf");
+                    	                
+                    swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '/projects/transportation/direct-expenditures/search/by-year/', 'data-query':'{{ query|safe }}'});
                     
                 </script>
               </div>
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-map">
+    
+    				
+    
+    				<script type="text/javascript" charset="utf-8">
+    	              	swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=6', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'/projects/transportation/direct-expenditures/search/map/','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+					</script>
                   
                   	<div style="float: right;  margin-right: 25px;">
 						View: <select name="dataType">
-							<option value="counties">Counties</option>
-							<option value="counties_pop">Counties (per capita)</option>
-							<option value="states">States</option>
-							<option value="states_pop">States (per capita)</option>
+							<option value="state">Total Spending</option>
+							<option value="state_per_capital">Per Capita Spening </option>
 						</select>
 					</div>
 					

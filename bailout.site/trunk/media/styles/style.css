@@ -566,6 +566,7 @@ ul.press-releases li
     padding: 10px 0;
     height: 158px;
 }
+
 .jeditable-morsel:hover .jeditable-morsel-label { display: block;}
 
 /*generic chart styles */
@@ -580,3 +581,10 @@ ul.press-releases li
 #subsidy-charts tr.even td { background-color: #f4f4f4; }
 #subsidy-charts td { padding: .3em; border-bottom: none; border-right: none;}
 #subsidy-charts table {text-align:center; border-bottom: 1px solid #cccccc; border-right:none; border-left: none; width:100%;}
+
+/* NEWS BRIEFS */
+#news-briefs h3 { font-size: 14px; margin-left: 5px;}
+#news-briefs ul, #news-briefs ul li { padding-left: 0; margin-left: 0;}
+#news-briefs ul li { margin-bottom: 1em; margin-right: 10px; padding: 5px;}
+#news-briefs ul li a, #news-briefs ul li a:link, #news-briefs ul li a:active, #news-briefs ul li a:visited { color: black; text-decoration: none;}
+#news-briefs ul li:hover { background-color: #f4f4f4;}

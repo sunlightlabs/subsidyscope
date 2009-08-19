@@ -51,8 +51,8 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
         temp = []
         labels = []
         for y in sortedyears:
-            temp.append(cfdaseries[y])
-            labels.append(y)
+            temp.append(int(cfdaseries[y]))
+            labels.append(str(y))
         cfdaseries = temp
     elif cfdaseries: cfdaseries = [int(d) for d in cfdaseries]
     if budgetseries: budgetseries = [int(d) for d in budgetseries]
