@@ -192,7 +192,9 @@ SCRIBD_API_KEY = '***REMOVED***'
 SCRIBD_API_SECRET = '***REMOVED***'
 SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
+
 # Haystack
+HAYSTACK_SITECONF = 'search_sites'
 HAYSTACK_SEARCH_ENGINE = 'whoosh' 
 
 
