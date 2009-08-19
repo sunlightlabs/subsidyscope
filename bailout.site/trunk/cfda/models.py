@@ -1,5 +1,18 @@
 from django.db import models
-import sectors.models
+from sectors.models import Sector, Subsector
+
+
+
+class ProgramDescriptionManager(models.Manager):
+
+    def parseBudgetAccounts(self):
+        
+        import haystack
+        haystack.sites.site.unregister(ProgramDescription)
+        
+        for program in self.all():
+            program.parseBudgetAccounts()
+    
 
 class ProgramDescription(models.Model):
 
@@ -11,7 +24,8 @@ class ProgramDescription(models.Model):
 
     program_number = models.DecimalField("Program number", max_digits=7, decimal_places=3)
     program_title = models.CharField("Program title", max_length=255)
-    sectors = models.ManyToManyField(sectors.models.Sector, blank=True)
+    sectors = models.ManyToManyField(Sector, blank=True)
+    subsectors = models.ManyToManyField(Subsector, blank=True)
     program_note = models.TextField("Program note", default="", blank=True)
     federal_agency = models.TextField("Federal agency", blank=True, default="")
     major_agency = models.TextField("Major agency",blank=True,default="")
