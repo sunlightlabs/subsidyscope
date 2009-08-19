@@ -91,8 +91,6 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'cfda_program', 
             'solr_field': 'cfda_program', 
-            'mysql_fk_transformation': lambda x: CFDA_PROGRAM_FK_LOOKUP.get(str(x).strip(), None),
-            'solr_fk_transformation': lambda x: x,
             'aggregate': True
         },
                 
