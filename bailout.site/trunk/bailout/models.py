@@ -24,7 +24,7 @@ class InstitutionManager(models.Manager):
     MATCH_SUCCESS_PARTIAL = 'success_partial'
 
     
-    def matchInstitution(self, name, city=None, state=None):
+    def matchInstitution(self, name, city=None, state=None, tarp=False):
         
         # finds best match(es) for institutions based on name and geography (if available)
         # returns more than one record if criteria provided match multiple institutions
@@ -41,6 +41,9 @@ class InstitutionManager(models.Manager):
         if institution_filter.count() == 0:
             return None, self.MATCH_FAILED_GEOGRAPHY
         
+        if tarp:
+            institution_filter = institution_filter.filter(tarp_participant=True)
+
         name = name.lower()
         
         institution_filter_name = institution_filter.filter(name__iexact=name)
@@ -52,10 +55,11 @@ class InstitutionManager(models.Manager):
             # try and standardize name (at the moment by removing common suffixes) and do a partial match
             # this is not very smart - yet - just implementing as a place holder for better partial matching algorithm
             
-            trimed_name = name.replace(' incorporated', '').replace(' inc', '').replace(' corporation', '').replace(' corp', '')
+            trimed_name = name.replace(' incorporated', '').replace(' inc', '').replace(' corporation', '').replace(' corp', '').replace(' group', '')
             
             trimed_name = re.sub('[^a-z]+$', '', trimed_name)
-            
+            trimed_name = re.sub('\(.+\)', '', trimed_name)
+
             institution_filter_name = institution_filter.filter(name__istartswith=trimed_name)
             
             if institution_filter_name.count() >= 1:

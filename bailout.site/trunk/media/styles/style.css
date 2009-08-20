@@ -569,6 +569,19 @@ ul.press-releases li
 
 .jeditable-morsel:hover .jeditable-morsel-label { display: block;}
 
+/*generic chart styles */
+#subsidy-charts cite {font-size: 85%; font-style: normal;}
+#subsidy-charts tr.header-row td { background-color: #e4e4e4; border-top: 1px solid #a5a5a5; border-bottom: 1px solid #a5a5a5; font-weight: bold;}
+#subsidy-charts tr.header-row td { border-right:none;}
+#subsidy-charts tr.header-row td.first {font-size: 1.2em; }
+#subsidy-charts td.first, td.program {width: 31%;}
+#subsidy-charts td.program{text-align: left; padding-left: 10px;}
+#subsidy-charts tr.subheader{font-weight:bold; font-size:.9em;}
+#subsidy-charts tr.subheader td {border-right: 1px solid #cccccc;  border-bottom: 1px solid #cccccc; border-left: 1px solid #cccccc;}
+#subsidy-charts tr.even td { background-color: #f4f4f4; }
+#subsidy-charts td { padding: .3em; border-bottom: none; border-right: none;}
+#subsidy-charts table {text-align:center; border-bottom: 1px solid #cccccc; border-right:none; border-left: none; width:100%;}
+
 /* NEWS BRIEFS */
 #news-briefs h3 { font-size: 14px; margin-left: 5px;}
 #news-briefs ul, #news-briefs ul li { padding-left: 0; margin-left: 0;}
