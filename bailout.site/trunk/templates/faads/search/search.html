@@ -22,10 +22,9 @@
 	{% js "faads-search.js" %}
 	
 
+<!-- if JS is enabled, assume that the tabs will work and hide the other divs -->
 <script language="javascript" type="text/javascript">  		
-	
 	document.write('<style type="text/css">.program-selection-target { display: none; }</style>');
-    
 </script>
 	
 {% endblock %}
@@ -60,7 +59,9 @@
             </p>
             <div id="program-selection-tag" class="program-selection-target">
               <p>Subsidyscope assigns "tags" to each program to classify the functions it is designed to perform (for more detail, see our <a href="{% url methodology %}">methodology section</a>). Choosing a tag will select the set of programs associated with that function. You may also choose whether to only include programs with the selected tag(s) as their primary function, or all programs that are related to the tag.</p>
-
+              
+              <p class="select-all-or-none">[ <a href="#" id="program-selection-tag-select-all">Select All</a> / <a href="#" id="program-selection-tag-select-none">Select None</a> ]</p>
+              
               {{ form.tags_1 }}
               {{ form.tags_2 }}
               {{ form.tags_3 }}
@@ -71,6 +72,11 @@
             
             {% if form.subsectors_1 %}
             <div id="program-selection-subsector" class="program-selection-target">
+
+              <p>When possible, programs are categorized by the subsector that they concern. You can refine your search accordingly. Please be aware that many programs span more than one subsector.</p>
+
+              <p class="select-all-or-none">[ <a href="#" id="program-selection-subsector-select-all">Select All</a> / <a href="#" id="program-selection-subsector-select-none">Select None</a> ]</p>
+
               {{ form.subsectors_1 }}
               {{ form.subsectors_2 }}
               {{ form.subsectors_3 }}
@@ -79,6 +85,11 @@
             {% endif %}
 
             <div id="program-selection-program" class="program-selection-target">
+              
+              <p>The "tag" and "subsector" selections can be thought of as shortcuts to selecting related sets of programs. You may also determine which programs to include in your search on an individual basis.</p>
+              
+              <p class="select-all-or-none">[ <a href="#" id="program-selection-program-select-all">Select All</a> / <a href="#" id="program-selection-program-select-none">Select None</a> ]</p>
+              
               {{ form.cfda_programs_1 }}
               {{ form.cfda_programs_2 }}
               {{ form.cfda_programs_1.errors }}{{ form.cfda_programs_2.errors }}
