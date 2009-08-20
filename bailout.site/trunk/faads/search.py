@@ -409,11 +409,12 @@ class FAADSSearch():
             
             # aggregation
             for doc in solr_result.docs:
-                if doc.has_key(self.aggregate_by['solr_field']):
+                if doc.has_key(self.aggregate_by['solr_field']) and doc.has_key('federal_amount'):
                     key = int(doc[self.aggregate_by['solr_field']])                
                     if not result.has_key(key):
                         result[key] = Decimal(0)                
                     result[key] += Decimal(str(doc['federal_amount'])) 
+                
             
             
         # handling key based aggregation with db group by/sum
