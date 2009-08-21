@@ -18,8 +18,13 @@ class ProgramDescriptionManager(models.Manager):
 
      
 class CFDATag(models.Model):
+    def __unicode__(self):
+        return self.tag_name
+    class Meta:
+        verbose_name = 'CFDA Program Tag'
     
     tag_name = models.CharField(max_length=255)
+    search_default_enabled = models.BooleanField("Enabled for searches by default?")
 
 class ProgramDescription(models.Model):
 

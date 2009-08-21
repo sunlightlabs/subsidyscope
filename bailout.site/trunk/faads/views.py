@@ -86,6 +86,8 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     tag_choices = []
     cfda_program_tags = CFDATag.objects.all().order_by('tag_name')
     tag_choices = map(lambda x: (x.id, x.tag_name), cfda_program_tags)
+    enabled_tags = CFDATag.object.filter(search_default_enabled=True)
+    initial_tag_choices = map(lambda x: x.id, enabled_tags)
     
     class FAADSSearchForm(forms.Form):
       
@@ -101,8 +103,8 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'tag')
 
         program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
-
-        program_selection_tags = forms.MultipleChoiceField(choices=tag_choices, required=False, widget=CheckboxSelectMultipleMulticolumn(columns=3))
+        
+        program_selection_tags = forms.MultipleChoiceField(choices=tag_choices, required=False, initial=initial_tag_choices, widget=CheckboxSelectMultipleMulticolumn(columns=3))
         tags_exclude_secondary = forms.BooleanField(label="Only include programs having the selected tag(s) as their primary function?", required=False, initial=True)
 
         if subsector_choices:
