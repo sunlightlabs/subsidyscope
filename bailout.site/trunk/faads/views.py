@@ -86,7 +86,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     tag_choices = []
     cfda_program_tags = CFDATag.objects.all().order_by('tag_name')
     tag_choices = map(lambda x: (x.id, x.tag_name), cfda_program_tags)
-    enabled_tags = CFDATag.object.filter(search_default_enabled=True)
+    enabled_tags = CFDATag.objects.filter(search_default_enabled=True)
     initial_tag_choices = map(lambda x: x.id, enabled_tags)
     
     class FAADSSearchForm(forms.Form):
