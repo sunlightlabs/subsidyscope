@@ -174,13 +174,10 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         # handle program selection
         # by tag
         if form.cleaned_data['cfda_program_selection_method']=='tag':
-            selected_tags = CFDATag.objects.filter(id__in=form.cleaned_data['program_selection_tags'])
-
             if form.cleaned_data['tags_exclude_secondary']:
-                programs_with_tag = ProgramDescription.objects.filter(primary_tag__in=selected_tags)
+                programs_with_tag = ProgramDescription.objects.filter(primary_tag__id__in=form.cleaned_data['program_selection_tags'])
             else:
-                programs_with_tag = ProgramDescription.objects.filter(Q(primary_tag__in=selected_tags) | Q(secondary_tags__in=selected_tags))
-                pass
+                programs_with_tag = ProgramDescription.objects.filter(Q(primary_tag__id__in=form.cleaned_data['program_selection_tags']) | Q(secondary_tags__id__in=form.cleaned_data['program_selection_tags']))
 
             if len(programs_with_tag):
                 faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
