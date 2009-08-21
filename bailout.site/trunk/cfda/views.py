@@ -14,7 +14,7 @@ from simplejson import *
 
 def getDataSeries(cfda_id):
     program = ProgramDescription.objects.get(id=int(cfda_id))
-    data = FAADSSearch().filter('cfda_program', program.program_number).aggregate('fiscal_year')
+    data = FAADSSearch().filter('cfda_program', cfda_id).aggregate('fiscal_year')
     labels = []
     cfdaseries = []
     budgetseries = []

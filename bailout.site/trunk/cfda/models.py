@@ -4,9 +4,6 @@ import re
 from django.db import models
 from sectors.models import Sector, Subsector
 from budget_accounts.models import BudgetAccount
-from tagging.fields import TagField
-from tagging.models import Tag
-from tagging.managers import ModelTagManager
 
 
 class ProgramDescriptionManager(models.Manager):
@@ -18,8 +15,11 @@ class ProgramDescriptionManager(models.Manager):
         
         for program in self.all():
             program.parseBudgetAccounts()
-    
 
+     
+class CFDATag(models.Model):
+    
+    tag_name = models.CharField(max_length=255)
 
 class ProgramDescription(models.Model):
 
@@ -77,11 +77,10 @@ class ProgramDescription(models.Model):
     load_date = models.DateTimeField("Load Date", auto_now=True)    
 
     budget_accounts = models.ManyToManyField(BudgetAccount)
-    primary_tag = models.ForeignKey(Tag, blank=True, null=True)
-    secondary_tags = TagField(blank=True, null=True)
+    primary_tag = models.ForeignKey(CFDATag, blank=True, null=True, related_name='primary_tag')
+    secondary_tags = models.ManyToManyField(CFDATag, blank=True, null=True, related_name='secondary_tags')
 
     objects = ProgramDescriptionManager()   
-    tags = ModelTagManager()
     
 
     def parseBudgetAccounts(self):
@@ -104,6 +103,8 @@ class ProgramDescription(models.Model):
             return self.objectives[:200] + '...'
         
 
+
+        
 
 class ProgramBudgetEstimateDescription(models.Model):
     
