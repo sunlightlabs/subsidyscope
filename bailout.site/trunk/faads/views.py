@@ -8,6 +8,7 @@ from morsels.models import Page
 from tagging.models import TaggedItem, Tag
 from cfda.models import ProgramDescription
 from faads.models import *
+from faads.widgets import *
 from sectors.models import Sector, Subsector
 from haystack.query import SearchQuerySet
 from geo.models import State
@@ -99,21 +100,15 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         
         cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'tag')
 
-        cfda_programs_1 = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices[:len(cfda_program_choices)/2], required=False, initial=initial_cfda_program_choices, widget=forms.CheckboxSelectMultiple(attrs={'class':'fieldwidth-230px'}))
-        cfda_programs_2 = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices[len(cfda_program_choices)/2:], required=False, initial=initial_cfda_program_choices, widget=forms.CheckboxSelectMultiple(attrs={'class':'fieldwidth-230px'}))
+        program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
 
-        tags_1 = forms.MultipleChoiceField(choices=tag_choices[:len(tag_choices)/2], initial=('-'), required=False, widget=forms.CheckboxSelectMultiple)
-        tags_2 = forms.MultipleChoiceField(choices=tag_choices[len(tag_choices)/2:], initial=('-'), required=False, widget=forms.CheckboxSelectMultiple)
+        program_selection_tags = forms.MultipleChoiceField(choices=tag_choices, required=False, widget=CheckboxSelectMultipleMulticolumn(columns=3))
         tags_exclude_secondary = forms.BooleanField(label="Only include programs having the selected tag(s) as their primary function?", required=False, initial=True)
 
         if subsector_choices:
-            subsectors_1 = forms.MultipleChoiceField(choices=subsector_choices[:len(subsector_choices)/3], required=False, widget=forms.CheckboxSelectMultiple)
-            subsectors_2 = forms.MultipleChoiceField(choices=subsector_choices[len(subsector_choices)/3:len(subsector_choices)*2/3], required=False, widget=forms.CheckboxSelectMultiple)
-            subsectors_3 = forms.MultipleChoiceField(choices=subsector_choices[len(subsector_choices)*2/3:], required=False, widget=forms.CheckboxSelectMultiple)
+            program_selection_subsector = forms.MultipleChoiceField(choices=subsector_choices, required=False, widget=CheckboxSelectMultipleMulticolumn(columns=3))
         else:
-            subsectors_1 = False
-            subsectors_2 = False
-            subsectors_3 = False            
+            program_selection_subsector = False
 
         assistance_type = forms.MultipleChoiceField(label="Assistance Type", choices=assistance_type_options, initial=map(lambda x: x[0], assistance_type_options), widget=forms.CheckboxSelectMultiple)
         action_type = forms.MultipleChoiceField(label="Action Type", choices=action_type_options, initial=map(lambda x: x[0], action_type_options), widget=forms.CheckboxSelectMultiple)
@@ -178,25 +173,26 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         # handle program selection
         # by tag
         if form.cleaned_data['cfda_program_selection_method']=='tag':
-            selected_tags = Tag.objects.filter(id__in=(form.cleaned_data['tags_1'] + form.cleaned_data['tags_2']))
+            selected_tags = CFDATag.objects.filter(id__in=form.cleaned_data['program_selection_tags'])
 
             if form.cleaned_data['tags_exclude_secondary']:
                 programs_with_tag = ProgramDescription.objects.filter(primary_tag__in=selected_tags)
             else:
                 programs_with_tag = ProgramDescription.objects.filter(Q(primary_tag__in=selected_tags) | Q(secondary_tags__in=selected_tags))
+                pass
 
             if len(programs_with_tag):
                 faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
         # by subsector
         elif form.cleaned_data['cfda_program_selection_method']=='subsector':
-            programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['subsectors_1'] + form.cleaned_data['subsectors_2'] + form.cleaned_data['subsectors_3']))
+            programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['program_selection_subsectors']))
             if len(programs_in_subsector):
                 faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_in_subsector))
         # by CFDA program 
         elif form.cleaned_data['cfda_program_selection_method']=='program':
-            selected_programs = form.cleaned_data['cfda_programs_1'] + form.cleaned_data['cfda_programs_2']
+            selected_programs = form.cleaned_data['program_selection_programs']
             if len(selected_programs):
-                faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['cfda_programs_1'] + form.cleaned_data['cfda_programs_2'])
+                faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
             
         # handle assistance type
         if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
