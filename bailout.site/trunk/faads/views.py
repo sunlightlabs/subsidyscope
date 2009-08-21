@@ -6,7 +6,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from morsels.models import Page
 from tagging.models import TaggedItem, Tag
-from cfda.models import ProgramDescription
+from cfda.models import ProgramDescription, CFDATag
 from faads.models import *
 from faads.widgets import *
 from sectors.models import Sector, Subsector
@@ -84,8 +84,8 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     )
 
     tag_choices = []
-    cfda_program_tags = ProgramDescription.tags.all().order_by('name')
-    tag_choices = map(lambda x: (x.id, x.name), cfda_program_tags)
+    cfda_program_tags = CFDATag.objects.all().order_by('tag_name')
+    tag_choices = map(lambda x: (x.id, x.tag_name), cfda_program_tags)
     
     class FAADSSearchForm(forms.Form):
       
@@ -119,7 +119,8 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     
         obligation_amount_minimum = forms.DecimalField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
         obligation_amount_maximum = forms.DecimalField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
-    
+        
+        
         # TODO: recipient state
     
         # TODO: principal place state
