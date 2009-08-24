@@ -100,7 +100,7 @@ def getProgram(request, cfda_id, sector_name):
     return render_to_response('cfda/programs.html', {'program': program, 'primarytag': tag, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'chartdata': jsonstring, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
 
 def getProgramIndex(request, sector_name):
-    tags = Tag.objects.all()
+    tags = CFDATag.objects.all()
     sector = Sector.objects.get(name__iexact=sector_name)
     programs = ProgramDescription.objects.filter(sectors=sector)
     return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'tags': tags, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
