@@ -16,7 +16,7 @@
                 <li><strong>Filter: </strong><select class="js-select">
                     <option value="none">Select Category</option>
                     {% for t in tags %}
-                    <option value="{{t.id}}">{{ t.name }}</option>
+                    <option value="{{t.id}}">{{ t.tag_name }}</option>
                     {% endfor %}
                 </select></li>
                 <li><form><label>Search: </label><input class="programs-search" type="text" name="query" /></form></li>

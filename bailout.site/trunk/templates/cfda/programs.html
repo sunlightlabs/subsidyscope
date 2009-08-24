@@ -11,7 +11,7 @@
     {% include navname %}
     <div class="span-24">
         <div id="header_area">
-            <h3>{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{primarytag.name}}</span></h3>
+            <h3>{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span></h3>
         </div>
         <div class="content_area inlinepara">    
             <h5>Program Summary and Objectives</h5>
@@ -37,6 +37,12 @@
             {% if chartdata %}
             <h5>Program Obligations</h5>
             <span id="spendingchart" style="margin-top:10px;"><!--Alternative chart pic goes here maybe?--></span>
+            <p style="font-size:1em; color:gray;">
+            *{{citation}}
+            {% if url %}
+            , available at {{url}}
+            {% endif %}
+            </p>
             {% endif %}
         </div>
 </div>
