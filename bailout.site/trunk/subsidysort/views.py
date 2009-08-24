@@ -47,7 +47,6 @@ def task(request, task_id):
     return render_to_response('subsidysort/task.html', { 'task':task, 'pending_items':pending_items,'votes':votes, 'user':request.user})
 
 
-@login_required
 def review(request, task_id, show='all', tag_id=None, tag_location=None):
     
     task = Task.objects.get(id=task_id)
