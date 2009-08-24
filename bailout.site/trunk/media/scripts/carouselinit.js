@@ -32,7 +32,7 @@ $(function () {
 	{
 		initialTabToShowIndex = parseInt(initialTabToShowIndex);
 	}
-	setCookie(SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME, ((initialTabToShowIndex+1) % $('div.tabs > div').length), 30);
+	//setCookie(SUBSIDYSCOPE_CAROUSEL_COOKIE_NAME, ((initialTabToShowIndex+1) % $('div.tabs > div').length), 30);
 
 	// handle initial tab display
 	var tabContainers = $('div.tabs > div');
