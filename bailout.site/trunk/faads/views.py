@@ -34,7 +34,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     cfda_program_choices = []
     initial_cfda_program_choices = []
     for c in cfda_programs:
-        cfda_program_choices.append( (c.id, c.program_title) )        
+        cfda_program_choices.append( (c.id, '<span class="cfda-program-details">(<a href="%s">details</a>)</span>%s' % (reverse('transportation-cfda-programpage', None, (c.id,)), c.program_title)) )        
         # if no subsector has been defined, check all boxes
         if len(subsectors)==0:
             initial_cfda_program_choices.append(c.id)

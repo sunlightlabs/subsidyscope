@@ -7,6 +7,8 @@ from django.conf import settings
 from django.utils.safestring import mark_safe
 from django.forms import CheckboxInput
 
+        
+
 class CheckboxSelectMultipleMulticolumn(forms.CheckboxSelectMultiple):
 
     def __init__(self, attrs=None, columns=1, *args, **kwargs):
@@ -43,7 +45,8 @@ class CheckboxSelectMultipleMulticolumn(forms.CheckboxSelectMultiple):
             cb = CheckboxInput(final_attrs, check_test=lambda value: value in str_values)
             option_value = force_unicode(option_value)
             rendered_cb = cb.render(name, option_value)
-            option_label = conditional_escape(force_unicode(option_label))
+            # option_label = conditional_escape(force_unicode(option_label))
+            option_label = force_unicode(option_label)        
             output.append(u'<li><label%s>%s %s</label></li>' % (label_for, rendered_cb, option_label))
             
             if (i % every)==(every-1):

@@ -97,3 +97,7 @@ fieldset.collapsed * { display: none; }
 fieldset.collapsed .program-selection-target { display: none !important;}
 fieldset.collapsed legend { display: block !important;}
 fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0; /*background-position: 8px right;*/}
+
+#program-selection-program .cfda-program-details { visibility: hidden; float: right;}
+#program-selection-program label:hover .cfda-program-details { visibility: visible;}
+#program-selection-program ul li:hover label { background-color: #ddd !important;}
