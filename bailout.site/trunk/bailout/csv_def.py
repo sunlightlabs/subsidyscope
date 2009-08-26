@@ -57,7 +57,7 @@ class TransactionCSV(CSVFile):
              ''),
             ('Warrant Received', 'warrants_issued',
              ''),
-            ('Warrant Disposed', 'warrants_disposed',
+            ('Warrant Disposed', 'get_warrants_disposed_display',
              ''),
             ('Stock Price (as of close %s)' % last_date, 'getLastClosingPrice',
              ''),
