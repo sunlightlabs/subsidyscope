@@ -55,6 +55,8 @@ class TransactionCSV(CSVFile):
              ''),
             ('Warrant Received', 'warrants_issued',
              ''),
+            ('Warrant Disposed', 'warrants_disposed',
+             ''),
             ('Stock Price (as of close %s)' % last_date, 'getLastClosingPrice',
              ''),
             ('In/Out of Money (as of close %s)' % last_date, 'getMoneyPositionReportedStrikePrice',
