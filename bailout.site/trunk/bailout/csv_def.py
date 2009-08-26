@@ -5,6 +5,8 @@ from csv_generator import CSVFile, manager
 
 last_date = InstitutionDailyStockPrice.objects.getLastUpdate()
 
+
+
 class TransactionCSV(CSVFile):
     
     # meta
