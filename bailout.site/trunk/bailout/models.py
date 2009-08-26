@@ -649,6 +649,8 @@ class Transaction(models.Model):
     warrant_calculated_strike_price = models.DecimalField("Warrant Strike Price", max_digits=6, decimal_places=2, blank=True, null=True)
     warrants_issued = models.IntegerField("Warrant Issued", blank=True, null=True)
     
+    warrants_disposed = models.BooleanField("Warrants Disposed", default=False)
+    
     PROGRAM_CHOICES = (
         ('CPP', 'Capital Purchase Program'),
         ('AGP', 'Asset Guarantee Program'),
