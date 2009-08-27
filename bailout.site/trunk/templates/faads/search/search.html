@@ -137,6 +137,21 @@
     					</div>
             </div>
           </fieldset>
+          
+          <fieldset{% if ran_search %} class="collapsed"{% endif %} id="location">
+            <legend>Location</legend>
+
+            <p>You may filter records by the location of either the recipient or the location where the activity associated with the expenditure was primarily performed (in many cases these may be the same).  Please note that geographic information is not available for every record.</p>
+
+            <p>Match locations by: <span id="location-selector">{{ form.location_type }}</span></p> 
+
+            <div class="state-choices">
+              <p class="select-all-or-none">[ <a href="#" class="select-all" id="location-selection-select-all">Select All</a> / <a href="#" class="select-none" id="location-selection-tag-select-none">Select None</a> ]</p>
+
+              {{ form.location_choices }}
+            </div>
+            
+          </fieldset>
             
 
 					<input type="submit" value="Search" class="faads-search-submit" />

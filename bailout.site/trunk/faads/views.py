@@ -10,6 +10,7 @@ from cfda.models import ProgramDescription, CFDATag
 from faads.models import *
 from faads.widgets import *
 from sectors.models import Sector, Subsector
+from geo.models import State
 from haystack.query import SearchQuerySet
 from geo.models import State
 from cfda.views import buildChart
@@ -122,10 +123,9 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         obligation_amount_minimum = forms.DecimalField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
         obligation_amount_maximum = forms.DecimalField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
         
-        
-        # TODO: recipient state
-    
-        # TODO: principal place state
+        state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
+        location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance')), initial=1, coerce=int)
+        location_choices = forms.MultipleChoiceField(label='State', choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
     
         # TODO: funding type
     
@@ -213,6 +213,18 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         # handle obligation amount range
         if form.cleaned_data['obligation_amount_minimum'] is not None or form.cleaned_data['obligation_amount_maximum'] is not None:
             faads_search_query = faads_search_query.filter('total_funding_amount', (form.cleaned_data['obligation_amount_minimum'], form.cleaned_data['obligation_amount_maximum']))
+
+        # handle location
+        if len(form.cleaned_data['location_choices'])>0 and len(form.cleaned_data['location_choices'])<State.objects.all().count():
+            if form.cleaned_data['location_type']==0:
+                print 'filtering by recipient state against IDs like %s' % ', '.join(form.cleaned_data['location_choices'])
+                faads_search_query = faads_search_query.filter('recipient_state', form.cleaned_data['location_choices'])
+            elif form.cleaned_data['location_type']==1:
+                print 'filtering by principal place of performance against IDs like %s' % ', '.join(form.cleaned_data['location_choices'])
+                faads_search_query = faads_search_query.filter('principal_place_state', form.cleaned_data['location_choices'])
+            # elif form.cleaned_data['location_type']==2:
+            #     faads_search_query = faads_search_query.filter('recipient_state', form.cleaned_data['location_choices'])
+            #     faads_search_query = faads_search_query.filter('principal_place_state', form.cleaned_data['location_choices'], faads_search_query.CONJUNCTION_OR)
 
         return (form, faads_search_query)
 
