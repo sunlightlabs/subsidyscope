@@ -60,7 +60,7 @@
             <div id="program-selection-tag" class="program-selection-target">
               <p>Subsidyscope assigns "tags" to each program to classify the functions it is designed to perform (for more detail, see our <a href="{% url methodology %}">methodology section</a>). Choosing a tag will select the set of programs associated with that function. You may also choose whether to only include programs with the selected tag(s) as their primary function, or all programs that are related to the tag.</p>
               
-              <p class="select-all-or-none">[ <a href="#" id="program-selection-tag-select-all">Select All</a> / <a href="#" id="program-selection-tag-select-none">Select None</a> ]</p>
+              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-tag-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-tag-select-none">Select None</a> ]</p>
               
               {{ form.program_selection_tags }}
               {{ form.program_selection_tags.errors }}
@@ -73,7 +73,7 @@
 
               <p>When possible, programs are categorized by the subsector that they concern. You can refine your search accordingly. Please be aware that many programs span more than one subsector.</p>
 
-              <p class="select-all-or-none">[ <a href="#" id="program-selection-subsector-select-all">Select All</a> / <a href="#" id="program-selection-subsector-select-none">Select None</a> ]</p>
+              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-subsector-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">Select None</a> ]</p>
 
               {{ form.program_selection_subsector }}
               {{ form.program_selection_subsector.errors }}
@@ -84,7 +84,7 @@
               
               <p>The "tag" and "subsector" selections can be thought of as shortcuts to selecting related sets of programs. You may also determine which programs to include in your search on an individual basis.</p>
               
-              <p class="select-all-or-none">[ <a href="#" id="program-selection-program-select-all">Select All</a> / <a href="#" id="program-selection-program-select-none">Select None</a> ]</p>
+              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-program-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-program-select-none">Select None</a> ]</p>
               
               {{ form.program_selection_programs }}
               {{ form.program_selection_programs.errors }}
