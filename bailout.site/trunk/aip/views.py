@@ -49,11 +49,31 @@ def index(request):
         if error:
             return render_to_response('aip/index.html', {'error': error, 'params': [request.GET['portname'], request.GET['portcode']]})
     else: 
-        return render_to_response('aip/index.html', {'error': 'not a get'})
+        return render_to_response('aip/index.html')
 
 def portdetail(request):
     if request.GET.__contains__('code'):
         port = Airport.objects.get(code__iexact=request.GET['code'])
         if port:
-            portgrants = GrantRecord.objects.filter(airport=port)    
-        return render_to_response('aip/detail.html', {"grants":portgrants})
+            portgrants = GrantRecord.objects.filter(airport=port)   
+            enplanements = Enplanements.objects.filter(airport=port)
+            data = []
+            total =[]
+            counter = 0
+            grants = 0
+            enps = 0
+            for e in enplanements:
+                for p in portgrants.filter(fiscal_year=e.year): 
+                    if len(total) >counter:
+                        total[counter] = total[counter] + p.amount
+                    else: total.append(p.amount)
+                    grants += p.amount
+                if len(total) > counter:
+                    total[counter] = total[counter] / e.amount
+                else: total.append(0)
+                enps += e.amount
+                data.append((e, total[counter]))
+                counter += 1
+            if enps > 0:grants = grants/enps
+            else: grants = "N/A"
+        return render_to_response('aip/detail.html', {"grants":portgrants, "port": port, "data": data, "avg":grants})

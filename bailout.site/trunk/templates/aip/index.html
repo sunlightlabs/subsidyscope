@@ -59,7 +59,7 @@ ul.headers li.name, .portdetail ul li.name {
     background: url("/media/images/icon_close.png") no-repeat top left;
 }
 .portdetail table {
-    margin-left:20px;
+    margin-left:0px;
     width: 96%;
     clear:both;
 }
@@ -103,6 +103,9 @@ ul.headers {
 .even {
     background-color: #EFEFEF;
 }
+.bold {
+    font-weight: bold;
+}
 </style>
 <script type="text/javascript" charset="utf-8">
 (function($){
@@ -115,7 +118,8 @@ ul.headers {
                 var link = $(that).children("a");
                 if(link.hasClass("close")){
                     link.removeClass("close");
-                    $(that).parent("ul").siblings("table").slideUp("normal", function(){$(this).remove();});
+                    link.parents('li').siblings('li.name').removeClass("bold");
+                    $(that).parent("ul").siblings("div.data-container").slideUp("normal", function(){$(this).remove();});
                     return false;
                 }
                 port = port.replace(/[+]/, "%2B");
@@ -124,8 +128,9 @@ ul.headers {
                     'dataType': 'html',
                     'url': '/projects/transportation/aip/detail',
                     'success': function(html){
-                        $(that).closest("div.portdetail").append(html).find("table").slideDown("fast");
+                        $(that).closest("div.portdetail").append(html).find("div.data-container").slideDown("fast");
                         $("a", $(that)).addClass("close");
+                        $(that).siblings('li.name').addClass("bold");
                     },
                     'error': function(xhr, textstatus){
                     }

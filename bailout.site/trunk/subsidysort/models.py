@@ -57,6 +57,8 @@ class Item(models.Model):
             
         return summary
     
+    class Meta():
+        ordering = ['description']
     
 
 class Vote(models.Model):

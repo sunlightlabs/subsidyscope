@@ -5,6 +5,8 @@ from csv_generator import CSVFile, manager
 
 last_date = InstitutionDailyStockPrice.objects.getLastUpdate()
 
+
+
 class TransactionCSV(CSVFile):
     
     # meta
@@ -54,6 +56,8 @@ class TransactionCSV(CSVFile):
             ('Warrant Strike Price', 'warrant_reported_strike_price',
              ''),
             ('Warrant Received', 'warrants_issued',
+             ''),
+            ('Warrant Disposed', 'get_warrants_disposed_display',
              ''),
             ('Stock Price (as of close %s)' % last_date, 'getLastClosingPrice',
              ''),

@@ -33,8 +33,10 @@ class GrantRecord(Record):
     region = models.CharField("Region code for airport", max_length=5)
 
 class BlockGrant(Record):
+    def __unicode__(self):
+        return "%s - %s" % (self.fiscal_year, self.stateName)
     class Meta:
-        ordering=['stateName']
+        ordering=['fiscal_year', 'stateName']
     state = models.CharField("State receiving grant", max_length=2, null=False)
     stateName = models.CharField("State name", max_length=20, null=False)
 
