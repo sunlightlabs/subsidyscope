@@ -14,23 +14,30 @@ from simplejson import *
 
 def getDataSeries(cfda_id):
     program = ProgramDescription.objects.get(id=int(cfda_id))
+    
+    years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]
+    
     data = FAADSSearch().filter('cfda_program', cfda_id).aggregate('fiscal_year')
     labels = []
     cfdaseries = []
     budgetseries = []
     prog_desc = None
+    
     try:
         prog_desc = ProgramBudgetEstimateDescription.objects.get(program=program)
         budget_est = ProgramBudgetAnnualEstimate.objects.filter(budget_estimate=prog_desc) 
     except  ProgramBudgetEstimateDescription.DoesNotExist:
         budget_est = None
-    if len(data) > 0:
-        years = data.keys()
+    
+    
+    if len(years) > 0:
+        
         years.sort()
-        for point in years:
+        
+        for year in years:
             if budget_est:
                 try:
-                    yearitem = budget_est.filter(fiscal_year=point)
+                    yearitem = budget_est.filter(fiscal_year=year)
                     if yearitem:
                         budgetseries.append(yearitem[0].annual_amount)
                     else: budgetseries.append(-1)
@@ -38,8 +45,15 @@ def getDataSeries(cfda_id):
                     budgetseries.append(-1)
                     if count !=length:
                         estimates += ','
-            labels.append(point)
-            cfdaseries.append(data[point])
+                        
+                        
+            if data.has_key(year):
+                cfdaseries.append(data[year])
+            else:
+                cfdaseries.append(-1)
+                            
+            labels.append(year)
+            
     return {'labels': labels, 'cfdaseries':cfdaseries, 'budgetseries':budgetseries, 'estimateDescription': prog_desc}
 
 
