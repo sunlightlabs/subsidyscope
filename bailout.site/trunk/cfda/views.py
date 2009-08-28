@@ -14,32 +14,46 @@ from simplejson import *
 
 def getDataSeries(cfda_id):
     program = ProgramDescription.objects.get(id=int(cfda_id))
+    
+    years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]
+    
     data = FAADSSearch().filter('cfda_program', cfda_id).aggregate('fiscal_year')
     labels = []
     cfdaseries = []
     budgetseries = []
     prog_desc = None
+    
     try:
         prog_desc = ProgramBudgetEstimateDescription.objects.get(program=program)
         budget_est = ProgramBudgetAnnualEstimate.objects.filter(budget_estimate=prog_desc) 
     except  ProgramBudgetEstimateDescription.DoesNotExist:
         budget_est = None
-    if len(data) > 0:
-        years = data.keys()
+    
+    
+    if len(years) > 0:
+        
         years.sort()
-        for point in years:
+        
+        for year in years:
             if budget_est:
                 try:
-                    yearitem = budget_est.filter(fiscal_year=point)
+                    yearitem = budget_est.filter(fiscal_year=year)
                     if yearitem:
                         budgetseries.append(yearitem[0].annual_amount)
-                    else: budgetseries.append(0)
+                    else: budgetseries.append(-1)
                 except ProgramBudgetAnnualEstimate.DoesNotExist:
-                    budgetseries.append(0)
+                    budgetseries.append(-1)
                     if count !=length:
                         estimates += ','
-            labels.append(point)
-            cfdaseries.append(data[point])
+                        
+                        
+            if data.has_key(year):
+                cfdaseries.append(data[year])
+            else:
+                cfdaseries.append(-1)
+                            
+            labels.append(year)
+            
     return {'labels': labels, 'cfdaseries':cfdaseries, 'budgetseries':budgetseries, 'estimateDescription': prog_desc}
 
 
@@ -76,8 +90,8 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
     json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
     json["x_legend"] = {"text": "Years", "style": "{font-size:12px;}"}
     json["y_legend"] = {"text": "US Dollars($)", "style": "{font-size: 12px;}"}
-
-    return dumps(json)
+    
+    return dumps(json).replace('-1', 'null')
 
 def getProgram(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=int(cfda_id))
@@ -102,8 +116,9 @@ def getProgram(request, cfda_id, sector_name):
 def getProgramIndex(request, sector_name):
     tags = CFDATag.objects.all()
     sector = Sector.objects.get(name__iexact=sector_name)
+    subsectors = Subsector.objects.filter(parent_sector=sector)
     programs = ProgramDescription.objects.filter(sectors=sector)
-    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'tags': tags, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
+    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'tags': tags, 'subsectors': subsectors, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
 
 def getFAADSLineItems(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=cfda_id)
