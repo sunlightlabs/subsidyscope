@@ -33,9 +33,9 @@ def getDataSeries(cfda_id):
                     yearitem = budget_est.filter(fiscal_year=point)
                     if yearitem:
                         budgetseries.append(yearitem[0].annual_amount)
-                    else: budgetseries.append(0)
+                    else: budgetseries.append(-1)
                 except ProgramBudgetAnnualEstimate.DoesNotExist:
-                    budgetseries.append(0)
+                    budgetseries.append(-1)
                     if count !=length:
                         estimates += ','
             labels.append(point)
@@ -76,8 +76,8 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
     json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
     json["x_legend"] = {"text": "Years", "style": "{font-size:12px;}"}
     json["y_legend"] = {"text": "US Dollars($)", "style": "{font-size: 12px;}"}
-
-    return dumps(json)
+    
+    return dumps(json).replace('-1', 'null')
 
 def getProgram(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=int(cfda_id))
@@ -102,8 +102,9 @@ def getProgram(request, cfda_id, sector_name):
 def getProgramIndex(request, sector_name):
     tags = CFDATag.objects.all()
     sector = Sector.objects.get(name__iexact=sector_name)
+    subsectors = Subsector.objects.filter(parent_sector=sector)
     programs = ProgramDescription.objects.filter(sectors=sector)
-    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'tags': tags, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
+    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'tags': tags, 'subsectors': subsectors, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
 
 def getFAADSLineItems(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=cfda_id)
