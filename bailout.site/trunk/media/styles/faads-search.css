@@ -105,3 +105,5 @@ fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0
 /* state selection */
 fieldset#location .state-choices { clear: left;}
 fieldset#location .state-choices ul { float: left; margin: 0; width: 25%;}
+
+#assistance-action-recipient-wrapper #recipient-type ul { float: left; margin-right: 1em;}
