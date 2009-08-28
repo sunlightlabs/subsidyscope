@@ -37,9 +37,16 @@ class RecordIndex(indexes.SearchIndex):
     principal_place_state = indexes.IntegerField(model_attr='principal_place_state__id', null=True)
     principal_place_county = indexes.IntegerField(model_attr='principal_place_county__id', null=True)
     
+    all_text = indexes.CharField(null=True)
+    all_states = indexes.MultiValueField(null=True)
     
-    def prepare_cfda_program(self, object):
+    def prepare_all_text(self, object):
+        return "%s %s" % (object.recipient_name, object.project_description)
+
+    def prepare_all_states(self, object):
+        return (object.principal_place_state.id, object.recipient_state.id)
         
+    def prepare_cfda_program(self, object):        
         return object.cfda_program.id
     
     def prepare_budget_function(self, object):

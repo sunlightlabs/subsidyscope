@@ -124,7 +124,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         obligation_amount_maximum = forms.DecimalField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
         
         state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
-        location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance')), initial=1, coerce=int)
+        location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=2, coerce=int)
         location_choices = forms.MultipleChoiceField(label='State', choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
     
         # TODO: funding type
@@ -166,7 +166,7 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         # handle text search
         if form.cleaned_data['text_query'] is not None and len(form.cleaned_data['text_query'].strip())>0:
             if form.cleaned_data['text_query_type']==2:
-                faads_search_query = faads_search_query.filter('recipient', form.cleaned_data['text_query']).filter('text', form.cleaned_data['text_query'], faads.search.FAADSSearch.CONJUNCTION_OR)
+                faads_search_query = faads_search_query.filter('all_text', form.cleaned_data['text_query'])
             elif form.cleaned_data['text_query_type']==1:
                 faads_search_query = faads_search_query.filter('text', form.cleaned_data['text_query'])
             elif form.cleaned_data['text_query_type']==0:
@@ -222,9 +222,8 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
             elif form.cleaned_data['location_type']==1:
                 print 'filtering by principal place of performance against IDs like %s' % ', '.join(form.cleaned_data['location_choices'])
                 faads_search_query = faads_search_query.filter('principal_place_state', form.cleaned_data['location_choices'])
-            # elif form.cleaned_data['location_type']==2:
-            #     faads_search_query = faads_search_query.filter('recipient_state', form.cleaned_data['location_choices'])
-            #     faads_search_query = faads_search_query.filter('principal_place_state', form.cleaned_data['location_choices'], faads_search_query.CONJUNCTION_OR)
+            elif form.cleaned_data['location_type']==2:
+                faads_search_query = faads_search_query.filter('all_states', form.cleaned_data['location_choices'])
 
         return (form, faads_search_query)
 
