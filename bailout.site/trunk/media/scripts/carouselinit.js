@@ -48,21 +48,24 @@ $(function () {
 		return false;
 	});	
    
-	// set up carousel auto-rotation
-	carouselInterval = setInterval(function(){
-		var buttonToClick = null;
-		var selectedTabButton = $('div.tabs ul.tabNavigation a.selected');
-		if (selectedTabButton.length==0)
-			// if nothing has been clicked, the "selected" class won't be set
-			selectedTabButton = $('div.tabs ul.tabNavigation a:eq(' + initialTabToShowIndex + ')');
+	// set up carousel auto-rotation -- if there's more than one tab
+	if($('div.tabs ul.tabNavigation a').length>1)
+	{
+    	carouselInterval = setInterval(function(){
+    		var buttonToClick = null;
+    		var selectedTabButton = $('div.tabs ul.tabNavigation a.selected');
+    		if (selectedTabButton.length==0)
+    			// if nothing has been clicked, the "selected" class won't be set
+    			selectedTabButton = $('div.tabs ul.tabNavigation a:eq(' + initialTabToShowIndex + ')');
 		
-		// if there's a selected button, click the next one
-		buttonToClick = selectedTabButton.parent().next().find('a');
-		// ...unless it was the last one, in which case click the first one
-		if(buttonToClick.length==0)
-				buttonToClick = $('div.tabs ul.tabNavigation a:first');
+    		// if there's a selected button, click the next one
+    		buttonToClick = selectedTabButton.parent().next().find('a');
+    		// ...unless it was the last one, in which case click the first one
+    		if(buttonToClick.length==0)
+    				buttonToClick = $('div.tabs ul.tabNavigation a:first');
 
-		if(buttonToClick.length>0)
-			handleCarouselClick($(buttonToClick.attr('href')));
-	}, 8000);
+    		if(buttonToClick.length>0)
+    			handleCarouselClick($(buttonToClick.attr('href')));
+    	}, 8000);
+    }
 });

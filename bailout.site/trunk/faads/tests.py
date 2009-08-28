@@ -1,10 +1,12 @@
-import unittest
+from django.test import TestCase
+
 
 from faads.search import *
 from faads.views import construct_form_and_query_from_querydict
 
-class FAADSSearchTestCase(unittest.TestCase):
+class FAADSSearchTestCase(TestCase):
 
+    fixtures = ['test_data.json']
         
     sector_name = 'Transportation'
     

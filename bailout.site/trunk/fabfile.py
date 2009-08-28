@@ -324,6 +324,7 @@ def push_tarp():
     subsidyscope_setup()
     push_fixture_from_staging_to_live_via_mysql('etl')
     push_fixture_from_staging_to_live_via_mysql('bailout', backup=False) # only backup before the first operation so we can roll back properly
+    run('python $(live_project_root)/manage.py generatecsv')
 
 def new_h41_to_local():
     """ imports today's H41 file to the local database (run first) """

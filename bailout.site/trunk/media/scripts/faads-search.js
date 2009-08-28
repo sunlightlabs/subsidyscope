@@ -23,20 +23,15 @@ $(function(){
     
     
     // set up "select all"/"select none" links
-    var sections = ['tag', 'subsector', 'program'];
-    for(var section_i in sections)    
-    {
-        var prefix = sections[section_i];
-        $('a#program-selection-' + prefix + '-select-all').click(function(){
-           $(this).parent().parent().find('ul li input[type=checkbox]').attr('checked', true); 
-           return false;
-        });
-        
-        $('a#program-selection-' + prefix + '-select-none').click(function(){
-           $(this).parent().parent().find('ul li input[type=checkbox]').attr('checked', false); 
-           return false;
-        });
-    }
+    $('.select-all-or-none a.select-all').click(function(){
+       $(this).parent().parent().find('ul li input[type=checkbox]').attr('checked', true); 
+       return false;
+    });
+    
+    $('.select-all-or-none a.select-none').click(function(){
+       $(this).parent().parent().find('ul li input[type=checkbox]').attr('checked', false); 
+       return false;
+    });
     
     // make slide-toggle-able fieldsets
     $('fieldset legend').click(function(){

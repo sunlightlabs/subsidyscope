@@ -101,33 +101,39 @@ $(function () {
 						<h3><a href="/projects/bailout/">Financial Bailout</a></h3>
 						<p>	<a href="{% url bailout_treasury_index %}">Treasury</a>, 
 							<a href="{% url bailout_fdic_index %}">FDIC</a>, 
-							<a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>, 
+							<a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>,<br/>
 							<a href="{% url bailout_other_index %}">Other Agencies</a>
 						</p>	
 					</div>
 				</div>
 				
 				<div class="tax_item">
-					<div id="tax_icon"><img src="/media/images/icon_lrg_energy_grey.png" border="0" alt="Energy"></div>	
+					<div id="tax_icon"><img src="/media/images/sector_icons/philanthropy/philanthropy_lg_grey.png" border="0" alt="Philanthropy"></div>	
 						<div>
-							<h3 class="coming">Energy</h3>
-							<p>Coming soon</p>
+							<h3 class="coming">Philanthropy</h3>
+							<p>Fall 2009</p>
 						</div>
 					</div>
 				</div>
 			
 			<div class="right_tax">
 				<div class="tax_item">
-					<div id="tax_icon"><img src="/media/images/sector_icons/2_lg_gray.png" border="0" alt="Transportation"></div>	
-						<div><h3 class="coming">Transportation</h3>
-							<p>Fall 2009</p>
+					<div id="tax_icon"><a href="{% url transportation-index %}"><img src="/media/images/sector_icons/transportation/trans_lg.png" border="0" alt="Transportation"></a></div>	
+						<div><h3><a href="{% url transportation-index %}">Transportation</a></h3>
+							<p>	<a href="{% url transportation-general %}">General</a>, 
+  							<a href="{% url transportation-highways %}">Highways</a>, 
+  							<a href="{% url transportation-aviation %}">Aviation</a>,<br/>
+  							<a href="{% url transportation-transit %}">Transit</a>,
+  							<a href="{% url transportation-rail %}">Rail</a>,
+  							<a href="{% url transportation-maritime %}">Maritime</a>
+  						</p>
 						</div>	
 				</div>
 			
 				<div class="tax_item">
-					<div id="tax_icon"><img src="/media/images/icon_lrg_housing_grey.png" border="0" alt="Housing"></div>	
-						<div>	
-							<h3 class="coming">Housing</h3>
+					<div id="tax_icon"><img src="/media/images/icon_lrg_energy_grey.png" border="0" alt="Energy"></div>	
+						<div>
+							<h3 class="coming">Energy</h3>
 							<p>Coming soon</p>
 						</div>
 					</div>
