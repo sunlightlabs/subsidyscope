@@ -1,6 +1,7 @@
 from django.template import Library, Node
 from django.template.loader import render_to_string
 from project_updates.models import ProjectUpdate
+
 import logging
 
 register = Library()
@@ -21,5 +22,13 @@ def project_updates(parser, token):
     tag_name, sector = token.split_contents()
     return ProjectUpdateNode(sector)
 
-    
 project_updates = register.tag(project_updates)
+
+@register.inclusion_tag('project_updates/subsector_sidebar.html')
+def project_updates_subsector_sidebar(subsector_id):
+    
+    updates = ProjectUpdate.objects.filter(subsector__pk=int(subsector_id))
+    
+    return {'updates':updates}
+
+
