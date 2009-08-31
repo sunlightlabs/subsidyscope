@@ -23,10 +23,6 @@ class ProjectUpdate(models.Model):
             'entry_month': self.date.month,
             'entry_day': self.date.day,
             'entry_slug': self.slug})
-
-    PROJECT_CHOICES = (
-        ('Bailout', 'The Financial Bailout'),
-    )
     
     title = models.CharField('Title', max_length=100)
     link = models.CharField("Link", max_length=200, blank=True, default='')
@@ -35,6 +31,11 @@ class ProjectUpdate(models.Model):
     text = models.TextField('Text', default='')
     extended_text = models.TextField('Extended Text', default='', blank=True)
     slug = models.SlugField('Slug', default='')
+    
+    SUBSIDY_TYPE_CHOICES = (('direct-expenditure', 'Direct Expenditure'),
+                            ('tax-expenditure', 'Tax Expenditure'),)
+    
+    subsidy_type = models.CharField(max_length=50, choices=SUBSIDY_TYPE_CHOICES)
     
     sectors = models.ManyToManyField(Sector, blank=True)
     subsector = models.ManyToManyField(Subsector, blank=True)
