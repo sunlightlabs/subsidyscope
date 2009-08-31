@@ -2,6 +2,11 @@ from django.db import models
 from sectors.models import Sector, Subsector
 import sunlightcore.management.commands.mediasync
 
+class SubsidyType(models.Model):
+    
+    name = models.CharField(max_length=100)
+    
+
 class ProjectUpdate(models.Model):
     def __unicode__(self):
         if not self.published:
@@ -31,11 +36,9 @@ class ProjectUpdate(models.Model):
     text = models.TextField('Text', default='')
     extended_text = models.TextField('Extended Text', default='', blank=True)
     slug = models.SlugField('Slug', default='')
-    
-    SUBSIDY_TYPE_CHOICES = (('direct-expenditure', 'Direct Expenditure'),
-                            ('tax-expenditure', 'Tax Expenditure'),)
-    
-    subsidy_type = models.CharField(max_length=50, choices=SUBSIDY_TYPE_CHOICES)
+ 
+   
+    subsidy_type = models.ManyToManyField(SubsidyType, blank=True)
     
     sectors = models.ManyToManyField(Sector, blank=True)
     subsector = models.ManyToManyField(Subsector, blank=True)
