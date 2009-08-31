@@ -12,18 +12,23 @@
         <div class="content_area">
             {% morsel text1 %}
             <h5>Program Listing</h5>
-            <span class="programs-container"><ul class="programs">
-                <li><strong>Filter: </strong><select class="js-select">
-                    <option value="none">Select Category</option>
+            <span class="programs-container"><ul style="padding-bottom:20px;" class="programs">
+                <li><strong>Filter By: </strong>&nbsp;<select class="js-select">
+                    <option value="none">Tag</option>
                     {% for t in tags %}
                     <option value="{{t.id}}">{{ t.tag_name }}</option>
                     {% endfor %}
                 </select></li>
-                <li><form><label>Search: </label><input class="programs-search" type="text" name="query" /></form></li>
+                <li>&mdash;<em>or</em>&mdash;</li>
+                <li><select class="js-select" id="modes"><option value="none">Mode</option>
+                    {% for s in subsectors %}
+                        <option value="{{s.id}}">{{s.name}}</option>
+                    {% endfor %}
+                </select></li>
             </ul></span>
             <ul id="program-listing">
                 {%for prog in programs %}
-                    <li class="tag{{prog.primary_tag.id}}"><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
+                    <li class="tag{{prog.primary_tag.id}}" name="mode{{prog.subsectors}}"><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -35,7 +40,11 @@ $(document).ready(function(){
     $('select.js-select').change(function(){
         if(this.value !=='none'){
             $("li", list).hide();
-            $(".tag"+this.value, list).show()
+            if(this.id == "modes"){
+                $("li[name=mode"+this.value+"]", list).show();
+            } else {
+                $(".tag"+this.value, list).show();
+            }
         } else{
             $("li", list).show();
         }
