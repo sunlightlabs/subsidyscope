@@ -2,7 +2,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
-from django.template import RequestContext
+from django.template import RequestContext, loader, Template, Context
 from cfda.models import *
 from tagging.models import Tag
 from sectors.models import Sector
@@ -93,6 +93,15 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
     
     return dumps(json).replace('-1', 'null')
 
+def ajaxChart(request, cfda_id):
+    program = ProgramDescription.objects.get(id=int(cfda_id))
+    data = getDataSeries(cfda_id)
+    jsonstring = buildChart(data['cfdaseries'], data['budgetseries'], data['labels'], data['estimateDescription'])
+    t = Template("{%autoescape off%}{{jsonstring}}{%endautoescape%}")
+    c = Context({"jsonstring":jsonstring})
+    html = t.render(c)
+    return HttpResponse(html)
+
 def getProgram(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=int(cfda_id))
     tag = Tag.objects.get(id=program.primary_tag_id)
@@ -109,9 +118,7 @@ def getProgram(request, cfda_id, sector_name):
         accomps2 = accomps[800:]
         accomps = accomps[:800]
     
-    data = getDataSeries(cfda_id)
-    jsonstring = buildChart(data['cfdaseries'], data['budgetseries'], data['labels'], data['estimateDescription'])
-    return render_to_response('cfda/programs.html', {'program': program, 'primarytag': tag, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'chartdata': jsonstring, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
+    return render_to_response('cfda/programs.html', {'program': program, 'primarytag': tag, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
 
 def getProgramIndex(request, sector_name):
     tags = CFDATag.objects.all()
