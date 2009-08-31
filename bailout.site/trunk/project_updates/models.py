@@ -4,7 +4,6 @@ import sunlightcore.management.commands.mediasync
 
 class SubsidyType(models.Model):
     
-    slug = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     
 
