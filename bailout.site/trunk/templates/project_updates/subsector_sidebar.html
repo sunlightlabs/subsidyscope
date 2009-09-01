@@ -4,7 +4,7 @@
 	<div class="news_head"><h2>Related Updates</h2></div>	
 	<ul class="news_box_items">
 		{% for update in updates %}
-			<li><a href="{{ update.url }}">{{ update.title }}</a></li>
+			<li><a href="{{ update.link }}">{{ update.title }}</a></li>
 		{% endfor %}
 	</ul>
 </div>
