@@ -44,7 +44,7 @@
 					<form action="{% url faads.views.search %}" method="POST" id="faads-search-form">
 
 					<fieldset{% if ran_search %} class="collapsed"{% endif %} id="text-query-wrapper">
-					  <legend>Text</legend>
+					  <legend>Recipient Name / Project Description</legend>
 						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
 						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
 					</fieldset>
@@ -153,8 +153,8 @@
             
           </fieldset>
             
-
 					<input type="submit" value="Search" class="faads-search-submit" />
+
 					</form>
 				
 				    {% if not faads_results and ran_search %}
