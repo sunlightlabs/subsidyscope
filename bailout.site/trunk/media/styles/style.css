@@ -551,7 +551,7 @@ ul.press-releases li
 .section-floating-nav ul li.overview-link { display: none; }
 .section-floating-nav ul li a.active { font-weight: bold;}
 
-.subsector-sidebar p { width: auto; size: auto;}
+.subsector-sidebar p { width: auto; font-size: 100%;}
 .subsector-sidebar p strong { display: block;}
 
 .page-summary {width: 50%}
