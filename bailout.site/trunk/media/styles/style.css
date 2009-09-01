@@ -549,7 +549,9 @@ ul.press-releases li
 .section-floating-nav ul li a:hover { text-decoration: underline;}
 .section-floating-nav ul li.overview-link { display: none; }
 .section-floating-nav ul li a.active { font-weight: bold;}
-
+.page-summary {width: 50%}
+.page-summary ul{list-style-type:disc; padding-left:10px; font-size: 1em;}
+.page-summary h5 {margin:0px;}
 .jeditable-morsel:hover
 {
     background-color: #FFFCDA;
