@@ -185,7 +185,7 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
                 faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
         # by subsector
         elif form.cleaned_data['cfda_program_selection_method']=='subsector':
-            programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['program_selection_subsectors']))
+            programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['program_selection_subsector']))
             if len(programs_in_subsector):
                 faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_in_subsector))
         # by CFDA program 
@@ -216,11 +216,9 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
 
         # handle location
         if len(form.cleaned_data['location_choices'])>0 and len(form.cleaned_data['location_choices'])<State.objects.all().count():
-            if form.cleaned_data['location_type']==0:
-                print 'filtering by recipient state against IDs like %s' % ', '.join(form.cleaned_data['location_choices'])
+            if form.cleaned_data['location_type']==0:                
                 faads_search_query = faads_search_query.filter('recipient_state', form.cleaned_data['location_choices'])
             elif form.cleaned_data['location_type']==1:
-                print 'filtering by principal place of performance against IDs like %s' % ', '.join(form.cleaned_data['location_choices'])
                 faads_search_query = faads_search_query.filter('principal_place_state', form.cleaned_data['location_choices'])
             elif form.cleaned_data['location_type']==2:
                 faads_search_query = faads_search_query.filter('all_states', form.cleaned_data['location_choices'])
