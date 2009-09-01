@@ -27,7 +27,7 @@ project_updates = register.tag(project_updates)
 @register.inclusion_tag('project_updates/subsector_sidebar.html')
 def project_updates_subsector_sidebar(subsector_id):
     
-    updates = ProjectUpdate.objects.filter(subsector__pk=int(subsector_id))
+    updates = ProjectUpdate.objects.filter(subsector__pk=int(subsector_id)).exclude(link='')
     
     return {'updates':updates}
 
