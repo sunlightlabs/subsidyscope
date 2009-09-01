@@ -85,6 +85,14 @@
 
 #program-selection-subsector ul { float: left; margin: 0 100px;}
 #program-selection-subsector ul li, #program-selection-subsector ul li label { margin-left: 0; font-weight: normal; font-size: 11px;}
+#program-selection-subsector label .img-wrapper { width: 30px; text-align: center;}
+#program-selection-subsector label .img-wrapper img { position: relative; top: 4px;}
+#program-selection-subsector label .img-wrapper#img-wrapper-maritime img { left: -6px;}
+#program-selection-subsector label .img-wrapper#img-wrapper-aviation img { left: -4px; }
+#program-selection-subsector label .img-wrapper#img-wrapper-general img { left: -1px;}
+#program-selection-subsector label .img-wrapper#img-wrapper-rail img { left: -8px;}
+#program-selection-subsector label .img-wrapper#img-wrapper-transit img { left: -8px;}
+#program-selection-subsector label .img-wrapper#img-wrapper-highways img { left: -4px; }
 
 #assistance-action-recipient-wrapper .dropdown-wrapper ul, #assistance-action-recipient-wrapper .dropdown-wrapper ul li { margin-left: 0;}
 #assistance-action-recipient-wrapper .dropdown-wrapper ul li { font-weight: normal; }
