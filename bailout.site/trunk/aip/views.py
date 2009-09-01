@@ -24,6 +24,7 @@ def index(request):
             total = 0
             for p in ports:
                 pgrants = GrantRecord.objects.filter(airport=p)
+                sgrants = StateGrant.objects.filter(airport=p)
                 money = 0
                 for m in pgrants:
                     money += m.amount

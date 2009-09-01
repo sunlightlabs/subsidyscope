@@ -40,6 +40,18 @@ class BlockGrant(Record):
     state = models.CharField("State receiving grant", max_length=2, null=False)
     stateName = models.CharField("State name", max_length=20, null=False)
 
+class StateGrant(models.Model):
+    def __unicode__(self):
+        return "%s - %s - %s" % (self.fiscal_year, self.airport, self.state)
+    class Meta:
+        ordering=['fiscal_year', 'state']
+    state = models.CharField("State", max_length=2, null=False, blank=False)
+    city = models.CharField("City", max_length=30)
+    airport = models.ForeignKey(Airport, null=False)
+    fiscal_year = models.IntegerField("Fiscal Year")
+    amount = models.DecimalField("Amount of Grant", decimal_places=2, max_digits=30)
+    description = models.CharField("Description of Project", max_length=5000)
+
 class Enplanements(models.Model):
     class Meta:
         ordering=['airport', 'year']
