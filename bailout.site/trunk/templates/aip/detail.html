@@ -1,0 +1,38 @@
+{% load humanize %}
+{% if grants %}
+<style>
+ul.portstats li {float:none; width:auto;}
+ul.portstats {border: 1px solid black; background-color:white; }
+h5.left, h5.right {font-size: 1.1em;}
+h5.left {width: 34%; float:left; }
+h5.right {width:45%; float:left;}
+.data-container {float:left; margin-left:30px; }
+</style>
+<div class="data-container" style="display:none;">
+    {%if data %}
+        <h5 class="left">Enplanement Data</h5><h5 class="right">Grants Funded</h5>
+        <div style="width:300px;float:left;">
+            <table>
+            <tr><th>Year</th><th>Total Enplanements</th><th>$/Enplanement</th></tr>
+            {%for e, t in data %}
+                <tr>
+                    <td>{{e.year}}</td>
+                    <td>{{e.amount}}</td>
+                    <td>{{t|stringformat:".2f"}}</td>
+                </tr>
+            {% endfor %}
+                <tr><td colspan="3" style="text-align:center;"><em>Average $/Enplanement:</em> {{avg|stringformat:".2f"}}</td></tr>
+            </table>
+        </div>
+    {% else %}
+        <h5 class="left">Grants Funded</h5>
+    {% endif %}
+        <div style="{%if data%}width:65%;float:left;{%else%}display:block;{%endif%}">
+            <table class="port"><tr><th>FY</th><th>Amount</th><th>Description</th><th>Stimulus?</th></tr>
+    {% for g in grants %}
+        <tr><td>{{g.fiscal_year}}</td><td>${{g.amount|intcomma}}</td><td class="desc">{{g.description}}</td><td>{%if g.stimulus%}yes{%else%}no{%endif%}</td></tr>
+    {% endfor %}
+        </table>
+        </div>
+</div>
+{% endif %}

@@ -8,46 +8,54 @@ class RecordIndex(indexes.SearchIndex):
     
     type = 'faads'
     
-    cfda_program = indexes.IntegerField(model_attr='cfda_program__id')
+    cfda_program = indexes.IntegerField(model_attr='cfda_program__id', null=True)
     
-    budget_function = indexes.MultiValueField() # many-to-many via cfda program description
-    funding_type = indexes.MultiValueField() # many-to-many via cfda program description
+    budget_function = indexes.MultiValueField(null=True) # many-to-many via cfda program description
+    funding_type = indexes.MultiValueField(null=True) # many-to-many via cfda program description
     
-    sector = indexes.IntegerField() 
-    subsector = indexes.IntegerField()
+    sector = indexes.IntegerField(null=True) 
+    subsector = indexes.IntegerField(null=True)
     
-    action_type = indexes.IntegerField(model_attr='action_type__id')
-    recipient_type = indexes.IntegerField(model_attr='recipient_type__id')
-    record_type = indexes.IntegerField(model_attr='record_type__id')
-    assistance_type = indexes.IntegerField(model_attr='assistance_type__id')
+    action_type = indexes.IntegerField(model_attr='action_type__id', null=True)
+    recipient_type = indexes.IntegerField(model_attr='recipient_type__id', null=True)
+    record_type = indexes.IntegerField(model_attr='record_type__id', null=True)
+    assistance_type = indexes.IntegerField(model_attr='assistance_type__id', null=True)
     
-    fiscal_year = indexes.IntegerField(model_attr='fiscal_year')
-    obligation_date = indexes.DateField(model_attr='obligation_action_date')
+    fiscal_year = indexes.IntegerField(model_attr='fiscal_year', null=True)
+    obligation_date = indexes.DateField(model_attr='obligation_action_date', null=True)
     
-    non_federal_amount = indexes.IntegerField(model_attr='non_federal_funding_amount')
-    federal_amount = indexes.IntegerField(model_attr='federal_funding_amount')
-    total_amount = indexes.IntegerField(model_attr='total_funding_amount')
+    non_federal_amount = indexes.IntegerField(model_attr='non_federal_funding_amount', null=True)
+    federal_amount = indexes.IntegerField(model_attr='federal_funding_amount', null=True)
+    total_amount = indexes.IntegerField(model_attr='total_funding_amount', null=True)
     
-    text = indexes.CharField(document=True, model_attr='project_description')
+    text = indexes.CharField(document=True, model_attr='project_description', null=True)
     
-    recipient = indexes.CharField(model_attr='recipient_name')
-    recipient_county = indexes.IntegerField(model_attr='recipient_county__id')
-    recipient_state = indexes.IntegerField(model_attr='recipient_state__id')
+    recipient = indexes.CharField(model_attr='recipient_name', null=True)
+    recipient_county = indexes.IntegerField(model_attr='recipient_county__id', null=True)
+    recipient_state = indexes.IntegerField(model_attr='recipient_state__id', null=True)
     
-    principal_place_state = indexes.IntegerField(model_attr='principal_place_state__id')
-    principal_place_county = indexes.IntegerField(model_attr='principal_place_county__id')
+    principal_place_state = indexes.IntegerField(model_attr='principal_place_state__id', null=True)
+    principal_place_county = indexes.IntegerField(model_attr='principal_place_county__id', null=True)
     
+    all_text = indexes.CharField(null=True)
+    all_states = indexes.MultiValueField(null=True)
     
-    def prepare_cfda_program(self, object):
+    def prepare_all_text(self, object):
+        return "%s %s" % (object.recipient_name, object.project_description)
+
+    def prepare_all_states(self, object):
+        return (object.principal_place_state.id, object.recipient_state.id)
         
-        return '%s' % (object.cfda_program.id)
+    def prepare_cfda_program(self, object):        
+        return object.cfda_program.id
     
     def prepare_budget_function(self, object):
         
         budget_functions = []
         
         for budget_account in object.cfda_program.budget_accounts.all():
-            budget_functions.append(budget_account.budget_function.id)
+	    if budget_account.budget_function != None:
+                budget_functions.append(budget_account.budget_function.id)
         
         return budget_functions
     

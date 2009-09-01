@@ -48,10 +48,6 @@ aggregation using solr:
 
 # preload fk lookup tables
 
-CFDA_PROGRAM_FK_LOOKUP = {}
-for c in cfda.models.ProgramDescription.objects.all():
-    CFDA_PROGRAM_FK_LOOKUP[str(c.program_number)] = c.id
-
 ACTION_TYPE_FK_LOOKUP = {}
 for a in ActionType.objects.all():
     ACTION_TYPE_FK_LOOKUP[a.code] = a.id
@@ -91,8 +87,6 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'cfda_program', 
             'solr_field': 'cfda_program', 
-            'mysql_fk_transformation': lambda x: CFDA_PROGRAM_FK_LOOKUP.get(str(x).strip(), None),
-            'solr_fk_transformation': lambda x: x,
             'aggregate': True
         },
                 
@@ -100,8 +94,8 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'action_type', 
             'solr_field': 'action_type',
-            'mysql_fk_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(str(x), None),
-            'solr_fk_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(str(x), None),
+            'mysql_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(str(x), None),
+            'solr_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(str(x), None),
             'aggregate': True
         },
         
@@ -109,8 +103,8 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'recipient_type', 
             'solr_field': 'recipient_type', 
-            'mysql_fk_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(int(x), None) ,
-            'solr_fk_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(int(x), None),
+            'mysql_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(int(x), None) ,
+            'solr_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(int(x), None),
             'aggregate': True
         },
         
@@ -118,8 +112,8 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'record_type', 
             'solr_field': 'record_type', 
-            'mysql_fk_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(int(x), None),
-            'solr_fk_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(int(x), None),
+            'mysql_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(int(x), None),
+            'solr_transformation': lambda x: RECORD_TYPE_FK_LOOKUP.get(int(x), None),
             'aggregate': True
         },
 
@@ -127,8 +121,8 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'assistance_type',
             'solr_field': 'assistance_type',
-            'mysql_fk_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(int(x), None),
-            'solr_fk_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(int(x), None),
+            'mysql_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(int(x), None),
+            'solr_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(int(x), None),
             'aggregate': True
         },
 
@@ -143,7 +137,7 @@ class FAADSSearch():
             'type': 'range',
             'mysql_field': 'obligation_action_date',
             'solr_field': 'obligation_date',
-            'solr_range_transformation': lambda x: str(x) + 'T00:00:00Z'
+            'solr_transformation': lambda x: str(x) + 'T00:00:00Z'
         },
 
         'non_federal_funding_amount': {
@@ -174,6 +168,11 @@ class FAADSSearch():
             'solr_field': 'recipient'
         },
         
+        'all_text': {
+            'type': 'text',
+            'solr_field': 'all_text'
+        },
+        
         'recipient_state': {
             'type': 'fk',
             'mysql_field': 'recipient_state', 
@@ -200,7 +199,13 @@ class FAADSSearch():
             'mysql_field': 'principal_place_county', 
             'solr_field': 'principal_place_county', 
             'aggregate': True
-        }
+        },
+        
+        'all_states': {
+            'type': 'fk',
+            'mysql_field': ('principal_place_state', 'recipient_state'),
+            'solr_field': 'all_states',
+        },
     }
     
     CONJUNCTION_AND = {'solr': 'AND', 'mysql': 'AND'}
@@ -262,6 +267,8 @@ class FAADSSearch():
         field_lookup = FAADSSearch.FIELD_MAPPINGS.get(filter_by,None)
         if field_lookup is None:
             raise Exception("'%s' is not a valid filter field" % filter_by)
+        elif len(filter_value)==0:
+            raise Exception("Cannot process a zero-length value for filter '%s'" % filter_by)
         elif field_lookup['type']=='range' and ((type(filter_value) not in (list, tuple)) or (len(filter_value)!=2)):
             raise Exception("'%s' is a ranged field. Please pass a tuple or list of length 2 (None==wildcard)")
 
@@ -289,7 +296,7 @@ class FAADSSearch():
 
             # deal with queries against foreign key fields
             if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
-                fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_fk_transformation', lambda x: x)
+                fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_transformation', lambda x: x)
 
                 if type(filter_value) not in (list, tuple):
                     filter_value = (filter_value,)
@@ -307,7 +314,7 @@ class FAADSSearch():
             # deal with range-type queries 
             elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
                 clause_parts = []
-                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_range_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
+                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
                 for range_specifier in filter_value:
                     if range_specifier is None:
                         clause_parts.append('*')
@@ -356,7 +363,8 @@ class FAADSSearch():
                 # deal with queries against foreign key fields (there are many of them!)
                 if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
                     
-                    fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_fk_transformation', lambda x: x)
+                    # build list of the foreign keys
+                    fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_transformation', lambda x: x)
     
                     if type(filter_value) not in (list, tuple):
                         filter_value = (filter_value,)
@@ -367,13 +375,23 @@ class FAADSSearch():
                         if fk_value is not None:
                             fk_values.append(str(fk_value))
                     
-                    sql += ' ( %s_id IN (%s) ) ' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_field'], ','.join(fk_values))
+                    # is this query examining a field that's an aggregation of two fields in solr? if so, it doesn't exist in mysql. build
+                    # an OR clause instead
+                    mysql_field = FAADSSearch.FIELD_MAPPINGS[filter_field]['mysql_field']               
+                    if type(mysql_field) not in (list, tuple):
+                        mysql_field = (mysql_field,)            
+                    
+                    clauses = []
+                    for mf in mysql_field:
+                        clauses.append(' (%s_id IN (%s)) ' % (mf, ','.join(fk_values)))                        
+                    
+                    sql += '(' + ' OR '.join(clauses) + ')'
                    
                 # deal with range-type queries 
                 elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
                     # okay, I admit this may be too cute for its own good. the goal is just to build '( date>%s AND date<%s )' with options for leaving either off via None
                     clause_parts = []
-                    range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_range_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
+                    range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('mysql_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
                     range_comparators = ('>=', '<=')
                     for j, range_specifier in enumerate(filter_value):
                         if range_specifier is not None:
@@ -383,8 +401,6 @@ class FAADSSearch():
 
         sql += " GROUP BY %s " % aggregate_field
 
-        # print sql 
-        # print sql_parameters
         return (sql, sql_parameters)
         
     
@@ -413,10 +429,12 @@ class FAADSSearch():
             
             # aggregation
             for doc in solr_result.docs:
-                key = int(doc[self.aggregate_by['solr_field']])                
-                if not result.has_key(key):
-                    result[key] = Decimal(0)                
-                result[key] += Decimal(str(doc['federal_amount'])) 
+                if doc.has_key(self.aggregate_by['solr_field']) and doc.has_key('federal_amount'):
+                    key = int(doc[self.aggregate_by['solr_field']])                
+                    if not result.has_key(key):
+                        result[key] = Decimal(0)                
+                    result[key] += Decimal(str(doc['federal_amount'])) 
+                
             
             
         # handling key based aggregation with db group by/sum
@@ -440,8 +458,7 @@ class FAADSSearch():
     def _run_solr_query_if_necessary(self):
         # run raw solr query
         if self.SearchQuerySet is None:
-            query = self._build_solr_query()
-            print query
+            query = self._build_solr_query()            
             self.SearchQuerySet = SearchQuerySetWrapper().raw_search(query, rows=50)
     
     def results(self):
@@ -472,7 +489,7 @@ class FAADSSearch():
             if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='fk':
         
                 field_operator = filter_field + '__in'
-                fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_fk_transformation', lambda x: x)
+                fk_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_transformation', lambda x: x)
         
                 if type(filter_value) not in (list, tuple):
                     filter_value = (filter_value,)
@@ -488,7 +505,7 @@ class FAADSSearch():
             # deal with range
             if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
                 clause_parts = []
-                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_range_transformation', lambda x: x) # putting this in plac
+                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_transformation', lambda x: x) # putting this in plac
                 filter_operators = ('__gte', '__lte')
                 for i, range_specifier in enumerate(filter_value):
                     if range_specifier is not None:
@@ -501,11 +518,11 @@ class FAADSSearch():
     
         s = SearchQuerySet().models(Record)
         
-        if len(and_filters):
-            s = s.filter_and(**and_filters)
-        
         if len(or_filters):
             s = s.filter_or(**or_filters)
+
+        if len(and_filters):
+            s = s.filter_and(**and_filters)
         
         s = s.order_by(order_by)
         

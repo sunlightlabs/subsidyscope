@@ -1,6 +1,7 @@
 import sys, os
 from django.db import models
 from django.core.files.storage import FileSystemStorage
+from sectors.models import *
 
 def BailoutPDF_get_pdf_upload_path(instance, filename):
     return "pdf/%d/%d/%d/%s" % (instance.date.year, instance.date.month, instance.date.day, filename)
@@ -15,6 +16,7 @@ class BailoutPDF(models.Model):
         return self.title
     title = models.CharField("Title",max_length=255)
     date = models.DateField("Date")
+    sector = models.ForeignKey(Sector, null=False, blank=False)
     link_url = models.URLField("Link", blank=True, default='')
     CHOICES = (
         ('PDF', 'PDF'),

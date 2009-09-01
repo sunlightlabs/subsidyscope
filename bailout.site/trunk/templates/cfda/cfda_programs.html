@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% load media %}
+{% load morsel_tags %}
+{% block content %}
+{% load webdesign %}
+
+<div class="container main_container">
+    {% include navname %}
+    <div class="span-24">
+        <div id="header_area"><h3>{% morsel_page_title %}</h3></div>
+        <div class="content_area">
+            {% morsel text1 %}
+            <h5>Program Listing</h5>
+            <span class="programs-container"><ul style="padding-bottom:20px;" class="programs">
+                <li><strong>Filter By: </strong>&nbsp;<select class="js-select">
+                    <option value="none">Tag</option>
+                    {% for t in tags %}
+                    <option value="{{t.id}}">{{ t.tag_name }}</option>
+                    {% endfor %}
+                </select></li>
+                <li>&mdash;<em>or</em>&mdash;</li>
+                <li><select class="js-select" id="modes"><option value="none">Mode</option>
+                    {% for s in subsectors %}
+                        <option value="{{s.id}}">{{s.name}}</option>
+                    {% endfor %}
+                </select></li>
+            </ul></span>
+            <ul id="program-listing">
+                {%for prog in programs %}
+                    <li class="tag{{prog.primary_tag.id}}" name="mode{{prog.subsectors}}"><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+    var list = $("#program-listing");
+    $('select.js-select').change(function(){
+        if(this.value !=='none'){
+            $("li", list).hide();
+            if(this.id == "modes"){
+                $("li[name=mode"+this.value+"]", list).show();
+            } else {
+                $(".tag"+this.value, list).show();
+            }
+        } else{
+            $("li", list).show();
+        }
+    });     
+});
+</script>
+
+{% endblock %}
+

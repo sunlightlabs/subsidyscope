@@ -7,12 +7,11 @@ from contact_form.forms import ContactForm
 from bailout.views import *
 from project_updates.feeds import ProjectUpdatesFeed
 import django.contrib.syndication.views
-import haystack 
-import csv_generator 
 
-csv_generator.autodiscover()
-haystack.autodiscover()
 admin.autodiscover()
+
+def redirect_to_index(request):
+    return HttpResponseRedirect(reverse('index'))
 
 class SubsidyContactForm(ContactForm):
     attrs_dict = { 'class': 'required' }    
@@ -32,28 +31,34 @@ urlpatterns = patterns('',
     url(r'^admin/(.*)', admin.site.root),
     url(r'^mailinglist-subscribe/', direct_to_template, {'template': 'misc/email_signup_nojavascript.html'}, name="email_signup_nojavascript"),
     url(r'^mailinglist/', include('spammer.urls')),
+    url(r'^documents/', include('bailout_pdfs.urls')), 
 	url(r'^projects/bailout/glossary/', include('glossary.urls')),
     
     url(r'^subsidysort/', include('subsidysort.urls')),
+    url(r'^budget_capture/', include('budget_capture.urls')),
 )
 
 urlpatterns += patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'index.html'}, name="index"),   
     url(r'^crossdomain\.xml$', 'direct_to_template', {'template': 'crossdomain.xml', 'mimetype':'text/x-cross-domain-policy', 'extra_context': {'crossdomain_additions': getattr(settings, 'FLASH_CROSSDOMAIN_ADDITIONS', '')}}, name="crossdomain_xml"),  
-    url(r'^projects/bailout/', include('bailout.urls')),        
+    url(r'^projects/bailout/', include('bailout.urls')),     
+    url(r'^projects/transportation/aip/', include('aip.urls')),   
     url(r'^projects/transportation/', include('transportation.urls')),    
-    url(r'^projects/', redirect_to_bailout, name="projects"),
+    url(r'^projects/', redirect_to_index, name="projects"),
     url(r'^updates/', include('project_updates.urls')),
     url(r'^about/', 'direct_to_template', {'template': 'about.html'}, name="about"),
     url(r'^contact/', include('contact_form.urls'), {"form_class": SubsidyContactForm, "fail_silently": False}, name="contact"),
     url(r'^sent/', 'direct_to_template', {'template': 'contact_form/contact_form_sent.html'}, name="contact_sent"),  
     url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': {'updates': ProjectUpdatesFeed}}, name="feed_project_updates"),  
+    url(r'^data/about-faads/', direct_to_template, { 'template': 'bailout/bailout.html'}, name='about-faads'),
     url(r'^data/', 'direct_to_template', {'template': 'misc/data.html'}, name='datasets'),
     url(r'^rss/', 'direct_to_template', {'template': 'misc/rss.html'}, name='about_rss'),
     url(r'^staff/', 'direct_to_template', {'template': 'misc/staff.html'}, name='staff'),
     url(r'^faq/', 'direct_to_template', {'template': 'misc/faq.html'}, name='faq'),
     url(r'^press/', 'direct_to_template', {'template': 'misc/press.html'}, name='press'),
     url(r'^board/', 'direct_to_template', {'template': 'misc/board.html'}, name='board'),
+    url(r'^methodology/', direct_to_template, {'template': 'generic.html'}, name='methodology'),
+    url(r'^data-quality/$', direct_to_template, { 'template': 'bailout/bailout.html'}, name='data-quality'),
 )
 
 urlpatterns += patterns('',

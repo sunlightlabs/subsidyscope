@@ -18,6 +18,17 @@ class Sector(models.Model):
         
         return settings.MEDIA_URL + 'images/sector_icons/' + str(self.id) + '_lg.png'
 
+class Subsector(models.Model):
+
+    def __unicode__(self):
+        return self.name
+    class Meta:
+        verbose_name = 'Subsector'
+        
+    name = models.CharField("Name", max_length=40)
+    parent_sector = models.ForeignKey(Sector)
+        
+        
 # fund type
 
 # budget function

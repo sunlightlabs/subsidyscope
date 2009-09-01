@@ -1,20 +1,30 @@
+import re
+
+
 from django.db import models
-import sectors.models
+from sectors.models import Sector, Subsector
 from budget_accounts.models import BudgetAccount
-from tagging.fields import TagField
-from tagging.models import Tag
-from tagging.managers import ModelTagManager
+
 
 class ProgramDescriptionManager(models.Manager):
 
-    def parseBudgetAcounts(self):
+    def parseBudgetAccounts(self):
         
         import haystack
         haystack.sites.site.unregister(ProgramDescription)
         
         for program in self.all():
-            program.parseBudgetAcounts()
+            program.parseBudgetAccounts()
+
+     
+class CFDATag(models.Model):
+    def __unicode__(self):
+        return self.tag_name
+    class Meta:
+        verbose_name = 'CFDA Program Tag'
     
+    tag_name = models.CharField(max_length=255)
+    search_default_enabled = models.BooleanField("Enabled for searches by default?")
 
 class ProgramDescription(models.Model):
 
@@ -26,7 +36,8 @@ class ProgramDescription(models.Model):
 
     program_number = models.CharField("Program number", max_length=7)
     program_title = models.CharField("Program title", max_length=255)
-    sectors = models.ManyToManyField(sectors.models.Sector, blank=True)
+    sectors = models.ManyToManyField(Sector, blank=True)
+    subsectors = models.ManyToManyField(Subsector, blank=True)
     program_note = models.TextField("Program note", default="", blank=True)
     federal_agency = models.TextField("Federal agency", blank=True, default="")
     major_agency = models.TextField("Major agency",blank=True,default="")
@@ -71,19 +82,18 @@ class ProgramDescription(models.Model):
     load_date = models.DateTimeField("Load Date", auto_now=True)    
 
     budget_accounts = models.ManyToManyField(BudgetAccount)
-    primary_tag = models.ForeignKey(Tag, blank=True, null=True)
-    secondary_tags = TagField(blank=True, null=True)
+    primary_tag = models.ForeignKey(CFDATag, blank=True, null=True, related_name='primary_tag')
+    secondary_tags = models.ManyToManyField(CFDATag, blank=True, null=True, related_name='secondary_tags')
 
     objects = ProgramDescriptionManager()   
-    tags = ModelTagManager()
     
 
-    def parseBudgetAcounts(self):
+    def parseBudgetAccounts(self):
         
-        accounts = re.match('([0-9]{2,2}-[0-9]{4,4}-[0-9]{1,1}-[0-9]{1,1}-[0-9]{3,3})', self.account_identification)
+        accounts = re.findall('([0-9]{2,2}-[0-9]{4,4}-[0-9]{1,1}-[0-9]{1,1}-[0-9]{3,3})', self.account_identification)
         
         if accounts:
-            for account_number in accounts.groups():
+            for account_number in accounts:
                 
                 account = BudgetAccount.objects.createBudgetAccount(account_number.strip('.').strip())
                 self.budget_accounts.add(account)
@@ -97,4 +107,57 @@ class ProgramDescription(models.Model):
         else:
             return self.objectives[:200] + '...'
         
+
+
+        
+
+class ProgramBudgetEstimateDescription(models.Model):
+    
+    program = models.ForeignKey(ProgramDescription)
+    
+    DATA_TYPE_AUTHORIZATION = 1
+    DATA_TYPE_APPROPRIATION = 2
+    DATA_TYPE_OBLIGATION = 3
+    DATA_TYPE_ALLOCATION_APPORTIONMENT = 4
+    DATA_TYPE_OTHER = 5
+    
+    DATA_TYPE_CHOICES = (
+        (DATA_TYPE_AUTHORIZATION, 'Authorization'),
+        (DATA_TYPE_APPROPRIATION, 'Appropriation'),
+        (DATA_TYPE_OBLIGATION, 'Obligation'),
+        (DATA_TYPE_ALLOCATION_APPORTIONMENT, 'Allocation/Apportionment'),
+        (DATA_TYPE_OTHER, 'Other'))
+
+    data_type = models.IntegerField("Data type", choices=DATA_TYPE_CHOICES)
+    
+    DATA_SOURCE_AGENCY = 1
+    DATA_SOURCE_LEGISLATION = 2
+    DATA_SOURCE_APPORTIONMENT_NOTICE = 3
+    DATA_SOURCE_CFDA = 4
+    DATA_SOURCE_OTHER = 5
+    
+    DATA_SOURCE_CHOICES = (
+        (DATA_SOURCE_AGENCY, 'Agency'),
+        (DATA_SOURCE_LEGISLATION, 'Legislation'),
+        (DATA_SOURCE_APPORTIONMENT_NOTICE, 'Apportionment Notice'),
+        (DATA_SOURCE_CFDA, 'CFDA'),
+        (DATA_SOURCE_OTHER, 'Other'))
+    
+    data_source = models.IntegerField("Data source", choices=DATA_SOURCE_CHOICES)
+    
+    notes = models.TextField("Notes", blank=True,default="")
+    
+    citation = models.CharField("Citation URL", max_length=255, blank=True,default="")
+    
+ 
+    
+class ProgramBudgetAnnualEstimate(models.Model):
+
+    budget_estimate = models.ForeignKey(ProgramBudgetEstimateDescription)
+    
+    fiscal_year = models.IntegerField("Fiscal Year")
+    
+    annual_amount = models.DecimalField("Annual Amount", max_digits=15, decimal_places=2)
+    
+    
     

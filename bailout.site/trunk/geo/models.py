@@ -85,6 +85,8 @@ class State(models.Model):
     abbreviation = models.CharField("Name", max_length=2)
     
     fips_state_code = models.IntegerField()
+    
+    population = models.IntegerField(null=True)
  
     objects = StateManager()
 
@@ -221,7 +223,7 @@ class County(models.Model):
                     (7, 'District'),
                     (8, 'Independent City'), 
                     (9, 'Independent City (NV)'),
-                    (10, 'Island (VI)'),
+                    (10, 'Isla    nd (VI)'),
                     (11, 'Island (Samoa)'),
                     (12, 'Municipality'),
                     (13, 'Municipio'),
@@ -239,6 +241,8 @@ class County(models.Model):
     csa_code = models.IntegerField(null=True) # combined statisical area
     cbsa_code = models.IntegerField(null=True) # core base statistical area (micro/metro areas)
     mdiv_code = models.IntegerField(null=True) # metro div area 
+    
+    population = models.IntegerField(null=True)
     
     objects = CountyManager()
     

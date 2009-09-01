@@ -24,7 +24,7 @@ class InstitutionManager(models.Manager):
     MATCH_SUCCESS_PARTIAL = 'success_partial'
 
     
-    def matchInstitution(self, name, city=None, state=None):
+    def matchInstitution(self, name, city=None, state=None, tarp=False):
         
         # finds best match(es) for institutions based on name and geography (if available)
         # returns more than one record if criteria provided match multiple institutions
@@ -41,6 +41,9 @@ class InstitutionManager(models.Manager):
         if institution_filter.count() == 0:
             return None, self.MATCH_FAILED_GEOGRAPHY
         
+        if tarp:
+            institution_filter = institution_filter.filter(tarp_participant=True)
+
         name = name.lower()
         
         institution_filter_name = institution_filter.filter(name__iexact=name)
@@ -52,10 +55,11 @@ class InstitutionManager(models.Manager):
             # try and standardize name (at the moment by removing common suffixes) and do a partial match
             # this is not very smart - yet - just implementing as a place holder for better partial matching algorithm
             
-            trimed_name = name.replace(' incorporated', '').replace(' inc', '').replace(' corporation', '').replace(' corp', '')
+            trimed_name = name.replace(' incorporated', '').replace(' inc', '').replace(' corporation', '').replace(' corp', '').replace(' group', '')
             
             trimed_name = re.sub('[^a-z]+$', '', trimed_name)
-            
+            trimed_name = re.sub('\(.+\)', '', trimed_name)
+
             institution_filter_name = institution_filter.filter(name__istartswith=trimed_name)
             
             if institution_filter_name.count() >= 1:
@@ -85,9 +89,12 @@ class InstitutionManager(models.Manager):
 class Institution(models.Model):
     def __unicode__(self):
         if self.fdic_number:
-            return "%s (FDIC: %i)" % (self.name, self.fdic_number)
-        else:
-            return self.name
+            if self.tarp_participant:
+                return "%s (FDIC: %i) TARP Participant" % (self.name, self.fdic_number)
+            else:
+                return "%s (FDIC: %i) " % (self.name, self.fdic_number)
+        
+        return self.name
     class Meta:
         verbose_name = 'TARP Institution'
         ordering = ['name'] 
@@ -641,6 +648,8 @@ class Transaction(models.Model):
     warrant_reported_strike_price = models.DecimalField("Warrant Strike Price", max_digits=6, decimal_places=2, blank=True, null=True)
     warrant_calculated_strike_price = models.DecimalField("Warrant Strike Price", max_digits=6, decimal_places=2, blank=True, null=True)
     warrants_issued = models.IntegerField("Warrant Issued", blank=True, null=True)
+    
+    warrants_disposed = models.BooleanField("Warrants Disposed", default=False, choices=((False, ''), (True, 'Disposed')))
     
     PROGRAM_CHOICES = (
         ('CPP', 'Capital Purchase Program'),

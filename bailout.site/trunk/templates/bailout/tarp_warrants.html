@@ -1,4 +1,4 @@
-{% extends "base_tarp.html" %}
+{% extends "base_sector.html" %}
 {% load humanize %}
 {% load bailout_tags %}
 {% load media %}
@@ -50,9 +50,7 @@
 	{% endif %}
 	 of the {{ total_transactions }} warrant transactions listed on Subsidyscope are in the money. 
 	 Some of the biggest recipients of TARP funding are in the most difficult financial situations.
-	 For example, the closing stock price for AIG was {{ aig_stock|price_abs }} on {{ last_date|date:"F j" }}, which is {{ aig_percentage }} percent below 
-	 the strike price of {{ aig_strike|price_abs }} of the warrants that the government received on November 25, 2008;
-	 and Citigroup's closing stock price of {{ citi_stock|price_abs }} on {{ last_date|date:"F j" }} is {{ citi_percentage }} 
+	 For example, Citigroup's closing stock price of {{ citi_stock|price_abs }} on {{ last_date|date:"F j" }} is {{ citi_percentage }} 
 	 percent below the strike price of {{ citi_strike|price_abs }} of the warrants the government 
 	 received on October 28, 2008. </p>
 

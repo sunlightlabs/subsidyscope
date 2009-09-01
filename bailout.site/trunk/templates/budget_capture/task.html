@@ -1,0 +1,31 @@
+{% extends "budget_capture/capture_base.html" %}
+
+{% block title %}{{ task.name }}{% endblock %}
+
+{% block content %}
+
+<p>{{ task.description }}</p>
+
+{% if pending_items %}
+<strong>Programs pending review:</strong>
+<ul>
+	{% for item in pending_items  %}
+		<li><a href="{% url budget_capture-capture item.id %}">{{ item.cfda_program.program_number }} &mdash;  {{ item.cfda_program.program_title }}</a><br/></li>
+	{% endfor %}
+</ul>
+{% endif %}
+
+<p>&nbsp;</p>
+
+{% if reviewed_items %}
+<strong>Items already reviewed:</strong>
+<ul>
+	{% for budget_data in reviewed_items  %}
+	
+		<li><a href="{% url budget_capture-edit budget_data.id %}">{{ budget_data.item.cfda_program.program_number }} &mdash;  {{ budget_data.item.cfda_program.program_title }} ({{ budget_data.get_data_type_display }})</a><br/></li>
+		
+	{% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

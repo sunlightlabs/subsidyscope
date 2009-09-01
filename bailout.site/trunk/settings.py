@@ -1,6 +1,5 @@
 # Django settings for subsidyscope project.
 import os
-import httplib2
 from django.core.exceptions import ImproperlyConfigured
 
 DEBUG = False
@@ -12,6 +11,7 @@ ADMINS = (
     ('Tom Lee','tlee@sunlightfoundation.com'),
     ('Kaitlin Lee','klee@sunlightfoundation.com')
 )
+
 
 MANAGERS = ADMINS
 
@@ -90,7 +90,6 @@ INSTALLED_APPS = (
     'spammer',
     'haystack',
     'csv_generator',
-    #'django_evolution',
     'etl',
     'geo',
     'bailout',
@@ -101,7 +100,6 @@ INSTALLED_APPS = (
     'fed_h41',
     'sectors',
     'tax_expenditures',
-    'cfda',
     'django_helpers',
     'glossary',
     'carousel',
@@ -109,7 +107,10 @@ INSTALLED_APPS = (
     'faads',
     'budget_accounts',
     'transportation',
-    'tagging'
+    'tagging',
+    'aip',
+    'news_briefs',
+    'cfda'
 )
 
 #try:
@@ -170,10 +171,27 @@ def constant_contact_signup(recipient):
         </Contact>
       </content>
     </entry>""" % recipient.email
+    
     user = '%s%%%s' % (CONSTANTCONTACT_API_KEY, CONSTANTCONTACT_LOGIN)
+    url = "https://api.constantcontact.com/ws/customers/subsidyscope/contacts"
+    
+    # import urllib2
+    
+    #     
+    #     passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
+    #     passman.add_password(None, url, user, CONSTANTCONTACT_PASSWORD)
+    #     auth = urllib2.HTTPBasicAuthHandler(passman)
+    #     opener = urllib2.build_opener(auth)
+    #     urllib2.install_opener(opener)
+    # 
+    #     req = urllib2.Request(url)
+    #     req.add_header('Content-Type', 'application/atom+xml')
+    #     resp = urllib2.urlopen(req, data=xml)
+
+    import httplib2
     http = httplib2.Http()
     http.add_credentials(user, CONSTANTCONTACT_PASSWORD)
-    response, content = http.request('https://api.constantcontact.com/ws/customers/subsidyscope/contacts', 'POST', body=xml, headers={'Content-Type': 'application/atom+xml'})
+    response, content = http.request(url, 'POST', body=xml, headers={'Content-Type': 'application/atom+xml'})
     
 MAILINGLIST_SUBSCRIBE_CALLBACK = constant_contact_signup
 MAILINGLIST_SUBSCRIBED_URL = "/mailinglist/subscribed/"
@@ -188,9 +206,10 @@ SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
 # Haystack
 HAYSTACK_SEARCH_ENGINE = 'solr' 
-HAYSTACK_SOLR_URL = 'http://127.0.0.1:8180/solr'
+HAYSTACK_SOLR_URL = 'http://127.0.0.1:8080/solr'
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
+HAYSTACK_SITECONF = 'search_sites'
 
 # Auth 
 
