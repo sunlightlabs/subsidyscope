@@ -46,6 +46,7 @@
 					<fieldset{% if ran_search %} class="collapsed"{% endif %} id="text-query-wrapper">
 					  <legend>Recipient Name / Project Description</legend>
 						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
+						<input type="submit" value="Search" class="faads-search-submit" id="faads-search-submit-top" />
 						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
 					</fieldset>
 

@@ -63,6 +63,7 @@
 #tabs ul li { font-size: 0.8em;}
 
 .faads-search-submit { font-size: 1.2em; margin-top: 1em;}
+#faads-search-submit-top { float: right; margin-top: 0;}
 
 #faads-search-form fieldset ul, #faads-search-form fieldset ul li { margin-left: 0;, font-size: 100%;} 
 #faads-search-form fieldset ul li label { font-size: 11px; margin-bottom: 5px; font-weight: normal;}
