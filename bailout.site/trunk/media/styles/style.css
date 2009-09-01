@@ -536,6 +536,7 @@ ul.press-releases li
 	color: #7B630F;
 	margin: 0 0 15px 15px;
 	padding: 10px 15px;
+	width: 250px;
 }
 .section-floating-nav ul { margin-bottom: 0px;}
 .section-floating-nav ul, .section-floating-nav ul li { margin-left: 0; padding-left: 0;}
@@ -549,6 +550,9 @@ ul.press-releases li
 .section-floating-nav ul li a:hover { text-decoration: underline;}
 .section-floating-nav ul li.overview-link { display: none; }
 .section-floating-nav ul li a.active { font-weight: bold;}
+
+.subsector-sidebar p strong { display: block;}
+
 .page-summary {width: 50%}
 .page-summary ul{list-style-type:disc; padding-left:10px; font-size: 1em;}
 .page-summary h5 {margin:0px;}
@@ -592,3 +596,6 @@ ul.press-releases li
 #news-briefs ul li { margin-bottom: 1em; margin-right: 10px; padding: 5px;}
 #news-briefs ul li a, #news-briefs ul li a:link, #news-briefs ul li a:active, #news-briefs ul li a:visited { color: black; text-decoration: none;}
 #news-briefs ul li:hover { background-color: #f4f4f4;}
+
+
+/* subsector page sidebar nav */

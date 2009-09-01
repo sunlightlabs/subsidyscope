@@ -14,11 +14,11 @@
         <div class="content_area">    
           
           {% morsel sidebar1 as sidebar %}
-            {% if sidebar.content %}
-            		<div class="section-floating-nav">          		    
-      		    	{% morsel sidebar1 %}
+          {% if sidebar.content %}
+        		<div class="section-floating-nav subsector-sidebar">          		    
+    		    	{% morsel sidebar1 %}
       			</div>
-      	  {% endif %}
+    	    {% endif %}
 
           {% project_updates_subsector_sidebar subsector %}
           
