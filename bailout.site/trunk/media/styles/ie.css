@@ -24,4 +24,8 @@ a abbr, a acronym { text-decoration: underline; } /* IE 7 bug */
 
 /* location of popups on agency pages */
 .agency .programs .program .program-description { margin-left: -130px !important;}
-
+.content_area p {width: auto !important;}
+.content_area ul.data {display:inline;}
+#header_area h3 {
+    background: url(/media/images/double_lines.gif) center bottom repeat-x;
+}
