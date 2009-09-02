@@ -20,7 +20,7 @@ sup, sub { font-size: 100%; } /* IE superscript & subscript bug */
 a abbr, a acronym { text-decoration: underline; } /* IE 7 bug */
 #slider { overflow: hidden;} /* IE6 bug */
 .span-16 { width: 620px; } /* IE6 bug */
-
+.section-floating-nav { display: inline !important; }
 /* location of popups on agency pages */
 .agency .programs .program .program-description { margin-left: -130px !important;}
 
