@@ -1,6 +1,7 @@
 {% extends "base_sector.html" %}
 {% load media %}
 {% load morsel_tags %}
+{% load project_update_tags %}
 
 {% block content %}
 
@@ -12,12 +13,19 @@
         </div>
         <div class="content_area">    
           
-          {% morsel sidebar1 as sidebar %}
-          {% if sidebar.content %}
-          <div class="section-floating-nav">          		    
-    		    {% morsel sidebar1 %}
-    			</div>
-    			{% endif %}
+          	<div style="float:right; width: 300px;">
+          		
+          	  {% project_updates_subsector_sidebar subsector %}
+          	
+	          {% morsel sidebar1 as sidebar %}
+	          {% if sidebar.content %}
+	        		<div class="section-floating-nav subsector-sidebar">          		    
+	    		    	{% morsel sidebar1 %}
+	      			</div>
+	    	  {% endif %}
+		 
+          	  
+          	</div>
           
           {% morsel text1 %}
 
