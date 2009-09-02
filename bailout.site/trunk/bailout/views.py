@@ -38,7 +38,7 @@ def tarp_index(request):
 
 def tarp_warrants(request):
 
-    transactions = Transaction.objects.filter(warrant_reported_strike_price__isnull=False).order_by('date')
+    transactions = Transaction.objects.filter(warrant_reported_strike_price__isnull=False, warrants_disposed=False).order_by('date')
     
     in_money = 0
     out_money = 0
