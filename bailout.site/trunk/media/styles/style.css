@@ -528,6 +528,7 @@ ul.press-releases li
 /* extra nav for FDIC and Treasury */
 .section-floating-nav
 {
+    display: inline;
 	float: right;
 	background-color: #FFFCDA;
 	background-repeat: repeat-x;

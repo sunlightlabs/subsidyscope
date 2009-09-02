@@ -116,6 +116,9 @@ class BudgetAccount(models.Model):
     fund_code = models.IntegerField(choices=FUND_OPTIONS, null=True, blank=True)
 
     objects = BudgetAccountManager()
+    
+    def __unicode__(self):
+        return self.account_string
 
 
 class BudgetAuthorityHistory(models.Model):

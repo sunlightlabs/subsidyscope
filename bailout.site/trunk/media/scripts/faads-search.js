@@ -82,10 +82,12 @@ $(function(){
 		if ($("select[name='dataType']").val() == 'state')
 		{	
 			setDataField(1);
+			setLabelText('Total Spending');
 		}
 		else if ($("select[name='dataType']").val() == 'state_per_capital')
 		{
 			setDataField(3);
+			setLabelText('Per Capita Spending');
 		}
 	});
 	
@@ -93,6 +95,14 @@ $(function(){
 
 
 
+function setLabelText(labelText)
+{
+	var flex = null;
+	flex = getFlexMovie("mapVis");
+	if((flex!=null) && (flex.setLabelText!=null))
+	    flex.setLabelText(labelText);	
+}
+	
 	
 function setDataField(fieldId)
 {

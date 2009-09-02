@@ -33,16 +33,17 @@ def index(request):
             total += blockgs
             return render_to_response('aip/index.html', {'ports':ports, 'grants': grants, 'total': total, 'type': type, 'blockgrants': blockgs})
         elif request.GET.__contains__('portcode'):
-            ports = Airport.objects.get(code__iexact=request.GET['portcode'])
-            if ports:
-                grants = []
-                pgrants = GrantRecord.objects.filter(airport=ports)
-                money = 0
-                for m in pgrants:
-                    money += m.amount
-                grants.append((ports, money))
-                return render_to_response('aip/index.html', {'port':ports, 'grants': grants, 'params':[request.GET['portname'], request.GET['portcode']]})
-            else:
+            try:
+                ports = Airport.objects.get(code__iexact=request.GET['portcode'])
+                if ports:
+                    grants = []
+                    pgrants = GrantRecord.objects.filter(airport=ports)
+                    money = 0
+                    for m in pgrants:
+                        money += m.amount
+                    grants.append((ports, money))
+                    return render_to_response('aip/index.html', {'port':ports, 'grants': grants, 'params':[request.GET['portname'], request.GET['portcode']]})
+            except Airport.DoesNotExist:
                 error = "No airport matched the code you specified"
 
         else:
@@ -70,7 +71,8 @@ def portdetail(request):
                     else: total.append(p.amount)
                     grants += p.amount
                 if len(total) > counter:
-                    total[counter] = total[counter] / e.amount
+                    if e.amount > 0:
+                        total[counter] = total[counter] / e.amount
                 else: total.append(0)
                 enps += e.amount
                 data.append((e, total[counter]))
