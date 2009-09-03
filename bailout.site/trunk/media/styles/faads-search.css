@@ -90,7 +90,7 @@
 #program-selection-subsector label .img-wrapper img { position: relative; top: 4px;}
 #program-selection-subsector label .img-wrapper#img-wrapper-maritime img { left: -6px;}
 #program-selection-subsector label .img-wrapper#img-wrapper-aviation img { left: -4px; }
-#program-selection-subsector label .img-wrapper#img-wrapper-general img { left: -1px;}
+#program-selection-subsector label .img-wrapper#img-wrapper-other img { left: -1px;}
 #program-selection-subsector label .img-wrapper#img-wrapper-rail img { left: -8px;}
 #program-selection-subsector label .img-wrapper#img-wrapper-transit img { left: -8px;}
 #program-selection-subsector label .img-wrapper#img-wrapper-highways img { left: -4px; }

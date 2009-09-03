@@ -50,7 +50,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     # subsectors
     subsector_choices = None
     if sector is not None:
-        subsector_choices = map(lambda x: (x.id, ("<span class=\"img-wrapper\" id=\"img-wrapper-%s\"><img src=\"%simages/sector_icons/transportation/%s_%s.png\" /></span>%s" % (str(x.name).lower(), MEDIA_URL, str(sector).lower(), x.name.lower(), x.name))), Subsector.objects.filter(parent_sector=sector).order_by('name'))
+        subsector_choices = map(lambda x: (x.id, ("<span class=\"img-wrapper\" id=\"img-wrapper-%s\"><img src=\"%simages/sector_icons/transportation/%s_%s.png\" /></span>%s" % (str(x.name).lower(), MEDIA_URL, str(sector).lower(), x.name.lower(), x.name))), Subsector.objects.filter(parent_sector=sector).order_by('weight', 'name'))
     
     action_type_options = (
         ("A", "New assistance action"),
