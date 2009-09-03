@@ -102,6 +102,11 @@ def ajaxChart(request, cfda_id):
     html = t.render(c)
     return HttpResponse(html)
 
+def getProgramByCFDANumber(request, cfda_program_number, sector_name):
+    program = get_object_or_404(ProgramDescription, program_number=cfda_program_number)
+    return getProgram(request, program.id, sector_name)
+        
+
 def getProgram(request, cfda_id, sector_name):
     program = ProgramDescription.objects.select_related().get(id=int(cfda_id))
     tag = Tag.objects.get(id=program.primary_tag_id)
