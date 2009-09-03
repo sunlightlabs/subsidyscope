@@ -55,9 +55,11 @@
             <legend>Select Programs</legend>
 
             <p>Choose programs by: <span id="program-selector">{{ form.cfda_program_selection_method }}</span></p>
-              <!--<div id="program-selector"><span><input type="radio" name="program-selection-type" value="tag">&nbsp;Tag</span><span><input type="radio" name="program-selection-type" value="subsector">&nbsp;Mode</span><span><input type="radio" name="program-selection-type" value="program">&nbsp;Individual Program</span></div>-->
-
-            </p>
+             
+             <div id="program-selection-subsidy_programs" class="program-selection-target">
+              <p>Subsidyscope has classified each program by its primary and secondary functions, then eliminated some functions from consideration as subsidy programs.  Our analysis excludes programs that have a primary classification and at least one secondary classification from the following list: Regulatory Enforcement, Intergovernmental Transfer or Safety.  The "Subsidy Programs" option that is currently selected duplicates these criteria.  If you would prefer to assemble a different set of filtering criteria you may use the radio buttons above to do so.</p>              
+             </div>
+             
             <div id="program-selection-tag" class="program-selection-target">
               <p>Subsidyscope assigns "tags" to each program to classify the functions it is designed to perform (for more detail, see our <a href="{% url methodology %}">methodology section</a>). Choosing a tag will select the set of programs associated with that function. You may also choose whether to only include programs with the selected tag(s) as their primary function, or all programs that are related to the tag.</p>
               

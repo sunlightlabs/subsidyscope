@@ -97,11 +97,11 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
         # CFDA programs, subsectors and tags
-        cfda_program_selection_choices = (('tag', 'Tag'), ('subsector', 'Subsector'), ('program', 'Program'))
+        cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('subsector', 'Subsector'), ('program', 'Program'))
         if not subsector_choices:
             cfda_program_selection_choices = (('tag', 'Tag'), ('program', 'Program'))
         
-        cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'tag')
+        cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
 
         program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
         
@@ -149,7 +149,31 @@ def get_sector_by_name(sector_name=None):
             sector = None
     return sector
 
+def get_excluded_subsidy_program_ids(sector=None):
+    excluded_program_ids = []
+    
+    # there may be an entirely different methodology for each sector
+    if sector.name.lower().strip()=='transportation':
+        excluded_tag_names = ('safety', 'intergovernmental transfer', 'regulatory enforcement')
+        excluded_tags = []
+        for tag in excluded_tag_names:
+            excluded_tags.extend(CFDATag.objects.filter(tag_name__icontains=tag))        
+        programs_with_excluded_primary_tag = ProgramDescription.objects.filter(primary_tag__id__in=map(lambda x:x.id, excluded_tags))
+        programs_with_excluded_secondary_tag = ProgramDescription.objects.filter(secondary_tags__id__in=map(lambda x:x.id, excluded_tags))
+        excluded_primary = set(map(lambda x: x.id, programs_with_excluded_primary_tag))
+        excluded_secondary = set(map(lambda x: x.id, programs_with_excluded_secondary_tag))
+        excluded_program_ids = excluded_primary.intersection(excluded_secondary)
+        
+    return excluded_program_ids
 
+def get_included_subsidy_program_ids(sector=None):
+    excluded_program_ids = set(get_excluded_subsidy_program_ids(sector))
+    programs = ProgramDescription.objects.all()
+    if sector is not None:
+        programs = ProgramDescription.objects.filter(sectors=sector)
+    programs_in_sector_ids = set(map(lambda x: x.id, programs))
+    return programs_in_sector_ids - excluded_program_ids
+        
 def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed_string):
     """ Returns a form object and a FAADSSearch object that have been constructed from a search key (a compressed POST querydict) """
 
