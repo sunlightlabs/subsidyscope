@@ -122,11 +122,11 @@ def process_file(year):
                         print individual_amounts
                     
                     
-                    for i in range(0, 5):
+                    for i in range(0, 7):
                         individual_estimate = individual_amounts[i]
                         corp_estimate = corp_amounts[i]
                         
-                        estimate_year = year + i
+                        estimate_year = year + i - 2
                         
                         OMBExpenditureEstimate.objects.create(expenditure=expenditure, 
                                                               analysis_year=year, 
@@ -150,4 +150,6 @@ process_file(2006)
 process_file(2007)
 process_file(2008)
 process_file(2009)
+#process_file(2010) - format change messy import process 
+
 
