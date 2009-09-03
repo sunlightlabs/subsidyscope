@@ -556,7 +556,7 @@ ul.press-releases li
 .subsector-sidebar p strong { display: block;}
 
 .page-summary {width: 50%}
-.page-summary ul{list-style-type:disc; padding-left:10px; font-size: 1em;}
+.page-summary ul{list-style-type:disc !important; padding-left:10px; font-size: 1em;}
 .page-summary h5 {margin:0px;}
 .jeditable-morsel:hover
 {
