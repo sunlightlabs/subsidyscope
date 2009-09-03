@@ -105,18 +105,22 @@ class MorselPageTitleNode(Node):
 
     JS_SIGNAL = '<!-- ADDED JS -->'
 
-    def __init__(self, show_sector, page_title):
+    def __init__(self, show_sector, page_title, as_var):
         self.page_title = page_title
         self.show_sector = show_sector
-        
+        self.as_var = as_var
 
     def render(self, context):  
         
         page = Page.objects.get_for_current(context, u'', False)
-        
+                
         if page:
-        
+                
             title = page.title
+        
+            if self.as_var:
+                context[self.as_var] = title
+                return u''
             
             if self.show_sector and page.sector:
                 title = page.sector.name + ': ' + title
@@ -134,6 +138,14 @@ def morsel_page_title(parser, token):
     tokens = token.split_contents()
 
     try:
+        as_tag = tokens.index(u'as')
+        as_var = tokens[as_tag + 1]
+        del tokens[as_tag]
+        del tokens[as_tag]
+    except (ValueError, IndexError):
+        as_var = None
+
+    try:
         tokens.remove(u'show_sector')
         show_sector = True
     except ValueError:
@@ -145,7 +157,7 @@ def morsel_page_title(parser, token):
     except ValueError:
         page_title = False
 
-    return MorselPageTitleNode(show_sector, page_title)
+    return MorselPageTitleNode(show_sector, page_title, as_var)
 
 
 class MorselSectorTitleNode(Node):
