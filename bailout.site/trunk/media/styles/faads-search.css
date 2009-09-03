@@ -98,13 +98,13 @@
 #assistance-action-recipient-wrapper .dropdown-wrapper ul, #assistance-action-recipient-wrapper .dropdown-wrapper ul li { margin-left: 0;}
 #assistance-action-recipient-wrapper .dropdown-wrapper ul li { font-weight: normal; }
 
-fieldset legend { background-color: yellow; padding-right: 18px !important; cursor: pointer;}
-fieldset.collapsed legend { background: url(/media/images/desc.gif) right 6px no-repeat;}
-fieldset legend { background: url(/media/images/asc.gif) right 6px no-repeat;}
+fieldset legend { background-color: yellow; padding-right: 18px !important; cursor: pointer; margin-top:2px;}
+fieldset.collapsed legend { background: url(/media/images/collapse_plus.png) right 5px no-repeat;}
+fieldset legend { background: url(/media/images/collapse_minus.png) right 5px no-repeat;}
 
 fieldset.collapsed * { display: none; }
 fieldset.collapsed .program-selection-target { display: none !important;}
-fieldset.collapsed legend { display: block !important;}
+fieldset.collapsed legend { display: block !important; margin-left: 1px; }
 fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0; /*background-position: 8px right;*/}
 
 #program-selection-program .cfda-program-details { visibility: hidden; float: right;}
