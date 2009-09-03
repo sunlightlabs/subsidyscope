@@ -164,7 +164,7 @@ def get_excluded_subsidy_program_ids(sector=None):
         excluded_secondary = set(map(lambda x: x.id, programs_with_excluded_secondary_tag))
         excluded_program_ids = excluded_primary.intersection(excluded_secondary)
         
-    return excluded_program_ids
+    return list(excluded_program_ids)
 
 def get_included_subsidy_program_ids(sector=None):
     excluded_program_ids = set(get_excluded_subsidy_program_ids(sector))
@@ -172,7 +172,7 @@ def get_included_subsidy_program_ids(sector=None):
     if sector is not None:
         programs = ProgramDescription.objects.filter(sectors=sector)
     programs_in_sector_ids = set(map(lambda x: x.id, programs))
-    return programs_in_sector_ids - excluded_program_ids
+    return list(programs_in_sector_ids - excluded_program_ids)
         
 def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed_string):
     """ Returns a form object and a FAADSSearch object that have been constructed from a search key (a compressed POST querydict) """
