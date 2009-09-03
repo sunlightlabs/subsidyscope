@@ -204,23 +204,27 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
                 programs_with_tag = ProgramDescription.objects.filter(primary_tag__id__in=form.cleaned_data['program_selection_tags'])
             else:
                 programs_with_tag = ProgramDescription.objects.filter(Q(primary_tag__id__in=form.cleaned_data['program_selection_tags']) | Q(secondary_tags__id__in=form.cleaned_data['program_selection_tags']))
+            faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
 
-            if len(programs_with_tag):
-                faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
+
+        # using subsidyscope's selection of programs
+        if form.cleaned_data['cfda_program_selection_method']=='subsidy_programs':
+            faads_search_query = faads_search_query.filter('cfda_program', get_included_subsidy_program_ids(sector))            
+
         # by subsector
         elif form.cleaned_data['cfda_program_selection_method']=='subsector':
             programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['program_selection_subsector']))
-            if len(programs_in_subsector):
-                faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_in_subsector))
+            faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_in_subsector))
+                
         # by CFDA program 
         elif form.cleaned_data['cfda_program_selection_method']=='program':
             selected_programs = form.cleaned_data['program_selection_programs']
-            if len(selected_programs):
-                faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
-            
+            faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
+
         # handle assistance type
         if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
             faads_search_query = faads_search_query.filter('assistance_type', form.cleaned_data['assistance_type'])
+
         
         # handle recipient type
         if len(form.cleaned_data['recipient_type'])<len(form.fields['recipient_type'].choices):

@@ -268,7 +268,10 @@ class FAADSSearch():
         if field_lookup is None:
             raise Exception("'%s' is not a valid filter field" % filter_by)
         elif len(filter_value)==0:
-            raise Exception("Cannot process a zero-length value for filter '%s'" % filter_by)
+            if field_lookup['type']=='fk':
+                filter_value = (-1,) # plan to return an empty result set if this criteria is an empty query on an FK field
+            else:
+                raise Exception("Cannot process a zero-length value for filter '%s'" % filter_by)            
         elif field_lookup['type']=='range' and ((type(filter_value) not in (list, tuple)) or (len(filter_value)!=2)):
             raise Exception("'%s' is a ranged field. Please pass a tuple or list of length 2 (None==wildcard)")
 
