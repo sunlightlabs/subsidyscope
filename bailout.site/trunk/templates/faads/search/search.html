@@ -51,7 +51,7 @@
 					</fieldset>
 
 
-          <fieldset{% if ran_search %} class="collapsed"{% endif %}>
+          <fieldset class="collapsed">
             <legend>Select Programs</legend>
 
             <p>Choose programs by: <span id="program-selector">{{ form.cfda_program_selection_method }}</span></p>
@@ -95,7 +95,7 @@
 
           </fieldset>
 
-          <fieldset{% if ran_search %} class="collapsed"{% endif %}>
+          <fieldset class="collapsed">
             <legend>Expenditure Type</legend>
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
@@ -117,7 +117,7 @@
   					</div>			
 					</fieldset>
 					
-					<fieldset{% if ran_search %} class="collapsed"{% endif %}>
+					<fieldset class="collapsed">
 					  <legend>Expenditure Range</legend>
   					<div class="field-wrapper">
     					<div id="obligation-date-wrapper">
@@ -141,7 +141,7 @@
             </div>
           </fieldset>
           
-          <fieldset{% if ran_search %} class="collapsed"{% endif %} id="location">
+          <fieldset class="collapsed" id="location">
             <legend>Location</legend>
 
             <p>You may filter records by the location of either the recipient or the location where the activity associated with the expenditure was primarily performed (in many cases these may be the same).  Please note that geographic information is not available for every record.</p>
