@@ -16,7 +16,7 @@
                 <li><strong>Filter By: </strong>&nbsp;<select class="js-select">
                     <option value="none">Tag</option>
                     {% for t in tags %}
-                    <option value="{{t.id}}">{{ t.tag_name }}</option>
+                        <option value="{{t.id}}" {% ifequal t.id filter.id%}selected{% endifequal %}>{{ t.tag_name }}</option>
                     {% endfor %}
                 </select></li>
                 <li>&mdash;<em>or</em>&mdash;</li>
@@ -28,7 +28,7 @@
             </ul></span>
             <ul id="program-listing">
                 {%for prog in programs %}
-                    <li class="tag{{prog.primary_tag.id}}" name="mode{{prog.subsectors}}"><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
+                    <li class="tag{{prog.primary_tag.id}}" name="mode{{prog.subsectors}}" {%if filter%}{%ifnotequal filter.id prog.primary_tag.id%}style="display:none;"{% endifnotequal %}{% endif %} ><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
                 {% endfor %}
             </ul>
         </div>
