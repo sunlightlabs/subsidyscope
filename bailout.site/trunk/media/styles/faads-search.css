@@ -108,8 +108,9 @@ fieldset.collapsed legend { display: block !important;}
 fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0; /*background-position: 8px right;*/}
 
 #program-selection-program .cfda-program-details { visibility: hidden; float: right;}
-#program-selection-program label:hover .cfda-program-details { visibility: visible;}
-#program-selection-program ul li:hover label { background-color: #ddd !important;}
+#program-selection-program li .program-title { padding-bottom: 5px;}
+#program-selection-program li:hover .cfda-program-details { visibility: visible; margin-right: 7px;}
+#program-selection-program ul li:hover .program-title { background-color: #eee !important;}
 
 /* state selection */
 fieldset#location .state-choices { clear: left;}
