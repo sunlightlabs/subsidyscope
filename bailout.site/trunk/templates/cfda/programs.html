@@ -6,13 +6,27 @@
 {% block content %} 
 {% js "swfobject.js" %}
 {% js "json2.js" %}
-
+<style>
+.secondary-tags{font-size: 97%; font-weight: normal; float:right; margin-right: 20px;}
+</style>
 <div class="container main_container">
     {% include navname %}
     <div class="span-24">
-        <div id="header_area">
-            <h3><img src="/media/images/sector_icons/transportation/transportation_{{program.subsectors.name}}.png" />{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span></h3>
+        <div id="header_area" style="margin-bottom:0px;">
+            <h3><img src="/media/images/sector_icons/transportation/transportation_{{program.subsectors.name}}.png" />{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span>
+            </h3>
         </div>
+        {% if program.secondary_tags.all %}
+        <span class="secondary-tags">
+            Also see:
+            {% for tag in program.secondary_tags.all %}
+                <a href="/projects/transportation/direct-expenditures/programs/?tag={{tag.id}}">{{tag}}</a>
+                {% if not forloop.last %}
+                    ,&nbsp;
+                {% endif %}
+            {% endfor %}
+        </span>
+        {% endif %}
         <div class="content_area inlinepara">    
             <h5>Program Summary and Objectives</h5>
             <span class="floatright inline-box">
@@ -20,7 +34,7 @@
                 <li class="sencase"><strong>Federal Agency:&nbsp;</strong> {{ program.federal_agency|lower|safe}}</li>
                 <li><strong>Program Website:&nbsp;</strong>{{program.web_site_address}}</li>
                 <li><strong>Authorization:&nbsp;</strong>{{program.authorization}}</li>
-                <li><strong>Headquarters:&nbsp;</strong>{{program.headquarters_office}}</li>
+                <li><strong>Headquarters:&nbsp;</strong>{{program.headquarters_office|striptags}}</li>
             </ul>        
             </span>
             <p>{{objectives|safe}}{% ifnotequal objectives2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{objectives2|safe}}</span>
