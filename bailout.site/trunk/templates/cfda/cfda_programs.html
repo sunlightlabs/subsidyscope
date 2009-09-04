@@ -28,20 +28,21 @@
             </ul></span>
             <ul id="program-listing">
                 {%for prog in programs %}
-                    <li class="tag{{prog.primary_tag.id}}" name="mode{{prog.subsectors}}"><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
+                	<li class="tag{{prog.primary_tag.id}}" name="{% for mode in prog.subsectors.all %}mode{{ mode.id }},{% endfor %}"><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 </div>
+
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
     var list = $("#program-listing");
     $('select.js-select').change(function(){
         if(this.value !=='none'){
-            $("li", list).hide();
+           	$("li", list).hide();
             if(this.id == "modes"){
-                $("li[name=mode"+this.value+"]", list).show();
+                $("li[name*=mode"+this.value+"]", list).show();
             } else {
                 $(".tag"+this.value, list).show();
             }
