@@ -102,8 +102,13 @@ def ajaxChart(request, cfda_id):
     html = t.render(c)
     return HttpResponse(html)
 
+def getProgramByCFDANumber(request, cfda_program_number, sector_name):
+    program = get_object_or_404(ProgramDescription, program_number=cfda_program_number)
+    return getProgram(request, program.id, sector_name)
+        
+
 def getProgram(request, cfda_id, sector_name):
-    program = ProgramDescription.objects.get(id=int(cfda_id))
+    program = ProgramDescription.objects.select_related().get(id=int(cfda_id))
     tag = Tag.objects.get(id=program.primary_tag_id)
     objectives = program.objectives
     objectives2 = ''
@@ -122,10 +127,14 @@ def getProgram(request, cfda_id, sector_name):
 
 def getProgramIndex(request, sector_name):
     tags = CFDATag.objects.all()
+    try:
+        filter = CFDATag.objects.get(id=int(request.GET['tag']))
+    except KeyError: 
+        filter = None
     sector = Sector.objects.get(name__iexact=sector_name)
     subsectors = Subsector.objects.filter(parent_sector=sector)
     programs = ProgramDescription.objects.filter(sectors=sector)
-    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'tags': tags, 'subsectors': subsectors, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
+    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'filter':filter, 'tags': tags, 'subsectors': subsectors, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
 
 def getFAADSLineItems(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=cfda_id)

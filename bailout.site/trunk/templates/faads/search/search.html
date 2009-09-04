@@ -51,7 +51,7 @@
 					</fieldset>
 
 
-          <fieldset{% if ran_search %} class="collapsed"{% endif %}>
+          <fieldset class="collapsed">
             <legend>Select Programs</legend>
 
             <p>Choose programs by: <span id="program-selector">{{ form.cfda_program_selection_method }}</span></p>
@@ -95,7 +95,7 @@
 
           </fieldset>
 
-          <fieldset{% if ran_search %} class="collapsed"{% endif %}>
+          <fieldset class="collapsed">
             <legend>Expenditure Type</legend>
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
@@ -117,7 +117,7 @@
   					</div>			
 					</fieldset>
 					
-					<fieldset{% if ran_search %} class="collapsed"{% endif %}>
+					<fieldset class="collapsed">
 					  <legend>Expenditure Range</legend>
   					<div class="field-wrapper">
     					<div id="obligation-date-wrapper">
@@ -141,7 +141,7 @@
             </div>
           </fieldset>
           
-          <fieldset{% if ran_search %} class="collapsed"{% endif %} id="location">
+          <fieldset class="collapsed" id="location">
             <legend>Location</legend>
 
             <p>You may filter records by the location of either the recipient or the location where the activity associated with the expenditure was primarily performed (in many cases these may be the same).  Please note that geographic information is not available for every record.</p>
@@ -192,7 +192,7 @@
                 {% for result in faads_results.object_list %}
                   <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.object.record_id }}">
                     <td class="obligation-date">{{ result.object.obligation_action_date }}</td>
-                    <td class="cfda-program">{{ result.object.cfda_program.program_number }}</td>
+                    <td class="cfda-program"><a href="{% url transportation-cfda-programpage-by-programnumber result.object.cfda_program.program_number %}" title="{{ result.object.cfda_program.program_number }} {{ result.object.cfda_program.program_title }}">{{ result.object.cfda_program.program_number }}</a></td>
                     <td class="recipient-name">{{ result.object.recipient_name }}</td>
                     <td class="recipient-location">{{ result.object.recipient_city_name }}{% if result.object.recipient_city_name %}{% if result.object.recipient_state_name %}, {% endif %}{% endif %}{{ result.object.recipient_state_name }}</td>
                     <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name }}{% if result.object.principal_place_state_name %}{% if result.object.principal_place_county_or_city_name %}, {% endif %}{% endif %}{{ result.object.principal_place_state_name }}</td>
