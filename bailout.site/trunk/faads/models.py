@@ -295,7 +295,7 @@ class FAADSLoader(object):
     def lookup_cfda_program(self, *args, **kwargs):
         record = args[0]
         try:
-            cfda = Decimal(record['cfda_program_num'])
+            cfda = record['cfda_program_num'].strip()
             return self.cfda_programs.get(cfda, False)
         except Exception, e:
             return False
