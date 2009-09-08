@@ -41,10 +41,19 @@ class RecordIndex(indexes.SearchIndex):
     all_states = indexes.MultiValueField(null=True)
     
     def prepare_all_text(self, object):
-        return "%s %s" % (object.recipient_name, object.project_description)
+        s = "%s %s" % (getattr(object, 'recipient_name', ''), getattr(object, 'project_description', ''))
+        return len(s)>0 and s.strip() or None
 
     def prepare_all_states(self, object):
-        return (object.principal_place_state.id, object.recipient_state.id)
+        r = []
+        for f in ('principal_place_state', 'recipient_state'):
+            s = getattr(object, f, None)
+            if s is not None:
+                i = getattr(s, 'id', None)
+                if i is not None:
+                    r.append(i)
+                    
+        return len(r)>0 and r or None
         
     def prepare_cfda_program(self, object):        
         return object.cfda_program.id
