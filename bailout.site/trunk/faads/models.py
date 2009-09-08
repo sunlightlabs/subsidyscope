@@ -175,8 +175,9 @@ class FAADSLoader(object):
 
         self.faads_matcher = FAADSMatcher()
 
-        # cache record type objects            
-        for t in (ActionType, AssistanceType, RecordType, RecipientType):
+        # cache record type objects          
+        TODO = (ActionType, AssistanceType, RecordType, RecipientType)
+        for t in TODO:
             setattr(self, t.__name__, {})
             for i in t.OPTIONS:
                 i_code = i[0]
