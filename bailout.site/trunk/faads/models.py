@@ -167,17 +167,15 @@ class Record(models.Model):
     
 
 class FAADSLoader(object):
-    """docstring for FAADSLoader"""
-
+    """ handles faads import """
 
     def __init__(self):
-        
         
         super(FAADSLoader, self).__init__()        
 
         self.faads_matcher = FAADSMatcher()
 
-        # cache record type objects            
+        # cache record type objects          
         TODO = (ActionType, AssistanceType, RecordType, RecipientType)
         for t in TODO:
             setattr(self, t.__name__, {})
@@ -298,7 +296,7 @@ class FAADSLoader(object):
     def lookup_cfda_program(self, *args, **kwargs):
         record = args[0]
         try:
-            cfda = Decimal(record['cfda_program_num'])
+            cfda = record['cfda_program_num'].strip()
             return self.cfda_programs.get(cfda, False)
         except Exception, e:
             return False
@@ -421,7 +419,7 @@ class FAADSLoader(object):
             sys.stderr.write("%d: failed to save / %s\n" % (faads_record['record_id'], str(e)))
 
                     
-    def do_import(self, table_name='faads_main_sf'):
+    def do_import(self):
         from django.db import connection
         cursor = connection.cursor()
         cursor.execute("SELECT MAX(record_id) AS max_record_id FROM faads_record;")
@@ -432,7 +430,7 @@ class FAADSLoader(object):
                
         conn = MySQLdb.connect(host=settings.FAADS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FAADS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FAADS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FAADS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FAADS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
         cursor = conn.cursor()
-        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (table_name, "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
+        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (settings.FAADS_IMPORT_MYSQL_SETTINGS['source_table'], "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
         print "Executing query"
         cursor.execute(sql)
         i = 0
