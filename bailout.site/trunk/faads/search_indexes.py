@@ -170,7 +170,7 @@ class RecordIndex(indexes.SearchIndex):
             return None
     
     
-    def get_query_set(self):
+    def get_queryset(self):
         "Used when the entire index for model is updated."
         return Record.objects.all()
 

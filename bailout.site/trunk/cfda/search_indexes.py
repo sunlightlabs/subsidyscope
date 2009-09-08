@@ -17,9 +17,11 @@ class ProgramDescriptionIndex(indexes.SearchIndex):
         return str(object.program_number)
         
     
-    def get_query_set(self):
+    def get_queryset(self):
         "Used when the entire index for model is updated."
-        return ProgramDescription.objects.all()
+        
+        # limit cfda indexing to programs that are included in a sector
+        return ProgramDescription.objects.filter(sectors__isnull=False)
     
 
 site.register(ProgramDescription, ProgramDescriptionIndex)
