@@ -605,4 +605,8 @@ ul.press-releases li
 #mode-page-maritime #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_maritime.png) 0px -5px no-repeat;}
 #mode-page-rail #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_rail.png) 0px -5px no-repeat;}
 #mode-page-transit #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_transit.png) 0px -5px no-repeat;}
-#mode-page-other #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_other.png) 0px -5px no-repeat;}
+#mode-page-other #header_area h3 { padding-left: 40px; background: url(/media/images/sector_icons/30x40_trans_other.png) 0px -5px no-repeat;}
+
+/* footnotes */
+ol.footnotes { font-size: 0.8em; }
+ol.footnotes li { margin-bottom: 0.5em;}
