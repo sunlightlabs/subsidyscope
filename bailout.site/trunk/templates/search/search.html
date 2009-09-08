@@ -25,10 +25,29 @@
 			<ul style="padding-top: 15px;">
 				{% for page in page_result_set %}
 					<li  style="padding-bottom: 15px; margin-bottom: 15px; width: 800px; border-bottom: 1px solid #CCCCCC;">
-					<div style="float: right; text-transform:uppercase; color: #999; height: 15px;">
-						<img style="margin-right: 5px; vertical-align: top;" src="http://dev.subsidyscope.com/media/images/sector_icons/1_sm.png"/>
-						<strong>Bailout</strong></div>
-					<strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
+						
+				
+					{% if page.object.program_number %}
+						
+						{% for sector in page.object.sectors.all %}
+						
+							<div style="float: right; text-transform:uppercase; color: #999; height: 15px;">
+									
+								<img style="margin-right: 5px; vertical-align: top;" src="{{ sector.image_url_small }}"/>
+								<strong>{{ sector.name }}</strong>
+							</div>
+						{% endfor %}
+						
+						
+						<strong><a href="{% url transportation-cfda-programpage page.object.id  %}">{{ page.object.program_number }} {{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
+					
+					{% else %}
+						<div style="float: right; text-transform:uppercase; color: #999; height: 15px;">
+							<img style="margin-right: 5px; vertical-align: top;" src="{{ page.object.sector.image_url_small }}"/>
+							<strong>{{ page.object.sector.name }}</strong>
+						</div>
+						<strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
+					{% endif %}
 				{% endfor %} 
 			</ul>
 			{% else %}
