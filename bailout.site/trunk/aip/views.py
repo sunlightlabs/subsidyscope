@@ -2,6 +2,8 @@
 from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
 from django.shortcuts import render_to_response, get_object_or_404
 from aip.models import *
+import logging
+import logging.handlers
 
 def index(request):
     ports = None
@@ -25,11 +27,15 @@ def index(request):
             for p in ports:
                 pgrants = GrantRecord.objects.filter(airport=p)
                 sgrants = StateGrant.objects.filter(airport=p)
+                enps = Enplanements.objects.filter(airport=p)
                 money = 0
+                enplanements = 0
+                for e in enps:
+                    enplanements += e.amount
                 for m in pgrants:
                     money += m.amount
                 total += money
-                grants.append((p, money))
+                grants.append((p, money, enplanements))
             total += blockgs
             return render_to_response('aip/index.html', {'ports':ports, 'grants': grants, 'total': total, 'type': type, 'blockgrants': blockgs})
         elif request.GET.__contains__('portcode'):
@@ -38,16 +44,20 @@ def index(request):
                 if ports:
                     grants = []
                     pgrants = GrantRecord.objects.filter(airport=ports)
+                    enps = Enplanements.objects.filter(airport=ports)
                     money = 0
+                    enplanements = 0
                     for m in pgrants:
                         money += m.amount
-                    grants.append((ports, money))
+                    for e in enps:
+                        enplanements += e.amount
+                    grants.append((ports, money, enplanements))
                     return render_to_response('aip/index.html', {'port':ports, 'grants': grants, 'params':[request.GET['portname'], request.GET['portcode']]})
             except Airport.DoesNotExist:
-                error = "No airport matched the code you specified"
+                error = 'No airport matched the parameters you specified'
 
         else:
-            error = "Must specify and airport name or airport code"
+            error = 'You must specify and airport name or airport code'
         if error:
             return render_to_response('aip/index.html', {'error': error, 'params': [request.GET['portname'], request.GET['portcode']]})
     else: 
@@ -57,7 +67,7 @@ def portdetail(request):
     if request.GET.__contains__('code'):
         port = Airport.objects.get(code__iexact=request.GET['code'])
         if port:
-            portgrants = GrantRecord.objects.filter(airport=port)   
+            portgrants = GrantRecord.objects.filter(airport=port).order_by('fiscal_year')   
             enplanements = Enplanements.objects.filter(airport=port)
             data = []
             total =[]
@@ -77,6 +87,8 @@ def portdetail(request):
                 enps += e.amount
                 data.append((e, total[counter]))
                 counter += 1
-            if enps > 0:grants = grants/enps
-            else: grants = "N/A"
-        return render_to_response('aip/detail.html', {"grants":portgrants, "port": port, "data": data, "avg":grants})
+            if enps > 0:avgratio = (grants/enps)
+            else: avgratio = "N/A"
+            logging.debug('grants %s' % grants)
+            logging.debug('enps %s' % enps)
+        return render_to_response('aip/detail.html', {"grants":portgrants, "port": port, "data": data, "avg":avgratio})

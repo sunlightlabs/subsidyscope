@@ -39,7 +39,7 @@
 }
 ul.headers li{
     float:left;
-    width: 17%;
+    width: 15%;
     text-align: center;
     font-size: .9em;
     padding: 4px;
@@ -48,16 +48,13 @@ ul.headers li.name, .portdetail ul li.name {
     width: 30%;
     text-align:left;
 }
-.portdetail ul li.icon { width: 1%; }
-.portdetail ul li.icon a {
-    display: block;
-    height: 17px;
-    width: 17px;
-    background: url("/media/images/icon_open.png") no-repeat top left ;
+ul.headers li.money, .portdetail ul li.money, .portdetail ul li.enps, ul.headers li.enps {
+    text-align:right;
+    width: 15%;
 }
-.portdetail ul li.icon a.close{
-    background: url("/media/images/icon_close.png") no-repeat top left;
-}
+.portdetail ul li.enps {padding-right:30px;}
+.portdetail ul li.city {text-align:left; width:11%;}
+.portdetail ul li.st, ul.headers li.st {width:5%; padding-left:6%;}
 .portdetail table {
     margin-left:0px;
     width: 96%;
@@ -94,31 +91,33 @@ ul.headers {
     text-align: center;
     padding: 0 5px;
 }
-.portdetail ul li.city{
-    padding-left: 10px;
-}
-.portdetail ul li.st {
-    padding-left: 10px
-}
 .even {
     background-color: #EFEFEF;
 }
 .bold {
     font-weight: bold;
 }
+ul.portstats li {float:none; width:auto;}
+ul.portstats {border: 1px solid black; background-color:white; }
+h5.left, h5.right {font-size: 1.1em;}
+h5.left {width: 34%; float:left; }
+h5.right {width:45%; float:left;}
+.data-container {float:left; margin-left:30px; }
+.enplanement-data {width: 280px; float:left;}
+.enplanement-data table td{text-align:right;}
 </style>
 <script type="text/javascript" charset="utf-8">
 (function($){
     $(document).ready(function(){
         $("#results").click( function(e) {
             var that = $(e.target);
-            if( that.hasClass("icon") || that.parents("li").hasClass("icon")){
+            if( that.parents("li").hasClass("name")){
                 if(that.is("a")) { that = that.parents("li");}
                 var port = $(that).attr("name");   
-                var link = $(that).children("a");
-                if(link.hasClass("close")){
-                    link.removeClass("close");
-                    link.parents('li').siblings('li.name').removeClass("bold");
+                
+                if(that.hasClass("close")){
+                    that.removeClass("close");
+                    that.removeClass("bold");
                     $(that).parent("ul").siblings("div.data-container").slideUp("normal", function(){$(this).remove();});
                     return false;
                 }
@@ -129,8 +128,8 @@ ul.headers {
                     'url': '/projects/transportation/aip/detail',
                     'success': function(html){
                         $(that).closest("div.portdetail").append(html).find("div.data-container").slideDown("fast");
-                        $("a", $(that)).addClass("close");
-                        $(that).siblings('li.name').addClass("bold");
+                        $(that).addClass("close");
+                        $(that).addClass("bold");
                     },
                     'error': function(xhr, textstatus){
                     }
@@ -211,31 +210,31 @@ ul.headers {
 </span>
 </form>
         {% if error %}
-            {{error}}
+           <span class="error"> {{error}}</span>
         {% endif %}
  
         {% if grants %}
         <div id="results">
             <ul class="headers">
-            <li class="name">Airport Name</li><li>Total Grants (2005-09)</li><li>City</li><li>State</li>
+            <li class="name">Airport Name</li><li class="money">Total Grants (2005-09)</li><li class="enps">Total Enplanements</li><li>City</li><li class="st">State</li>
             </ul>
 
             {% for port in grants %}
                 <div class="portdetail{% if forloop.counter|divisibleby:"2"  %} even {%endif%}">
                 <ul>
-                <li class="name">{{port.0.name}}</li><li>
-                ${{port.1|intcomma}}
-                </li><li class="city">{{port.0.city}}</li><li class="st">{{port.0.state}}</li>
-                <li class="icon" name="{{port.0.code}}"><a class="more" href="#"><!--show more --></a></li>
+                <li class="name" name="{{port.0.code}}"><a href="#">{{port.0.name}}</a></li>
+                <li class="money">${{port.1|floatformat|intcomma}}</li>
+                <li class="enps">{{port.2|intcomma}}</li>
+                <li class="city">{{port.0.city}}</li><li class="st">{{port.0.state}}</li>
                 </ul>
                 </div>
             {% endfor %}
             {% ifequal type "state" %}
                 {% if blockgrants %}
-                <div class="portdetail"><ul><li class="name">Total state block grants:</li><li>${{blockgrants|intcomma}}</li></ul>
+                <div class="portdetail"><ul><li class="name">Total state block grants:</li><li class="money">${{blockgrants|floatformat:0|intcomma}}</li></ul>
                 {% endif %}
                 {% if total %}
-                 <div class="portdetail"><ul class="sum"><li class="name">Total grant money for state:</li><li>${{total|add:blockgrants|intcomma}}</li></ul></div>
+                 <div class="portdetail"><ul class="sum"><li class="name">Total grant money for state:</li><li class="money">${{total|add:blockgrants|intcomma}}</li></ul></div>
                 {% endif %}
             {% endifequal %}
         </div>
