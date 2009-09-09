@@ -57,6 +57,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^faq/', 'direct_to_template', {'template': 'misc/faq.html'}, name='faq'),
     url(r'^press/', 'direct_to_template', {'template': 'misc/press.html'}, name='press'),
     url(r'^board/', 'direct_to_template', {'template': 'misc/board.html'}, name='board'),
+    url(r'^methodology/tags/', direct_to_template, {'template': 'generic.html'}, name='methodology-tags'),
     url(r'^methodology/', direct_to_template, {'template': 'generic.html'}, name='methodology'),
     url(r'^data-quality/$', direct_to_template, { 'template': 'bailout/bailout.html'}, name='data-quality'),
 )
