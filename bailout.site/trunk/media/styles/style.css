@@ -610,3 +610,6 @@ ul.press-releases li
 /* footnotes */
 ol.footnotes { font-size: 0.8em; }
 ol.footnotes li { margin-bottom: 0.5em;}
+
+dl.tag-list dt { margin-bottom: 0;}
+h4.line-across { border-bottom: 1px solid black;}
