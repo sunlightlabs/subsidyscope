@@ -1,5 +1,14 @@
 .field-wrapper { clear: left;}
 
+#faads-search-form h4 { clear: left; /*border-bottom: 1px solid #ccc;*/}
+#faads-search-form .section { border-bottom: 1px solid #ccc;}
+#faads-search-form .section.last { border-bottom: 0;}
+#faads-search-form .clear-left { clear: left; }
+#faads-search-form .clear-right { clear: right; }
+#faads-search-form .section#range { padding-bottom: 1em;}
+
+#faads-search-form ul { margin-bottom: 0;}
+
 #text-query-text-wrapper input#id_text_query
 {
   width: 870px;
@@ -62,11 +71,11 @@
 #tabs ul, #tabs ul li { margin-left: 0;}
 #tabs ul li { font-size: 0.8em;}
 
-.faads-search-submit { font-size: 1.2em; margin-top: 1em;}
+.faads-search-submit { font-size: 1.5em; float: right; margin-right: 15px;}
 #faads-search-submit-top { float: right; margin-top: 0;}
 
-#faads-search-form fieldset ul, #faads-search-form fieldset ul li { margin-left: 0;, font-size: 100%;} 
-#faads-search-form fieldset ul li label { font-size: 11px; margin-bottom: 5px; font-weight: normal;}
+#faads-search-form ul, #faads-search-form ul li { margin-left: 0;, font-size: 100%;} 
+#faads-search-form ul li label { font-size: 11px; margin-bottom: 5px; font-weight: normal;}
 
 #program-selector, #location-selector { display: inline;}
 #program-selector ul, #program-selector ul li, #location-selector ul, #location-selector ul li { font-size: 100%; display:inline; margin-left: 0;}
@@ -98,9 +107,8 @@
 #assistance-action-recipient-wrapper .dropdown-wrapper ul, #assistance-action-recipient-wrapper .dropdown-wrapper ul li { margin-left: 0;}
 #assistance-action-recipient-wrapper .dropdown-wrapper ul li { font-weight: normal; }
 
-fieldset legend { background-color: yellow; padding-right: 18px !important; cursor: pointer; margin-top:2px;}
+fieldset legend { padding-right: 18px !important; cursor: pointer; margin-top:2px; background: url(/media/images/collapse_minus.png) right 5px no-repeat;}
 fieldset.collapsed legend { background: url(/media/images/collapse_plus.png) right 5px no-repeat;}
-fieldset legend { background: url(/media/images/collapse_minus.png) right 5px no-repeat;}
 
 fieldset.collapsed * { display: none; }
 fieldset.collapsed .program-selection-target { display: none !important;}
@@ -113,7 +121,7 @@ fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0
 #program-selection-program ul li:hover .program-title { background-color: #eee !important;}
 
 /* state selection */
-fieldset#location .state-choices { clear: left;}
-fieldset#location .state-choices ul { float: left; margin: 0; width: 25%;}
+#location .state-choices { clear: left;}
+#location .state-choices ul { float: left; margin: 0; width: 25%;}
 
 #assistance-action-recipient-wrapper #recipient-type ul { float: left; margin-right: 1em;}

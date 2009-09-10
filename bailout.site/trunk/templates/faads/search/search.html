@@ -46,13 +46,17 @@
 					<fieldset{% if ran_search %} class="collapsed"{% endif %} id="text-query-wrapper">
 					  <legend>Recipient Name / Project Description</legend>
 						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
-						<input type="submit" value="Search" class="faads-search-submit" id="faads-search-submit-top" />
 						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
 					</fieldset>
 
 
           <fieldset class="collapsed">
-            <legend>Select Programs</legend>
+            
+            <legend style="float: left">Advanced Options</legend>
+
+
+            <div class="section" id="programs">
+            <h4>Select Programs</h4>
 
             <p>Choose programs by: <span id="program-selector">{{ form.cfda_program_selection_method }}</span></p>
              
@@ -92,11 +96,11 @@
               {{ form.program_selection_programs }}
               {{ form.program_selection_programs.errors }}
             </div>
-
-          </fieldset>
-
-          <fieldset class="collapsed">
-            <legend>Expenditure Type</legend>
+            </div>
+         
+         
+            <div class="section" id="type">
+            <h4>Expenditure Type</h4>
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
   						<div class="dropdown-wrapper">
@@ -114,18 +118,21 @@
   							<div>{{ form.recipient_type }}</div>
   							{{ form.recipient_type.errors }}
   						</div>
-  					</div>			
-					</fieldset>
+  					</div>		
+  					<div class="clear-left"></div>
+  				</div>
+  					
+  					
 					
-					<fieldset class="collapsed">
-					  <legend>Expenditure Range</legend>
+            <div class="section" id="range">
+					  <h4>Expenditure Range</h4>
   					<div class="field-wrapper">
     					<div id="obligation-date-wrapper">
     					  <label for="obligation_date_start">Obligation Date</label>
     					  <div class="range-wrapper">
-    						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
-    						{{ form.obligation_date_start.errors }}
-    						{{ form.obligation_date_end.errors }}
+      						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
+      						{{ form.obligation_date_start.errors }}
+      						{{ form.obligation_date_end.errors }}
     						</div>
     						{# fiscal year ? #}
     					</div>
@@ -133,19 +140,19 @@
     					<div id="obligation-amount-wrapper">
     					  <label for="obligation_amount_minimum">Obligation Amount</label>
     					  <div class="range-wrapper">
-    						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
-    						{{ form.obligation_amount_minimum.errors }}
-    						{{ form.obligation_amount_maximum.errors }}
+      						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
+      						{{ form.obligation_amount_minimum.errors }}
+      						{{ form.obligation_amount_maximum.errors }}
     						</div>
     					</div>
             </div>
-          </fieldset>
+            </div>
+
           
-          <fieldset class="collapsed" id="location">
-            <legend>Location</legend>
-
+          <div class="section last" id="location">
+            <h4>Location</h4>
+            
             <p>You may filter records by the location of either the recipient or the location where the activity associated with the expenditure was primarily performed (in many cases these may be the same).  Please note that geographic information is not available for every record.</p>
-
             <p>Match locations by: <span id="location-selector">{{ form.location_type }}</span></p> 
 
             <div class="state-choices">
@@ -153,11 +160,17 @@
 
               {{ form.location_choices }}
             </div>
+            <div class="clear-left"></div>
+          </div>
+
+            
+            
             
           </fieldset>
             
 					<input type="submit" value="Search" class="faads-search-submit" />
-
+          <div class="clear-right"></div>
+          
 					</form>
 				
 				    {% if not faads_results and ran_search %}
