@@ -43,14 +43,14 @@
 	
 					<form action="{% url faads.views.search %}" method="POST" id="faads-search-form">
 
-					<fieldset{% if ran_search %} class="collapsed"{% endif %} id="text-query-wrapper">
+					<fieldset id="text-query-wrapper">
 					  <legend>Recipient Name / Project Description</legend>
 						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
 						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
 					</fieldset>
 
 
-          <fieldset class="collapsed">
+          <fieldset class="collapsed" id="advanced-options">
             
             <legend style="float: left">Advanced Options</legend>
 
@@ -61,7 +61,8 @@
             <p>Choose programs by: <span id="program-selector">{{ form.cfda_program_selection_method }}</span></p>
              
              <div id="program-selection-subsidy_programs" class="program-selection-target">
-              {% morsel program_selection_subsidy_programs %}                        
+              {% morsel program_selection_subsidy_programs %}    
+              <div class="clear-left"></div>                    
              </div>
              
             <div id="program-selection-tag" class="program-selection-target">
@@ -73,6 +74,7 @@
               {{ form.program_selection_tags.errors }}
               
               <p style="clear:left; padding-top: 1.5em">{{ form.tags_exclude_secondary }}&nbsp;Only include programs having the selected tag(s) as their primary function</p>
+              <div class="clear-left"></div>
             </div>
             
             {% if form.program_selection_subsector %}
@@ -84,6 +86,7 @@
 
               {{ form.program_selection_subsector }}
               {{ form.program_selection_subsector.errors }}
+              <div class="clear-left"></div>
             </div>
             {% endif %}
 
@@ -95,6 +98,7 @@
               
               {{ form.program_selection_programs }}
               {{ form.program_selection_programs.errors }}
+              <div class="clear-left"></div>
             </div>
             </div>
          

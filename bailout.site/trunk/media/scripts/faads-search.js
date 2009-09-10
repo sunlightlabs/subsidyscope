@@ -24,7 +24,7 @@ $(function(){
     });
     
     // make slide-toggle-able fieldsets
-    $('fieldset legend').click(function(){
+    $('fieldset#advanced-options legend').click(function(){
        $(this).parent().toggleClass('collapsed'); 
     });
         

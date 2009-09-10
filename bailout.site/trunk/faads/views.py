@@ -50,7 +50,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     # subsectors
     subsector_choices = None
     if sector is not None:
-        subsector_choices = map(lambda x: (x.id, ("<span class=\"img-wrapper\" id=\"img-wrapper-%s\"><img src=\"%simages/sector_icons/transportation/%s_%s.png\" /></span>%s" % (str(x.name).lower(), MEDIA_URL, str(sector).lower(), x.name.lower(), x.name))), Subsector.objects.filter(parent_sector=sector).order_by('weight', 'name'))
+        subsector_choices = map(lambda x: (x.id, ("<span class=\"img-wrapper\" id=\"img-wrapper-%s\">%s</span>" % (str(x.name).lower(), x.name))), Subsector.objects.filter(parent_sector=sector).order_by('weight', 'name'))
     
     action_type_options = (
         ("A", "New assistance action"),
@@ -90,6 +90,10 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     enabled_tags = CFDATag.objects.filter(search_default_enabled=True)
     initial_tag_choices = map(lambda x: x.id, enabled_tags)
     
+    SUBSECTOR_SYNONYMS = {
+        'transportation': 'Mode'
+    }
+    
     class FAADSSearchForm(forms.Form):
       
         # free text query
@@ -97,7 +101,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
         # CFDA programs, subsectors and tags
-        cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('subsector', 'Subsector'), ('program', 'Program'))
+        cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))
         if not subsector_choices:
             cfda_program_selection_choices = (('tag', 'Tag'), ('program', 'Program'))
         
