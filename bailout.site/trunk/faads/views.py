@@ -300,6 +300,8 @@ def search(request, sector_name=None):
             except (EmptyPage, InvalidPage):
                 faads_results_page = paginator.page(paginator.num_pages)        
     
+            found_some_results = len(faads_results)>0
+    
             ran_search = True
     
             query = urllib.quote(request.GET['q'])
@@ -322,10 +324,11 @@ def search(request, sector_name=None):
             ran_search = False
             query = ''
             faads_results_page = None
+            found_some_results = False
             formclass = MakeFAADSSearchFormClass(sector=sector, subsectors=subsectors)
             form = formclass()
         
-    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'query': query}, context_instance=RequestContext(request))
+    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query}, context_instance=RequestContext(request))
 
 def annual_chart_data(request, sector_name=None):
 

@@ -6,14 +6,12 @@
 {% load search_tags %}
 
 {% block additional_css %}
-{# {% css "arc90_multiselect.css" %} #}
-{% css "jquery-ui/ui.all.css" %}
-{% css "faads-search.css" %}
+  {% css "jquery-ui/ui.all.css" %}
+  {% css "faads-search.css" %}
 {% endblock %}
 
 {% block additional_js %}
 
-  {# {% js "arc90_multiselect.js" %} #}
 	{% js "ui.core.js" %}
 	{% js "ui.tabs.js" %}
 	{% js "ui.datepicker.js" %}
@@ -108,17 +106,17 @@
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
   						<div class="dropdown-wrapper">
-  						  <label for="assistance_type">Assistance Type</label>
+  						  <label for="assistance_type">Assistance Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.assistance_type }}
   							{{ form.assistance_type.errors }}
   						</div>
   						<div class="dropdown-wrapper">
-  						  <label for="action_type">Action Type</label>
+  						  <label for="action_type">Action Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.action_type }}
   							{{ form.action_type.errors }}
   						</div>
   						<div class="dropdown-wrapper" id="recipient-type">
-  						  <label for="recipient_type">Recipient Type</label>
+  						  <label for="recipient_type">Recipient Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							<div>{{ form.recipient_type }}</div>
   							{{ form.recipient_type.errors }}
   						</div>
@@ -177,11 +175,11 @@
           
 					</form>
 				
-				    {% if not faads_results and ran_search %}
+				    {% if not found_some_results and ran_search %}
 				      <div id="no-faads-results-found">No records matching your search criteria were found</div>
 				    {% endif %}
 				    
-			      {% if faads_results and ran_search %}		
+			      {% if found_some_results and ran_search %}		
 			      
 			      <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
           		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
@@ -201,7 +199,7 @@
 				            <th class="recipient-location">Recipient Location</th>
 				            <th class="place-of-performance">Place of Performance</th>
 				            <th class="description">Description</th>
-                    <th class="amount">Amount</th>                    
+                    <th class="amount last">Amount</th>                    
 				          </tr>
 				        </thead>
 
@@ -211,10 +209,10 @@
                     <td class="obligation-date">{{ result.object.obligation_action_date }}</td>
                     <td class="cfda-program"><a href="{% url transportation-cfda-programpage-by-programnumber result.object.cfda_program.program_number %}" title="{{ result.object.cfda_program.program_number }} {{ result.object.cfda_program.program_title }}">{{ result.object.cfda_program.program_number }}</a></td>
                     <td class="recipient-name">{{ result.object.recipient_name }}</td>
-                    <td class="recipient-location">{{ result.object.recipient_city_name }}{% if result.object.recipient_city_name %}{% if result.object.recipient_state_name %}, {% endif %}{% endif %}{{ result.object.recipient_state_name }}</td>
-                    <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name }}{% if result.object.principal_place_state_name %}{% if result.object.principal_place_county_or_city_name %}, {% endif %}{% endif %}{{ result.object.principal_place_state_name }}</td>
+                    <td class="recipient-location">{{ result.object.recipient_city_name_for_display }}{% if result.object.recipient_city_name %}{% if result.object.recipient_state_name %},&nbsp;{% endif %}{% endif %}{{ result.object.recipient_state.abbreviation }}</td>
+                    <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name_for_display }}{% if result.object.principal_place_state_name %}{% if result.object.principal_place_county_or_city_name %},&nbsp;{% endif %}{% endif %}{{ result.object.principal_place_state.abbreviation }}</td>
                     <td class="description">{{ result.object.project_description }}</td>
-                    <td class="amount">${{ result.object.federal_funding_amount|floatformat:"-0"|intcomma }}</td>
+                    <td class="amount last">${{ result.object.federal_funding_amount|floatformat:"-0"|intcomma }}</td>
                   </tr>
                 {% endfor %}
                 </tbody>

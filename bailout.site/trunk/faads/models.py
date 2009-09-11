@@ -106,6 +106,9 @@ class Record(models.Model):
     recipient_name = models.CharField("Recipient Name", max_length=45, blank=True, default='')
     recipient_city_code = models.CharField("Recipient City Code", max_length=5, blank=True, default='', help_text="FIPS 55-3 place code") # NORMALIZE 
     recipient_city_name = models.CharField("Recipient City Name", max_length=21, blank=True, default='') 
+    def recipient_city_name_for_display(self):        
+        return self.city_name_for_display('recipient_city_name', 'recipient_state')
+        
     recipient_county_code = models.CharField("Recipient County Code", max_length=3, blank=True, default='', help_text="FIPS PUB 6-4") # NORMALIZE
     recipient_county_name = models.CharField("Recipient County Name", max_length=21, blank=True, default='')
     recipient_state_code = models.CharField("Recipient State Code", max_length=2, blank=True, default='', help_text="FIPS PUB 5-1") # NORMALIZE
@@ -134,6 +137,8 @@ class Record(models.Model):
     principal_place_state_name = models.CharField("Principal Place of Performance State", max_length=25, blank=True, default='') # NORMALIZE
     principal_place_state_code = models.CharField("Principal Place of Performance State Code", max_length=2, blank=True, default='') # NORMALIZE
     principal_place_county_or_city_name = models.CharField("Principal Place of Performance County/City", max_length=25, blank=True, default='') # NORMALIZE
+    def principal_place_county_or_city_name_for_display(self):        
+        return self.city_name_for_display('principal_place_county_or_city_name', 'principal_place_state')
     principal_place_zip_code = models.CharField("Principal Place of Performance Zip Code", max_length=9, blank=True, default='') # NORMALIZE
     principal_place_congressional_district = models.CharField("Principal Place Congressional District", max_length=2, blank=True, default='') # NORMALIZE
     cfda_program_title = models.CharField("CFDA Program Title", max_length=74, blank=True, default='')
@@ -165,6 +170,13 @@ class Record(models.Model):
     business_identifier = models.CharField("Business Identifier", max_length=3, blank=True, default='')
     rec_flag = models.CharField("Recovery(?) Flag", max_length=1, blank=True, default='')
     
+    def city_name_for_display(self, city_field, state_field):
+        s = getattr(self, city_field, None)
+        if s is None:
+            return ''
+        if s[-4:].upper()==(", %s" % getattr(self, state_field, '').abbreviation.upper()):
+            s = s[:-4]
+        return s.title()
 
 class FAADSLoader(object):
     """ handles faads import """
