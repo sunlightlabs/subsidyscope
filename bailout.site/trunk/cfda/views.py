@@ -18,8 +18,8 @@ def getDataSeries(cfda_id):
     
     data = FAADSSearch().filter('cfda_program', cfda_id).aggregate('fiscal_year')
     labels = []
-    cfdaseries = []
-    budgetseries = []
+    cfdaseries = {}
+    budgetseries = {}
     prog_desc = None
     
     try:
@@ -35,21 +35,27 @@ def getDataSeries(cfda_id):
         
         for year in years:
             if budget_est:
+                
                 try:
                     yearitem = budget_est.filter(fiscal_year=year)
+                    
                     if yearitem:
-                        budgetseries.append(yearitem[0].annual_amount)
-                    else: budgetseries.append(-1)
+                        budgetseries[year] = yearitem[0].annual_amount
+                    else: 
+                        budgetseries[year] = None
+                    
                 except ProgramBudgetAnnualEstimate.DoesNotExist:
-                    budgetseries.append(-1)
+                    
+                    budgetseries[year] = None
+                    
                     if count !=length:
                         estimates += ','
                         
                         
             if data.has_key(year):
-                cfdaseries.append(data[year])
+                cfdaseries[year] = data[year]
             else:
-                cfdaseries.append(-1)
+                cfdaseries[year] = None
                             
             labels.append(year)
             
@@ -57,40 +63,79 @@ def getDataSeries(cfda_id):
 
 
 def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
+    
+    years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]
+    
     if labels: labels = ["%s" %d  for d in labels]
-    if type(cfdaseries).__name__ == 'dict': 
-        sortedyears = cfdaseries.keys()
-        sortedyears.sort()
-        temp = []
-        labels = []
-        for y in sortedyears:
+
+    temp = []
+    labels = []
+    
+    for y in years:
+        
+        if cfdaseries.has_key(y) and cfdaseries[y] != None:
             temp.append(int(cfdaseries[y]))
+        else:
+            temp.append(None)
+        labels.append(str(y))
+
+    cfdaseries = temp
+    
+    
+    
+
+    if budgetseries:
+    
+        temp = []
+        
+        for y in years:
+            
+            if budgetseries.has_key(y) and budgetseries[y] != None:
+                temp.append(int(budgetseries[y]))
+            else:
+                temp.append(None)
             labels.append(str(y))
-        cfdaseries = temp
-    elif cfdaseries: cfdaseries = [int(d) for d in cfdaseries]
-    if budgetseries: budgetseries = [int(d) for d in budgetseries]
+            
+        budgetseries = temp
+    
+    
     cfdamax=0
     budgetmax=0
     json= {"elements":[]}
+    
     if cfdaseries:
-        json["elements"].append({"type": "bar_3d", "tip":"FAADS: $#val#", "text":"FAADS data", "values": cfdaseries})
+        
+        json["elements"].append({"type": "bar_3d", "tip":"Obligations (from FAADS): $#val#", "text":"Obligations (from FAADS)", "values": cfdaseries})
         cfdamax = max(cfdaseries)
+        
     if budgetseries:
-        json["elements"].append({"type":"bar_3d","tip": ProgramBudgetEstimateDescription.DATA_TYPE_CHOICES[prog_desc.data_type][1]+": $#val#", "colour": "#088f1b", "text": ProgramBudgetEstimateDescription.DATA_TYPE_CHOICES[prog_desc.data_type][1], "values":budgetseries})
+        
+        data_description = prog_desc.get_data_type_display()
+        
+        if prog_desc.data_source:
+            data_description += ' (from %s)' % (prog_desc.get_data_source_display())
+        
+        json["elements"].append({"type":"bar_3d","tip": data_description + ": $#val#", "colour": "#088f1b", "text": data_description, "values":budgetseries})
         budgetmax = max(budgetseries)
+        
+        
     json["title"] = {"text":""}
     json["bg_colour"] = "#FFFFFF"
     json["x_axis"] = {"3d": 5, "colour":"#909090", "tick-height":20, "labels": {"labels":labels}}
+    
     mod = 1000
     maximum = max(cfdamax, budgetmax)
+    
     while maximum % mod != maximum:
         mod = mod * 10
+        
     maximum = maximum + (mod-(maximum % mod))
+    
     json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
     json["x_legend"] = {"text": "Years", "style": "{font-size:12px;}"}
     json["y_legend"] = {"text": "US Dollars($)", "style": "{font-size: 12px;}"}
     
-    return dumps(json).replace('-1', 'null')
+    return dumps(json) 
 
 def ajaxChart(request, cfda_id):
     program = ProgramDescription.objects.get(id=int(cfda_id))
