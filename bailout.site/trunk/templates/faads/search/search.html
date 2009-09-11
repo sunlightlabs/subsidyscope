@@ -127,26 +127,26 @@
   					
 					
             <div class="section" id="range">
-					  <h4>Expenditure Range</h4>
+				  <h4>Expenditure Range</h4>
   					<div class="field-wrapper">
-    					<div id="obligation-date-wrapper">
-    					  <label for="obligation_date_start">Obligation Date</label>
-    					  <div class="range-wrapper">
-      						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
-      						{{ form.obligation_date_start.errors }}
-      						{{ form.obligation_date_end.errors }}
-    						</div>
-    						{# fiscal year ? #}
-    					</div>
-					
-    					<div id="obligation-amount-wrapper">
-    					  <label for="obligation_amount_minimum">Obligation Amount</label>
-    					  <div class="range-wrapper">
-      						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
-      						{{ form.obligation_amount_minimum.errors }}
-      						{{ form.obligation_amount_maximum.errors }}
-    						</div>
-    					</div>
+					<div id="obligation-date-wrapper">
+					  <label for="obligation_date_start">Obligation Date</label>
+					  <div class="range-wrapper">
+  						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
+  						{{ form.obligation_date_start.errors }}
+  						{{ form.obligation_date_end.errors }}
+						</div>
+						{# fiscal year ? #}
+					</div>
+				
+					<div id="obligation-amount-wrapper">
+					  <label for="obligation_amount_minimum">Obligation Amount</label>
+					  <div class="range-wrapper">
+  						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
+  						{{ form.obligation_amount_minimum.errors }}
+  						{{ form.obligation_amount_maximum.errors }}
+						</div>
+					</div>
             </div>
             </div>
 
@@ -286,7 +286,7 @@
 						<div id="mapVis" >
 							<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
 							
-							<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+							<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="{% media_url %}/images/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
 						
 						</div>
 					</div>
