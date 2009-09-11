@@ -240,13 +240,41 @@
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-graph">
                 <span id="resultsgraph"></span>  
+                
                 {% js "json2.js" %}
-     
+                
+                <script type="text/javascript" charset="utf-8">
+                   
+                   	var chartLoaded = false; 
+                    function loadChartFlash()
+                    {
+                    	if(!chartLoaded)
+                    		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '/projects/transportation/direct-expenditures/search/by-year/', 'data-query':'{{ query|safe }}'});
+                    		
+                    	chartLoaded = true;
+                    }
+                    
+                </script>
               </div>
               
               <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-map">
     
-    				              
+    				
+    
+    				<script type="text/javascript" charset="utf-8">
+    					
+    					var mapLoaded = false;
+    					
+    					function loadMapFlash()
+    					{
+    						if(!mapLoaded)
+    	              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=8', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'/projects/transportation/direct-expenditures/search/map/','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+    	              			
+    	              		mapLoaded = true;
+    	              	}
+    	              	
+					</script>
+                  
                   	<div style="float: right;  margin-right: 25px;">
 						View: <select name="dataType">
 							<option value="state">Total Spending</option>

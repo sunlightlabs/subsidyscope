@@ -42,10 +42,10 @@ $(function(){
 	$('#tabs').bind('tabsselect', function(event, ui) {
 
 		if(ui.index == 1)
-			swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '/projects/transportation/direct-expenditures/search/by-year/', 'data-query':'{{ query|safe }}'});
+			loadChartFlash();
 			
 		else if(ui.index == 2)
-			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=8', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'/projects/transportation/direct-expenditures/search/map/','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+			loadMapFlash();
 	
 	});
 	
