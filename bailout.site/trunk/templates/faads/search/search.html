@@ -6,14 +6,12 @@
 {% load search_tags %}
 
 {% block additional_css %}
-{# {% css "arc90_multiselect.css" %} #}
-{% css "jquery-ui/ui.all.css" %}
-{% css "faads-search.css" %}
+  {% css "jquery-ui/ui.all.css" %}
+  {% css "faads-search.css" %}
 {% endblock %}
 
 {% block additional_js %}
 
-  {# {% js "arc90_multiselect.js" %} #}
 	{% js "ui.core.js" %}
 	{% js "ui.tabs.js" %}
 	{% js "ui.datepicker.js" %}
@@ -108,17 +106,17 @@
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
   						<div class="dropdown-wrapper">
-  						  <label for="assistance_type">Assistance Type</label>
+  						  <label for="assistance_type">Assistance Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.assistance_type }}
   							{{ form.assistance_type.errors }}
   						</div>
   						<div class="dropdown-wrapper">
-  						  <label for="action_type">Action Type</label>
+  						  <label for="action_type">Action Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.action_type }}
   							{{ form.action_type.errors }}
   						</div>
   						<div class="dropdown-wrapper" id="recipient-type">
-  						  <label for="recipient_type">Recipient Type</label>
+  						  <label for="recipient_type">Recipient Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							<div>{{ form.recipient_type }}</div>
   							{{ form.recipient_type.errors }}
   						</div>
