@@ -238,7 +238,7 @@
 
               </div>
               
-              <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-graph">
+              <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="faads-result-graph" >
                 <span id="resultsgraph"></span>  
                 
                 {% js "json2.js" %}
@@ -257,7 +257,7 @@
                 </script>
               </div>
               
-              <div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-map">
+              <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="faads-result-map">
     
     				
     
@@ -271,7 +271,7 @@
     	              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=8', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'/projects/transportation/direct-expenditures/search/map/','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
     	              			
     	              		mapLoaded = true;
-    	              	}
+    	              	}	
     	              	
 					</script>
                   
