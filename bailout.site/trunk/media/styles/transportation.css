@@ -28,6 +28,8 @@ margin:0;}
 #sector_taxonomy a:active { color:#1a4760; text-decoration:none;}
 
 
+#sector_taxonomy.second-tier { margin-left: 100px;}
+
 #sector_left_tax
 #sector_tax_item
 #sector_tax_icon
