@@ -92,7 +92,8 @@
 #faads-search-form ul, #faads-search-form ul li { margin-left: 0;, font-size: 100%;} 
 #faads-search-form ul li label { font-size: 11px; margin-bottom: 5px; font-weight: normal;}
 
-#program-selector, #location-selector { display: inline;}
+#program-selector-text { float: left;}
+#program-selector, #location-selector { float: left;}
 #program-selector ul, #program-selector ul li, #location-selector ul, #location-selector ul li { font-size: 100%; display:inline; margin-left: 0;}
 #program-selector ul li label, #location-selector ul li label { font-weight: bold; font-size: 100% !important; font-weight: bold !important;}
 
@@ -113,7 +114,7 @@
 #program-selection-subsector label .img-wrapper { padding-left: 28px; height: 20px; padding-top:5px;}
 #program-selection-subsector label .img-wrapper#img-wrapper-maritime { background: url(/media/images/sector_icons/transportation/transportation_maritime.png) -7px 2px no-repeat;}
 #program-selection-subsector label .img-wrapper#img-wrapper-aviation {background: url(/media/images/sector_icons/transportation/transportation_aviation.png) -7px 2px no-repeat; }
-#program-selection-subsector label .img-wrapper#img-wrapper-general { background: url(/media/images/sector_icons/transportation/transportation_other.png) -1px 2px no-repeat;}
+#program-selection-subsector label .img-wrapper#img-wrapper-other { background: url(/media/images/sector_icons/transportation/transportation_other.png) -1px 2px no-repeat;}
 #program-selection-subsector label .img-wrapper#img-wrapper-rail { background: url(/media/images/sector_icons/transportation/transportation_rail.png) -10px 2px no-repeat;}
 #program-selection-subsector label .img-wrapper#img-wrapper-transit { background: url(/media/images/sector_icons/transportation/transportation_transit.png) -7px 2px no-repeat;}
 #program-selection-subsector label .img-wrapper#img-wrapper-highways { background: url(/media/images/sector_icons/transportation/transportation_highways.png) -7px 2px no-repeat; }

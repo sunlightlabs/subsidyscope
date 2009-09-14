@@ -50,13 +50,13 @@
 
           <fieldset class="collapsed" id="advanced-options">
             
-            <legend style="float: left">Advanced Options</legend>
-
+            <legend id="advanced-options">Advanced Options</legend>
 
             <div class="section" id="programs">
             <h4>Select Programs</h4>
 
-            <p>Choose programs by: <span id="program-selector">{{ form.cfda_program_selection_method }}</span></p>
+            <div id="program-selector-text">Choose programs by:</div><div id="program-selector">{{ form.cfda_program_selection_method }}</div>
+            <div class="clear-left"></div>
              
              <div id="program-selection-subsidy_programs" class="program-selection-target">
               {% morsel program_selection_subsidy_programs %}    

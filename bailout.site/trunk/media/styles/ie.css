@@ -30,3 +30,4 @@ a abbr, a acronym { text-decoration: underline; } /* IE 7 bug */
 }
 
 #faads-search-form .section#programs { position: relative; top: -1em;}
+#faads-search-form fieldset legend#advanced-options { float: left;}

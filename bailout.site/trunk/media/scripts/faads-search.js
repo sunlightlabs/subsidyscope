@@ -11,7 +11,10 @@ function DisplayProgramPanel(panel)
 
 }
 
-$(function(){    
+$(document).ready(function(){    
+    
+    // display the initially-selected "choose programs by" div
+    DisplayProgramPanel($('#program-selector ul li input:checked').val());
     
     // set up "select all"/"select none" links
     $('.select-all-or-none a.select-all').click(function(){

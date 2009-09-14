@@ -20,9 +20,15 @@ import re
 from settings import MEDIA_URL
 from django.core.urlresolvers import reverse
 import zlib
-import base64
+from base64 import urlsafe_b64encode, urlsafe_b64decode
 import urllib
 import pickle
+
+def uri_b64encode(s):
+   return urlsafe_b64encode(s).strip('=')
+
+def uri_b64decode(s):
+   return urlsafe_b64decode(s + '=' * (4 - len(s) % 4))
 
 
 RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
@@ -139,10 +145,10 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     return FAADSSearchForm
 
 def compress_querydict(obj):
-    return urllib.quote(base64.b64encode(zlib.compress(pickle.dumps(obj))))
+    return uri_b64encode(zlib.compress(pickle.dumps(obj)))
 
 def decompress_querydict(s):
-    return pickle.loads(zlib.decompress(base64.b64decode(urllib.unquote(s))))
+    return pickle.loads(zlib.decompress(uri_b64decode(str(s))))
 
 def get_sector_by_name(sector_name=None):
     if sector_name is not None:
