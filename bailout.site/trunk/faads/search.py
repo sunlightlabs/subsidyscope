@@ -149,7 +149,7 @@ class FAADSSearch():
         'total_funding_amount': {
             'type': 'range',
             'mysql_field': 'total_funding_amount',
-            'solr_field': 'total_amount'            
+            'solr_field': 'total_amount',        
         },
         
         'text': {
@@ -312,6 +312,7 @@ class FAADSSearch():
             elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
                 clause_parts = []
                 range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_transformation', lambda x: x) # putting this in place to allow for varying formatting of dates for solr & mysql
+                
                 for range_specifier in filter_value:
                     if range_specifier is None:
                         clause_parts.append('*')
@@ -502,16 +503,17 @@ class FAADSSearch():
             # deal with range
             if FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='range':
                 clause_parts = []
-                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_transformation', lambda x: x) # putting this in plac
+                range_transformation = FAADSSearch.FIELD_MAPPINGS[filter_field].get('solr_transformation', lambda x: x) # putting this in place
                 filter_operators = ('__gte', '__lte')
+                
                 for i, range_specifier in enumerate(filter_value):
                     if range_specifier is not None:
-                        target_filter_list[filter_field + filter_operators[i]] = filter_value
-                
+                        target_filter_list[FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_field'] + filter_operators[i]] = range_specifier                
 
             # deal with text
             elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='text':
                 target_filter_list[filter_field] = filter_value
+            
     
         s = SearchQuerySet().models(Record)
         
