@@ -213,6 +213,7 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         
         # handle recipient type
         if len(form.cleaned_data['recipient_type'])<len(form.fields['recipient_type'].choices):
+            print '####', form.cleaned_data['recipient_type']
             faads_search_query = faads_search_query.filter('recipient_type', form.cleaned_data['recipient_type'])
 
         # handle action type
