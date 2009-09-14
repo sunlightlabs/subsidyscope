@@ -94,8 +94,6 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'action_type', 
             'solr_field': 'action_type',
-            'mysql_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(str(x), None),
-            'solr_transformation': lambda x: ACTION_TYPE_FK_LOOKUP.get(str(x), None),
             'aggregate': True
         },
         
@@ -103,8 +101,6 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'recipient_type', 
             'solr_field': 'recipient_type', 
-            'mysql_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(int(x), None) ,
-            'solr_transformation': lambda x: RECIPIENT_TYPE_FK_LOOKUP.get(int(x), None),
             'aggregate': True
         },
         
@@ -121,8 +117,6 @@ class FAADSSearch():
             'type': 'fk',
             'mysql_field': 'assistance_type',
             'solr_field': 'assistance_type',
-            'mysql_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(int(x), None),
-            'solr_transformation': lambda x: ASSISTANCE_TYPE_FK_LOOKUP.get(int(x), None),
             'aggregate': True
         },
 

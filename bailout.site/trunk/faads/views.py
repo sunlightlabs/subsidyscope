@@ -57,38 +57,13 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     subsector_choices = None
     if sector is not None:
         subsector_choices = map(lambda x: (x.id, ("<span class=\"img-wrapper\" id=\"img-wrapper-%s\">%s</span>" % (str(x.name).lower(), x.name))), Subsector.objects.filter(parent_sector=sector).order_by('weight', 'name'))
-    
-    action_type_options = (
-        ("A", "New assistance action"),
-        ("B", "Continuation"),
-        ("C", "Revision"),
-    )
 
-    # TODO: provide per-sector options. right now categories without transportation FAADS entries have been manually omitted
-    assistance_type_options = (
-        (3, "Formula grant"),
-        (4, "Project grant"),
-        (5, "Cooperative agreement"),
-        (6, "Direct payment"),
-        (7, "Direct loan"),
-        (8, "Guaranteed/insured loan"),
-    )
+    # TODO: provide per-sector options. right now categories without transportation FAADS entries have been manually omitted    
+    action_type_options = map(lambda x: (x.id, x.name), ActionType.objects.all().order_by('code'))
+
+    assistance_type_options = map(lambda x: (x.id, x.name), AssistanceType.objects.all().order_by('code'))
     
-    recipient_type_options = (
-        (0, "State government"),
-        (1, "County government"),
-        (2, "City or township government"),
-        (4, "Special district government"),
-        (5, "Independent school district"),
-        (6, "State controlled institution of higher education"),
-        (11, "Indian tribe"),
-        (12, "Other nonprofit"),
-        (20, "Private higher education"),
-        (21, "Individual"),
-        (22, "Profit organization"),
-        (23, "Small business"),
-        (25, "All other")
-    )
+    recipient_type_options = map(lambda x: (x.id, x.name), RecipientType.objects.all().order_by('code'))  
 
     tag_choices = []
     cfda_program_tags = CFDATag.objects.all().order_by('tag_name')
@@ -238,6 +213,7 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         
         # handle recipient type
         if len(form.cleaned_data['recipient_type'])<len(form.fields['recipient_type'].choices):
+            print '####', form.cleaned_data['recipient_type']
             faads_search_query = faads_search_query.filter('recipient_type', form.cleaned_data['recipient_type'])
 
         # handle action type
