@@ -77,6 +77,7 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
             temp.append(int(cfdaseries[y]))
         else:
             temp.append(None)
+            
         labels.append(str(y))
 
     cfdaseries = temp
@@ -94,7 +95,6 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
                 temp.append(int(budgetseries[y]))
             else:
                 temp.append(None)
-            labels.append(str(y))
             
         budgetseries = temp
     
