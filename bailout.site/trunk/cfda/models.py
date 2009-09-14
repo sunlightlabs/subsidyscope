@@ -124,7 +124,7 @@ class ProgramBudgetEstimateDescription(models.Model):
     DATA_TYPE_CHOICES = (
         (DATA_TYPE_AUTHORIZATION, 'Authorization'),
         (DATA_TYPE_APPROPRIATION, 'Appropriation'),
-        (DATA_TYPE_OBLIGATION, 'Obligation'),
+        (DATA_TYPE_OBLIGATION, 'Obligations'),
         (DATA_TYPE_ALLOCATION_APPORTIONMENT, 'Allocation/Apportionment'),
         (DATA_TYPE_OTHER, 'Other'))
 
