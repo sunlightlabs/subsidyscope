@@ -60,12 +60,12 @@ $(document).ready(function(){
 		if ($("select[name='dataType']").val() == 'state')
 		{	
 			setDataField(1);
-			setLabelText('Total Spending');
+			setLabelText('Total Spending (2000-2009)');
 		}
 		else if ($("select[name='dataType']").val() == 'state_per_capital')
 		{
 			setDataField(3);
-			setLabelText('Per Capita Spending');
+			setLabelText('Per Capita Spending (2000-2009)');
 		}
 	});
 	

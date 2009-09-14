@@ -368,11 +368,21 @@ def map_data(request, sector_name=None):
             
             for state_id in per_capita_totals:
                 if states.has_key(state_id):
-                    line = '%d,%.02f,%.03f,%.02f,%.03f' % (states[state_id].fips_state_code, 
+                    
+                    state_percent = faads_results[state_id] / max_state_total
+                    if state_percent > 0 and state_percent < Decimal('0.001'):
+                        state_percent = 0.001
+                        
+                    state_per_capita_percent = per_capita_totals[state_id] / max_per_capital_total
+                    if state_per_capita_percent > 0 and state_per_capita_percent < Decimal('0.001'):
+                        state_per_capita_percent = 0.001
+                        
+                    
+                    line = '%d,%f,%.03f,%f,%.03f' % (states[state_id].fips_state_code, 
                                                            faads_results[state_id], 
-                                                           faads_results[state_id] / max_state_total, 
+                                                           state_percent, 
                                                            per_capita_totals[state_id],
-                                                           per_capita_totals[state_id] / max_per_capital_total)
+                                                           state_per_capita_percent)
 
                     results.append(line)
                 

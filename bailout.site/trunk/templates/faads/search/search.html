@@ -17,7 +17,7 @@
 	{% js "ui.datepicker.js" %}
 	
 	{% js "swfobject.js" %}
-	{% js "faads-search.js" %}
+	{% js "faads-search.js?version=2" %}
 	
 
 <!-- if JS is enabled, assume that the tabs will work and hide the other divs -->
@@ -268,7 +268,7 @@
     					function loadMapFlash()
     					{
     						if(!mapLoaded)
-    	              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=8', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'/projects/transportation/direct-expenditures/search/map/','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+    	              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'/projects/transportation/direct-expenditures/search/map/','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
     	              			
     	              		mapLoaded = true;
     	              	}	
