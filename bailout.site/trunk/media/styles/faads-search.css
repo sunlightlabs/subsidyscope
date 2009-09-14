@@ -92,7 +92,7 @@
 #faads-search-form ul, #faads-search-form ul li { margin-left: 0;, font-size: 100%;} 
 #faads-search-form ul li label { font-size: 11px; margin-bottom: 5px; font-weight: normal;}
 
-#program-selector-text { float: left;}
+#program-selector-text, #location-selector-text { float: left;}
 #program-selector, #location-selector { float: left;}
 #program-selector ul, #program-selector ul li, #location-selector ul, #location-selector ul li { font-size: 100%; display:inline; margin-left: 0;}
 #program-selector ul li label, #location-selector ul li label { font-weight: bold; font-size: 100% !important; font-weight: bold !important;}
