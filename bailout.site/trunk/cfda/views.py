@@ -153,6 +153,7 @@ def getProgramByCFDANumber(request, cfda_program_number, sector_name):
 
 def getProgram(request, cfda_id, sector_name):
     program = ProgramDescription.objects.select_related().get(id=int(cfda_id))
+    subsectors = program.subsectors.all()
     objectives = program.objectives
     objectives2 = ''
     accomps = program.program_accomplishments
@@ -166,7 +167,7 @@ def getProgram(request, cfda_id, sector_name):
         accomps2 = accomps[800:]
         accomps = accomps[:800]
     
-    return render_to_response('cfda/programs.html', {'program': program, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
+    return render_to_response('cfda/programs.html', {'program': program, 'subsectors': subsectors, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
 
 def getProgramIndex(request, sector_name):
     tags = CFDATag.objects.all()

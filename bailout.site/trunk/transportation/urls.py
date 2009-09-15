@@ -34,5 +34,5 @@ urlpatterns = patterns('',
     url(r'^rail/', direct_to_template, {'template': 'transportation/mode_page.html', 'extra_context':{'subsector': 4}}, name='transportation-rail'),
     url(r'^maritime/', direct_to_template, {'template': 'transportation/mode_page.html', 'extra_context':{'subsector': 6}}, name='transportation-maritime'),
     url(r'^$', direct_to_template, {'template': 'transportation/index.html'}, name='transportation-index'),
-    url(r'^aip', include('aip.urls'))
+    url(r'^aip/', include('aip.urls'))
 )

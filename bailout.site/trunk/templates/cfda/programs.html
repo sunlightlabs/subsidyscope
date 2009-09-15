@@ -13,7 +13,7 @@
     {% include navname %}
     <div class="span-24">
         <div id="header_area" style="margin-bottom:0px;">
-            <h3><img src="/media/images/sector_icons/transportation/transportation_{{program.subsectors.name}}.png" />{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span>
+            <h3><img style="margin-bottom:-6px;" src="{% media_url %}/images/sector_icons/30x40_trans_{{subsectors.0.name|lower}}.png" />{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span>
             </h3>
         </div>
         {% if program.secondary_tags.all %}
