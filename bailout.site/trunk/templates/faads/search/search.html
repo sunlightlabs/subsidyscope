@@ -188,6 +188,7 @@
           			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#faads-result-table">Results</a></li>
           			<li class="ui-state-default ui-corner-top"><a href="#faads-result-graph">By Year</a></li>
           			<li class="ui-state-default ui-corner-top"><a href="#faads-result-map">By Location</a></li>
+          			<li class="ui-state-default ui-corner-top"><a href="#faads-result-summary">Summary</a></li>                
           		</ul>
           		
           		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-table">
@@ -299,6 +300,21 @@
                   
                   
               </div>
+
+
+              <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="faads-result-summary">
+                 <div id="summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
+                 
+                 <script type="text/javascript" charset="utf-8">
+                 function loadSummary()
+                 {
+                   $.get('{% url transportation-faads-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
+                     $('#summary-container').html(data);
+                   });
+                 }
+                 </script>
+              </div>
+
 
             </div>
             {% endif %}				

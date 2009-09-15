@@ -332,6 +332,54 @@ def annual_chart_data(request, sector_name=None):
 
     return Http404()
 
+def summary_statistics(request, sector_name=None):
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation    
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+                    
+            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+                   
+            results = faads_search_query.get_summary_statistics()
+            year_range = faads_search_query.get_year_range()
+
+            states = {}    
+            for state in State.objects.filter(id__in=results['state'].keys()):
+                states[state.id] = state
+        
+            programs = {}
+            for program in ProgramDescription.objects.filter(id__in=results['program'].keys()):
+                programs[program.id] = program
+
+
+            state_data = []
+            for (state_id, year_data) in results['state'].items():
+                if state_id is None:
+                    continue
+                row = [states[state_id].name]
+                for year in year_range:
+                    row.append(year_data.get(year, None))
+                state_data.append(row)
+                
+            state_data.sort(key=lambda x: x[0])
+                
+            program_data = []
+            for (program_id, year_data) in results['program'].items():
+                if program_id is None:
+                    continue
+                row = ["<a href=\"%s\">%s %s</a>" % (reverse('transportation-cfda-programpage', None, (program_id,)), programs[program_id].program_number, programs[program_id].program_title)]
+                for year in year_range:
+                    row.append(year_data.get(year, None))
+                program_data.append(row)
+                
+            program_data.sort(key=lambda x: x[0])
+                
+
+            return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'program_data':program_data, 'year_range':year_range}, context_instance=RequestContext(request))
+                
+    return Http404()
+    
+
 
 def map_data(request, sector_name=None):
     
