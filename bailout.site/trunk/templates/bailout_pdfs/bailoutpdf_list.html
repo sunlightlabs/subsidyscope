@@ -4,14 +4,13 @@
 
 {% block content %}
 <div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
 	<div class="span-24">
-		<div id="header_area">
+		<div id="header_area_flat">
 			<h3>Key Documents</h3>		
 		</div>
 		
 		<div class="content_area">
-			<p>Subsidyscope provides a clearinghouse for government documents and reports related to the financial rescue. This compilation will be updated regularly. </p>
+			<p>Subsidyscope provides a clearinghouse for government documents related to our research in the following sectors. This compilation will be updated regularly.</p>
             <p style="font-size:1em;">Skip to: 
            {% for s in sectors %}
                 <a href="#{{s}}">{{s}}</a>
