@@ -1,7 +1,7 @@
 {% extends "base_sector.html" %}
 {% load media %}
 {% load morsel_tags %}
-
+{% load glossary_tags %}
 {% block content %}
 
 <div class="container main_container">
@@ -11,8 +11,10 @@
             <h3>{% morsel_page_title %}</h3>
         </div>
         <div class="content_area">
+            {% glossarize %}
             {% morsel summary %}
             {% morsel text1 %}
+            {% endglossarize %}
         </div>
 </div>
 
