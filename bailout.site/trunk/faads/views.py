@@ -33,6 +33,40 @@ def uri_b64decode(s):
 
 RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
 
+from django.contrib.humanize.templatetags.humanize import intcomma
+
+
+# DecimalField helpers from:
+# http://www.djangosnippets.org/snippets/842/
+
+from django.contrib.humanize.templatetags.humanize import intcomma
+
+class USDecimalHumanizedInput(forms.TextInput):
+  def __init__(self, initial=None, *args, **kwargs):
+    super(USDecimalHumanizedInput, self).__init__(*args, **kwargs)
+  
+  def render(self, name, value, attrs=None):
+    value = intcomma(value)
+    return super(USDecimalHumanizedInput, self).render(name, value, attrs)
+
+
+class USDecimalHumanizedField(forms.DecimalField):
+  """
+  Use this as a drop-in replacement for forms.DecimalField()
+  """
+  widget = USDecimalHumanizedInput
+  
+  def clean(self, value):
+    value = value.replace(',','').replace('$','')
+    super(USDecimalHumanizedField, self).clean(value)
+    
+    if value == '':
+        value = None
+    
+    return value
+
+
+
 def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     
     # fill CFDA program list
@@ -109,8 +143,8 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         obligation_date_start = forms.DateField(label="Obligation Date Start", required=False)
         obligation_date_end = forms.DateField(label="Obligation Date End", required=False)
     
-        obligation_amount_minimum = forms.DecimalField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
-        obligation_amount_maximum = forms.DecimalField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
+        obligation_amount_minimum = USDecimalHumanizedField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
+        obligation_amount_maximum = USDecimalHumanizedField(label="Obligation Amount Maximum", required=False, decimal_places=2, max_digits=12)
         
         state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
         location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=2, coerce=int)
@@ -230,7 +264,18 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
 
         # handle obligation amount range
         if form.cleaned_data['obligation_amount_minimum'] is not None or form.cleaned_data['obligation_amount_maximum'] is not None:
-            faads_search_query = faads_search_query.filter('federal_funding_amount', (form.cleaned_data['obligation_amount_minimum'], form.cleaned_data['obligation_amount_maximum']))
+            
+            if form.cleaned_data['obligation_amount_minimum'] is not None:
+                obligation_minimum = int(Decimal(form.cleaned_data['obligation_amount_minimum']))
+            else:
+                obligation_minimum = None
+                
+            if form.cleaned_data['obligation_amount_maximum'] is not None:
+                obligation_maximum = int(Decimal(form.cleaned_data['obligation_amount_maximum']))
+            else:
+                obligation_maximum = None
+                     
+            faads_search_query = faads_search_query.filter('federal_funding_amount', (obligation_minimum, obligation_maximum))
 
         # handle location
         if len(form.cleaned_data['location_choices'])>0 and len(form.cleaned_data['location_choices'])<State.objects.all().count():
@@ -269,8 +314,7 @@ def search(request, sector_name=None):
             if form.is_valid():
                 redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
                 return HttpResponseRedirect(redirect_url)
-            else:
-                return HttpResponseRedirect(reverse('transportation-faads-search'))
+            
         
         else:
             return HttpResponseRedirect(reverse('transportation-faads-search'))
