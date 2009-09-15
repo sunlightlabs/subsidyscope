@@ -255,6 +255,7 @@ def search(request, sector_name=None):
     encoded_querystring = ''
     ran_search = False
     faads_results_page = None
+    found_some_results = False
     
     # retrieve the sector object based on the passed name
     sector = get_sector_by_name(sector_name)
