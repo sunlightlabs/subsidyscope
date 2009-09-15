@@ -263,6 +263,11 @@ def search(request, sector_name=None):
         if form.is_valid():
             redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
             return HttpResponseRedirect(redirect_url)
+        else:
+            return HttpResponseRedirect(reverse('transportation-faads-search'))
+        
+    else:
+        return HttpResponseRedirect(reverse('transportation-faads-search'))
             
     # if this is a get w/ a querystring, unpack the form 
     if request.method == 'GET':
