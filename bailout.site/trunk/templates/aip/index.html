@@ -4,142 +4,9 @@
 {% load humanize %}
 {% block content %}
 {% js "jquery.easing.1.3.js" %}
-<style>
-#portsearch input.term {
-    width: 27%;
-    margin-left: 3px;
-}
-#portsearch label {
-    font-weight: normal;
-}
-#portsearch, #statesearch {
-    margin: 20px 0px;
-}
-#portsearch .submit, #statesearch .submit {
-    background-color: #F6F8FB;
-    border: 1px solid #899EAB;
-    font-size: .8em;
-    padding: 0 3px;
-    margin-left: 15px;
-}
-#statesearch { display: inline; }
-.searchterms, .options {
-    margin-top: 15px;
-    padding-left: 15px;
-}
-.options select {
-    font-size: .9em;
-}
-.searchterms span {
-    margin: 0 20px;
-}
-#results {
-    margin-top:20px;
-    border-top: 1px solid #EFEFEF;
-}
-ul.headers li{
-    float:left;
-    width: 15%;
-    text-align: center;
-    font-size: .9em;
-    padding: 4px;
-}
-ul.headers li.name, .portdetail ul li.name {
-    width: 30%;
-    text-align:left;
-}
-ul.headers li.money, .portdetail ul li.money, .portdetail ul li.enps, ul.headers li.enps {
-    text-align:right;
-    width: 15%;
-}
-.portdetail ul li.enps {padding-right:30px;}
-.portdetail ul li.city {text-align:left; width:11%;}
-.portdetail ul li.st, ul.headers li.st {width:5%; padding-left:6%;}
-.portdetail table {
-    margin-left:0px;
-    width: 96%;
-    clear:both;
-}
-.portdetail table td.desc {
-    width:100%;
-}
-ul.headers {
-    border: 1px solid #1D235F;
-    float:left;
-    width: 100%;
-    margin-left: 0px;
-    margin-bottom: 5px;
-}
-.portdetail{
-    float:left;
-    width: 100%;
-    padding-top: 10px;
-}
-.portdetail ul.sum {
-    border-top: 1px solid #1D235F;
-    padding-top: 15px;
-}
-.portdetail ul {
-    float:left;
-    width: 100%;
-    margin-left: 0px;
-    margin-bottom: 5px;
-}
-.portdetail ul li {
-    float: left;
-    width: 16%;
-    text-align: center;
-    padding: 0 5px;
-}
-.even {
-    background-color: #EFEFEF;
-}
-.bold {
-    font-weight: bold;
-}
-ul.portstats li {float:none; width:auto;}
-ul.portstats {border: 1px solid black; background-color:white; }
-h5.left, h5.right {font-size: 1.1em;}
-h5.left {width: 34%; float:left; }
-h5.right {width:45%; float:left;}
-.data-container {float:left; margin-left:30px; }
-.enplanement-data {width: 280px; float:left;}
-.enplanement-data table td{text-align:right;}
-</style>
-<script type="text/javascript" charset="utf-8">
-(function($){
-    $(document).ready(function(){
-        $("#results").click( function(e) {
-            var that = $(e.target);
-            if( that.parents("li").hasClass("name")){
-                if(that.is("a")) { that = that.parents("li");}
-                var port = $(that).attr("name");   
-                
-                if(that.hasClass("close")){
-                    that.removeClass("close");
-                    that.removeClass("bold");
-                    $(that).parent("ul").siblings("div.data-container").slideUp("normal", function(){$(this).remove();});
-                    return false;
-                }
-                port = port.replace(/[+]/, "%2B");
-                $.ajax({
-                    'data': "code="+port,
-                    'dataType': 'html',
-                    'url': '/projects/transportation/aip/detail',
-                    'success': function(html){
-                        $(that).closest("div.portdetail").append(html).find("div.data-container").slideDown("fast");
-                        $(that).addClass("close");
-                        $(that).addClass("bold");
-                    },
-                    'error': function(xhr, textstatus){
-                    }
-                });
-                return false;
-            } else { return false; }
-        });
-    });    
-})(jQuery);
-</script>
+{% js "aip.js" %}
+{% css "aip.css" %}
+
 <div class="container main_container">
     {% include "includes/transportation_nav.html" %}
     <span class="span-24">
@@ -149,7 +16,6 @@ h5.right {width:45%; float:left;}
         <form id="portsearch">
             <strong>Search by: </strong>
             <span class="searchterms"><label>Airport Name:</label><input class="term" type="text" name="portname" /><span><em> &mdash; or &mdash;</em></span><label>Airport Code:</label><input class="term" type="text" name="portcode" /><input type="submit" class="submit" value="Search"/></span>
-            <!--<span class="options"><label>filter by year: </label><select name="yearfilter"><option value="all">All available</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option></select>-->
         </form>
         <form id="statesearch">
             <strong>Select grant funding by state:</strong>
@@ -209,11 +75,11 @@ h5.right {width:45%; float:left;}
     <input type="submit" class="submit" value="go" />
 </span>
 </form>
-<div style="margin-top:10px;"><cite><sup>1</sup>An enplanement, as defined by the FAA, is a single, revenue-generating passenger departing from or arriving at an airport.</cite></div>
         {% if error %}
-           <span class="error"> {{error}}</span>
+           <span class="error" style="margin-left:20px;"> {{error}}</span>
         {% endif %}
  
+<div style="margin-top:10px;"><cite><sup>1</sup>An enplanement, as defined by the FAA, is a single, revenue-generating passenger departing from or arriving at an airport.</cite></div>
         {% if grants %}
         <div id="results">
             <ul class="headers">
