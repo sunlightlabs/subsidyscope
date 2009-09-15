@@ -59,11 +59,15 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         subsector_choices = map(lambda x: (x.id, ("<span class=\"img-wrapper\" id=\"img-wrapper-%s\">%s</span>" % (str(x.name).lower(), x.name))), Subsector.objects.filter(parent_sector=sector).order_by('weight', 'name'))
 
     # TODO: provide per-sector options. right now categories without transportation FAADS entries have been manually omitted    
-    action_type_options = map(lambda x: (x.id, x.name), ActionType.objects.all().order_by('code'))
+    action_type_codes = ('A', 'B', 'C')
+    action_type_options = map(lambda x: (x.id, x.name), ActionType.objects.filter(code__in=action_type_codes).order_by('code'))
 
-    assistance_type_options = map(lambda x: (x.id, x.name), AssistanceType.objects.all().order_by('code'))
+    re_assistance_type_tidier = re.compile(r'(\,.*$|\s\([a-z]\))', re.I)
+    assistance_type_codes = (3,4,5,6,7,8)
+    assistance_type_options = map(lambda x: (x.id, re_assistance_type_tidier.sub('',x.name)), AssistanceType.objects.filter(code__in=assistance_type_codes).order_by('code'))
     
-    recipient_type_options = map(lambda x: (x.id, x.name), RecipientType.objects.all().order_by('code'))  
+    recipient_type_codes = (0,1,2,4,5,6,11,12,20,21,22,23,25)
+    recipient_type_options = map(lambda x: (x.id, x.name), RecipientType.objects.filter(code__in=recipient_type_codes).order_by('code'))  
 
     tag_choices = []
     cfda_program_tags = CFDATag.objects.all().order_by('tag_name')

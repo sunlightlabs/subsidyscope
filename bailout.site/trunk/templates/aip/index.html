@@ -145,7 +145,7 @@ h5.right {width:45%; float:left;}
     <span class="span-24">
         <div id="header_area"><h3>Airport Improvement Program Grant Search</h3></div>
         <div class="content_area">
-        <p> Some information about AIP and how to use the search goes here maybe. </p>
+        <p>The Airport Improvement Program is a <a href="/projects/transportation/direct-expenditures/programs/">CFDA program</a> that administers grants to airports around the country. Use the search options below to look up grant funding and enplanement<sup>1</sup> data by state or airport.</p>
         <form id="portsearch">
             <strong>Search by: </strong>
             <span class="searchterms"><label>Airport Name:</label><input class="term" type="text" name="portname" /><span><em> &mdash; or &mdash;</em></span><label>Airport Code:</label><input class="term" type="text" name="portcode" /><input type="submit" class="submit" value="Search"/></span>
@@ -209,6 +209,7 @@ h5.right {width:45%; float:left;}
     <input type="submit" class="submit" value="go" />
 </span>
 </form>
+<div style="margin-top:10px;"><cite><sup>1</sup>An enplanement, as defined by the FAA, is a single, revenue-generating passenger departing from or arriving at an airport.</cite></div>
         {% if error %}
            <span class="error"> {{error}}</span>
         {% endif %}
