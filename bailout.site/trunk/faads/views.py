@@ -261,18 +261,20 @@ def search(request, sector_name=None):
     sector = get_sector_by_name(sector_name)
     
     # if this is a POSTback, package the request into a querystring and redirect
-    if request.method == 'POST' and request.POST.has_key('text_query'):        
-        formclass = MakeFAADSSearchFormClass(sector=sector)            
-        form = formclass(request.POST)
+    if request.method == 'POST':
+        if request.POST.has_key('text_query'):        
+            formclass = MakeFAADSSearchFormClass(sector=sector)            
+            form = formclass(request.POST)
+            
+            if form.is_valid():
+                redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
+                return HttpResponseRedirect(redirect_url)
+            else:
+                return HttpResponseRedirect(reverse('transportation-faads-search'))
         
-        if form.is_valid():
-            redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
-            return HttpResponseRedirect(redirect_url)
         else:
             return HttpResponseRedirect(reverse('transportation-faads-search'))
         
-    else:
-        return HttpResponseRedirect(reverse('transportation-faads-search'))
             
     # if this is a get w/ a querystring, unpack the form 
     if request.method == 'GET':
