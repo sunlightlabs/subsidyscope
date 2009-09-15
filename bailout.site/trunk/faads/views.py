@@ -46,7 +46,10 @@ class USDecimalHumanizedInput(forms.TextInput):
     super(USDecimalHumanizedInput, self).__init__(*args, **kwargs)
   
   def render(self, name, value, attrs=None):
-    value = intcomma(value)
+    if value != None:
+        value = intcomma(value)
+    else:
+        value = ''
     return super(USDecimalHumanizedInput, self).render(name, value, attrs)
 
 
