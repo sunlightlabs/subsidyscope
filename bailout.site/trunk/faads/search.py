@@ -6,7 +6,7 @@ from haystack.query import SearchQuerySet
 import cfda.models
 import django.db.models.fields
 from django.core.cache import cache
-from md5 import md5 
+from hashlib import md5 
 import settings
 import zlib
 import base64
@@ -22,8 +22,8 @@ basic aggregation query using db :
 
 >> from faads.search import *
 >> search = FAADSSearch()
->> search.filter(FAADSSearch.FIELD_ACTION_TYPE, 5)
->> search.aggregate(aggregate_by=FAADSSearch.FIELD_FISCAL_YEAR)
+>> search.filter('action_type', (5,6,7))
+>> search.aggregate(aggregate_by='fiscal_year')
 
 {2000: Decimal("43771085.00"),
  2001: Decimal("103478574.00"),
@@ -35,8 +35,8 @@ basic aggregation query using db :
 
 aggregation using solr:
 
->> search.filter(FAADSSearch.FIELD_TEXT, 'road')
->> search.aggregate(aggregate_by=FAADSSearch.FIELD_RECIPIENT_STATE)
+>> search.filter('all_text', 'road')
+>> search.aggregate(aggregate_by='recipient_state')
 
 {1: Decimal("-14059"),
  2: Decimal("3554590"),
@@ -328,21 +328,22 @@ class FAADSSearch():
         return query
 
         
-    def _build_mysql_query(self):
-              
-        if self.aggregate_by is None:
-            raise Exception("Must specify an aggregate field prior to MySQL query construction")
+    def _build_mysql_query(self, aggregation_override=False):
+        
+        if not aggregation_override:      
+            if self.aggregate_by is None:
+                raise Exception("Must specify an aggregate field prior to MySQL query construction")
 
-        if self.aggregate_by == FAADSSearch.FIELD_MAPPINGS['fiscal_year']:
-            # an exception to the field naming rule...
-            aggregate_field = self.aggregate_by['mysql_field']
-        else:
-            # otherwise append id to all foreign key fields to match db schema
-            aggregate_field = self.aggregate_by['mysql_field'] + '_id'
+            if self.aggregate_by == FAADSSearch.FIELD_MAPPINGS['fiscal_year']:
+                # an exception to the field naming rule...
+                aggregate_field = self.aggregate_by['mysql_field']
+            else:
+                # otherwise append id to all foreign key fields to match db schema
+                aggregate_field = self.aggregate_by['mysql_field'] + '_id'
 
         sql_parameters = [] # uses proper django.db SQL-escaping, in case we ever introduce nonnumeric database queries for some reason
         
-        sql = " SELECT %s as field, sum(federal_funding_amount) as value FROM faads_record " % aggregate_field            
+        sql = " SELECT %s as field, sum(federal_funding_amount) as value FROM faads_record " % (aggregation_override and aggregation_override or aggregate_field)
         
         if len(self.filters) > 0:
             
@@ -397,7 +398,7 @@ class FAADSSearch():
                             sql_parameters.append(range_transformation(range_specifier))
                     sql += ' ( %s ) ' % (' AND '.join(clause_parts))
 
-        sql += " GROUP BY %s " % aggregate_field
+        sql += " GROUP BY %s " % (aggregation_override and aggregation_override or aggregate_field)
 
         return (sql, sql_parameters)
         
@@ -434,7 +435,7 @@ class FAADSSearch():
                     result[key] += Decimal(str(doc['federal_amount'])) 
                 
             
-            
+        
         # handling key based aggregation with db group by/sum
         else:
             
@@ -452,6 +453,87 @@ class FAADSSearch():
         cache.set(self.get_query_cache_key(aggregate_by=aggregate_by), result)
     
         return result    
+    
+    def get_summary_statistics(self):
+        """ Generate summary statistics by-program and by-state for the specified query """
+        CACHE_KEY_STATE = 'summary_statistics_state'
+        CACHE_KEY_PROGRAM = 'summary_statistics_program'
+
+        result_state = {}
+        result_program = {}
+        
+        # check for cached result
+        if self.cache:
+            cached_result_state = cache.get(self.get_query_cache_key(aggregate_by=CACHE_KEY_STATE))
+            cached_result_program = cache.get(self.get_query_cache_key(aggregate_by=CACHE_KEY_PROGRAM))            
+            if cached_result_state is not None and cached_result_program is not None:
+                return {'program': cached_result_program, 'state': cached_result_state}
+    
+        # handling full-text aggregation with solr/python hack
+        if self.use_solr:                        
+            
+            solr = Solr(settings.HAYSTACK_SOLR_URL)
+            query = self._build_solr_query()
+            solr_result = solr.search(q=query, rows=FAADSSearch.SOLR_MAX_RECORDS, fl='federal_amount,fiscal_year,principal_place_state,cfda_program')            
+            
+            # aggregate by state/year, program/year
+            TO_PROCESS = { 'principal_place_state': result_state, 'cfda_program': result_program }
+
+            for doc in solr_result.docs:
+                if doc.has_key('federal_amount') and doc.has_key('fiscal_year'):
+                    for (key, result) in TO_PROCESS.items():                        
+                        if doc.has_key(key):
+                            if not result.has_key(doc[key]):
+                                result[doc[key]] = {}
+                            if not result[doc[key]].has_key(doc['fiscal_year']):
+                                result[doc[key]][doc['fiscal_year']] = Decimal(0)
+                            result[doc[key]][doc['fiscal_year']] += Decimal(str(doc['federal_amount']))
+                                    
+        
+        # handling key based aggregation with db group by/sum
+        else:
+            
+            from django.db import connection
+            cursor = connection.cursor()                
+            
+            sql, sql_parameters = self._build_mysql_query(aggregation_override='principal_place_state_id,cfda_program_id,fiscal_year')                                
+                        
+            cursor.execute(sql, sql_parameters)
+            
+            TO_PROCESS = { 0: result_state, 1: result_program }
+            for row in cursor.fetchall():
+                for (index, result) in TO_PROCESS.items():
+                    if not result.has_key(row[index]):
+                        result[row[index]] = {}
+                    if not result[row[index]].has_key(row[2]):
+                        result[row[index]][row[2]] = Decimal(0)
+                    result[row[index]][row[2]] += Decimal(str(row[3]))
+                                  
+    
+        cache.set(self.get_query_cache_key(aggregate_by=CACHE_KEY_STATE), result_state)
+        cache.set(self.get_query_cache_key(aggregate_by=CACHE_KEY_PROGRAM), result_program)
+
+        return {'program': result_program, 'state': result_state}
+
+    
+    def get_year_range(self):
+        """ return the range of years present in the database (useful for generating the summary statistics table) """
+        YEAR_RANGE_CACHE_KEY = 'faads.search.get_year_range'
+        
+        cached_year_range = cache.get(YEAR_RANGE_CACHE_KEY)
+        if cached_year_range is not None:
+            return cached_year_range        
+        
+        from django.db import connection
+        cursor = connection.cursor()
+        cursor.execute('SELECT MIN(fiscal_year), MAX(fiscal_year) FROM faads_record LIMIT 1')
+        for row in cursor.fetchall():
+            r = range(int(row[0]), int(row[1]))
+
+        cache.set(YEAR_RANGE_CACHE_KEY,r)
+        
+        return r
+
     
     def _run_solr_query_if_necessary(self):
         # run raw solr query

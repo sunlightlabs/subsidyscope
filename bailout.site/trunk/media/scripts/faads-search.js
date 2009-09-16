@@ -49,6 +49,9 @@ $(document).ready(function(){
 			
 		else if(ui.index == 2)
 			loadMapFlash();
+			
+		else if(ui.index==3)
+		    loadSummary();
 	
 	});
 	
