@@ -51,7 +51,7 @@
             <h5>Program Obligations</h5>
             <span id="spendingchart" style="margin-top:10px;"><!--Alternative chart pic goes here maybe?--></span>
             <p style="font-size:1em; color:gray;">
-            *{{citation}}
+            {% if citation %}*{{citation}}{% endif %}
             {% if url %}
             , available at {{url}}
             {% endif %}
