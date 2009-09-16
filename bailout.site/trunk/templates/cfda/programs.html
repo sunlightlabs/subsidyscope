@@ -16,6 +16,7 @@
             <h3><img style="margin-bottom:-6px;" src="{% media_url %}/images/sector_icons/30x40_trans_{{subsectors.0.name|lower}}.png" />{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span>
             </h3>
         </div>
+        {#
         {% if program.secondary_tags.all %}
         <span class="secondary-tags">
             Also see:
@@ -27,6 +28,7 @@
             {% endfor %}
         </span>
         {% endif %}
+        #}
         <div class="content_area inlinepara">    
             <h5>Program Summary and Objectives</h5>
             <span class="floatright inline-box">
