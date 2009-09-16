@@ -40,18 +40,16 @@
             <p>{{objectives|safe}}{% ifnotequal objectives2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{objectives2|safe}}</span>
             {% endifnotequal %}
             </p>
-            <h5>Obligations</h5>
-            <p>{{program.obligations|safe}}</p>
             <h5>Examples of Projects Funded</h5>
             <p>{{program.examples_of_funded_projects|safe}}</p>
             <h5>Program Accomplishments</h5>
             <p>{{accomps|safe}}{% ifnotequal accomps2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{accomps2|safe}}</span>
             {% endifnotequal %}
             </p>
-            <h5>Program Obligations</h5>
+            <h5>Program Obligations as Compiled by Subsidyscope</h5>
             <span id="spendingchart" style="margin-top:10px;"><!--Alternative chart pic goes here maybe?--></span>
             <p style="font-size:1em; color:gray;">
-            *{{citation}}
+            {% if citation %}*{{citation}}{% endif %}
             {% if url %}
             , available at {{url}}
             {% endif %}
