@@ -151,7 +151,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         obligation_amount_maximum = USDecimalHumanizedField(label="Obligation Amount Maximum", required=False, decimal_places=2, max_digits=12)
         
         state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
-        location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=2, coerce=int)
+        location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=1, coerce=int)
         location_choices = forms.MultipleChoiceField(label='State', choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
     
         # TODO: funding type
