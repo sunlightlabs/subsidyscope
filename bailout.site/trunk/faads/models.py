@@ -93,6 +93,16 @@ class RecordType(models.Model):
      )    
 
 
+class SearchHash(models.Model):
+    """lookup table for md5->querydict"""
+    def __unicode__(self):
+        return self.hash
+    class Meta:
+        verbose_name = 'Search Hash'    
+    search_hash = models.CharField("Hash", max_length=32, blank=False, unique=True, db_index=True)
+    querydict = models.TextField("QueryDict", blank=False)
+        
+
 
 class Record(models.Model):
     def __unicode__(self):

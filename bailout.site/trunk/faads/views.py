@@ -2,7 +2,7 @@ from django.conf import settings
 from django import forms
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.http import Http404, HttpResponseRedirect, HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from morsels.models import Page
 from tagging.models import TaggedItem, Tag
@@ -23,6 +23,7 @@ import zlib
 from base64 import urlsafe_b64encode, urlsafe_b64decode
 import urllib
 import pickle
+import hashlib
 
 def uri_b64encode(s):
    return urlsafe_b64encode(s).strip('=')
@@ -150,7 +151,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         obligation_amount_maximum = USDecimalHumanizedField(label="Obligation Amount Maximum", required=False, decimal_places=2, max_digits=12)
         
         state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
-        location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=2, coerce=int)
+        location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=1, coerce=int)
         location_choices = forms.MultipleChoiceField(label='State', choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
     
         # TODO: funding type
@@ -161,10 +162,15 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     return FAADSSearchForm
 
 def compress_querydict(obj):
-    return uri_b64encode(zlib.compress(pickle.dumps(obj)))
+    h = SearchHash()
+    h.querydict = uri_b64encode(zlib.compress(pickle.dumps(obj)))
+    h.search_hash = hashlib.md5(h.querydict).hexdigest()
+    h.save()
+    return h.search_hash
 
 def decompress_querydict(s):
-    return pickle.loads(zlib.decompress(uri_b64decode(str(s))))
+    h = get_object_or_404(SearchHash, search_hash=s)
+    return pickle.loads(zlib.decompress(uri_b64decode(str(h.querydict))))
 
 def get_sector_by_name(sector_name=None):
     if sector_name is not None:
@@ -254,7 +260,6 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         
         # handle recipient type
         if len(form.cleaned_data['recipient_type'])<len(form.fields['recipient_type'].choices):
-            print '####', form.cleaned_data['recipient_type']
             faads_search_query = faads_search_query.filter('recipient_type', form.cleaned_data['recipient_type'])
 
         # handle action type
