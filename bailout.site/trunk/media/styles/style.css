@@ -616,3 +616,5 @@ ul.bibliography li { margin-top: 0.5em; }
 
 dl.tag-list dt { margin-bottom: 0;}
 h4.line-across { border-bottom: 1px solid black;}
+
+.search-disclaimer { font-size: 0.8em; text-align: center; color: #888; margin-top: 20px;}
