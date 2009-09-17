@@ -174,8 +174,6 @@ class FedH41SnapshotCSV(CSVFile):
                '', lambda x: x * 1000000),
                ('Term Asset-Backed Securities Loan Facility', 'talf',
                '', lambda x: x * 1000000),
-               ('Term Asset-Backed Securities Loan Facility', 'talf',
-               '', lambda x: x * 1000000),
                ('Other federal reserve assets', 'other_federal_reserve_assets',
                '', lambda x: x * 1000000),
                ('Central bank liquidity swaps', 'central_bank_liquidity_swaps',
