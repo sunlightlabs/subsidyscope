@@ -28,7 +28,7 @@
             </ul></span>
             <ul id="program-listing">
                 {%for prog in programs %}
-                	<li class="tag{{prog.primary_tag.id}}" name="{% for mode in prog.subsectors.all %}mode{{ mode.id }},{% endfor %}"  {%if filter%}{%ifnotequal filter.id prog.primary_tag.id%}style="display:none;"{% endifnotequal %}{% endif %}><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{prog.program_title|lower}}</a></li>
+                	<li class="tag{{prog.primary_tag.id}}" name="{% for mode in prog.subsectors.all %}mode{{ mode.id }},{% endfor %}"  {%if filter%}{%ifnotequal filter.id prog.primary_tag.id%}style="display:none;"{% endifnotequal %}{% endif %}><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{ prog.program_title }}</a></li>
                 {% endfor %}
             </ul>
         </div>
