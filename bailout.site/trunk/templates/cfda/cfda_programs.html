@@ -13,7 +13,7 @@
             {% morsel text1 %}
             <h5>Program Listing</h5>
             <span class="programs-container"><ul style="padding-bottom:20px;" class="programs">
-                <li><strong>Filter By: </strong>&nbsp;<select class="js-select">
+                <li><strong>Filter By: </strong>&nbsp;<select class="js-select" id="tags">
                     <option value="none">Tag</option>
                     {% for t in tags %}
                         <option value="{{t.id}}" {% ifequal t.id filter.id%}selected{% endifequal %}>{{ t.tag_name }}</option>
@@ -41,9 +41,14 @@ $(document).ready(function(){
     $('select.js-select').change(function(){
         if(this.value !=='none'){
            	$("li", list).hide();
-            if(this.id == "modes"){
+            if(this.id == "modes")
+            {
+            	$("select.js-select[id='tags']").val('none');
                 $("li[name*=mode"+this.value+"]", list).show();
-            } else {
+            } 
+            else 
+            {
+            	$("select.js-select[id='modes']").val('none');
                 $(".tag"+this.value, list).show();
             }
         } else{
