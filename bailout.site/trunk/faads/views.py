@@ -162,10 +162,9 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     return FAADSSearchForm
 
 def compress_querydict(obj):
-    h = SearchHash()
-    h.querydict = uri_b64encode(zlib.compress(pickle.dumps(obj)))
-    h.search_hash = hashlib.md5(h.querydict).hexdigest()
-    h.save()
+    querydict = uri_b64encode(zlib.compress(pickle.dumps(obj)))
+    search_hash = hashlib.md5(querydict).hexdigest()
+    (h, created) = SearchHash.objects.get_or_create(search_hash=search_hash, defaults={'querydict': querydict})
     return h.search_hash
 
 def decompress_querydict(s):
