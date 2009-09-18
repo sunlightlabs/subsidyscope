@@ -621,8 +621,8 @@ h4.line-across { border-bottom: 1px solid black;}
 
 img.subsidy-per-household { margin: 40px 20px 20px 35px; }
 
-p.inline-image { width: auto; display: inline; margin-bottom:0px;}
-p.inline-image img {margin:10px;}
+p.inline-image { width: auto; display: inline; margin-bottom:5px;}
+p.inline-image img {margin:10px 10px 5px 10px;}
 p.inline-image cite {font-size: 0.9em;}
 
 .floatl{ float:left; }
