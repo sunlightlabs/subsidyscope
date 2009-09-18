@@ -38,12 +38,13 @@
             </p>
             <h5>Program Obligations<br/><span style="font-size:0.9em; font-weight: normal">(as compiled by Subsidyscope)</span></h5>
             <span id="spendingchart" style="margin-top:10px;"><!--Alternative chart pic goes here maybe?--></span>
-            <p style="font-size:1em; color:gray;">
+{%comment%}            <p style="font-size:1em; color:gray;">
             {% if citation %}*{{citation}}{% endif %}
             {% if url %}
             , available at {{url}}
             {% endif %}
             </p>
+{% endcomment %}
         </div>
 </div>
 <script type="text/javascript" charset="utf-8">
