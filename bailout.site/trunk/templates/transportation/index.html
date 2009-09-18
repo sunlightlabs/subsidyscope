@@ -6,16 +6,6 @@
 {% block content %}
 {% js "cookie.js" %}
 {% js "carouselinit.js" %}
-<!-- old from top
- <div class="span-24">
-        <div id="header_area">
-            <h3>{% morsel_page_title %}</h3>
-        </div>
-        <div class="content_area">    
-            {% morsel text1 %}
-        </div>
-</div>
--->
 
 
 <div class="container main_container">
@@ -33,7 +23,8 @@
 				<h2>Transportation Sector Updates</h2>
                 <a title="Click here for news feed" href="{%url django.contrib.syndication.views.feed "updates" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
 				</div>
-		        {% project_updates 2 %}	
+		      
+		      {% project_updates 2 %}	
             
             </div> 	<!-- ends update box-->
 		</div> <!-- ends feature left side -->		
@@ -44,7 +35,7 @@
 			<div id="intro">	
 			<img src="/media/images/sector_icons/transportation/trans_lg.png" border="0" alt="Transportation Sector" class="sector_header_icon">
 			<span class="sector_header">Transportation</span>
-			<p class="sector_intro_copy">This site provides government data and summary statistics on federal transportation subsidies. The data are presented along two primary characteristics. First, by type of assistance (direct expenditure, tax expenditure, risk transfer or contract) and, second, by the mode of transportation (aviation, rail, highway, etc.).<a href="{% url faq %}" class="intro_more">Read More »</a></p>		
+			<p class="sector_intro_copy">{% morsel text1 %}</p>		
 			</div>
 
 				<div id="sector_taxonomy_box" style="">
@@ -76,11 +67,9 @@
         <span style="float:left;padding-top:5px;"><img src="{% media_url %}/images/transportation/noncomp_fpds_spending_homepage.png" /></span>
         <span style="float:left;height:210px; width:222px;position:relative;"><a class="rtanchor hoveranchor" href="/projects/transportation/risk-transfers/"></a><img src="{% media_url %}/images/transportation/risktransfers_homepage.png" /></span>
     </span>
+        
+    {% morsel text2 %}
     
-    <cite><em>Sources of error:</em>
-		Spending estimates rely on government data which have omissions and can be inaccurate.  Overall we believe the estimates to be lower bounds due to missing data in federal data sets.  In cases where we know the omissions are significant, such as subsidy estimates for direct expenditures, we will not supply an estimate.
-		Most spending is measured in obligations  but some is only available in outlays . Thus they cannot strictly be added together.
-	</cite>
 </div>
     <span>
     <!-- <cite><sup>1</sup> A subsidy is conceptually defined as the net benefit a recipient receives from government spending intended to support an economic activity. Subsidy estimates will be presented in varying formats based on availability.  These formats include budgetary costs which may be net or gross of administrative costs, credit subsidy costs and tax expenditure revenue loss estimates. See Subsidyscope Methodology  for more.</cite><br />
