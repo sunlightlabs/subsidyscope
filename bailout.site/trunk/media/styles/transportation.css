@@ -30,7 +30,4 @@ margin:0;}
 
 #sector_taxonomy.second-tier { margin-left: 100px;}
 
-#sector_left_tax
-#sector_tax_item
-#sector_tax_icon
-
+#sources-of-error { clear: left; font-size: 0.9em; line-height: 1.15em; color: #aaa; padding-left: 25px; padding-right: 8px; text-align: justify;}
