@@ -29,6 +29,7 @@ class Subsector(models.Model):
     name = models.CharField("Name", max_length=40)
     parent_sector = models.ForeignKey(Sector)
     weight = models.IntegerField("Weight", help_text="Controls ordering of Subsectors", blank=True, default=0)
+    
         
 # fund type
 

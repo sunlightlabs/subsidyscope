@@ -4,8 +4,22 @@ from utils.msub import msub_first
 from utils.msub import msub_global
 from utils.pluralize import pluralize
 
+def glossarize_in_context(raw_output, context, sector=None):
+    
+    if context.has_key('glossarize'):
+        id_list = context['glossarize']
+    else:
+        id_list = {}
+        
+    processed_output, id_list = glossarize(raw_output, id_list, sector)
+    
+    context['glossarize'] = id_list 
+    
+    return processed_output
 
-def glossarize(plain, id_list=None):
+
+
+def glossarize(plain, id_list=None, sector=None):
     """
     Converts a string into a hyperlinked string.
 
@@ -21,7 +35,12 @@ def glossarize(plain, id_list=None):
     base_url = reverse("glossary")
 
     # Do initial sort
-    items = Item.objects.order_by('-term_length')
+    if sector:
+        items = Item.objects.filter(sectors=sector)
+    else:
+        items = Item.objects.all()
+            
+
 
     def link(item):
         # Note that the asterisk (*) has special meaning for msub_first and
@@ -29,7 +48,8 @@ def glossarize(plain, id_list=None):
         return """<a href="%s#%s">*</a>""" % (base_url, item.slug)
 
     mapping = []
-    for item in items:
+    for item in items.order_by('-term_length'):
+        
         hyperlink = link(item)
         variations = []
         

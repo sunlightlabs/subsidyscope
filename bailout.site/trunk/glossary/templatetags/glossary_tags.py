@@ -24,18 +24,10 @@ class GlossarizeNode(template.Node):
         
     def render(self, context):
         
-        if context.has_key('glossarize'):
-            id_list = context['glossarize']
-        else:
-            id_list = {}
-            
         raw_output = self.nodelist.render(context)
-        processed_output, id_list = glossary.helpers.glossarize(raw_output, id_list)
         
-        context['glossarize'] = id_list 
+        glossary.helpers.glossarize_in_context(raw_output, context)
         
-        return processed_output
-
 
 
 @register.simple_tag
