@@ -86,7 +86,8 @@
 #tabs ul, #tabs ul li { margin-left: 0;}
 #tabs ul li { font-size: 0.8em;}
 
-.faads-search-submit { font-size: 1.5em; float: right; margin-right: 15px;}
+.faads-search-submit, #reset-faads-search { font-size: 1.5em; float: right; margin-right: 15px;}
+#reset-faads-search { float: left; margin-left: 15px;}
 #faads-search-submit-top { float: right; margin-top: 0;}
 
 #faads-search-form ul, #faads-search-form ul li { margin-left: 0;, font-size: 100%;} 
