@@ -21,7 +21,7 @@ margin:0;}
 #sector_taxonomy_box img { padding-right:5px;}
 
 #sector_taxonomy ul {  padding:0; margin:0;}
-#sector_taxonomy li { float:left; margin:0 0 20px 0; padding:0 0 0 40px; width:100px; font-size:16px; color:#2b5b8e;}
+#sector_taxonomy li { float:left; margin:0 0 20px 0; padding:0 0 0 40px; width:110px; font-size:16px; color:#2b5b8e;}
 #sector_taxonomy a:link { color:#1a4760; text-decoration:none;}
 #sector_taxonomy a:visited { color:#435c7a; text-decoration:none;}
 #sector_taxonomy a:hover { color:#bf5004; text-decoration:none;}
