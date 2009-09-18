@@ -1,40 +1,27 @@
-<link rel="stylesheet" type="text/css" media="screen" href="/media/styles/superfish.css" />
-<script type="text/javascript" src="/media/scripts/hoverIntent.js"></script>
-<script type="text/javascript" src="/media/scripts/superfish.js"></script>
+{% extends "includes/generic_nav.html" %}
 
-<script type="text/javascript">  
-    $(document).ready(function(){ 
-        $("ul.sf-menu").superfish(); 
-    }); 
-</script>
+{% block transportation_active %}active_top{% endblock %}
 
-<div class="span-24">	
-	<div id="navbar">
-		<ul id="navbar_items">
-			<li><a href="/">Home</a></li>
-			<li class="inactive_top"><a href="/projects/bailout/">Financial Bailout</a></li>
-                        <li class="active_top"><a href="/projects/transportation/">Transportation</a></li>
-			<li class="inactive_top"><a href="/faq/#future-sectors">Future Sectors</a></li>
-		</ul>							
-	</div>
+{% block subnav %}
+
 	<div id="sector_subnav">
 	<ul class="sf-menu">
             <li>
-                    <a class="sf-with-ul" href="{% url transportation-direct-expenditures %}">Direct Expenditures</a>
-                    <ul>
-                      <li><a href="{% url transportation-cfdaprograms-index %}">Direct Expenditures Program Directory (CFDA)</a></li>
-                    	<li><a href="{% url transportation-faads-search %}">Search Direct Expenditures</a></li>
+                <a class="sf-with-ul" href="{% url transportation-direct-expenditures %}">Direct Expenditures</a>
+                <ul>
+                  <li><a href="{% url transportation-cfdaprograms-index %}">Direct Expenditures Program Directory (CFDA)</a></li>
+                	<li><a href="{% url transportation-faads-search %}">Search Direct Expenditures</a></li>
 {#                        <li><a href="{% url aip-index %}">Airport Improvement Program (AIP) Grant Search</a></li>#}
-                
-                    </ul>
+            
+                </ul>
             </li>
             <li>
                     <a class="sf-with-ul" href="{% url transportation-tax-expenditures %}">Tax Expenditures</a>
                     <ul>
                       <li><a href="{% url transportation-tax-expenditures-employer-paid-benefits %}">Employer-paid Transportation Benefits</a></li>
-                      <li><a href="{% url transportation-tax-expenditures-track-maintenance %}">Railroad Track Maintenance</a></li>
-                      <li><a href="{% url transportation-tax-expenditures-bond-interest-exclusion %}">State and Local Government Bonds for Highway Projects and Rail-Truck Transfer Facilities</a></li>
-                      <li><a href="{% url transportation-tax-expenditures-capital-construction-funds %}">Capital Construction Funds of Shipping Companies</a></li>
+                      <li><a href="{% url transportation-tax-expenditures-track-maintenance %}">Tax Credit for Certain Expenditures for Maintaining Tracks</a></li>
+                      <li><a href="{% url transportation-tax-expenditures-bond-interest-exclusion %}">Exclusion of Interest on Bonds for Financing of Highway Project and Rail-Truck Transfer Facilities</a></li>
+                      <li><a href="{% url transportation-tax-expenditures-capital-construction-funds %}">Deferral of Tax on Shipping Companies</a></li>
                     </ul>
             </li>
             <li>
@@ -49,21 +36,18 @@
                     <a class="sf-with-ul" href="{% url transportation-contracts %}">Contracts</a>
             </li>
             <li>
-                    <a class="sf-with-ul" href="{% url transportation-backgrounders %}">Modes</a>
+                    <a class="sf-with-ul" href="{% url transportation-overview %}">Overview</a>
                     <ul>
-          						<li><a href="{% url transportation-backgrounders %}">All Modes</a></li>
-          						<li><a href="{% url transportation-aviation %}">Aviation</a></li>
-          						<li><a href="{% url transportation-highways %}">Highways</a></li>
-                      <li><a href="{% url transportation-maritime %}">Maritime</a></li>
-                      <li><a href="{% url transportation-rail %}">Rail</a></li>
-                      <li><a href="{% url transportation-transit %}">Transit</a></li>
-                      {# <li><a href="{% url transportation-general %}">Other</a></li> #}
+          				  <li><a href="{% url transportation-aviation %}">Aviation</a></li>
+	  					  <li><a href="{% url transportation-highways %}">Highways</a></li>
+		                  <li><a href="{% url transportation-maritime %}">Maritime</a></li>
+		                  <li><a href="{% url transportation-rail %}">Rail</a></li>
+		                  <li><a href="{% url transportation-transit %}">Transit</a></li>
+		                  {# <li><a href="{% url transportation-general %}">Other</a></li> #}
 
                     </ul>
             </li>
-            <li>
-                    <a class="sf-with-ul" href="{%url bailoutpdf_index  %}">Documents</a>
-            </li>
         </ul>
     </div>
-</div>
+
+{% endblock %}
