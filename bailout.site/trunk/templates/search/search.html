@@ -39,7 +39,7 @@
 						{% endfor %}
 						
 						
-						<strong><a href="{% url transportation-cfda-programpage page.object.id  %}">{{ page.object.program_number }}{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
+						<strong><a href="{% url transportation-cfda-programpage page.object.id  %}">{{ page.object.program_number }} &mdash; {{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
 					
 					{% else %}
 						<div style="float: right; text-transform:uppercase; color: #999; height: 15px;">
