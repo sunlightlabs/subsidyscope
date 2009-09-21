@@ -619,12 +619,12 @@ h4.line-across { border-bottom: 1px solid black;}
 
 .search-disclaimer { font-size: 0.8em; text-align: center; color: #888; margin-top: 20px;}
 
-img.subsidy-per-household { margin: 40px 20px 20px 35px; }
-
-p.inline-image { width: auto; display: inline; margin-bottom:5px;}
-p.inline-image img {margin:10px 10px 5px 10px;}
+p.inline-image { width: auto; display: inline; margin: 10px 10px 5px 10px;}
+p.inline-image img {margin-bottom: 5px;}
 p.inline-image cite {font-size: 0.9em;}
 
-.floatl{ float:left; }
-.floatr{ float:right; }
+p#previous-updates { padding-left: 10px; margin-top: 10px;}
 
+.floatl{ float:left;margin-right:15px; }
+.floatr{ float:right; margin-left:15px;}
+.tooling { border: 1px solid #c7c7c7; }

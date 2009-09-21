@@ -171,7 +171,14 @@
             
             
           </fieldset>
-            
+          
+          {% if ran_search %}
+            <input type="button" id="reset-faads-search" value="Reset Search" />
+            <script type="text/javascript" charset="utf-8">
+            $(function(){ $('#reset-faads-search').click(function(){ window.location.href='{% url transportation-faads-search %}';})});
+            </script>
+          {% endif %}
+          
 					<input type="submit" value="Search" class="faads-search-submit" />
           <div class="clear-right"></div>
           

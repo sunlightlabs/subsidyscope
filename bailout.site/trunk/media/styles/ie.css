@@ -28,7 +28,7 @@ a abbr, a acronym { text-decoration: underline; } /* IE 7 bug */
 #header_area h3 {
     background: url(/media/images/double_lines.gif) center bottom repeat-x;
 }
-
+.content_area p.inline-image {padding-right:0px !important;}
 #faads-search-form .section#programs { position: relative; top: -1em;}
 #faads-search-form fieldset legend#advanced-options { float: left;}
 

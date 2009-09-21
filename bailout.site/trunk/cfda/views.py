@@ -132,8 +132,8 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
     maximum = maximum + (mod-(maximum % mod))
     
     json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
-    json["x_legend"] = {"text": "Years", "style": "{font-size:12px;}"}
-    json["y_legend"] = {"text": "US Dollars($)", "style": "{font-size: 12px;}"}
+    json["x_legend"] = {"text": "Fiscal Year", "style": "{font-size:12px;}"}
+    json["y_legend"] = {"text": "", "style": "{font-size: 12px;}"}
     
     return dumps(json) 
 
