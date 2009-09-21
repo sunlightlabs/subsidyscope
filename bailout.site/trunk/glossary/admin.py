@@ -8,5 +8,11 @@ class ItemAdmin(admin.ModelAdmin):
                 'fields': ('term', 'acronym', 'slug', 'synonym', 'definition', 'sectors')
             }),
         )
+    
+    def save_model(self, request, obj, form, change):
+         self.update_term_length()
+         self.autogenerate_slug_if_blank()
+         obj.save()
+
 
 admin.site.register(Item, ItemAdmin)
