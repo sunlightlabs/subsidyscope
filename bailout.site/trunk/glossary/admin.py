@@ -10,8 +10,8 @@ class ItemAdmin(admin.ModelAdmin):
         )
     
     def save_model(self, request, obj, form, change):
-         self.update_term_length()
-         self.autogenerate_slug_if_blank()
+         obj.update_term_length()
+         obj.autogenerate_slug_if_blank()
          obj.save()
 
 
