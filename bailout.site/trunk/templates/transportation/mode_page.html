@@ -18,16 +18,16 @@
         <div class="content_area">    
           
           	<div style="float:right; width: 300px;">
-          	  {% glossarize %}
+          	  
           	  {% project_updates_subsector_sidebar subsector %}
           	
-	          {% morsel sidebar1 as sidebar %}
+	          {% morsel sidebar1 as sidebar glossarize %}
 	          {% if sidebar.content %}
 	        		<div class="section-floating-nav subsector-sidebar">          		    
 	    		    	{% morsel sidebar1 %}
 	      			</div>
 	    	  {% endif %}
-		    {% endglossarize %}
+		    
           	  
           	</div>
           
