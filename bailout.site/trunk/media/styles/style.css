@@ -625,6 +625,6 @@ p.inline-image cite {font-size: 0.9em;}
 
 p#previous-updates { padding-left: 10px; margin-top: 10px;}
 
-.floatl{ float:left;margin-right:15px; }
-.floatr{ float:right; margin-left:15px;}
+.floatl{ float:left;margin-right:15px; margin-bottom: 12px;}
+.floatr{ float:right; margin-left:15px; margin-bottom: 12px;}
 .tooling { border: 1px solid #c7c7c7; }
