@@ -32,7 +32,7 @@ urlpatterns = patterns('',
     url(r'^mailinglist-subscribe/', direct_to_template, {'template': 'misc/email_signup_nojavascript.html'}, name="email_signup_nojavascript"),
     url(r'^mailinglist/', include('spammer.urls')),
     url(r'^documents/', include('bailout_pdfs.urls')), 
-	url(r'^projects/bailout/glossary/', include('glossary.urls')),
+	url(r'^glossary/', include('glossary.urls')),
     url(r'^subsidysort/', include('subsidysort.urls')),
     url(r'^budget_capture/', include('budget_capture.urls')),
 )
