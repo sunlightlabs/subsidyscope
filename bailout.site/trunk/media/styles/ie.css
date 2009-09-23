@@ -34,3 +34,6 @@ a abbr, a acronym { text-decoration: underline; } /* IE 7 bug */
 
 td.description {word-wrap: break-word; width: 255px;}
 .faads-search-submit, #reset-faads-search { padding: 2px 5px !important; }
+
+#tagsubselect {margin-left:380px;}
+#modesubselect { margin-left: 70px; }
