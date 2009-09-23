@@ -500,6 +500,7 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 	border-bottom:1px solid #C7C7C7;
 	border-top:1px solid #C7C7C7;
 	padding: 0 10px;
+	margin: 0 0 15px 0;
 }
 
 #data-page .data-section .section-description {
@@ -507,8 +508,9 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 	color:#666666;
 	font-size:12px;
 	font-weight:normal;
-	line-height:1.1em;
+	line-height:1.2em;
 	padding:5px 0;
+	margin-bottom: 15px;
 }
 #data-page .data-section h4 { margin-bottom: 0; }
 #data-page .data-section a.section-title { color: #003366; text-transform: uppercase; text-decoration: none; font-size: 1.1em;}
@@ -625,6 +627,6 @@ p.inline-image cite {font-size: 0.9em;}
 
 p#previous-updates { padding-left: 10px; margin-top: 10px;}
 
-.floatl{ float:left;margin-right:15px; }
-.floatr{ float:right; margin-left:15px;}
+.floatl{ float:left;margin-right:15px; margin-bottom: 12px;}
+.floatr{ float:right; margin-left:15px; margin-bottom: 12px;}
 .tooling { border: 1px solid #c7c7c7; }

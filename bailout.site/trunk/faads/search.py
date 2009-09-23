@@ -323,7 +323,7 @@ class FAADSSearch():
 
             # text queries (all of which get sent to solr)
             elif FAADSSearch.FIELD_MAPPINGS[filter_field]['type']=='text':
-                query += '(%s:%s)' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_field'], filter_value)
+                query += '(%s:"%s")' % (FAADSSearch.FIELD_MAPPINGS[filter_field]['solr_field'], filter_value)
 
         return query
 
