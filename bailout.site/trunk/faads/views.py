@@ -323,6 +323,9 @@ def search(request, sector_name=None):
     faads_results_page = None
     found_some_results = False
     
+    sort_column = 'obligation_date'
+    sort_order = 'asc'
+    
     # retrieve the sector object based on the passed name
     sector = get_sector_by_name(sector_name)
     
@@ -345,15 +348,58 @@ def search(request, sector_name=None):
     if request.method == 'GET':
         if request.GET.has_key('q'):
             
-      
+            order_by = '-obligation_date'
+        
+            if request.GET.has_key('s'):
+                
+                if request.GET.has_key('o'):
+            
+                    if request.GET['o'] == 'desc':
+                        order_by = '-'
+                        sort_order = 'desc'
+                    elif request.GET['o'] == 'asc':
+                        order_by = ''
+                        sort_order = 'asc'
+                
+                else:
+                    
+                    sort_order = 'desc'
+                    order_by = '-'
+                    
+                
+                if request.GET['s'] == 'obligation_date':
+                    
+                    order_by += 'obligation_date'
+                    sort_column = 'obligation_date'
+                    
+                elif request.GET['s'] == 'cfda_program':
+                    
+                    order_by += 'cfda_program'
+                    sort_column = 'cfda_program'
+                    
+                elif request.GET['s'] == 'recipient':
+                    
+                    order_by += 'recipient'
+                    sort_column = 'recipient'
+                    
+                elif request.GET['s'] == 'amount':
+                    
+                    order_by += 'federal_amount'
+                    sort_column = 'amount'
+                    
+                else:
+                    
+                    order_by = '-obligation_date'
+                    
+                    sort_column = 'obligation_date'
+                    sort_order = 'desc'
                     
                     
             (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
             
             
-                      
-            faads_results = faads_search_query.get_haystack_queryset()
-             
+            faads_results = faads_search_query.get_haystack_queryset(order_by)
+            
                 
             paginator = Paginator(faads_results, RESULTS_PER_PAGE)
 
@@ -395,7 +441,7 @@ def search(request, sector_name=None):
             formclass = MakeFAADSSearchFormClass(sector=sector, subsectors=subsectors)
             form = formclass()
         
-    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query}, context_instance=RequestContext(request))
+    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order}, context_instance=RequestContext(request))
 
 
 
