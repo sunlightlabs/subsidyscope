@@ -54,6 +54,7 @@ class USDecimalHumanizedInput(forms.TextInput):
     return super(USDecimalHumanizedInput, self).render(name, value, attrs)
 
 
+
 class USDecimalHumanizedField(forms.DecimalField):
   """
   Use this as a drop-in replacement for forms.DecimalField()
@@ -161,15 +162,21 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     
     return FAADSSearchForm
 
+
+
 def compress_querydict(obj):
     querydict = uri_b64encode(zlib.compress(pickle.dumps(obj)))
     search_hash = hashlib.md5(querydict).hexdigest()
     (h, created) = SearchHash.objects.get_or_create(search_hash=search_hash, defaults={'querydict': querydict})
     return h.search_hash
 
+
+
 def decompress_querydict(s):
     h = get_object_or_404(SearchHash, search_hash=s)
     return pickle.loads(zlib.decompress(uri_b64decode(str(h.querydict))))
+
+
 
 def get_sector_by_name(sector_name=None):
     if sector_name is not None:
@@ -179,6 +186,8 @@ def get_sector_by_name(sector_name=None):
         else:
             sector = None
     return sector
+
+
 
 def get_excluded_subsidy_program_ids(sector=None):
     excluded_program_ids = []
@@ -197,6 +206,8 @@ def get_excluded_subsidy_program_ids(sector=None):
         
     return list(excluded_program_ids)
 
+
+
 def get_included_subsidy_program_ids(sector=None):
     excluded_program_ids = set(get_excluded_subsidy_program_ids(sector))
     programs = ProgramDescription.objects.all()
@@ -204,6 +215,8 @@ def get_included_subsidy_program_ids(sector=None):
         programs = ProgramDescription.objects.filter(sectors=sector)
     programs_in_sector_ids = set(map(lambda x: x.id, programs))
     return list(programs_in_sector_ids - excluded_program_ids)
+       
+       
         
 def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed_string):
     """ Returns a form object and a FAADSSearch object that have been constructed from a search key (a compressed POST querydict) """
@@ -299,6 +312,7 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         raise(Exception("Data in querydict did not pass form validation"))
 
 
+
 def search(request, sector_name=None):
     
     # default values, for safety's sake
@@ -308,6 +322,9 @@ def search(request, sector_name=None):
     ran_search = False
     faads_results_page = None
     found_some_results = False
+    
+    sort_column = 'obligation_date'
+    sort_order = 'asc'
     
     # retrieve the sector object based on the passed name
     sector = get_sector_by_name(sector_name)
@@ -330,9 +347,60 @@ def search(request, sector_name=None):
     # if this is a get w/ a querystring, unpack the form 
     if request.method == 'GET':
         if request.GET.has_key('q'):
+            
+            order_by = '-obligation_date'
+        
+            if request.GET.has_key('s'):
+                
+                if request.GET.has_key('o'):
+            
+                    if request.GET['o'] == 'desc':
+                        order_by = '-'
+                        sort_order = 'desc'
+                    elif request.GET['o'] == 'asc':
+                        order_by = ''
+                        sort_order = 'asc'
+                
+                else:
+                    
+                    sort_order = 'desc'
+                    order_by = '-'
+                    
+                
+                if request.GET['s'] == 'obligation_date':
+                    
+                    order_by += 'obligation_date'
+                    sort_column = 'obligation_date'
+                    
+                elif request.GET['s'] == 'cfda_program':
+                    
+                    order_by += 'cfda_program'
+                    sort_column = 'cfda_program'
+                    
+                elif request.GET['s'] == 'recipient':
+                    
+                    order_by += 'recipient'
+                    sort_column = 'recipient'
+                    
+                elif request.GET['s'] == 'amount':
+                    
+                    order_by += 'federal_amount'
+                    sort_column = 'amount'
+                    
+                else:
+                    
+                    order_by = '-obligation_date'
+                    
+                    sort_column = 'obligation_date'
+                    sort_order = 'desc'
+                    
                     
             (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
-            faads_results = faads_search_query.get_haystack_queryset()          
+            
+            
+            faads_results = faads_search_query.get_haystack_queryset(order_by)
+            
+                
             paginator = Paginator(faads_results, RESULTS_PER_PAGE)
 
             try:
@@ -373,7 +441,9 @@ def search(request, sector_name=None):
             formclass = MakeFAADSSearchFormClass(sector=sector, subsectors=subsectors)
             form = formclass()
         
-    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query}, context_instance=RequestContext(request))
+    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order}, context_instance=RequestContext(request))
+
+
 
 def annual_chart_data(request, sector_name=None):
 
@@ -384,12 +454,20 @@ def annual_chart_data(request, sector_name=None):
             (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
                    
             faads_results = faads_search_query.aggregate('fiscal_year')
+            
+            positive_results = {}
+            
+            for year in faads_results:
+                if faads_results[year] > 0:
+                    positive_results[year] = faads_results[year]
     
-            chart_json = buildChart(faads_results)
+            chart_json = buildChart(positive_results)
             
             return HttpResponse(chart_json, mimetype="text/plain")
 
     return Http404()
+
+
 
 def summary_statistics(request, sector_name=None):
     # need to translate the state_id back to FIPS codes for the map and normalize by population 
@@ -466,7 +544,8 @@ def map_data(request, sector_name=None):
             per_capita_totals = {}
             
             for state_id in faads_results:
-                if states.has_key(state_id) and states[state_id].population:
+                if states.has_key(state_id) and states[state_id].population and faads_results[state_id] > 0:
+                    
                     per_capita_totals[state_id] =  faads_results[state_id] / states[state_id].population
                     
                     if per_capita_totals[state_id] > max_per_capital_total:
@@ -502,4 +581,5 @@ def map_data(request, sector_name=None):
             return HttpResponse('\n'.join(results), mimetype="text/plain")
                 
     return Http404()
+
 

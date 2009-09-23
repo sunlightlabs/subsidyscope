@@ -61,6 +61,34 @@
 #faads-search-results th, #faads-search-results td { border-right: 0;}
 #faads-search-results .last { border-right: 1px solid #ccc;}
 #faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
+
+
+#faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
+
+#faads-search-results thead tr .header {
+	background-image: url(/media/images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+#faads-search-results thead tr .headerAsc {
+	background-image: url(/media/images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+	background-image: url(/media/images/asc.gif);
+}
+
+#faads-search-results thead tr .headerDesc {
+	background-image: url(/media/images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+	background-image: url(/media/images/desc.gif);
+}
+
+
 #faads-search-results td { font-size: 0.9em;}
 #faads-search-results tr.odd td { background-color: #f0f0f0;}
 #faads-search-results td.amount { text-align: right;}
