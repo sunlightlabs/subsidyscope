@@ -17,12 +17,20 @@
 	{% js "ui.datepicker.js" %}
 	
 	{% js "swfobject.js" %}
-	{% js "faads-search.js?version=2" %}
+	{% js "faads-search.js?version=3" %}
 	
 
 <!-- if JS is enabled, assume that the tabs will work and hide the other divs -->
 <script language="javascript" type="text/javascript">  		
 	document.write('<style type="text/css">.program-selection-target { display: none; }</style>');
+</script>
+
+
+<script>
+
+var sortColumn = '{{ sort_column }}';
+var sortOrder = '{{ sort_order }}'; 
+
 </script>
 	
 {% endblock %}
@@ -203,13 +211,13 @@
 				      <table id="faads-search-results">
 				        <thead>
 				          <tr>
-				            <th class="obligation-date">Obligation Date</th>
-				            <th class="cfda-program">CFDA Program</th>
-				            <th class="recipient-name">Recipient Name</th>
-				            <th class="recipient-location">Recipient Location</th>
-				            <th class="place-of-performance">Place of Performance</th>
-				            <th class="description">Description</th>
-                    <th class="amount last">Amount</th>                    
+				            <th id="obligation_date" class="obligation-date">Obligation Date</th>
+				            <th id="cfda_program" class="cfda-program">CFDA Program</th>
+				            <th id="recipient" class="recipient-name">Recipient Name</th>
+				            <th id="recipient_location" class="recipient-location">Recipient Location</th>
+				            <th id="place_of_performance" class="place-of-performance">Place of Performance</th>
+				            <th id="description" class="description">Description</th>
+                    		<th id="amount" class="amount">Amount</th>                    
 				          </tr>
 				        </thead>
 
@@ -228,10 +236,11 @@
                 </tbody>
               </table>
 
+
               <div class="pagination">
                   <span class="step-links">
                       {% if faads_results.has_previous %}
-                          <a href="?q={{ query|safe }}&page={{ faads_results.previous_page_number }}">&laquo; previous</a>
+                          <a href="?q={{ query|safe }}&page={{ faads_results.previous_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&laquo; previous</a>
                       {% endif %}
 
                       <span class="current">
@@ -239,7 +248,7 @@
                       </span>
 
                       {% if faads_results.has_next %}
-                          <a href="?q={{ query|safe }}&page={{ faads_results.next_page_number }}">next &raquo;</a>
+                          <a href="?q={{ query|safe }}&page={{ faads_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &raquo;</a>
                       {% endif %}
                   </span>
               </div>
@@ -315,12 +324,12 @@
                  <div id="summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
                  
                  <script type="text/javascript" charset="utf-8">
-                 function loadSummary()
-                 {
-                   $.get('{% url transportation-faads-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
-                     $('#summary-container').html(data);
-                   });
-                 }
+	                 function loadSummary()
+	                 {
+	                   $.get('{% url transportation-faads-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
+	                     $('#summary-container').html(data);
+	                   });
+	                 }
                  </script>
               </div>
 
@@ -330,5 +339,12 @@
 				
         </div>
 </div>
+
+<form method="GET" action="" id="sortForm">
+	<input name="q" value="{{ query|safe }}" type="hidden"/>
+	<input id="sortField" name="s" value="" type="hidden"/>
+	<input id="sortOrder" name="o" value="" type="hidden"/>
+	<input id="sortPage" name="page" value="{{ faads_results.number }}" type="hidden"/>
+</form>
 
 {% endblock %}

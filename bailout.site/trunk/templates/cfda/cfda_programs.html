@@ -4,7 +4,6 @@
 {% load morsel_tags %}
 {% block content %}
 {% load webdesign %}
-
 <div class="container main_container">
     {% include navname %}
     <div class="span-24">
@@ -12,8 +11,10 @@
         <div class="content_area">
             {% morsel text1 %}
             <h5>Program Listing</h5>
-            <span class="programs-container"><ul style="padding-bottom:20px;" class="programs">
-                <li><strong>Filter By: </strong>&nbsp;<select class="js-select" id="tags">
+            <span class="programs-container">
+            <ul class="programs">
+                <li style="margin-left:0px;"><strong>Filter By: </strong></li>
+                <li><select class="js-select" id="tags">
                     <option value="none">Tag</option>
                     {% for t in tags %}
                         <option value="{{t.id}}" {% ifequal t.id filter.id%}selected{% endifequal %}>{{ t.tag_name }}</option>
@@ -25,10 +26,26 @@
                         <option value="{{s.id}}">{{s.name}}</option>
                     {% endfor %}
                 </select></li>
-            </ul></span>
+            </ul>
+            <ul class="subselect">
+                <li style="display:none;" id="modesubselect">Filter by mode: <select><option value="all">All</option> 
+                    {% for s in subsectors %}
+                        <option value="{{s.id}}">{{s.name}}</option>
+                    {% endfor %}
+                    </select>
+                </li>
+                <li style="display:none;" id="tagsubselect">Filter by tag:
+                    <select>
+                    <option value="all">All</option>
+                    {% for t in tags %}
+                        <option value="{{t.id}}" {% ifequal t.id filter.id%}selected{% endifequal %}>{{ t.tag_name }}</option>
+                    {% endfor %}
+                </select></li>
+            </ul>
+            </span>
             <ul id="program-listing">
                 {%for prog in programs %}
-                	<li class="tag{{prog.primary_tag.id}}" name="{% for mode in prog.subsectors.all %}mode{{ mode.id }},{% endfor %}"  {%if filter%}{%ifnotequal filter.id prog.primary_tag.id%}style="display:none;"{% endifnotequal %}{% endif %}><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{ prog.program_title }}</a></li>
+                	<li class="tag{{prog.primary_tag.id}}" name="{% for mode in prog.subsectors.all %}mode{{ mode.id }}{% endfor %}"  {%if filter%}{%ifnotequal filter.id prog.primary_tag.id%}style="display:none;"{% endifnotequal %}{% endif %}><a href="/projects/transportation/direct-expenditures/programs/{{prog.id}}/{{prog.program_title|slugify}}">{{prog.program_number}}.&nbsp;&nbsp;{{ prog.program_title }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -36,25 +53,79 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
+var programs = [];
 $(document).ready(function(){
     var list = $("#program-listing");
-    $('select.js-select').change(function(){
+    var listitems = $("li", list);
+    var tag, mode, that;
+//    var programs = [];
+    $('select.js-select').change(function(event){
         if(this.value !=='none'){
-           	$("li", list).hide();
             if(this.id == "modes")
             {
-            	$("select.js-select[id='tags']").val('none');
-                $("li[name*=mode"+this.value+"]", list).show();
+                mode = this.value;
+                that = this;
+                programs = [];
+                $("#tagsubselect").show().find("select").val('all').trigger('change');
+                $("#modesubselect").hide();
+            	$("#tags").val('none');
+                //programs = $("li[name=mode"+this.value+"]", list);
+                $(listitems).each(function(){
+                    if($(this).attr('name')=="mode"+mode){ 
+                        $(this).show();
+                        programs.push(this);
+                    }
+                    else { $(this).hide(); }
+                });
+                
             } 
             else 
             {
-            	$("select.js-select[id='modes']").val('none');
-                $(".tag"+this.value, list).show();
+                tag = this.value;
+                that = this;
+                programs = [];
+                $("#tagsubselect").hide();
+                $("#modesubselect").show().find('select').val('all').trigger('change');
+            	$("#modes").val('none');
+                //programs = $(".tag"+this.value, list);
+                $(listitems).each(function(){
+                    if($(this).hasClass('tag'+tag)){ 
+                        $(this).show();
+                        programs.push(this);
+                    }
+                    else { $(this).hide(); }
+                });
             }
+        
         } else{
-            $("li", list).show();
+            programs = $("li", list);
+            $(programs).show();
         }
-    });     
+    });  
+    $('select', $("#tagsubselect")).change(function(){
+        var that = this.value;
+        $(programs).show();
+        if(that == 'all'){ return; }
+        else { 
+            $("li:visible", list).each(function(){
+                if($(this).hasClass("tag"+that)==false) {
+                    $(this).hide();
+                }
+            });
+        }
+    });   
+    $('select', $("#modesubselect")).change(function(){
+        var that = this.value;
+        $(programs).show();
+        if(that == 'all') { return; } 
+        else {   
+            $("li:visible", list).each(function(){
+                if($(this).attr("name") != "mode"+that) {
+                    $(this).hide();
+                }
+            });
+        }
+    });   
 });
 </script>
 
