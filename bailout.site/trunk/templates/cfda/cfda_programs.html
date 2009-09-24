@@ -13,7 +13,8 @@
             <h5>Program Listing</h5>
             <span class="programs-container">
             <ul class="programs">
-                <li><strong>Filter By: </strong>&nbsp;<select class="js-select" id="tags">
+                <li style="margin-left:0px;"><strong>Filter By: </strong></li>
+                <li><select class="js-select" id="tags">
                     <option value="none">Tag</option>
                     {% for t in tags %}
                         <option value="{{t.id}}" {% ifequal t.id filter.id%}selected{% endifequal %}>{{ t.tag_name }}</option>
