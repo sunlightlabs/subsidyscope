@@ -205,7 +205,8 @@ ul.programs {border: none;}
 ul.programs li {margin-left: 50px;}
 ul.subselect {margin-top:0px; margin-left:0px;}
 #modes { width: 250px;}
-#modesubselect {margin-left:170px; font-size:90%;}
+#tags {width: 217px; }
+#modesubselect {margin-left:155px; font-size:90%; }
 #tagsubselect {margin-left: 485px;font-size: 90%;}
 
 /* FOOTER */
