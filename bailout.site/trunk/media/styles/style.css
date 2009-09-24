@@ -200,6 +200,14 @@ span.programs-container{
     margin-top:10px;
     text-transform: capitalize;
 }
+.programs-container {border-bottom: 1px solid #afafaf; margin-bottom:20px;}
+ul.programs {border: none;}
+ul.programs li {margin-left: 50px;}
+ul.subselect {margin-top:0px; margin-left:0px;}
+#modes { width: 250px;}
+#modesubselect {margin-left:150px; font-size:90%;}
+#tagsubselect {margin-left: 467px;font-size: 90%;}
+
 /* FOOTER */
 .footer_container { padding-top:20px; background-repeat:repeat-x; padding:20px 0 20px 0; border-top:1px solid #c6c6c6; }
 
