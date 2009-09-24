@@ -619,8 +619,8 @@ ul.press-releases li
 #mode-page-other #header_area h3 { padding-left: 40px; background: url(/media/images/sector_icons/30x40_trans_other.png) 0px -5px no-repeat;}
 
 /* footnotes */
-ol.footnotes { font-size: 0.8em; }
-ol.footnotes li { margin-bottom: 0.5em;}
+ol.footnotes { font-size: 0.9em; }
+ol.footnotes li { margin-bottom: 0.8em; line-height: 1.3em;}
 
 ul.bibliography, ul.bibliography li { list-style-type: disc; }
 ul.bibliography li { margin-top: 0.5em; }
