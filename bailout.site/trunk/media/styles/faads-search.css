@@ -180,6 +180,7 @@ table.summary-data tr.top td { text-align: left; border-bottom: 0; border-right:
 table.summary-data tr.bottom td { padding-top: 0;}
 table.summary-data td a:link, table.summary-data td a:active, table.summary-data td a:visited { text-decoration: none;}
 table.summary-data td a:hover { text-decoration: underline; }
+table.summary-data td.first { text-align: left;}
 table.summary-data .last { border-right: 1px solid #ccc; padding-right: 0.8em;}
 table.summary-data tr.odd td { background-color: #f0f0f0;}
 table.summary-data td.amount { text-align: right;}

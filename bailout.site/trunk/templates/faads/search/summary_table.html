@@ -41,7 +41,7 @@
   </tr>
   {% endfor %}
   <tr class="{{ rowmodtwo }} bottom">
-    {% for cell in row|slice:"1:" %}<td{% if forloop.first %} class="first"{% endif %}{% if forloop.last %} class="last"{% endif %}>{% if cell %}{{ cell|floatformat:"-0"|intcomma}}{% else %}<div class="null-value">&mdash;</div>{% endif %}</td>{% endfor %}
+    {% for cell in row|slice:"1:" %}<td{% if forloop.last %} class="last"{% endif %}>{% if cell %}{{ cell|floatformat:"-0"|intcomma}}{% else %}<div class="null-value">&mdash;</div>{% endif %}</td>{% endfor %}
   </tr>
   {% endfor %}
 
