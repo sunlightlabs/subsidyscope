@@ -41,20 +41,43 @@ $(document).ready(function(){
 
     // tabs-ify results section
     $('#tabs').tabs();
-	
+		
 	$('#tabs').bind('tabsselect', function(event, ui) {
 
 		if(ui.index == 1)
-			loadChartFlash();
-			
+		{
+			window.location.href = window.location.href.replace(/\#.*$/,'') + '#faads-result-graph';		
+			loadChartFlash();			
+		}			
 		else if(ui.index == 2)
+		{
+			window.location.href = window.location.href.replace(/\#.*$/,'') + '#faads-result-map';		
 			loadMapFlash();
-			
+		}	
 		else if(ui.index==3)
+		{
+			window.location.href = window.location.href.replace(/\#.*$/,'') + '#faads-result-summary';				
 		    loadSummary();
+		}
 	
 	});
 	
+    // load supplemental objects as necessary
+    if(window.location.href.indexOf('#faads-result-map')!=-1)
+    {
+        loadMapFlash();
+        window.location.hash = 'faads-result-map';        
+    }
+    if(window.location.href.indexOf('#faads-result-summary')!=-1)
+    {
+        loadSummary();
+        window.location.hash = 'faads-result-summary';       
+    }
+    if(window.location.href.indexOf('#faads-result-graph')!=-1)
+    {        
+        loadChartFlash();
+        window.location.hash = 'faads-result-graph';        
+    }
 
 
     $("select[name='dataType']").change(
