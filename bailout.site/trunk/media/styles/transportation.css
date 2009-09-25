@@ -30,5 +30,5 @@ margin:0;}
 
 #sector_taxonomy.second-tier { margin-left: 100px;}
 
-img.subsidy-per-household { margin: 40px 20px 20px 25px; }
-#sources-of-error { padding-top:1em; clear: left; font-size: 0.9em; line-height: 1.15em; color: #aaa; padding-left: 25px; padding-right: 8px; text-align: justify;}
+img.subsidy-per-household { margin: 20px 20px 0px 25px; }
+#sources-of-error { padding-top:1em; clear: left; font-size: 0.9em; line-height: 1.15em; color: #aaa; padding-left: 15px; padding-right: 8px; text-align: justify;}
