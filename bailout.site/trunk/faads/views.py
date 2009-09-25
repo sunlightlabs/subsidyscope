@@ -417,7 +417,7 @@ def search(request, sector_name=None):
     
             ran_search = True
     
-            query = urllib.quote(request.GET['q'])
+            query = urllib.quote(request.GET['q'])                        
 
         
         # we just wandered into the search without a prior submission        
@@ -441,6 +441,7 @@ def search(request, sector_name=None):
             formclass = MakeFAADSSearchFormClass(sector=sector, subsectors=subsectors)
             form = formclass()
         
+
     return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order}, context_instance=RequestContext(request))
 
 
