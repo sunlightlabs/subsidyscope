@@ -267,14 +267,19 @@ $(document).ready(function(){
 		if ($("select[name='dataType']").val() == 'state')
 		{	
 			setDataField(1);
-			setLabelText('Total Spending (2000-2009)');
+			setLabelText('Total Spending');
 		}
 		else if ($("select[name='dataType']").val() == 'state_per_capital')
 		{
 			setDataField(3);
-			setLabelText('Per Capita Spending (2000-2009)');
+			setLabelText('Per Capita Spending');
 		}
 	});
+	
+	$("select[name='dataType']").val('state');
+	setDataField(1);
+	setLabelText('Total Spending');
+
 	
 });
 
