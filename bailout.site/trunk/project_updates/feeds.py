@@ -6,7 +6,7 @@ class ProjectUpdatesFeed(Feed):
     title = "Subsidyscope.com Updates"
     link = "/updates/"
     description = "Updates on changes and additions to subsidyscope.com."
-
+   
     def items(self):
         return ProjectUpdate.objects.order_by('-date')[:10]
         
@@ -15,3 +15,9 @@ class ProjectUpdatesFeed(Feed):
           
     def item_link(self, item):
         return item.link
+
+
+class TransportationProjectUpdatesFeed(ProjectUpdatesFeed):
+
+    def items(self):
+        return ProjectUpdate.objects.filter(sectors=2).order_by('-date')[:10]

@@ -14,4 +14,6 @@
 </div>
 {% endfor %}
 
-<p id="previous-updates"><a href="/updates/archive/1/">Previous Project Updates &raquo;</a></p>
+{% if more_updates %}
+	<p id="previous-updates"><a href="/updates/archive/1/">Previous Project Updates &raquo;</a></p>
+{% endif %}
