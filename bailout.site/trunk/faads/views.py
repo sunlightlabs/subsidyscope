@@ -141,9 +141,9 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         else:
             program_selection_subsector = False
 
-        assistance_type = forms.MultipleChoiceField(label="Assistance Type", choices=assistance_type_options, initial=map(lambda x: x[0], assistance_type_options), widget=forms.CheckboxSelectMultiple)
-        action_type = forms.MultipleChoiceField(label="Action Type", choices=action_type_options, initial=map(lambda x: x[0], action_type_options), widget=forms.CheckboxSelectMultiple)
-        recipient_type = forms.MultipleChoiceField(label="Recipient Type", choices=recipient_type_options, initial=map(lambda x: x[0], recipient_type_options), widget=CheckboxSelectMultipleMulticolumn(columns=2))
+        assistance_type = forms.MultipleChoiceField(label="Assistance Type", required=False, choices=assistance_type_options, initial=map(lambda x: x[0], assistance_type_options), widget=forms.CheckboxSelectMultiple)
+        action_type = forms.MultipleChoiceField(label="Action Type", required=False, choices=action_type_options, initial=map(lambda x: x[0], action_type_options), widget=forms.CheckboxSelectMultiple)
+        recipient_type = forms.MultipleChoiceField(label="Recipient Type", required=False, choices=recipient_type_options, initial=map(lambda x: x[0], recipient_type_options), widget=CheckboxSelectMultipleMulticolumn(columns=2))
     
         obligation_date_start = forms.DateField(label="Obligation Date Start", required=False)
         obligation_date_end = forms.DateField(label="Obligation Date End", required=False)
@@ -153,7 +153,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         
         state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
         location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=1, coerce=int)
-        location_choices = forms.MultipleChoiceField(label='State', choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
+        location_choices = forms.MultipleChoiceField(label='State', required=False, choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
     
         # TODO: funding type
     
@@ -298,7 +298,7 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
             faads_search_query = faads_search_query.filter('federal_funding_amount', (obligation_minimum, obligation_maximum))
 
         # handle location
-        if len(form.cleaned_data['location_choices'])>0 and len(form.cleaned_data['location_choices'])<State.objects.all().count():
+        if len(form.cleaned_data['location_choices'])<State.objects.all().count():
             if form.cleaned_data['location_type']==0:                
                 faads_search_query = faads_search_query.filter('recipient_state', form.cleaned_data['location_choices'])
             elif form.cleaned_data['location_type']==1:
@@ -417,7 +417,7 @@ def search(request, sector_name=None):
     
             ran_search = True
     
-            query = urllib.quote(request.GET['q'])
+            query = urllib.quote(request.GET['q'])                        
 
         
         # we just wandered into the search without a prior submission        
@@ -441,6 +441,7 @@ def search(request, sector_name=None):
             formclass = MakeFAADSSearchFormClass(sector=sector, subsectors=subsectors)
             form = formclass()
         
+
     return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order}, context_instance=RequestContext(request))
 
 

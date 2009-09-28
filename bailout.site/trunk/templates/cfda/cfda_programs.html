@@ -4,16 +4,6 @@
 {% load morsel_tags %}
 {% block content %}
 {% load webdesign %}
-<style>
-.programs-container {border-bottom: 1px solid #afafaf; margin-bottom:20px;}
-ul.programs {border: none;}
-ul.subselect {margin-top:0px; margin-left:0px;}
-#modes { width: 320px;}
-#modesubselect {margin-left:100px; font-size:90%;}
-#tagsubselect {margin-left: 387px;font-size: 90%;}
-
-</style>
-
 <div class="container main_container">
     {% include navname %}
     <div class="span-24">
@@ -23,7 +13,8 @@ ul.subselect {margin-top:0px; margin-left:0px;}
             <h5>Program Listing</h5>
             <span class="programs-container">
             <ul class="programs">
-                <li><strong>Filter By: </strong>&nbsp;<select class="js-select" id="tags">
+                <li style="margin-left:0px;"><strong>Filter By: </strong></li>
+                <li><select class="js-select" id="tags">
                     <option value="none">Tag</option>
                     {% for t in tags %}
                         <option value="{{t.id}}" {% ifequal t.id filter.id%}selected{% endifequal %}>{{ t.tag_name }}</option>

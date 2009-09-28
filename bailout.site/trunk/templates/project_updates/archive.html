@@ -4,7 +4,7 @@
 {% block content %}
 
 
-<div class="container main_container">
+<div class="container main_container project_update_archives">
 	{% include "includes/generic_nav.html" %}
 	<div class="span-24">
 		<div id="header_area">
@@ -21,9 +21,9 @@
 						<div id="update_icon">{% for sector in item.sectors.all %}<img src="{% media_url %}/images/sector_icons/{{ sector.id }}_sm.png" alt="{{ sector.name }}: Project Update" border="0" />{% endfor %}
 						</div>
 					{% endif %}
-					<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {% if item.extended_text %}{{ item.extended_text|safe }}{% else %}{{ item.text|safe }}{% endif %}
+					<div class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {% if item.extended_text %}{{ item.extended_text|safe }}{% else %}{{ item.text|safe }}{% endif %}
 						<a style="font-size: 10px; color: #aaa; border: none; float: right;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
-			</p>
+			    </div>
 			
 			</div>
 			{% endfor %}

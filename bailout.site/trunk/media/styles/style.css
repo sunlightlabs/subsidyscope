@@ -200,6 +200,15 @@ span.programs-container{
     margin-top:10px;
     text-transform: capitalize;
 }
+.programs-container {border-bottom: 1px solid #afafaf; margin-bottom:20px;}
+ul.programs {border: none;}
+ul.programs li {margin-left: 50px;}
+ul.subselect {margin-top:0px; margin-left:0px;}
+#modes { width: 250px;}
+#tags {width: 217px; }
+#modesubselect {margin-left:155px; font-size:90%; }
+#tagsubselect {margin-left: 485px;font-size: 90%;}
+
 /* FOOTER */
 .footer_container { padding-top:20px; background-repeat:repeat-x; padding:20px 0 20px 0; border-top:1px solid #c6c6c6; }
 
@@ -310,7 +319,13 @@ a.intro_more:hover { text-decoration:none; padding-left:10px;}
 a.intro_more:active { text-decoration:none; padding-left:10px;}
 
 .updates_box { padding:0; margin:20px 0 0 0;}
+.updates_box ul li { list-style-type: disc; margin-bottom: 0.5em;}
 .updates_head { border-top:1px solid #cbcbcb; background-color:#f3f3f4; padding:5px 0 0 10px; border-bottom:1px solid #ffffff; color:#333333; font-size:14px; background-image:url(/media/images/front_update_head_bg_alt.png); background-repeat:repeat-x;}
+.project_update_archives #update_item { border-top: 0; padding-bottom: 1.6em;}
+.project_update_archives #update_item a.readmore { margin-top: 1em;}
+.project_update_archives #update_item .update_copy { margin-bottom: 0; padding-left: 10px;}
+.project_update_archives #update_item ul { margin-top: 1em;}
+.project_update_archives #update_item ul li { list-style-type: disc; margin-bottom: 0.5em; font-size: 12px;}
 
 .updates_head h2  { display:inline; font-size:14px; padding:0 10px 0 0; font-weight:normal; margin:0;}
 .feed_icon { border:1px solid; padding:0; margin:0;}
@@ -610,8 +625,8 @@ ul.press-releases li
 #mode-page-other #header_area h3 { padding-left: 40px; background: url(/media/images/sector_icons/30x40_trans_other.png) 0px -5px no-repeat;}
 
 /* footnotes */
-ol.footnotes { font-size: 0.8em; }
-ol.footnotes li { margin-bottom: 0.5em;}
+ol.footnotes { font-size: 0.9em; }
+ol.footnotes li { margin-bottom: 0.8em; line-height: 1.3em;}
 
 ul.bibliography, ul.bibliography li { list-style-type: disc; }
 ul.bibliography li { margin-top: 0.5em; }

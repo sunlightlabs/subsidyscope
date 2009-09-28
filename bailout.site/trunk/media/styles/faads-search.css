@@ -176,6 +176,8 @@ table.summary-data { width: 876px; font-size: 10px;}
 table.summary-data th, table.summary-data td { border-right: 0;}
 table.summary-data th { font-weight: bold; text-align: center; vertical-align: middle;}
 table.summary-data td { font-size: 0.9em; padding: 0.8em 0 0.8em 0.8em; text-align: right;}
+table.summary-data tr.top td { text-align: left; border-bottom: 0; border-right: 1px solid #ccc; padding-bottom: 0;}
+table.summary-data tr.bottom td { padding-top: 0;}
 table.summary-data td a:link, table.summary-data td a:active, table.summary-data td a:visited { text-decoration: none;}
 table.summary-data td a:hover { text-decoration: underline; }
 table.summary-data td.first { text-align: left;}
