@@ -16,7 +16,7 @@ class PageIndex(indexes.SearchIndex):
         "Used when the entire index for model is updated."
         return Page.objects.all()
     
-    def should_update(self):
+    def should_update(self, instance=None):
         "Disable update on save - re-index lag is causing problems with timeouts"
         return False
 
