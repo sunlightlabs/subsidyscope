@@ -2,7 +2,7 @@ from django import forms
 from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
-from django.views.generic.simple import direct_to_template
+from django.views.generic.simple import direct_to_template, redirect_to
 from contact_form.forms import ContactForm
 from bailout.views import *
 from project_updates.feeds import ProjectUpdatesFeed
@@ -58,6 +58,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^methodology/tags/', direct_to_template, {'template': 'generic.html'}, name='methodology-tags'),
     url(r'^methodology/', direct_to_template, {'template': 'generic.html'}, name='methodology'),
     url(r'^data-quality/$', direct_to_template, { 'template': 'generic.html'}, name='data-quality'),
+    url(r'^framing-paper/$', redirect_to, {'url':'/media/pdf/Subsidyscope%%20Framing%%20Paper.pdf'}, name="framing-paper"),
 )
 
 urlpatterns += patterns('',

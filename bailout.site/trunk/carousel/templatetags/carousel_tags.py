@@ -15,7 +15,10 @@ def carousel_entries(sector_id):
     out = ""
     i = 0
     for c in entries:
-        out += '<div id="tab-%d" class="carousel-tab"><img src="%s" width="415"><h2><a href="%s">%s</a></h2><p class="feature_content"><strong>%s&nbsp;&ndash;&nbsp;</strong>%s</p>' % (i, c.image.url, c.link, c.title, c.date.strftime('%m/%d/%y'), c.text)
+        date_string = ''
+        if c.date is not None:
+            date_string = "<strong>%s&nbsp;&ndash;&nbsp;</strong>" % c.date.strftime('%m/%d/%y')
+        out += '<div id="tab-%d" class="carousel-tab"><img src="%s" width="415"><h2><a href="%s">%s</a></h2><p class="feature_content">%s%s</p>' % (i, c.image.url, c.link, c.title, date_string, c.text)
         out += '<ul class="feature_nav tabNavigation feature_circle">'
 
         if num_entries>1:
