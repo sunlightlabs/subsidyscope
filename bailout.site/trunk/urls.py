@@ -5,10 +5,17 @@ from django.contrib import admin
 from django.views.generic.simple import direct_to_template, redirect_to
 from contact_form.forms import ContactForm
 from bailout.views import *
-from project_updates.feeds import ProjectUpdatesFeed
+from project_updates.feeds import ProjectUpdatesFeed, TransportationProjectUpdatesFeed
 import django.contrib.syndication.views
 
 admin.autodiscover()
+
+
+feeds = {
+    'updates': ProjectUpdatesFeed,
+    'transportation': TransportationProjectUpdatesFeed,
+}
+
 
 def redirect_to_index(request):
     return HttpResponseRedirect(reverse('index'))
@@ -47,7 +54,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^about/', 'direct_to_template', {'template': 'about.html'}, name="about"),
     url(r'^contact/', include('contact_form.urls'), {"form_class": SubsidyContactForm, "fail_silently": False}, name="contact"),
     url(r'^sent/', 'direct_to_template', {'template': 'contact_form/contact_form_sent.html'}, name="contact_sent"),  
-    url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': {'updates': ProjectUpdatesFeed}}, name="feed_project_updates"),  
+    url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': feeds}, name="feed_project_updates"),  
     url(r'^data/about-faads/', direct_to_template, { 'template': 'generic.html'}, name='about-faads'),
     url(r'^data/', 'direct_to_template', {'template': 'misc/data.html'}, name='datasets'),
     url(r'^rss/', 'direct_to_template', {'template': 'misc/rss.html'}, name='about_rss'),
