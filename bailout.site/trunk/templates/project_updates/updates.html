@@ -7,11 +7,11 @@
 			<div id="update_icon">{% for sector in item.sectors.all %}<img src="{% media_url %}/images/sector_icons/{{ sector.id }}_sm.png" alt="{{ sector.name }}: Project Update" border="0" />{% endfor %}
 			</div>
 		{% endif %}
-		<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }} 
-			{% if item.link %}<a href="{{ item.link }}">Read More &raquo;</a>{% endif %}
-		</p>
+		<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }}</p>
 
 </div>
 {% endfor %}
 
-<p id="previous-updates"><a href="/updates/archive/1/">Previous Project Updates &raquo;</a></p>
+{% if more_updates %}
+	<p id="previous-updates"><a href="/updates/archive/1/">Previous Project Updates &raquo;</a></p>
+{% endif %}

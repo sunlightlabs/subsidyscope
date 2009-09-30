@@ -13,7 +13,7 @@
 	<div class="span-11">
 		<div class="feature_leftside">
             <div id="feature_box">
-			    <div class="tabs">
+			    <div class="tabs" style="height: 400px;">
                     {% carousel_entries 2 %}
                 </div>
 			</div><!-- end feature box -->
@@ -21,7 +21,7 @@
 			<div class="updates_box">
 				<div class="updates_head">
 				<h2>Transportation Sector Updates</h2>
-                <a title="Click here for news feed" href="{%url django.contrib.syndication.views.feed "updates" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
+                <a title="Click here for news feed" href="{%url feed_project_updates "transportation" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
 				</div>
 		      
 		      {% project_updates 2 %}	
