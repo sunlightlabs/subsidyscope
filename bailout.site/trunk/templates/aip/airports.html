@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load media %}
+{% load humanize %}
+{% load smarterif%}
+{% block content %}
+<style>
+div.info {font-size: 1em;  color: #4F4F4F; border: 1px solid black; padding: 20px;width:32%; float: right;margin-right:20px;margin-bottom:20px;}
+table.port-stats {width:100%; float:right; margin: 0; border:none;}
+table.port-stats td, table.port-stats tr {text-align:left; border: none; padding: 2px;}
+table.port-stats td.value {text-align:right;}
+table.port-stats th {padding: 2px; text-align:center; border: none; font-size: 1.2em; }
+div.grants { float:left; width: 58%; }
+div.grants table { width: 100%; }
+</style>
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <span class="span-24">
+        <div id="header_area"><h3>Airport Detail &mdash; {{airport.name}}</h3></div>
+        <div class="content_area">
+            <div class="info">
+            <table class="port-stats">
+                <tr><th colspan="2">At a Glance</th></tr>
+                <tr><td><strong>Location:</strong></td><td class="value"> {%if airport.city%}{{airport.city}},{% endif %}{{airport.state}}</td></tr>
+                {%if airport.service_level %} <tr><td><strong>Service Level:</strong> </td><td class="value">{{airport.service_level}}</td></tr> {% endif %}
+                {% if airport.district %}<tr><td><strong>Congressional District: </strong></td><td class="value"> {{airport.state}}-{{airport.district}}</td></tr> {% endif %}
+                <tr><td><strong>Total Funding (2005-09):</strong></td><td class="value">&nbsp;${{totalfunding|floatformat:0|intcomma}}</td></tr>
+                <tr><td><strong>Average grant amount:</strong></td><td class="value">&nbsp;${{avggrant|floatformat:0|intcomma}}</td></tr>
+                <tr><td><strong>Average operations/year:</strong></td><td class="value">&nbsp;{{avgops|floatformat:0|intcomma}}</td></tr>
+                <tr><td><strong>Average enplanements/year:</strong></td><td class="value">&nbsp;{{avgenps|floatformat:0|intcomma}}</td></tr>
+            </table>
+            </div>
+            <div class="grants">
+                {% if stimulus %}
+                <h4>Stimulus(ARRA) Grants</h4>
+                <table>
+                    <tbody>
+                        <tr>
+                        <th>Fiscal Year</th><th>NPR<sup>1</sup></th><th>Grant Amount</th><th>Description</th>
+                        {% for s in stimulus %}
+                        <tr>
+                            <td>{{s.fiscal_year}}</td>
+                            <td>{{s.npr}}</td>
+                            <td>${{s.stimulus|floatformat:0|intcomma}}</td>
+                            <td>{{s.description}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+            <div style="clear:both;">
+                {% if projects %}
+                <h4>Funded Projects</h4>
+                <table style="width:100%;">
+                    <tbody>
+                    <tr><th>Fiscal year</th><th>NPR<sup>1</sup></th><th>Description</th><th>Total Grant Amount</th><th>Discretionary Funding</th><th>Entitlement Funding</th></tr>
+                    {% for p in projects %}
+                        {% if p.stimulus = 0 or p.total > p.stimulus   %}
+                        <tr>
+                        <td>{{p.fiscal_year}}</td>
+                        <td>{{p.npr}}</td>
+                        <td>{{p.description}}</td>
+                        <td>${{p.total|floatformat:0|intcomma}}</td>
+                        <td>${{p.discretionary|floatformat:0|intcomma}}</td>
+                        <td>${{p.entitlement|floatformat:0|intcomma}}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                {% elif grants %}
+                    <h4>Grants Funded</h4>
+                    <table style="width:100%;">
+                        <tbody>
+                            <tr><th>Fiscal year</th><th>Description</th><th>Grant Amount</th><th>Discretionary Funding</th><th>Entitlement Funding</th></tr>
+                            {% for g in grants %}
+                            <tr>
+                            <td>{{g.fiscal_year}}</td>
+                            <td>{{g.description}}</td>
+                            <td>${{g.total|floatformat:0|intcomma}}</td>
+                            <td>${{g.discretionary_total|floatformat:0|intcomma}}</td>
+                            <td>${{g.entitlement_total|floatformat:0|intcomma}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                {% endif %}
+                {%if operations %}
+                <div style="width:45%;float:left; margin-right:15px;">
+                <h4>Operations</h4>
+                <table style="width:100%;">
+                    <tbody>
+                        <tr><th>Year</th><th>Operations</th></tr>
+                        {% for o in operations %}
+                            <tr><td>{{o.year}}</td><td>{{o.operations|intcomma}}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+                {% endif %}
+
+                {% if enplanements %}
+                <div style="width:45%;float:left;">
+                <h4>Enplanements</h4>
+                <table style="width:100%;">
+                    <tbody>
+                        <tr><th>Year</th><th>Enplanements</th></tr>
+                        {% for e in enplanements %}
+                            <tr><td>{{e.year}}</td><td>{{e.amount|intcomma}}</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </span>
+</div>
+{% endblock %}
