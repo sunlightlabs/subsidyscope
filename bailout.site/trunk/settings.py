@@ -88,6 +88,7 @@ INSTALLED_APPS = (
     'contact_form',
     'sunlightcore',
     'spammer',
+    'helpers',
     'haystack',
     'csv_generator',
     'etl',

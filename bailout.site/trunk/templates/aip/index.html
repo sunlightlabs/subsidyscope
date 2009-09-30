@@ -4,7 +4,7 @@
 {% load humanize %}
 {% block content %}
 {% js "jquery.easing.1.3.js" %}
-{% js "aip.js" %}
+{#{% js "aip.js" %}#}
 {% css "aip.css" %}
 
 <div class="container main_container">
@@ -29,6 +29,7 @@
     <option value="CT">Connecticut</option>
     <option value="DE">Delaware</option>
     <option value="DC">District of Columbia</option>
+    <option value="FSM">Federated States of Micronesia</option>
     <option value="FL">Florida</option>
     <option value="GA">Georgia</option>
     <option value="HI">Hawaii</option>
@@ -89,7 +90,7 @@
             {% for port in grants %}
                 <div class="portdetail{% if forloop.counter|divisibleby:"2"  %} even {%endif%}">
                 <ul>
-                <li class="name" name="{{port.0.code}}"><a href="#">{{port.0.name}}</a></li>
+                <li class="name" name="{{port.0.code}}"><a href="/projects/transportation/aip/airports/{{port.0.code}}/">{{port.0.name}}</a></li>
                 <li class="money">${{port.1|floatformat|intcomma}}</li>
                 <li class="enps">{{port.2|intcomma}}</li>
                 <li class="city">{{port.0.city}}</li><li class="st">{{port.0.state}}</li>
@@ -97,11 +98,8 @@
                 </div>
             {% endfor %}
             {% ifequal type "state" %}
-                {% if blockgrants %}
-                <div class="portdetail"><ul><li class="name">Total state block grants:</li><li class="money">${{blockgrants|floatformat:0|intcomma}}</li></ul>
-                {% endif %}
                 {% if total %}
-                 <div class="portdetail"><ul class="sum"><li class="name">Total grant money for state:</li><li class="money">${{total|add:blockgrants|intcomma}}</li></ul></div>
+                 <div class="portdetail"><ul class="sum"><li class="name">Total grant money for state:</li><li class="money">${{total|floatformat:0|intcomma}}</li></ul></div>
                 {% endif %}
             {% endifequal %}
         </div>

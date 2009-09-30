@@ -3,7 +3,6 @@ from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template, redirect_to
 
 urlpatterns = patterns('',
-    url(r'^$', 'aip.views.index', name='aip-index'),
-    url(r'^detail', 'aip.views.portdetail', name='aip-detail')
-
+    url(r'^airports/(?P<code>[A-Za-z0-9*+]+)', 'aip.views.portdata', name='aip-airport-data'),
+    url(r'^$', 'aip.views.index', name='aip-index')
 )
