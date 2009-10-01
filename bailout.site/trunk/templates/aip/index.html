@@ -31,9 +31,9 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             <fieldset>
             <input type="hidden" name="searchtype" value="airport"/>
             <strong>Search by Specific Airport: </strong>
-            <span class="searchterms"><label>Airport Name:</label><input class="term" type="text" name="portname" /><span><em> &mdash; or &mdash;</em></span><label>Airport Code:</label><input class="term" type="text" name="portcode" /></span>
+            <span class="searchterms"><label>Airport Name:</label><input class="term" type="text" name="portname" {%if name%} value="{{name}}" {%endif%} /><span><em> &mdash; or &mdash;</em></span><label>Airport Code:</label><input class="term" type="text" name="portcode" {% if code %} value="{{code}}" {% endif %} /></span>
             <strong>Search by Region:</strong>
-            <span class="options">By State:&nbsp;<select name="state">
+            <span class="options">By State:&nbsp;<select name="state" id="choose_state">
     <option value="">All</option>
     <option value="AL">Alabama</option>
     <option value="AK">Alaska</option>
@@ -90,7 +90,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
     </select>
 
     <span style="margin-left: 20px;">By District:&nbsp;
-    <select name="district">
+    <select name="district" id="choose_district">
         <option value="">All</option>
         {%for d in districts %}
         <option value="{{d}}">{{d}}</option>
@@ -210,6 +210,20 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
     </span>
 </div>
 <script type="text/javascript" charste="utf-8">
+if("{{state}}"){ 
+    $("#choose_state").val("{{state}}")
+}
+if("{{district}}"){
+    $("#choose_district").val("{{district}}");
+}
+
+$("#choose_district").change(function(){
+    $("#choose_state").val("");
+});
+$("#choose_state").change(function(){
+    $("#choose_district").val("");
+});
+
 $("#project_results table th.sortable").click(function(e){
     var val_list = {'asc':'desc', 'desc':'asc', 'none':'asc'};
     var sort = $(this).text().toLowerCase() + 'sort';
