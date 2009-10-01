@@ -113,7 +113,7 @@ def index(request):
                 grants.append((p, money, enplanements))
             
             return render_to_response('aip/index.html', {subtype: parameter, 'ports':ports, 'grants': grants, 'total': total, 'type': type, 'districts': districts, 'years':years, 'nprs':nprs})
-
+       
     elif type=="project":
         projects = Project.objects.all()
         year_first = get['year_range_first']
@@ -163,8 +163,7 @@ def index(request):
 
         return render_to_response('aip/index.html', {subtype: parameter, 'projects':projects, 'districts': districts, 'years':years, 'nprs':nprs, 'querystring':request.META['QUERY_STRING'], 'sorts':sorts})
         
-    else:
-        if not error:
-            error = 'You must specify and airport name or airport code'
-        return render_to_response('aip/index.html', {'error': error})
+    if not error:
+        error = 'You must specify and airport name or airport code'
+    return render_to_response('aip/index.html', {'error': error, 'districts':districts, 'years':years, 'nprs':nprs})
 
