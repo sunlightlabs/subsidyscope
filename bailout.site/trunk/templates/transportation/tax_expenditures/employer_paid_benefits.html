@@ -1,0 +1,21 @@
+{% extends "base_sector.html" %}
+{% load media %}
+{% load morsel_tags %}
+
+{% block content %}
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>{% morsel_page_title %}</h3>
+        </div>
+        <div class="content_area">
+            
+            {% morsel text1 glossarize %}
+           
+        </div>
+</div>
+
+{% endblock %}
+	

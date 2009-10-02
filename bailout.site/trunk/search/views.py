@@ -32,7 +32,7 @@ def main_search_view(request):
         
         if form.is_valid():
             query = form.cleaned_data['query']
-            page_result_set = SearchQuerySet().auto_query(query).highlight()
+            page_result_set = SearchQuerySet().auto_query(query).models(Page, ProgramDescription).highlight()
             
 #            if form.cleaned_data.has_key('search_scope'):
 #                search_scope = form.cleaned_data['search_scope']

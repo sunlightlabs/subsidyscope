@@ -1,22 +1,9 @@
-<link rel="stylesheet" type="text/css" media="screen" href="/media/styles/superfish.css" />
-<script type="text/javascript" src="/media/scripts/hoverIntent.js"></script>
-<script type="text/javascript" src="/media/scripts/superfish.js"></script>
+{% extends "includes/generic_nav.html" %}
 
-<script type="text/javascript">  
-    $(document).ready(function(){ 
-        $("ul.sf-menu").superfish(); 
-    }); 
-</script>
+{% block bailout_active %}active_top{% endblock %}
 
-<!-- this nav block is specific to the BAILOUT section -->
-<div class="span-24">	
-	<div id="navbar">
-		<ul id="navbar_items">
-			<li><a href="/">Home</a></li>
-			<li class="active_top"><a href="/projects/bailout/">Financial Bailout</a></li>
-			<li class="inactive_top"><a href="/faq/#future-sectors">Future Sectors</a></li>
-		</ul>							
-	</div>
+{% block subnav %}
+
 	<div id="sector_subnav">
 	<ul class="sf-menu">
 		<li>
@@ -37,4 +24,5 @@
 		<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>
 	</ul>
 	</div>
-</div>
+
+{% endblock %}

@@ -142,6 +142,73 @@ ul#top_nav_header li { display: block !important; float: right;}
 .source_download {padding-left:20px;}
 
 
+.category {
+    font-size: .8em;
+    color: gray;
+}
+.slash {
+    margin: 0 5px 0 10px;
+    font-weight: bold;
+    font-size: 1em;
+}
+.floatright {
+    float: right;
+}
+.inlinepara p {
+    display: inline; 
+}
+.inline-box{
+    width: 38%;
+    border: 1px solid #afafaf;
+    padding: 5px;
+    margin: 2px 0 2px 4px;
+    font-size: .85em;
+    color: #4f4f4f;
+}
+.inline-box ul {
+    margin-left: 0;
+}
+.sencase{
+    text-transform: capitalize;
+}
+.hide {
+    left: -99999px;
+}
+
+ul.programs {
+    font-size: 1em;
+    border-bottom: 1px solid #afafaf;
+    float: left;
+    margin-left:0px;
+    width: 100%;
+}
+ul.programs li{
+    float: left;
+    margin-right: 25px;
+    margin-left: 0px;
+}
+span.programs-container{
+    width: 100%;
+    float:left;
+}
+.programs-search{
+    width: 300px;
+}
+#program-listing li{
+    border-bottom: 1px solid #afafaf;
+    padding-bottom: 4px;
+    margin-top:10px;
+    text-transform: capitalize;
+}
+.programs-container {border-bottom: 1px solid #afafaf; margin-bottom:20px;}
+ul.programs {border: none;}
+ul.programs li {margin-left: 50px;}
+ul.subselect {margin-top:0px; margin-left:0px;}
+#modes { width: 250px;}
+#tags {width: 217px; }
+#modesubselect {margin-left:155px; font-size:90%; }
+#tagsubselect {margin-left: 485px;font-size: 90%;}
+
 /* FOOTER */
 .footer_container { padding-top:20px; background-repeat:repeat-x; padding:20px 0 20px 0; border-top:1px solid #c6c6c6; }
 
@@ -252,7 +319,13 @@ a.intro_more:hover { text-decoration:none; padding-left:10px;}
 a.intro_more:active { text-decoration:none; padding-left:10px;}
 
 .updates_box { padding:0; margin:20px 0 0 0;}
+.updates_box ul li { list-style-type: disc; margin-bottom: 0.5em;}
 .updates_head { border-top:1px solid #cbcbcb; background-color:#f3f3f4; padding:5px 0 0 10px; border-bottom:1px solid #ffffff; color:#333333; font-size:14px; background-image:url(/media/images/front_update_head_bg_alt.png); background-repeat:repeat-x;}
+.project_update_archives #update_item { border-top: 0; padding-bottom: 1.6em;}
+.project_update_archives #update_item a.readmore { margin-top: 1em;}
+.project_update_archives #update_item .update_copy { margin-bottom: 0; padding-left: 10px;}
+.project_update_archives #update_item ul { margin-top: 1em;}
+.project_update_archives #update_item ul li { list-style-type: disc; margin-bottom: 0.5em; font-size: 12px;}
 
 .updates_head h2  { display:inline; font-size:14px; padding:0 10px 0 0; font-weight:normal; margin:0;}
 .feed_icon { border:1px solid; padding:0; margin:0;}
@@ -442,6 +515,7 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 	border-bottom:1px solid #C7C7C7;
 	border-top:1px solid #C7C7C7;
 	padding: 0 10px;
+	margin: 0 0 15px 0;
 }
 
 #data-page .data-section .section-description {
@@ -449,8 +523,9 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 	color:#666666;
 	font-size:12px;
 	font-weight:normal;
-	line-height:1.1em;
+	line-height:1.2em;
 	padding:5px 0;
+	margin-bottom: 15px;
 }
 #data-page .data-section h4 { margin-bottom: 0; }
 #data-page .data-section a.section-title { color: #003366; text-transform: uppercase; text-decoration: none; font-size: 1.1em;}
@@ -470,6 +545,7 @@ ul.press-releases li
 /* extra nav for FDIC and Treasury */
 .section-floating-nav
 {
+    display: inline;
 	float: right;
 	background-color: #FFFCDA;
 	background-repeat: repeat-x;
@@ -478,6 +554,7 @@ ul.press-releases li
 	color: #7B630F;
 	margin: 0 0 15px 15px;
 	padding: 10px 15px;
+	width: 250px;
 }
 .section-floating-nav ul { margin-bottom: 0px;}
 .section-floating-nav ul, .section-floating-nav ul li { margin-left: 0; padding-left: 0;}
@@ -492,6 +569,12 @@ ul.press-releases li
 .section-floating-nav ul li.overview-link { display: none; }
 .section-floating-nav ul li a.active { font-weight: bold;}
 
+.subsector-sidebar p { width: auto; font-size: 100%;}
+.subsector-sidebar p strong { display: block;}
+
+.page-summary {width: 50%}
+.page-summary ul{list-style-type:disc !important; padding-left:10px; font-size: 1em;}
+.page-summary h5 {margin:0px;}
 .jeditable-morsel:hover
 {
     background-color: #FFFCDA;
@@ -511,9 +594,56 @@ ul.press-releases li
 
 .jeditable-morsel:hover .jeditable-morsel-label { display: block;}
 
+
+/*generic chart styles */
+#subsidy-charts cite {font-size: 85%; font-style: normal;}
+#subsidy-charts tr.header-row td { background-color: #e4e4e4; border-top: 1px solid #a5a5a5; border-bottom: 1px solid #a5a5a5; font-weight: bold;}
+#subsidy-charts tr.header-row td { border-right:none;}
+#subsidy-charts tr.header-row td.first {font-size: 1.2em; }
+#subsidy-charts td.first, td.program {width: 31%;}
+#subsidy-charts td.program{text-align: left; padding-left: 10px;}
+#subsidy-charts td.subprogram{text-align: left; padding-left: 25px;}
+#subsidy-charts tr.total{font-weight:bold;}
+#subsidy-charts tr.subheader{font-weight:bold; font-size:.9em;}
+#subsidy-charts tr.subheader td {border-right: 1px solid #cccccc;  border-bottom: 1px solid #cccccc; border-left: 1px solid #cccccc;}
+#subsidy-charts tr.even td { background-color: #f4f4f4; }
+#subsidy-charts td { padding: .3em; border-bottom: none; border-right: none;}
+#subsidy-charts table {text-align:center; border-bottom: 1px solid #cccccc; border-right:none; border-left: none; width:100%;}
+
 /* NEWS BRIEFS */
 #news-briefs h3 { font-size: 14px; margin-left: 5px;}
 #news-briefs ul, #news-briefs ul li { padding-left: 0; margin-left: 0;}
 #news-briefs ul li { margin-bottom: 1em; margin-right: 10px; padding: 5px;}
 #news-briefs ul li a, #news-briefs ul li a:link, #news-briefs ul li a:active, #news-briefs ul li a:visited { color: black; text-decoration: none;}
+
 #news-briefs ul li:hover { background-color: #f4f4f4;}
+
+/* icons for mode pages */
+#mode-page-aviation #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_aviation.png) 0px -5px no-repeat;}
+#mode-page-highways #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_highways.png) 0px -5px no-repeat;}
+#mode-page-maritime #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_maritime.png) 0px -5px no-repeat;}
+#mode-page-rail #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_rail.png) 0px -5px no-repeat;}
+#mode-page-transit #header_area h3 { padding-left: 35px; background: url(/media/images/sector_icons/30x40_trans_transit.png) 0px -5px no-repeat;}
+#mode-page-other #header_area h3 { padding-left: 40px; background: url(/media/images/sector_icons/30x40_trans_other.png) 0px -5px no-repeat;}
+
+/* footnotes */
+ol.footnotes { font-size: 0.9em; }
+ol.footnotes li { margin-bottom: 0.8em; line-height: 1.3em;}
+
+ul.bibliography, ul.bibliography li { list-style-type: disc; }
+ul.bibliography li { margin-top: 0.5em; }
+
+dl.tag-list dt { margin-bottom: 0;}
+h4.line-across { border-bottom: 1px solid black;}
+
+.search-disclaimer { font-size: 0.8em; text-align: center; color: #888; margin-top: 20px;}
+
+p.inline-image { width: auto; display: inline; margin: 10px 10px 5px 10px;}
+p.inline-image img {margin-bottom: 5px;}
+p.inline-image cite {font-size: 0.9em;}
+
+p#previous-updates { padding-left: 10px; margin-top: 10px;}
+
+.floatl{ float:left;margin-right:15px; margin-bottom: 12px;}
+.floatr{ float:right; margin-left:15px; margin-bottom: 12px;}
+.tooling { border: 1px solid #c7c7c7; }

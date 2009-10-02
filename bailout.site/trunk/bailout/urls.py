@@ -10,7 +10,6 @@ urlpatterns = patterns('',
     url(r'^tarp/visualization\.js$', 'bailout.views.tarp_js', name="tarp-javascript"),    
     url(r'^tarp/csv/$', redirect_to, {'url':'/media/data/bailout/tarp_transactions.csv'}, name="tarp-csv"),
     url(r'^tarp\.xml$', 'bailout.views.tarp_xml', name="tarp-xml"),
-    url(r'^documents/', include('bailout_pdfs.urls')),
     url(r'^json/', direct_to_template, {'template': 'bailout/bailout_programs.json', 'mimetype': 'text/javascript'}, name='bailout-JSON'),
     url(r'cbo-table/$', 'bailout.views.redirect_to_tarp_subsidies', name='bailout-cbo-table'),
     url(r'tarp/subsidies/$', 'bailout.views.tarp_subsidies', name='tarp-subsidies'),
@@ -49,7 +48,7 @@ urlpatterns = patterns('',
 
     url(r'^roundup/$', direct_to_template, {'template': 'bailout/bailout.html'}, name='bailout-roundup'),    
     url(r'^$', direct_to_template, {'template': 'bailout/bailout.html'}, name='Bailout'),    
-    
+        
 )
 
 

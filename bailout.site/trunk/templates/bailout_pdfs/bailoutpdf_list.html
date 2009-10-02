@@ -4,28 +4,39 @@
 
 {% block content %}
 <div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
 	<div class="span-24">
-		<div id="header_area">
+		<div id="header_area_flat">
 			<h3>Key Documents</h3>		
 		</div>
 		
 		<div class="content_area">
-			<p>Subsidyscope provides a clearinghouse for government documents and reports related to the financial rescue. This compilation will be updated regularly. </p>
+			<p>Subsidyscope provides a clearinghouse for government documents related to our research in the following sectors. This compilation will be updated regularly.</p>
+            <p style="font-size:1em;">Skip to: 
+           {% for s in sectors %}
+                <a href="#{{s}}">{{s}}</a>
+                {% if not forloop.last %}
+                &nbsp;|&nbsp;
+                {% endif %}
+           {% endfor %} 
+           </p>
 		</div>
 	
 	<div class="non_content">
-	
-			<table class="pdf-table" id="pdf-data-table">
-				
-			<tr id="header-row">
-				<th class="date">Date</th>
-				<th class="title">Title</th>
-				<th class="description">Description</th>
-				<th class="source">Source</th>
-			</tr>
-				
 			{% for pdf in object_list %}
+	            {% ifchanged pdf.sector %}
+                    {% ifnotequal pdf.sector.id 1 %}
+                        </table>
+                    {% endifnotequal %}
+                    <h5><a name="{{pdf.sector}}">{{pdf.sector}}</a></h5>
+        		    <table class="pdf-table">
+	    			
+    	    		<tr>
+	    	    		<th class="date">Date</th>
+		    	    	<th class="title">Title</th>
+			    	    <th class="description">Description</th>
+    				    <th class="source">Source</th>
+        			</tr>
+				{% endifchanged %}
 			    <tr class="{% cycle 'odd' 'even' %}">
 					<td class="date">{{ pdf.date }}</td>
 					<td class="title">{% ifequal pdf.document_type 'PDF' %}<a href="{% url bailoutpdf_detail pdf_id=pdf.id %}">{{ pdf.title }}</a>{% else %}<a href="{{ pdf.link_url }}">{{ pdf.title }}</a>{% endifequal %}</td>

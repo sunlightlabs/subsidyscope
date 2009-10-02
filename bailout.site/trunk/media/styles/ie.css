@@ -1,4 +1,4 @@
-/* ie.css */
+ /* ie.css */
 body {text-align:center;}
 .container {overflow:hidden; text-align:left;}
 * html .column {overflow-x:hidden;}
@@ -18,14 +18,26 @@ sup, sub { font-size: 100%; } /* IE superscript & subscript bug */
 .container input[type='submit'], .container input[type='button'] { padding: 0; } /* IE 7 button fix */
 .container legend+* { margin-top: 0; } /* we already added legend margin */
 a abbr, a acronym { text-decoration: underline; } /* IE 7 bug */
-
 #slider { overflow: hidden;} /* IE6 bug */
 .span-16 { width: 620px; } /* IE6 bug */
-
+.section-floating-nav { display: inline !important; }
 /* location of popups on agency pages */
 .agency .programs .program .program-description { margin-left: -130px !important;}
-.content_area p {width: auto !important;}
+.content_area p {width: auto !important; padding-right: 40px !important;}
 .content_area ul.data {display:inline;}
 #header_area h3 {
     background: url(/media/images/double_lines.gif) center bottom repeat-x;
 }
+.content_area p.inline-image {padding-right:0px !important;}
+#faads-search-form .section#programs { position: relative; top: -1em;}
+#faads-search-form fieldset legend#advanced-options { float: left;}
+
+td.description {word-wrap: break-word; width: 255px;}
+.faads-search-submit, #reset-faads-search { padding: 2px 5px !important; }
+
+#tagsubselect {margin-left:508px !important;}
+#modesubselect { margin-left: 165px !important; }
+#modes {width: 200px;}
+#tags {width: 217px;}
+.programs-container {border-bottom: 1px solid #afafaf; }
+ul.programs {border: none;}

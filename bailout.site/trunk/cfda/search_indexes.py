@@ -11,11 +11,17 @@ class ProgramDescriptionIndex(indexes.SearchIndex):
     text = indexes.CharField(document=True, use_template=True)
     
     title = indexes.CharField(model_attr='program_title')
-    description = indexes.CharField(model_attr='program_note')
     
-    def get_query_set(self):
+    def prepare_cfda_program(self, object):
+        
+        return str(object.program_number)
+        
+    
+    def get_queryset(self):
         "Used when the entire index for model is updated."
-        return ProgramDescription.objects.all()
+        
+        # limit cfda indexing to programs that are included in a sector
+        return ProgramDescription.objects.filter(sectors__isnull=False)
     
 
-#site.register(ProgramDescription, ProgramDescriptionIndex)
+site.register(ProgramDescription, ProgramDescriptionIndex)

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_sector.html" %}
 {% load media %}
 {% load charts %}
 {% load webdesign %}
@@ -68,13 +68,13 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 		<div class="content_area">
 		
 
-		{% morsel text1 %}
+		{% morsel text1 glossarize %}
 
 		{% morsel table1 %}
 		
 			<p>&nbsp;</p>
 		
-		{% morsel text2 %}
+		{% morsel text2 glossarize %}
 	</div>
 	
 	<div class="non_content">

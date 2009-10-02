@@ -1,0 +1,23 @@
+<link rel="stylesheet" type="text/css" media="screen" href="/media/styles/superfish.css" />
+<script type="text/javascript" src="/media/scripts/hoverIntent.js"></script>
+<script type="text/javascript" src="/media/scripts/superfish.js"></script>
+
+<script type="text/javascript">  
+    $(document).ready(function(){ 
+        $("ul.sf-menu").superfish(); 
+    }); 
+</script>
+
+<div class="span-24">	
+	<div id="navbar">
+		<ul id="navbar_items">
+			<li><a href="/">Home</a></li>
+			<li class="{% block bailout_active %}{% endblock %}"><a href="/projects/bailout/">Financial Bailout</a></li>
+            <li class="{% block transportation_active %}{% endblock %}"><a href="/projects/transportation/">Transportation</a></li>
+			<li class="inactive_top"><a href="/faq/#future-sectors">Future Sectors</a></li>
+		</ul>							
+	</div>
+	
+	{% block subnav %}{% endblock %}
+	
+</div>

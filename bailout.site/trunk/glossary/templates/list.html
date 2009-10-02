@@ -4,9 +4,9 @@
 
 {% block content %}
 
-<div class="container main_container">
-{% include "includes/bailout_nav.html" %}
 
+<div class="container main_container">
+	{% include "includes/generic_nav.html" %}
 	<div class="span-24">
 		<div id="header_area">
 			<h3>Glossary of Terms</h3>		
@@ -27,21 +27,10 @@
                 <dd>{{ item.definition|safe }}</dd>
                 {% endfor %}
             </dl>
-            <p>
-                <em>
-                    <strong>Sources</strong>:
-                    Federal Reserve,
-                    Special Inspector General for TARP,
-                    Congressional Budget Office,
-                    <a href="http://investorwords.com">investorwords.com</a>,
-                    <a href="http://investopedia.com">investopedia.com</a>,
-                    <a href="http://businessdictioanry.com">businessdictionary.com</a>,
-                    <a href="http://nolo.com">nolo.com</a>,
-                    <a href="http://teachmefinance.com">teachmefinance.com</a>,
-                    <a href="http://trading-glossary.com">trading-glossary.com</a>,
-                    <a href="http://useconomy.about.com">useconomy.about.com</a>
-                </em>
-            </p>
+            
+            {% morsel text1 %}
+            
+            
         </div>
     </div>
 </div>

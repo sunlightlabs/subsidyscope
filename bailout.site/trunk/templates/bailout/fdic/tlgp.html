@@ -1,9 +1,8 @@
-{% extends "base_tarp.html" %}
+{% extends "base_sector.html" %}
 {% load humanize %}
 {% load webdesign %}
 {% load media %}
 {% load morsel_tags %}
-{% load glossary_tags %}
 
 {% block additional_js %}
 {% endblock %}
@@ -23,44 +22,34 @@
 		</div>		
 		
 		<div class="content_area">
+	
+			{% morsel text1 glossarize %}
 
-			{% glossarize %}
-			
-				{% morsel text1 %}
-				
-			{% endglossarize %}
 			
 			<div class="non_content">		
 			
 				<div style="padding: 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;" >		
 		
-				{% morsel graph1 %}
+				{% morsel graph1 glossarize %}
 				
 				</div>
 				
 			</div>
-		
-			{% glossarize %}
 			
-				{% morsel text2 %}
+			{% morsel text2 glossarize %}
 				
-			{% endglossarize %}
 			
 			<div class="non_content">	
 
 				<div style="padding: 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;" >		
 			
-				{% glossarize %}
-		
-					{% morsel graph2 %}
-					
-				{% endglossarize %}
-				
+				{% morsel graph2 glossarize %}
+
 				</div>
 			</div>
 	
 			
-			{% morsel text3 %}
+			{% morsel text3 glossarize %}
 			
 			
 		</div>

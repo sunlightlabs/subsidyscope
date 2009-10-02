@@ -41,8 +41,19 @@
 	<div class="span-4">
 	<h4 class="footer">Transportation</h4>
 	<ul id="footer_list">
-		<li>Coming soon</li>
-
+		<li><a href="{% url transportation-overview %}">Overview</a></li>
+		<li><a href="{% url transportation-direct-expenditures %}">Direct Expenditures</a></li>
+    <li><a href="{% url transportation-tax-expenditures %}">Tax Expenditures</a></li>
+    <li><a href="{% url transportation-risk-transfers %}">Risk Transfers</a></li>
+    <li><a href="{% url transportation-contracts %}">Contracts</a></li>
+    
+    {% comment %}
+    <li><a href="{% url transportation-aviation %}">Aviation</a></li>
+    <li><a href="{% url transportation-highways %}">Highways</a></li>
+    <li><a href="{% url transportation-maritime %}">Maritime</a></li>
+    <li><a href="{% url transportation-rail %}">Rail</a></li>
+    <li><a href="{% url transportation-transit %}">Transit</a></li>
+    {% endcomment %}
 	</ul>	
 	</div>
 	
@@ -58,9 +69,10 @@
 	<div class="span-4">
 	<h4 class="footer">Reference</h4>
 	<ul id="footer_list">
-		<li><a href="/data/">Datasets</a></li>
-		<li><a href="/projects/bailout/glossary/">Glossary</a></li>
-	
+	  <li><a href="{% url framing-paper %}">Subsidyscope Framing Paper</a></li>
+		<li><a href="{% url datasets %}">Datasets</a></li>
+		<li><a href="{% url glossary %}">Glossary</a></li>
+		<li><a href="{% url methodology %}">Methodology</a></li>	
 	</ul>
 	</div>	
 

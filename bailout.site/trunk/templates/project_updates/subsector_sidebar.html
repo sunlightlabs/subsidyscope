@@ -1,0 +1,12 @@
+{% if updates %}
+
+<div class="news_box" style="border-style: none solid solid; border-color: -moz-use-text-color rgb(204, 204, 204) rgb(204, 204, 204); border-width: 0pt 1px 1px;  margin:0 0 15px 15px; width: 279px; float: right;">
+	<div class="news_head"><h2>Related Updates</h2></div>	
+	<ul class="news_box_items">
+		{% for update in updates %}
+			<li><a href="{{ update.link }}">{{ update.title }}</a></li>
+		{% endfor %}
+	</ul>
+</div>
+
+{% endif %}

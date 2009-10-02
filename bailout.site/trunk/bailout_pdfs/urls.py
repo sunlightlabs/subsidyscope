@@ -2,9 +2,11 @@ from django import forms
 from django.conf import settings
 from django.conf.urls.defaults import *
 from bailout_pdfs.models import *
+from sectors.models import *
 
 info_dict = {
-    'queryset': BailoutPDF.objects.all(),
+    'queryset': BailoutPDF.objects.all().order_by('sector', '-date'),
+    'extra_context': {'sectors': Sector.objects.all()}
 }
 
 urlpatterns = patterns('',

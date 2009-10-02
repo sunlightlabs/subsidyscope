@@ -8,7 +8,7 @@ from django.template.loader import render_to_string
 from django.db.models import Q
 from bailout.models import Institution, Transaction, InstitutionDailyStockPrice, CountySummary
 from django.core.urlresolvers import reverse
-from helpers import JSONHttpResponse, compare_by, FileIterWrapper
+from helpers.helpers import JSONHttpResponse, compare_by, FileIterWrapper
 from tarp_subsidy_graphics.models import SubsidyRecord
 from GChartWrapper import GChart
 from django.template import RequestContext

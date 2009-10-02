@@ -1,4 +1,4 @@
-{% extends "base_tarp.html" %}
+{% extends "base_sector.html" %}
 {% load humanize %}
 {% load bailout_tags %}
 {% load media %}
@@ -6,17 +6,18 @@
 {% load morsel_tags %}
 
 {% block additional_css %}
-	{% css "ui.theme.css" %}
 	{% css "tarp-visualization.css" %}
+  {% css "jquery-ui/ui.all.css" %}
 {% endblock %}
 
 {% block additional_js %}
-	{% js "jquery-ui-personalized-tabs-1.5.3.js" %}
 	{% js "jquery.scrollTo-1.4.0-min.js" %}
 	{% js "jquery.localscroll-1.2.6-min.js" %}
 	{% js "jquery.serialScroll-1.2.1-min.js" %}	
 	{% js "jquery.tablesorter.js" %}
 	{% js "jquery.autocomplete.js" %}
+  {% js "ui.core.js" %}
+  {% js "ui.tabs.js" %}
 	
 	{% js "swfobject.js" %}
 	{# avoid using js tag for this last one -- it needs to be served locally, not rewritten to use S3 #}
@@ -38,56 +39,56 @@
 		
 		<div class="content_area">
 	
-			{% morsel text1 %}		
+			{% morsel text1 glossarize %}		
 	
 		</div>
 
 
 <div class="non_content">
 	<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+		
 		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
 			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#transactions">Transactions</a></li>
 			<li class="ui-state-default ui-corner-top"><a href="#recipients">By Recipient</a></li>
 			<li class="ui-state-default ui-corner-top"><a href="#by-date">By Date</a></li>
 			<li class="ui-state-default ui-corner-top"><a href="#csv">Download</a></li>
 		</ul>
-		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="transactions">
-			
+		
+		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="transactions">			
 			<div id="tarp-container">
 				<div id="tarp" style="text-align:center;">
-				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
-				
-			<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
-			
+				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
+			  <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
 				</div>
-			</div>
-			
+			</div>			
 			<div class="gray-label">transaction date &rarr;</div>
 		</div>
 		
 		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="recipients">
-			<div id="bubbles-container"><div id="tarpBubbleVis" style="text-align:center;">
-				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
-				
-			<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
-			
-			</div></div>
-			
-			<div class="gray-label">Mouse over the circles to see the names of institutions receiving TARP funds, the amounts received and the percentage of total disbursements each amount represents.</div>
-			<div style="margin-top:15px" class="gray-label">Note: Although AIG is widely known as one of the world's largest insurance companies, its ownership of AIG Federal Savings Bank classifies it as a thrift holding company, subject to federal regulation by the Office of Thrift Supervision. The Federal Reserve refers to AIG as a "widely diversified financial services company."</div>
-		</div>
+			<div id="bubbles-container">
+			  <div id="tarpBubbleVis" style="text-align:center;">
+				  <p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
+			    <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
+			  </div>
+		  </div>			
+		  <div class="gray-label">Mouse over the circles to see the names of institutions receiving TARP funds, the amounts received and the percentage of total disbursements each amount represents.</div>
+		  <div style="margin-top:15px" class="gray-label">Note: Although AIG is widely known as one of the world's largest insurance companies, its ownership of AIG Federal Savings Bank classifies it as a thrift holding company, subject to federal regulation by the Office of Thrift Supervision. The Federal Reserve refers to AIG as a "widely diversified financial services company."</div>
+	  </div>
+
 		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="by-date">
-			<div id="by-date-container"><div id="tarpTimelineVis" style="text-align:center;">
-				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
-				
-			<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
-			
-			</div></div>
+			<div id="by-date-container">
+			  <div id="tarpTimelineVis" style="text-align:center;">
+				  <p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
+			    <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
+			  </div>
+			</div>
 		</div>
+
 		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="csv">
 	    	<p>If you'd like to download the data powering these visualizations you may do so using the link below.  In addition to the fields displayed in the table on this page, the download includes information like FDIC ID numbers and stock ticker symbols (when available).  The file is in <a href="{% url glossary %}">CSV</a> format, which can be opened with any modern spreadsheet program.</p>
-			<p><a id="csv-link" href="{% url tarp-csv %}">Download CSV Data &raquo;</a></p>
+			  <p><a id="csv-link" href="{% url tarp-csv %}">Download CSV Data &raquo;</a></p>
 		</div>
+
 	</div>
 	
 	<div id="table-filter" style="clear:left; padding-top: 15px;">Filter transactions by recipient: <input size="30" id="tarpFilterInput"/></div> 

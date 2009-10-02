@@ -12,6 +12,7 @@ ADMINS = (
     ('Kaitlin Lee','klee@sunlightfoundation.com')
 )
 
+
 MANAGERS = ADMINS
 
 # Local time zone for this installation. Choices can be found here:
@@ -87,6 +88,7 @@ INSTALLED_APPS = (
     'contact_form',
     'sunlightcore',
     'spammer',
+    'helpers',
     'haystack',
     'csv_generator',
     'etl',
@@ -103,8 +105,13 @@ INSTALLED_APPS = (
     'glossary',
     'carousel',
     'search',
+    'faads',
+    'budget_accounts',
+    'transportation',
     'tagging',
-    'news_briefs'
+    'aip',
+    'news_briefs',
+    'cfda'
 )
 
 #try:
@@ -194,12 +201,14 @@ SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
 
 # Haystack
+HAYSTACK_SEARCH_ENGINE = 'solr' 
+HAYSTACK_SOLR_URL = 'http://127.0.0.1:8080/solr'
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_SITECONF = 'search_sites'
-HAYSTACK_SEARCH_ENGINE = 'whoosh' 
 
 
 # Auth 
-
 LOGIN_URL = '/subsidysort/login/'
 
 

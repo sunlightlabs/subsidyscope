@@ -12,9 +12,13 @@ class PageIndex(indexes.SearchIndex):
     title = indexes.CharField(model_attr='title')
     url = indexes.CharField(model_attr='url')
     
-    def get_query_set(self):
+    def get_queryset(self):
         "Used when the entire index for model is updated."
         return Page.objects.all()
+    
+    def should_update(self, instance=None):
+        "Disable update on save - re-index lag is causing problems with timeouts"
+        return False
 
 
 site.register(Page, PageIndex)

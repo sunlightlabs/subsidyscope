@@ -1,0 +1,50 @@
+{% load humanize %}
+
+{% if state_data %}
+
+<h4>Direct Expenditures by State</h4>
+
+<table id="summary-state-data" class="summary-data">
+  <tr>
+    <th></th>
+    {% for year in year_range %}<th{% if forloop.first %} class="first"{% endif %}{% if forloop.last %} class="last"{% endif %}>{{ year }}</th>
+    {% endfor %}
+  </tr>
+  
+  {% for row in state_data %}
+  <tr class="{% cycle "odd" "even" %}">
+    {% for cell in row %}<td{% if forloop.first %} class="first"{% endif %}{% if forloop.last %} class="last"{% endif %}>{% if cell %}{% if forloop.first %}{{ cell|safe }}{% else %}{{ cell|floatformat:"-0"|intcomma}}{% endif %}{% else %}<div class="null-value">&mdash;</div>{% endif %}</td>{% endfor %}
+  </tr>
+  {% endfor %}
+
+</table>
+
+{% endif %}
+
+{% if program_data %}
+
+<h4>Direct Expenditures by Program</h4>
+
+<table id="summary-program-data" class="summary-data">
+  <tr>
+    {% for year in year_range %}<th{% if forloop.first %} class="first"{% endif %}{% if forloop.last %} class="last"{% endif %}>{{ year }}</th>
+    {% endfor %}
+  </tr>
+  
+  {% for row in program_data %}
+  
+  <!-- {% cycle "odd" "even" as rowmodtwo %} -->
+  
+  {% for cell in row|slice:"0:1" %}
+  <tr class="{{ rowmodtwo }} top">
+    <td colspan="{{ year_range|length }}">{{ cell|safe }}</td> 
+  </tr>
+  {% endfor %}
+  <tr class="{{ rowmodtwo }} bottom">
+    {% for cell in row|slice:"1:" %}<td{% if forloop.last %} class="last"{% endif %}>{% if cell %}{{ cell|floatformat:"-0"|intcomma}}{% else %}<div class="null-value">&mdash;</div>{% endif %}</td>{% endfor %}
+  </tr>
+  {% endfor %}
+
+</table>
+
+{% endif %}

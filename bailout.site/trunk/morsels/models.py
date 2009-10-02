@@ -24,7 +24,7 @@ class Page(models.Model):
             Make sure to have leading and trailing slashes for the page url, but no slash
             after the morsel name."""))
     
-    title = models.CharField(_('title'), max_length=80, blank=True)
+    title = models.CharField(_('title'), max_length=255, blank=True)
 
     sites = models.ManyToManyField(Site, verbose_name=_('sites'))
     
@@ -65,10 +65,11 @@ class Morsel(models.Model):
         c = Context()
         t = Template(self.content)
         raw_output = t.render(c)
-        
-        t = lxml.html.fromstring(raw_output)
     
+        t = lxml.html.fromstring(raw_output)
+        
         return t.text_content()
+
 
     def delete(self):
         if self.locked:

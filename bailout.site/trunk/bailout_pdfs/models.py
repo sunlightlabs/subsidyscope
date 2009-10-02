@@ -16,7 +16,7 @@ class BailoutPDF(models.Model):
         return self.title
     title = models.CharField("Title",max_length=255)
     date = models.DateField("Date")
-    sector = models.ForeignKey(Sector, null=False)
+    sector = models.ForeignKey(Sector, null=False, blank=False)
     link_url = models.URLField("Link", blank=True, default='')
     CHOICES = (
         ('PDF', 'PDF'),
