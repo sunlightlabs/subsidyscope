@@ -9,6 +9,8 @@ from django.views.generic.simple import direct_to_template, redirect_to
 urlpatterns = patterns('', 
     url(r'^direct-expenditures/search/by-year/', 'faads.views.annual_chart_data', {'sector_name': 'transportation'}, name='transportation-faads-search-by-year'),
     url(r'^direct-expenditures/search/map/', 'faads.views.map_data', {'sector_name': 'transportation'}, name='transportation-faads-search-map-data'),
+    url(r'^direct-expenditures/search/summary/csv/state/', 'faads.views.summary_statistics_csv', {'sector_name': 'transportation', 'first_column_label': 'State', 'data_fetcher': '_get_state_summary_data'}, name='transportation-faads-search-summary-csv-state'),    
+    url(r'^direct-expenditures/search/summary/csv/program/', 'faads.views.summary_statistics_csv', {'sector_name': 'transportation', 'first_column_label': 'CFDA Program', 'data_fetcher': '_get_program_summary_data'}, name='transportation-faads-search-summary-csv-program'),    
     url(r'^direct-expenditures/search/summary/', 'faads.views.summary_statistics', {'sector_name': 'transportation'}, name='transportation-faads-search-summary'),
     url(r'^direct-expenditures/search/', 'faads.views.search', {'sector_name': 'transportation'}, name='transportation-faads-search'),
     url(r'^direct-expenditures/programs/faads/(?P<cfda_id>[0-9]+)/', 'cfda.views.getFAADSLineItems',{'sector_name':'transportation'}, name='cfda-FAADS'),
