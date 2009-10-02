@@ -125,6 +125,8 @@ def index(request):
         if get.__contains__('stimulus'):
             stimulus = True
         else: stimulus = False
+       
+        filters = {'year_first': int(year_first), 'year_last':int(year_last), 'npr_first':int(npr_first), 'npr_last': int(npr_last), 'dist_filter':dist_filter, 'stimulus':stimulus}
         
         if dist_filter != '':
             state = dist_filter.split('-')[0]
@@ -160,8 +162,9 @@ def index(request):
             projects = paginator.page(page)
         except (EmptyPage, InvalidPage):
             projects = paginator.page(paginator.num_pages)
+        
 
-        return render_to_response('aip/index.html', {subtype: parameter, 'projects':projects, 'districts': districts, 'years':years, 'nprs':nprs, 'querystring':request.META['QUERY_STRING'], 'sorts':sorts})
+        return render_to_response('aip/index.html', {subtype: parameter, 'projects':projects, 'districts': districts, 'years':years, 'nprs':nprs, 'querystring':request.META['QUERY_STRING'], 'sorts':sorts, 'filters':filters, 'numpages': paginator.num_pages, 'page':page, 'type': type})
         
     if not error:
         error = 'You must specify and airport name or airport code'

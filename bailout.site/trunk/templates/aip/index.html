@@ -9,7 +9,10 @@
 {% css "aip.css" %}
 <style>
 .searchterms, .options {display: block; margin: 10px;}
-#portsearch fieldset {padding-top :20px;}
+#portsearch fieldset, #projectsearch fieldset {padding-top :20px;padding-left: 1.8em;}
+#portsearch fieldset.collapsed, #projectsearch fieldset.collapsed { margin:0px; padding-top:0px; border-bottom: none; border-right: none;border-left: none;}
+#portsearch fieldset.collapsed div.form_content, #projectsearch fieldset.collapsed div.form_content { display: none; }
+
 #projectsearch {display: block;}
 #projectsearch fieldset select { margin: 10px auto;}
 #projectsearch fieldset span {margin: 0 auto; width: 350px;display: block;}
@@ -18,7 +21,10 @@
 #projectsearch .submit {background-color: #f6f8fb; border: 1px solid #899EAB; margin-left: 15px; padding: 0 3px;}
 td.dollars {text-align:right; }
 th.sortable {background: url(/media/images/bg.gif) no-repeat center right; cursor: pointer;}
-
+.pages { margin:15px; display: block; font-size: 1.1em; text-align:right; }
+#project_results table { margin-bottom: 0; }
+#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;}
+#projectsearch fieldset.collapsed legend, #portsearch fieldset.collapsed legend { background: transparent url(/media/images/collapse_plus.png) no-repeat scroll right 5px;}
 </style>
 
 
@@ -29,8 +35,9 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
         <div class="content_area">
         <p>The Airport Improvement Program is a <a href="/projects/transportation/direct-expenditures/programs/">CFDA program</a> that administers grants to airports around the country. Use the search options below to look up grant funding and enplanement<sup>1</sup> data by state or airport.</p>
         <form id="portsearch">
-            <h5>Search by Airport</h5>
-            <fieldset>
+            <fieldset {% if type == 'project' %} class="collapsed" {% endif %}>    
+            <legend id="expand_airport">Search by Airport</legend>
+            <div class="form_content" >    
             <input type="hidden" name="searchtype" value="airport"/>
             <strong>Search by Specific Airport: </strong>
             <span class="searchterms"><label>Airport Name:</label><input class="term" type="text" name="portname" {%if name%} value="{{name}}" {%endif%} /><span><em> &mdash; or &mdash;</em></span><label>Airport Code:</label><input class="term" type="text" name="portcode" {% if code %} value="{{code}}" {% endif %} /></span>
@@ -101,28 +108,30 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
     </span>
     <input type="submit" class="submit" value="Search" />
 </span>
+</div>
 </fieldset>
 </form>
-<h5>Search by Project</h5>
 <form id="projectsearch">
     <input type="hidden" name="fysort" value='{% if sorts.fysort == 'asc' %}asc {%elif sorts.fysort == 'desc'%}desc{%else %}none{%endif%}' />
     <input type="hidden" name="nprsort" value='{% if sorts.nprsort == 'asc'%}asc{% elif sorts.nprsort == 'desc'%}desc{%else %}none{%endif%}' />
     <input type="hidden" name="airportsort" value='{% if sorts.airportsort == 'asc'%}asc{% elif sorts.airportsort == 'desc'%}desc{%else%}none{%endif%}' />
     <input type="hidden" name="totalsort" value='{% if sorts.totalsort == 'asc'%}asc{%elif sorts.totalsort == 'desc'%}desc{%else%}none{%endif%}' />
 
-    <fieldset>
+    <fieldset {% if type == 'airport' %} class="collapsed" {% endif %}>
+        <legend id="expand_project">Search by Project</legend>
         <input type="hidden" name="searchtype" value="project" />
+        <div class="form_content">
         <span>
             Limit by year range:
         <select name="year_range_first">
             {% for y in years %}
-                <option value="{{y}}">{{y}}</option>
+            <option value="{{y}}" {% if filters.year_first == y %} selected  {% endif %}>{{y}}</option>
             {% endfor %}
         </select>
         &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
         <select name="year_range_last">
             {% for y in years %}
-                <option value="{{y}}" {% if forloop.last %} selected="selected"{%endif%}>{{y}}</option>
+                <option value="{{y}}"{% if filters %} {% if filters.year_last == y %} selected {% endif%} {% elif forloop.last %} selected  {%endif%}>{{y}}</option>
             {% endfor %}
         </select>
         <a class="fy all" href="#">All</a>
@@ -131,31 +140,32 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             Limit by NPR range:
         <select name="npr_range_first">
             {% for n in nprs %}
-            <option value="{{n}}">{{n}}</option>
+            <option value="{{n}}" {% if filters.npr_first == n %} selected {% endif %}>{{n}}</option>
             {% endfor %}
         </select>
         &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
         <select name="npr_range_last">
             {% for n in nprs %}
-            <option value="{{n}}" {% if forloop.last%} selected="selected" {% endif %} >{{n}}</option>
+            <option value="{{n}}" {% if filters %} {% if filters.npr_last == n %} selected {% endif %} {%elif forloop.last%} selected {% endif %} >{{n}}</option>
             {% endfor %}
         </select>
         <a href="#" class="npr all">All</a>
         </span>
         <span>
             Restrict to Stimulus(ARRA) funds?
-            <input type="checkbox" name="stimulus" />
+            <input type="checkbox" name="stimulus" {% if filters.stimulus %} checked {%endif%}/>
         </span>
         <span>
             Restrict to congressional district?
             <select name="district_filter">
             <option value="">All</option>
             {%for d in districts %}
-            <option value="{{d}}">{{d}}</option>
+            <option value="{{d}}" {%if filters.dist_filter == d %} selected {% endif %}>{{d}}</option>
             {% endfor %}
             </select>
         </span>
         <input type="submit" class="submit" value="Search" />
+        </div>
     </fieldset>
 </form>
         {% if error %}
@@ -188,11 +198,11 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
         {% endif %}
         {% if projects %}
         <div id="project_results">
-            <span style="margin:15px; display:block;">
+            <span class="pages">
             {%if projects.has_previous %}
                 <a href="?{{querystring}}&page={{projects.previous_page_number}}">&laquo;&nbsp;Previous</a>
-                &nbsp;|&nbsp;
             {% endif %}
+            &nbsp;Page {{page}} of {{numpages}}&nbsp;
             {% if projects.has_next %}
             <a href="?{{querystring}}&page={{projects.next_page_number}}">Next&nbsp;&raquo;</a> 
             {% endif %}
@@ -202,10 +212,20 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
                     <tr><th class="sortable">FY</th><th style=width:40px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
                     {% for p in projects.object_list %}
                     <tr>
-                    <td>{{p.fiscal_year}}</td><td>{{p.npr}}</td><td><a href="/projects/transportation/aip/airports/{{p.airport.code}}">{{p.airport}}</a></td><td>{{p.description}}</td><td class="dollars">${{p.total|floatformat:0|intcomma}}</td><td class="dollars">${{p.discretionary|floatformat:0|intcomma}}</td><td class="dollars">${{p.entitlement|floatformat:0|intcomma}}</td><td class="dollars">${{p.stimulus|floatformat:0|intcomma}}</td>
+                    <td>{{p.fiscal_year}}</td><td>{{p.npr}}</td><td><a href="/projects/transportation/aip/airports/{{p.airport.code}}">{{p.airport}}{% if p.airport.name == 'New' %} ({{p.airport.city}}{%if p.airport.city%}, {%endif%}{{p.airport.state}}){% endif %}</a></td><td>{{p.description}}</td><td class="dollars">${{p.total|floatformat:0|intcomma}}</td><td class="dollars">${{p.discretionary|floatformat:0|intcomma}}</td><td class="dollars">${{p.entitlement|floatformat:0|intcomma}}</td><td class="dollars">${{p.stimulus|floatformat:0|intcomma}}</td>
                     </tr>
                     {% endfor %}
-            </table>    
+            </table>
+    
+            <span class="pages">
+            {%if projects.has_previous %}
+                <a href="?{{querystring}}&page={{projects.previous_page_number}}">&laquo;&nbsp;Previous</a>
+            {% endif %}
+            &nbsp;Page {{page}} of {{numpages}}&nbsp;
+            {% if projects.has_next %}
+            <a href="?{{querystring}}&page={{projects.next_page_number}}">Next&nbsp;&raquo;</a> 
+            {% endif %}
+            </span>
         {% endif %} 
         </div>
         </div>
@@ -225,7 +245,14 @@ $("#choose_district").change(function(){
 $("#choose_state").change(function(){
     $("#choose_district").val("");
 });
-
+$("#expand_airport").click(function(){
+    $(this).parents("fieldset").toggleClass("collapsed");
+    return false;
+});
+$("#expand_project").click(function(){
+    $(this).parents("fieldset").toggleClass("collapsed");
+    return false;
+});
 $("#project_results table th.sortable").click(function(e){
     var val_list = {'asc':'desc', 'desc':'asc', 'none':'asc'};
     var sort = $(this).text().toLowerCase() + 'sort';
