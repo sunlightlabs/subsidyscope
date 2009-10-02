@@ -196,7 +196,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             {% endifequal %}
         </div>
         {% endif %}
-        {% if projects %}
+        {% if projects.object_list %}
         <div id="project_results">
             <span class="pages">
             {%if projects.has_previous %}
@@ -226,6 +226,11 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             <a href="?{{querystring}}&page={{projects.next_page_number}}">Next&nbsp;&raquo;</a> 
             {% endif %}
             </span>
+        {% else %}
+        <div class="error" style="margin-top:15px;">
+            <div style="margin:0 auto; width: 230px;">No Results Found For Your Search</div>
+        </div>
+        
         {% endif %} 
         </div>
         </div>
