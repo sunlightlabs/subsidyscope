@@ -44,3 +44,4 @@ ul.programs {border: none;}
 
 /*aip search */
 #projectsearch fieldset span { vertical-align: middle; }
+#portsearch fieldset div.form_content { margin-top: 1.1em; }
