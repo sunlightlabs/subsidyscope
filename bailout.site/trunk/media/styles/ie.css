@@ -41,3 +41,6 @@ td.description {word-wrap: break-word; width: 255px;}
 #tags {width: 217px;}
 .programs-container {border-bottom: 1px solid #afafaf; }
 ul.programs {border: none;}
+
+/*aip search */
+#projectsearch fieldset span { vertical-align: middle; }

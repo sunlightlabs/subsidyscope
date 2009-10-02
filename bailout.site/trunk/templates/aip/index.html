@@ -23,7 +23,7 @@ td.dollars {text-align:right; }
 th.sortable {background: url(/media/images/bg.gif) no-repeat center right; cursor: pointer;}
 .pages { margin:15px; display: block; font-size: 1.1em; text-align:right; }
 #project_results table { margin-bottom: 0; }
-#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;}
+#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;margin:0 !important;}
 #projectsearch fieldset.collapsed legend, #portsearch fieldset.collapsed legend { background: transparent url(/media/images/collapse_plus.png) no-repeat scroll right 5px;}
 </style>
 
@@ -168,9 +168,6 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
         </div>
     </fieldset>
 </form>
-        {% if error %}
-           <span class="error" style="margin-left:20px;"> {{error}}</span>
-        {% endif %}
  
 <div style="margin-top:10px;"><cite><sup>1</sup>An enplanement, as defined by the FAA, is a single, revenue-generating passenger departing from or arriving at an airport.</cite></div>
         {% if grants %}
@@ -195,8 +192,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
                 {% endif %}
             {% endifequal %}
         </div>
-        {% endif %}
-        {% if projects %}
+        {% elif projects.object_list %}
         <div id="project_results">
             <span class="pages">
             {%if projects.has_previous %}
@@ -209,7 +205,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             </span>
             <table style="width:100%;">
                 <tbody>
-                    <tr><th class="sortable">FY</th><th style=width:40px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
+                    <tr><th class="sortable">FY</th><th style=width:50px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
                     {% for p in projects.object_list %}
                     <tr>
                     <td>{{p.fiscal_year}}</td><td>{{p.npr}}</td><td><a href="/projects/transportation/aip/airports/{{p.airport.code}}">{{p.airport}}{% if p.airport.name == 'New' %} ({{p.airport.city}}{%if p.airport.city%}, {%endif%}{{p.airport.state}}){% endif %}</a></td><td>{{p.description}}</td><td class="dollars">${{p.total|floatformat:0|intcomma}}</td><td class="dollars">${{p.discretionary|floatformat:0|intcomma}}</td><td class="dollars">${{p.entitlement|floatformat:0|intcomma}}</td><td class="dollars">${{p.stimulus|floatformat:0|intcomma}}</td>
@@ -226,6 +222,11 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             <a href="?{{querystring}}&page={{projects.next_page_number}}">Next&nbsp;&raquo;</a> 
             {% endif %}
             </span>
+        {% else %}
+        <div class="error" style="margin-top:15px;">
+            <div style="margin:0 auto; width: 230px;">No Results Found For Your Search</div>
+        </div>
+        
         {% endif %} 
         </div>
         </div>
