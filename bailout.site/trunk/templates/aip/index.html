@@ -168,9 +168,6 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
         </div>
     </fieldset>
 </form>
-        {% if error %}
-           <span class="error" style="margin-left:20px;"> {{error}}</span>
-        {% endif %}
  
 <div style="margin-top:10px;"><cite><sup>1</sup>An enplanement, as defined by the FAA, is a single, revenue-generating passenger departing from or arriving at an airport.</cite></div>
         {% if grants %}
@@ -195,8 +192,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
                 {% endif %}
             {% endifequal %}
         </div>
-        {% endif %}
-        {% if projects.object_list %}
+        {% elif projects.object_list %}
         <div id="project_results">
             <span class="pages">
             {%if projects.has_previous %}
