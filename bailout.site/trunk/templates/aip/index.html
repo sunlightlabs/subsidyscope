@@ -23,7 +23,7 @@ td.dollars {text-align:right; }
 th.sortable {background: url(/media/images/bg.gif) no-repeat center right; cursor: pointer;}
 .pages { margin:15px; display: block; font-size: 1.1em; text-align:right; }
 #project_results table { margin-bottom: 0; }
-#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;}
+#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;margin:0 !important;}
 #projectsearch fieldset.collapsed legend, #portsearch fieldset.collapsed legend { background: transparent url(/media/images/collapse_plus.png) no-repeat scroll right 5px;}
 </style>
 
@@ -209,7 +209,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             </span>
             <table style="width:100%;">
                 <tbody>
-                    <tr><th class="sortable">FY</th><th style=width:40px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
+                    <tr><th class="sortable">FY</th><th style=width:50px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
                     {% for p in projects.object_list %}
                     <tr>
                     <td>{{p.fiscal_year}}</td><td>{{p.npr}}</td><td><a href="/projects/transportation/aip/airports/{{p.airport.code}}">{{p.airport}}{% if p.airport.name == 'New' %} ({{p.airport.city}}{%if p.airport.city%}, {%endif%}{{p.airport.state}}){% endif %}</a></td><td>{{p.description}}</td><td class="dollars">${{p.total|floatformat:0|intcomma}}</td><td class="dollars">${{p.discretionary|floatformat:0|intcomma}}</td><td class="dollars">${{p.entitlement|floatformat:0|intcomma}}</td><td class="dollars">${{p.stimulus|floatformat:0|intcomma}}</td>
