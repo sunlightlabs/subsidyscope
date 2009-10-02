@@ -1,5 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
+from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
 from aip.models import *
 from django.db.models import Avg, Sum
@@ -11,10 +12,11 @@ def portdata (request, code):
     airport = None
     total = 0
     count = 0
+    service = {'P': 'Primary', 'CS': 'Commercial Service', 'GA':'General Aviation', 'R':'Reliever'}
     try:
         airport = Airport.objects.get(code=code)
     except Airport.DoesNotExist:
-        pass
+        return HttpResponseRedirect('/projects/transportation/aip/')
     if airport:
         enplanements = Enplanements.objects.filter(airport=code)
         operations = Operations.objects.filter(airport=code)
@@ -25,7 +27,11 @@ def portdata (request, code):
         avgops = operations.aggregate(Avg('operations'))
         avggrant = grants.aggregate(Avg('total'))
         totalfunding = grants.aggregate(Sum('total'))
-        return render_to_response('aip/airports.html', {'airport': airport,'enplanements': enplanements, 'operations':operations, 'grants':grants, 'projects':projects, 'stimulus': stimulus, 'totalfunding':totalfunding['total__sum'], 'avggrant':avggrant['total__avg'], 'avgops':avgops['operations__avg'], 'avgenps':avgenps['amount__avg']})
+        try:
+            service_level = service[airport.service_level]
+        except KeyError:
+            service_level = 'Unknown'
+        return render_to_response('aip/airports.html', {'airport': airport,'enplanements': enplanements, 'operations':operations, 'grants':grants, 'projects':projects, 'stimulus': stimulus, 'totalfunding':totalfunding['total__sum'], 'avggrant':avggrant['total__avg'], 'avgops':avgops['operations__avg'], 'avgenps':avgenps['amount__avg'], 'service_level': service_level })
 
 def get_districts():
     from django.db import connection, transaction

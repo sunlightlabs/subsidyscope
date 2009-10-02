@@ -21,7 +21,7 @@ div.grants table { width: 100%; }
             <table class="port-stats">
                 <tr><th colspan="2">At a Glance</th></tr>
                 <tr><td><strong>Location:</strong></td><td class="value"> {%if airport.city%}{{airport.city}},{% endif %}{{airport.state}}</td></tr>
-                {%if airport.service_level %} <tr><td><strong>Service Level:</strong> </td><td class="value">{{airport.service_level}}</td></tr> {% endif %}
+                {%if service_level %} <tr><td><strong>Service Level:</strong> </td><td class="value">{{service_level}}</td></tr> {% endif %}
                 {% if airport.district %}<tr><td><strong>Congressional District: </strong></td><td class="value"> {{airport.state}}-{{airport.district}}</td></tr> {% endif %}
                 <tr><td><strong>Total Funding (2005-09):</strong></td><td class="value">&nbsp;${{totalfunding|floatformat:0|intcomma}}</td></tr>
                 <tr><td><strong>Average grant amount:</strong></td><td class="value">&nbsp;${{avggrant|floatformat:0|intcomma}}</td></tr>
