@@ -1,5 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
+from django.template import RequestContext, loader, Template, Context
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
 from aip.models import *
@@ -69,7 +70,7 @@ def index(request):
     if get.__contains__('searchtype'):
         type = get['searchtype']
     else: 
-        return render_to_response('aip/index.html', {'districts':districts, 'years':years, 'nprs':nprs})
+        return render_to_response('aip/index.html', {'districts':districts, 'years':years, 'nprs':nprs}, context_instance=RequestContext(request))
 
     if type=='airport':
         if get.__contains__('portcode') and get['portcode'] != '':
@@ -118,7 +119,7 @@ def index(request):
                 total += money
                 grants.append((p, money, enplanements))
             
-            return render_to_response('aip/index.html', {subtype: parameter, 'ports':ports, 'grants': grants, 'total': total, 'type': type, 'districts': districts, 'years':years, 'nprs':nprs})
+            return render_to_response('aip/index.html', {subtype: parameter, 'ports':ports, 'grants': grants, 'total': total, 'type': type, 'districts': districts, 'years':years, 'nprs':nprs}, context_instance=RequestContext(request))
        
     elif type=="project":
         projects = Project.objects.all()
@@ -170,9 +171,9 @@ def index(request):
             projects = paginator.page(paginator.num_pages)
         
 
-        return render_to_response('aip/index.html', {subtype: parameter, 'projects':projects, 'districts': districts, 'years':years, 'nprs':nprs, 'querystring':request.META['QUERY_STRING'], 'sorts':sorts, 'filters':filters, 'numpages': paginator.num_pages, 'page':page, 'type': type})
+        return render_to_response('aip/index.html', {subtype: parameter, 'projects':projects, 'districts': districts, 'years':years, 'nprs':nprs, 'querystring':request.META['QUERY_STRING'], 'sorts':sorts, 'filters':filters, 'numpages': paginator.num_pages, 'page':page, 'type': type}, context_instance=RequestContext(request))
         
     if not error:
         error = 'You must specify and airport name or airport code'
-    return render_to_response('aip/index.html', {'error': error, 'districts':districts, 'years':years, 'nprs':nprs})
+    return render_to_response('aip/index.html', {'error': error, 'districts':districts, 'years':years, 'nprs':nprs}, context_instance=RequestContext(request))
 
