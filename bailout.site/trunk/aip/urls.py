@@ -4,5 +4,6 @@ from django.views.generic.simple import direct_to_template, redirect_to
 
 urlpatterns = patterns('',
     url(r'^airports/(?P<code>[A-Za-z0-9@*+]+)', 'aip.views.portdata', name='aip-airport-data'),
-    url(r'^$', 'aip.views.index', name='aip-index')
+    url(r'^$', 'aip.views.index', name='aip-index'),
+    url(r'results/csv', 'aip.views.get_csv_from_search', name='aip-csv-download')
 )

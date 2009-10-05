@@ -27,6 +27,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
 #project_results table { margin-bottom: 0; }
 #projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;margin:0 !important;}
 #projectsearch fieldset.collapsed legend, #portsearch fieldset.collapsed legend { background: transparent url(/media/images/collapse_plus.png) no-repeat scroll right 5px;}
+.summary-csv {width: 200px; float:left; margin-top:10px; padding 2px;}
 </style>
 
 
@@ -213,7 +214,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
                     </tr>
                     {% endfor %}
             </table>
-    
+            <div class="summary-csv"><a style="background: transparent url(/media/images/download_icon_smaller.png) no-repeat scroll 0 6px; padding-left:25px;padding-top: 7px;" href="{% url aip-csv-download %}?{{querystring}}">CSV Download</a> </div>
             <span class="pages">
             {%if projects.has_previous %}
                 <a href="?{{querystring}}&page={{projects.previous_page_number}}">&laquo;&nbsp;Previous</a>
@@ -225,7 +226,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             </span>
         {% elif error %}
         <div class="error" style="margin-top:15px;">
-            <div style="margin:0 auto; width: 230px;">No Results Found For Your Search</div>
+            <div style="margin:0 auto; width: 230px;">{{error}}</div>
         </div>
         
         {% endif %} 
