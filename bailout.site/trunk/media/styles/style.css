@@ -76,8 +76,6 @@ form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #
 #email-message.warning { border-color: #c00; color: #800; background-color: #FFCCCC;}
 ul#top_nav_header li { display: block !important; float: right;}
 
-#search_box { }
-
 /* email updates */
 #search_box {color:#2f4867; font-size:12px; text-align:right; padding:10px 20px 0 0; font-family:Helvetica Neue, Arial, Helvetica, sans-serif; margin:0;}
 #search_box input { margin-right:5px; padding:0; font-size: 14px;}

@@ -109,6 +109,9 @@
 
 .pagination { text-align: center; font-size: 1.2em; margin-top: 20px;}
 .pagination .current { padding: 0 20px; text-align: center; }
+.step-links .disabled, .step-links a { padding: 0 10px;}
+.step-links .disabled { color: #888;}
+ 
 
 #tabs ul { margin-bottom: 0px;}
 #tabs ul, #tabs ul li { margin-left: 0;}
