@@ -288,6 +288,7 @@ strong { font-weight:bold;}
 .news_box a:visited { text-decoration:none; color:#2d73bf;  }
 .news_box a:hover { text-decoration:none; color:#2d73bf;  }
 .news_box a:active { text-decoration:none; color:#2d73bf; }
+.related_updates_box { border-style: none solid solid; border-color: rgb(204, 204, 204); border-width: 0pt 1px 1px;  margin:0 0 15px 15px; width: 279px; float: right; }
 
 
 .news_head { border-top:1px solid #cbcbcb; background-color:#f3f3f4; padding:5px 0 0 10px; border-bottom:1px solid #ffffff; color:#333333; font-size:14px; background-image:url(/media/images/front_update_head_bg_alt.png); background-repeat:repeat-x; background-position: bottom left;}

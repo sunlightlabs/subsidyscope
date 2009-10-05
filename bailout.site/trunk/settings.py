@@ -45,6 +45,8 @@ MEDIA_ROOT = ''
 #     MEDIA_URL = 'http://assets.subsidyscope.com/v2'
 MEDIA_URL = '/media/' # we're not using mediasync anymore
 
+MEDIA_CACHE_TTL = 3600 # force browsers to refresh CSS/JS every hour
+
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
