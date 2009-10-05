@@ -2,6 +2,7 @@
 
 {% load media %}
 {% load humanize %}
+{% load glossary_tags %}
 {% load morsel_tags %}
 {% block content %}
 {% load smarterif %}
@@ -34,7 +35,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
     <span class="span-24">
         <div id="header_area"><h3>Airport Improvement Program Grant Search</h3></div>
         <div class="content_area">
-        {% morsel text1 %}
+        {% morsel text1 glossarize %}
         <form id="portsearch">
             <fieldset {% if type == 'project' %} class="collapsed" {% endif %}>    
             <legend id="expand_airport">Search by Airport</legend>
@@ -170,7 +171,6 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
     </fieldset>
 </form>
  
-<div style="margin-top:10px;"><cite><sup>1</sup>An enplanement, as defined by the FAA, is a single, revenue-generating passenger departing from or arriving at an airport.</cite></div>
         {% if grants %}
         <div id="results">
             <ul class="headers">
