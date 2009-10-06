@@ -25,8 +25,8 @@ div.grants table { width: 100%; }
                 {% if airport.district %}<tr><td><strong>Congressional District: </strong></td><td class="value"> {{airport.state}}-{{airport.district}}</td></tr> {% endif %}
                 <tr><td><strong>Total Funding (2005-09):</strong></td><td class="value">&nbsp;${{totalfunding|floatformat:0|intcomma}}</td></tr>
                 <tr><td><strong>Average grant amount:</strong></td><td class="value">&nbsp;${{avggrant|floatformat:0|intcomma}}</td></tr>
-                <tr><td><strong>Average operations/year:</strong></td><td class="value">&nbsp;{{avgops|floatformat:0|intcomma}}</td></tr>
-                <tr><td><strong>Average enplanements/year:</strong></td><td class="value">&nbsp;{{avgenps|floatformat:0|intcomma}}</td></tr>
+                <tr><td><strong>Average <a href="/glossary#operations">operations</a>/year:</strong></td><td class="value">&nbsp;{{avgops|floatformat:0|intcomma}}</td></tr>
+                <tr><td><strong>Average <a href="/glossary#enplanements">enplanements</a>/year:</strong></td><td class="value">&nbsp;{{avgenps|floatformat:0|intcomma}}</td></tr>
             </table>
             </div>
             <div class="grants">
