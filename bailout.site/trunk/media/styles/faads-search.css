@@ -109,6 +109,9 @@
 
 .pagination { text-align: center; font-size: 1.2em; margin-top: 20px;}
 .pagination .current { padding: 0 20px; text-align: center; }
+.step-links .disabled, .step-links a { padding: 0 10px;}
+.step-links .disabled { color: #888;}
+ 
 
 #tabs ul { margin-bottom: 0px;}
 #tabs ul, #tabs ul li { margin-left: 0;}
@@ -186,3 +189,6 @@ table.summary-data tr.odd td { background-color: #f0f0f0;}
 table.summary-data td.amount { text-align: right;}
 table.summary-data td.cfda-program,table.summary-data td.obligation-date { text-align: center;}
 table.summary-data .null-value { text-align: center; }
+.summary-container .clear. .summary-container table, .summary-container h4 { clear: left;}
+.summary-csv { float: right;}
+.summary-csv a { padding: 5px 0 5px 25px; background: url(../images/download_icon_smaller.png) 0 6px no-repeat;}

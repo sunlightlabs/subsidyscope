@@ -19,6 +19,8 @@
 
 </table>
 
+<div id="summary-csv-state" class="summary-csv"><a href="{% url transportation-faads-search-summary-csv-state %}?q={{ query|safe }}">CSV Download</a></div>
+
 {% endif %}
 
 {% if program_data %}
@@ -47,4 +49,8 @@
 
 </table>
 
+<div id="summary-csv-program" class="summary-csv"><a href="{% url transportation-faads-search-summary-csv-program %}?q={{ query|safe }}">CSV Download</a></div>
+
 {% endif %}
+
+<div class="clear"></div>

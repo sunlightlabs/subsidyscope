@@ -23,7 +23,12 @@
                 <ul>
                   <li><a href="{% url transportation-cfdaprograms-index %}">Direct Expenditures Program Directory (CFDA)</a></li>
                 	<li><a href="{% url transportation-faads-search %}">Search Direct Expenditures</a></li>
-{#                        <li><a href="{% url aip-index %}">Airport Improvement Program (AIP) Grant Search</a></li>#}
+                    <li><a href="{% url aip-story %}">Airport Improvement Program (AIP)</a>
+                        <ul style="padding-top:0;">
+                            <li><a href="{% url aip-story %}">Analysis</a></li> 
+                            <li><a href="{% url aip-index %}">Grant Search</a></li>
+                        </ul>
+                    </li>
             
                 </ul>
             </li>

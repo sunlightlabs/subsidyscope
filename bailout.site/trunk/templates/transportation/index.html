@@ -3,6 +3,7 @@
 {% load morsel_tags %}
 {% load carousel_tags %}
 {% load project_update_tags %}
+{% load faads_tags %}
 {% block content %}
 {% js "cookie.js" %}
 {% js "carouselinit.js" %}
@@ -53,6 +54,10 @@
 				</div>
 				<div id="sector_taxonomy_box_bottom">&nbsp;</div>
 		</div>
+</div>
+
+<div class="span-13 last">
+  <div class="sectorpage-quick-search-container">{% faads_quick_search transportation %}</div>
 </div>
 
 <div class="span-13 last graphs">
