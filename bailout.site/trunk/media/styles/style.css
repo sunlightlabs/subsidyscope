@@ -76,8 +76,6 @@ form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #
 #email-message.warning { border-color: #c00; color: #800; background-color: #FFCCCC;}
 ul#top_nav_header li { display: block !important; float: right;}
 
-#search_box { }
-
 /* email updates */
 #search_box {color:#2f4867; font-size:12px; text-align:right; padding:10px 20px 0 0; font-family:Helvetica Neue, Arial, Helvetica, sans-serif; margin:0;}
 #search_box input { margin-right:5px; padding:0; font-size: 14px;}
@@ -288,6 +286,7 @@ strong { font-weight:bold;}
 .news_box a:visited { text-decoration:none; color:#2d73bf;  }
 .news_box a:hover { text-decoration:none; color:#2d73bf;  }
 .news_box a:active { text-decoration:none; color:#2d73bf; }
+.related_updates_box { border-style: none solid solid; border-color: rgb(204, 204, 204); border-width: 0pt 1px 1px;  margin:0 0 15px 15px; width: 279px; float: right; }
 
 
 .news_head { border-top:1px solid #cbcbcb; background-color:#f3f3f4; padding:5px 0 0 10px; border-bottom:1px solid #ffffff; color:#333333; font-size:14px; background-image:url(/media/images/front_update_head_bg_alt.png); background-repeat:repeat-x; background-position: bottom left;}
@@ -647,3 +646,15 @@ p#previous-updates { padding-left: 10px; margin-top: 10px;}
 .floatl{ float:left;margin-right:15px; margin-bottom: 12px;}
 .floatr{ float:right; margin-left:15px; margin-bottom: 12px;}
 .tooling { border: 1px solid #c7c7c7; }
+
+.homepage-quick-search-container #quick-search-box {  margin:15px 15px 30px 0; border:1px solid #9ca991; padding:5px 5px 5px 5px; background-color:#eff5e6;}
+.homepage-quick-search-container #quick-search-box h3 { margin:0; padding:0; font-size:14px; margin-bottom: 10px;}
+.homepage-quick-search-container #quick-search-box .quick-search-hidden { display: none;}
+.homepage-quick-search-container #quick-search-box #faads-search-form { margin-bottom: 0;}
+.homepage-quick-search-container #quick-search-box #faads-search-form input#id_text_query { width: 220px; margin-right: 10px;}
+
+.sectorpage-quick-search-container #quick-search-box { margin:-15px 15px 25px 5px; padding: 5px 5px 25px 5px; background-image:url(/media/images/double_lines.gif); background-position:center bottom; background-repeat:repeat-x; clear:both;}
+.sectorpage-quick-search-container #quick-search-box h3 { float: left; margin:0 10px 0 0; padding:0; font-size:14px; margin-bottom: 10px;}
+.sectorpage-quick-search-container #quick-search-box .quick-search-hidden { display: none;}
+.sectorpage-quick-search-container #quick-search-box #faads-search-form { margin-bottom: 0;}
+.sectorpage-quick-search-container #quick-search-box #faads-search-form input#id_text_query { width: 170px; margin-top: -5px; margin-right: 10px;}

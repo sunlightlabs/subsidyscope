@@ -238,17 +238,26 @@ var sortOrder = '{{ sort_order }}';
 
 
               <div class="pagination">
-                  <span class="step-links">
+                  <span class="step-links">                    
+                    
                       {% if faads_results.has_previous %}
-                          <a href="?q={{ query|safe }}&page={{ faads_results.previous_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&laquo; previous</a>
+                          <a href="?q={{ query|safe }}&page=1{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&laquo; first</a>
+                          <a href="?q={{ query|safe }}&page={{ faads_results.previous_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&lsaquo; prev</a>
+                      {% else %}
+                          <span class="disabled">&laquo; first</span>
+                          <span class="disabled">&lsaquo; prev</span>
                       {% endif %}
 
                       <span class="current">
-                          Page {{ faads_results.number }} of {{ faads_results.paginator.num_pages|intcomma }}
+                          Page {{ faads_results.number|intcomma }} of {{ faads_results.paginator.num_pages|intcomma }}
                       </span>
 
                       {% if faads_results.has_next %}
-                          <a href="?q={{ query|safe }}&page={{ faads_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &raquo;</a>
+                          <a href="?q={{ query|safe }}&page={{ faads_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &rsaquo;</a>
+                          <a href="?q={{ query|safe }}&page={{ faads_results.paginator.num_pages }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">last &raquo;</a>
+                      {% else %}
+                          <span class="disabled">&raquo; next</span>
+                          <span class="disabled">&rsaquo; last</span>
                       {% endif %}
                   </span>
               </div>

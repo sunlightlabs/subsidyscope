@@ -73,7 +73,6 @@ class USDecimalHumanizedField(forms.DecimalField):
     return value
 
 
-
 def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     
     # fill CFDA program list
@@ -127,10 +126,12 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
         # CFDA programs, subsectors and tags
-        cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))
-        if not subsector_choices:
-            cfda_program_selection_choices = (('tag', 'Tag'), ('program', 'Program'))
-        
+
+        if subsector_choices:
+            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))        
+        else:
+            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('program', 'Program'))
+
         cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
 
         program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
@@ -516,7 +517,6 @@ def _get_program_summary_data(results, year_range):
 def summary_statistics_csv(request, sector_name=None, first_column_label='', data_fetcher=''):
 
     data_fetcher = globals().get(data_fetcher) # we take a string instead of the function itself so that the urlconf can call it directly
-
 
     assert len(str(first_column_label))>0 # column must have a label ('state' or 'program')
     assert callable(data_fetcher) # data-fetching function must be passed (returns list of lists containing either state- or program-indexed numbers)
