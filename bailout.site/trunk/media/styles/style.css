@@ -658,3 +658,5 @@ p#previous-updates { padding-left: 10px; margin-top: 10px;}
 .sectorpage-quick-search-container #quick-search-box .quick-search-hidden { display: none;}
 .sectorpage-quick-search-container #quick-search-box #faads-search-form { margin-bottom: 0;}
 .sectorpage-quick-search-container #quick-search-box #faads-search-form input#id_text_query { width: 170px; margin-top: -5px; margin-right: 10px;}
+
+/*.news_box #framing-paper { background: url(../images/framing-paper-document-icon.png) 5px 10px no-repeat; padding-right: 40px;}*/
