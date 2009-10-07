@@ -56,7 +56,9 @@ def get_years():
         years.append(r[0])
     return years
 def get_matching_airports(get):
-    ports = [] 
+    ports = []
+    subtype = None
+    parameter = None 
     if get.__contains__('portcode') and get['portcode'] != '':
         portcode = get['portcode']
         try:
@@ -86,7 +88,7 @@ def get_matching_airports(get):
         dnum = dist.split('-')[1]
         ports = Airport.objects.filter(state__iexact=state, district=dnum)
 
-    return ports
+    return {'ports': ports, 'subtype':subtype, 'parameter': parameter}
 
 def get_matching_projects(get):
     projects = Project.objects.all()
@@ -139,8 +141,10 @@ def index(request):
         return render_to_response('aip/index.html', {'districts':districts, 'years':years, 'nprs':nprs}, context_instance=RequestContext(request))
 
     if type=='airport':
-        ports = get_matching_airports(get)
-         
+        portmap = get_matching_airports(get)
+        ports = portmap['ports']
+        subtype = portmap['subtype']
+        parameter = portmap['parameter']
         if ports and len(ports) >= 1:
             grants = []
             total = 0
