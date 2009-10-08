@@ -532,7 +532,7 @@ def summary_statistics_csv(request, sector_name=None, first_column_label='', dat
             data = data_fetcher(results, year_range)
             
             response = HttpResponse(mimetype="text/csv")
-            response['Content-Disposition'] = "attachment; filename=%s.csv" % request.GET['q']
+            response['Content-Disposition'] = "attachment; filename=%s-%s.csv" % (request.GET['q'], first_column_label.replace(" ", "_").lower())
             writer = csv.writer(response)
             writer.writerow([str(first_column_label)] + year_range)
             for row in data:
