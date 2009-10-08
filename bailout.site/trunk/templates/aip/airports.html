@@ -53,7 +53,7 @@ div.grants table { width: 100%; }
                 <h4>Funded Projects</h4>
                 <table style="width:100%;">
                     <tbody>
-                    <tr><th>Fiscal year</th><th>NPR<sup>1</sup></th><th>Description</th><th>Total Grant Amount</th><th>Discretionary Funding</th><th>Entitlement Funding</th></tr>
+                    <tr><th>Fiscal year</th><th><a href="/glossary#national-priority-rating">NPR</a></th><th>Description</th><th>Total Grant Amount</th><th>Discretionary Funding</th><th>Entitlement Funding</th></tr>
                     {% for p in projects %}
                         {% if p.stimulus = 0 or p.total > p.stimulus   %}
                         <tr>

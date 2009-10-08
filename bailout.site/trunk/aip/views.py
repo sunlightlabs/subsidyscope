@@ -57,6 +57,9 @@ def get_years():
     return years
 def get_matching_airports(get):
     ports = [] 
+    subtype = ''
+    parameter = ''
+
     if get.__contains__('portcode') and get['portcode'] != '':
         portcode = get['portcode']
         try:
@@ -86,7 +89,7 @@ def get_matching_airports(get):
         dnum = dist.split('-')[1]
         ports = Airport.objects.filter(state__iexact=state, district=dnum)
 
-    return ports
+    return {'ports':ports, 'subtype': subtype, 'parameter': parameter }
 
 def get_matching_projects(get):
     projects = Project.objects.all()
@@ -139,25 +142,34 @@ def index(request):
         return render_to_response('aip/index.html', {'districts':districts, 'years':years, 'nprs':nprs}, context_instance=RequestContext(request))
 
     if type=='airport':
-        ports = get_matching_airports(get)
-         
+        portdict = get_matching_airports(get)
+        ports= portdict['ports']
+        subtype = portdict['subtype']
+        parameter = portdict['parameter']
+        total = 0
+        stimulus_total = 0
         if ports and len(ports) >= 1:
             grants = []
-            total = 0
             for p in ports:
                 pgrants = GrantRecord.objects.filter(airport=p)
                 sgrants = StateGrant.objects.filter(airport=p)
+                try:
+                    stimulus_total += Project.objects.filter(airport=p).aggregate(Sum('stimulus'))['stimulus__sum']
+                except TypeError:
+                    pass
                 enps = Enplanements.objects.filter(airport=p)
                 money = 0
                 enplanements = 0
+                
                 for e in enps:
                     enplanements += e.amount
                 for m in pgrants:
                     money += m.total
                 total += money
                 grants.append((p, money, enplanements))
-            
-            return render_to_response('aip/index.html', {subtype: parameter, 'ports':ports, 'grants': grants, 'total': total, 'type': type, 'districts': districts, 'years':years, 'nprs':nprs, 'error':error}, context_instance=RequestContext(request))
+            logging.debug('complete total: %s'%total)
+            logging.debug('stimulus total: %s'%stimulus_total)
+            return render_to_response('aip/index.html', {subtype: parameter, 'ports':ports, 'grants': grants, 'total_grants': total, 'stimulus_total': stimulus_total, 'districts': districts, 'years':years, 'nprs':nprs, 'error':error}, context_instance=RequestContext(request))
         
         else: 
             error = "No Airports found for your search" 
