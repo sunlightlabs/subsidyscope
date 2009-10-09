@@ -188,11 +188,18 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
                 </ul>
                 </div>
             {% endfor %}
-            {% ifequal type "state" %}
-                {% if total %}
-                 <div class="portdetail"><ul class="sum"><li class="name">Total grant money for state:</li><li class="money">${{total|floatformat:0|intcomma}}</li></ul></div>
+            {% if state or district %}
+                {% if total_grants %}
+                 <div class="portdetail"><ul class="sum"><li class="name"><strong>Total grant funding for {%if state %}state{%else%}district{%endif%}:</strong></li><li class="money">${{total_grants|floatformat:0|intcomma}}</li></ul>
+                    {%if stimulus_total %}
+                    <ul>
+                     <li class="name"><strong>Total <em>stimulus</em> funding for {% if state%}state{%else%} district {%endif%}:</strong></li><li class="money">${{stimulus_total|floatformat:0|intcomma}}</li>
+                    </ul>
+                    {% endif %}
+                 </div>
                 {% endif %}
-            {% endifequal %}
+                
+            {% endif %}
         </div>
         {% elif projects.object_list %}
         <div id="project_results">
