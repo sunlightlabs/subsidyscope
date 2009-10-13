@@ -34,9 +34,9 @@
 				"24":{"name":"Maple Leaf", "route":"Toronto - New York ", "gross": 22800000.00, "net": -6700000.00, "pass_mile": -0.06, "seat_mile": -0.03, "ridership": 354492.00, "pass_net": -18.90},
 				"25":{"name":"Michigan Service", "route":"Chicago - Grand Rapids/Port Huron/Detroit ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null}, 
 				"26":{"name":"Missouri Routes", "route":"Chicago - St. Louis - Kansas City ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
+				"29":{"name":"Northeast Regional", "route":"Boston/Springfield - New York - Washington, DC - Newport News", "gross": 518400000.00, "net": 146500000.00, "pass_mile": 0.13, "seat_mile": 0.06, "ridership": 7489426.00, "pass_net": 19.56},
 				"27":{"name":"Pacific Surfliner", "route":"Paso Robles - Santa Barbara - Los Angeles - San Diego ", "gross": 77100000.00, "net": -14700000.00, "pass_mile": -0.06, "seat_mile": -0.02, "ridership": 2898859.00, "pass_net": -5.07},
 				"28":{"name":"Pennsylvanian", "route":"New York - Pittsburgh ", "gross": 8500000.00, "net": -5200000.00, "pass_mile": -0.11, "seat_mile": -0.08, "ridership": 200999.00, "pass_net": -25.87},
-				"29":{"name":"Northeast Regional", "route":"Boston/Springfield - New York - Washington, DC - Newport News", "gross": 518400000.00, "net": 146500000.00, "pass_mile": 0.13, "seat_mile": 0.06, "ridership": 7489426.00, "pass_net": 19.56},
 				"30":{"name":"San Joaquins", "route":"San Francisco Bay Area/Sacramento - Bakersfield ", "gross": 62800000.00, "net": -8700000.00, "pass_mile": -0.06, "seat_mile": -0.02, "ridership": 949611.00, "pass_net": -9.16},
 				"31":{"name":"Silver Service", "route":"New York - Washington - Miami ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
 				"32":{"name":"Southwest Chief", "route":"Chicago - Albuquerque - Los Angeles ", "gross": 44900000.00, "net": -45900000.00, "pass_mile": -0.15, "seat_mile": -0.09, "ridership": 331143.00, "pass_net": -138.61},
@@ -214,13 +214,15 @@
             	
             	<div style="margin-top: -25px; padding-bottom: 25px;">
 	            	
+	            	<span  style="float: right; margin-right:75px; margin-top:25px;" margin-bottom:15px;"> Select Route: <select id="routeSelector" onchange="routeChanged();"> 
+           		 	<option value="-1">select a route</option>
+           		 	</select></span>
+	            	
 	            	<strong><span id="routeName" style=""></span></strong>
 	            	<br/>
 	            	<span id="route" style=""></span>
 	            	
-	            	<span  style="float: right; margin-right:75px; margin-bottom:15px;"> Select Route: <select id="routeSelector" onchange="routeChanged();"> 
-           		 	<option value="-1">select a route</option>
-           		 	</select></span>
+	            	
 	            	
             	</div>
             	
