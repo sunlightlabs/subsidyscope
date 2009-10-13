@@ -202,23 +202,23 @@
            
             {% morsel text1 glossarize %}
             
-           	<div>
-           		<div style="float: right; margin-right:125px;">
-            		
-           		</div>
-           	
+            
+            
+           	<div id="map-container"  style="padding: 0px 20px 20px 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
+				 
+				<h4>Amtrak Route Performance</h4> 
+				          	
             	<div id="mapVis" ></div>
             	
             	
             	
-            	
-            	
-            	<div style="margin-top: -25px;">
+            	<div style="margin-top: -25px; padding-bottom: 25px;">
 	            	
-	            	<strong><span id="routeName" style=""></span></strong><br/>
+	            	<strong><span id="routeName" style=""></span></strong>
+	            	<br/>
 	            	<span id="route" style=""></span>
 	            	
-	            	<span  style="float: right; margin-right:110px; margin-bottom:15px;"> Select Route: <select id="routeSelector" onchange="routeChanged();"> 
+	            	<span  style="float: right; margin-right:75px; margin-bottom:15px;"> Select Route: <select id="routeSelector" onchange="routeChanged();"> 
            		 	<option value="-1">select a route</option>
            		 	</select></span>
 	            	
@@ -228,21 +228,23 @@
            		
            		<table id="routeDataTable" style="width: 800px;">
 	            	<tr>
-	            		<td style="width: 300px;">Total Revenue:</td><td id="gross" style="width: 100px;"></td><td style="width: 300px;">Profit/(Loss) per Passenger Mile:</td><td  style="width: 100px;" id="pass_mile"></td>
+	            		<td style="width: 300px;"><strong>Total Revenue:</strong></td><td id="gross" style="width: 100px;"></td><td style="width: 300px;"><strong>Profit/(Loss) per Passenger Mile:</strong></td><td  style="width: 100px;" id="pass_mile"></td>
 	            	</tr>
 	            	<tr>
-	            		<td>Profit/(Loss)<br/>(Excluding Overhead, Depreciation & Interest):</td><td id="net"></td><td>Profit/(Loss) per Seat Mile:</td><td id="seat_mile"></td>
+	            		<td><strong>Profit/(Loss):</strong><br/>(Excluding Overhead, Depreciation & Interest)</td><td id="net"></td><td><strong>Profit/(Loss) per Seat Mile:</strong></td><td id="seat_mile"></td>
 	            	</tr>
 	            	
 	            	<tr>
-	            		<td>Ridership:</td><td id="ridership"></td><td>Per-passenger Profit/(Loss)<br/>(Excluding Overhead, Depreciation & Interest):</td><td id="pass_net"></td>
+	            		<td><strong>Ridership:</strong></td><td id="ridership"></td><td><strong>Per-passenger Profit/(Loss):</strong><br/>(Excluding Overhead, Depreciation & Interest)</td><td id="pass_net"></td>
 	            	</tr>
-            	<table>
+            	</table>
             	
             	
            
-            	</select>
+            
             </div>
+          
+            {% morsel text2 glossarize %}
             
         </div>
     </div>
