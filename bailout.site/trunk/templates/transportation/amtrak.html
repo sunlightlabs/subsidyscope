@@ -1,0 +1,251 @@
+{% extends "base_sector.html" %}
+{% load media %}
+{% load morsel_tags %}
+
+{% block additional_js %}
+
+	{% js "swfobject.js" %}
+
+<script language="javascript" type="text/javascript"> 
+
+	var routeData ={"1":{"name":"Acela Express", "route":"Boston - New York - Philadelphia - Washington, DC", "gross": 486300000.00, "net": 220200000.00, "pass_mile": 0.35, "seat_mile": 0.22, "ridership": 3398759.00, "pass_net": 64.79},
+				"2":{"name":"Adirondack", "route":"Montreal - Albany - New York ", "gross": 11000000.00, "net": -100000.00, "pass_mile": 0.00, "seat_mile": 0.00, "ridership": 112047.00, "pass_net": -0.89},
+				"3":{"name":"Cascades", "route":"Vancouver, BC - Seattle - Portland - Eugene ", "gross": 41300000.00, "net": -5900000.00, "pass_mile": -0.05, "seat_mile": -0.03, "ridership": 760323.00, "pass_net": -7.76},
+				"4":{"name":"Auto Train", "route":"Lorton, VA - Sanford, FL ", "gross": 58500000.00, "net": -10500000.00, "pass_mile": -0.05, "seat_mile": -0.03, "ridership": 234839.00, "pass_net": -44.71},
+				"5":{"name":"California Zephyr", "route":"Chicago - Denver - Emeryville ", "gross": 44000000.00, "net": -59400000.00, "pass_mile": -0.22, "seat_mile": -0.11, "ridership": 352563.00, "pass_net": -168.48},
+				"6":{"name":"Capitol Corridor", "route":"Auburn - Sacramento - San Francisco - San Jose ", "gross": 43700000.00, "net": -14200000.00, "pass_mile": -0.13, "seat_mile": -0.04, "ridership": 1693580.00, "pass_net": -8.38},
+				"7":{"name":"Capitol Limited", "route":"Washington, DC - Pittsburgh - Chicago ", "gross": 19500000.00, "net": -23700000.00, "pass_mile": -0.22, "seat_mile": -0.15, "ridership": 216350.00, "pass_net": -109.54},
+				"8":{"name":"Cardinal", "route":"New York - Washington, DC - Cincinnati - Indianapolis - Chicago ", "gross": 7700000.00, "net": -15100000.00, "pass_mile": -0.34, "seat_mile": -0.19, "ridership": 109195.00, "pass_net": -138.28},
+				"9":{"name":"Carolinian", "route":"New York - Raleigh - Charlotte ", "gross": 20300000.00, "net": 400000.00, "pass_mile": 0.01, "seat_mile": 0.00, "ridership": 295427.00, "pass_net": 1.35},
+				"10":{"name":"City of New Orleans", "route":"Chicago - Memphis - New Orleans ", "gross": 16400000.00, "net": -16900000.00, "pass_mile": -0.18, "seat_mile": -0.11, "ridership": 197394.00, "pass_net": -85.62},
+				"11":{"name":"Coast Starlight", "route":"Seattle - Portland - Los Angeles ", "gross": 32000000.00, "net": -39500000.00, "pass_mile": -0.21, "seat_mile": -0.13, "ridership": 353657.00, "pass_net": -111.69},
+				"12":{"name":"Crescent", "route":"New York - Atlanta - New Orleans ", "gross": 30200000.00, "net": -38000000.00, "pass_mile": -0.26, "seat_mile": -0.13, "ridership": 291222.00, "pass_net": -130.48},
+				"13":{"name":"Downeaster", "route":"Portland - Boston ", "gross": 11100000.00, "net": -1100000.00, "pass_mile": -0.03, "seat_mile": -0.01, "ridership": 474492.00, "pass_net": -2.32},
+				"14":{"name":"Empire Builder", "route":"Chicago - St. Paul - Portland/Seattle ", "gross": 64000000.00, "net": -40500000.00, "pass_mile": -0.10, "seat_mile": -0.06, "ridership": 554266.00, "pass_net": -73.07},
+				"15":{"name":"Empire Service", "route":"New York - Albany - Niagara Falls ", "gross": 42200000.00, "net": -19100000.00, "pass_mile": -0.16, "seat_mile": -0.05, "ridership": 994293.00, "pass_net": -19.21},
+				"16":{"name":"Ethan Allen Express", "route":"Rutland - Albany - New York ", "gross": 3700000.00, "net": -300000.00, "pass_mile": -0.03, "seat_mile": -0.01, "ridership": 46881.00, "pass_net": -6.40},
+				"17":{"name":"Heartland Flyer", "route":"Oklahoma City - Fort Worth ", "gross": 5700000.00, "net": -200000.00, "pass_mile": -0.02, "seat_mile": -0.01, "ridership": 80892.00, "pass_net": -2.47},
+				"18":{"name":"Hiawatha", "route":"Milwaukee - Chicago ", "gross": 23500000.00, "net": -1400000.00, "pass_mile": -0.02, "seat_mile": -0.01, "ridership": 749659.00, "pass_net": -1.87},
+				"19":{"name":"Illinois Service (Quicy)", "route":"Chicago - Quicy ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
+				"20":{"name":"Illinois Service (St. Louis)", "route":"Chicago - St. Louis ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
+				"21":{"name":"Illinois Service (Carbondale)", "route":"Chicago - Carbondale ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
+				"22":{"name":"Keystone", "route":"New York - Philadelphia - Harrisburg ", "gross": 33100000.00, "net": -4600000.00, "pass_mile": -0.04, "seat_mile": -0.02, "ridership": 1183821.00, "pass_net": -3.89},
+				"23":{"name":"Lake Shore Limited", "route":"New York/Boston - Albany - Chicago ", "gross": 26400000.00, "net": -37500000.00, "pass_mile": -0.25, "seat_mile": -0.16, "ridership": 345632.00, "pass_net": -108.50},
+				"24":{"name":"Maple Leaf", "route":"Toronto - New York ", "gross": 22800000.00, "net": -6700000.00, "pass_mile": -0.06, "seat_mile": -0.03, "ridership": 354492.00, "pass_net": -18.90},
+				"25":{"name":"Michigan Service", "route":"Chicago - Grand Rapids/Port Huron/Detroit ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null}, 
+				"26":{"name":"Missouri Routes", "route":"Chicago - St. Louis - Kansas City ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
+				"27":{"name":"Pacific Surfliner", "route":"Paso Robles - Santa Barbara - Los Angeles - San Diego ", "gross": 77100000.00, "net": -14700000.00, "pass_mile": -0.06, "seat_mile": -0.02, "ridership": 2898859.00, "pass_net": -5.07},
+				"28":{"name":"Pennsylvanian", "route":"New York - Pittsburgh ", "gross": 8500000.00, "net": -5200000.00, "pass_mile": -0.11, "seat_mile": -0.08, "ridership": 200999.00, "pass_net": -25.87},
+				"29":{"name":"Northeast Regional", "route":"Boston/Springfield - New York - Washington, DC - Newport News", "gross": 518400000.00, "net": 146500000.00, "pass_mile": 0.13, "seat_mile": 0.06, "ridership": 7489426.00, "pass_net": 19.56},
+				"30":{"name":"San Joaquins", "route":"San Francisco Bay Area/Sacramento - Bakersfield ", "gross": 62800000.00, "net": -8700000.00, "pass_mile": -0.06, "seat_mile": -0.02, "ridership": 949611.00, "pass_net": -9.16},
+				"31":{"name":"Silver Service", "route":"New York - Washington - Miami ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
+				"32":{"name":"Southwest Chief", "route":"Chicago - Albuquerque - Los Angeles ", "gross": 44900000.00, "net": -45900000.00, "pass_mile": -0.15, "seat_mile": -0.09, "ridership": 331143.00, "pass_net": -138.61},
+				"33":{"name":"Sunset Limited", "route":"Orlando - New Orleans - Houston - Los Angeles ", "gross": 9300000.00, "net": -31400000.00, "pass_mile": -0.48, "seat_mile": -0.26, "ridership": 71719.00, "pass_net": -437.82},
+				"34":{"name":"Texas Eagle", "route":"Chicago - St. Louis - Dallas - San Antonio ", "gross": 21800000.00, "net": -29400000.00, "pass_mile": -0.19, "seat_mile": -0.10, "ridership": 251518.00, "pass_net": -116.89},
+				"35":{"name":"Vermonter", "route":"St. Albans - New York - Washington, DC ", "gross": 6900000.00, "net": -2000000.00, "pass_mile": -0.09, "seat_mile": -0.04, "ridership": 72655.00, "pass_net": -27.53}}; 
+	
+	
+	$(document).ready(function(){ 
+		
+		$('#routeDataTable').hide();
+		$('#noData').hide();
+		
+		swfobject.embedSWF('{% media_url %}/scripts/AmtrakMap.swf?v=1', 'mapVis', 800, 475, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent', allowScriptAccess:'always'});
+	   
+	    for(routeId in routeData)
+	    {
+	    	$("#routeSelector").append('<option value="' + routeId + '">' + routeData[routeId].name +  '</option>');
+	    }
+	    
+	});
+	
+	var currentRouteId = null;
+	
+	function routeSelected(routeId)
+	{
+		currentRouteId = routeId;
+		
+		$('#routeSelector').val(routeId)
+	
+		data = routeData[routeId];
+		
+		$('#routeName').html(data.name);
+		$('#route').html(data.route);
+		
+		if(data.gross)
+		{
+			$('#routeDataTable').show();
+			$('#noData').hide();
+			
+			$('#gross').html('$' + addCommas(Math.abs(data.gross)));
+			
+			var net = '$' + addCommas(Math.abs(data.net))
+			
+			if(data.net >= 0)
+				$('#net').css('color', 'black');
+			else
+			{
+				net = '(' + net + ')';
+				$('#net').css('color', 'red');
+			}
+			$('#net').html(net);
+			
+			
+			var pass_mile = '$' + Math.abs(data.pass_mile)
+			
+			if(data.pass_mile >= 0)
+				$('#pass_mile').css('color', 'black');
+			else
+			{
+				pass_mile = '(' + pass_mile + ')';
+				$('#pass_mile').css('color', 'red');
+			}
+			
+			$('#pass_mile').html(pass_mile);
+			
+			
+			var seat_mile = '$' + Math.abs(data.seat_mile)
+			
+			if(data.seat_mile >= 0)
+				$('#seat_mile').css('color', 'black');
+			else
+			{
+				seat_mile = '(' + seat_mile + ')';
+				$('#seat_mile').css('color', 'red');
+			}
+		
+			$('#seat_mile').html(seat_mile);
+			
+			
+			$('#ridership').html(addCommas(data.ridership));
+			
+			
+			var pass_net = '$' + Math.abs(data.pass_net);
+			
+			if(data.pass_net >= 0)
+				$('#pass_net').css('color', 'black');
+			else
+			{
+				pass_net = '(' + pass_net + ')';
+				$('#pass_net').css('color', 'red');
+			}
+			
+			$('#pass_net').html(pass_net);
+		}
+		else
+		{
+			$('#routeDataTable').hide();
+			$('#noData').show();
+		}
+	}
+	
+	function addCommas(nStr)
+	{
+		nStr += '';
+		x = nStr.split('.');
+		x1 = x[0];
+		x2 = x.length > 1 ? '.' + x[1] : '';
+		var rgx = /(\d+)(\d{3})/;
+		while (rgx.test(x1)) {
+			x1 = x1.replace(rgx, '$1' + ',' + '$2');
+		}
+		return x1;
+	}
+	
+	
+	
+	function routeChanged()
+	{
+		if(currentRouteId != $('#routeSelector').val() && $('#routeSelector').val() != -1)
+			selectRoute($('#routeSelector').val())
+			
+		currentRouteId = $('#routeSelector').val();
+	}
+	
+	
+	function selectRoute(routeId)
+	{
+		var flex = null;
+		flex = getFlexMovie("mapVis");
+		if((flex!=null) && (flex.selectRoute!=null))
+		    flex.selectRoute(routeId);	
+	}
+
+		
+	function getFlexMovie(movieName) 
+	{
+	    if (navigator.appName.indexOf("Microsoft") != -1) 
+	    {
+	        return window[movieName]
+	    }
+	    else 
+	    {
+	        return document[movieName]
+		}
+	}
+	
+
+</script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>{% morsel_page_title %}</h3>
+        </div>
+        <div class="content_area">
+           
+            {% morsel text1 glossarize %}
+            
+           	<div>
+           		<div style="float: right; margin-right:125px;">
+            		
+           		</div>
+           	
+            	<div id="mapVis" ></div>
+            	
+            	
+            	
+            	
+            	
+            	<div style="margin-top: -25px;">
+	            	
+	            	<strong><span id="routeName" style=""></span></strong><br/>
+	            	<span id="route" style=""></span>
+	            	
+	            	<span  style="float: right; margin-right:110px; margin-bottom:15px;"> Select Route: <select id="routeSelector" onchange="routeChanged();"> 
+           		 	<option value="-1">select a route</option>
+           		 	</select></span>
+	            	
+            	</div>
+            	
+       			<div id="noData"><em>(No performance data available for this route, please see the complete list of routes for additional information.)</em></div>
+           		
+           		<table id="routeDataTable" style="width: 800px;">
+	            	<tr>
+	            		<td style="width: 300px;">Total Revenue:</td><td id="gross" style="width: 100px;"></td><td style="width: 300px;">Profit/(Loss) per Passenger Mile:</td><td  style="width: 100px;" id="pass_mile"></td>
+	            	</tr>
+	            	<tr>
+	            		<td>Profit/(Loss)<br/>(Excluding Overhead, Depreciation & Interest):</td><td id="net"></td><td>Profit/(Loss) per Seat Mile:</td><td id="seat_mile"></td>
+	            	</tr>
+	            	
+	            	<tr>
+	            		<td>Ridership:</td><td id="ridership"></td><td>Per-passenger Profit/(Loss)<br/>(Excluding Overhead, Depreciation & Interest):</td><td id="pass_net"></td>
+	            	</tr>
+            	<table>
+            	
+            	
+           
+            	</select>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}
