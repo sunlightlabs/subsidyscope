@@ -77,40 +77,37 @@
 			$('#routeDataTable').show();
 			$('#noData').hide();
 			
-			$('#gross').html('$' + addCommas(Math.abs(data.gross)));
+			$('#gross').html('$' + addCommas(data.gross));
 			
-			var net = '$' + addCommas(Math.abs(data.net))
+			var net = '$' + addCommas(data.net)
 			
 			if(data.net >= 0)
 				$('#net').css('color', 'black');
 			else
 			{
-				net = '(' + net + ')';
 				$('#net').css('color', 'red');
 			}
 			$('#net').html(net);
 			
 			
-			var pass_mile = '$' + Math.abs(data.pass_mile)
+			var pass_mile = '$' + data.pass_mile;
 			
 			if(data.pass_mile >= 0)
 				$('#pass_mile').css('color', 'black');
 			else
 			{
-				pass_mile = '(' + pass_mile + ')';
 				$('#pass_mile').css('color', 'red');
 			}
 			
 			$('#pass_mile').html(pass_mile);
 			
 			
-			var seat_mile = '$' + Math.abs(data.seat_mile)
+			var seat_mile = '$' + data.seat_mile;
 			
 			if(data.seat_mile >= 0)
 				$('#seat_mile').css('color', 'black');
 			else
 			{
-				seat_mile = '(' + seat_mile + ')';
 				$('#seat_mile').css('color', 'red');
 			}
 		
@@ -120,13 +117,12 @@
 			$('#ridership').html(addCommas(data.ridership));
 			
 			
-			var pass_net = '$' + Math.abs(data.pass_net);
+			var pass_net = '$' + data.pass_net;
 			
 			if(data.pass_net >= 0)
 				$('#pass_net').css('color', 'black');
 			else
 			{
-				pass_net = '(' + pass_net + ')';
 				$('#pass_net').css('color', 'red');
 			}
 			
