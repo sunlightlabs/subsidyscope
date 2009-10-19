@@ -90,7 +90,7 @@
 			$('#net').html(net);
 			
 			
-			var pass_mile = '$' + data.pass_mile;
+			var pass_mile = '$' + data.pass_mile.toFixed(2);
 			
 			if(data.pass_mile >= 0)
 				$('#pass_mile').css('color', 'black');
@@ -102,7 +102,7 @@
 			$('#pass_mile').html(pass_mile);
 			
 			
-			var seat_mile = '$' + data.seat_mile;
+			var seat_mile = '$' + data.seat_mile.toFixed(2);
 			
 			if(data.seat_mile >= 0)
 				$('#seat_mile').css('color', 'black');
@@ -117,7 +117,7 @@
 			$('#ridership').html(addCommas(data.ridership));
 			
 			
-			var pass_net = '$' + data.pass_net;
+			var pass_net = '$' + data.pass_net.toFixed(2);
 			
 			if(data.pass_net >= 0)
 				$('#pass_net').css('color', 'black');
@@ -129,7 +129,7 @@
 			$('#pass_net').html(pass_net);
 			
 			
-			var pass_net_all_operating = '$' + ((data.pass_net) - 24.29);
+			var pass_net_all_operating = '$' + ((data.pass_net) - 24.29).toFixed(2);
 			
 			if(data.pass_net >= 0)
 				$('#pass_net_all_operating').css('color', 'black');
