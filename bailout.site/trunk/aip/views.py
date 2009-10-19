@@ -167,8 +167,6 @@ def index(request):
                     money += m.total
                 total += money
                 grants.append((p, money, enplanements))
-            logging.debug('complete total: %s'%total)
-            logging.debug('stimulus total: %s'%stimulus_total)
             return render_to_response('aip/index.html', {subtype: parameter, 'ports':ports, 'grants': grants, 'total_grants': total, 'stimulus_total': stimulus_total, 'districts': districts, 'years':years, 'nprs':nprs, 'error':error}, context_instance=RequestContext(request))
         
         else: 
