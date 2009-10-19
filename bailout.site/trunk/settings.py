@@ -88,7 +88,7 @@ INSTALLED_APPS = (
     'morsels',
     'rcsfield',
     'contact_form',
-    'sunlightcore',
+    'mediasync',
     'spammer',
     'helpers',
     'haystack',

@@ -1,6 +1,5 @@
 from django.db import models
 from sectors.models import Sector, Subsector
-import sunlightcore.management.commands.mediasync
 
 class SubsidyType(models.Model):
     
