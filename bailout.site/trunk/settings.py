@@ -88,7 +88,7 @@ INSTALLED_APPS = (
     'morsels',
     'rcsfield',
     'contact_form',
-    'sunlightcore',
+    'mediasync',
     'spammer',
     'helpers',
     'haystack',
@@ -129,6 +129,7 @@ EMAIL_USE_TLS = True
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
+MEDIASYNC_SERVE_REMOTE = False
 MEDIASYNC_AWS_KEY = '***REMOVED***'
 MEDIASYNC_AWS_SECRET = '***REMOVED***'
 MEDIASYNC_AWS_BUCKET = 'assets.subsidyscope.com'
