@@ -38,11 +38,11 @@
 				"27":{"name":"Pacific Surfliner", "route":"Paso Robles - Santa Barbara - Los Angeles - San Diego ", "gross": 77100000.00, "net": -14700000.00, "pass_mile": -0.06, "pass_mile_additional": -0.17, "ridership": 2898859.00, "pass_net": -5.07},
 				"28":{"name":"Pennsylvanian", "route":"New York - Pittsburgh ", "gross": 8500000.00, "net": -5200000.00, "pass_mile": -0.11, "pass_mile_additional": -0.22, "ridership": 200999.00, "pass_net": -25.87},
 				"30":{"name":"San Joaquins", "route":"San Francisco Bay Area/Sacramento - Bakersfield ", "gross": 62800000.00, "net": -8700000.00, "pass_mile": -0.06, "pass_mile_additional": -0.18, "ridership": 949611.00, "pass_net": -9.16},
-				"31":{"name":"Silver Service", "route":"New York - Washington - Miami ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
+				"31":{"name":"Silver Service", "route":"New York - Washington, DC - Miami ", "gross": null, "net": null, "pass_mile": null, "seat_mile": null, "ridership": null, "pass_net": null},
 				"32":{"name":"Southwest Chief", "route":"Chicago - Albuquerque - Los Angeles ", "gross": 44900000.00, "net": -45900000.00, "pass_mile": -0.15, "pass_mile_additional": -0.26, "ridership": 331143.00, "pass_net": -138.61},
 				"33":{"name":"Sunset Limited", "route":"New Orleans - Houston - Los Angeles", "gross": 9300000.00, "net": -31400000.00, "pass_mile": -0.48, "pass_mile_additional": -0.59, "ridership": 71719.00, "pass_net": -437.82},
 				"34":{"name":"Texas Eagle", "route":"Chicago - St. Louis - Dallas - San Antonio ", "gross": 21800000.00, "net": -29400000.00, "pass_mile": -0.19, "pass_mile_additional": -0.30, "ridership": 251518.00, "pass_net": -116.89},
-				"35":{"name":"Vermonter", "route":"St. Albans - New York - Washington, DC ", "gross": 6900000.00, "net": -2000000.00, "pass_mile": -0.09, "pass_mile_additional": -0.20, "ridership": 72655.00, "pass_net": -27.53}}; 
+				"35":{"name":"Vermonter", "route":"St. Albans - New York - Washington, DC", "gross": 6900000.00, "net": -2000000.00, "pass_mile": -0.09, "pass_mile_additional": -0.20, "ridership": 72655.00, "pass_net": -27.53}}; 
 	
 	
 	$(document).ready(function(){ 
@@ -50,7 +50,7 @@
 		$('#routeDataTable').hide();
 		$('#noData').hide();
 		
-		swfobject.embedSWF('{% media_url %}/scripts/AmtrakMap.swf?v=1', 'mapVis', 800, 475, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent', allowScriptAccess:'always'});
+		swfobject.embedSWF('{% media_url %}/scripts/AmtrakMap.swf?v=2', 'mapVis', 800, 475, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent', allowScriptAccess:'always'});
 	   
 	    for(routeId in routeData)
 	    {
