@@ -217,6 +217,7 @@
 				<h4>Amtrak Route Performance for Fiscal Year 2008</h4> 
 				          	
             	<div id="mapVis" ></div>
+            	<p>Source: <a href="http://www.mapmash.in/amtrak.html"/>Mapmash.in</a>; Amtrak.</p>
             	         	
             	<div style="margin-top: -25px; padding-bottom: 25px;">
 	            	
@@ -230,22 +231,31 @@
 	            		
             	</div>
             	
-       			<div id="noData"><em>(No performance data available for this route, please see the <a href="{% url transportation-amtrak-table %}">complete list of routes</a> for additional information.)</em></div>
+       			<div id="noData"><em>(Performance data not mapped for this route, please see the <a href="{% url transportation-amtrak-table %}">complete list of routes</a> for additional information.)</em></div>
            		
            		<table id="routeDataTable" style="width: 800px;">
 	            	<tr>
-	            		<td style="width: 300px;"><strong>Total Revenue:</strong></td><td id="gross" style="width: 100px;"></td><td style="width: 300px;"><strong>Profit/Loss per Passenger Mile:</strong><br/>(excluding costs such as depreciation)</td><td  style="width: 100px;" id="pass_mile"></td>
+	            		<td style="width: 300px;"><strong>Total Revenue:</strong></td><td id="gross" style="width: 100px;"></td><td style="width: 300px;"><strong>Profit/Loss per Passenger Mile:<sup>1</sup></strong><br/>(excluding costs such as depreciation)</td><td  style="width: 100px;" id="pass_mile"></td>
 	            	</tr>
 	            	<tr>
-	            		<td><strong>Profit/(Loss):</strong></td><td id="net"></td><td><strong>Profit/Loss per Passenger Mile:</strong><br/>(including costs such as depreciation)</td><td id="pass_mile_additional"></td>
+	            		<td><strong>Profit/(Loss):</strong></td><td id="net"></td><td><strong>Profit/Loss per Passenger Mile:<sup>2</sup></strong><br/>(including costs such as depreciation)</td><td id="pass_mile_additional"></td>
 	            	</tr>
 	            	
 	            	<tr>
-	            		<td><strong>Ridership:</strong></td><td id="ridership"></td><td><strong>Profit/Loss per Passenger:</strong><br/>(excluding costs such as depreciation)</td><td id="pass_net"></td>
+	            		<td><strong>Ridership:</strong></td><td id="ridership"></td><td><strong>Profit/Loss per Passenger:<sup>3</sup></strong><br/>(excluding costs such as depreciation)</td><td id="pass_net"></td>
 	            	</tr>
 	            	<tr>
-	            		<td colspan="2">&nbsp;</td><td><strong>Profit/Loss per Passenger:</strong><br/>(including costs such as depreciation)</td><td id="pass_net_all_operating"></td>
+	            		<td colspan="2">&nbsp;</td><td><strong>Profit/Loss per Passenger:<sup>4</sup></strong><br/>(including costs such as depreciation)</td><td id="pass_net_all_operating"></td>
 	            	</tr>
+    			
+    			<tr><td colspan="all">        	
+	            	<cite><sup>1</sup>Monthly Performance Report for September 2008, Amtrak, pages C-1 and C-2.</cite><br/>
+					<cite><sup>2</sup>Subsidyscope calculation. Including depreciation and other unallocated costs adds an additional loss of $0.11 per passenger mile. Subsidyscope applies this cost to the per passenger mile profit/loss for each route.
+					Methodology and steps involved in this calculation are presented <a href="http://staging.subsidyscope.com/projects/transportation/amtrak/table/">here</a>. </cite><br/>
+					<cite><sup>3</sup>Subsidyscope calculation, based on aggregate numbers Amtrak provides. Amtrak does not present per passenger costs on a route-by-route basis.</cite><br/> 
+					<cite><sup>4</sup>Subsidyscope calculation. Including depreciation and other unallocated costs adds an additional loss of $24.29 per passenger. Subsidyscope applies this cost to the per passenger profit/loss for each route.  Methodology and steps involved in this calculation are presented <a href="http://staging.subsidyscope.com/projects/transportation/amtrak/table/">here</a>.</cite> 
+				</td></tr>
+            	
             	</table>
      
             </div>
