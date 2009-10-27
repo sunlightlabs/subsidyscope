@@ -6,18 +6,18 @@
 {% load search_tags %}
 
 {% block additional_css %}
-  {% css "jquery-ui/ui.all.css" %}
-  {% css "faads-search.css" %}
+  {% css "styles/jquery-ui/ui.all.css" %}
+  {% css "styles/faads-search.css" %}
 {% endblock %}
 
 {% block additional_js %}
 
-	{% js "ui.core.js" %}
-	{% js "ui.tabs.js" %}
-	{% js "ui.datepicker.js" %}
+	{% js "scripts/ui.core.js" %}
+	{% js "scripts/ui.tabs.js" %}
+	{% js "scripts/ui.datepicker.js" %}
 	
-	{% js "swfobject.js" %}
-	{% js "faads-search.js?version=4" %}
+	{% js "scripts/swfobject.js" %}
+	{% js "scripts/faads-search.js?version=4" %}
 	
 
 <!-- if JS is enabled, assume that the tabs will work and hide the other divs -->
@@ -273,7 +273,7 @@ var sortOrder = '{{ sort_order }}';
 						<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="{% media_url %}/images/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
                 </span>  
                 
-                {% js "json2.js" %}
+                {% js "scripts/json2.js" %}
                 
                 <script type="text/javascript" charset="utf-8">
                    
