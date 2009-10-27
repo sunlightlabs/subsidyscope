@@ -212,17 +212,18 @@
             
             
             
-           	<div id="map-container"  style="padding: 0px 20px 20px 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
+           	<div id="map-container"  style="padding: 0px 20px 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
 				 
 				<h4>Amtrak Route Performance for Fiscal Year 2008</h4> 
 				          	
             	<div id="mapVis" ></div>
+            	
             	         	
             	<div style="margin-top: -25px; padding-bottom: 25px;">
 	            	
-	            	<span  style="float: right; margin-right:75px; margin-top:25px;" margin-bottom:15px;"> Select Route: <select id="routeSelector" onchange="routeChanged();"> 
+	            	<span  style="float: right; margin-right:75px; margin-top:25px; margin-bottom:15px;"> Select Route: <select id="routeSelector" onchange="routeChanged();"> 
            		 	<option value="-1">select a route</option>
-           		 	</select></span>
+           		 	</select><br/></span>
 	            	
 	            	<strong><span id="routeName" style=""></span></strong>
 	            	<br/>
@@ -230,23 +231,34 @@
 	            		
             	</div>
             	
-       			<div id="noData"><em>(No performance data available for this route, please see the <a href="{% url transportation-amtrak-table %}">complete list of routes</a> for additional information.)</em></div>
+       			<div id="noData"><em>(Performance data not mapped for this route, please see the <a href="{% url transportation-amtrak-table %}">complete list of routes</a> for additional information.)</em></div>
            		
-           		<table id="routeDataTable" style="width: 800px;">
-	            	<tr>
-	            		<td style="width: 300px;"><strong>Total Revenue:</strong></td><td id="gross" style="width: 100px;"></td><td style="width: 300px;"><strong>Profit/Loss per Passenger Mile:</strong><br/>(excluding costs such as depreciation)</td><td  style="width: 100px;" id="pass_mile"></td>
-	            	</tr>
-	            	<tr>
-	            		<td><strong>Profit/(Loss):</strong></td><td id="net"></td><td><strong>Profit/Loss per Passenger Mile:</strong><br/>(including costs such as depreciation)</td><td id="pass_mile_additional"></td>
-	            	</tr>
+           		<div id="routeDataTable">
+	           		<table style="width: 800px;">
+		            	<tr>
+		            		<td style="width: 300px;"><strong>Total Revenue:</strong></td><td id="gross" style="width: 100px;"></td><td style="width: 300px;"><strong>Profit/Loss per Passenger Mile:<sup>1</sup></strong><br/>(excluding costs such as depreciation)</td><td  style="width: 100px;" id="pass_mile"></td>
+		            	</tr>
+		            	<tr>
+		            		<td><strong>Profit/Loss:</strong></td><td id="net"></td><td><strong>Profit/Loss per Passenger Mile:<sup>2</sup></strong><br/>(including costs such as depreciation)</td><td id="pass_mile_additional"></td>
+		            	</tr>
+		            	
+		            	<tr>
+		            		<td><strong>Ridership:</strong></td><td id="ridership"></td><td><strong>Profit/Loss per Passenger:<sup>3</sup></strong><br/>(excluding costs such as depreciation)</td><td id="pass_net"></td>
+		            	</tr>
+		            	<tr>
+		            		<td colspan="2">&nbsp;</td><td><strong>Profit/Loss per Passenger:<sup>4</sup></strong><br/>(including costs such as depreciation)</td><td id="pass_net_all_operating"></td>
+		            	</tr>
+	    			
+	            	</table>
 	            	
-	            	<tr>
-	            		<td><strong>Ridership:</strong></td><td id="ridership"></td><td><strong>Profit/Loss per Passenger:</strong><br/>(excluding costs such as depreciation)</td><td id="pass_net"></td>
-	            	</tr>
-	            	<tr>
-	            		<td colspan="2">&nbsp;</td><td><strong>Profit/Loss per Passenger:</strong><br/>(including costs such as depreciation)</td><td id="pass_net_all_operating"></td>
-	            	</tr>
-            	</table>
+            		<cite style="font-style: normal; font-size: 85%;"><sup>1</sup><em>Monthly Performance Report for September 2008</em>, Amtrak, pages C-1 and C-2.</cite><br/>
+					<cite style="font-style: normal; font-size: 85%;"><sup>2</sup>Subsidyscope calculation. Including depreciation and other unallocated costs adds an additional loss of $0.11 per passenger mile. Subsidyscope applies this cost to the per passenger mile profit/loss for each route.
+					Methodology and steps involved in this calculation are presented <a href="/projects/transportation/amtrak/table/">here</a>. </cite><br/>
+					<cite style="font-style: normal; font-size: 85%;"><sup>3</sup>Subsidyscope calculation, based on aggregate numbers provided by Amtrak. Amtrak does not present per passenger costs on a route-by-route basis.</cite><br/> 
+					<cite style="font-style: normal; font-size: 85%;"><sup>4</sup>Subsidyscope calculation. Including depreciation and other unallocated costs adds an additional loss of $24.29 per passenger. Subsidyscope applies this cost to the per passenger profit/loss for each route.  Methodology and steps involved in this calculation are presented <a href="/projects/transportation/amtrak/table/">here</a>.</cite>         	
+            	</div>
+	
+				<p style="margin-top: 15px;">Source: All data from Amtrak's <em><a href="http://www.amtrak.com/servlet/BlobServer?blobcol=urldata&blobtable=MungoBlobs&blobkey=id&blobwhere=1249200490219&blobheader=application%2Fpdf&blobheadername1=Content-disposition&blobheadervalue1=attachment;filename=Amtrak_0809monthly.pdf">Monthly Performance Report for September 2008</a></em>; route map from <a href="http://www.mapmash.in/amtrak.html"/>Mapmash.in</a> and Amtrak.</p>
      
             </div>
           
