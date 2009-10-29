@@ -109,34 +109,6 @@ def push_flatpages():
     subsidyscope_setup()
     push_fixture('flatpages', restart_server=True)
 
-# def push_tarp():
-#     "Pushes files and fixtures supporting the bailout application (TARP database) from staging to production."
-#     # setup -- all commands go through a shell connection to the live site
-#     subsidyscope_setup()
-#     # sync TARP data
-#     push_fixture('etl', restart_server=False)
-#     push_fixture('bailout', restart_server=True)
-# 
-# def push_local_fixture_to_staging(fixture_name=None, restart_server=False):
-#     """ Dumps local data and loads it onto the staging server """
-#     "Moves the specified fixture from staging to production"
-#     if fixture_name is None:
-#         prompt('app_name', 'What application fixture would you like to push from your local server to staging?')
-#         fixture_name = ENV['app_name']
-#     
-#     # generate, transfer and sync fixture
-#     set(fixture=fixture_name)
-#     local('python $(local_project_root)/manage.py dumpdata $(fixture) > $(local_project_root)/data/$(fixture).json')
-#     local('scp -C -i $(local_project_root)/data/$(fixture).json $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging):$(staging_project_root)')
-#     run('export PYTHONPATH=$(staging_python_root):$PYTHONPATH && python $(staging_project_root)/manage.py loaddata $(staging_project_root)/data/$(fixture).json')
-# 
-# 
-#     run('ssh -i $(live_ssh_keyfile_for_staging) $(live_login_for_staging) "export PYTHONPATH=$(staging_python_root):$PYTHONPATH && python $(staging_project_root)/manage.py dumpdata $(fixture) > $(staging_project_root)/data/$(fixture).json"')
-#     run('scp -C -i $(live_ssh_keyfile_for_staging) $(live_login_for_staging):$(staging_project_root)/data/$(fixture).json $(live_project_root)/data/$(fixture).json')
-# 
-#     
-#     if restart_server is True:
-#         run('/home/subsidyscope/run-this.sh')    
 
 def push_local_tarp_to_staging():
     """ Pushes local etl and bailout fixtures up to staging server """
@@ -335,10 +307,10 @@ def new_h41_to_local():
 def new_h41_to_staging():
     """ pushes the local fed_h41 fixture to the staging site and regenerates CSVs (run second) """
     subsidyscope_setup()
-    push_fixture_from_local_to_staging_via_mysql('fed_h41')
+    push_fixture_from_local_to_staging_via_mysql('fed_h41', False)
     local('ssh -i $(subsidyscope_local_ssh_keyfile_for_staging) $(subsidyscope_local_login_for_staging) "export PYTHONPATH=$(staging_python_root):$PYTHONPATH && python ~/lib/python/subsidyscope/manage.py generatecsv"')
 
 def new_h41_to_live():
     """ pushes the staging fed_h41 fixture to live and regenerates CSVs (run third) """
-    push_fixture_from_staging_to_live_via_mysql('fed_h41')
+    push_fixture_from_staging_to_live_via_mysql('fed_h41', False)
     run('export PYTHONPATH=$(live_python_root):$PYTHONPATH && python $(live_project_root)/manage.py generatecsv')
