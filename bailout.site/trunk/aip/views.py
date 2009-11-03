@@ -18,7 +18,7 @@ def portdata (request, code):
     try:
         airport = Airport.objects.get(code=code)
     except Airport.DoesNotExist:
-        return HttpResponseRedirect('/projects/transportation/aip/')
+        return HttpResponseRedirect(reverse('aip-story'))
     if airport:
         enplanements = Enplanements.objects.filter(airport=code)
         operations = Operations.objects.filter(airport=code)

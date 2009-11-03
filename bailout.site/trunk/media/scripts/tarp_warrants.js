@@ -63,7 +63,7 @@ function TARP_init()
         headerTable: $('#tarp-header-table').get(0)
     }); 
     
-    $('#tarpFilterInput').autocomplete('/projects/bailout/tarp/filter/institution/', {
+    $('#tarpFilterInput').autocomplete('/bailout/tarp/filter/institution/', {
 		width: 260,
 		selectFirst: false});
 	

@@ -118,7 +118,7 @@ function TARP_init()
     }); 
  
  
-	$('#tarpFilterInput').autocomplete('/projects/bailout/tarp/filter/institution/', {
+	$('#tarpFilterInput').autocomplete('/bailout/tarp/filter/institution/', {
 		width: 260,
 		selectFirst: false});
 	

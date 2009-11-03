@@ -1,4 +1,6 @@
 from django import forms
+from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
@@ -16,9 +18,11 @@ feeds = {
     'transportation': TransportationProjectUpdatesFeed,
 }
 
-
 def redirect_to_index(request):
     return HttpResponseRedirect(reverse('index'))
+
+def remove_projects_redirect(request):
+    return HttpResponsePermanentRedirect(request.path.replace('/projects/', '/'))
 
 class SubsidyContactForm(ContactForm):
     attrs_dict = { 'class': 'required' }    
@@ -47,9 +51,14 @@ urlpatterns = patterns('',
 urlpatterns += patterns('django.views.generic.simple',
     url(r'^$', 'direct_to_template', {'template': 'index.html'}, name="index"),   
     url(r'^crossdomain\.xml$', 'direct_to_template', {'template': 'crossdomain.xml', 'mimetype':'text/x-cross-domain-policy', 'extra_context': {'crossdomain_additions': getattr(settings, 'FLASH_CROSSDOMAIN_ADDITIONS', '')}}, name="crossdomain_xml"),  
-    url(r'^projects/bailout/', include('bailout.urls')),     
-    url(r'^projects/transportation/', include('transportation.urls')),    
+
+    url(r'^projects/bailout/', remove_projects_redirect, name="bailout-old"),
+    url(r'^projects/transportation/', remove_projects_redirect, name="transportation-old"),
     url(r'^projects/', redirect_to_index, name="projects"),
+
+    url(r'^transportation/', include('transportation.urls')),
+    url(r'^bailout/', include('bailout.urls')),     
+
     url(r'^updates/', include('project_updates.urls')),
     url(r'^about/', 'direct_to_template', {'template': 'about.html'}, name="about"),
     url(r'^contact/', include('contact_form.urls'), {"form_class": SubsidyContactForm, "fail_silently": False}, name="contact"),
