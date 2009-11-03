@@ -97,9 +97,9 @@ $(function () {
 		<div id="taxonomy" style="">
 			<div class="left_tax">
 				<div class="tax_item">
-					<div id="tax_icon"><a href="/projects/bailout/"><img src="/media/images/sector_icons/1_lg.png" border="0" alt="Financial Bailout"></a></div>	
+					<div id="tax_icon"><a href="{% url bailout-index %}"><img src="/media/images/sector_icons/1_lg.png" border="0" alt="Financial Bailout"></a></div>	
 					<div>	
-						<h3><a href="/projects/bailout/">Financial Bailout</a></h3>
+						<h3><a href="{% url bailout-index %}">Financial Bailout</a></h3>
 						<p>	<a href="{% url bailout_treasury_index %}">Treasury</a>, 
 							<a href="{% url bailout_fdic_index %}">FDIC</a>, 
 							<a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>,<br/>
