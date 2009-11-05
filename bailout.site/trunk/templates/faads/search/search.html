@@ -48,7 +48,7 @@ var sortOrder = '{{ sort_order }}';
 	
 					<p>{% morsel text1 %}</p>
 	
-					<form action="{% url faads.views.search %}" method="POST" id="faads-search-form">
+					<form action="{{ page_path }}" method="POST" id="faads-search-form">
 
 					<fieldset id="text-query-wrapper">
 					  <legend>Recipient Name / Project Description</legend>
@@ -184,10 +184,12 @@ var sortOrder = '{{ sort_order }}';
           {% if ran_search %}
             <input type="button" id="reset-faads-search" value="Reset Search" />
             <script type="text/javascript" charset="utf-8">
-            $(function(){ $('#reset-faads-search').click(function(){ window.location.href='{% url transportation-faads-search %}';})});
+            var original_url = window.location.href.replace(/\?.*$/,'');
+            $(function(){ $('#reset-faads-search').click(function(){ window.location.href = original_url;})});
             </script>
           {% endif %}
           
+          {{ form.sector_name }}
 					<input type="submit" value="Search" class="faads-search-submit" />
           <div class="clear-right"></div>
           
@@ -282,7 +284,7 @@ var sortOrder = '{{ sort_order }}';
                     function loadChartFlash()
                     {
                     	if(!chartLoaded)
-                    		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '/transportation/direct-expenditures/search/by-year/', 'data-query':'{{ query|safe }}'});
+                    		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '{% url faads-search-by-year %}', 'data-query':'{{ query|safe }}'});
                     		
                     	chartLoaded = true;
                     }
@@ -301,7 +303,7 @@ var sortOrder = '{{ sort_order }}';
     					function loadMapFlash()
     					{
     						if(!mapLoaded)
-    	              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'/transportation/direct-expenditures/search/map/','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+    	              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url faads-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
     	              			
     	              		mapLoaded = true;
     	              	}	
@@ -336,7 +338,7 @@ var sortOrder = '{{ sort_order }}';
                  <script type="text/javascript" charset="utf-8">
 	                 function loadSummary()
 	                 {
-	                   $.get('{% url transportation-faads-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
+	                   $.get('{% url faads-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
 	                     $('#summary-container').html(data);
 	                   });
 	                 }

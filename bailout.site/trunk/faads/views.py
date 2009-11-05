@@ -158,9 +158,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=1, coerce=int)
         location_choices = forms.MultipleChoiceField(label='State', required=False, choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
     
-        # TODO: funding type
-    
-        # TODO: budget_function
+        sector_name = forms.CharField(label='Sector', required=False, initial=((sector is not None) and sector.name.lower() or ''), max_length=100, widget=forms.HiddenInput)
     
     
     return FAADSSearchForm
@@ -182,12 +180,14 @@ def decompress_querydict(s):
 
 
 def get_sector_by_name(sector_name=None):
+    sector = None
     if sector_name is not None:
         sector = Sector.objects.filter(name__icontains=sector_name)
         if len(sector)==1:
             sector = sector[0]
         else:
             sector = None
+            
     return sector
 
 
@@ -226,8 +226,12 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
 
     # retrieve the sector and create an appropriate form object to handle validation of the querydict
     sector = get_sector_by_name(sector_name)
+    querydict = decompress_querydict(querydict_as_compressed_string)
+    if (sector is None):
+        sector = get_sector_by_name(querydict.get('sector_name', None))
+
     formclass = MakeFAADSSearchFormClass(sector=sector)            
-    form = formclass(decompress_querydict(querydict_as_compressed_string))
+    form = formclass(querydict)
 
     # validate querydict -- no monkey business!
     if form.is_valid():
@@ -445,7 +449,7 @@ def search(request, sector_name=None):
             form = formclass()
         
 
-    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order}, context_instance=RequestContext(request))
+    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'sector': sector_name, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order, 'page_path': request.path}, context_instance=RequestContext(request))
 
 
 
