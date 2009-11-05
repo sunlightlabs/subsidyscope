@@ -99,13 +99,13 @@ class OperationStats(models.Model):
     
     type_of_service = models.CharField(max_length=2, choices=TOS_CHOICES)
     
-    fares = models.IntegerField(null=True)
+    fares = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     
-    vehicle_revenue_miles = models.IntegerField(null=True)
-    vehicle_revenue_hours = models.IntegerField(null=True)
-    directional_route_miles = models.IntegerField(null=True)
-    unlinked_passenger_trips = models.IntegerField(null=True)
-    passenger_miles_traveled = models.IntegerField(null=True)
+    vehicle_revenue_miles = models.DecimalField(max_digits=15, decimal_places=0, null=True)
+    vehicle_revenue_hours = models.DecimalField(max_digits=15, decimal_places=0, null=True)
+    directional_route_miles = models.DecimalField(max_digits=15, decimal_places=0, null=True)
+    unlinked_passenger_trips = models.DecimalField(max_digits=15, decimal_places=0, null=True)
+    passenger_miles_traveled = models.DecimalField(max_digits=15, decimal_places=0, null=True)
     
     
     
