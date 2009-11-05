@@ -9,6 +9,8 @@ class UrbanizedArea(models.Model):
     
     fips_id = models.IntegerField(null=True)
     
+    state = models.ManyToManyField(State)
+    
     name = models.CharField(max_length=255, null=True, blank=True)    
 
     population = models.IntegerField(null=True)
@@ -20,6 +22,7 @@ class TransitSystem(models.Model):
     trs_id = models.IntegerField()
     
     state = models.ForeignKey(State)
+    
     city = models.CharField(max_length=255, null=True, blank=True)
     
     urbanized_area =  models.ForeignKey(UrbanizedArea)
