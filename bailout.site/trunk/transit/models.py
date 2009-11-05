@@ -9,7 +9,7 @@ class UrbanizedArea(models.Model):
     
     fips_id = models.IntegerField(null=True)
     
-    state = models.ManyToManyField(State)
+    state = models.ManyToManyField(State, null=True)
     
     name = models.CharField(max_length=255, null=True, blank=True)    
 
@@ -21,11 +21,11 @@ class TransitSystem(models.Model):
     
     trs_id = models.IntegerField()
     
-    state = models.ForeignKey(State)
+    state = models.ForeignKey(State, null=True)
     
     city = models.CharField(max_length=255, null=True, blank=True)
     
-    urbanized_area =  models.ForeignKey(UrbanizedArea)
+    urbanized_area =  models.ForeignKey(UrbanizedArea, null=True)
     
     name = models.CharField(max_length=255, null=True, blank=True)
     
@@ -36,17 +36,17 @@ class FundingStats(models.Model):
     
     year = models.IntegerField()
     
-    capital_federal = models.IntegerField(null=True)
-    capital_state = models.IntegerField(null=True)
-    capital_local = models.IntegerField(null=True)
-    capital_other = models.IntegerField(null=True)
+    capital_federal = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    capital_state = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    capital_local = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    capital_other = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     
-    operating_fares = models.IntegerField(null=True)
-    operating_federal = models.IntegerField(null=True)
-    operating_state = models.IntegerField(null=True)
-    operating_local = models.IntegerField(null=True)
-    operating_other = models.IntegerField(null=True)
-    operating_reconciliation = models.IntegerField(null=True)
+    operating_fares = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_federal = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_state = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_local = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_other = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_reconciliation = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     
     
 class OperationStats(models.Model):
@@ -96,7 +96,6 @@ class OperationStats(models.Model):
     
     TOS_CHOICES = ((TOS_DIRECTLY_OPERATED, 'Directly Operated'),
                    (TOS_PURCHASED, 'Purchased Transit'))
-    
     
     type_of_service = models.CharField(max_length=2, choices=TOS_CHOICES)
     
