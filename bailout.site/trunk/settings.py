@@ -113,7 +113,8 @@ INSTALLED_APPS = (
     'tagging',
     'aip',
     'news_briefs',
-    'cfda'
+    'cfda',
+    'transit'
 )
 
 #try:
