@@ -53,7 +53,8 @@ class MorselNode(Node):
                         indicator : 'Saving...',
                         tooltip   : 'Double-click to edit...',
                         event     : 'dblclick',
-                        loadurl   : '%s'                                                
+                        loadurl   : '%s',
+                        onblur    : 'ignore'                                          
                     });
                 });
             });

@@ -181,7 +181,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             {% for port in grants %}
                 <div class="portdetail{% if forloop.counter|divisibleby:"2"  %} even {%endif%}">
                 <ul>
-                <li class="name" name="{{port.0.code}}"><a href="/projects/transportation/aip/airports/{{port.0.code}}/">{{port.0.name}}</a></li>
+                <li class="name" name="{{port.0.code}}"><a href="/transportation/aip/airports/{{port.0.code}}/">{{port.0.name}}</a></li>
                 <li class="money">${{port.1|floatformat|intcomma}}</li>
                 <li class="enps">{{port.2|intcomma}}</li>
                 <li class="city">{{port.0.city}}</li><li class="st">{{port.0.state}}</li>
@@ -217,7 +217,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
                     <tr><th class="sortable">FY</th><th style=width:50px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
                     {% for p in projects.object_list %}
                     <tr>
-                    <td>{{p.fiscal_year}}</td><td>{{p.npr}}</td><td><a href="/projects/transportation/aip/airports/{{p.airport.code}}">{{p.airport}}{% if p.airport.name == 'New' %} ({{p.airport.city}}{%if p.airport.city%}, {%endif%}{{p.airport.state}}){% endif %}</a></td><td>{{p.description}}</td><td class="dollars">${{p.total|floatformat:0|intcomma}}</td><td class="dollars">${{p.discretionary|floatformat:0|intcomma}}</td><td class="dollars">${{p.entitlement|floatformat:0|intcomma}}</td><td class="dollars">${{p.stimulus|floatformat:0|intcomma}}</td>
+                    <td>{{p.fiscal_year}}</td><td>{{p.npr}}</td><td><a href="/transportation/aip/airports/{{p.airport.code}}">{{p.airport}}{% if p.airport.name == 'New' %} ({{p.airport.city}}{%if p.airport.city%}, {%endif%}{{p.airport.state}}){% endif %}</a></td><td>{{p.description}}</td><td class="dollars">${{p.total|floatformat:0|intcomma}}</td><td class="dollars">${{p.discretionary|floatformat:0|intcomma}}</td><td class="dollars">${{p.entitlement|floatformat:0|intcomma}}</td><td class="dollars">${{p.stimulus|floatformat:0|intcomma}}</td>
                     </tr>
                     {% endfor %}
             </table>

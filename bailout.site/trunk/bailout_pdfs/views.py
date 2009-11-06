@@ -14,5 +14,5 @@ def detail(request, pdf_id):
         if pdf.link_url != None:
             return HttpResponseRedirect(pdf.link_url)
         else:
-            return HttpResponseRedirect('/projects/bailout/documents/')
+            return HttpResponseRedirect(reverse('bailoutpdf_index'))
         

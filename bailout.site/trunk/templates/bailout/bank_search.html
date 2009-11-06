@@ -8,7 +8,7 @@ function search_init()
 {
 	var lastSearch;
 
-	$('#bankSearchNameInput').autocomplete('/projects/bailout/search/bank/', {
+	$('#bankSearchNameInput').autocomplete('/bailout/search/bank/', {
 		width: 260,
 		cacheLength: 1,
 		selectFirst: true});
@@ -17,7 +17,7 @@ function search_init()
 		if (data)
 		{
 			lastSearch = $("#bankSearchNameInput").val();
-			$.get('/projects/bailout/search/bank/summary/' + data[1] + '/', null, function(data)
+			$.get('/bailout/search/bank/summary/' + data[1] + '/', null, function(data)
 			{
 				$("#bankInfo").html(data);
 				

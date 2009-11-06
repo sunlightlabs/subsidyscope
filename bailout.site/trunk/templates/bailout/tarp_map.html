@@ -23,7 +23,7 @@
 $(document).ready(function(){
 	swfobject.embedSWF('{% media_url %}/scripts/MapVis.swf?v=4', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent'});
 	
-	$('#tarpFilterInput').autocomplete('/projects/bailout/tarp/map/filter/institution/', {
+	$('#tarpFilterInput').autocomplete('/bailout/tarp/map/filter/institution/', {
 		width: 260,
 		selectFirst: true});
 	

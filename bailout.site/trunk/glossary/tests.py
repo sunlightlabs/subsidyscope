@@ -1,12 +1,13 @@
 import helpers
 from models import Item
 import unittest
+from django.core.urlresolvers import reverse
 
 
 class HelperTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.glossary_base_url = "/projects/bailout/glossary/"
+        self.glossary_base_url = reverse('glossary')
 
     def tearDown(self):
         Item.objects.all().delete()

@@ -17,7 +17,7 @@
                 $.ajax({
                     'data': "code="+port,
                     'dataType': 'html',
-                    'url': '/projects/transportation/aip/detail',
+                    'url': '/transportation/aip/detail',
                     'success': function(html){
                         $(that).closest("div.portdetail").append(html).find("div.data-container").slideDown("fast");
                         $(that).addClass("close");
