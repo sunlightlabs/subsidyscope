@@ -48,7 +48,32 @@ class FundingStats(models.Model):
     operating_other = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     operating_reconciliation = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     
-    
+    def total_funding(self, type=None):
+        total = 0
+        if type == 'capital': funding = [self.capital_federal, self.capital_state, self.capital_local, self.capital_other]
+        elif type == 'operating': funding = [self.operating_federal, self.operating_state, self.operating_local, self.operating_other, self.operating_reconciliation]
+        else: funding = [self.capital_federal, self.capital_state, self.capital_local, self.capital_other, self.operating_federal, self.operating_state, self.operating_local, self.operating_other, self.operating_reconciliation]
+
+        for f in funding:
+            if f:
+                total += float(f)
+        
+        return total
+
+    def total_funding_by_type(self, type):
+        total = 0
+        if type == 'federal': funding = [self.capital_federal, self.operating_federal]
+        elif type == 'state': funding = [self.capital_state, self.operating_state]
+        elif type == 'local': funding = [self.capital_local, self.operating_local]
+        else: funding = [self.capital_other, self.operating_other]
+
+        for f in funding:
+            if f:
+                total += float(f)
+
+        return total
+
+        
 class OperationStats(models.Model):
     
     transit_system = models.ForeignKey(TransitSystem)

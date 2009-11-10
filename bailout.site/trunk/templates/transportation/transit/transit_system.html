@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+{% load media %}
+{% load humanize %}
+{% load smarterif%}
+{% block content %}
+{% js "scripts/swfobject.js" %}
+{% js "scripts/json2.js" %}
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <span class="span-24">
+        <div id="header_area"><h3>{{system.name}}</h3></div>
+        <div class="content_area">
+            <h5>Funding by year</h5>
+            <div id="fundingChart"></div>
+
+            <h5>Funding Sources</h5>
+            <div id="sourcesChart"></div>
+
+            <script type="text/javascript" charset="utf-8">
+                function linechart(){
+                    return JSON.stringify({{fund_line_data|safe}});
+                }
+                function piechart(){
+                    return JSON.stringify({{fund_pie_data|safe}});
+                }
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "200", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart", "400", "275", "9.0.0", "expressInstall.swf", {"get-data": "piechart"});
+            </script>
+
+        </table>
+
+        </div>
+    </span>
+
+</div>
+
+{% endblock content %}
