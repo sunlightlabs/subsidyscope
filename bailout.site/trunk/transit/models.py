@@ -91,14 +91,8 @@ class OperationStats(models.Model):
     
     mode = models.CharField(max_length=2, choices=MODE_CHOICES)
     
-    TOS_DIRECTLY_OPERATED = 'DO'
-    TOS_PURCHASED = 'PT'
-    
-    TOS_CHOICES = ((TOS_DIRECTLY_OPERATED, 'Directly Operated'),
-                   (TOS_PURCHASED, 'Purchased Transit'))
-    
-    type_of_service = models.CharField(max_length=2, choices=TOS_CHOICES)
-    
+    operating_expense = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    capital_expense = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     fares = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     
     vehicle_revenue_miles = models.DecimalField(max_digits=15, decimal_places=0, null=True)
