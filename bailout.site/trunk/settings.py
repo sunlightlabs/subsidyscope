@@ -110,6 +110,7 @@ INSTALLED_APPS = (
     'faads',
     'budget_accounts',
     'transportation',
+    'nonprofits',
     'tagging',
     'aip',
     'news_briefs',

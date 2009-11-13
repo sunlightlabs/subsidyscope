@@ -15,7 +15,7 @@
 		<div class="feature_leftside">
             <div id="feature_box">
 			    <div class="tabs" style="height: 400px;">
-                    {% carousel_entries 2 %}
+                    {% carousel_entries 3 %}
                 </div>
 			</div><!-- end feature box -->
 			
@@ -25,7 +25,7 @@
                 <a title="Click here for news feed" href="{%url feed_project_updates "nonprofits" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
 				</div>
 		      
-		      {% project_updates 2 %}	
+		      {% project_updates 3 %}	
             
             </div> 	<!-- ends update box-->
 		</div> <!-- ends feature left side -->		
@@ -67,8 +67,7 @@
     
 </div>
 
-<style>
-
+<style type="text/css">
 .border {border-bottom: 1px solid #afafaf;float:left; margin-bottom: 25px; padding-bottom: 20px;}
 .graph-container {float:left; position:relative;}
 .hhsubsidy{float:right; width:95px; padding: 10px; margin: 5px 5px 5px 30px; border: 2px solid #afafaf; text-align:center;}
