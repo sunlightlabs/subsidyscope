@@ -70,19 +70,7 @@ var sortOrder = '{{ sort_order }}';
              <div id="program-selection-subsidy_programs" class="program-selection-target">
               {% morsel program_selection_subsidy_programs %}    
               <div class="clear-left"></div>                    
-             </div>
-             
-            <div id="program-selection-tag" class="program-selection-target">
-              {% morsel program_selection_tag %}                 
-              
-              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-tag-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-tag-select-none">Select None</a> ]</p>
-              
-              {{ form.program_selection_tags }}
-              {{ form.program_selection_tags.errors }}
-              
-              <p style="clear:left; padding-top: 1.5em">{{ form.tags_exclude_secondary }}&nbsp;Only include programs having the selected tag(s) as their primary function</p>
-              <div class="clear-left"></div>
-            </div>
+             </div>                      
             
             {% if form.program_selection_subsector %}
             <div id="program-selection-subsector" class="program-selection-target">
