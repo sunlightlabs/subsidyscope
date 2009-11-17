@@ -102,12 +102,12 @@ var sortOrder = '{{ sort_order }}';
             <h4>Expenditure Type</h4>
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
-  						<div class="dropdown-wrapper">
+  						<div class="dropdown-wrapper" id="assistance-type">
   						  <label for="assistance_type">Assistance Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.assistance_type }}
   							{{ form.assistance_type.errors }}
   						</div>
-  						<div class="dropdown-wrapper">
+  						<div class="dropdown-wrapper" id="action-type">
   						  <label for="action_type">Action Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.action_type }}
   							{{ form.action_type.errors }}
