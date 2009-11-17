@@ -174,7 +174,8 @@ fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0
 
 
 #assistance-action-recipient-wrapper #action-type ul { height: 150px; }
-#assistance-action-recipient-wrapper #recipient-type ul { float: left; margin-right: 1em;}
+#assistance-action-recipient-wrapper #recipient-type ul { float: left;}
+#assistance-action-recipient-wrapper #recipient-type ul:first-child { margin-right: 1em; }
 
 
 #summary-container #ajax-loader { margin: 0 auto; display: block; padding: 30px 0;}
