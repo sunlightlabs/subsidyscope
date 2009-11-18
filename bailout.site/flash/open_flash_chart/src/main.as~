@@ -615,6 +615,8 @@ package  {
 			
 			var left:Number   = this.y_legend.get_width() /*+ this.y_labels.get_width()*/ + this.y_axis.get_width();
 			
+			ExternalInterface.call('console.log', 'left is '+left);
+			
 			this.keys.resize( left, this.title.get_height() );
 				
 			var top:Number = this.title.get_height() + this.keys.get_height();

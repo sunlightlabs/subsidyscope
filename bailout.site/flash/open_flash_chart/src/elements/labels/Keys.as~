@@ -3,6 +3,7 @@ package elements.labels {
 	import charts.ObjectCollection;
 	import flash.display.Sprite;
 	import flash.text.TextField;
+	import flash.external.ExternalInterface;
 	import flash.text.TextFormat;
 	//import org.flashdevelop.utils.FlashConnect;
 	
@@ -77,7 +78,8 @@ package elements.labels {
 			
 			for( var i:Number=0; i<this.numChildren; i++ )
 			{
-				var width:Number = this.getChildAt(i).width;
+				var width:Number = this.getChildAt(i).width;
+				ExternalInterface.call('console.log', width);
 				if( ( this.x + x + width + 12 ) > this.stage.stageWidth )
 				{
 					// it is past the edge of the stage, so move it down a line
@@ -85,7 +87,11 @@ package elements.labels {
 					y += this.getChildAt(i).height;
 					height += this.getChildAt(i).height;
 					
+					ExternalInterface.call('console.log', x+' is x');
+					
 				}
+				ExternalInterface.call('console.log', 'width of chart: '+width+' width of labels: '+x);
+				ExternalInterface.call('console.log', 'stage is '+this.stage.stageWidth);
 				this.draw_line( x, y, this.getChildAt(i).height, this.colours[i] );
 				x += 12;
 

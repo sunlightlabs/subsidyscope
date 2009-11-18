@@ -348,8 +348,8 @@ package elements.axis {
 		{
 			//
 			// ticks
-			
-			//KBL added a little bit of padding because labels were getting cut off
+			ExternalInterface.call('console.log', 'width: '+sc.width);
+			ExternalInterface.call('console.log', 'left: '+sc.left);
 			sc.left += 10;
 			var item_width:Number = sc.width / this.style.max;
 			var left:Number = sc.left+(item_width/2);

@@ -14,7 +14,8 @@
 	import caurina.transitions.Tweener;
 	import caurina.transitions.Equations;
 	import global.Global;
-
+	
+	import flash.external.ExternalInterface;
 		
 		
 	public class PieSlice extends Element {

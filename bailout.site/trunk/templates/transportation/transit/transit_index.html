@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load media %}
+{% load humanize %}
+{% load smarterif%}
+{% block content %}
+
+<style>
+form#transit-search fieldset { padding: 15px; }
+form#transit-search label.text {margin-left: 15px;}
+form#transit-search select { width: 100%; margin-right: 25px; padding: 5px; }
+form#transit-search input.submit {width: 80px; background-color: #F6F8FB; border: 1px solid #899EAB; padding: 0 3px; margin-left:10px;}
+form#transit-search input { margin: 15px; padding: 5px;  width: 80%;  }
+form#transit-search span.filter-container { width: 40%; float:left; margin-left: 15px;}
+</style>
+
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <span class="span-24">
+        <div id="header_area"><h3>Transit System Search</h3></div>
+        <div class="content_area">
+            <p>Some text on the search and what we're offering can go here I suppose. </p>    
+            <form id="transit-search">
+            <fieldset>
+          
+            <label for="name" class="text">Search by Transit System Name:</label> <input name="system-name" type="text" class="name-search" />
+            
+            <input type="submit" class="submit" value="Search" />
+            <span class="filter-container">
+            <label for="state">Select by state: </label> <br />
+            <select name="state" id="state-select">
+            {% for state in states %}
+                <option value="{{state.abbreviation}}">{{state.name}}</option>
+            {% endfor %}
+            </select>
+            </span>
+            <span class="filter-container">
+            <label for="uza">Select by Urban area: </label><br />
+            <select name="uza" id="uza-select">
+            {% for u in uza %}
+                    <option value="{{u.fta_id}}">{{u.name}}</option>
+            {% endfor %}
+            </select>
+            </span>
+            </fieldset>
+            </form>
+       
+            <div id="results">
+            {% if results %}
+                <table>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Urbanized Area</th>
+                </tr>
+
+            {% for transit in results %}
+                <tr>
+                    <td><a href="/transportation/transit/system/{{transit.trs_id}}/" >{{transit.name}}</a></td>
+                    <td>{{transit.city}}</td>
+                    <td>{{transit.state}}</td>
+                    <td>{{transit.urbanized_area.name}}</td>
+                </tr>
+            {% endfor %}
+                </table>
+            {% endif %}
+            </div>
+        
+        </div>
+    </span>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+    $("#uza-select").change(function(){
+       //form submit with uza as trump
+        $("#transit-search").find("input[name='system-name']").val("")
+            .end()
+            .find("select[name='state']").val("")
+            .end()
+            .submit(); 
+    });
+    $("#state-select").change(function(){
+        //form submit with state as trump
+        $("#transit-search").find("input[name='system-name']").val("")
+            .end()
+            .find("select[name='uza']").val("")
+            .end()
+            .submit();
+    });
+    
+});
+</script>
+
+
+{% endblock content %}
+

@@ -245,9 +245,9 @@
 			{
 				var tf:YTextField = this.getChildAt(i) as YTextField;
 				max = Math.max( max, tf.width );
+				ExternalInterface.call('console.log', 'textfield max '+max);
 			}
-            
-            //KBL added a little bit of padding here because the labels were getting cut off
+			ExternalInterface.call('console.log', 'max is '+max)
 			return max +10;
 		}
 		

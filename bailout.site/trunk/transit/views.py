@@ -5,8 +5,28 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.db.models import Avg, Sum
 from transit.models import *
+from geo.models import *
 from simplejson import * 
 from math import * 
+
+def index(request):
+    states = State.objects.all()
+    uza = UrbanizedArea.objects.all().order_by('name')
+    systems = TransitSystem.objects.all()
+    
+    if request.GET:
+        if request.GET.__contains__('system-name') and request.GET['system-name'] != '':
+            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(name__icontains=request.GET['system-name'])})
+
+        elif request.GET.__contains__('state') and request.GET['state'] != "":
+            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(state=State.objects.get(abbreviation__iexact=request.GET['state']))})
+
+        elif request.GET__contains__('uza') and request.GET['uza'] != "":
+            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(urbanized_area=UrbanizedArea.objects.get(fta_id=request.GET['uza']))})
+    
+    
+    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems})
+
 
 def transitSystem(request, trs_id):
     try:
@@ -14,8 +34,9 @@ def transitSystem(request, trs_id):
         funding = FundingStats.objects.filter(transit_system=transit_system)
         operations = OperationStats.objects.filter(transit_system=transit_system)
         
-        for o in operations:
-            op_data.append({"x": int(o.year), "y": float(o.passenger_miles_traveled)})
+        #op_data = [] 
+        #for o in operations:
+        #    op_data.append({"x": int(o.year), "y": float(o.passenger_miles_traveled)})
 
         fund_json = buildFundingLineChart(funding)
         fund_type_json = buildSourcesPieChart(funding)
@@ -47,16 +68,16 @@ def buildSourcesPieChart(fundingObj):
         other.append(f.total_funding_by_type('other'))
 
     json["bg_colour"] = "#FFFFFF"
-    json['elements'] = [{"type": "pie","alpha":.78, "start-angle": 35,  "tip": "$#val# (#percent#)", "colours": [ "#00B492", "#007EEA", "#4869E1", "#BF5004"], "title": { "text": "Funding Breakdown" }, "values": [] }]
+    json['elements'] = [{"type": "pie","alpha":.8, "start-angle":50,  "radius_padding": 3, "tip": "$#val#", "colours": [ "#007EEA", "#00B492", "#4869E1", "#BF5004"], "title": { "text": "Funding Breakdown" }, "values": [] }]
     
-    if max(fed) > 0: 
-        json['elements'][0]['values'].append({"value": sum(fed), "label": "Federal ", "font-size": 16}) 
     if max(state) > 0:
-        json['elements'][0]['values'].append({ "value": sum(state), "label": "State", "font-size": 16})
+        json['elements'][0]['values'].append({ "value": sum(state), "label": "State (#percent#)", "font-size": 10, 'font-weight': 'bold'})
+    if max(fed) > 0: 
+        json['elements'][0]['values'].append({"value": sum(fed), "label": "Federal (#percent#)", "font-size": 10, 'font-weight': 'bold'}) 
     if max(local) > 0:
-        json['elements'][0]['values'].append({"value": sum(local), "label": "Local", "font-size":16})
+        json['elements'][0]['values'].append({"value": sum(local), "label": "Local (#percent#)", "font-size":10, 'font-weight': 'bold'})
     if max(other) > 0:
-        json['elements'][0]['values'].append({ "value": sum(other), "label": "Other", "font-size":16}) 
+        json['elements'][0]['values'].append({ "value": sum(other), "label": "Other (#percent#)", "font-size":10, 'font-weight':'bold'}) 
 
     return json
 
