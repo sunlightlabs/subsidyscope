@@ -8,8 +8,12 @@
 {% js "scripts/json2.js" %}
 
 <style>
-#info {padding: 10px; margin: 10px; border: 1px solid grey;}
-#map {height:305px; width: 450px; }
+#info {padding: 10px; margin: 10px; border: 1px solid #AFAFAF;width: 50%;}
+#info ul {margin:0; padding:0;}
+#map {height:290px; width: 400px; }
+.map-container {width: 45%; float:left;}
+.pie-container { width: 50%; margin-right:25px; float:left;}
+.info-container { clear:both; display: block; }
 </style>
 <div class="container main_container">
     {% include "includes/transportation_nav.html" %}
@@ -18,19 +22,23 @@
         <div class="content_area">
             <h5>Funding by year</h5>
             <div id="fundingChart"></div>
-
-            <h5>Funding Sources</h5>
-            <div id="sourcesChart"></div>
             
-            <h5>Location</h5>
-            <div id="map"></div>
-
-            <h5>System Info</h5>
-            <div id="info">
-                <ul>
-                    <li>Population: {{system.urbanized_area.population}}</li>
-                    <li>Area: {{system.urbanized_area.area}}</li>
-                </ul>
+            <div class="pie-container">
+                <h5>Funding Sources</h5>
+                <div id="sourcesChart"></div>
+            </div>
+            <div class="map-container">
+                <h5>Location</h5>
+                <div id="map"></div>
+            </div>
+            <div class="info-container">
+                <h5>System Info</h5>
+                <div id="info">
+                    <ul>
+                        <li>Population: {{system.urbanized_area.population}}</li>
+                        <li>Area: {{system.urbanized_area.area}}</li>
+                    </ul>
+                </div>
             </div>
             
 
