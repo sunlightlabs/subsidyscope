@@ -260,6 +260,8 @@ package elements.axis {
 			
 		public function three_d_axis( sc:ScreenCoords ):void
 		{
+		    //KBL added a little bit of padding because labels were getting cut off
+			sc.left += 10;
 			
 			// for 3D
 			var h:Number = this.three_d_height;
@@ -351,6 +353,7 @@ package elements.axis {
 			
 			//KBL added a little bit of padding because labels were getting cut off
 			sc.left += 10;
+			
 			var item_width:Number = sc.width / this.style.max;
 			var left:Number = sc.left+(item_width/2);
 		
