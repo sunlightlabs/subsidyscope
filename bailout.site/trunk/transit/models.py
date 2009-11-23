@@ -2,7 +2,8 @@ from django.db import models
 
 from geo.models import State
 
-    
+from django import forms
+
 class UrbanizedArea(models.Model):
     
     fta_id = models.IntegerField()

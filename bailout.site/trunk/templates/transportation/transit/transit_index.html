@@ -22,23 +22,25 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
             <p>Some text on the search and what we're offering can go here I suppose. </p>    
             <form id="transit-search">
             <fieldset>
-          
-            <label for="name" class="text">Search by Transit System Name:</label> <input name="system-name" type="text" class="name-search" />
+            <label for="name" class="text">Search by Transit System Name:</label> <input name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
             
             <input type="submit" class="submit" value="Search" />
             <span class="filter-container">
             <label for="state">Select by state: </label> <br />
             <select name="state" id="state-select">
+                <option value=""></option>
             {% for state in states %}
-                <option value="{{state.abbreviation}}">{{state.name}}</option>
+                <option value="{{state.abbreviation}}" {% if state.abbreviation == context.1 %} selected {% endif %}>{{state.name}}</option>
             {% endfor %}
             </select>
             </span>
             <span class="filter-container">
             <label for="uza">Select by Urban area: </label><br />
             <select name="uza" id="uza-select">
+                    <option value=""></option>
             {% for u in uza %}
-                    <option value="{{u.fta_id}}">{{u.name}}</option>
+                    <!-- {{u.fta_id}}&nbsp; {{context.2}}-->
+                    <option value="{{u.fta_id}}" {% if u.fta_id|stringformat:"s" = context.2 %}selected{% endif %}>{{u.name}}</option>
             {% endfor %}
             </select>
             </span>
@@ -76,7 +78,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 $(document).ready(function(){
     $("#uza-select").change(function(){
        //form submit with uza as trump
-        $("#transit-search").find("input[name='system-name']").val("")
+        $("#transit-search").find("input[name='system_name']").val("")
             .end()
             .find("select[name='state']").val("")
             .end()
@@ -84,7 +86,7 @@ $(document).ready(function(){
     });
     $("#state-select").change(function(){
         //form submit with state as trump
-        $("#transit-search").find("input[name='system-name']").val("")
+        $("#transit-search").find("input[name='system_name']").val("")
             .end()
             .find("select[name='uza']").val("")
             .end()

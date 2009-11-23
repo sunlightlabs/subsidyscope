@@ -7,7 +7,8 @@ from django.db.models import Avg, Sum
 from transit.models import *
 from geo.models import *
 from simplejson import * 
-from math import * 
+from math import *
+from django import forms
 
 def index(request):
     states = State.objects.all()
@@ -15,14 +16,23 @@ def index(request):
     systems = TransitSystem.objects.all()
     
     if request.GET:
-        if request.GET.__contains__('system-name') and request.GET['system-name'] != '':
-            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(name__icontains=request.GET['system-name'])})
+        
+        context = request.GET.values()
+
+        if request.GET.__contains__('system_name') and request.GET['system_name'] != '':  
+              
+            context[1] = ""  # set the state and uza parameters to null,
+            context[2] = ""  # so it doesn't indicate that those are filters
+
+            return render_to_response('transportation/transit/transit_index.html', {'context': context, 'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(name__icontains=request.GET['system_name'])})
 
         elif request.GET.__contains__('state') and request.GET['state'] != "":
-            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(state=State.objects.get(abbreviation__iexact=request.GET['state']))})
 
-        elif request.GET__contains__('uza') and request.GET['uza'] != "":
-            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(urbanized_area=UrbanizedArea.objects.get(fta_id=request.GET['uza']))})
+            return render_to_response('transportation/transit/transit_index.html', {'context':context, 'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(state=State.objects.get(abbreviation__iexact=request.GET['state']))})
+
+        elif request.GET.__contains__('uza') and request.GET['uza'] != "":
+
+            return render_to_response('transportation/transit/transit_index.html', {'context': context, 'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(urbanized_area=UrbanizedArea.objects.get(fta_id=request.GET['uza']))})
     
     
     return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems})
