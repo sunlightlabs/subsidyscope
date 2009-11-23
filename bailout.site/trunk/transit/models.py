@@ -28,7 +28,44 @@ class TransitSystem(models.Model):
     urbanized_area =  models.ForeignKey(UrbanizedArea, null=True)
     
     name = models.CharField(max_length=255, null=True, blank=True)
-    
+   
+    def total_expense_ridership_by_mode(self):
+        operating = OperationStats.objects.filter(transit_system=self).order_by('mode')
+        current_mode = operating[0].mode
+        totals = []
+        current_total = 0
+        current_operating_total = 0
+        current_capital_total = 0
+        revenue_hours = 0
+        revenue_miles = 0
+        pmt = 0 #passenger miles travelled
+        upt = 0 #unlinked passenger trips
+        for o in operating:
+            if o.mode != current_mode:
+                totals.append(((o.get_mode_display(), current_total, current_operating_total, current_capital_total), (revenue_hours, revenue_miles, pmt, upt, (current_operating_total/(pmt or 1)))))
+                current_total = 0
+                current_capital_total = 0
+                current_operating_total = 0
+                revenue_miles = 0
+                revenue_hours = 0
+                pmt = 0
+                upt = 0
+                current_mode = o.mode
+
+            else:
+                current_total += sum(filter(None, [o.capital_expense, o.operating_expense]))
+                if o.fares: 
+                    current_total -= o.fares
+                    current_operating_total -= o.fares
+                if o.operating_expense: current_operating_total += o.operating_expense
+                if o.capital_expense: current_capital_total += o.capital_expense
+                if o.vehicle_revenue_hours: revenue_hours += o.vehicle_revenue_hours
+                if o.vehicle_revenue_miles: revenue_miles += o.vehicle_revenue_miles
+                if o.passenger_miles_traveled: pmt += o.passenger_miles_traveled
+                if o.unlinked_passenger_trips: upt += o.unlinked_passenger_trips
+
+        return totals
+
 
 class FundingStats(models.Model):
     
@@ -72,8 +109,8 @@ class FundingStats(models.Model):
                 total += float(f)
 
         return total
-
         
+
 class OperationStats(models.Model):
     
     transit_system = models.ForeignKey(TransitSystem)
@@ -126,8 +163,8 @@ class OperationStats(models.Model):
     unlinked_passenger_trips = models.DecimalField(max_digits=15, decimal_places=0, null=True)
     passenger_miles_traveled = models.DecimalField(max_digits=15, decimal_places=0, null=True)
     
-    
-    
+
+
     
     
     

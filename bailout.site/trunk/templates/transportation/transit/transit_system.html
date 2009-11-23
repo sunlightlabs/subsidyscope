@@ -40,6 +40,34 @@
                     </ul>
                 </div>
             </div>
+
+            <h5>Operations Info </h5>
+            <table style="text-align:right;">
+                <tr>
+                    <th>Mode</th>
+                    <th>Total Expenses</th>
+                    <th>Total Operating Expenses</th>
+                    <th>Total Capital Expenses</th>
+                    <th>Total Revenue Hours</th>
+                    <th>Total Revenue Miles</th>
+                    <th>Total Passenger Miles Travelled</th>
+                    <th>Total Unlinked Passenger Trips</th>
+                    <th>Operating cost per passenger mile</th>
+                </tr>
+            {% for o in mode_data %}
+                <tr>
+                <td>{{o.0.0}}</td>
+                <td>{{o.0.1|floatformat:0|intcomma}}</td>
+                <td>{{o.0.2|floatformat:0|intcomma}}</td>
+                <td>{{o.0.3|floatformat:0|intcomma}}</td>
+                <td>{{o.1.0|intcomma}}</td>
+                <td>{{o.1.1|intcomma}}</td>
+                <td>{{o.1.2|intcomma}}</td>
+                <td>{{o.1.3|intcomma}}</td>
+                <td>{{o.1.4|floatformat:2}}</td>
+                </tr>
+            {% endfor %}
+            </table>
             
 
             <script type="text/javascript" charset="utf-8">

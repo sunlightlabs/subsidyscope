@@ -34,15 +34,18 @@ def transitSystem(request, trs_id):
         funding = FundingStats.objects.filter(transit_system=transit_system)
         operations = OperationStats.objects.filter(transit_system=transit_system)
         
+        mode_data = transit_system.total_expense_ridership_by_mode()
         #op_data = [] 
         #for o in operations:
         #    op_data.append({"x": int(o.year), "y": float(o.passenger_miles_traveled)})
 
         fund_json = buildFundingLineChart(funding)
         fund_type_json = buildSourcesPieChart(funding)
+
+
         #op_json = buildLineChart(op_data)
 
-        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json)})
+        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'mode_data': mode_data, 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json)})
 
     except TransitSystem.DoesNotExist:
         return HttpResponseRedirect('/transportation/transit/') 
@@ -54,6 +57,10 @@ def urbanArea(request, uza_id):
         return render_to_response('/transit/uza.html', {'uza': urban_area})
     except UrbanizedArea.DoesNotExist:
         return HttpResponseRedirect('/transportation/transit/')
+
+def buildModePieChart(operatingObj):
+    json = {}
+
 
 def buildSourcesPieChart(fundingObj):
     json = {}
