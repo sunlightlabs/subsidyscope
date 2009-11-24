@@ -8,12 +8,12 @@
 {% js "scripts/json2.js" %}
 
 <style>
-#info {padding: 10px; margin: 10px; border: 1px solid #AFAFAF;width: 50%;}
+#info {padding: 10px; margin: 10px; border: 1px solid #AFAFAF;}
 #info ul {margin:0; padding:0;}
 #map {height:290px; width: 400px; }
 .map-container {width: 45%; float:left;}
 .pie-container { width: 50%; margin-right:25px; float:left;}
-.info-container { clear:both; display: block; }
+.info-container { clear:both; display: block; width: 50%; }
 </style>
 <div class="container main_container">
     {% include "includes/transportation_nav.html" %}
@@ -35,8 +35,8 @@
                 <h5>System Info</h5>
                 <div id="info">
                     <ul>
-                        <li>Population: {{system.urbanized_area.population}}</li>
-                        <li>Area: {{system.urbanized_area.area}}</li>
+                        <li>Population: {{system.urbanized_area.population|intcomma}}</li>
+                        <li>Area: {{system.urbanized_area.area|intcomma}} sq. mi.</li>
                     </ul>
                 </div>
             </div>
@@ -77,8 +77,8 @@
                 function piechart(){
                     return JSON.stringify({{fund_pie_data|safe}});
                 }
-                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "200", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
-                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart"});
+                //swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "200", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
+                //swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart"});
             </script>
             <script src="http://www.maps.google.com/maps/api/js?sensor=false&key=ABQIAAAAhsWrZ8VHxDxF9jrKbcsQ0xRvfLFziSZqANDNArw6yp0kxlhceBS-wjqDyDClpSNt9y_iJB5a-HjMig" type="text/javascript" charset="utf-8"></script>
             <script type="text/javascript" charset="utf-8">
