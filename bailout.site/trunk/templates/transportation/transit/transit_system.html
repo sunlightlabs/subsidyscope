@@ -40,8 +40,20 @@
                     </ul>
                 </div>
             </div>
+            <div class="pie-container">
+                <h5>System Expenses By Mode (Capital and Operating)</h5>
+                <div id="modeChart"></div>
+            </div>
+            <div class="map-container">
+                <h5>System Ridership By Mode (PMT)</h5>
+                <div id="pmtChart"></div>
+            </div>
+            <div class="pie-container">
+                <h5>System Ridership By Mode (UPT)</h5>
+                <div id="uptChart"></div>
+            </div>
 
-            <h5>Operations Info </h5>
+            <h5 style="clear:both;">Operations Info </h5>
             <table style="text-align:right;">
                 <tr>
                     <th>Mode</th>
@@ -77,8 +89,21 @@
                 function piechart(){
                     return JSON.stringify({{fund_pie_data|safe}});
                 }
+                function modechart(){
+                    return JSON.stringify({{fund_mode_data|safe}});
+                }
+                function pmtchart(){
+                    return JSON.stringify({{pmt_data|safe}});
+                }
+                function uptchart(){
+                    return JSON.stringify({{upt_data|safe}});
+                }
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "200", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart"});
+
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "modeChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "modechart"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "pmtChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "pmtchart"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "uptChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "uptchart"});
             </script>
             <script src="http://www.google.com/jsapi?key=ABQIAAAAhsWrZ8VHxDxF9jrKbcsQ0xRvfLFziSZqANDNArw6yp0kxlhceBS-wjqDyDClpSNt9y_iJB5a-HjMig" type="text/javascript" charset="utf-8"></script>
             <script type="text/javascript" charset="utf-8">
@@ -95,6 +120,7 @@
                         map.setCenter(point, 11);
                         var marker = new GMarker(point);
                         map.addOverlay(marker);
+                        map.addControl(new GSmallMapControl());
                         //marker.openInfoWindowHTML('{{system.city}}, {{system.state.abbreviation}}');
                     });
                 }
