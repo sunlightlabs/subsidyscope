@@ -128,17 +128,14 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         # CFDA programs, subsectors and tags
 
         if subsector_choices:
-            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))        
+            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))        
         else:
-            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('program', 'Program'))
+            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('program', 'Program'))
 
         cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
 
         program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
         
-        program_selection_tags = forms.MultipleChoiceField(choices=tag_choices, required=False, initial=initial_tag_choices, widget=CheckboxSelectMultipleMulticolumn(columns=3))
-        tags_exclude_secondary = forms.BooleanField(label="Only include programs having the selected tag(s) as their primary function?", required=False, initial=True)
-
         if subsector_choices:
             program_selection_subsector = forms.MultipleChoiceField(choices=subsector_choices, required=False, widget=CheckboxSelectMultipleMulticolumn(columns=3))
         else:
@@ -245,14 +242,6 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
     
         
         # handle program selection
-        # by tag
-        if form.cleaned_data['cfda_program_selection_method']=='tag':
-            if form.cleaned_data['tags_exclude_secondary']:
-                programs_with_tag = ProgramDescription.objects.filter(primary_tag__id__in=form.cleaned_data['program_selection_tags'])
-            else:
-                programs_with_tag = ProgramDescription.objects.filter(Q(primary_tag__id__in=form.cleaned_data['program_selection_tags']) | Q(secondary_tags__id__in=form.cleaned_data['program_selection_tags']))
-            faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
-
 
         # using subsidyscope's selection of programs
         if form.cleaned_data['cfda_program_selection_method']=='subsidy_programs':
