@@ -15,7 +15,9 @@ def index(request):
     states = State.objects.all()
     uza = UrbanizedArea.objects.all().order_by('name')
     systems = TransitSystem.objects.all()
+    operations = OperationStats.objects.filter(transit_system=systems[0])
     
+     
     if request.GET:
         
         context = request.GET.values()
@@ -36,7 +38,7 @@ def index(request):
             return render_to_response('transportation/transit/transit_index.html', {'context': context, 'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(urbanized_area=UrbanizedArea.objects.get(fta_id=request.GET['uza']))})
     
     
-    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems})
+    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems, 'modes': operations[0].MODE_CHOICES})
 
 
 def transitSystem(request, trs_id):
@@ -150,14 +152,14 @@ def buildFundingLineChart(funding):
     num = int(num) * 5
 
     json["bg_colour"] = "#FFFFFF" 
-    json['elements'] = [{"type": "line", "values": fund_data, "width": 4, "text":"Total Funding", "dot-style":{"type": "dot", "tip":"Total Funding:$#val#"} }]
+    json['elements'] = [{"type": "line", "values": fund_data, "width": 4, "text":"Total Funding", "dot-style":{"type": "dot","tip":"Total Funding:$#val#"} }]
     if fund_capital_data and max(fund_capital_data) > 0:
         json["elements"].append({"type":"line", "colour": "#BF5004", "values": fund_capital_data, "text":"Total Capital Funding",  "dot-style":{"type":"dot", "tip":"Total Capital Funding: $#val#"}})
     if fund_oper_data and max(fund_oper_data) > 0:
         json["elements"].append({"type":"line", "colour": "#008B62", "values": fund_oper_data, "text":"Total Operating Funding",  "dot-style":{"type":"dot", "tip":"Total Operating Funding: $#val#"}})
 
     json["y_axis"] = {"min": 0, "max": num}
-    json["x_axis"] = {"labels": {"labels":fund_labels}}
+    json["x_axis"] = {"labels": {"labels":fund_labels} }
 
     return json
      
