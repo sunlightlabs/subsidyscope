@@ -21,8 +21,10 @@ class SectorCssNode(Node):
 
     def render(self, context):
         re_slashes = re.compile(r'(^\/|\/$)')
-        url_parts = re_slashes.sub('', context['request'].META['PATH_INFO']).split('/')
-        if len(url_parts):
+        path = getattr(context.get('request',{}), 'META', {}).get('PATH_INFO', '')
+        url_parts = re_slashes.sub('', path).split('/')
+        print url_parts
+        if len(url_parts) and len(url_parts[0].strip())>0:
             return css("styles/%s.css" % url_parts[0].lower())
         return ''
         
