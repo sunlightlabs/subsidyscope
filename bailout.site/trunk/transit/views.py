@@ -4,6 +4,7 @@ from django.template import RequestContext, loader, Template, Context
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.db.models import Avg, Sum
+from django.db import connection 
 from transit.models import *
 from geo.models import *
 from simplejson import * 
@@ -17,27 +18,123 @@ def index(request):
     systems = TransitSystem.objects.all()
     operations = OperationStats.objects.filter(transit_system=systems[0])
     
+    tester = None
      
-    if request.GET:
+    if request.method =="POST":
+        form = TransitQuery(request.POST) 
+        if form.is_valid():
+            data = form.cleaned_data
+            
+            name = data['system_name']
+            modes = data['modes_selected']
+            size = data['size_select']
+            state = data['state_select']
+            uzas = data['uza_select']
+            opm_start = data['ofppm_start']
+            opm_end = data['ofppm_end']
+            cpm_start = data['cfppm_start']
+            cpm_end = data['cfppm_end']
+            oupt_start = data['ofpupt_start']
+            oupt_end = data['ofpupt_end']
+            cupt_start = data['cfpupt_start']
+            cupt_end = data['cfpupt_end']
+
+            if name:
+                systems = systems.filter(name__icontains=name)
+            if modes:
+                by_mode = OperationStats.objects.filter(mode__in=modes).values('transit_system').distinct()
+                systems = systems.filter(id__in=by_mode)
+            if size:
+                by_size = None
+                if size == 'rural':
+                    by_size = UrbanizedArea.objects.filter(population__lte=50000)
+
+                elif size == 'urban':
+                    by_size = UrbanizedArea.objects.filter(population__gte=50000)
+
+                if by_size: systems = systems.filter(urbanized_area__in=by_size)
+
+            if state:
+                systems = systems.filter(state=State.objects.get(abbreviation=state))
+            
+            if uzas:
+                systems = systems.filter(urbanized_area=uzas)
+
+            if opm_start:
+                set = []
+                cursor = connection.cursor()
+                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(operating_expense)/SUM(passenger_miles_traveled) > %s", [opm_start])
+                opm_start_set = cursor.fetchall()
+                for x in opm_start_set:
+                    set.append(x[0])
+                systems = systems.filter(trs_id__in=set)
+
+            if opm_end:
+                set = []
+                cursor = connection.cursor()
+                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(operating_expense)/SUM(passenger_miles_traveled) < %s", [opm_end])
+                opm_end_set = cursor.fetchall()
+                for x in opm_end_set:
+                    set.append(x[0])
+                systems = systems.filter(trs_id__in=set)
+
+            if cpm_start:
+                set = []
+                cursor = connection.cursor()
+                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(capital_expense)/SUM(passenger_miles_traveled) > %s", [cpm_start])
+                cpm_start_set = cursor.fetchall()
+                for x in cpm_start_set:
+                    set.append(x[0])
+                systems = systems.filter(trs_id__in=set)
+
+            if cpm_end:
+                set = []
+                cursor = connection.cursor()
+                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(capital_expense)/SUM(passenger_miles_traveled) < %s", [cpm_end])
+                cpm_end_set = cursor.fetchall()
+                for x in cpm_end_set:
+                    set.append(x[0])
+                systems = systems.filter(trs_id__in=set)
+
+            if oupt_start:
+                set = []
+                cursor = connection.cursor()
+                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(operating_expense)/SUM(unlinked_passenger_trips) > %s", [oupt_start])
+                oupt_start_set = cursor.fetchall()
+                for x in oupt_start_set:
+                    set.append(x[0])
+                systems = systems.filter(trs_id__in=set)
+
+            if oupt_end:
+                set = []
+                cursor = connection.cursor()
+                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(operating_expense)/SUM(unlinked_passenger_trips) < %s", [oupt_end])
+                oupt_end_set = cursor.fetchall()
+                for x in oupt_end_set:
+                    set.append(x[0])
+                systems = systems.filter(trs_id__in=set)
+
+            if cupt_start:
+                set = []
+                cursor = connection.cursor()
+                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(capital_expense)/SUM(unlinked_passenger_trips) > %s", [cupt_start])
+                cupt_start_set = cursor.fetchall()
+                for x in cupt_start_set:
+                    set.append(x[0])
+                systems = systems.filter(trs_id__in=set)
+
+            if cupt_end:
+                set = []
+                cursor = connection.cursor()
+                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(capital_expense)/SUM(unlinked_passenger_trips) < %s", [cupt_end])
+                cupt_end_set = cursor.fetchall()
+                for x in cupt_end_set:
+                    set.append(x[0])
+                systems = systems.filter(trs_id__in=set)
+
+            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems':systems, 'results': systems, 'modes': operations[0].MODE_CHOICES, 'by_mode': tester})
+             
         
-        context = request.GET.values()
-
-        if request.GET.__contains__('system_name') and request.GET['system_name'] != '':  
-              
-            context[1] = ""  # set the state and uza parameters to null,
-            context[2] = ""  # so it doesn't indicate that those are filters
-
-            return render_to_response('transportation/transit/transit_index.html', {'context': context, 'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(name__icontains=request.GET['system_name'])})
-
-        elif request.GET.__contains__('state') and request.GET['state'] != "":
-
-            return render_to_response('transportation/transit/transit_index.html', {'context':context, 'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(state=State.objects.get(abbreviation__iexact=request.GET['state']))})
-
-        elif request.GET.__contains__('uza') and request.GET['uza'] != "":
-
-            return render_to_response('transportation/transit/transit_index.html', {'context': context, 'states': states, 'uza': uza, 'systems':systems, 'results': TransitSystem.objects.filter(urbanized_area=UrbanizedArea.objects.get(fta_id=request.GET['uza']))})
-    
-    
     return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems, 'modes': operations[0].MODE_CHOICES})
 
 

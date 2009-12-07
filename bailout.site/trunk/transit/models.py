@@ -33,6 +33,7 @@ class TransitSystem(models.Model):
     def total_expense_ridership_by_mode(self):
         operating = OperationStats.objects.filter(transit_system=self).order_by('mode')
         current_mode = operating[0].mode
+        current_obj = operating[0]
         totals = []
         current_total = 0
         current_operating_total = 0
@@ -43,7 +44,7 @@ class TransitSystem(models.Model):
         upt = 0 #unlinked passenger trips
         for o in operating:
             if o.mode != current_mode:
-                totals.append(((o.get_mode_display(), current_total, current_operating_total, current_capital_total), (revenue_hours, revenue_miles, pmt, upt, (current_operating_total/(pmt or 1)))))
+                totals.append(((current_obj.get_mode_display(), current_total, current_operating_total, current_capital_total), (revenue_hours, revenue_miles, pmt, upt, (current_operating_total/(pmt or 1)))))
                 current_total = 0
                 current_capital_total = 0
                 current_operating_total = 0
@@ -52,8 +53,10 @@ class TransitSystem(models.Model):
                 pmt = 0
                 upt = 0
                 current_mode = o.mode
+                current_obj = o
 
             else:
+                current_obj = o
                 current_total += sum(filter(None, [o.capital_expense, o.operating_expense]))
                 if o.fares: 
                     current_total -= o.fares
@@ -164,9 +167,22 @@ class OperationStats(models.Model):
     unlinked_passenger_trips = models.DecimalField(max_digits=15, decimal_places=0, null=True)
     passenger_miles_traveled = models.DecimalField(max_digits=15, decimal_places=0, null=True)
     
+class TransitQuery(forms.Form):
 
-
-    
+    system_name = forms.CharField(max_length=200, required=False)
+    modes_selected = forms.MultipleChoiceField(OperationStats.MODE_CHOICES, required=False)
+    size_select = forms.ChoiceField((('on', 'Both'), ("rural", "Rural"),("urban", "Urban"),("both", "Both")),required=False)
+    state_select = forms.ChoiceField([('','')] + [(st.abbreviation, st.name) for st in State.objects.all()], required=False)
+    uza_select = forms.ChoiceField([('', '')] + [(u.id, u.name) for u in UrbanizedArea.objects.all()], required=False)
+    ofppm_start = forms.DecimalField(required=False)
+    ofppm_end = forms.DecimalField(required=False)
+    cfppm_start = forms.DecimalField(required=False)
+    cfppm_end = forms.DecimalField(required=False)
+    ofpupt_start = forms.DecimalField(required=False)
+    ofpupt_end = forms.DecimalField(required=False)
+    cfpupt_start = forms.DecimalField(required=False)
+    cfpupt_end = forms.DecimalField(required=False)
+       
     
     
     
