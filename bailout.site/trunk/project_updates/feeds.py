@@ -8,7 +8,7 @@ class ProjectUpdatesFeed(Feed):
     description = "Updates on changes and additions to subsidyscope.com."
    
     def items(self):
-        return ProjectUpdate.objects.order_by('-date')[:10]
+        return ProjectUpdate.objects.filter(published=True).order_by('-date')[:10]
         
     def item_pubdate(self, item):
         return datetime.datetime(item.date.year, item.date.month, item.date.day, 9, 0, 0)
@@ -20,4 +20,4 @@ class ProjectUpdatesFeed(Feed):
 class TransportationProjectUpdatesFeed(ProjectUpdatesFeed):
 
     def items(self):
-        return ProjectUpdate.objects.filter(sectors=2).order_by('-date')[:10]
+        return ProjectUpdate.objects.filter(published=True).filter(sectors=2).order_by('-date')[:10]
