@@ -3,6 +3,7 @@
 {% load media %}
 {% load humanize %}
 {% load smarterif%}
+{% load custom_filters %}
 {% block content %}
 {% css "styles/faads-search.css" %}
 <style>
@@ -30,7 +31,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
             <fieldset id="text-query-wrapper">
                 <legend>Search by Transit System Name</legend>
                 <div id="text-query-text-wrapper"> 
-                <input id="id_text_query" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
+                <input id="id_text_query" value="{{form.system_name}}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
                 </div>
             </fieldset>
             <fieldset id="advanced-options" class="collapsed">
@@ -41,7 +42,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                         <div class="dropdown-wrapper">
                             <ul>
                             {% for m in modes %}
-                                <li><label for="{{m.0}}"><input type="checkbox" name="modes_selected" value="{{m.0}}" />{{m.1}}</label></li>
+                                <li><label for="{{m.0}}"><input type="checkbox" name="modes_selected" value="{{m.0}}" {%if m.0|in_list:form.modes_selected %} checked {% endif %}  />{{m.1}}</label></li>
                                 {% if forloop.counter|divisibleby:"5" %}
                                 </ul></div><div class="dropdown-wrapper"><ul>
                                 {% endif %}
@@ -55,9 +56,9 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                     <h4>Size of Urban Area</h4>
                     <div id="program-selector" style="padding-top:10px;">
                         <ul>
-                            <li><label for="urban-select"><input id="urban-select" type="radio" name="size_select" value="urban" />Urban</label></li>
-                            <li><label for="rural-select"><input id="rural-select" type="radio" name="size_select" value="rural" />Rural</label></li>
-                            <li><label for="both-select"><input id="both-select" type="radio" name="size_select" value="both" />Both</label></li>
+                            <li><label for="urban-select"><input id="urban-select" type="radio" name="size_select" value="urban" {% if form.size_select == "urban"%} checked {% endif %}/>Urban</label></li>
+                            <li><label for="rural-select"><input id="rural-select" type="radio" name="size_select" value="rural" {% if form.size_select == "rural"%} checked {% endif %}/>Rural</label></li>
+                            <li><label for="both-select"><input id="both-select" type="radio" name="size_select" value="both" {% if form.size_select == "both" or form.size_select == "on" %} checked {% endif %} />Both</label></li>
                             <li style="padding-left:45px;">Rural transit systems serve urbanized areas with less than 50,000 people</li>
                         </ul>
                     </div>
@@ -70,7 +71,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                         <select id="state-select" name="state_select">
                                 <option value=""></option>
                             {% for state in states %}
-                                <option value="{{state.abbreviation}}">{{state.name}}</option>    
+                                <option value="{{state.abbreviation}}" {% if form.state_select == state.abbreviation%} selected {% endif %}>{{state.name}}</option>    
                             {% endfor %} 
                         </select>
                         <span style="padding-left: 60px;padding-right:60px;font-weight:bold;">&mdash; or &mdash;</span>
@@ -78,7 +79,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                         <select id="uza-select" name="uza_select">
                                 <option value=""></option>
                             {% for u in uza %}
-                                <option value="{{u.id}}">{{u.name}}</option>
+                                <option value="{{u.id}}" {% if form.uza_select == u.id|stringformat:"s" %} selected {% endif %}>{{u.name}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -87,10 +88,18 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                 <div class="section last">
                     <h4>Performance Metrics</h4>
                     <div class="performance-metrics" >
-                        <span class="metric"><label for="ofppm">Operations Funding per passenger mile: </label>&nbsp;<span class="metric-input"><input id="ofppm" type="text" name="ofppm_start" /><span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofppm_end" /></span></span>   
-                        <span class="metric"><label for="cfppm">Capital Funding per passenger mile: </label>&nbsp;<input id="cfppm" type="text" name="cfppm_start" /><span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfppm_end" /></span>   
-                        <span class="metric"><label for="ofpupt">Operations Funding per unlinked passenger trip: </label>&nbsp;<input id="ofpupt" type="text" name="ofpupt_start" /><span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofpupt_end" /></span>   
-                        <span class="metric"><label for="cfpupt">Capital Funding per unlinked passenger trip: </label>&nbsp;<input id="cfpupt" type="text" name="cfpupt_start" /><span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfpupt_end" /></span>   
+                        <span class="metric"><label for="ofppm">Operations Funding per passenger mile: </label>&nbsp;
+                            <span class="metric-input"><input id="ofppm" type="text" name="ofppm_start" value="{{form.ofppm_start}}" />
+                                <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofppm_end" value="{{form.ofppm_end}}" /></span></span>   
+                        
+                        <span class="metric"><label for="cfppm">Capital Funding per passenger mile: </label>&nbsp;<input id="cfppm" type="text" name="cfppm_start" value="{{form.cfppm_start}}" />
+                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfppm_end" value="{{form.cfppm_end}}" /></span>   
+                        
+                        <span class="metric"><label for="ofpupt">Operations Funding per unlinked passenger trip: </label>&nbsp;<input id="ofpupt" type="text" name="ofpupt_start" value="{{form.ofpupt_start}}" />
+                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofpupt_end" value="{{form.ofpupt_end}}" /></span>   
+                        
+                        <span class="metric"><label for="cfpupt">Capital Funding per unlinked passenger trip: </label>&nbsp;<input id="cfpupt" type="text" name="cfpupt_start" value="{{form.cfpupt_start}}" />
+                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfpupt_end" value="{{form.cfpupt_end}}" /></span>   
                     </div>
                     <div class="clear-left" style="margin-bottom:40px;"></div>
                 </div> 
@@ -100,6 +109,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
             </form>
        
             <div id="results">
+            {{by_mode}}
             {% if error %} {{error}} 
             {% else  %}
                 <table>

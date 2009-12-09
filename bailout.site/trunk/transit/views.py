@@ -53,12 +53,14 @@ def index(request):
                     by_size = UrbanizedArea.objects.filter(population__gte=50000)
 
                 if by_size: systems = systems.filter(urbanized_area__in=by_size)
+                elif size != "both" and size != "on": systems = None
 
             if state:
                 systems = systems.filter(state=State.objects.get(abbreviation=state))
             
             if uzas:
                 systems = systems.filter(urbanized_area=uzas)
+                tester = uzas
 
             if opm_start:
                 set = []
@@ -132,7 +134,7 @@ def index(request):
                     set.append(x[0])
                 systems = systems.filter(trs_id__in=set)
 
-            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems':systems, 'results': systems, 'modes': operations[0].MODE_CHOICES, 'by_mode': tester})
+            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': systems, 'modes': operations[0].MODE_CHOICES ,'form':data, 'by_mode': tester})
              
         
     return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems, 'modes': operations[0].MODE_CHOICES})
