@@ -162,7 +162,7 @@ def index(request):
             return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': results, 'modes': operations[0].MODE_CHOICES ,'paginator': systems, 'num_pages':paginator.num_pages, 'form':data, 'by_mode': tester})
              
         
-    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems, 'modes': operations[0].MODE_CHOICES, 'form': None})
+    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'modes': operations[0].MODE_CHOICES})
 
 
 def transitSystem(request, trs_id):
