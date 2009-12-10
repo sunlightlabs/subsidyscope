@@ -18,6 +18,9 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 .performance-metrics span.metric span.metric-input {text-align:right;}
 .performance-metrics span.metric label { display:block; float:left; width: 290px;}
 .section div { padding-left:10px;}
+.results { width: 100%; margin-top:10px; }
+.pages {display:block; text-align:right; width:100%;margin: 30px 5px 5px 0px; padding-top:15px;}
+.bottom {margin-top:0px; padding-top:0px;}
 </style>
 
 
@@ -42,7 +45,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                         <div class="dropdown-wrapper">
                             <ul>
                             {% for m in modes %}
-                                <li><label for="{{m.0}}"><input type="checkbox" name="modes_selected" value="{{m.0}}" {%if m.0|in_list:form.modes_selected %} checked {% endif %}  />{{m.1}}</label></li>
+                                <li><label for="{{m.0}}"><input type="checkbox" name="modes_selected" value="{{m.0}}" {%if form and m.0|in_list:form.modes_selected %} checked {% endif %}  />{{m.1}}</label></li>
                                 {% if forloop.counter|divisibleby:"5" %}
                                 </ul></div><div class="dropdown-wrapper"><ul>
                                 {% endif %}
@@ -89,46 +92,73 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                     <h4>Performance Metrics</h4>
                     <div class="performance-metrics" >
                         <span class="metric"><label for="ofppm">Operations Funding per passenger mile: </label>&nbsp;
-                            <span class="metric-input"><input id="ofppm" type="text" name="ofppm_start" value="{{form.ofppm_start}}" />
-                                <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofppm_end" value="{{form.ofppm_end}}" /></span></span>   
+                            <span class="metric-input"><input id="ofppm" type="text" name="ofppm_start" {% if form.ofppm_start %} value="{{form.ofppm_start}}" {% endif %} />
+                                <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofppm_end" {% if form.ofppm_end %} value="{{form.ofppm_end}}" {% endif %}/></span></span>   
                         
-                        <span class="metric"><label for="cfppm">Capital Funding per passenger mile: </label>&nbsp;<input id="cfppm" type="text" name="cfppm_start" value="{{form.cfppm_start}}" />
-                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfppm_end" value="{{form.cfppm_end}}" /></span>   
+                        <span class="metric"><label for="cfppm">Capital Funding per passenger mile: </label>&nbsp;<input id="cfppm" type="text" name="cfppm_start" {%if form.cfppm_start %} value="{{form.cfppm_start}}" {% endif %}/>
+                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfppm_end" {% if form.cfppm_end %}value="{{form.cfppm_end}}"{% endif %} /></span>   
                         
-                        <span class="metric"><label for="ofpupt">Operations Funding per unlinked passenger trip: </label>&nbsp;<input id="ofpupt" type="text" name="ofpupt_start" value="{{form.ofpupt_start}}" />
-                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofpupt_end" value="{{form.ofpupt_end}}" /></span>   
+                        <span class="metric"><label for="ofpupt">Operations Funding per unlinked passenger trip: </label>&nbsp;<input id="ofpupt" type="text" name="ofpupt_start" {% if form.ofpupt.start %}value="{{form.ofpupt_start}}" {% endif %}/>
+                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofpupt_end" {% if form.ofpupt_end %} value="{{form.ofpupt_end}}" {% endif %}/></span>   
                         
-                        <span class="metric"><label for="cfpupt">Capital Funding per unlinked passenger trip: </label>&nbsp;<input id="cfpupt" type="text" name="cfpupt_start" value="{{form.cfpupt_start}}" />
-                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfpupt_end" value="{{form.cfpupt_end}}" /></span>   
+                        <span class="metric"><label for="cfpupt">Capital Funding per unlinked passenger trip: </label>&nbsp;<input id="cfpupt" type="text" name="cfpupt_start" {% if form.cfpupt_start %} value="{{form.cfpupt_start}}" {% endif %}/>
+                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfpupt_end" {% if form.cfpupt_end %} value="{{form.cfpupt_end}}" {% endif %}/></span>   
                     </div>
                     <div class="clear-left" style="margin-bottom:40px;"></div>
                 </div> 
             </fieldset>
+            <input type="hidden" name="page" id="page_value" value="" />
             <input id="reset-faads-search" type="button" value="Reset Search" />
             <input type="submit" class="faads-search-submit" value="Search" />
+            
             </form>
-       
-            <div id="results">
-            {{by_mode}}
-            {% if error %} {{error}} 
+            {{by_mode}} 
+            <div id="results" style="clear:both;">
+            {% if error %} {{error}}
             {% else  %}
-                <table>
+                {% if paginator %}
+                    <span class="pages">
+                    {% if paginator.has_previous %}
+                        <a href="#" id="prev_page_bottom">&laquo;&nbsp;Previous</a>
+                    {% endif %}
+                    &nbsp;Page {{paginator.previous_page_number|add:"1"}} of {{num_pages}} &nbsp;
+                    {% if paginator.has_next %}
+                        <a href="#" id="next_page_bottom">Next&nbsp;&raquo;</a>
+                    {% endif %}
+                    </span>
+                {% endif %}
+                <table class="results">
                 <tr>
                     <th>Name</th>
+                    <th>Mode</th>
                     <th>City</th>
                     <th>State</th>
                     <th>Urbanized Area</th>
+                    <th>Compare?</th>
                 </tr>
 
             {% for transit in results %}
                 <tr>
-                    <td><a href="/transportation/transit/system/{{transit.trs_id}}/" >{{transit.name}}</a></td>
-                    <td>{{transit.city}}</td>
-                    <td>{{transit.state}}</td>
-                    <td>{{transit.urbanized_area.name}}</td>
+                    <td><a href="/transportation/transit/system/{{transit.0.trs_id}}/" >{{transit.0.name}}</a></td>
+                    <td>{{transit.1}}
+                    <td>{{transit.0.city}}</td>
+                    <td>{{transit.0.state}}</td>
+                    <td>{{transit.0.urbanized_area.name}}</td>
+                    <td><a href="/transportation/transit/compare/{{transit.0.trs_id}}/">Compare this system</a></td>
                 </tr>
             {% endfor %}
                 </table>
+                {% if paginator %}
+                    <span class="pages bottom">
+                    {% if paginator.has_previous %}
+                        <a href="#" id="prev_page">&laquo;&nbsp;Previous</a>
+                    {% endif %}
+                    &nbsp;Page {{paginator.previous_page_number|add:"1"}} of {{num_pages}} &nbsp;
+                    {% if paginator.has_next %}
+                        <a href="#" id="next_page">Next&nbsp;&raquo;</a>
+                    {% endif %}
+                    </span>
+                {% endif %}
             {% endif %}
             </div>
         
@@ -139,21 +169,14 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
-    $("#uza-select").change(function(){
-       //form submit with uza as trump
-        $("#transit-search").find("input[name='system_name']").val("")
-            .end()
-            .find("select[name='state']").val("")
-            .end()
-            .submit(); 
+    $("#prev_page, #prev_page_bottom").click(function(e){
+        e.preventDefault();
+        $("#faads-search-form").find("#page_value").val("{{paginator.previous_page_number}}").end().submit();
     });
-    $("#state-select").change(function(){
-        //form submit with state as trump
-        $("#transit-search").find("input[name='system_name']").val("")
-            .end()
-            .find("select[name='uza']").val("")
-            .end()
-            .submit();
+
+    $("#next_page, #next_page_bottom").click(function(e){
+        e.preventDefault();
+        $("#faads-search-form").find("#page_value").val("{{paginator.next_page_number}}").end().submit();
     });
     
     $('fieldset#advanced-options legend').click(function(){

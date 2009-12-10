@@ -4,6 +4,14 @@ from geo.models import State
 
 from django import forms
 
+def get_mode(mode_abbrev):
+    
+    MODE_HASH = {'AG':'Automated Gateway', 'AR':'Alaska Railroad', 'MB':'Bus', 'CC':'Cable Car', 'CR':'Commuter Rail', 'DR':'Demand Response', 'FB':'Ferry Boat', 'HR':'Heavy Rail', 'IP':'Inclined Plane', 'JT':'Jitney', 'LR':'Light Rail', 'MO':'Monorail', 'PB':'Publico', 'TB':'Trolley Bus', 'TR': 'Aerial Tramway', 'VP':'Vanpool'}
+    try:
+        return MODE_HASH[mode_abbrev]
+    except KeyError:
+        return ""
+
 class UrbanizedArea(models.Model):
     
     fta_id = models.IntegerField()

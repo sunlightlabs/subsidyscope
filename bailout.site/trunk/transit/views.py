@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
 from django.template import RequestContext, loader, Template, Context
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.db.models import Avg, Sum
 from django.db import connection 
 from transit.models import *
@@ -134,10 +135,34 @@ def index(request):
                     set.append(x[0])
                 systems = systems.filter(trs_id__in=set)
 
-            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': systems, 'modes': operations[0].MODE_CHOICES ,'form':data, 'by_mode': tester})
+            paginator = Paginator(systems, 20)
+            try:
+                page = int(request.POST.get('page', '1'))
+
+            except ValueError:
+                page = 1
+
+            try:
+                systems = paginator.page(page)
+            except (EmptyPage, InvalidPage):
+                systems = paginator.page(paginator.num_pages)
+            results = []
+            for sys in systems.object_list:
+                cursor = connection.cursor()
+                cursor.execute("SELECT DISTINCT mode from transit_operationstats where transit_system_id = %s", [sys.id])
+                all_modes = cursor.fetchall()
+                for mo in all_modes:
+                    if modes:
+                        if mo[0] in modes:
+                            results.append((sys, get_mode(mo[0])))        
+                    else:
+                        results.append((sys, get_mode(mo[0])))
+            tester = paginator.num_pages
+            
+            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': results, 'modes': operations[0].MODE_CHOICES ,'paginator': systems, 'num_pages':paginator.num_pages, 'form':data, 'by_mode': tester})
              
         
-    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems, 'modes': operations[0].MODE_CHOICES})
+    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'systems': systems, 'modes': operations[0].MODE_CHOICES, 'form': None})
 
 
 def transitSystem(request, trs_id):
