@@ -2,7 +2,6 @@ from django.db import models, reset_queries
 from decimal import Decimal
 from cfda.models import ProgramDescription
 from geo.models import *
-from decimal import Decimal
 import sys
 import MySQLdb
 import settings
@@ -209,7 +208,7 @@ class FAADSLoader(object):
     
         # cache CFDA program objects
         self.cfda_programs = {}
-        for p in ProgramDescription.objects.filter(sectors__name__icontains='transportation'):
+        for p in ProgramDescription.objects.all():
             self.cfda_programs[p.program_number] = p            
         
     
@@ -442,6 +441,27 @@ class FAADSLoader(object):
 
                     
     def do_import(self):
+        import imp
+        from django.conf import settings
+        sql_selection_clauses = []
+        for app in settings.INSTALLED_APPS:
+            try:
+                app_path = __import__(app, {}, {}, [app.split('.')[-1]]).__path__
+            except AttributeError:
+                continue
+
+            try:
+                imp.find_module('usaspending', app_path)
+            except ImportError:
+                continue
+
+            m = __import__("%s.usaspending" % app)            
+            f = getattr(getattr(m, 'usaspending', 'None'), 'faads', False)
+            if f:
+                sql_selection_clauses.append("(%s)" % f())
+        
+        assert len(sql_selection_clauses)>0, "At least one installed app must define a usaspending.faads() method"
+        
         from django.db import connection
         cursor = connection.cursor()
         cursor.execute("SELECT MAX(record_id) AS max_record_id FROM faads_record;")
@@ -449,11 +469,15 @@ class FAADSLoader(object):
         max_record_id = row[0]
         if max_record_id is None:
             max_record_id = 0
-               
+                   
+        
+        
         conn = MySQLdb.connect(host=settings.FAADS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FAADS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FAADS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FAADS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FAADS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
         cursor = conn.cursor()
-        sql = "SELECT * FROM %s WHERE TRIM(cfda_program_num) IN ('%s') AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (settings.FAADS_IMPORT_MYSQL_SETTINGS['source_table'], "','".join(map(lambda x: str(x), self.cfda_programs.keys())), max_record_id)
-        print "Executing query"
+        sql = "SELECT * FROM %s WHERE (%s) AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (settings.FAADS_IMPORT_MYSQL_SETTINGS.get('source_table', 'faads_main_sf'), " OR ".join(sql_selection_clauses), max_record_id)
+        print "Executing query: %s" % sql
+        
+        
         cursor.execute(sql)
         i = 0
         while True:

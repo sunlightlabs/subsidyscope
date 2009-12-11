@@ -109,10 +109,10 @@ $(function () {
 				</div>
 				
 				<div class="tax_item">
-					<div id="tax_icon"><img src="/media/images/sector_icons/nonprofits/nonprofits_lg_grey.png" border="0" alt="Nonprofits"></div>	
+					<div id="tax_icon"><a href="{% url nonprofits-index %}"><img src="/media/images/sector_icons/nonprofits/nonprofits_lg.png" border="0" alt="Nonprofits"></a></div>	
 						<div>
-							<h3 class="coming">Nonprofits</h3>
-							<p>Winter 2009</p>
+							<h3><a href="{% url nonprofits-index %}">Nonprofits</a></h3>
+              {# <p>Winter 2009</p> #}
 						</div>
 					</div>
 				</div>
@@ -149,7 +149,7 @@ $(function () {
 			<div class="news_head"><h2>Framing Paper</h2>
 			</div>	
 			<p id="framing-paper"><a href="{% url framing-paper %}"><img src="{% media_url %}/images/framing-paper-document-icon.png" class="alignright" style="margin: 1em 0.25em 1em 0.6em"/></a><a href="{% url framing-paper %}">Government Subsidies: 
-      Revealing the Hidden&nbsp;Budget</a></p>
+      Revealing the Hidden&nbsp;Budget</a><span class="framing-paper-update-notice">Updated 11/18/2009</span></p>
 		</div>
 	  
 		<div class="news_box">
