@@ -4,6 +4,44 @@ from geo.models import State
 
 from django import forms
 
+from django.db.models import Avg, Sum
+
+from decimal import *
+
+MODE_AUTOMATED_GUIDEWAY = 'AG'
+MODE_ALASKA_RAILROAD = 'AR'
+MODE_BUS = 'MB'
+MODE_CABLE_CAR = 'CC'
+MODE_COMMUTER_RAIL = 'CR'
+MODE_DEMAND_RESPONSE = 'DR'
+MODE_FERRY_BOAT = 'FB'
+MODE_HEAVY_RAIL = 'HR'
+MODE_INCLINED_PLANE = 'IP'
+MODE_JITNEY = 'JT'
+MODE_LIGHT_RAIL = 'LR'
+MODE_MONORAIL = 'MO'
+MODE_PUBLICO = 'PB'
+MODE_TROLLEY = 'TB'
+MODE_TRAMWAY = 'TR'
+MODE_VANPOOL = 'VP'
+   
+module_constants = {'MODE_CONSTANTS': ((MODE_AUTOMATED_GUIDEWAY, 'Automated Guideway'),
+    (MODE_ALASKA_RAILROAD, 'Alaska Railroad'),
+    (MODE_BUS, 'Bus'),
+    (MODE_CABLE_CAR, 'Cable Car'),
+    (MODE_COMMUTER_RAIL, 'Commuter Rail'),
+    (MODE_DEMAND_RESPONSE, 'Demand Response'),
+    (MODE_FERRY_BOAT, 'Ferry Boat'),
+    (MODE_HEAVY_RAIL, 'Heavy Rail'),
+    (MODE_INCLINED_PLANE, 'Inclined Plane'),
+    (MODE_JITNEY, 'Jitney'),
+    (MODE_LIGHT_RAIL, 'Light Rail'),
+    (MODE_MONORAIL, 'Monorail'),
+    (MODE_PUBLICO, 'Publico'),
+    (MODE_TROLLEY, 'Trolley Bus'),
+    (MODE_TRAMWAY, 'Aerial Tramway'),
+    (MODE_VANPOOL, 'Vanpool'))}
+
 def get_mode(mode_abbrev):
     
     MODE_HASH = {'AG':'Automated Gateway', 'AR':'Alaska Railroad', 'MB':'Bus', 'CC':'Cable Car', 'CR':'Commuter Rail', 'DR':'Demand Response', 'FB':'Ferry Boat', 'HR':'Heavy Rail', 'IP':'Inclined Plane', 'JT':'Jitney', 'LR':'Light Rail', 'MO':'Monorail', 'PB':'Publico', 'TB':'Trolley Bus', 'TR': 'Aerial Tramway', 'VP':'Vanpool'}
@@ -11,6 +49,10 @@ def get_mode(mode_abbrev):
         return MODE_HASH[mode_abbrev]
     except KeyError:
         return ""
+
+class BigintField(models.Field):
+    def db_type(self):
+        return 'BIGINT(20)'
 
 class UrbanizedArea(models.Model):
     
@@ -25,6 +67,110 @@ class UrbanizedArea(models.Model):
     population = models.IntegerField(null=True)
     area = models.IntegerField(null=True)
 
+class TransitSystemMode(models.Model):
+    
+    trs_id = models.IntegerField()
+    
+    state = models.ForeignKey(State, null=True)
+    
+    city = models.CharField(max_length=255, null=True, blank=True)
+    
+    urbanized_area =  models.ForeignKey(UrbanizedArea, null=True)
+    
+    name = models.CharField(max_length=255, null=True, blank=True)
+    
+    MODE_CHOICES = module_constants['MODE_CONSTANTS']
+
+    mode = models.CharField(max_length=2, choices=MODE_CHOICES)
+
+    total_capital_expenses = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    total_operating_expenses = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    total_UPT = BigintField(null=True, blank=True)
+
+    total_PMT = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    recovery_ratio = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    avg_operating_PMT = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    avg_capital_PMT = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    avg_operating_UPT = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    avg_capital_UPT = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    total_fares = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    avg_fares = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+class TransitSystemModeManager(models.Manager):
+
+    def process_raw(self):
+       
+        for old in TransitSystemMode.objects.all(): old.delete()
+        
+        systems = TransitSystem.objects.all()
+
+        operations = OperationStats.objects.all()
+                
+        UPT =  None
+
+        for sys in systems:
+            
+            modes = []
+
+            for item in OperationStats.objects.filter(transit_system=sys).distinct().values('mode'):
+                 modes.append(item['mode'])
+
+            print modes
+            for m in modes:
+                
+                mode_stats = operations.filter(transit_system=sys, mode=m)
+
+                operating_expense = mode_stats.aggregate(Sum('operating_expense'))['operating_expense__sum']
+
+                capital_expense = mode_stats.aggregate(Sum('capital_expense'))['capital_expense__sum']
+
+                fares = mode_stats.aggregate(Sum('fares'))['fares__sum']
+
+                UPT = mode_stats.aggregate(Sum('unlinked_passenger_trips'))['unlinked_passenger_trips__sum']
+
+                PMT = mode_stats.aggregate(Sum('passenger_miles_traveled'))['passenger_miles_traveled__sum']
+
+                #Somewhere in here convert everything into 2008 dollars, using Kevin's freestanding app
+
+                if operating_expense and UPT: avg_op_UPT = operating_expense / UPT
+
+                if capital_expense and UPT: avg_cap_UPT = capital_expense / UPT
+
+                if operating_expense and PMT: avg_op_PMT = operating_expense / PMT
+
+                if operating_expense and PMT: avg_cap_PMT = operating_expense / PMT
+
+                if fares and operating_expense: rec_ratio = fares / operating_expense
+                
+                print "id: %s\n city: %s\n state: %s\n uza: %s\n name:%s\n mode:%s\n capital expenses:%s\n operating expenses:%s\n fares:%s\n UPT:%s\n PMT: %s\n  average operating dollars per UPT:%s\n average operating dollars per PMT:%s\n average capital dollars per UPT:%s\n average capital dollars per PMT: %s\n recovery ratio:%s\n======================" %(sys.trs_id, sys.city, sys.state.name, sys.urbanized_area, sys.name, m, capital_expense, operating_expense, fares, UPT, PMT, avg_op_UPT, avg_op_PMT, avg_cap_UPT, avg_cap_PMT, rec_ratio)
+
+                new_tsm = TransitSystemMode(trs_id=sys.trs_id)
+                new_tsm.state = sys.state
+                new_tsm.city=sys.city
+                new_tsm.urbanized_area=sys.urbanized_area
+                new_tsm.name=sys.name
+                new_tsm.mode=m
+                new_tsm.total_capital_expenses=capital_expense
+                new_tsm.total_operating_expenses=operating_expense
+                new_tsm.total_fares=fares
+                new_tsm.total_UPT=UPT
+                new_tsm.total_PMT=PMT
+                new_tsm.avg_operating_UPT=avg_op_UPT
+                new_tsm.avg_operating_PMT=avg_op_PMT
+                new_tsm.avg_capital_UPT=avg_cap_UPT
+                new_tsm.avg_capital_PMT=avg_cap_PMT
+                new_tsm.recovery_ratio=rec_ratio
+    
+                new_tsm.save()
 
 class TransitSystem(models.Model):
     
@@ -38,47 +184,6 @@ class TransitSystem(models.Model):
     
     name = models.CharField(max_length=255, null=True, blank=True)
    
-    def total_expense_ridership_by_mode(self):
-        operating = OperationStats.objects.filter(transit_system=self).order_by('mode')
-        current_mode = operating[0].mode
-        current_obj = operating[0]
-        totals = []
-        current_total = 0
-        current_operating_total = 0
-        current_capital_total = 0
-        revenue_hours = 0
-        revenue_miles = 0
-        pmt = 0 #passenger miles travelled
-        upt = 0 #unlinked passenger trips
-        for o in operating:
-            if o.mode != current_mode:
-                totals.append(((current_obj.get_mode_display(), current_total, current_operating_total, current_capital_total), (revenue_hours, revenue_miles, pmt, upt, (current_operating_total/(pmt or 1)))))
-                current_total = 0
-                current_capital_total = 0
-                current_operating_total = 0
-                revenue_miles = 0
-                revenue_hours = 0
-                pmt = 0
-                upt = 0
-                current_mode = o.mode
-                current_obj = o
-
-            else:
-                current_obj = o
-                current_total += sum(filter(None, [o.capital_expense, o.operating_expense]))
-                if o.fares: 
-                    current_total -= o.fares
-                    current_operating_total -= o.fares
-                if o.operating_expense: current_operating_total += o.operating_expense
-                if o.capital_expense: current_capital_total += o.capital_expense
-                if o.vehicle_revenue_hours: revenue_hours += o.vehicle_revenue_hours
-                if o.vehicle_revenue_miles: revenue_miles += o.vehicle_revenue_miles
-                if o.passenger_miles_traveled: pmt += o.passenger_miles_traveled
-                if o.unlinked_passenger_trips: upt += o.unlinked_passenger_trips
-
-        return totals
-
-
 class FundingStats(models.Model):
     
     transit_system = models.ForeignKey(TransitSystem)
@@ -128,40 +233,8 @@ class OperationStats(models.Model):
     transit_system = models.ForeignKey(TransitSystem)
     
     year = models.IntegerField()
-    
-    MODE_AUTOMATED_GUIDEWAY = 'AG'
-    MODE_ALASKA_RAILROAD = 'AR'
-    MODE_BUS = 'MB'
-    MODE_CABLE_CAR = 'CC'
-    MODE_COMMUTER_RAIL = 'CR'
-    MODE_DEMAND_RESPONSE = 'DR'
-    MODE_FERRY_BOAT = 'FB'
-    MODE_HEAVY_RAIL = 'HR'
-    MODE_INCLINED_PLANE = 'IP'
-    MODE_JITNEY = 'JT'
-    MODE_LIGHT_RAIL = 'LR'
-    MODE_MONORAIL = 'MO'
-    MODE_PUBLICO = 'PB'
-    MODE_TROLLEY = 'TB'
-    MODE_TRAMWAY = 'TR'
-    MODE_VANPOOL = 'VP'
-    
-    MODE_CHOICES = ((MODE_AUTOMATED_GUIDEWAY, 'Automated Guideway'),
-    (MODE_ALASKA_RAILROAD, 'Alaska Railroad'),
-    (MODE_BUS, 'Bus'),
-    (MODE_CABLE_CAR, 'Cable Car'),
-    (MODE_COMMUTER_RAIL, 'Commuter Rail'),
-    (MODE_DEMAND_RESPONSE, 'Demand Response'),
-    (MODE_FERRY_BOAT, 'Ferry Boat'),
-    (MODE_HEAVY_RAIL, 'Heavy Rail'),
-    (MODE_INCLINED_PLANE, 'Inclined Plane'),
-    (MODE_JITNEY, 'Jitney'),
-    (MODE_LIGHT_RAIL, 'Light Rail'),
-    (MODE_MONORAIL, 'Monorail'),
-    (MODE_PUBLICO, 'Publico'),
-    (MODE_TROLLEY, 'Trolley Bus'),
-    (MODE_TRAMWAY, 'Aerial Tramway'),
-    (MODE_VANPOOL, 'Vanpool'))
+
+    MODE_CHOICES = module_constants['MODE_CONSTANTS']
     
     mode = models.CharField(max_length=2, choices=MODE_CHOICES)
     

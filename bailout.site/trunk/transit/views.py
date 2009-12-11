@@ -16,7 +16,7 @@ from copy import deepcopy
 def index(request):
     states = State.objects.all()
     uza = UrbanizedArea.objects.all().order_by('name')
-    systems = TransitSystem.objects.all()
+    systems = TransitSystemMode.objects.all()
     operations = OperationStats.objects.filter(transit_system=systems[0])
     
     tester = None
@@ -31,14 +31,6 @@ def index(request):
             size = data['size_select']
             state = data['state_select']
             uzas = data['uza_select']
-            opm_start = data['ofppm_start']
-            opm_end = data['ofppm_end']
-            cpm_start = data['cfppm_start']
-            cpm_end = data['cfppm_end']
-            oupt_start = data['ofpupt_start']
-            oupt_end = data['ofpupt_end']
-            cupt_start = data['cfpupt_start']
-            cupt_end = data['cfpupt_end']
 
             if name:
                 systems = systems.filter(name__icontains=name)
@@ -63,78 +55,7 @@ def index(request):
                 systems = systems.filter(urbanized_area=uzas)
                 tester = uzas
 
-            if opm_start:
-                set = []
-                cursor = connection.cursor()
-                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(operating_expense)/SUM(passenger_miles_traveled) > %s", [opm_start])
-                opm_start_set = cursor.fetchall()
-                for x in opm_start_set:
-                    set.append(x[0])
-                systems = systems.filter(trs_id__in=set)
-
-            if opm_end:
-                set = []
-                cursor = connection.cursor()
-                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(operating_expense)/SUM(passenger_miles_traveled) < %s", [opm_end])
-                opm_end_set = cursor.fetchall()
-                for x in opm_end_set:
-                    set.append(x[0])
-                systems = systems.filter(trs_id__in=set)
-
-            if cpm_start:
-                set = []
-                cursor = connection.cursor()
-                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(capital_expense)/SUM(passenger_miles_traveled) > %s", [cpm_start])
-                cpm_start_set = cursor.fetchall()
-                for x in cpm_start_set:
-                    set.append(x[0])
-                systems = systems.filter(trs_id__in=set)
-
-            if cpm_end:
-                set = []
-                cursor = connection.cursor()
-                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(capital_expense)/SUM(passenger_miles_traveled) < %s", [cpm_end])
-                cpm_end_set = cursor.fetchall()
-                for x in cpm_end_set:
-                    set.append(x[0])
-                systems = systems.filter(trs_id__in=set)
-
-            if oupt_start:
-                set = []
-                cursor = connection.cursor()
-                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(operating_expense)/SUM(unlinked_passenger_trips) > %s", [oupt_start])
-                oupt_start_set = cursor.fetchall()
-                for x in oupt_start_set:
-                    set.append(x[0])
-                systems = systems.filter(trs_id__in=set)
-
-            if oupt_end:
-                set = []
-                cursor = connection.cursor()
-                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(operating_expense)/SUM(unlinked_passenger_trips) < %s", [oupt_end])
-                oupt_end_set = cursor.fetchall()
-                for x in oupt_end_set:
-                    set.append(x[0])
-                systems = systems.filter(trs_id__in=set)
-
-            if cupt_start:
-                set = []
-                cursor = connection.cursor()
-                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(capital_expense)/SUM(unlinked_passenger_trips) > %s", [cupt_start])
-                cupt_start_set = cursor.fetchall()
-                for x in cupt_start_set:
-                    set.append(x[0])
-                systems = systems.filter(trs_id__in=set)
-
-            if cupt_end:
-                set = []
-                cursor = connection.cursor()
-                cursor.execute("SELECT transit_system_id from transit_operationstats group by transit_system_id, mode having SUM(capital_expense)/SUM(unlinked_passenger_trips) < %s", [cupt_end])
-                cupt_end_set = cursor.fetchall()
-                for x in cupt_end_set:
-                    set.append(x[0])
-                systems = systems.filter(trs_id__in=set)
-
+            systems = systems.order_by('name')
             paginator = Paginator(systems, 20)
             try:
                 page = int(request.POST.get('page', '1'))
@@ -146,23 +67,10 @@ def index(request):
                 systems = paginator.page(page)
             except (EmptyPage, InvalidPage):
                 systems = paginator.page(paginator.num_pages)
-            results = []
-            for sys in systems.object_list:
-                cursor = connection.cursor()
-                cursor.execute("SELECT DISTINCT mode from transit_operationstats where transit_system_id = %s", [sys.id])
-                all_modes = cursor.fetchall()
-                for mo in all_modes:
-                    if modes:
-                        if mo[0] in modes:
-                            results.append((sys, get_mode(mo[0])))        
-                    else:
-                        results.append((sys, get_mode(mo[0])))
-            tester = paginator.num_pages
             
-            return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': results, 'modes': operations[0].MODE_CHOICES ,'paginator': systems, 'num_pages':paginator.num_pages, 'form':data, 'by_mode': tester})
-             
-        
-    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'modes': operations[0].MODE_CHOICES})
+            if len(systems.object_list) > 0: 
+                return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': systems, 'modes': module_constants['MODE_CONSTANTS'] ,'paginator': systems, 'num_pages':paginator.num_pages, 'form':data, 'by_mode': tester})    
+    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'modes': module_constants['MODE_CONSTANTS']})
 
 
 def transitSystem(request, trs_id):

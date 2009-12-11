@@ -92,17 +92,32 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                     <h4>Performance Metrics</h4>
                     <div class="performance-metrics" >
                         <span class="metric"><label for="ofppm">Operations Funding per passenger mile: </label>&nbsp;
-                            <span class="metric-input"><input id="ofppm" type="text" name="ofppm_start" {% if form.ofppm_start %} value="{{form.ofppm_start}}" {% endif %} />
-                                <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofppm_end" {% if form.ofppm_end %} value="{{form.ofppm_end}}" {% endif %}/></span></span>   
-                        
-                        <span class="metric"><label for="cfppm">Capital Funding per passenger mile: </label>&nbsp;<input id="cfppm" type="text" name="cfppm_start" {%if form.cfppm_start %} value="{{form.cfppm_start}}" {% endif %}/>
-                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfppm_end" {% if form.cfppm_end %}value="{{form.cfppm_end}}"{% endif %} /></span>   
-                        
-                        <span class="metric"><label for="ofpupt">Operations Funding per unlinked passenger trip: </label>&nbsp;<input id="ofpupt" type="text" name="ofpupt_start" {% if form.ofpupt.start %}value="{{form.ofpupt_start}}" {% endif %}/>
-                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="ofpupt_end" {% if form.ofpupt_end %} value="{{form.ofpupt_end}}" {% endif %}/></span>   
-                        
-                        <span class="metric"><label for="cfpupt">Capital Funding per unlinked passenger trip: </label>&nbsp;<input id="cfpupt" type="text" name="cfpupt_start" {% if form.cfpupt_start %} value="{{form.cfpupt_start}}" {% endif %}/>
-                            <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span><input type="text" name="cfpupt_end" {% if form.cfpupt_end %} value="{{form.cfpupt_end}}" {% endif %}/></span>   
+                            <span class="metric-input">
+                                <input id="ofppm" type="text" name="ofppm_start" {% if form.ofppm_start %} value="{{form.ofppm_start}}" {% endif %} />
+                                <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span>
+                                <input type="text" name="ofppm_end" {% if form.ofppm_end %} value="{{form.ofppm_end}}" {% endif %}/>
+                            </span>   
+                        </span>
+                        <span class="metric"><label for="cfppm">Capital Funding per passenger mile: </label>&nbsp;
+                            <span class="metric-input">
+                                <input id="cfppm" type="text" name="cfppm_start" {%if form.cfppm_start %} value="{{form.cfppm_start}}" {% endif %}/>
+                                <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span>
+                                    <input type="text" name="cfppm_end" {% if form.cfppm_end %}value="{{form.cfppm_end}}"{% endif %} />
+                            </span>   
+                        </span>
+                        <span class="metric"><label for="ofpupt">Operations Funding per unlinked passenger trip: </label>&nbsp;
+                            <span class="metric-input">
+                                <input id="ofpupt" type="text" name="ofpupt_start" {% if form.ofpupt.start %}value="{{form.ofpupt_start}}" {% endif %}/>                                       <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span>
+                                <input type="text" name="ofpupt_end" {% if form.ofpupt_end %} value="{{form.ofpupt_end}}" {% endif %}/>
+                            </span>   
+                        </span>
+                        <span class="metric"><label for="cfpupt">Capital Funding per unlinked passenger trip: </label>&nbsp;
+                            <span class="metric-input">
+                                <input id="cfpupt" type="text" name="cfpupt_start" {% if form.cfpupt_start %} value="{{form.cfpupt_start}}" {% endif %}/>
+                                <span style="padding-left:30px;padding-right: 30px;">&mdash;to&mdash;</span>
+                                <input type="text" name="cfpupt_end" {% if form.cfpupt_end %} value="{{form.cfpupt_end}}" {% endif %}/>
+                            </span>   
+                        </span>
                     </div>
                     <div class="clear-left" style="margin-bottom:40px;"></div>
                 </div> 
@@ -114,8 +129,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
             </form>
             {{by_mode}} 
             <div id="results" style="clear:both;">
-            {% if error %} {{error}}
-            {% else  %}
+            {% if results  %}
                 {% if paginator %}
                     <span class="pages">
                     {% if paginator.has_previous %}
@@ -137,14 +151,14 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                     <th>Compare?</th>
                 </tr>
 
-            {% for transit in results %}
+            {% for transit in results.object_list %}
                 <tr>
-                    <td><a href="/transportation/transit/system/{{transit.0.trs_id}}/" >{{transit.0.name}}</a></td>
-                    <td>{{transit.1}}
-                    <td>{{transit.0.city}}</td>
-                    <td>{{transit.0.state}}</td>
-                    <td>{{transit.0.urbanized_area.name}}</td>
-                    <td><a href="/transportation/transit/compare/{{transit.0.trs_id}}/">Compare this system</a></td>
+                    <td><a href="/transportation/transit/system/{{transit.trs_id}}/" >{{transit.name}}</a></td>
+                    <td>{{transit.mode}}
+                    <td>{{transit.city}}</td>
+                    <td>{{transit.state}}</td>
+                    <td>{{transit.urbanized_area.name}}</td>
+                    <td><a href="/transportation/transit/compare/{{transit.trs_id}}/">Compare this system</a></td>
                 </tr>
             {% endfor %}
                 </table>
