@@ -29,6 +29,8 @@ class TransitSystem(models.Model):
     
     name = models.CharField(max_length=255, null=True, blank=True)
     
+    acronym = models.CharField(max_length=255, null=True, blank=True)
+
 
 class FundingStats(models.Model):
     
