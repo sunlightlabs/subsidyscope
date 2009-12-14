@@ -41,7 +41,7 @@ var sortOrder = '{{ sort_order }}';
     {% include "includes/transportation_nav.html" %}
     <div class="span-24">
         <div id="header_area">
-            {# <div id="screencast-link-container"><a id="screencast-link" href="{% url screencast %}">Need help? Watch the screencast.</a></div> #}
+            <div id="screencast-link-container"><a id="screencast-link" href="{% url screencast %}">Need help? Watch the screencast.</a></div>
             <h3>{% morsel_page_title %} (FY 2000&ndash;2009)</h3>
         </div>
         <div class="content_area">    
@@ -70,19 +70,7 @@ var sortOrder = '{{ sort_order }}';
              <div id="program-selection-subsidy_programs" class="program-selection-target">
               {% morsel program_selection_subsidy_programs %}    
               <div class="clear-left"></div>                    
-             </div>
-             
-            <div id="program-selection-tag" class="program-selection-target">
-              {% morsel program_selection_tag %}                 
-              
-              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-tag-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-tag-select-none">Select None</a> ]</p>
-              
-              {{ form.program_selection_tags }}
-              {{ form.program_selection_tags.errors }}
-              
-              <p style="clear:left; padding-top: 1.5em">{{ form.tags_exclude_secondary }}&nbsp;Only include programs having the selected tag(s) as their primary function</p>
-              <div class="clear-left"></div>
-            </div>
+             </div>                      
             
             {% if form.program_selection_subsector %}
             <div id="program-selection-subsector" class="program-selection-target">
@@ -114,12 +102,12 @@ var sortOrder = '{{ sort_order }}';
             <h4>Expenditure Type</h4>
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
-  						<div class="dropdown-wrapper">
+  						<div class="dropdown-wrapper" id="assistance-type">
   						  <label for="assistance_type">Assistance Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.assistance_type }}
   							{{ form.assistance_type.errors }}
   						</div>
-  						<div class="dropdown-wrapper">
+  						<div class="dropdown-wrapper" id="action-type">
   						  <label for="action_type">Action Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.action_type }}
   							{{ form.action_type.errors }}
