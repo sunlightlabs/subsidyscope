@@ -21,7 +21,7 @@ cite, em, dfn { font-style: italic; }
 code, kbd, samp, pre, tt, var, input[type='text'], input[type='password'], textarea { font-size: 92%; font-family: monaco, "Lucida Console", courier, monospace; }
 del { text-decoration: line-through; color: #666; }
 ins, dfn { border-bottom: 1px solid #ccc; }
-small { font-size: 85%; }
+small { font-size: 90%; }
 <!-- sup, sub { font-size: 50%; } -->
 abbr, acronym { text-transform: uppercase; font-size: 85%; letter-spacing: .1em; }
 a abbr, a acronym { border: none; }
