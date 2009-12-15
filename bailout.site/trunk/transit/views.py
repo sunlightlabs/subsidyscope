@@ -13,6 +13,9 @@ from math import *
 from django import forms
 from copy import deepcopy
 
+metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'rec_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
+
+
 def index(request):
     states = State.objects.all()
     uza = UrbanizedArea.objects.all().order_by('name')
@@ -21,41 +24,54 @@ def index(request):
     
     tester = None
      
+    tester = "test"
     if request.method =="POST":
         form = TransitQuery(request.POST) 
         if form.is_valid():
             data = form.cleaned_data
-            
             name = data['system_name']
             modes = data['modes_selected']
             size = data['size_select']
             state = data['state_select']
             uzas = data['uza_select']
+            metrics = data['metrics_selected']
+            sort = data["sort"]
+            order = data["order"]
 
             if name:
                 systems = systems.filter(name__icontains=name)
             if modes:
-                by_mode = OperationStats.objects.filter(mode__in=modes).values('transit_system').distinct()
-                systems = systems.filter(id__in=by_mode)
+                systems = systems.filter(mode__in=modes)
             if size:
-                by_size = None
-                if size == 'rural':
-                    by_size = UrbanizedArea.objects.filter(population__lte=50000)
+                if size == '50_100':
+                    by_size = UrbanizedArea.objects.filter(population__lte=100000)
 
-                elif size == 'urban':
-                    by_size = UrbanizedArea.objects.filter(population__gte=50000)
+                elif size == '100_1mil':
+                    by_size = UrbanizedArea.objects.filter(population__gte=100000, population__lte=1000000)
+                elif size == '1_10mil':
+                    by_size = UrbanizedArea.objects.filter(population__gte=1000000, population__lte=10000000)
+                elif size == '10_20mil':
+                    by_size = UrbanizedArea.objects.filter(population__gte=10000000)
 
                 if by_size: systems = systems.filter(urbanized_area__in=by_size)
-                elif size != "both" and size != "on": systems = None
 
             if state:
                 systems = systems.filter(state=State.objects.get(abbreviation=state))
             
             if uzas:
                 systems = systems.filter(urbanized_area=uzas)
-                tester = uzas
 
-            systems = systems.order_by('name')
+
+            if sort and order=="desc":
+                tester = order + ' in order'
+                systems = systems.order_by('-'+sort)
+
+            elif (sort and order=="asc") or sort:
+                systems = systems.order_by(sort)
+                tester = sort 
+            
+            else:
+                systems = systems.order_by('name')
             paginator = Paginator(systems, 20)
             try:
                 page = int(request.POST.get('page', '1'))
@@ -69,8 +85,10 @@ def index(request):
                 systems = paginator.page(paginator.num_pages)
             
             if len(systems.object_list) > 0: 
-                return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': systems, 'modes': module_constants['MODE_CONSTANTS'] ,'paginator': systems, 'num_pages':paginator.num_pages, 'form':data, 'by_mode': tester})    
-    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'modes': module_constants['MODE_CONSTANTS']})
+                return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': systems, 'modes': module_constants['MODE_CONSTANTS'] ,'paginator': systems, 'num_pages':paginator.num_pages, 'form':data, 'by_mode': tester, 'metrics': metrics_selected})  
+            else: tester = "no objects returned" 
+                 
+    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'modes': module_constants['MODE_CONSTANTS'], 'by_mode':tester})
 
 
 def transitSystem(request, trs_id):
@@ -78,21 +96,22 @@ def transitSystem(request, trs_id):
         transit_system = TransitSystem.objects.get(trs_id=trs_id)
         funding = FundingStats.objects.filter(transit_system=transit_system)
         operations = OperationStats.objects.filter(transit_system=transit_system)
-        mode_data = buildModePieChart(transit_system)
-        
+#        mode_data = buildModePieChart(transit_system)
+               
         #op_data = [] 
         #for o in operations:
         #    op_data.append({"x": int(o.year), "y": float(o.passenger_miles_traveled)})
 
-        fund_json = buildFundingLineChart(funding)
-        fund_type_json = buildSourcesPieChart(funding)
-        fund_mode = mode_data['expenses']
-        upt_data = mode_data['upt_mode']
-        pmt_data = mode_data['pmt_mode']
+#        fund_json = buildFundingLineChart(funding)
+#        fund_type_json = buildSourcesPieChart(funding)
+#        fund_mode = mode_data['expenses']
+#        upt_data = mode_data['upt_mode']
+#        pmt_data = mode_data['pmt_mode']
 
         #op_json = buildLineChart(op_data)
 
-        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json), 'fund_mode_data': dumps(fund_mode), 'upt_data': dumps(upt_data), 'pmt_data': dumps(pmt_data)})
+        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations})
+        #return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json), 'fund_mode_data': dumps(fund_mode), 'upt_data': dumps(upt_data), 'pmt_data': dumps(pmt_data)})
 
     except TransitSystem.DoesNotExist:
         return HttpResponseRedirect('/transportation/transit/') 

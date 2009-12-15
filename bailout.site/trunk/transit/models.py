@@ -251,19 +251,20 @@ class OperationStats(models.Model):
 class TransitQuery(forms.Form):
 
     system_name = forms.CharField(max_length=200, required=False)
+    
     modes_selected = forms.MultipleChoiceField(OperationStats.MODE_CHOICES, required=False)
-    size_select = forms.ChoiceField((('on', 'Both'), ("rural", "Rural"),("urban", "Urban"),("both", "Both")),required=False)
+    
+    size_select = forms.ChoiceField((('50_100', '50,000 - 100,000'), ("100_1mil", "100,000 - 1 million"),("1_10mil", "1 million - 10 million"),("10_20mil", "10 million - 20 million")),required=False)
+    
     state_select = forms.ChoiceField([('','')] + [(st.abbreviation, st.name) for st in State.objects.all()], required=False)
+    
     uza_select = forms.ChoiceField([('', '')] + [(u.id, u.name) for u in UrbanizedArea.objects.all()], required=False)
-    ofppm_start = forms.DecimalField(required=False)
-    ofppm_end = forms.DecimalField(required=False)
-    cfppm_start = forms.DecimalField(required=False)
-    cfppm_end = forms.DecimalField(required=False)
-    ofpupt_start = forms.DecimalField(required=False)
-    ofpupt_end = forms.DecimalField(required=False)
-    cfpupt_start = forms.DecimalField(required=False)
-    cfpupt_end = forms.DecimalField(required=False)
-       
+    
+    metrics_selected = forms.MultipleChoiceField((("cap_expense", "Capital Expense"), ("op_expense", "Operating Expense"), ("PMT", "PMT"), ("UPT", "UPT"), ("rec_ratio", "Recovery Ratio"), ("op_expense_pmt", "Operating Expense per PMT"), ("cap_expense_pmt", "Capital Expense per PMT"), ("cap_expense_upt", "Capital Expense per UPT"), ("op_expense_upt", "Capital Expense per UPT")), required=False)
+    
+    sort = forms.CharField(max_length=100, required=False)
+    
+    order = forms.CharField(max_length=20, required=False)
     
     
     
