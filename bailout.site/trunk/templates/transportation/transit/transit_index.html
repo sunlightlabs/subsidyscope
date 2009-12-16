@@ -177,7 +177,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 
             {% for transit in results.object_list %}
                 <tr>
-                    <td><a href="/transportation/transit/system/{{transit.trs_id}}/" >{{transit.name}}</a></td>
+                    <td><a href="/transportation/transit/system/{{transit.transit_system.trs_id}}/">{{transit.name}}</a></td>
                     <td>{{transit.get_mode_display}}
                     <td>{{transit.city}}</td>
                     <td>{{transit.state.abbreviation}}</td>
