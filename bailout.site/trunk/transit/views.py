@@ -96,22 +96,22 @@ def transitSystem(request, trs_id):
         transit_system = TransitSystem.objects.get(trs_id=trs_id)
         funding = FundingStats.objects.filter(transit_system=transit_system)
         operations = OperationStats.objects.filter(transit_system=transit_system)
-#        mode_data = buildModePieChart(transit_system)
+        mode_data = buildModePieChart(transit_system)
                
         #op_data = [] 
         #for o in operations:
         #    op_data.append({"x": int(o.year), "y": float(o.passenger_miles_traveled)})
 
-#        fund_json = buildFundingLineChart(funding)
-#        fund_type_json = buildSourcesPieChart(funding)
-#        fund_mode = mode_data['expenses']
-#        upt_data = mode_data['upt_mode']
-#        pmt_data = mode_data['pmt_mode']
+        fund_json = buildFundingLineChart(funding)
+        fund_type_json = buildSourcesPieChart(funding)
+        fund_mode = mode_data['expenses']
+        upt_data = mode_data['upt_mode']
+        pmt_data = mode_data['pmt_mode']
 
         #op_json = buildLineChart(op_data)
 
-        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations})
-        #return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json), 'fund_mode_data': dumps(fund_mode), 'upt_data': dumps(upt_data), 'pmt_data': dumps(pmt_data)})
+#        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_mode_data': dumps(fund_mode), 'upt_data':dumps(upt_data), 'pmt_data':dumps(pmt_data), 'funding': funding, 'operations':operations, 'fund_line_data': })
+        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json), 'fund_mode_data': dumps(fund_mode), 'upt_data': dumps(upt_data), 'pmt_data': dumps(pmt_data)})
 
     except TransitSystem.DoesNotExist:
         return HttpResponseRedirect('/transportation/transit/') 
@@ -126,7 +126,7 @@ def urbanArea(request, uza_id):
 
 def buildModePieChart(systemObj):
     expenses_json = {}
-    operating = systemObj.total_expense_ridership_by_mode()
+    operating = TransitSystemMode.objects.filter(transit_system=systemObj)
     expenses_json['bg_colour'] = "#FFFFFF"
     expenses_json['elements'] = [{'type':'pie', 'alpha':.8, "start-angle":50, "radius_padding":3, "tip": "$#val#", "colours":["#007EEA", "#00B492", "#4869E1", "#BF5004"], "values":[] }]
     
@@ -136,9 +136,9 @@ def buildModePieChart(systemObj):
 
     #add expenses values
     for o in operating:
-        expenses_json['elements'][0]['values'].append({"value":float(o[0][1]), "label": o[0][0]+'(#percent#)'})  #add the total expenses for each mode
-        pmt_json['elements'][0]['values'].append({"value":float(o[1][2]), "label": o[0][0]+'(#percent#)'}) #add the total ridership (pmt) per mode 
-        upt_json['elements'][0]['values'].append({"value":float(o[1][3]), "label": o[0][0]+'(#percent#)'})  #add the total upt per mode
+        expenses_json['elements'][0]['values'].append({"value":float(o.total_operating_expenses), "label": o.mode +'(#percent#)'})  #add the total expenses for each mode
+        pmt_json['elements'][0]['values'].append({"value":float(o.total_PMT), "label": o.mode +'(#percent#)'}) #add the total ridership (pmt) per mode 
+        upt_json['elements'][0]['values'].append({"value":float(o.total_UPT), "label": o.mode +'(#percent#)'})  #add the total upt per mode
         
     return {'expenses':expenses_json, 'pmt_mode': pmt_json, 'upt_mode':upt_json }
 

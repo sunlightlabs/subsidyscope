@@ -56,6 +56,9 @@ class BigintField(models.Field):
 
 class UrbanizedArea(models.Model):
     
+    class Meta:
+        ordering = ["name"]
+    
     fta_id = models.IntegerField()
     
     fips_id = models.IntegerField(null=True)
@@ -67,9 +70,22 @@ class UrbanizedArea(models.Model):
     population = models.IntegerField(null=True)
     area = models.IntegerField(null=True)
 
-class TransitSystemMode(models.Model):
+
+class TransitSystem(models.Model):
     
     trs_id = models.IntegerField()
+    
+    state = models.ForeignKey(State, null=True)
+    
+    city = models.CharField(max_length=255, null=True, blank=True)
+    
+    urbanized_area =  models.ForeignKey(UrbanizedArea, null=True)
+    
+    name = models.CharField(max_length=255, null=True, blank=True
+    )
+class TransitSystemMode(models.Model):
+    
+    transit_system = models.ForeignKey(TransitSystem, null=False)
     
     state = models.ForeignKey(State, null=True)
     
@@ -153,7 +169,7 @@ class TransitSystemModeManager(models.Manager):
                 
                 print "id: %s\n city: %s\n state: %s\n uza: %s\n name:%s\n mode:%s\n capital expenses:%s\n operating expenses:%s\n fares:%s\n UPT:%s\n PMT: %s\n  average operating dollars per UPT:%s\n average operating dollars per PMT:%s\n average capital dollars per UPT:%s\n average capital dollars per PMT: %s\n recovery ratio:%s\n======================" %(sys.trs_id, sys.city, sys.state.name, sys.urbanized_area, sys.name, m, capital_expense, operating_expense, fares, UPT, PMT, avg_op_UPT, avg_op_PMT, avg_cap_UPT, avg_cap_PMT, rec_ratio)
 
-                new_tsm = TransitSystemMode(trs_id=sys.trs_id)
+                new_tsm = TransitSystemMode(transit_system=sys)
                 new_tsm.state = sys.state
                 new_tsm.city=sys.city
                 new_tsm.urbanized_area=sys.urbanized_area
@@ -172,17 +188,6 @@ class TransitSystemModeManager(models.Manager):
     
                 new_tsm.save()
 
-class TransitSystem(models.Model):
-    
-    trs_id = models.IntegerField()
-    
-    state = models.ForeignKey(State, null=True)
-    
-    city = models.CharField(max_length=255, null=True, blank=True)
-    
-    urbanized_area =  models.ForeignKey(UrbanizedArea, null=True)
-    
-    name = models.CharField(max_length=255, null=True, blank=True)
    
 class FundingStats(models.Model):
     
