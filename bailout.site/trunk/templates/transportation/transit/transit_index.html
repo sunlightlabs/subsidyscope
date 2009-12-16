@@ -165,8 +165,8 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                     <th {%if form.sort == "city" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "city" and form.order == "desc"%} class="headerDesc" {%endif%} id="city">City</th>
                     <th {%if form.sort == "state" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "state" and form.order == "desc"%} class="headerDesc" {%endif%} id="state">State</th>
                     <th {% if form.sort == "urbanized_area" and form.order == "asc" %}class="headerAsc" {% endif %} {% if form.sort == "urbanized_area" and form.order == "desc"%}class="headerDesc" {% endif %} id="urbanized_area">Urbanized Area</th>
-                    {% if metrics.0|in_list:form.metrics_selected %}<th {%if form.sort == "total_capital_expenses" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_capital_expenses" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_capital_expenses">Capital Expense</th>{% endif %}
-                    {% if metrics.1|in_list:form.metrics_selected %}<th {%if form.sort == "total_operating_expenses" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_operating_expenses" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_operating_expenses">Operating Expenses</th>{% endif %}
+                    {% if metrics.0|in_list:form.metrics_selected %}<th {%if form.sort == "total_capital_expenses" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_capital_expenses" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_capital_expenses">Average Capital Expense</th>{% endif %}
+                    {% if metrics.1|in_list:form.metrics_selected %}<th {%if form.sort == "total_operating_expenses" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_operating_expenses" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_operating_expenses">Average Operating Expenses</th>{% endif %}
                     {% if metrics.2|in_list:form.metrics_selected %}<th {%if form.sort == "total_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_PMT">PMT</th>{% endif %}
                     {% if metrics.3|in_list:form.metrics_selected %}<th {%if form.sort == "total_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_UPT">UPT</th>{% endif %}
                     {% if metrics.4|in_list:form.metrics_selected %}<th {%if form.sort == "avg_operating_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_operating_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_operating_PMT">Operating Expense per PMT</th>{% endif %}
@@ -182,8 +182,8 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                     <td>{{transit.city}}</td>
                     <td>{{transit.state.abbreviation}}</td>
                     <td>{{transit.urbanized_area.name}}</td>
-                    {% if metrics.0|in_list:form.metrics_selected %}<td>${{transit.total_capital_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
-                    {% if metrics.1|in_list:form.metrics_selected %}<td>${{transit.total_operating_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
+                    {% if metrics.0|in_list:form.metrics_selected %}<td>${{transit.avg_capital_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
+                    {% if metrics.1|in_list:form.metrics_selected %}<td>${{transit.avg_operating_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
                     {% if metrics.2|in_list:form.metrics_selected %}<td>{{transit.total_PMT|floatformat:"0"|intcomma}}</td>{% endif %}
                     {% if metrics.3|in_list:form.metrics_selected %}<td>{{transit.total_UPT|floatformat:"0"|intcomma}}</td>{% endif %}
                     {% if metrics.4|in_list:form.metrics_selected %}<td>${{transit.avg_operating_PMT|floatformat:"2"}}</td>{% endif %}

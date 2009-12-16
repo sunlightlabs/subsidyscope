@@ -8,6 +8,12 @@ from django.db.models import Avg, Sum
 
 from decimal import *
 
+from inflation.models import InflationIndex
+
+#for inflation calculations
+CURRENT_YEAR = 2008
+
+
 MODE_AUTOMATED_GUIDEWAY = 'AG'
 MODE_ALASKA_RAILROAD = 'AR'
 MODE_BUS = 'MB'
@@ -95,6 +101,8 @@ class TransitSystemMode(models.Model):
     
     name = models.CharField(max_length=255, null=True, blank=True)
     
+    common_name = models.CharField(max_length=50, null=True, blank=True)
+    
     MODE_CHOICES = module_constants['MODE_CONSTANTS']
 
     mode = models.CharField(max_length=2, choices=MODE_CHOICES)
@@ -102,6 +110,10 @@ class TransitSystemMode(models.Model):
     total_capital_expenses = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
 
     total_operating_expenses = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
+
+    avg_capital_expenses = models.DecimalField(max_digits = 15, decimal_places=2, null=True, blank=True)
+
+    avg_operating_expenses = models.DecimalField(max_digits = 15, decimal_places=2, null=True, blank=True)
 
     total_UPT = BigintField(null=True, blank=True)
 
@@ -121,7 +133,23 @@ class TransitSystemMode(models.Model):
 
     avg_fares = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
 
+
+
 class TransitSystemModeManager(models.Manager):
+
+    def match_common(self):
+        data = open("transit/acronyms.txt")
+        for line in data.xreadlines():
+            params = line.split(",")
+            try:
+                system = TransitSystem.objects.get(trs_id=int(params[0]))
+                sys = TransitSystemMode.objects.filter(transit_system=system)
+                for s in sys:
+                    s.common_name = params[1]
+                    s.save()
+            except TransitSystem.DoesNotExist:
+                print "%s - %s doesn't exist" %(params[0], params[1])
+        data.close()
 
     def process_raw(self):
        
@@ -145,17 +173,31 @@ class TransitSystemModeManager(models.Manager):
                 
                 mode_stats = operations.filter(transit_system=sys, mode=m)
 
-                operating_expense = mode_stats.aggregate(Sum('operating_expense'))['operating_expense__sum']
-
-                capital_expense = mode_stats.aggregate(Sum('capital_expense'))['capital_expense__sum']
-
-                fares = mode_stats.aggregate(Sum('fares'))['fares__sum']
-
+                operating_expense = 0
+                capital_expense = 0
+                fares = 0
+                op_yr_count = 0
+                cap_yr_count = 0
+                avg_operating = 0
+                avg_capital  = 0
+                cpi = InflationIndex.objects.get(name="CPI")
+                 
+                for stat in mode_stats:
+                    if stat.operating_expense:
+                        op_yr_count += 1
+                        operating_expense += cpi.convertValue(stat.operating_expense, CURRENT_YEAR, stat.year)
+                    if stat.capital_expense:
+                        cap_yr_count += 1
+                        capital_expense += cpi.convertValue(stat.capital_expense, CURRENT_YEAR, stat.year)
+                    if stat.fares:
+                        fares += cpi.convertValue(stat.fares, CURRENT_YEAR, stat.year)
+                
+                if op_yr_count > 0 : avg_operating = operating_expense/op_yr_count
+                if cap_yr_count > 0: avg_capital = capital_expense/cap_yr_count
+            
                 UPT = mode_stats.aggregate(Sum('unlinked_passenger_trips'))['unlinked_passenger_trips__sum']
 
                 PMT = mode_stats.aggregate(Sum('passenger_miles_traveled'))['passenger_miles_traveled__sum']
-
-                #Somewhere in here convert everything into 2008 dollars, using Kevin's freestanding app
 
                 if operating_expense and UPT: avg_op_UPT = operating_expense / UPT
 
@@ -177,6 +219,8 @@ class TransitSystemModeManager(models.Manager):
                 new_tsm.mode=m
                 new_tsm.total_capital_expenses=capital_expense
                 new_tsm.total_operating_expenses=operating_expense
+                new_tsm.avg_capital_expenses=avg_capital
+                new_tsm.avg_operating_expenses=avg_operating
                 new_tsm.total_fares=fares
                 new_tsm.total_UPT=UPT
                 new_tsm.total_PMT=PMT

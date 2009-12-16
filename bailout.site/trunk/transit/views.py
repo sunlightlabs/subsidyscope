@@ -12,6 +12,7 @@ from simplejson import *
 from math import *
 from django import forms
 from copy import deepcopy
+from django.db.models import Q
 
 metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'rec_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
 
@@ -39,7 +40,7 @@ def index(request):
             order = data["order"]
 
             if name:
-                systems = systems.filter(name__icontains=name)
+                systems = systems.filter(Q(name__icontains=name) | Q(common_name__icontains=name))
             if modes:
                 systems = systems.filter(mode__in=modes)
             if size:
@@ -98,19 +99,13 @@ def transitSystem(request, trs_id):
         operations = OperationStats.objects.filter(transit_system=transit_system)
         mode_data = buildModePieChart(transit_system)
                
-        #op_data = [] 
-        #for o in operations:
-        #    op_data.append({"x": int(o.year), "y": float(o.passenger_miles_traveled)})
-
         fund_json = buildFundingLineChart(funding)
         fund_type_json = buildSourcesPieChart(funding)
         fund_mode = mode_data['expenses']
         upt_data = mode_data['upt_mode']
         pmt_data = mode_data['pmt_mode']
 
-        #op_json = buildLineChart(op_data)
 
-#        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_mode_data': dumps(fund_mode), 'upt_data':dumps(upt_data), 'pmt_data':dumps(pmt_data), 'funding': funding, 'operations':operations, 'fund_line_data': })
         return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json), 'fund_mode_data': dumps(fund_mode), 'upt_data': dumps(upt_data), 'pmt_data': dumps(pmt_data)})
 
     except TransitSystem.DoesNotExist:
