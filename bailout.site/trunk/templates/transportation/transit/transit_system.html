@@ -1,0 +1,138 @@
+
+{% extends "base.html" %}
+{% load media %}
+{% load humanize %}
+{% load smarterif%}
+{% block content %}
+{% js "scripts/swfobject.js" %}
+{% js "scripts/json2.js" %}
+
+<style>
+#info {padding: 10px; margin: 10px; border: 1px solid #AFAFAF;}
+#info ul {margin:0; padding:0;}
+#map {height:290px; width: 400px; }
+.map-container {width: 45%; float:left;}
+.pie-container { width: 50%; margin-right:25px; float:left;}
+.info-container { clear:both; display: block; width: 50%; }
+</style>
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <span class="span-24">
+        <div id="header_area"><h3>{{system.name}}</h3></div>
+        <div class="content_area">
+            <h5>Funding by year</h5>
+            <div id="fundingChart"></div>
+            
+            <div class="pie-container">
+                <h5>Funding Sources</h5>
+                <div id="sourcesChart"></div>
+            </div>
+            <div class="map-container">
+                <h5>Location</h5>
+                <div id="map"></div>
+            </div>
+            <div class="info-container">
+                <h5>System Info</h5>
+                <div id="info">
+                    <ul>
+                        <li>Population: {{system.urbanized_area.population|intcomma}}</li>
+                        <li>Area: {{system.urbanized_area.area|intcomma}} sq. mi.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pie-container">
+                <h5>System Expenses By Mode (Capital and Operating)</h5>
+                <div id="modeChart"></div>
+            </div>
+            <div class="map-container">
+                <h5>System Ridership By Mode (PMT)</h5>
+                <div id="pmtChart"></div>
+            </div>
+            <div class="pie-container">
+                <h5>System Ridership By Mode (UPT)</h5>
+                <div id="uptChart"></div>
+            </div>
+
+            <h5 style="clear:both;">Operations Info </h5>
+            <table style="text-align:right;">
+                <tr>
+                    <th>Mode</th>
+                    <th>Total Expenses</th>
+                    <th>Total Operating Expenses</th>
+                    <th>Total Capital Expenses</th>
+                    <th>Total Revenue Hours</th>
+                    <th>Total Revenue Miles</th>
+                    <th>Total Passenger Miles Travelled</th>
+                    <th>Total Unlinked Passenger Trips</th>
+                    <th>Operating cost per passenger mile</th>
+                </tr>
+            {% for o in mode_data %}
+                <tr>
+                <td>{{o.0.0}}</td>
+                <td>{{o.0.1|floatformat:0|intcomma}}</td>
+                <td>{{o.0.2|floatformat:0|intcomma}}</td>
+                <td>{{o.0.3|floatformat:0|intcomma}}</td>
+                <td>{{o.1.0|intcomma}}</td>
+                <td>{{o.1.1|intcomma}}</td>
+                <td>{{o.1.2|intcomma}}</td>
+                <td>{{o.1.3|intcomma}}</td>
+                <td>{{o.1.4|floatformat:2}}</td>
+                </tr>
+            {% endfor %}
+            </table>
+            
+
+            <script type="text/javascript" charset="utf-8">
+                function linechart(){
+                    return JSON.stringify({{fund_line_data|safe}});
+                }
+                function piechart(){
+                    return JSON.stringify({{fund_pie_data|safe}});
+                }
+                function modechart(){
+                    return JSON.stringify({{fund_mode_data|safe}});
+                }
+                function pmtchart(){
+                    return JSON.stringify({{pmt_data|safe}});
+                }
+                function uptchart(){
+                    return JSON.stringify({{upt_data|safe}});
+                }
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "200", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart"});
+
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "modeChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "modechart"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "pmtChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "pmtchart"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "uptChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "uptchart"});
+            </script>
+            <script src="http://www.google.com/jsapi?key=ABQIAAAAhsWrZ8VHxDxF9jrKbcsQ0xRvfLFziSZqANDNArw6yp0kxlhceBS-wjqDyDClpSNt9y_iJB5a-HjMig" type="text/javascript" charset="utf-8"></script>
+            <script type="text/javascript" charset="utf-8">
+                google.load("maps", "2");
+            </script>
+            <script type="text/javascript" charset="utf-8"> 
+                function init() {
+                    
+                    //var mapoptions = { zoom: 11, mapTypeId: google.maps.MapTypeId.ROADMAP};
+                    var map =  new GMap2(document.getElementById("map"));
+                    var geocoder = new GClientGeocoder();
+
+                    geocoder.getLatLng('{{system.city}}, {{system.state.abbreviation}}', function(point){
+                        map.setCenter(point, 11);
+                        var marker = new GMarker(point);
+                        map.addOverlay(marker);
+                        map.addControl(new GSmallMapControl());
+                        //marker.openInfoWindowHTML('{{system.city}}, {{system.state.abbreviation}}');
+                    });
+                }
+
+                init();
+            </script>
+
+        </table>
+
+        </div>
+    </span>
+
+</div>
+
+{% endblock content %}

@@ -1,0 +1,239 @@
+
+{% extends "base.html" %}
+{% load media %}
+{% load humanize %}
+{% load smarterif%}
+{% load custom_filters %}
+{% block content %}
+{% css "styles/faads-search.css" %}
+<style>
+form#transit-search fieldset { padding: 15px; }
+form#transit-search label.text {margin-left: 15px;}
+form#transit-search select { width: 100%; margin-right: 25px; padding: 5px; }
+#form#transit-search input.submit {width: 80px; background-color: #F6F8FB; border: 1px solid #899EAB; padding: 0 3px; margin-left:10px;}
+#form#transit-search input { margin: 15px; padding: 5px;  width: 80%;  }
+form#transit-search span.filter-container { width: 40%; float:left; margin-left: 15px;}
+.performance-metrics { margin-top:20px;}
+.performance-metrics span.metric {display:block; padding: 10px 10px 10px 0px;width:100%; }
+.performance-metrics span.metric span.metric-input {text-align:right;}
+.performance-metrics span.metric label { display:block; float:left; width: 290px;}
+.section div { padding-left:10px;}
+.results { width: 100%; margin-top:10px; }
+.pages {display:block; text-align:right; width:100%;margin: 30px 5px 5px 0px; padding-top:15px;}
+.bottom {margin-top:0px; padding-top:0px;}
+#program-selector ul li {margin-right: 20px;}
+#transit-search-results th { cursor: pointer; background: url(/media/images/bg.gif) right center no-repeat; padding: 2px 15px; vertical-align:middle;}
+#transit-search-results .headerAsc { background: url(/media/images/asc.gif) right center no-repeat;}
+#transit-search-results .headerDesc {background: url(/media/images/desc.gif) right center no-repeat;}
+
+</style>
+
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <span class="span-24">
+        <div id="header_area"><h3>Transit System Search</h3></div>
+        <div class="content_area">
+            <p>Some text on the search and what we're offering can go here I suppose. </p>    
+            <p>{{by_mode}} </p>
+            <p>{{form.metrics_selected}}</p>
+            <p>{{form.modes_selected}}</p>
+
+
+            <form id="faads-search-form" method="post">
+            <fieldset id="text-query-wrapper">
+                <legend>Search by Transit System Name</legend>
+                <div id="text-query-text-wrapper"> 
+                <input id="id_text_query" value="{{form.system_name}}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
+                </div>
+            </fieldset>
+            <fieldset id="advanced-options" class="collapsed">
+                <legend id="advanced-options">Advanced Options</legend>
+                <div class="section">
+                    <h4>Mode</h4>
+                    <div id="assistance-action-recipient-wrapper" class="field-wrapper">
+                        <div class="dropdown-wrapper">
+                            <ul>
+                            {{form.modes_selected}}
+                            {% for m in modes %}
+                                <li><label for="{{m.0}}"><input type="checkbox" name="modes_selected" value="{{m.0}}" {%if form and m.0|in_list:form.modes_selected %} checked {% endif %}  />{{m.1}}</label></li>
+                                {% if forloop.counter|divisibleby:"5" %}
+                                </ul></div><div class="dropdown-wrapper"><ul>
+                                {% endif %}
+                            {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="clear-left"></div>
+                </div>
+                <div class="section" style="padding-bottom:20px;">
+                    <h4>Population Served</h4>
+                    <div id="program-selector" style="padding-top:10px;">
+                        <ul>
+                            <li><label for="50_100"><input id="50_100" type="radio" name="size_select" value="50_100" {% if form.size_select == "50_100"%} checked {% endif %}/>50,000 - 100,000</label></li>
+                            <li><label for="100_1mil"><input id="100_1mil" type="radio" name="size_select" value="100_1mil" {% if form.size_select == "100_1mil"%} checked {% endif %}/>100,000 - 1 million</label></li>
+                            <li><label for="1_10mil"><input id="1_10mil" type="radio" name="size_select" value="1_10mil" {% if form.size_select == "1_10mil" or form.size_select == "on" %} checked {% endif %} />1 million - 10 million</label></li>
+                            <li><label for="10_20mil"><input id="10_20mill" type="radio" name="size-select" value="10_20mil" {% if form.size_select == "10_20mil" %} checked {% endif %} />10 million - 20 million</label></li>
+                        </ul>
+                    </div>
+                    <div class="clear-left"></div>
+                </div>
+                <div class="section">
+                    <h4>Location</h4>
+                    <div class="dropdown-wrapper" style="padding-top:10px;">
+                        <label for="state-select">By State:</label>
+                        <select id="state-select" name="state_select">
+                                <option value=""></option>
+                            {% for state in states %}
+                                <option value="{{state.abbreviation}}" {% if form.state_select == state.abbreviation%} selected {% endif %}>{{state.name}}</option>    
+                            {% endfor %} 
+                        </select>
+                        <span style="padding-left: 60px;padding-right:60px;font-weight:bold;">&mdash; or &mdash;</span>
+                        <label for="uza-select">By Urban Area:</label>
+                        <select id="uza-select" name="uza_select">
+                                <option value=""></option>
+                            {% for u in uza %}
+                                <option value="{{u.id}}" {% if form.uza_select == u.id|stringformat:"s" %} selected {% endif %}>{{u.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="clear-left" style="margin-bottom:40px;"></div>
+                </div>               
+                <div class="section last">
+                    <h4>Performance Metrics </h4>
+                    <div class="field-wrapper">
+                        <div class="dropdown-wrapper">
+                            <ul>    
+    
+                                <li><label for="cap_expense"><input type="checkbox" name="metrics_selected" value="cap_expense" {%if form and  metrics.0|in_list:form.metrics_selected %} checked {% endif %} />Capital</label></li>
+                                <li><label for="op_expense"><input type="checkbox" name="metrics_selected" value="op_expense" {%if form  and metrics.1|in_list:form.metrics_selected %} checked {% endif %}  />Operating</label></li>
+                            </ul>
+                            <ul>
+                                <li><label for="PMT"><input type="checkbox" name="metrics_selected" value="PMT" {%if form and metrics.2|in_list:form.metrics_selected %} checked {% endif %}  />PMT</label></li>
+
+                                <li><label for="UPT"><input type="checkbox" name="metrics_selected" value="UPT" {%if form and metrics.3|in_list:form.metrics_selected %} checked {% endif %}  />UPT</label></li>
+                            </ul>
+                            <ul>
+                                <li><label for="rec_ratio"><input type="checkbox" name="metrics_selected" value="rec_ratio" {%if form and metrics.4|in_list:form.metrics_selected %} checked {% endif %}  />Recovery Ratio</label></li>
+                                <li><label for="op_expense_pmt"><input type="checkbox" name="metrics_selected" value="op_expense_pmt" {%if form and metrics.5|in_list:form.metrics_selected  %} checked {% endif %}  />Operating Expense per PMT</label></li>
+                                <li><label for="cap_expense_pmt"><input type="checkbox" name="metrics_selected" value="cap_expense_pmt" {%if form and metrics.6|in_list:form.metrics_selected %} checked {% endif %}  />Capital Expense per PMT</label></li>
+
+                                <li><label for="op_expense_upt"><input type="checkbox" name="metrics_selected" value="op_expense_upt" {%if form and metrics.7|in_list:form.metrics_selected  %} checked {% endif %}  />Operating Expense per UPT</label></li>
+                                <li><label for="cap_expense_upt"><input type="checkbox" name="metrics_selected" value="cap_expense_upt" {%if form and metrics.8|in_list:form.metrics_selected  %} checked {% endif %}  />Capital Expense per UPT</label></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+            </fieldset>
+            <input type="hidden" name="page" id="page_value" value="" />
+            <input type="hidden" name="sort" id="sort_field" value="{%if form.sort%}{{form.sort}}{% endif %}" />
+            <input type="hidden" name="order" id="sort_order" value="{%if form.order%}{{form.order}}{% endif %}" />
+
+            <input id="reset-faads-search" type="button" value="Reset Search" />
+            <input type="submit" class="faads-search-submit" value="Search" />
+            
+            </form>
+            <div id="results" style="clear:both;">
+            {% if results  %}
+                {% if paginator %}
+                    <span class="pages">
+                    {% if paginator.has_previous %}
+                        <a href="#" id="prev_page_bottom">&laquo;&nbsp;Previous</a>
+                    {% endif %}
+                    &nbsp;Page {{paginator.previous_page_number|add:"1"}} of {{num_pages}} &nbsp;
+                    {% if paginator.has_next %}
+                        <a href="#" id="next_page_bottom">Next&nbsp;&raquo;</a>
+                    {% endif %}
+                    </span>
+                {% endif %}
+                <table class="results" id="transit-search-results">
+                <tr>
+                    <th {% if form.sort == "name" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "name" and form.order == "desc"%} class="headerDesc" {% endif %} id="name">Name</th>
+                    <th {%if form.sort == "mode" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "mode" and form.order == "desc"%} class="headerDesc" {%endif%} id="mode">Mode</th>
+                    <th {%if form.sort == "city" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "city" and form.order == "desc"%} class="headerDesc" {%endif%} id="city">City</th>
+                    <th {%if form.sort == "state" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "state" and form.order == "desc"%} class="headerDesc" {%endif%} id="state">State</th>
+                    <th class ="no-sort" id="urbanized_area">Urbanized Area</th>
+                    {% if metrics.0|in_list:form.metrics_selected %}<th {%if form.sort == "total_capital_expenses" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_capital_expenses" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_capital_expenses">Capital Expense</th>{% endif %}
+                    {% if metrics.1|in_list:form.metrics_selected %}<th {%if form.sort == "total_operating_expenses" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_operating_expenses" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_operating_expenses">Operating Expenses</th>{% endif %}
+                    {% if metrics.2|in_list:form.metrics_selected %}<th {%if form.sort == "total_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_PMT">PMT</th>{% endif %}
+                    {% if metrics.3|in_list:form.metrics_selected %}<th {%if form.sort == "total_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_UPT">UPT</th>{% endif %}
+                    {% if metrics.4|in_list:form.metrics_selected %}<th {%if form.sort == "avg_operating_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_operating_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_operating_PMT">Operating Expense per PMT</th>{% endif %}
+                    {% if metrics.5|in_list:form.metrics_selected %}<th {%if form.sort == "avg_capital_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_capital_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_capital_PMT">Capital Expense per PMT</th>{% endif %}
+                    {% if metrics.6|in_list:form.metrics_selected %}<th {%if form.sort == "avg_operating_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_operating_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_operating_UPT">Operating Expense per UPT</th>{% endif %}
+                    {% if metrics.7|in_list:form.metrics_selected %}<th {%if form.sort == "avg_capital_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_capital_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_capital_UPT">Capital Expense per UPT</th>{% endif %}
+                </tr>
+
+            {% for transit in results.object_list %}
+                <tr>
+                    <td><a href="/transportation/transit/system/{{transit.trs_id}}/" >{{transit.name}}</a></td>
+                    <td>{{transit.get_mode_display}}
+                    <td>{{transit.city}}</td>
+                    <td>{{transit.state.abbreviation}}</td>
+                    <td>{{transit.urbanized_area.name}}</td>
+                    {% if metrics.0|in_list:form.metrics_selected %}<td>${{transit.total_capital_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
+                    {% if metrics.1|in_list:form.metrics_selected %}<td>${{transit.total_operating_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
+                    {% if metrics.2|in_list:form.metrics_selected %}<td>{{transit.total_PMT|intcomma}}</td>{% endif %}
+                    {% if metrics.3|in_list:form.metrics_selected %}<td>{{transit.total_UPT|intcomma}}</td>{% endif %}
+                    {% if metrics.4|in_list:form.metrics_selected %}<td>${{transit.avg_operating_PMT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.5|in_list:form.metrics_selected %}<td>${{transit.avg_capital_PMT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.6|in_list:form.metrics_selected %}<td>${{transit.avg_operating_UPT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.7|in_list:form.metrics_selected%}<td>${{transit.avg_capital_UPT|floatformat:"2"}}</td>{% endif %}
+
+                </tr>
+            {% endfor %}
+                </table>
+                {% if paginator %}
+                    <span class="pages bottom">
+                    {% if paginator.has_previous %}
+                        <a href="#" id="prev_page">&laquo;&nbsp;Previous</a>
+                    {% endif %}
+                    &nbsp;Page {{paginator.previous_page_number|add:"1"}} of {{num_pages}} &nbsp;
+                    {% if paginator.has_next %}
+                        <a href="#" id="next_page">Next&nbsp;&raquo;</a>
+                    {% endif %}
+                    </span>
+                {% endif %}
+            {% endif %}
+            </div>
+        
+        </div>
+    </span>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+    $("#prev_page, #prev_page_bottom").click(function(e){
+        e.preventDefault();
+        $("#faads-search-form").find("#page_value").val("{{paginator.previous_page_number}}").end().submit();
+    });
+
+    $("#next_page, #next_page_bottom").click(function(e){
+        e.preventDefault();
+        $("#faads-search-form").find("#page_value").val("{{paginator.next_page_number}}").end().submit();
+    });
+    
+    $('fieldset#advanced-options legend').click(function(){
+        $(this).parent().toggleClass('collapsed'); 
+    }); 
+    $("#transit-search-results th").click(function(){
+        console.log(this.id); 
+        var that = this;
+        $("#sort_field").val(that.id);
+        if ( $(that).hasClass("headerAsc")) { $("#sort_order").val("desc"); }
+        else if ( $(that).hasClass("headerDesc")) { $("#sort_order").val("asc"); }
+        else { 
+            $("#sort_order").addClass("headerAsc").val('asc');
+
+        }
+
+        $("#faads-search-form").submit();
+
+    });
+});
+</script>
+
+
+{% endblock content %}
+

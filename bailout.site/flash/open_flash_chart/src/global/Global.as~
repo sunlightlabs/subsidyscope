@@ -63,11 +63,13 @@ package global {
 		}
 		
 		public function get_total_value():Number {
+		    ExternalInterface.call('console.log', 'in GET fn, '+this.total_value);
 		    return this.total_value;
 		}
 		
 		public function set_total_value(the_total:Number):void {
 		    this.total_value = the_total;
+		    ExternalInterface.call('console.log', 'in set fn, '+the_total);
 		}
 		public function get_radius_padding():int {
 		    return this.radius_padding;

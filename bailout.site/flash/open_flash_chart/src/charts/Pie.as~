@@ -75,13 +75,20 @@
 			for each ( val in this.values ) {
 				if( val is Number ) {
 					total += val;
+					
+					ExternalInterface.call('console.log', val+", "+ total)
 				}
 				else {
 					total += val.value;
+					
+					ExternalInterface.call('console.log', val.value+", "+ total)
 		        }
 			}
+			ExternalInterface.call('console.log', 'total right after adding '+total);
 			g.set_total_value(total);
+			ExternalInterface.call('console.log', 'just called');
 			this.total_value = total;
+			ExternalInterface.call('console.log', 'assignment after call '+this.total_value);
 			
 			i = 0;
 			for each ( val in this.values ) {
