@@ -132,8 +132,8 @@ def buildModePieChart(systemObj):
     #add expenses values
     for o in operating:
         expenses_json['elements'][0]['values'].append({"value":float(o.total_operating_expenses), "label": o.mode +'(#percent#)'})  #add the total expenses for each mode
-        pmt_json['elements'][0]['values'].append({"value":float(o.total_PMT), "label": o.mode +'(#percent#)'}) #add the total ridership (pmt) per mode 
-        upt_json['elements'][0]['values'].append({"value":float(o.total_UPT), "label": o.mode +'(#percent#)'})  #add the total upt per mode
+        pmt_json['elements'][0]['values'].append({"value":float("%s" % (o.total_PMT or 0)), "label": o.mode +'(#percent#)'}) #add the total ridership (pmt) per mode 
+        upt_json['elements'][0]['values'].append({"value":float("%s" % (o.total_UPT or 0)), "label": o.mode +'(#percent#)'})  #add the total upt per mode
         
     return {'expenses':expenses_json, 'pmt_mode': pmt_json, 'upt_mode':upt_json }
 
