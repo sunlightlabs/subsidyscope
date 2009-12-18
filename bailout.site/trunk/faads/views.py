@@ -17,6 +17,7 @@ from geo.models import State
 from cfda.views import buildChart
 from decimal import Decimal
 import faads.search
+from usaspending import *
 import re
 from settings import MEDIA_URL
 from django.core.urlresolvers import reverse
@@ -26,51 +27,10 @@ import urllib
 import pickle
 import hashlib
 import csv
-
-def uri_b64encode(s):
-   return urlsafe_b64encode(s).strip('=')
-
-def uri_b64decode(s):
-   return urlsafe_b64decode(s + '=' * (4 - len(s) % 4))
+from django.contrib.humanize.templatetags.humanize import intcomma
 
 
 RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
-
-from django.contrib.humanize.templatetags.humanize import intcomma
-
-
-# DecimalField helpers from:
-# http://www.djangosnippets.org/snippets/842/
-
-from django.contrib.humanize.templatetags.humanize import intcomma
-
-class USDecimalHumanizedInput(forms.TextInput):
-  def __init__(self, initial=None, *args, **kwargs):
-    super(USDecimalHumanizedInput, self).__init__(*args, **kwargs)
-  
-  def render(self, name, value, attrs=None):
-    if value != None:
-        value = intcomma(value)
-    else:
-        value = ''
-    return super(USDecimalHumanizedInput, self).render(name, value, attrs)
-
-
-
-class USDecimalHumanizedField(forms.DecimalField):
-  """
-  Use this as a drop-in replacement for forms.DecimalField()
-  """
-  widget = USDecimalHumanizedInput
-  
-  def clean(self, value):
-    value = value.replace(',','').replace('$','')
-    super(USDecimalHumanizedField, self).clean(value)
-    
-    if value == '':
-        value = None
-    
-    return value
 
 
 def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
@@ -165,33 +125,6 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
 
 
 
-def compress_querydict(obj):
-    querydict = uri_b64encode(zlib.compress(pickle.dumps(obj)))
-    search_hash = hashlib.md5(querydict).hexdigest()
-    (h, created) = SearchHash.objects.get_or_create(search_hash=search_hash, defaults={'querydict': querydict})
-    return h.search_hash
-
-
-
-def decompress_querydict(s):
-    h = get_object_or_404(SearchHash, search_hash=s)
-    return pickle.loads(zlib.decompress(uri_b64decode(str(h.querydict))))
-
-
-
-def get_sector_by_name(sector_name=None):
-    sector = None
-    if sector_name is not None:
-        sector = Sector.objects.filter(name__icontains=sector_name)
-        if len(sector)==1:
-            sector = sector[0]
-        else:
-            sector = None
-            
-    return sector
-
-
-
 def get_excluded_subsidy_program_ids(sector=None):
     excluded_program_ids = []
     
@@ -237,6 +170,8 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
     if form.is_valid():
     
         faads_search_query = faads.search.FAADSSearch()
+        if sector is not None:
+            faads_search_query = faads_search_query.set_sectors(sector)
     
         # handle text search
         if form.cleaned_data['text_query'] is not None and len(form.cleaned_data['text_query'].strip())>0:
