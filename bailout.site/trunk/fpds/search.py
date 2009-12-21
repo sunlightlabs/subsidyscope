@@ -1,4 +1,5 @@
 from usaspending import *
+from fpds.models import *
 
 class FPDSSearch(USASpendingSearchBase):
 

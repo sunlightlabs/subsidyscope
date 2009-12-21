@@ -322,7 +322,10 @@ class FAADSLoader(object):
         if r is None or r=='':
             return None
         else:
-            return int(r)
+            try:
+                return int(r)
+            except:
+                return None 
     
     
     def make_null_emptystring(self, *args, **kwargs):
@@ -528,8 +531,12 @@ class FAADSLoader(object):
         cursor = conn.cursor()
         sql = "SELECT *%s FROM %s WHERE (%s) AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (", ".join(sector_inclusion_sql), (table_override is not None) and table_override or settings.FAADS_IMPORT_MYSQL_SETTINGS.get('source_table', 'faads_main_sf'), " OR ".join(sql_selection_clauses), max_record_id)
         print "Executing query: %s" % sql
-        
-        cursor.execute(sql)
+
+        try:
+            cursor.execute(sql)
+        except:
+            pass
+            
         i = 0
         while True:
             sys.stdout.write("Entering loop... ")

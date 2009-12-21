@@ -91,7 +91,7 @@ INSTALLED_APPS = (
     'mediasync',
     'spammer',
     'helpers',
-    # 'haystack',
+    'haystack',
     'csv_generator',
     'etl',
     'geo',
