@@ -22,7 +22,6 @@ import re
 from settings import MEDIA_URL
 from django.core.urlresolvers import reverse
 import zlib
-from base64 import urlsafe_b64encode, urlsafe_b64decode
 import urllib
 import pickle
 import hashlib

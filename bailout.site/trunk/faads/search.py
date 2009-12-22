@@ -1,20 +1,22 @@
 from usaspending import *
 from faads.models import *
 
+
         
 class FAADSSearch(USASpendingSearchBase):
     
     DJANGO_MODEL = Record
-    FIELD_TO_SUM = 'obligated_amount'
+    FIELD_TO_SUM = 'federal_funding_amount'
     DEFAULT_AGGREGATION_FIELD = 'fiscal_year'
 
     ACTION_TYPE_FK_LOOKUP = {}
     ASSISTANCE_TYPE_FK_LOOKUP = {}
     RECIPIENT_TYPE_FK_LOOKUP = {}
     RECORD_TYPE_FK_LOOKUP = {}
+                        
             
-    def __init__(self):
-        super(ClassName, self).__init__()
+    def __init__(self, *argv):
+        USASpendingSearchBase.__init__(self, *argv)
 
         # preload fk lookup tables
         for a in ActionType.objects.all():
@@ -81,7 +83,7 @@ class FAADSSearch(USASpendingSearchBase):
         },
 
         'fiscal_year': {
-            'type': 'range',
+            'type': 'fk',
             'mysql_field': 'fiscal_year',
             'solr_field': 'fiscal_year',
             'aggregate': True
@@ -188,21 +190,34 @@ class FAADSSearch(USASpendingSearchBase):
         if self.use_solr:                        
             
             solr = Solr(settings.HAYSTACK_SOLR_URL)
-            query = self._build_solr_query()
-            solr_result = solr.search(q=query, rows=FAADSSearch.SOLR_MAX_RECORDS, fl='%s,fiscal_year,principal_place_state,cfda_program' % self.FIELD_TO_SUM['solr_field'])            
-            
-            # aggregate by state/year, program/year
-            TO_PROCESS = { 'principal_place_state': result_state, 'cfda_program': result_program }
 
-            for doc in solr_result.docs:
-                if doc.has_key(self.FIELD_TO_SUM['solr_field']) and doc.has_key('fiscal_year'):
-                    for (key, result) in TO_PROCESS.items():                        
-                        if doc.has_key(key):
-                            if not result.has_key(doc[key]):
-                                result[doc[key]] = {}
-                            if not result[doc[key]].has_key(doc['fiscal_year']):
-                                result[doc[key]][doc['fiscal_year']] = Decimal(0)
-                            result[doc[key]][doc['fiscal_year']] += Decimal(str(doc[self.FIELD_TO_SUM['solr_field']]))
+            if False: # this seems like it's pretty slow...
+            # if self.SOLR_USE_STATS_MODULE:
+                
+                result = {}
+                year_range = self.get_year_range()
+                for year in year_range:
+                    result[year] = self.filter('fiscal_year', str(year)).aggregate('principal_place_state')
+                
+                                    
+                
+            else:
+
+                query = self._build_solr_query()
+                solr_result = solr.search(q=query, rows=FAADSSearch.SOLR_MAX_RECORDS, fl='%s,fiscal_year,principal_place_state,cfda_program' % self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field'])            
+            
+                # aggregate by state/year, program/year
+                TO_PROCESS = { 'principal_place_state': result_state, 'cfda_program': result_program }
+
+                for doc in solr_result.docs:
+                    if doc.has_key(self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']) and doc.has_key('fiscal_year'):
+                        for (key, result) in TO_PROCESS.items():                        
+                            if doc.has_key(key):
+                                if not result.has_key(doc[key]):
+                                    result[doc[key]] = {}
+                                if not result[doc[key]].has_key(doc['fiscal_year']):
+                                    result[doc[key]][doc['fiscal_year']] = Decimal(0)
+                                result[doc[key]][doc['fiscal_year']] += Decimal(str(doc[self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']]))
                                     
         
         # handling key based aggregation with db group by/sum

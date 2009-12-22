@@ -6,11 +6,48 @@ import pickle
 from decimal import Decimal
 from hashlib import md5 
 from pysolr import Solr
+from base64 import urlsafe_b64encode, urlsafe_b64decode
 from django.db import models
 from django import forms
 from haystack.query import SearchQuerySet
 import django.db.models.fields
 from django.core.cache import cache
+from sectors.models import *
+from faads.models import SearchHash
+from django.shortcuts import render_to_response, get_object_or_404
+from django.contrib.humanize.templatetags.humanize import intcomma
+
+
+def uri_b64encode(s):
+   return urlsafe_b64encode(s).strip('=')
+
+
+def uri_b64decode(s):
+   return urlsafe_b64decode(s + '=' * (4 - len(s) % 4))
+
+
+def compress_querydict(obj):
+    querydict = uri_b64encode(zlib.compress(pickle.dumps(obj)))
+    search_hash = md5(querydict).hexdigest()
+    (h, created) = SearchHash.objects.get_or_create(search_hash=search_hash, defaults={'querydict': querydict})
+    return h.search_hash
+
+
+def decompress_querydict(s):
+    h = get_object_or_404(SearchHash, search_hash=s)
+    return pickle.loads(zlib.decompress(uri_b64decode(str(h.querydict))))
+
+
+def get_sector_by_name(sector_name=None):
+    sector = None
+    if sector_name is not None:
+        sector = Sector.objects.filter(name__icontains=sector_name)
+        if len(sector)==1:
+            sector = sector[0]
+        else:
+            sector = None
+
+    return sector
 
 
 class USASpendingSearchBase():
@@ -92,13 +129,15 @@ class USASpendingSearchBase():
         field_lookup = self.FIELD_MAPPINGS.get(filter_by,None)
         if field_lookup is None:
             raise Exception("'%s' is not a valid filter field" % filter_by)
+        elif type(filter_value) is int and field_lookup['type']=='fk':
+            filter_value = (filter_value,)
         elif len(filter_value)==0:
-            if field_lookup['type']=='fk':
-                filter_value = (-1,) # plan to return an empty result set if this criteria is an empty query on an FK field
-            else:
-                raise Exception("Cannot process a zero-length value for filter '%s'" % filter_by)            
+                if field_lookup['type']=='fk':
+                    filter_value = (-1,) # plan to return an empty result set if this criteria is an empty query on an FK field
+                else:
+                    raise Exception("Cannot process a zero-length value for filter '%s'" % filter_by)            
         elif field_lookup['type']=='range' and ((type(filter_value) not in (list, tuple)) or (len(filter_value)!=2)):
-            raise Exception("'%s' is a ranged field. Please pass a tuple or list of length 2 (None==wildcard)")
+            raise Exception("'%s' is a ranged field. Please pass a tuple or list of length 2 (None==wildcard)" % filter_by)
 
         clone = self._clone()
 
@@ -115,7 +154,8 @@ class USASpendingSearchBase():
         query = ''
         
         if len(self.sectors):
-            query += "(%s:(%s)) AND " % (self.FIELD_MAPPINGS['sectors']['solr_field'], " OR ".join(map(lambda x: x.id, self.sectors)))        
+            print self.sectors
+            query += "(%s:(%s)) AND " % (self.FIELD_MAPPINGS['sectors']['solr_field'], " OR ".join(map(lambda x: str(x.id), self.sectors)))        
         
         for i,f in enumerate(self.filters):
             filter_field = f[0]
@@ -195,7 +235,7 @@ class USASpendingSearchBase():
             sql += " WHERE "
 
             if len(self.sectors):
-                sql = '(%s & %d) AND ' % (self.FIELD_MAPPINGS['sectors']['mysql_field'], self._build_sector_bitmask())
+                sql += '(%s & %d) AND ' % (self.FIELD_MAPPINGS['sectors']['mysql_field'], self._build_sector_bitmask())
         
             for i,f in enumerate(self.filters):
                 
@@ -276,7 +316,7 @@ class USASpendingSearchBase():
             query = self._build_solr_query()
             search_fields = { 
                 'q': query,
-                'rows': self.SOLR_USE_STATS_MODULE and 0 or self.SOLR_MAX_RECORDS,
+                'rows': self.SOLR_MAX_RECORDS,
                 'fl': '%s,%s' % (self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field'], self.aggregate_by['solr_field']),
                 'facet': 'true',
                 'facet.field': self.aggregate_by['solr_field'],
@@ -284,6 +324,9 @@ class USASpendingSearchBase():
                 'stats.field': self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field'],
                 'stats.facet': self.aggregate_by['solr_field']
             }
+            if self.SOLR_USE_STATS_MODULE:
+                search_fields['rows'] = 0
+                
             solr_result = solr.search(**search_fields)   
             result = {}
             
@@ -465,33 +508,3 @@ class USDecimalHumanizedField(forms.DecimalField):
     return value
 
 
-def uri_b64encode(s):
-   return urlsafe_b64encode(s).strip('=')
-
-
-def uri_b64decode(s):
-   return urlsafe_b64decode(s + '=' * (4 - len(s) % 4))
-
-
-def compress_querydict(obj):
-    querydict = uri_b64encode(zlib.compress(pickle.dumps(obj)))
-    search_hash = hashlib.md5(querydict).hexdigest()
-    (h, created) = SearchHash.objects.get_or_create(search_hash=search_hash, defaults={'querydict': querydict})
-    return h.search_hash
-
-
-def decompress_querydict(s):
-    h = get_object_or_404(SearchHash, search_hash=s)
-    return pickle.loads(zlib.decompress(uri_b64decode(str(h.querydict))))
-
-
-def get_sector_by_name(sector_name=None):
-    sector = None
-    if sector_name is not None:
-        sector = Sector.objects.filter(name__icontains=sector_name)
-        if len(sector)==1:
-            sector = sector[0]
-        else:
-            sector = None
-
-    return sector
