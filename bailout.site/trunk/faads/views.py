@@ -19,7 +19,6 @@ from decimal import Decimal
 import faads.search
 from usaspending import *
 import re
-from settings import MEDIA_URL
 from django.core.urlresolvers import reverse
 import zlib
 import urllib

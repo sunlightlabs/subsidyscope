@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.conf.urls.defaults import *
-from bailout.models import *
 from sectors.models import Sector
 from django.views.generic.simple import direct_to_template, redirect_to
 

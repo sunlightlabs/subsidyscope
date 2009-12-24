@@ -84,8 +84,7 @@ class FPDSSearch(USASpendingSearchBase):
         }
     }
     
-    # TODO: update to use stats module
-    # TODO: abstract out those 'fl' fields so they aren't hardcoded (if possible)
+
     def get_summary_statistics(self):
         """ Generate summary statistics by-program and by-state for the specified query """
         CACHE_KEY_STATE = 'summary_statistics_state'
@@ -99,27 +98,27 @@ class FPDSSearch(USASpendingSearchBase):
             cached_result_state = cache.get(self.get_query_cache_key(aggregate_by=CACHE_KEY_STATE))
             cached_result_program = cache.get(self.get_query_cache_key(aggregate_by=CACHE_KEY_PROGRAM))            
             if cached_result_state is not None and cached_result_program is not None:
-                return {'program': cached_result_program, 'state': cached_result_state}
+                return {'state': cached_result_state}
     
         # handling full-text aggregation with solr/python hack
         if self.use_solr:                        
             
             solr = Solr(settings.HAYSTACK_SOLR_URL)
             query = self._build_solr_query()
-            solr_result = solr.search(q=query, rows=self.SOLR_MAX_RECORDS, fl='obligated_amount,fiscal_year,principal_place_state')            
+            solr_result = solr.search(q=query, rows=self.SOLR_MAX_RECORDS, fl='%s,fiscal_year,principal_place_state' % self.FIELD_TO_SUM)            
             
             # aggregate by state/year
             TO_PROCESS = { 'principal_place_state': result_state }
 
             for doc in solr_result.docs:
-                if doc.has_key('obligated_amount') and doc.has_key('fiscal_year'):
+                if doc.has_key(self.FIELD_TO_SUM) and doc.has_key('fiscal_year'):
                     for (key, result) in TO_PROCESS.items():                        
                         if doc.has_key(key):
                             if not result.has_key(doc[key]):
                                 result[doc[key]] = {}
                             if not result[doc[key]].has_key(doc['fiscal_year']):
                                 result[doc[key]][doc['fiscal_year']] = Decimal(0)
-                            result[doc[key]][doc['fiscal_year']] += Decimal(str(doc['obligated_amount']))
+                            result[doc[key]][doc['fiscal_year']] += Decimal(str(doc[self.FIELD_TO_SUM]))
                                     
         
         # handling key based aggregation with db group by/sum
@@ -128,23 +127,30 @@ class FPDSSearch(USASpendingSearchBase):
             from django.db import connection
             cursor = connection.cursor()                
             
-            sql, sql_parameters = self._build_mysql_query(aggregation_override='principal_place_state_id,fiscal_year')                                
-                        
+            sql, sql_parameters = self._build_mysql_query(aggregation_override='place_of_performance_state_id,fiscal_year')                                                        
             cursor.execute(sql, sql_parameters)
-            
-            TO_PROCESS = { 0: result_state }
+
+            result_state = {}
             for row in cursor.fetchall():
-                for (index, result) in TO_PROCESS.items():
-                    if not result.has_key(row[index]):
-                        result[row[index]] = {}
-                    if not result[row[index]].has_key(row[2]):
-                        result[row[index]][row[2]] = Decimal(0)
-                    result[row[index]][row[2]] += Decimal(str(row[3]))
-                                  
+
+                state = row[0]
+                year = row[1]
+                amount = row[2]
+
+                if not result_state.has_key(state):
+                    result_state[state] = {}
+
+                if not result_state[state].has_key(year):
+                    result_state[state][year] = Decimal(0)
+
+                result_state[state][year] += amount
+
     
         cache.set(self.get_query_cache_key(aggregate_by=CACHE_KEY_STATE), result_state)
+        
+        r = { 'state': result_state }
 
-        return { 'state': result_state }    
+        return r
         
 
     

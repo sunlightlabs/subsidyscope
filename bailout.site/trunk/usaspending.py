@@ -52,7 +52,7 @@ def get_sector_by_name(sector_name=None):
 
 class USASpendingSearchBase():
 
-    SOLR_MAX_RECORDS = 1000000    
+    SOLR_MAX_RECORDS = 1200000    
 
     SOLR_USE_STATS_MODULE = getattr(settings, 'HAYSTACK_SOLR_STATS_MODULE_ENABLED', False)    
     
@@ -235,7 +235,9 @@ class USASpendingSearchBase():
             sql += " WHERE "
 
             if len(self.sectors):
-                sql += '(%s & %d) AND ' % (self.FIELD_MAPPINGS['sectors']['mysql_field'], self._build_sector_bitmask())
+                sql += '(%s & %d)' % (self.FIELD_MAPPINGS['sectors']['mysql_field'], self._build_sector_bitmask())
+                if len(self.filters):
+                    sql += " AND "
         
             for i,f in enumerate(self.filters):
                 
@@ -317,34 +319,34 @@ class USASpendingSearchBase():
             search_fields = { 
                 'q': query,
                 'rows': self.SOLR_MAX_RECORDS,
-                'fl': '%s,%s' % (self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field'], self.aggregate_by['solr_field']),
+                'fl': '%s,%s' % (self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field'], self.FIELD_MAPPINGS[aggregate_by]['solr_field']),
                 'facet': 'true',
-                'facet.field': self.aggregate_by['solr_field'],
-                'stats': 'true',
-                'stats.field': self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field'],
-                'stats.facet': self.aggregate_by['solr_field']
+                'facet.field': self.FIELD_MAPPINGS[aggregate_by]['solr_field'],
             }
             if self.SOLR_USE_STATS_MODULE:
                 search_fields['rows'] = 0
+                search_fields['stats'] = 'true'
+                search_fields['stats.field'] = self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']
+                search_fields['stats.facet'] =self.FIELD_MAPPINGS[aggregate_by]['solr_field']
                 
-            solr_result = solr.search(**search_fields)   
+            solr_result = solr.search(**search_fields)
             result = {}
             
             # aggregation
             
             # can we use the solr stats module?
             if self.SOLR_USE_STATS_MODULE:
-                for (year, stats) in solr_result.stats['stats_fields'][self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']]['facets'][self.aggregate_by['solr_field']].items():
+                for (year, stats) in solr_result.stats['stats_fields'][self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']]['facets'][self.FIELD_MAPPINGS[aggregate_by]['solr_field']].items():
                     result[int(year)] = Decimal(str(stats['sum']))
+                
             # if not: painful, slow aggregation
             else:            
                 for doc in solr_result.docs:
-                    if doc.has_key(self.aggregate_by['solr_field']) and doc.has_key('obligated_amount'):
-                        key = int(doc[self.aggregate_by['solr_field']])    
+                    if doc.has_key(self.FIELD_MAPPINGS[aggregate_by]['solr_field']) and doc.has_key(self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']):
+                        key = int(doc[self.FIELD_MAPPINGS[aggregate_by]['solr_field']])    
                         if not result.has_key(key):
                             result[key] = Decimal(0)                
-                        result[key] += Decimal(str(doc['obligated_amount'])) 
-                
+                        result[key] += Decimal(str(doc[self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']])) 
             
         
         # handling key based aggregation with db group by/sum

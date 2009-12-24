@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+{% load media %}
+{% load morsel_tags %}
+{% load webdesign %}
+{% load humanize %}
+{% load search_tags %}
+{% load sector_tags %}
+
+{% block additional_css %}
+  {% css "styles/jquery-ui/ui.all.css" %}
+  {% css "styles/fpds-search.css" %}
+{% endblock %}
+
+{% block additional_js %}
+
+	{% js "scripts/ui.core.js" %}
+	{% js "scripts/ui.tabs.js" %}
+	{% js "scripts/ui.datepicker.js" %}
+	
+	{% js "scripts/swfobject.js" %}
+	{% js "scripts/fpds-search.js?version=4" %}
+	
+
+<!-- if JS is enabled, assume that the tabs will work and hide the other divs -->
+<script language="javascript" type="text/javascript">  		
+	document.write('<style type="text/css">.program-selection-target { display: none; }</style>');
+</script>
+
+
+<script>
+
+var sortColumn = '{{ sort_column }}';
+var sortOrder = '{{ sort_order }}'; 
+
+</script>
+	
+{% endblock %}
+
+{% block content %}
+
+<div class="container main_container">
+
+    {% sector_nav %}
+
+    <div class="span-24">
+
+        <div id="header_area">
+            <h3>{% morsel_page_title %} (FY 2000&ndash;2009)</h3>
+        </div>
+        <div class="content_area">    
+	
+					<p>{% morsel text1 %}</p>
+	
+					<form action="{{ page_path }}" method="POST" id="fpds-search-form">
+
+					<fieldset id="text-query-wrapper">
+					  <legend>Recipient Name / Project Description</legend>
+						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
+						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
+					</fieldset>
+
+
+          <fieldset class="collapsed" id="advanced-options">
+            
+            <legend id="advanced-options">Advanced Options</legend>
+  					
+					
+            <div class="section" id="range">
+				  <h4>Expenditure Range</h4>
+  					<div class="field-wrapper">
+					<div id="obligation-date-wrapper">
+					  <label for="obligation_date_start">Effective Date</label>
+					  <div class="range-wrapper">
+  						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
+  						{{ form.obligation_date_start.errors }}
+  						{{ form.obligation_date_end.errors }}
+						</div>
+						{# fiscal year ? #}
+					</div>
+				
+					<div id="obligation-amount-wrapper">
+					  <label for="obligation_amount_minimum">Obligation Amount</label>
+					  <div class="range-wrapper">
+  						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
+  						{{ form.obligation_amount_minimum.errors }}
+  						{{ form.obligation_amount_maximum.errors }}
+						</div>
+					</div>
+            </div>
+            </div>
+
+          
+          <div class="section last" id="location">
+            <h4>Location</h4>
+            
+            <p>You may filter records by the location of either the recipient or the location where the activity associated with the expenditure was primarily performed (in many cases these may be the same).  Please note that geographic information is not available for every record.</p>
+            <div id="location-selector-text">Match locations by:</div><div id="location-selector">{{ form.location_type }}</div>
+            
+            <div class="clear-left"></div>
+
+            <div class="state-choices">
+              <p class="select-all-or-none">[ <a href="#" class="select-all" id="location-selection-select-all">Select All</a> / <a href="#" class="select-none" id="location-selection-tag-select-none">Select None</a> ]</p>
+
+              {{ form.location_choices }}
+            </div>
+            <div class="clear-left"></div>
+          </div>
+
+            
+            
+            
+          </fieldset>
+          
+          {% if ran_search %}
+            <input type="button" id="reset-fpds-search" value="Reset Search" />
+            <script type="text/javascript" charset="utf-8">
+            var original_url = window.location.href.replace(/\?.*$/,'');
+            $(function(){ $('#reset-fpds-search').click(function(){ window.location.href = original_url;})});
+            </script>
+          {% endif %}
+          
+          {{ form.sector_name }}
+					<input type="submit" value="Search" class="fpds-search-submit" />
+          <div class="clear-right"></div>
+          
+					</form>
+				
+				    {% if not found_some_results and ran_search %}
+				      <div id="no-fpds-results-found">No records matching your search criteria were found</div>
+				    {% endif %}
+				    
+			      {% if found_some_results and ran_search %}		
+			      
+			      <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+          		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+          			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#fpds-result-table">Results</a></li>
+          			<li class="ui-state-default ui-corner-top"><a href="#fpds-result-graph">By Year</a></li>
+          			<li class="ui-state-default ui-corner-top"><a href="#fpds-result-map">By Location</a></li>
+          			<li class="ui-state-default ui-corner-top"><a href="#fpds-result-summary">Summary</a></li>                
+          		</ul>
+          		
+          		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="fpds-result-table">
+			      		    
+				      <table id="fpds-search-results">
+				        <thead>
+				          <tr>
+				            <th id="obligation_date" class="obligation-date">Effective Date</th>
+				            <th id="recipient" class="recipient-name">Recipient Name</th>
+				            <th id="recipient_location" class="recipient-location">Recipient Location</th>
+				            <th id="place_of_performance" class="place-of-performance">Place of Performance</th>
+				            <th id="description" class="description">Description</th>
+                    		<th id="amount" class="amount">Amount</th>                    
+				          </tr>
+				        </thead>
+
+				        <tbody>
+                {% for result in fpds_results.object_list %}
+                  <tr class="{% cycle "odd" "even" %}" rel="fpds_record_id-{{ result.object.record_id }}">
+                    <td class="obligation-date">{{ result.object.effective_date }}</td>
+                    <td class="recipient-name">{{ result.object.vendor_name }}</td>
+                    <td class="recipient-location">{{ result.object.city }}{% if result.object.city %}{% if result.object.state %},&nbsp;{% endif %}{% endif %}{{ result.object.state.abbreviation }}</td>
+                    <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name_for_display }}{% if result.object.place_of_performance_state %}{% if result.object.principal_place_county_or_city_name %},&nbsp;{% endif %}{% endif %}{{ result.object.place_of_performance_state.abbreviation }}</td>
+                    <td class="description">{{ result.object.description_of_contract_requirement }}</td>
+                    <td class="amount last">${{ result.object.obligated_amount|floatformat:"-0"|intcomma }}</td>
+                  </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+
+
+              <div class="pagination">
+                  <span class="step-links">                    
+                    
+                      {% if fpds_results.has_previous %}
+                          <a href="?q={{ query|safe }}&page=1{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&laquo; first</a>
+                          <a href="?q={{ query|safe }}&page={{ fpds_results.previous_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&lsaquo; prev</a>
+                      {% else %}
+                          <span class="disabled">&laquo; first</span>
+                          <span class="disabled">&lsaquo; prev</span>
+                      {% endif %}
+
+                      <span class="current">
+                          Page {{ fpds_results.number|intcomma }} of {{ fpds_results.paginator.num_pages|intcomma }}
+                      </span>
+
+                      {% if fpds_results.has_next %}
+                          <a href="?q={{ query|safe }}&page={{ fpds_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &rsaquo;</a>
+                          <a href="?q={{ query|safe }}&page={{ fpds_results.paginator.num_pages }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">last &raquo;</a>
+                      {% else %}
+                          <span class="disabled">&raquo; next</span>
+                          <span class="disabled">&rsaquo; last</span>
+                      {% endif %}
+                  </span>
+              </div>
+              
+              <div class="search-disclaimer">{% morsel disclaimer1 %}</div>
+
+              </div>
+              
+              <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="fpds-result-graph" >
+                <span id="resultsgraph">
+                		<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
+							
+						<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="{% media_url %}/images/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+                </span>  
+                
+                {% js "scripts/json2.js" %}
+                
+                <script type="text/javascript" charset="utf-8">
+                   
+                   	var chartLoaded = false; 
+                    function loadChartFlash()
+                    {
+                    	if(!chartLoaded)
+                    		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '{% url fpds-search-by-year %}', 'data-query':'{{ query|safe }}'});
+                    		
+                    	chartLoaded = true;
+                    }
+                    
+                </script>
+              </div>
+              
+              <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="fpds-result-map">
+    
+    				
+    
+    				<script type="text/javascript" charset="utf-8">
+    					
+    					var mapLoaded = false;
+    					
+    					function loadMapFlash()
+    					{
+    						if(!mapLoaded)
+            			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url fpds-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+  	              			
+            		mapLoaded = true;
+    	        }	
+    	              	
+					</script>
+                  
+                  	<div style="float: right;  margin-right: 25px;">
+						View: <select name="dataType">
+							<option value="state">Total Spending</option>
+							<option value="state_per_capital">Per Capita Spending </option>
+						</select>
+					</div>
+					
+					<br clear="all"/> 
+					
+					<div style="margin-left: 50px;">
+						<div id="mapVis" >
+							<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
+							
+							<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="{% media_url %}/images/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+						
+						</div>
+					</div>
+                  
+                  
+              </div>
+
+
+              <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="fpds-result-summary">
+                 <div id="summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
+                 
+                 <script type="text/javascript" charset="utf-8">
+	                 function loadSummary()
+	                 {
+	                   $.get('{% url fpds-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
+	                     $('#summary-container').html(data);
+	                   });
+	                 }
+                 </script>                 
+              </div>
+
+
+            </div>
+            {% endif %}				
+				
+        </div>
+</div>
+
+<form method="GET" action="" id="sortForm">
+	<input name="q" value="{{ query|safe }}" type="hidden"/>
+	<input id="sortField" name="s" value="" type="hidden"/>
+	<input id="sortOrder" name="o" value="" type="hidden"/>
+	<input id="sortPage" name="page" value="{{ fpds_results.number }}" type="hidden"/>
+</form>
+
+{% endblock %}

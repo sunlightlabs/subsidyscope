@@ -1,11 +1,410 @@
 import unittest
+import csv
 import fpds.tests
+from django.utils.html import strip_tags
+from django.core.urlresolvers import reverse
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from fpds.search import *
+from faads.widgets import *
+from cfda.views import buildChart
 import django.test.simple
+from django.template import RequestContext
 from django.test.utils import setup_test_environment, teardown_test_environment
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 import settings
 
+
+
+
+RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FPDS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
+
+def MakeFPDSSearchFormClass(sector=None, subsectors=[]):
+
+   # subsectors
+    subsector_choices = None
+ 
+    SUBSECTOR_SYNONYMS = {
+        'transportation': 'Mode'
+    }
+
+    class FPDSSearchForm(forms.Form):
+
+        # free text query
+        text_query = forms.CharField(label='Text Search', required=False, max_length=100)
+        text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Vendor Name'), (1, 'Description of Contract Requirement'), (2, 'Both')), initial=2, coerce=int)
+
+        # recipient types
+        # recipient_type_choices = (('nonprofit', 'Nonprofits'), ('education', 'Higher Education'), ('all', 'Either'))
+        # recipient_type = forms.TypedChoiceField(label="Include recipients classified as", widget=forms.RadioSelect, choices=recipient_type_choices, initial='all')
+
+        obligation_date_start = forms.DateField(label="Effective Date Start", required=False)
+        obligation_date_end = forms.DateField(label="Effective Date End", required=False)
+
+        obligation_amount_minimum = USDecimalHumanizedField(label="Obligated Amount Minimum", required=False, decimal_places=2, max_digits=12)
+        obligation_amount_maximum = USDecimalHumanizedField(label="Obligated Amount Maximum", required=False, decimal_places=2, max_digits=12)
+
+        state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
+        location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=1, coerce=int)
+        location_choices = forms.MultipleChoiceField(label='State', required=False, choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
+
+        sector_name = forms.CharField(label='Sector', required=False, initial=((sector is not None) and sector.name.lower() or ''), max_length=100, widget=forms.HiddenInput)
+
+
+    return FPDSSearchForm
+
+def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed_string):
+    """ Returns a form object and a FPDSSearch object that have been constructed from a search key (a compressed POST querydict) """
+
+    # retrieve the sector and create an appropriate form object to handle validation of the querydict
+    sector = get_sector_by_name(sector_name)
+    querydict = decompress_querydict(querydict_as_compressed_string)
+    if (sector is None):
+        sector = get_sector_by_name(querydict.get('sector_name', None))
+
+    formclass = MakeFPDSSearchFormClass(sector=sector)            
+    form = formclass(querydict)
+
+    # validate querydict -- no monkey business!
+    if form.is_valid():
+
+        fpds_search_query = fpds.search.FPDSSearch()
+        if sector is not None:
+            fpds_search_query = fpds_search_query.set_sectors(sector)
+
+        # handle text search
+        if form.cleaned_data['text_query'] is not None and len(form.cleaned_data['text_query'].strip())>0:
+            if form.cleaned_data['text_query_type']==2:
+                fpds_search_query = fpds_search_query.filter('all_text', form.cleaned_data['text_query'])
+            elif form.cleaned_data['text_query_type']==1:
+                fpds_search_query = fpds_search_query.filter('text', form.cleaned_data['text_query'])
+            elif form.cleaned_data['text_query_type']==0:
+                fpds_search_query = fpds_search_query.filter('recipient', form.cleaned_data['text_query'])
+       
+
+        # handle obligation date range
+        if form.cleaned_data['obligation_date_start'] is not None or form.cleaned_data['obligation_date_end'] is not None:
+            fpds_search_query = fpds_search_query.filter('obligation_action_date', (form.cleaned_data['obligation_date_start'], form.cleaned_data['obligation_date_end']))
+
+        # handle obligation amount range
+        if form.cleaned_data['obligation_amount_minimum'] is not None or form.cleaned_data['obligation_amount_maximum'] is not None:
+
+            if form.cleaned_data['obligation_amount_minimum'] is not None:
+                obligation_minimum = int(Decimal(form.cleaned_data['obligation_amount_minimum']))
+            else:
+                obligation_minimum = None
+
+            if form.cleaned_data['obligation_amount_maximum'] is not None:
+                obligation_maximum = int(Decimal(form.cleaned_data['obligation_amount_maximum']))
+            else:
+                obligation_maximum = None
+
+            fpds_search_query = fpds_search_query.filter('obligated_amount', (obligation_minimum, obligation_maximum))
+
+        # handle location
+        if len(form.cleaned_data['location_choices'])<State.objects.all().count():
+            if form.cleaned_data['location_type']==0:                
+                fpds_search_query = fpds_search_query.filter('recipient_state', form.cleaned_data['location_choices'])
+            elif form.cleaned_data['location_type']==1:
+                fpds_search_query = fpds_search_query.filter('principal_place_state', form.cleaned_data['location_choices'])
+            elif form.cleaned_data['location_type']==2:
+                fpds_search_query = fpds_search_query.filter('all_states', form.cleaned_data['location_choices'])
+
+        return (form, fpds_search_query)
+
+    else:
+        raise(Exception("Data in querydict did not pass form validation"))
+
+
+
+def search(request, sector_name=None):
+
+    # default values, for safety's sake
+    form = None
+    query = ''
+    encoded_querystring = ''
+    ran_search = False
+    fpds_results_page = None
+    found_some_results = False
+
+    sort_column = 'obligation_date'
+    sort_order = 'asc'
+
+    # retrieve the sector object based on the passed name
+    sector = get_sector_by_name(sector_name)
+
+    # if this is a POSTback, package the request into a querystring and redirect
+    if request.method == 'POST':
+        if request.POST.has_key('text_query'):
+            formclass = MakeFPDSSearchFormClass(sector=sector)            
+            form = formclass(request.POST)
+
+            if form.is_valid():
+                redirect_url = reverse('%s-fpds-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
+                return HttpResponseRedirect(redirect_url)
+
+
+        else:
+            return HttpResponseRedirect(reverse('%s-fpds-search') % sector_name)
+
+
+    # if this is a get w/ a querystring, unpack the form 
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            order_by = '-obligation_date'
+
+            if request.GET.has_key('s'):
+
+                if request.GET.has_key('o'):
+
+                    if request.GET['o'] == 'desc':
+                        order_by = '-'
+                        sort_order = 'desc'
+                    elif request.GET['o'] == 'asc':
+                        order_by = ''
+                        sort_order = 'asc'
+
+                else:
+
+                    sort_order = 'desc'
+                    order_by = '-'
+
+
+                if request.GET['s'] == 'obligation_date':
+
+                    order_by += 'obligation_date'
+                    sort_column = 'obligation_date'
+
+                elif request.GET['s'] == 'contractor_name':
+
+                    order_by += 'contractor_name'
+                    sort_column = 'contractor_name'
+
+                elif request.GET['s'] == 'amount':
+
+                    order_by += 'obligated_amount'
+                    sort_column = 'amount'
+
+                else:
+
+                    order_by = '-obligation_date'
+
+                    sort = 'obligation_date'
+                    sort_order = 'desc'
+
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+
+            fpds_results = fpds_search_query.get_haystack_queryset(order_by)
+
+
+            paginator = Paginator(fpds_results, RESULTS_PER_PAGE)
+
+            try:
+                page = int(request.GET.get('page','1'))
+            except Exception, e:
+                page = 1
+
+            try:
+                fpds_results_page = paginator.page(page)
+            except (EmptyPage, InvalidPage):
+                fpds_results_page = paginator.page(paginator.num_pages)        
+
+            found_some_results = len(fpds_results)>0
+
+            ran_search = True
+
+            query = urllib.quote(request.GET['q'])                        
+
+
+        # we just wandered into the search without a prior submission        
+        else:
+
+            # no subsectors in FPDS (yet) -- ignore for now
+            subsectors = []
+            if sector is not None and request.GET.has_key('subsectors'):
+                re_sanitize = re.compile(u'[^\,\d]')
+                querystring_input = re_sanitize.sub('', request.GET['subsectors']) # sanitize querystring input, because why not?
+                subsector_ids = []
+                try:
+                    subsector_ids = querystring_input.split(",")
+                except:
+                    pass
+                subsectors = Subsector.objects.filter(parent_sector=sector).filter(id__in=subsector_ids)        
+
+            ran_search = False
+            query = ''
+            fpds_results_page = None
+            found_some_results = False
+            formclass = MakeFPDSSearchFormClass(sector=sector, subsectors=subsectors)
+            form = formclass()
+
+
+    return render_to_response('fpds/search/search.html', {'fpds_results':fpds_results_page, 'sector': sector_name, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order, 'page_path': request.path}, context_instance=RequestContext(request))
+
+
+
+def annual_chart_data(request, sector_name=None):
+
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+            fpds_results = fpds_search_query.aggregate('fiscal_year')
+
+            positive_results = {}
+
+            for year in fpds_results:
+                if fpds_results[year] > 0:
+                    positive_results[year] = fpds_results[year]
+
+            chart_json = buildChart(positive_results, data_src="Obligations (from FPDS)")
+
+            return HttpResponse(chart_json, mimetype="text/plain")
+
+    return Http404()
+
+
+def _get_state_summary_data(results, year_range):
+    """ compiles aggregate data for the by-state summary table """
+
+    states = {}    
+    for state in State.objects.filter(id__in=results['state'].keys()):
+        states[state.id] = state
+
+    state_data = []
+    for (state_id, year_data) in results['state'].items():
+        if state_id is None:
+            continue
+        row = [states[state_id].name]
+        for year in year_range:
+            row.append(year_data.get(year, None))
+        state_data.append(row)
+
+    state_data.sort(key=lambda x: x[0])
+
+    return state_data
+
+
+
+def summary_statistics_csv(request, sector_name=None, first_column_label='', data_fetcher=''):
+
+    data_fetcher = globals().get(data_fetcher) # we take a string instead of the function itself so that the urlconf can call it directly
+
+    assert len(str(first_column_label))>0 # column must have a label ('state' or 'program')
+    assert callable(data_fetcher) # data-fetching function must be passed (returns list of lists containing either state- or program-indexed numbers)
+
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+            results = fpds_search_query.get_summary_statistics()
+            year_range = fpds_search_query.get_year_range()
+
+            data = data_fetcher(results, year_range)
+
+            response = HttpResponse(mimetype="text/csv")
+            response['Content-Disposition'] = "attachment; filename=%s-%s.csv" % (request.GET['q'], first_column_label.replace(" ", "_").lower())
+            writer = csv.writer(response)
+            writer.writerow([str(first_column_label)] + year_range)
+            for row in data:
+                writer.writerow(map(lambda x: strip_tags(x), row))
+            response.close()
+
+            return response
+
+    return Http404()
+
+
+def summary_statistics(request, sector_name=None):
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation    
+
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+            results = fpds_search_query.get_summary_statistics()
+            year_range = fpds_search_query.get_year_range()
+            
+            state_data = _get_state_summary_data(results, year_range)                        
+
+            return render_to_response('fpds/search/summary_table.html', {'state_data':state_data, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+
+    return Http404()
+
+
+
+def map_data(request, sector_name=None):
+
+
+
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation
+    states = {}
+
+    for state in State.objects.all():
+
+        states[state.id] = state
+
+
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+            fpds_results = fpds_search_query.aggregate('recipient_state')
+
+            max_state_total = 0
+            max_per_capital_total = 0
+
+            per_capita_totals = {}
+
+            for state_id in fpds_results:
+                if states.has_key(state_id) and states[state_id].population and fpds_results[state_id] > 0:
+
+                    per_capita_totals[state_id] =  fpds_results[state_id] / states[state_id].population
+
+                    if per_capita_totals[state_id] > max_per_capital_total:
+                        max_per_capital_total = per_capita_totals[state_id]
+
+                    if fpds_results[state_id] > max_state_total:
+                        max_state_total = fpds_results[state_id]
+
+
+            results = []
+
+            for state_id in per_capita_totals:
+                if states.has_key(state_id):
+
+                    state_percent = fpds_results[state_id] / max_state_total
+                    if state_percent > 0 and state_percent < Decimal('0.001'):
+                        state_percent = 0.001
+
+                    state_per_capita_percent = per_capita_totals[state_id] / max_per_capital_total
+                    if state_per_capita_percent > 0 and state_per_capita_percent < Decimal('0.001'):
+                        state_per_capita_percent = 0.001
+
+
+                    line = '%d,%f,%.03f,%f,%.03f' % (states[state_id].fips_state_code, 
+                                                           fpds_results[state_id], 
+                                                           state_percent, 
+                                                           per_capita_totals[state_id],
+                                                           state_per_capita_percent)
+
+                    results.append(line)
+
+
+            return HttpResponse('\n'.join(results), mimetype="text/plain")
+
+    return Http404()
+        
+        
+        
 class FPDSTestWrapper(fpds.tests.search):
     """
     Because the Django test framework is a piece of garbage.
@@ -38,3 +437,10 @@ def run_tests(request):
     
     return HttpResponse("\n".join(f.errors), mimetype='text/plain')
     
+    
+
+
+
+
+
+

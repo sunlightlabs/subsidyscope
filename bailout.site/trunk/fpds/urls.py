@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls.defaults import *
 from sectors.models import Sector
 from django.views.generic.simple import direct_to_template, redirect_to
+from django.core.urlresolvers import reverse
 
 
 urlpatterns = patterns('', 
@@ -12,5 +13,6 @@ urlpatterns = patterns('',
     url(r'^contracts/search/summary/', 'fpds.views.summary_statistics', {}, name='fpds-search-summary')
 )
 
+
 if settings.DEBUG:
-    urlpatterns = patterns('', url(r'^test/', 'fpds.views.run_tests', {}, name='fpds-tests'))
+    urlpatterns += patterns('', url(r'^test/', 'fpds.views.run_tests', {}, name='fpds-tests'))

@@ -36,6 +36,16 @@ class FPDSRecordIndex(indexes.SearchIndex):
     # vendor_country_code = indexes.CharField(model_attr='vendor_country_code', null=True)
     # location_code = indexes.CharField(model_attr='location_code', null=True)
 
+    # TODO
+    # 1. add extent competed, nonprofit and "educational institution" flags
+    # 1a. make solr summing occur for summary/state/year AT THE SAME TIME. aha!
+    # 2. get canary back up to speed for indexing
+    # 3. reindex
+    # 4. expose new fields through the interface
+    # 5. collaborate with Kevin to investigate heap problems
+    # 6. investigate solr multi-index operation
+    
+
 
     # free text combination fields (for OR-based searches)
     recipient = indexes.CharField(null=True)
