@@ -1,8 +1,9 @@
 import datetime
 from haystack import indexes
 from haystack.sites import site
-from fpds.models import FPDSRecord
+from fpds.models import FPDSRecord, ExtentCompetedMapper
 
+extent_competed_mapper = ExtentCompetedMapper()
 
 class FPDSRecordIndex(indexes.SearchIndex):
     
@@ -36,6 +37,12 @@ class FPDSRecordIndex(indexes.SearchIndex):
     # vendor_country_code = indexes.CharField(model_attr='vendor_country_code', null=True)
     # location_code = indexes.CharField(model_attr='location_code', null=True)
 
+    # FPDS-only fields    
+    # 1 = false; 2 = true -- cannot return 0 for haystack prepare_* or the field won't be indexed
+    nonprofit_organization_flag = indexes.IntegerField(model_attr='nonprofit_organization_flag', null=True)
+    educational_institution_flag = indexes.IntegerField(model_attr='educational_institution_flag', null=True)
+    extent_competed = indexes.IntegerField(null=True)
+
     # TODO
     # 1. add extent competed, nonprofit and "educational institution" flags
     # 1a. make solr summing occur for summary/state/year AT THE SAME TIME. aha!
@@ -46,13 +53,35 @@ class FPDSRecordIndex(indexes.SearchIndex):
     # 6. investigate solr multi-index operation
     
 
-
     # free text combination fields (for OR-based searches)
     recipient = indexes.CharField(null=True)
     all_text = indexes.CharField(null=True)
     all_states = indexes.MultiValueField(null=True)
 
+    def prepare_nonprofit_organization_flag(self, object):
+        if object.nonprofit_organization_flag:
+            return 2
+        else:
+            return 1
+            
+    def prepare_educational_institution_flag(self, object):
+        if object.educational_institution_flag:
+            return 2
+        else:
+            return 1
 
+    # def prepare_nonprofit_organization_flag(self, object):
+    #     if object.nonprofit_organization_flag is True:
+    #         return 1
+    #     else:        
+    #         return 0
+    #             
+    # def prepare_educational_institution_flag(self, object):
+    #     print int(object.educational_institution_flag), object.educational_institution_flag
+    #     return int(object.educational_institution_flag)
+    # 
+    def prepare_extent_competed(self, object):
+        return extent_competed_mapper.assign_index(object.extent_competed)
     
     def prepare_recipient(self, object):
         s = "%s %s %s" % (getattr(object, 'vendor_name', ''), getattr(object, 'contractor_name', ''), getattr(object, 'vendor_alternate_name', ''))

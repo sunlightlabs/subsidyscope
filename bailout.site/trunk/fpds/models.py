@@ -5,6 +5,29 @@ import sys
 from geo.models import *
 
 
+class ExtentCompetedMapper(object):
+    # (code, title, description, considered subsidy?)
+    CODES = (
+        ('A', 'Full and Open Competition', 'Report this code if the action resulted from an award pursuant to FAR 6.102(a) - sealed bid, FAR 6.102(b) - competitive proposal, FAR 6.102(c) - Combination, or any other competitive method that did not exclude sources of any type', False),
+        ('B', 'Not Available for Competition' 'Select this code when the contract is not available for competition', True),
+        ('C', 'Not Competed', 'Select this code when the contract is not competed.', True),
+        ('D', 'Full and Open Competition after exclusion of sources', 'Select this code when some sources are excluded before competition', True),
+        ('E', 'Follow On to Competed Action', 'Select this code when the action is a follow on to an existing competed contract. FAR 6.302-1. This code is not valid for base documents signed after 10/31/2009.', True),
+        ('F', 'Competed under SAP', 'Select this code when the action is competed under the Simplified Acquisition Threshold. This code is valid for DoD effective 10/31/2009.', False),
+        ('G', 'Not Competed under SAP', 'Select this code when the action is NOT competed under the Simplified Acquisition Threshold. This code is valid for DoD effective 10/31/2009.', True),
+        ('CDO', 'Competitive Delivery Order', 'Apply to Full and Open Competition pursuant to FAR 6.1 and only apply to Delivery Orders) Report this code if the IDV Type is a Federal Schedule. Report this code when the Order delivery/task order award was made pursuant to a process that permitted each contract awardee a fair opportunity to be considered. See FAR Part 16.505(b)(1). Report this code if the action is for the award of a multiple award schedule or an order against a multiple award schedule pursuant to FAR 6.102(d)(3) and the applicable provisions referenced there under. This code is not valid for base documents signed after 10/31/2009.', False),
+        ('NDO', 'Non-Competitive Delivery Order', 'Report this code when competitive procedures are not used in awarding the delivery order for a reason not included above (when the action was non-competitive. This code is not valid for base documents signed after 10/31/2009.', True)
+    ) # add new codes to end of list
+    
+    def __init__(self):
+        self._lookup = {}
+        for i,code in enumerate(self.CODES):
+            self._lookup[code[0]] = (i+1)
+
+    def assign_index(self, code):
+        return self._lookup.get(code, 0)
+
+
 class NAICSCode(models.Model):
     def __unicode__(self):
         if self.code and self.name:
@@ -64,7 +87,7 @@ class CodeMatcher(object):
 
 class FPDSRecord(models.Model):
     def __unicode__(self):
-        return "%s - %s - %s" % (self.fiscal_year, self.federal_funding_amount, self.recipient_name)
+        return "%s - %s - %s" % (self.fiscal_year, self.obligated_amount, self.vendor_name)
     class Meta:
         verbose_name = 'FPDS Record'
     
