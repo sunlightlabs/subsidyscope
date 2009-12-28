@@ -7,6 +7,10 @@ class FPDSSearch(USASpendingSearchBase):
     FIELD_TO_SUM = 'obligated_amount'
     DEFAULT_AGGREGATION_FIELD = 'fiscal_year'
 
+    def __init__(self, *argv):
+        USASpendingSearchBase.__init__(self, *argv)        
+        self.extent_competed_mapper = ExtentCompetedMapper()
+
     FIELD_MAPPINGS = {
 
         'fiscal_year': {
@@ -50,6 +54,30 @@ class FPDSSearch(USASpendingSearchBase):
         'recipient': {
             'type': 'text',
             'solr_field': 'recipient'
+        },
+        
+        # accepts alpha code (e.g. A, B, CDO)
+        'extent_competed': {
+            'type': 'fk',
+            'mysql_field': 'extent_competed',
+            'solr_field': 'extent_competed',
+            'solr_transformation': lambda x: self.extent_competed_mapper.assign_index(x),            
+        },
+        
+        # accepts 0 = false, 1 = true
+        'educational_institution_flag': {
+            'type': 'fk',
+            'mysql_field': 'educational_institution_flag',
+            'solr_field': 'educational_institution_flag',
+            'solr_transformation': lambda x: x+1
+        },
+
+        # accepts 0 = false, 1 = true        
+        'nonprofit_organization_flag': {
+            'type': 'fk',
+            'mysql_field': 'nonprofit_organization_flag',
+            'solr_field': 'nonprofit_organization_flag',
+            'solr_transformation': lambda x: x+1
         },
 
         'recipient_state': {
