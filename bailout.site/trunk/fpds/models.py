@@ -21,8 +21,10 @@ class ExtentCompetedMapper(object):
     
     def __init__(self):
         self._lookup = {}
+        self._reverse_lookup = {}    
         for i,code in enumerate(self.CODES):
             self._lookup[code[0]] = (i+1)
+            self._reverse_lookup[(i+1)] = code[0]
 
     def assign_index(self, code):
         return self._lookup.get(code, 0)
