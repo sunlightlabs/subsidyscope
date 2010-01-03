@@ -9,7 +9,7 @@ class ExtentCompetedMapper(object):
     # (code, title, description, considered subsidy?)
     CODES = (
         ('A', 'Full and Open Competition', 'Report this code if the action resulted from an award pursuant to FAR 6.102(a) - sealed bid, FAR 6.102(b) - competitive proposal, FAR 6.102(c) - Combination, or any other competitive method that did not exclude sources of any type', False),
-        ('B', 'Not Available for Competition' 'Select this code when the contract is not available for competition', True),
+        ('B', 'Not Available for Competition', 'Select this code when the contract is not available for competition', True),
         ('C', 'Not Competed', 'Select this code when the contract is not competed.', True),
         ('D', 'Full and Open Competition after exclusion of sources', 'Select this code when some sources are excluded before competition', True),
         ('E', 'Follow On to Competed Action', 'Select this code when the action is a follow on to an existing competed contract. FAR 6.302-1. This code is not valid for base documents signed after 10/31/2009.', True),

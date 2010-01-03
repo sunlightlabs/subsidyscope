@@ -11,6 +11,7 @@ import django.test.simple
 from django.template import RequestContext
 from django.test.utils import setup_test_environment, teardown_test_environment
 from django.http import Http404, HttpResponseRedirect, HttpResponse
+from fpds.models import ExtentCompetedMapper
 import settings
 
 
@@ -36,6 +37,14 @@ def MakeFPDSSearchFormClass(sector=None, subsectors=[]):
         # recipient types
         # recipient_type_choices = (('nonprofit', 'Nonprofits'), ('education', 'Higher Education'), ('all', 'Either'))
         # recipient_type = forms.TypedChoiceField(label="Include recipients classified as", widget=forms.RadioSelect, choices=recipient_type_choices, initial='all')
+
+        vendor_type = forms.TypedChoiceField(label='Vendor Type', widget=forms.RadioSelect, choices=((0, 'Nonprofits'), (1, 'Educational Institutions'), (2, 'Both')), initial=2, coerce=int)
+
+        extent_competed_choices = []
+        for (code, name, description, include) in ExtentCompetedMapper.CODES:
+            if include:
+                extent_competed_choices.append( (code, name) )                
+        extent_competed = forms.MultipleChoiceField(label='Extent Competed', required=False, choices=extent_competed_choices, initial=map(lambda x: x[0], extent_competed_choices), widget=CheckboxSelectMultipleMulticolumn(columns=2))
 
         obligation_date_start = forms.DateField(label="Effective Date Start", required=False)
         obligation_date_end = forms.DateField(label="Effective Date End", required=False)
@@ -80,6 +89,16 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
             elif form.cleaned_data['text_query_type']==0:
                 fpds_search_query = fpds_search_query.filter('recipient', form.cleaned_data['text_query'])
        
+        # handle vendor type
+        if form.cleaned_data['vendor_type'] is not None:           
+            if form.cleaned_data['vendor_type']==0: # 0 = nonprofits only
+                fpds_search_query = fpds_search_query.filter('nonprofit_organization_flag', 1).filter('educational_institution_flag', 0)
+            elif form.cleaned_data['vendor_type']==1: # 1 = educational orgs only
+                fpds_search_query = fpds_search_query.filter('nonprofit_organization_flag', 0).filter('educational_institution_flag', 1)
+
+        # handle extent competed
+        if form.cleaned_data['extent_competed'] is not None:
+            fpds_search_query = fpds_search_query.filter('extent_competed', form.cleaned_data['extent_competed'])
 
         # handle obligation date range
         if form.cleaned_data['obligation_date_start'] is not None or form.cleaned_data['obligation_date_end'] is not None:

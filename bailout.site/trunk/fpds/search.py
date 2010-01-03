@@ -1,6 +1,11 @@
 from usaspending import *
 from fpds.models import *
 
+
+def extent_competed_lookup(x):
+    extent_competed_mapper = ExtentCompetedMapper()
+    return extent_competed_mapper.assign_index(x)
+
 class FPDSSearch(USASpendingSearchBase):
 
     DJANGO_MODEL = FPDSRecord
@@ -9,7 +14,7 @@ class FPDSSearch(USASpendingSearchBase):
 
     def __init__(self, *argv):
         USASpendingSearchBase.__init__(self, *argv)        
-        self.extent_competed_mapper = ExtentCompetedMapper()
+        self.EXTENT_COMPETED_MAPPER = ExtentCompetedMapper()
 
     FIELD_MAPPINGS = {
 
@@ -61,7 +66,7 @@ class FPDSSearch(USASpendingSearchBase):
             'type': 'fk',
             'mysql_field': 'extent_competed',
             'solr_field': 'extent_competed',
-            'solr_transformation': lambda x: self.extent_competed_mapper.assign_index(x),            
+            'solr_transformation': lambda x: extent_competed_lookup(x),            
         },
         
         # accepts 0 = false, 1 = true

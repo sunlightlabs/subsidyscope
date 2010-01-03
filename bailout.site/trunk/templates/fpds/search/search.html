@@ -63,30 +63,45 @@ var sortOrder = '{{ sort_order }}';
           <fieldset class="collapsed" id="advanced-options">
             
             <legend id="advanced-options">Advanced Options</legend>
-  					
+            
+            
+            <div class="section" id="filter">  					
+              <h4>Vendor Type</h4>
+              {% morsel recipient_type %}
+    					<div id="vendor-type-wrapper">{{ form.vendor_type }}{{ form.vendor_type.errors }}</div>    					
+            </div>
+					
+					  <div class="section" id="filter">  					
+              <h4>Extent Competed</h4>
+              {% morsel extent_competed %}
+              <p class="select-all-or-none">[ <a href="#" class="select-all" id="location-selection-select-all">Select All</a> / <a href="#" class="select-none" id="location-selection-tag-select-none">Select None</a> ]</p>              
+    					<div id="extent-competed-wrapper">{{ form.extent_competed }}{{ form.extent_competed.errors }}</div>
+    					<div class="clear"></div>
+            </div>
 					
             <div class="section" id="range">
-				  <h4>Expenditure Range</h4>
-  					<div class="field-wrapper">
-					<div id="obligation-date-wrapper">
-					  <label for="obligation_date_start">Effective Date</label>
-					  <div class="range-wrapper">
-  						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
-  						{{ form.obligation_date_start.errors }}
-  						{{ form.obligation_date_end.errors }}
-						</div>
-						{# fiscal year ? #}
-					</div>
+				      <h4>Expenditure Range</h4>
+  					  <div class="field-wrapper">
+
+					      <div id="obligation-date-wrapper">
+					        <label for="obligation_date_start">Effective Date</label>
+					        <div class="range-wrapper">
+        						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
+        						{{ form.obligation_date_start.errors }}
+        						{{ form.obligation_date_end.errors }}
+						      </div>
+					      </div>
 				
-					<div id="obligation-amount-wrapper">
-					  <label for="obligation_amount_minimum">Obligation Amount</label>
-					  <div class="range-wrapper">
-  						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
-  						{{ form.obligation_amount_minimum.errors }}
-  						{{ form.obligation_amount_maximum.errors }}
-						</div>
-					</div>
-            </div>
+					      <div id="obligation-amount-wrapper">
+					        <label for="obligation_amount_minimum">Obligation Amount</label>
+					        <div class="range-wrapper">
+  						      $&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
+  						      {{ form.obligation_amount_minimum.errors }}
+  						      {{ form.obligation_amount_maximum.errors }}
+						      </div>
+					      </div>
+              
+              </div>
             </div>
 
           
