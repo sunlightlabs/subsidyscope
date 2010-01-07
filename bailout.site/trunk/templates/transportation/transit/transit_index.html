@@ -180,10 +180,11 @@ td.number {text-align: right; }
                     {% if metrics.1|in_list:form.metrics_selected %}<th {%if form.sort == "total_operating_expenses" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_operating_expenses" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_operating_expenses">Average Operating Expenses</th>{% endif %}
                     {% if metrics.2|in_list:form.metrics_selected %}<th {%if form.sort == "total_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_PMT">PMT</th>{% endif %}
                     {% if metrics.3|in_list:form.metrics_selected %}<th {%if form.sort == "total_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "total_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="total_UPT">UPT</th>{% endif %}
-                    {% if metrics.4|in_list:form.metrics_selected %}<th {%if form.sort == "avg_operating_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_operating_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_operating_PMT">Operating Expense per PMT</th>{% endif %}
-                    {% if metrics.5|in_list:form.metrics_selected %}<th {%if form.sort == "avg_capital_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_capital_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_capital_PMT">Capital Expense per PMT</th>{% endif %}
-                    {% if metrics.6|in_list:form.metrics_selected %}<th {%if form.sort == "avg_operating_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_operating_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_operating_UPT">Operating Expense per UPT</th>{% endif %}
-                    {% if metrics.7|in_list:form.metrics_selected %}<th {%if form.sort == "avg_capital_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_capital_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_capital_UPT">Capital Expense per UPT</th>{% endif %}
+                    {% if metrics.4|in_list:form.metrics_selected %}<th {%if form.sort == "rec_ratio" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "rec_ratio" and form.order == "desc"%} class="headerDesc" {%endif%} id="rec_ratio">Recovery Ratio</th>{% endif %}
+                    {% if metrics.5|in_list:form.metrics_selected %}<th {%if form.sort == "avg_operating_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_operating_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_operating_PMT">Operating Expense per PMT</th>{% endif %}
+                    {% if metrics.6|in_list:form.metrics_selected %}<th {%if form.sort == "avg_capital_PMT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_capital_PMT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_capital_PMT">Capital Expense per PMT</th>{% endif %}
+                    {% if metrics.7|in_list:form.metrics_selected %}<th {%if form.sort == "avg_operating_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_operating_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_operating_UPT">Operating Expense per UPT</th>{% endif %}
+                    {% if metrics.8|in_list:form.metrics_selected %}<th {%if form.sort == "avg_capital_UPT" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "avg_capital_UPT" and form.order == "desc"%} class="headerDesc" {%endif%} id="avg_capital_UPT">Capital Expense per UPT</th>{% endif %}
                 </tr>
 
             {% for transit in results.object_list %}
@@ -197,10 +198,11 @@ td.number {text-align: right; }
                     {% if metrics.1|in_list:form.metrics_selected %}<td class="number">${{transit.avg_operating_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
                     {% if metrics.2|in_list:form.metrics_selected %}<td class="number">{{transit.total_PMT|floatformat:"0"|intcomma}}</td>{% endif %}
                     {% if metrics.3|in_list:form.metrics_selected %}<td class="number">{{transit.total_UPT|floatformat:"0"|intcomma}}</td>{% endif %}
-                    {% if metrics.4|in_list:form.metrics_selected %}<td class="number">${{transit.avg_operating_PMT|floatformat:"2"}}</td>{% endif %}
-                    {% if metrics.5|in_list:form.metrics_selected %}<td class="number">${{transit.avg_capital_PMT|floatformat:"2"}}</td>{% endif %}
-                    {% if metrics.6|in_list:form.metrics_selected %}<td class="number">${{transit.avg_operating_UPT|floatformat:"2"}}</td>{% endif %}
-                    {% if metrics.7|in_list:form.metrics_selected%}<td class="number">${{transit.avg_capital_UPT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.4|in_list:form.metrics_selected %}<td class="number">${{transit.recovery_ratio|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.5|in_list:form.metrics_selected %}<td class="number">${{transit.avg_operating_PMT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.6|in_list:form.metrics_selected %}<td class="number">${{transit.avg_capital_PMT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.7|in_list:form.metrics_selected %}<td class="number">${{transit.avg_operating_UPT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.8|in_list:form.metrics_selected%}<td class="number">${{transit.avg_capital_UPT|floatformat:"2"}}</td>{% endif %}
 
                 </tr>
             {% endfor %}
