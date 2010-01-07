@@ -301,7 +301,7 @@ class TransitQuery(forms.Form):
     
     uza_select = forms.ChoiceField([('', '')] + [(u.id, u.name) for u in UrbanizedArea.objects.all()], required=False)
     
-    metrics_selected = forms.MultipleChoiceField((("cap_expense", "Capital Expense"), ("op_expense", "Operating Expense"), ("PMT", "PMT"), ("UPT", "UPT"), ("rec_ratio", "Recovery Ratio"), ("op_expense_pmt", "Operating Expense per PMT"), ("cap_expense_pmt", "Capital Expense per PMT"), ("cap_expense_upt", "Capital Expense per UPT"), ("op_expense_upt", "Capital Expense per UPT")), required=False)
+    metrics_selected = forms.MultipleChoiceField((("cap_expense", "Capital Expense"), ("op_expense", "Operating Expense"), ("PMT", "PMT"), ("UPT", "UPT"), ("recovery_ratio", "Recovery Ratio"), ("op_expense_pmt", "Operating Expense per PMT"), ("cap_expense_pmt", "Capital Expense per PMT"), ("cap_expense_upt", "Capital Expense per UPT"), ("op_expense_upt", "Capital Expense per UPT")), required=False)
     
     sort = forms.CharField(max_length=100, required=False)
     

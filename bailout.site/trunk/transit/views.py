@@ -14,7 +14,7 @@ from django import forms
 from copy import deepcopy
 from django.db.models import Q
 
-metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'rec_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
+metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'recovery_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
 
 
 def index(request):
