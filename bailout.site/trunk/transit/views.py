@@ -44,6 +44,7 @@ def index(request):
             if modes:
                 systems = systems.filter(mode__in=modes)
             if size:
+                by_size = None
                 if size == '50_100':
                     by_size = UrbanizedArea.objects.filter(population__lte=100000)
 
@@ -54,7 +55,7 @@ def index(request):
                 elif size == '10_20mil':
                     by_size = UrbanizedArea.objects.filter(population__gte=10000000)
 
-                if by_size: systems = systems.filter(urbanized_area__in=by_size)
+                if by_size: systems = systems.filter(urbanized_area__in=by_size); 
 
             if state:
                 systems = systems.filter(state=State.objects.get(abbreviation=state))

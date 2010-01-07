@@ -28,6 +28,14 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 .dropdown-wrapper ul {margin-right:100px; margin-top:15px; float:left;}
 .mode ul {margin-right:40px;}
 .pagination.first {padding-top:20px;}
+span.select-all-or-none {font-size:.8em; vertical-align:top; font-weight: normal; padding-left: 5px; } 
+span.select-all-or-none a {padding-left:4px;padding-right:4px;}
+td.text { text-align: left;}
+td.abbrev { text-align:center; }
+td.number {text-align: right; }
+#metric-alert {display: none; color: red; font-weight: bold;} 
+#faads-search-form div.dropdown-wrapper ul.last {margin-right: 10px; }
+.fine-print{font-size:.8em; font-weight:normal;padding-left:5px;}
 </style>
 
 
@@ -47,13 +55,13 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
             </fieldset>
             <fieldset id="advanced-options" class="collapsed">
                 <legend id="advanced-options">Advanced Options</legend>
-                <div class="section">
-                    <h4>Mode</h4>
+                <div class="section" id="mode-select">
+                    <h4>Mode <span class="select-all-or-none"> [<a href="#" class="select-all" id="mode-select-all">All</a>/<a href="#" class="select-none" id="mode-select-none">None</a>]</span></h4>
                     <div id="assistance-action-recipient-wrapper" class="field-wrapper">
                         <div class="dropdown-wrapper mode">
                             <ul>
                             {% for m in modes %}
-                                <li><label for="{{m.0}}"><input type="checkbox" name="modes_selected" value="{{m.0}}" {%if form and m.0|in_list:form.modes_selected %} checked {% endif %}  />{{m.1}}</label></li>
+                                <li><label for="{{m.0}}"><input type="checkbox" name="modes_selected" value="{{m.0}}" {%if form and m.0|in_list:form.modes_selected %} checked {% elif not form %} checked {% endif %}  />{{m.1}}</label></li>
                                 {% if forloop.counter|divisibleby:"5" %}
                                 </ul></div><div class="dropdown-wrapper mode"><ul>
                                 {% endif %}
@@ -67,10 +75,11 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                     <h4>Population Served</h4>
                     <div id="program-selector" style="padding-top:10px;">
                         <ul>
-                            <li><label for="50_100"><input id="50_100" type="radio" name="size_select" value="50_100" {% if form.size_select == "50_100"%} checked {% endif %}/>50,000 - 100,000</label></li>
+                            <li><label for="50_100"><input id="50_100" type="radio" name="size_select" value="50_100" {% if form.size_select == '50_100' %} checked {% endif %} />50,000 - 100,000</label></li>
                             <li><label for="100_1mil"><input id="100_1mil" type="radio" name="size_select" value="100_1mil" {% if form.size_select == "100_1mil"%} checked {% endif %}/>100,000 - 1 million</label></li>
-                            <li><label for="1_10mil"><input id="1_10mil" type="radio" name="size_select" value="1_10mil" {% if form.size_select == "1_10mil" or form.size_select == "on" %} checked {% endif %} />1 million - 10 million</label></li>
-                            <li><label for="10_20mil"><input id="10_20mill" type="radio" name="size-select" value="10_20mil" {% if form.size_select == "10_20mil" %} checked {% endif %} />10 million - 20 million</label></li>
+                            <li><label for="1_10mil"><input id="1_10mil" type="radio" name="size_select" value="1_10mil" {% if form.size_select == "1_10mil" %} checked {% endif %} />1 million - 10 million</label></li>
+                            <li><label for="10_20mil"><input id="10_20mill" type="radio" name="size_select" value="10_20mil" {% if form.size_select == "10_20mil" %} checked {% endif %} />10 million - 20 million</label></li>
+                            <li><label for="all"><input id="all" type="radio" name="size_select" value="all" {% if form.size_select == "all" or not form  %} checked  {% endif %}/>All</label></li>
                         </ul>
                     </div>
                     <div class="clear-left"></div>
@@ -96,22 +105,22 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
                     </div>
                     <div class="clear-left" style="margin-bottom:40px;"></div>
                 </div>               
-                <div class="section last">
-                    <h4>Performance Metrics </h4>
+                <div class="section last" id="performance-metrics">
+                    <h4>Performance Metrics <span class="fine-print">(maximum of 5 )</span></h4>
                     <div class="field-wrapper">
                         <div class="dropdown-wrapper">
                             <ul>    
                                 <li><strong>Expenses</strong></li>
-                                <li><label for="cap_expense"><input type="checkbox" name="metrics_selected" value="cap_expense" {%if form and  metrics.0|in_list:form.metrics_selected %} checked {% endif %} />Capital</label></li>
-                                <li><label for="op_expense"><input type="checkbox" name="metrics_selected" value="op_expense" {%if form  and metrics.1|in_list:form.metrics_selected %} checked {% endif %}  />Operating</label></li>
+                                <li><label for="cap_expense"><input class="default-metric" type="checkbox" name="metrics_selected" value="cap_expense" {%if form and  metrics.0|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %} />Capital</label></li>
+                                <li><label for="op_expense"><input class="default-metric" type="checkbox" name="metrics_selected" value="op_expense" {%if form  and metrics.1|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />Operating</label></li>
                             </ul>
                             <ul>
                                 <li><strong>Ridership</strong</li>
-                                <li><label for="PMT"><input type="checkbox" name="metrics_selected" value="PMT" {%if form and metrics.2|in_list:form.metrics_selected %} checked {% endif %}  />PMT</label></li>
+                                <li><label for="PMT"><input class="default-metric" type="checkbox" name="metrics_selected" value="PMT" {%if form and metrics.2|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />PMT</label></li>
 
-                                <li><label for="UPT"><input type="checkbox" name="metrics_selected" value="UPT" {%if form and metrics.3|in_list:form.metrics_selected %} checked {% endif %}  />UPT</label></li>
+                                <li><label for="UPT"><input class="default-metric" type="checkbox" name="metrics_selected" value="UPT" {%if form and metrics.3|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />UPT</label></li>
                             </ul>
-                            <ul>
+                            <ul class="last">
                                 <li><strong>Derived</strong></li>
                                 <li><label for="rec_ratio"><input type="checkbox" name="metrics_selected" value="rec_ratio" {%if form and metrics.4|in_list:form.metrics_selected %} checked {% endif %}  />Recovery Ratio</label></li>
                                 <li><label for="op_expense_pmt"><input type="checkbox" name="metrics_selected" value="op_expense_pmt" {%if form and metrics.5|in_list:form.metrics_selected  %} checked {% endif %}  />Operating Expense per PMT</label></li>
@@ -122,14 +131,16 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 
                             </ul>
                         </div>
+                        <div id="metric-alert">Please restrict your performance metrics to 5 or less</div>
                     </div>
                 </div> 
             </fieldset>
             <input type="hidden" name="page" id="page_value" value="" />
             <input type="hidden" name="sort" id="sort_field" value="{%if form.sort%}{{form.sort}}{% endif %}" />
             <input type="hidden" name="order" id="sort_order" value="{%if form.order%}{{form.order}}{% endif %}" />
-
-            <input id="reset-faads-search" type="button" value="Reset Search" />
+            {% if form %} 
+                <input id="reset-search" class="faads-search-submit" style="float:left;" type="button" value="Reset Search" />
+            {% endif %}
             <input type="submit" class="faads-search-submit" value="Search" />
             
             </form>
@@ -177,19 +188,19 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 
             {% for transit in results.object_list %}
                 <tr>
-                    <td><a href="/transportation/transit/system/{{transit.transit_system.trs_id}}/">{{transit.name}}</a></td>
-                    <td>{{transit.get_mode_display}}
-                    <td>{{transit.city}}</td>
-                    <td>{{transit.state.abbreviation}}</td>
-                    <td>{{transit.urbanized_area.name}}</td>
-                    {% if metrics.0|in_list:form.metrics_selected %}<td>${{transit.avg_capital_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
-                    {% if metrics.1|in_list:form.metrics_selected %}<td>${{transit.avg_operating_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
-                    {% if metrics.2|in_list:form.metrics_selected %}<td>{{transit.total_PMT|floatformat:"0"|intcomma}}</td>{% endif %}
-                    {% if metrics.3|in_list:form.metrics_selected %}<td>{{transit.total_UPT|floatformat:"0"|intcomma}}</td>{% endif %}
-                    {% if metrics.4|in_list:form.metrics_selected %}<td>${{transit.avg_operating_PMT|floatformat:"2"}}</td>{% endif %}
-                    {% if metrics.5|in_list:form.metrics_selected %}<td>${{transit.avg_capital_PMT|floatformat:"2"}}</td>{% endif %}
-                    {% if metrics.6|in_list:form.metrics_selected %}<td>${{transit.avg_operating_UPT|floatformat:"2"}}</td>{% endif %}
-                    {% if metrics.7|in_list:form.metrics_selected%}<td>${{transit.avg_capital_UPT|floatformat:"2"}}</td>{% endif %}
+                    <td class="text"><a href="/transportation/transit/system/{{transit.transit_system.trs_id}}/">{{transit.name}}</a></td>
+                    <td class="text">{{transit.get_mode_display}}
+                    <td class="text">{{transit.city}}</td>
+                    <td class="abbrev">{{transit.state.abbreviation}}</td>
+                    <td class="text">{{transit.urbanized_area.name}}</td>
+                    {% if metrics.0|in_list:form.metrics_selected %}<td class="number">${{transit.avg_capital_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
+                    {% if metrics.1|in_list:form.metrics_selected %}<td class="number">${{transit.avg_operating_expenses|floatformat:"0"|intcomma}}</td>{% endif %}
+                    {% if metrics.2|in_list:form.metrics_selected %}<td class="number">{{transit.total_PMT|floatformat:"0"|intcomma}}</td>{% endif %}
+                    {% if metrics.3|in_list:form.metrics_selected %}<td class="number">{{transit.total_UPT|floatformat:"0"|intcomma}}</td>{% endif %}
+                    {% if metrics.4|in_list:form.metrics_selected %}<td class="number">${{transit.avg_operating_PMT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.5|in_list:form.metrics_selected %}<td class="number">${{transit.avg_capital_PMT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.6|in_list:form.metrics_selected %}<td class="number">${{transit.avg_operating_UPT|floatformat:"2"}}</td>{% endif %}
+                    {% if metrics.7|in_list:form.metrics_selected%}<td class="number">${{transit.avg_capital_UPT|floatformat:"2"}}</td>{% endif %}
 
                 </tr>
             {% endfor %}
@@ -227,6 +238,14 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
+    $("#mode-select-all").click(function(){
+       $("#mode-select input").attr("checked", "checked");
+       return false;
+    });
+    $("#mode-select-none").click(function(){
+        $("#mode-select input").attr("checked", "");
+        return false;
+    });
     $("#prev_page, #prev_page_bottom").click(function(e){
         e.preventDefault();
         $("#faads-search-form").find("#page_value").val("{{paginator.previous_page_number}}").end().submit();
@@ -260,6 +279,31 @@ $(document).ready(function(){
 
         $("#faads-search-form").submit();
 
+    });
+    $("#reset-search").click(function(){ 
+        var form = $("form#faads-search-form") ;
+        form.find("#id_text_query").val("")
+            .end()
+            .find("#mode-select-all").trigger("click")
+            .end()
+            .find("#50_100").attr("checked", "checked")
+            .end()
+            .find("#state-select option:first").attr("selected", "selected")
+            .end()
+            .find("#uza-select option:first").attr("selected", "selected")
+            .end()
+            .find("#performance-metrics")
+                .find("input").attr("checked", "")
+                .end()
+                .find(".default-metric").attr("checked", "checked");
+
+    });
+    $("#performance-metrics input").click(function(e){
+        if ($("#performance-metrics input:checked").length > 5) { 
+            $(e.target).attr("checked", "");
+            $("#metric-alert").show();
+            setTimeout( function(){$("#metric-alert").fadeOut()}, 4000); 
+        }
     });
 });
 </script>

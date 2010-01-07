@@ -295,7 +295,7 @@ class TransitQuery(forms.Form):
     
     modes_selected = forms.MultipleChoiceField(OperationStats.MODE_CHOICES, required=False)
     
-    size_select = forms.ChoiceField((('50_100', '50,000 - 100,000'), ("100_1mil", "100,000 - 1 million"),("1_10mil", "1 million - 10 million"),("10_20mil", "10 million - 20 million")),required=False)
+    size_select = forms.ChoiceField((('50_100', '50,000 - 100,000'), ("100_1mil", "100,000 - 1 million"),("1_10mil", "1 million - 10 million"),("10_20mil", "10 million - 20 million"), ('all', 'All')),required=True)
     
     state_select = forms.ChoiceField([('','')] + [(st.abbreviation, st.name) for st in State.objects.all()], required=False)
     
