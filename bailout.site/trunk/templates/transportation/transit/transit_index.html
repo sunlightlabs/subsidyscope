@@ -269,7 +269,6 @@ $(document).ready(function(){
         $(this).parent().toggleClass('collapsed'); 
     }); 
     $("#transit-search-results th").click(function(){
-        console.log(this.id); 
         var that = this;
         $("#sort_field").val(that.id);
         if ( $(that).hasClass("headerAsc")) { $("#sort_order").val("desc"); }
