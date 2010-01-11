@@ -5,12 +5,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link  href="{% media_url %}/favicon.ico" rel="shortcut icon" type="image/ico" />
-	        {% css "screen.css" %}
-        	{% css_print "print.css" %}
-        	{% css_ie "ie.css" %}
-        	{% css "style.css" %}
-			{% js "jquery-1.3.2.min.js" %}
+	{% css "styles/screen.css" %}
+  {% css_print "styles/print.css" %}
+  <!--[if IE ]>{% css "styles/ie.css" %}<![endif]-->
+  {% css "styles/style.css" %}
+	{% js "scripts/jquery-1.3.2.min.js" %}
 
-	        <title>{% block title %}Subsidyscope.com{% endblock %}</title>
+	<title>{% block title %}Subsidyscope.com{% endblock %}</title>
 </head>
 <body>

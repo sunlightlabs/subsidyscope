@@ -2,11 +2,13 @@
 
 {% load media %}
 {% load humanize %}
+{% load glossary_tags %}
+{% load morsel_tags %}
 {% block content %}
 {% load smarterif %}
-{% js "jquery.easing.1.3.js" %}
-{#{% js "aip.js" %}#}
-{% css "aip.css" %}
+{% js "scripts/jquery.easing.1.3.js" %}
+{#{% js "scripts/aip.js" %}#}
+{% css "styles/aip.css" %}
 <style>
 .searchterms, .options {display: block; margin: 10px;}
 #portsearch fieldset, #projectsearch fieldset {padding-top :20px;padding-left: 1.8em;}
@@ -23,8 +25,9 @@ td.dollars {text-align:right; }
 th.sortable {background: url(/media/images/bg.gif) no-repeat center right; cursor: pointer;}
 .pages { margin:15px; display: block; font-size: 1.1em; text-align:right; }
 #project_results table { margin-bottom: 0; }
-#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;}
+#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;margin:0 !important;}
 #projectsearch fieldset.collapsed legend, #portsearch fieldset.collapsed legend { background: transparent url(/media/images/collapse_plus.png) no-repeat scroll right 5px;}
+.summary-csv {width: 200px; float:left; margin-top:10px; padding 2px;}
 </style>
 
 
@@ -33,7 +36,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
     <span class="span-24">
         <div id="header_area"><h3>Airport Improvement Program Grant Search</h3></div>
         <div class="content_area">
-        <p>The Airport Improvement Program is a <a href="/projects/transportation/direct-expenditures/programs/">CFDA program</a> that administers grants to airports around the country. Use the search options below to look up grant funding and enplanement<sup>1</sup> data by state or airport.</p>
+        {% morsel text1 glossarize %}
         <form id="portsearch">
             <fieldset {% if type == 'project' %} class="collapsed" {% endif %}>    
             <legend id="expand_airport">Search by Airport</legend>
@@ -168,11 +171,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
         </div>
     </fieldset>
 </form>
-        {% if error %}
-           <span class="error" style="margin-left:20px;"> {{error}}</span>
-        {% endif %}
  
-<div style="margin-top:10px;"><cite><sup>1</sup>An enplanement, as defined by the FAA, is a single, revenue-generating passenger departing from or arriving at an airport.</cite></div>
         {% if grants %}
         <div id="results">
             <ul class="headers">
@@ -189,14 +188,20 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
                 </ul>
                 </div>
             {% endfor %}
-            {% ifequal type "state" %}
-                {% if total %}
-                 <div class="portdetail"><ul class="sum"><li class="name">Total grant money for state:</li><li class="money">${{total|floatformat:0|intcomma}}</li></ul></div>
+            {% if state or district %}
+                {% if total_grants %}
+                 <div class="portdetail"><ul class="sum"><li class="name"><strong>Total grant funding for {%if state %}state{%else%}district{%endif%}:</strong></li><li class="money">${{total_grants|floatformat:0|intcomma}}</li></ul>
+                    {%if stimulus_total %}
+                    <ul>
+                     <li class="name"><strong>Total <em>stimulus</em> funding for {% if state%}state{%else%} district {%endif%}:</strong></li><li class="money">${{stimulus_total|floatformat:0|intcomma}}</li>
+                    </ul>
+                    {% endif %}
+                 </div>
                 {% endif %}
-            {% endifequal %}
+                
+            {% endif %}
         </div>
-        {% endif %}
-        {% if projects %}
+        {% elif projects.object_list %}
         <div id="project_results">
             <span class="pages">
             {%if projects.has_previous %}
@@ -209,14 +214,18 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             </span>
             <table style="width:100%;">
                 <tbody>
-                    <tr><th class="sortable">FY</th><th style=width:40px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
+                    <tr><th class="sortable">FY</th><th style=width:50px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
                     {% for p in projects.object_list %}
                     <tr>
                     <td>{{p.fiscal_year}}</td><td>{{p.npr}}</td><td><a href="/projects/transportation/aip/airports/{{p.airport.code}}">{{p.airport}}{% if p.airport.name == 'New' %} ({{p.airport.city}}{%if p.airport.city%}, {%endif%}{{p.airport.state}}){% endif %}</a></td><td>{{p.description}}</td><td class="dollars">${{p.total|floatformat:0|intcomma}}</td><td class="dollars">${{p.discretionary|floatformat:0|intcomma}}</td><td class="dollars">${{p.entitlement|floatformat:0|intcomma}}</td><td class="dollars">${{p.stimulus|floatformat:0|intcomma}}</td>
                     </tr>
                     {% endfor %}
             </table>
+<<<<<<< HEAD:bailout.site/trunk/templates/aip/index.html
     
+=======
+            <div class="summary-csv"><a style="background: transparent url(/media/images/download_icon_smaller.png) no-repeat scroll 0 6px; padding-left:25px;padding-top: 7px;" href="{% url aip-csv-download %}?{{querystring}}">CSV Download</a> </div>
+>>>>>>> 52f8d01bcee1a1235de50ec542213d481226f7f8:bailout.site/trunk/templates/aip/index.html
             <span class="pages">
             {%if projects.has_previous %}
                 <a href="?{{querystring}}&page={{projects.previous_page_number}}">&laquo;&nbsp;Previous</a>
@@ -226,6 +235,14 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             <a href="?{{querystring}}&page={{projects.next_page_number}}">Next&nbsp;&raquo;</a> 
             {% endif %}
             </span>
+<<<<<<< HEAD:bailout.site/trunk/templates/aip/index.html
+=======
+        {% elif error %}
+        <div class="error" style="margin-top:15px;">
+            <div style="margin:0 auto; width: 230px;">{{error}}</div>
+        </div>
+        
+>>>>>>> 52f8d01bcee1a1235de50ec542213d481226f7f8:bailout.site/trunk/templates/aip/index.html
         {% endif %} 
         </div>
         </div>

@@ -6,6 +6,7 @@ from sectors.models import Sector, Subsector
 from budget_accounts.models import BudgetAccount
 
 
+
 class ProgramDescriptionManager(models.Manager):
 
     def parseBudgetAccounts(self):
@@ -15,8 +16,8 @@ class ProgramDescriptionManager(models.Manager):
         
         for program in self.all():
             program.parseBudgetAccounts()
-
      
+
 class CFDATag(models.Model):
     def __unicode__(self):
         return self.tag_name
@@ -25,6 +26,7 @@ class CFDATag(models.Model):
     
     tag_name = models.CharField(max_length=255)
     search_default_enabled = models.BooleanField("Enabled for searches by default?")
+
 
 class ProgramDescription(models.Model):
 
@@ -106,8 +108,6 @@ class ProgramDescription(models.Model):
             return self.objectives
         else:
             return self.objectives[:200] + '...'
-        
-
 
         
 
@@ -158,6 +158,5 @@ class ProgramBudgetAnnualEstimate(models.Model):
     fiscal_year = models.IntegerField("Fiscal Year")
     
     annual_amount = models.DecimalField("Annual Amount", max_digits=15, decimal_places=2)
-    
     
     

@@ -1,0 +1,28 @@
+<div id="quick-search-box">
+<form action="{% url faads.views.search %}" method="POST" id="faads-search-form" class="faads-quicksearch">
+
+  <h3>Search {{ sector_name }} Expenditures</h3>
+
+	{{ form.text_query }}<input type="submit" value="Go" class="faads-search-submit" />
+
+  <div class="quick-search-hidden">
+    {{ form.text_query_type }}
+    {{ form.cfda_program_selection_method }}
+    {{ form.program_selection_tags }}
+    {{ form.program_selection_subsector }}
+    {{ form.program_selection_programs }}
+  	{{ form.assistance_type }}
+  	{{ form.action_type }}
+    {{ form.recipient_type }}
+  	{{ form.obligation_date_start }}
+  	{{ form.obligation_date_end }}
+  	{{ form.obligation_amount_minimum }}
+  	{{ form.obligation_amount_maximum }}
+    {{ form.location_type }}
+    {{ form.location_choices }}
+  </div>
+    
+	
+    
+</form>
+</div>

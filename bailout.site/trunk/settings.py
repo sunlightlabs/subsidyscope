@@ -45,6 +45,8 @@ MEDIA_ROOT = ''
 #     MEDIA_URL = 'http://assets.subsidyscope.com/v2'
 MEDIA_URL = '/media/' # we're not using mediasync anymore
 
+MEDIA_CACHE_TTL = 3600 # force browsers to refresh CSS/JS every hour
+
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
@@ -86,7 +88,7 @@ INSTALLED_APPS = (
     'morsels',
     'rcsfield',
     'contact_form',
-    'sunlightcore',
+    'mediasync',
     'spammer',
     'helpers',
     'haystack',
@@ -111,7 +113,9 @@ INSTALLED_APPS = (
     'tagging',
     'aip',
     'news_briefs',
-    'cfda'
+    'cfda',
+    'transit',
+    'inflation'
 )
 
 #try:
@@ -127,6 +131,7 @@ EMAIL_USE_TLS = True
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
+MEDIASYNC_SERVE_REMOTE = False
 MEDIASYNC_AWS_KEY = '***REMOVED***'
 MEDIASYNC_AWS_SECRET = '***REMOVED***'
 MEDIASYNC_AWS_BUCKET = 'assets.subsidyscope.com'
@@ -199,6 +204,7 @@ SCRIBD_API_KEY = '***REMOVED***'
 SCRIBD_API_SECRET = '***REMOVED***'
 SCRIBD_PUBLISHER_ID = '***REMOVED***'
 
+
 # Haystack
 HAYSTACK_SEARCH_ENGINE = 'solr' 
 HAYSTACK_SOLR_URL = 'http://127.0.0.1:8080/solr'
@@ -206,8 +212,8 @@ HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_SITECONF = 'search_sites'
 
-# Auth 
 
+# Auth 
 LOGIN_URL = '/subsidysort/login/'
 
 

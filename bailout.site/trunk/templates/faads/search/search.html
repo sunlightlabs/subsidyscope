@@ -6,18 +6,18 @@
 {% load search_tags %}
 
 {% block additional_css %}
-  {% css "jquery-ui/ui.all.css" %}
-  {% css "faads-search.css" %}
+  {% css "styles/jquery-ui/ui.all.css" %}
+  {% css "styles/faads-search.css" %}
 {% endblock %}
 
 {% block additional_js %}
 
-	{% js "ui.core.js" %}
-	{% js "ui.tabs.js" %}
-	{% js "ui.datepicker.js" %}
+	{% js "scripts/ui.core.js" %}
+	{% js "scripts/ui.tabs.js" %}
+	{% js "scripts/ui.datepicker.js" %}
 	
-	{% js "swfobject.js" %}
-	{% js "faads-search.js?version=4" %}
+	{% js "scripts/swfobject.js" %}
+	{% js "scripts/faads-search.js?version=4" %}
 	
 
 <!-- if JS is enabled, assume that the tabs will work and hide the other divs -->
@@ -238,17 +238,26 @@ var sortOrder = '{{ sort_order }}';
 
 
               <div class="pagination">
-                  <span class="step-links">
+                  <span class="step-links">                    
+                    
                       {% if faads_results.has_previous %}
-                          <a href="?q={{ query|safe }}&page={{ faads_results.previous_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&laquo; previous</a>
+                          <a href="?q={{ query|safe }}&page=1{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&laquo; first</a>
+                          <a href="?q={{ query|safe }}&page={{ faads_results.previous_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">&lsaquo; prev</a>
+                      {% else %}
+                          <span class="disabled">&laquo; first</span>
+                          <span class="disabled">&lsaquo; prev</span>
                       {% endif %}
 
                       <span class="current">
-                          Page {{ faads_results.number }} of {{ faads_results.paginator.num_pages|intcomma }}
+                          Page {{ faads_results.number|intcomma }} of {{ faads_results.paginator.num_pages|intcomma }}
                       </span>
 
                       {% if faads_results.has_next %}
-                          <a href="?q={{ query|safe }}&page={{ faads_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &raquo;</a>
+                          <a href="?q={{ query|safe }}&page={{ faads_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &rsaquo;</a>
+                          <a href="?q={{ query|safe }}&page={{ faads_results.paginator.num_pages }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">last &raquo;</a>
+                      {% else %}
+                          <span class="disabled">&raquo; next</span>
+                          <span class="disabled">&rsaquo; last</span>
                       {% endif %}
                   </span>
               </div>
@@ -264,7 +273,7 @@ var sortOrder = '{{ sort_order }}';
 						<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="{% media_url %}/images/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
                 </span>  
                 
-                {% js "json2.js" %}
+                {% js "scripts/json2.js" %}
                 
                 <script type="text/javascript" charset="utf-8">
                    
@@ -330,7 +339,7 @@ var sortOrder = '{{ sort_order }}';
 	                     $('#summary-container').html(data);
 	                   });
 	                 }
-                 </script>
+                 </script>                 
               </div>
 
 

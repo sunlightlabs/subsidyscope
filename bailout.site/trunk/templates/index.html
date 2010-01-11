@@ -4,9 +4,10 @@
 {% load news_brief_tags %}
 {% load bailout_tags %}
 {% load carousel_tags %}
+{% load faads_tags %}
 {% block content %}
-{% js "cookie.js" %}
-{% js "carouselinit.js" %}
+{% js "scripts/cookie.js" %}
+{% js "scripts/carouselinit.js" %}
 <script type="text/javascript">
 $(function () {
 	function DeliciousItemHasTag(item, tag)
@@ -143,6 +144,14 @@ $(function () {
 	</div>
 	
 	<div class="span-5">
+	  
+	  <div class="news_box">
+			<div class="news_head"><h2>Framing Paper</h2>
+			</div>	
+			<p id="framing-paper"><a href="{% url framing-paper %}"><img src="{% media_url %}/images/framing-paper-document-icon.png" class="alignright" style="margin: 1em 0.25em 1em 0.6em"/></a><a href="{% url framing-paper %}">Government Subsidies: 
+      Revealing the Hidden&nbsp;Budget</a></p>
+		</div>
+	  
 		<div class="news_box">
 			<div class="news_head"><h2>Downloadable Data</h2>
 			</div>	
@@ -166,6 +175,8 @@ $(function () {
 	
 	<div class="span-8 last">
 		
+    <div class="homepage-quick-search-container">{% faads_quick_search transportation %}</div>
+
 		{% news_briefs %}
 		
 		{% bank_search %}
