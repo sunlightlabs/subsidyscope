@@ -91,19 +91,18 @@ $(document).ready(function(){
 		}
 	});
 	
-	
-	$("select[@name='dataType']").change(
+	$("select#dataType-select").change(
 		function()
 		{
-			if ($("select[@name='dataType']").val() == 'branches')
+			if ($("select#dataType-select").val() == 'branches')
 			{	
 				showBranches();
 			}
-			else if ($("select[@name='dataType']").val() == 'deposits')
+			else if ($("select#dataType-select").val() == 'deposits')
 			{
 				showDeposits();
 			}
-			else if ($("select[@name='dataType']").val() == 'lending')
+			else if ($("select#dataType-select").val() == 'lending')
 			{
 				showLending();
 			}
@@ -223,7 +222,7 @@ function getFlexMovie(movieName) {
 					</div>	
 					
 					<div style="float: right;  margin-right: 25px;">
-						View share of: <select name="dataType">
+						View share of: <select id="dataType-select" name="dataType">
 							<option value="branches">Branches (2008 FDIC)</option>
 							<option value="deposits">Deposits (2008 FDIC)</option>
 							<option value="lending">Lending (2007 HMDA)</option>
