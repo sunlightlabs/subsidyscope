@@ -13,6 +13,8 @@ def safe_highlight(value):
     with the results.
     """
     try:
+        if type(value) is list:
+            value[0] = value[0].replace('&amp;', '&')       
         return mark_safe(value[0])
     except:
         return value 
