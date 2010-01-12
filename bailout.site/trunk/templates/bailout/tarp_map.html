@@ -109,10 +109,10 @@ $(document).ready(function(){
 			
 		});
 	
-	$("input[@name='filterType']").click(
+	$("input.filterType-radio").click(
 		function()
-		{
-			if ($("input[@name='filterType']:checked").val() == 'all')
+		{	  
+			if ($("input.filterType-radio:checked").val() == 'all')
 			{
 				$(".group").toggleClass("group_vert");
 				$('#tarpFilterInput').hide();
@@ -122,7 +122,7 @@ $(document).ready(function(){
 				
 				showTARPShare(); 
 			}
-			else if ($("input[@name='filterType']:checked").val() == 'filter')
+			else if ($("input.filterType-radio:checked").val() == 'filter')
 			{
 				$("#tarpFilterInput").addClass('pre_input');
 				$("#tarpFilterInput").val('Enter company name');
@@ -216,8 +216,8 @@ function getFlexMovie(movieName) {
 					
 					<div id="table-filter" style="clear:left; margin-left: 25px; float: left;">
 				
-						<p><input type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
-						<p><input type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput" value="Enter company name" class="pre_input"/></p>
+						<p><input type="radio" class="filterType-radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
+						<p><input type="radio" class="filterType-radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput" value="Enter company name" class="pre_input"/></p>
 					
 					</div>	
 					
