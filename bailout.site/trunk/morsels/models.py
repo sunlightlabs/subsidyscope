@@ -60,15 +60,15 @@ class Morsel(models.Model):
         return u'%s -- %s' % (self.page.url, self.name)
 
     def get_flat_text(self):
-        import lxml.html
-    
+        from django.utils.html import strip_tags        
+        
         c = Context()
         t = Template(self.content)
         raw_output = t.render(c)
-    
-        t = lxml.html.fromstring(raw_output)
+        s = strip_tags(raw_output)
         
-        return t.text_content()
+        return strip_tags(raw_output)
+    
 
 
     def delete(self):
