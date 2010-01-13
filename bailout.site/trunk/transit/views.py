@@ -16,6 +16,7 @@ from django.db.models import Q
 
 metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'recovery_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
 
+mode_hash = {'AG':'Automated Guideway', 'AR': 'Alaska Railroad', 'MB':'Bus', 'CC':'Cable Car', 'CR':'Commuter Rail', 'DR':'Demand Response', 'FB':'Ferry Boat', 'HR':'Heavy Rail', 'IP':'Inclined Plane', 'JT':'Jitney', 'LR':'Light Rail', 'MO':'Monorail', 'PB':'Publico', 'TB':'Trolley Bus', 'TR':'Aerial Tramway', 'VP':'Vanpool'}
 
 def index(request):
     states = State.objects.all()
@@ -87,27 +88,69 @@ def index(request):
                 systems = paginator.page(paginator.num_pages)
             
             if len(systems.object_list) > 0: 
-                return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': systems, 'modes': module_constants['MODE_CONSTANTS'] ,'paginator': systems, 'num_pages':paginator.num_pages, 'form':data, 'by_mode': tester, 'metrics': metrics_selected})  
+                return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'results': systems, 'modes': mode_constants ,'paginator': systems, 'num_pages':paginator.num_pages, 'form':data, 'by_mode': tester, 'metrics': metrics_selected})  
             else: tester = "no objects returned" 
                  
-    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'modes': module_constants['MODE_CONSTANTS'], 'by_mode':tester})
+    return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'modes': mode_constants, 'by_mode':tester})
 
 
 def transitSystem(request, trs_id):
     try:
         transit_system = TransitSystem.objects.get(trs_id=trs_id)
+        system_mode = TransitSystemMode.objects.filter(transit_system=transit_system)
         funding = FundingStats.objects.filter(transit_system=transit_system)
         operations = OperationStats.objects.filter(transit_system=transit_system)
+
+        mode_operations = operations.values('mode').annotate(op_exp=Avg('operating_expense'), cap_exp=Avg('capital_expense'), vrh=Avg('vehicle_revenue_hours'), vrm=Avg('vehicle_revenue_miles'), pmt=Avg('passenger_miles_traveled'), upt=Avg('unlinked_passenger_trips'))
+
+        for x in mode_operations: x['mode'] = mode_hash[x['mode']] #replace mode abbrev with name
+
+        fares_data = {}
+        fares_data['elements'], fares_data['bg_colour'], fares_data['x_axis'] = [{'type':'bar', "values":[]}], '#FFFFFF', {"labels":{"labels": []}}
+        fare_max = 0
+                
+        for f in system_mode:
+            fares_data['x_axis']['labels']['labels'].append(mode_hash[f.mode])
+            fares_data['elements'][0]["values"].append(int(f.total_fares)) 
+
+        mod = 1000
+        maximum = max(fares_data['elements'][0]['values'])
+        while maximum % mod != maximum:
+            mod = mod * 10
+        
+        maximum = maximum + (mod-(maximum % mod))
+        mod = maximum / 5
+        ymax = mod
+        true_max = max(fares_data['elements'][0]['values'] )
+        while true_max > ymax:   # x10 can be a big factor, so we take our neat slices and pare it down
+            ymax += mod
+        fares_data["y_axis"] = {"max": int(ymax), "min": 0}
+
         mode_data = buildModePieChart(transit_system)
-               
+        
+        #gather data for funding matrix in template
+        funding_percent = []
+        fund_types = ('federal', 'state', 'local', 'other')
+        same_uza = FundingStats.objects.filter(transit_system__in = TransitSystem.objects.filter(urbanized_area=transit_system.urbanized_area))
+        same_state = FundingStats.objects.filter(transit_system__in = TransitSystem.objects.filter(state=transit_system.state))
+        fund_subsets = (funding, same_uza, same_state, FundingStats.objects.all())
+        for f in fund_types:
+            temp_list = [f]
+            
+            for s in fund_subsets:
+                temp_list.append(sum(filter(None, s.aggregate(Sum('capital_'+f), Sum('operating_'+f)).values())) or 'n/a')    
+
+            funding_percent.append(temp_list)
+        
+        #Get pie chart json data
         fund_json = buildFundingLineChart(funding)
         fund_type_json = buildSourcesPieChart(funding)
         fund_mode = mode_data['expenses']
+
         upt_data = mode_data['upt_mode']
         pmt_data = mode_data['pmt_mode']
 
-
-        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json), 'fund_mode_data': dumps(fund_mode), 'upt_data': dumps(upt_data), 'pmt_data': dumps(pmt_data)})
+        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'matrix_data': funding_percent, 'mode_operations': mode_operations, 'fares_data': dumps(fares_data), 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json), 'mode_hash': mode_hash})
 
     except TransitSystem.DoesNotExist:
         return HttpResponseRedirect('/transportation/transit/') 
@@ -137,18 +180,6 @@ def buildModePieChart(systemObj):
         upt_json['elements'][0]['values'].append({"value":float("%s" % (o.total_UPT or 0)), "label": o.mode +'(#percent#)'})  #add the total upt per mode
         
     return {'expenses':expenses_json, 'pmt_mode': pmt_json, 'upt_mode':upt_json }
-
-def buildPMTLineChart(operatingObj):
-    #a quicky line chart for the pew meeting
-    pmt_line_json["bg_colour"] = "#FFFFFF" 
-    pmt_line_json['elements'] = [{"type": "line", "values": fund_data, "width": 4, "text":"Total Funding", "dot-style":{"type": "dot", "tip":"Total PMT:$#val#"} }]
-    pmt_line_values = []
-
-    #for o in operatingObj:
-        
-
-    pmt_line_json["elements"].append({"type":"line", "colour": "#BF5004", "values": fund_capital_data, "text":"Total Capital Funding",  "dot-style":{"type":"dot", "tip":"Total Capital Funding: $#val#"}})
-
 
 
 def buildSourcesPieChart(fundingObj):

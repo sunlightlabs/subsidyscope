@@ -31,7 +31,7 @@ MODE_TROLLEY = 'TB'
 MODE_TRAMWAY = 'TR'
 MODE_VANPOOL = 'VP'
    
-module_constants = {'MODE_CONSTANTS': ((MODE_AUTOMATED_GUIDEWAY, 'Automated Guideway'),
+mode_constants = ((MODE_AUTOMATED_GUIDEWAY, 'Automated Guideway'),
     (MODE_ALASKA_RAILROAD, 'Alaska Railroad'),
     (MODE_BUS, 'Bus'),
     (MODE_CABLE_CAR, 'Cable Car'),
@@ -46,7 +46,7 @@ module_constants = {'MODE_CONSTANTS': ((MODE_AUTOMATED_GUIDEWAY, 'Automated Guid
     (MODE_PUBLICO, 'Publico'),
     (MODE_TROLLEY, 'Trolley Bus'),
     (MODE_TRAMWAY, 'Aerial Tramway'),
-    (MODE_VANPOOL, 'Vanpool'))}
+    (MODE_VANPOOL, 'Vanpool'))
 
 class BigintField(models.Field):
     def db_type(self):
@@ -79,8 +79,11 @@ class TransitSystem(models.Model):
     
     urbanized_area =  models.ForeignKey(UrbanizedArea, null=True)
     
-    name = models.CharField(max_length=255, null=True, blank=True
-    )
+    name = models.CharField(max_length=255, null=True, blank=True)
+
+    common_name = models.CharField(max_length=50, null=True, blank=True)
+
+    
 class TransitSystemMode(models.Model):
     
     transit_system = models.ForeignKey(TransitSystem, null=False)
@@ -95,7 +98,7 @@ class TransitSystemMode(models.Model):
     
     common_name = models.CharField(max_length=50, null=True, blank=True)
     
-    MODE_CHOICES = module_constants['MODE_CONSTANTS']
+    MODE_CHOICES = mode_constants
 
     mode = models.CharField(max_length=2, choices=MODE_CHOICES)
 
@@ -135,6 +138,9 @@ class TransitSystemModeManager(models.Manager):
             params = line.split(",")
             try:
                 system = TransitSystem.objects.get(trs_id=int(params[0]))
+                system.common_name = params[1]
+                system.save() # add to transit system object as well
+
                 sys = TransitSystemMode.objects.filter(transit_system=system)
                 for s in sys:
                     s.common_name = params[1]
@@ -275,12 +281,18 @@ class OperationStats(models.Model):
     
     year = models.IntegerField()
 
-    MODE_CHOICES = module_constants['MODE_CONSTANTS']
+    MODE_CHOICES = mode_constants
     
     mode = models.CharField(max_length=2, choices=MODE_CHOICES)
     
     operating_expense = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_expense_VO = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_expense_VM = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_expense_NVM = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_expense_GA = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+
     capital_expense = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    
     fares = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     
     vehicle_revenue_miles = models.DecimalField(max_digits=15, decimal_places=0, null=True)
