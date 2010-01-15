@@ -10,13 +10,14 @@ class Sector(models.Model):
 
     name = models.CharField("Name", max_length=40)
     
-    def image_url_small(self):
-        
+    def image_url_small(self):        
         return settings.MEDIA_URL + 'images/sector_icons/' + str(self.id) + '_sm.png'
 
-    def image_url_large(self):
-        
+    def image_url_large(self):        
         return settings.MEDIA_URL + 'images/sector_icons/' + str(self.id) + '_lg.png'
+
+    def binary_hash(self):
+        return pow(2,(self.id-1))
 
 class Subsector(models.Model):
 
