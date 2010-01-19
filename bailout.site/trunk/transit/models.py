@@ -267,13 +267,16 @@ class FundingStats(models.Model):
         
         return total
 
-    def total_funding_by_type(self, type):
+    def total_funding_by_type(self, type, category=None):
         total = 0
         if type == 'federal': funding = [self.capital_federal, self.operating_federal]
         elif type == 'state': funding = [self.capital_state, self.operating_state]
         elif type == 'local': funding = [self.capital_local, self.operating_local]
         else: funding = [self.capital_other, self.operating_other]
-
+        
+        if category == 'capital': funding[1] = None
+        elif category == 'operating': funding[0] = None
+            
         for f in funding:
             if f:
                 total += float(f)

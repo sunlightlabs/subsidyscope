@@ -14,8 +14,11 @@
 .map-container {width: 45%; float:left;}
 .pie-container { width: 50%; margin-right:25px; float:left;}
 .info-container { clear:both; display: block; width: 50%; }
+.line-chart-container {display:block; width:100%;}
+.long-header {display:block; width: 100%;}
 .matrix { float:left; width: 480px; }
 .matrix td {text-align:right; }
+.container h4 {font-size:1.1em; margin-top:0; margin-bottom:5px;}
 .footnote {font-style:italic; font-size:.8em; float:right; }
 </style>
 <div class="container main_container">
@@ -24,17 +27,24 @@
         <div id="header_area"><h3>{{system.name}}</h3></div>
         <div class="content_area">
             <h5>Funding Sources Over Time</h5>
-            <div id="fundingChart"></div>
-            <span class="footnote">*Fare data was not collected by the National Transit Database prior to 2002</span>
+            <div class="line-chart-container">
+                <div id="fundingChart"></div>
+                <span class="footnote">*Fare data was not collected by the National Transit Database prior to 2002</span>
+            </div>
             
+            <h5 class="long-header">Funding Sources</h5>
             <div class="pie-container">
-                <h5>Funding Sources</h5>
-                <div id="sourcesChart"></div>
+                <h4>Operating</h4>
+                <div id="sourcesChart_operating"></div>
             </div>
             <div class="map-container">
+                <h4>Capital</h4>
+                <div id="sourcesChart_capital"></div>
+            </div>
+            <!--<div class="map-container">
                 <h5>Location</h5>
                 <div id="map"></div>
-            </div>
+            </div>-->
             <div class="matrix">
                 <h5>Funding Source Comparison</h5>
                 <table>
@@ -115,8 +125,11 @@
                 function linechart(){
                     return JSON.stringify({{fund_line_data|safe}});
                 }
-                function piechart(){
-                    return JSON.stringify({{fund_pie_data|safe}});
+                function piechart_operating(){
+                    return JSON.stringify({{fund_pie_data_operating|safe}});
+                }
+                function piechart_capital(){
+                    return JSON.stringify({{fund_pie_data_capital|safe}});
                 }
                 function farechart(){
                     return JSON.stringify({{fares_data|safe}});
@@ -131,7 +144,8 @@
                     return JSON.stringify({{upt_data|safe}});
                 }*/
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "300", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
-                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_operating", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_operating"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_capital", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_capital"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fareChart", "350", "305", "9.0.0", "expressInstall.swf", {"get-data":"farechart"});
 /*              
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "modeChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "modechart"});

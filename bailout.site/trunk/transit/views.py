@@ -147,13 +147,14 @@ def transitSystem(request, trs_id):
         
         #Get pie chart json data
         fund_json = buildFundingLineChart(funding)
-        fund_type_json = buildSourcesPieChart(funding)
+        fund_source_capital_json = buildSourcesPieChart(funding, 'capital')
+        fund_source_operating_json = buildSourcesPieChart(funding, 'operating')
         fund_mode = mode_data['expenses']
 
         upt_data = mode_data['upt_mode']
         pmt_data = mode_data['pmt_mode']
 
-        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'matrix_data': funding_percent, 'mode_operations': mode_operations, 'fares_data': dumps(fares_data), 'fund_line_data': dumps(fund_json), 'fund_pie_data': dumps(fund_type_json), 'mode_hash': mode_hash})
+        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'matrix_data': funding_percent, 'mode_operations': mode_operations, 'fares_data': dumps(fares_data), 'fund_line_data': dumps(fund_json), 'fund_pie_data_capital': dumps(fund_source_capital_json), 'fund_pie_data_operating': dumps(fund_source_operating_json), 'mode_hash': mode_hash})
 
     except TransitSystem.DoesNotExist:
         return HttpResponseRedirect('/transportation/transit/') 
@@ -185,29 +186,33 @@ def buildModePieChart(systemObj):
     return {'expenses':expenses_json, 'pmt_mode': pmt_json, 'upt_mode':upt_json }
 
 
-def buildSourcesPieChart(fundingObj):
+def buildSourcesPieChart(fundingObj, category=None):
     json = {}
     fed = []
     state = []
     local = []
     other = []
-    for f in fundingObj:
-        fed.append(f.total_funding_by_type('federal'))
-        state.append(f.total_funding_by_type('state'))
-        local.append(f.total_funding_by_type('local'))
-        other.append(f.total_funding_by_type('other'))
+    fares = []
 
+    for f in fundingObj:
+        fed.append(f.total_funding_by_type('federal', category))
+        state.append(f.total_funding_by_type('state', category))
+        local.append(f.total_funding_by_type('local', category))
+        other.append(f.total_funding_by_type('other', category))
+        fares.append(float(OperationStats.objects.filter(transit_system=f.transit_system, year=f.year).aggregate(Sum('fares'))['fares__sum']))
     json["bg_colour"] = "#FFFFFF"
-    json['elements'] = [{"type": "pie","alpha":.8, "start-angle":50,  "radius_padding": 3, "tip": "$#val#", "colours": [ "#007EEA", "#00B492", "#4869E1", "#BF5004"], "title": { "text": "Funding Breakdown" }, "values": [] }]
+    json['elements'] = [{"type": "pie","alpha":.8, "start-angle":50,  "radius_padding": 3, "tip": "$#val#", "colours": [ "#007EEA", "#E18859", "#00B492", "#4869E1", "#BF5004"], "title": { "text": "Funding Breakdown" }, "values": [] }]
     
-    if max(state) > 0:
-        json['elements'][0]['values'].append({ "value": sum(state), "label": "State (#percent#)", "font-size": 10, 'font-weight': 'bold'})
-    if max(fed) > 0: 
-        json['elements'][0]['values'].append({"value": sum(fed), "label": "Federal (#percent#)", "font-size": 10, 'font-weight': 'bold'}) 
-    if max(local) > 0:
-        json['elements'][0]['values'].append({"value": sum(local), "label": "Local (#percent#)", "font-size":10, 'font-weight': 'bold'})
-    if max(other) > 0:
-        json['elements'][0]['values'].append({ "value": sum(other), "label": "Other (#percent#)", "font-size":10, 'font-weight':'bold'}) 
+#    if max(state) > 0:
+    json['elements'][0]['values'].append({ "value": sum(state) or 0, "label": "State (#percent#)", "font-size": 10, 'font-weight': 'bold'})
+ #   if max(fed) > 0: 
+    json['elements'][0]['values'].append({"value": sum(fed) or 0, "label": "Federal (#percent#)", "font-size": 10, 'font-weight': 'bold'}) 
+  #  if max(local) > 0:
+    json['elements'][0]['values'].append({"value": sum(local) or 0, "label": "Local (#percent#)", "font-size":10, 'font-weight': 'bold'})
+ #   if max(other) > 0:
+    json['elements'][0]['values'].append({ "value": sum(other) or 0, "label": "Other (#percent#)", "font-size":10, 'font-weight':'bold'}) 
+ #   if max(fares) > 0:
+    json['elements'][0]['values'].append({ "value": sum(fares) or 0, "label": "Fares (#percent#)", "font-size":10, 'font-weight':'bold'}) 
 
     return json
 
