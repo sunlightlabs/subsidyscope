@@ -33,6 +33,15 @@
             </div>
             
             <h5 class="long-header">Funding Sources</h5>
+            <form id="year-select">
+                <select name="year">
+                    <option value="all">Total All Years</option>
+                    {% for x in year_list %}
+                        <option value="{{x}}">{{x}}</option>
+                    {% endfor %}
+
+                </select>
+            </form>
             <div class="pie-container">
                 <h4>Operating</h4>
                 <div id="sourcesChart_operating"></div>
@@ -147,7 +156,17 @@
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_operating", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_operating"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_capital", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_capital"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fareChart", "350", "305", "9.0.0", "expressInstall.swf", {"get-data":"farechart"});
+
+                $("#year-select").change(function(e){
+                   //reload pie charts
+                   $("#sourcesChart_operating")[0].reload("/transportation/transit/system/{{system.trs_id}}/operating/"+ e.target.value + "/");
+                   $("#sourcesChart_capital")[0].reload("/transportation/transit/system/{{system.trs_id}}/capital/"+ e.target.value + "/");
+
+                   //reload matrix, unless all years, then grey out
+                });
+        
 /*              
+                
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "modeChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "modechart"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "pmtChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "pmtchart"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "uptChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "uptchart"});

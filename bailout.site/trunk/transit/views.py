@@ -108,19 +108,22 @@ def chartMax(data_max, mod=1000):
 
 def transitSystem(request, trs_id):
     try:
+        #Get general data for this system
         transit_system = TransitSystem.objects.get(trs_id=trs_id)
         system_mode = TransitSystemMode.objects.filter(transit_system=transit_system)
         funding = FundingStats.objects.filter(transit_system=transit_system)
         operations = OperationStats.objects.filter(transit_system=transit_system)
 
+        #aggregate all the operation stats for presentation
         mode_operations = operations.values('mode').annotate(op_exp=Avg('operating_expense'), cap_exp=Avg('capital_expense'), vrh=Avg('vehicle_revenue_hours'), vrm=Avg('vehicle_revenue_miles'), pmt=Avg('passenger_miles_traveled'), upt=Avg('unlinked_passenger_trips'))
 
         for x in mode_operations: x['mode'] = mode_hash[x['mode']] #replace mode abbrev with name
 
+        #Fare data for bar chart
         fares_data = {}
         fares_data['elements'], fares_data['bg_colour'], fares_data['x_axis'] = [{'type':'bar', "values":[]}], '#FFFFFF', {"labels":{"labels": []}}
         fare_max = 0
-                
+           
         for f in system_mode:
             fares_data['x_axis']['labels']['labels'].append(mode_hash[f.mode])
             fares_data['elements'][0]["values"].append(int(f.avg_fares)) 
@@ -154,10 +157,29 @@ def transitSystem(request, trs_id):
         upt_data = mode_data['upt_mode']
         pmt_data = mode_data['pmt_mode']
 
-        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'matrix_data': funding_percent, 'mode_operations': mode_operations, 'fares_data': dumps(fares_data), 'fund_line_data': dumps(fund_json), 'fund_pie_data_capital': dumps(fund_source_capital_json), 'fund_pie_data_operating': dumps(fund_source_operating_json), 'mode_hash': mode_hash})
+        #year list for reference in template
+        year_list = []
+        for x in range(1991, 2008): year_list.append(x)
+
+        return render_to_response('transportation/transit/transit_system.html', {'system': transit_system, 'funding': funding, 'operations': operations, 'year_list': year_list, 'matrix_data': funding_percent, 'mode_operations': mode_operations, 'fares_data': dumps(fares_data), 'fund_line_data': dumps(fund_json), 'fund_pie_data_capital': dumps(fund_source_capital_json), 'fund_pie_data_operating': dumps(fund_source_operating_json), 'mode_hash': mode_hash})
 
     except TransitSystem.DoesNotExist:
         return HttpResponseRedirect('/transportation/transit/') 
+
+def chartReloader(request, trs_id, category, year):
+
+    system = TransitSystem.objects.get(trs_id=trs_id)
+    
+    if year != "all":
+        funding = FundingStats.objects.filter(transit_system=system, year=year)
+    else:
+        funding = FundingStats.objects.filter(transit_system=system)
+
+    json = buildSourcesPieChart(funding, category)
+    
+    return HttpResponse(dumps(json))
+    
+    
 
 def urbanArea(request, uza_id):
     try:
@@ -200,18 +222,14 @@ def buildSourcesPieChart(fundingObj, category=None):
         local.append(f.total_funding_by_type('local', category))
         other.append(f.total_funding_by_type('other', category))
         fares.append(float(OperationStats.objects.filter(transit_system=f.transit_system, year=f.year).aggregate(Sum('fares'))['fares__sum']))
+
     json["bg_colour"] = "#FFFFFF"
     json['elements'] = [{"type": "pie","alpha":.8, "start-angle":50,  "radius_padding": 3, "tip": "$#val#", "colours": [ "#007EEA", "#E18859", "#00B492", "#4869E1", "#BF5004"], "title": { "text": "Funding Breakdown" }, "values": [] }]
     
-#    if max(state) > 0:
     json['elements'][0]['values'].append({ "value": sum(state) or 0, "label": "State (#percent#)", "font-size": 10, 'font-weight': 'bold'})
- #   if max(fed) > 0: 
     json['elements'][0]['values'].append({"value": sum(fed) or 0, "label": "Federal (#percent#)", "font-size": 10, 'font-weight': 'bold'}) 
-  #  if max(local) > 0:
     json['elements'][0]['values'].append({"value": sum(local) or 0, "label": "Local (#percent#)", "font-size":10, 'font-weight': 'bold'})
- #   if max(other) > 0:
     json['elements'][0]['values'].append({ "value": sum(other) or 0, "label": "Other (#percent#)", "font-size":10, 'font-weight':'bold'}) 
- #   if max(fares) > 0:
     json['elements'][0]['values'].append({ "value": sum(fares) or 0, "label": "Fares (#percent#)", "font-size":10, 'font-weight':'bold'}) 
 
     return json
