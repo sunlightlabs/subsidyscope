@@ -174,6 +174,7 @@ class TransitSystemModeManager(models.Manager):
                 operating_expense = 0
                 capital_expense = 0
                 fares = 0
+                avg_fares = 0
                 op_yr_count = 0
                 cap_yr_count = 0
                 avg_operating = 0
@@ -188,7 +189,9 @@ class TransitSystemModeManager(models.Manager):
                         cap_yr_count += 1
                         capital_expense += cpi.convertValue(stat.capital_expense, CURRENT_YEAR, stat.year)
                     if stat.fares:
-                        fares += cpi.convertValue(stat.fares, CURRENT_YEAR, stat.year)
+                        this_fare = cpi.convertValue(stat.fares, CURRENT_YEAR, stat.year)
+                        fares += this_fare
+                        avg_fares +=  this_fare
                 
                 if op_yr_count > 0 : avg_operating = operating_expense/op_yr_count
                 if cap_yr_count > 0: avg_capital = capital_expense/cap_yr_count
@@ -207,7 +210,9 @@ class TransitSystemModeManager(models.Manager):
 
                 if fares and operating_expense: rec_ratio = fares / operating_expense
                 
-                print "id: %s\n city: %s\n state: %s\n uza: %s\n name:%s\n mode:%s\n capital expenses:%s\n operating expenses:%s\n fares:%s\n UPT:%s\n PMT: %s\n  average operating dollars per UPT:%s\n average operating dollars per PMT:%s\n average capital dollars per UPT:%s\n average capital dollars per PMT: %s\n recovery ratio:%s\n======================" %(sys.trs_id, sys.city, sys.state.name, sys.urbanized_area, sys.name, m, capital_expense, operating_expense, fares, UPT, PMT, avg_op_UPT, avg_op_PMT, avg_cap_UPT, avg_cap_PMT, rec_ratio)
+                if avg_fares: avg_fares = avg_fares / len(mode_stats)
+
+                print "id: %s\n city: %s\n state: %s\n uza: %s\n name:%s\n mode:%s\n capital expenses:%s\n operating expenses:%s\n fares:%s\n average fares: %s\n UPT:%s\n PMT: %s\n  average operating dollars per UPT:%s\n average operating dollars per PMT:%s\n average capital dollars per UPT:%s\n average capital dollars per PMT: %s\n recovery ratio:%s\n======================" %(sys.trs_id, sys.city, sys.state.name, sys.urbanized_area, sys.name, m, capital_expense, operating_expense, fares, avg_fares, UPT, PMT, avg_op_UPT, avg_op_PMT, avg_cap_UPT, avg_cap_PMT, rec_ratio)
 
                 new_tsm = TransitSystemMode(transit_system=sys)
                 new_tsm.state = sys.state
@@ -220,6 +225,7 @@ class TransitSystemModeManager(models.Manager):
                 new_tsm.avg_capital_expenses=avg_capital
                 new_tsm.avg_operating_expenses=avg_operating
                 new_tsm.total_fares=fares
+                new_tsm.avg_fares=avg_fares
                 new_tsm.total_UPT=UPT
                 new_tsm.total_PMT=PMT
                 new_tsm.avg_operating_UPT=avg_op_UPT

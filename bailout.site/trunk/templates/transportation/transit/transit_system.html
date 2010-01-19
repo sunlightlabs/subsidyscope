@@ -16,14 +16,16 @@
 .info-container { clear:both; display: block; width: 50%; }
 .matrix { float:left; width: 480px; }
 .matrix td {text-align:right; }
+.footnote {font-style:italic; font-size:.8em; float:right; }
 </style>
 <div class="container main_container">
     {% include "includes/transportation_nav.html" %}
     <span class="span-24">
         <div id="header_area"><h3>{{system.name}}</h3></div>
         <div class="content_area">
-            <h5>Funding by year</h5>
+            <h5>Funding Sources Over Time</h5>
             <div id="fundingChart"></div>
+            <span class="footnote">*Fare data was not collected by the National Transit Database prior to 2002</span>
             
             <div class="pie-container">
                 <h5>Funding Sources</h5>
@@ -128,7 +130,7 @@
                 function uptchart(){
                     return JSON.stringify({{upt_data|safe}});
                 }*/
-                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "200", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "300", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fareChart", "350", "305", "9.0.0", "expressInstall.swf", {"get-data":"farechart"});
 /*              

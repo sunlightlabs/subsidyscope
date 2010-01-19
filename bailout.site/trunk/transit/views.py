@@ -93,6 +93,18 @@ def index(request):
                  
     return render_to_response('transportation/transit/transit_index.html', {'states': states, 'uza': uza, 'modes': mode_constants, 'by_mode':tester})
 
+def chartMax(data_max, mod=1000):
+    maximum = data_max
+    while maximum % mod != maximum:
+        mod = mod * 10
+        
+    maximum = maximum + (mod-(maximum % mod))
+    mod = maximum / 5
+    ymax = mod
+    while data_max > ymax:   # x10 can be a big factor, so we take our neat slices and pare it down
+        ymax += mod
+    
+    return ymax
 
 def transitSystem(request, trs_id):
     try:
@@ -111,20 +123,11 @@ def transitSystem(request, trs_id):
                 
         for f in system_mode:
             fares_data['x_axis']['labels']['labels'].append(mode_hash[f.mode])
-            fares_data['elements'][0]["values"].append(int(f.total_fares)) 
+            fares_data['elements'][0]["values"].append(int(f.avg_fares)) 
 
-        mod = 1000
-        maximum = max(fares_data['elements'][0]['values'])
-        while maximum % mod != maximum:
-            mod = mod * 10
+        maximum = chartMax(max(fares_data['elements'][0]['values']))
         
-        maximum = maximum + (mod-(maximum % mod))
-        mod = maximum / 5
-        ymax = mod
-        true_max = max(fares_data['elements'][0]['values'] )
-        while true_max > ymax:   # x10 can be a big factor, so we take our neat slices and pare it down
-            ymax += mod
-        fares_data["y_axis"] = {"max": int(ymax), "min": 0}
+        fares_data["y_axis"] = {"max": int(maximum), "min": 0}
 
         mode_data = buildModePieChart(transit_system)
         
@@ -211,30 +214,42 @@ def buildSourcesPieChart(fundingObj):
 def buildFundingLineChart(funding):
     json = {}
     fund_data = []
-    fund_capital_data = []
-    fund_oper_data = []
+    fund_fed_data = []
+    fund_state_data = []
+    fund_local_data = []
+    fund_other_data = []
+    fund_fare_data = []
     fund_labels = []
     fund_max = 0
 
     for f in funding:
         if f.total_funding() > fund_max: fund_max = f.total_funding()
         fund_data.append( f.total_funding())
-        fund_capital_data.append( f.total_funding('capital'))
-        fund_oper_data.append( f.total_funding('operating'))
-        fund_labels.append(str(f.year))
-       
-    # really hacky way of finding the most appropriate max on the graph 
-    digits = len(str(int(fund_max/5)))
-    num = str(int(str(fund_max/5)[:2]) + 1)
-    for d in range(digits-2): num += '0'
-    num = int(num) * 5
+        fund_fed_data.append( f.total_funding_by_type('federal'))
+        fund_state_data.append( f.total_funding_by_type('state'))
+        fund_local_data.append( f.total_funding_by_type('local'))
+        fund_other_data.append( f.total_funding_by_type('other'))
+        try: 
+            fund_fare_data.append(float(OperationStats.objects.filter(transit_system=f.transit_system,year=f.year).aggregate(Sum('fares'))['fares__sum']))
+        except TypeError:
+            pass
 
+        fund_labels.append(str(f.year))
+    
+    num = chartMax(fund_max)   
+    
     json["bg_colour"] = "#FFFFFF" 
     json['elements'] = [{"type": "line", "values": fund_data, "width": 4, "text":"Total Funding", "dot-style":{"type": "dot","tip":"Total Funding:$#val#"} }]
-    if fund_capital_data and max(fund_capital_data) > 0:
-        json["elements"].append({"type":"line", "colour": "#BF5004", "values": fund_capital_data, "text":"Total Capital Funding",  "dot-style":{"type":"dot", "tip":"Total Capital Funding: $#val#"}})
-    if fund_oper_data and max(fund_oper_data) > 0:
-        json["elements"].append({"type":"line", "colour": "#008B62", "values": fund_oper_data, "text":"Total Operating Funding",  "dot-style":{"type":"dot", "tip":"Total Operating Funding: $#val#"}})
+    if fund_fed_data and max(fund_fed_data) > 0:
+        json["elements"].append({"type":"line", "colour": "#BF5004", "values": fund_fed_data, "text":"Federal Funding",  "dot-style":{"type":"dot", "tip":"Total Federal Funding: $#val#"}})
+    if fund_state_data and max(fund_state_data) > 0:
+        json["elements"].append({"type":"line", "colour": "#008B62", "values": fund_state_data, "text":"State Funding",  "dot-style":{"type":"dot", "tip":"Total State Funding: $#val#"}})
+    if fund_local_data and max(fund_local_data) > 0:
+        json["elements"].append({"type":"line", "colour": "#9197F0", "values": fund_local_data, "text":"Local Funding",  "dot-style":{"type":"dot", "tip":"Total Local Funding: $#val#"}})
+    if fund_other_data and max(fund_other_data) > 0:
+        json["elements"].append({"type":"line", "colour": "#ECC6B4", "values": fund_other_data, "text":"Other Funding",  "dot-style":{"type":"dot", "tip":"Total Other Funding: $#val#"}})
+    if fund_fare_data and max(fund_fare_data) > 0:
+        json["elements"].append({"type":"line", "colour": "#00B492", "values": fund_fare_data, "text":"Total Fares*",  "dot-style":{"type":"dot", "tip":"Total Fares: $#val#"}})
 
     json["y_axis"] = {"min": 0, "max": num}
     json["x_axis"] = {"labels": {"labels":fund_labels} }
