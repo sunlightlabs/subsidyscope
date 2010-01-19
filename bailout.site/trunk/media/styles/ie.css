@@ -46,6 +46,9 @@ ul.programs {border: none;}
 #projectsearch fieldset span { vertical-align: middle; }
 #portsearch fieldset div.form_content { margin-top: 1.1em; }
 
+/* top-of-page search */
+#search_box #search_form #id_query { height: 16px; padding-top: 2px; padding-left: 2px; padding-right: 2px; padding-bottom: 2px;}
+
 /* quick search box */
 .sectorpage-quick-search-container #quick-search-box { margin-top: -5px !important;}
 .sectorpage-quick-search-container #quick-search-box #faads-search-form input#id_text_query { width: 155px !important; position:relative; top: -7px; margin-right: 10px;}

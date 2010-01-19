@@ -4,6 +4,7 @@
 {% load webdesign %}
 {% load humanize %}
 {% load search_tags %}
+{% load sector_tags %}
 
 {% block additional_css %}
   {% css "styles/jquery-ui/ui.all.css" %}
@@ -38,7 +39,9 @@ var sortOrder = '{{ sort_order }}';
 {% block content %}
 
 <div class="container main_container">
-    {% include "includes/transportation_nav.html" %}
+    
+    {% sector_nav %}
+    
     <div class="span-24">
         <div id="header_area">
             <div id="screencast-link-container"><a id="screencast-link" href="{% url screencast %}">Need help? Watch the screencast.</a></div>
