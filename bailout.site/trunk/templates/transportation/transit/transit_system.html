@@ -16,7 +16,7 @@
 .info-container { clear:both; display: block; width: 50%; }
 .line-chart-container {display:block; width:100%;}
 .long-header {display:block; width: 100%;}
-.matrix { margin: 5px auto; width: 840px; height:230px; float:right; }
+.matrix { margin: 5px auto; width: 840px; height:230px; float:left; }
 .matrix table {width: 840px; }
 .matrix td {text-align:right; }
 .container h4 {font-size:1.1em; margin-top:0; margin-bottom:5px;}
@@ -40,18 +40,18 @@
                 <select name="year">
                     <option value="all">Total All Years</option>
                     {% for x in year_list %}
-                        <option value="{{x}}">{{x}}</option>
+                        <option value="{{x}}" {%if x == 2007 %} selected {% endif %}>{{x}}</option>
                     {% endfor %}
 
                 </select>
                 </label>
             </form>
             <div class="pie-container">
-                <h4>Operating</h4>
+                <h4>Operating Expenses - 2007</h4>
                 <div id="sourcesChart_operating"></div>
             </div>
             <div class="map-container">
-                <h4>Capital</h4>
+                <h4>Capital Expenses - 2007</h4>
                 <div id="sourcesChart_capital"></div>
             </div>
             <!--<div class="map-container">
@@ -59,7 +59,7 @@
                 <div id="map"></div>
             </div>-->
             <div class="matrix">
-                <h4>Funding Source Comparison</h4>
+                <h4>Funding Source Comparison - 2007</h4>
                 <span id="matrix">
                 <table>
                 <tr>
@@ -169,15 +169,16 @@
                     $("#sourcesChart_capital").siblings("h4").text("Capital Expenses - "+e.target.value)
 
                    //reload matrix, unless all years, then grey out
-                   if(e.target.value != 'all'){
                         $("#matrix table").remove();
-                        $("#matrix").load("/transportation/transit/system/{{system.trs_id}}/matrix/", function(){ 
+
+                   if(e.target.value != 'all'){
+                        $("#matrix").load("/transportation/transit/system/{{system.trs_id}}/matrix/"+e.target.value+"/", function(){ 
                             $(this).find("table").fadeIn("slow");
                             $(this).siblings("h4").text("Funding Source Comparison - "+ e.target.value)
                         
                         });
                    } else {
-                        
+                       $("#matrix").siblings("h4").text(" "); 
                    }
                 });
         

@@ -145,12 +145,13 @@ def transitSystem(request, trs_id):
         mode_data = buildModePieChart(transit_system)
         
         #gather data for funding matrix in template
-        funding_percent = buildMatrix(trs_id)
+        funding_percent = buildMatrix(trs_id, 2007)
         
         #Get pie chart json data
         fund_json = buildFundingLineChart(funding)
-        fund_source_capital_json = buildSourcesPieChart(funding, 'capital')
-        fund_source_operating_json = buildSourcesPieChart(funding, 'operating')
+        #reduce funding to most recent year, 2007, for pie charts
+        fund_source_capital_json = buildSourcesPieChart(funding.filter(year=2007), 'capital')
+        fund_source_operating_json = buildSourcesPieChart(funding.filter(year=2007), 'operating')
         fund_mode = mode_data['expenses']
 
         upt_data = mode_data['upt_mode']
@@ -191,11 +192,11 @@ def chartReloader(request, trs_id, category, year):
     
     return HttpResponse(dumps(json))
 
-def matrixReloader(request, trs_id):
+def matrixReloader(request, trs_id, year):
     
     system = TransitSystem.objects.get(trs_id=trs_id)
 
-    data = buildMatrix(trs_id)
+    data = buildMatrix(trs_id, year)
 
     return render_to_response("transportation/transit/matrix.html", {'system':system, 'matrix_data': data})
 
@@ -215,10 +216,11 @@ def chartMax(data_max, mod=1000):
     
     return ymax
 
-def buildMatrix(trs_id):
+def buildMatrix(trs_id, year=None):
 
     transit_system = TransitSystem.objects.get(trs_id=trs_id)
     funding = FundingStats.objects.filter(transit_system=transit_system)
+    
 
     #gather data for funding matrix in template
     funding_percent = []
@@ -227,13 +229,21 @@ def buildMatrix(trs_id):
     same_uza = FundingStats.objects.filter(transit_system__in = TransitSystem.objects.filter(urbanized_area=transit_system.urbanized_area))
 #    same_state = FundingStats.objects.filter(transit_system__in = TransitSystem.objects.filter(state=transit_system.state))
 
-    fund_subsets = (funding, same_uza,  FundingStats.objects.all())
+    all = FundingStats.objects.all()
+
+    if year and year != "all":
+        funding = funding.filter(year=year)
+        same_uza = same_uza.filter(year=year)
+        all = all.filter(year=year)
+    
+    fund_subsets = (funding, same_uza, all)
 
     for f in fund_types:
         temp_list = [f]
             
         for s in fund_subsets:
-            temp_list.append(sum(filter(None, s.aggregate(Sum('capital_'+f), Sum('operating_'+f)).values())) or 'n/a')    
+            temp_list.append(sum(filter(None, s.aggregate(Sum('capital_'+f), Sum('operating_'+f)).values())) or 'n/a')   
+             
         funding_percent.append(temp_list)
 
     return funding_percent    
