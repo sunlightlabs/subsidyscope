@@ -295,7 +295,7 @@ def buildSourcesPieChart(fundingObj, category=None):
     for f in fundingObj:
         
         for key in data.keys():
-            if key == 'Fares': data[key].append(float(OperationStats.objects.filter(transit_system=f.transit_system, year=f.year).aggregate(Sum('fares'))['fares__sum']))
+            if key == 'Fares' and category != 'capital': data[key].append(float(OperationStats.objects.filter(transit_system=f.transit_system, year=f.year).aggregate(Sum('fares'))['fares__sum']))
             else: data[key].append(f.total_funding_by_type(key.lower(), category))
 
     #set up initial chart elements
@@ -310,7 +310,7 @@ def buildSourcesPieChart(fundingObj, category=None):
                          'values': [] }]
     
     for key in data.keys():
-        
+        if key == 'Fares' and category == 'capital': continue
         json['elements'][0]['values'].append({ "value": sum(data[key]) or 0, "label": key + " (#percent#)", "font-size": 10, 'font-weight': 'bold'})
 
     return json
