@@ -213,7 +213,7 @@ var sortOrder = '{{ sort_order }}';
           		</ul>
           		
           		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-table">
-			      		    
+			         			         
 				      <table id="faads-search-results">
 				        <thead>
 				          <tr>
@@ -231,10 +231,10 @@ var sortOrder = '{{ sort_order }}';
                 {% for result in faads_results.object_list %}
                   <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.object.record_id }}">
                     <td class="obligation-date">{{ result.object.obligation_action_date }}</td>
-                    <td class="cfda-program"><a href="{% url transportation-cfda-programpage-by-programnumber result.object.cfda_program.program_number %}" title="{{ result.object.cfda_program.program_number }} {{ result.object.cfda_program.program_title }}">{{ result.object.cfda_program.program_number }}</a></td>
+                    <td class="cfda-program"><a href="/{{ sector }}/direct-expenditures/programs/{{ result.object.cfda_program.program_number }}/" title="{{ result.object.cfda_program.program_number }} {{ result.object.cfda_program.program_title }}">{{ result.object.cfda_program.program_number }}</a></td>
                     <td class="recipient-name">{{ result.object.recipient_name }}</td>
                     <td class="recipient-location">{{ result.object.recipient_city_name_for_display }}{% if result.object.recipient_city_name %}{% if result.object.recipient_state_name %},&nbsp;{% endif %}{% endif %}{{ result.object.recipient_state.abbreviation }}</td>
-                    <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name_for_display }}{% if result.object.principal_place_state_name %}{% if result.object.principal_place_county_or_city_name %},&nbsp;{% endif %}{% endif %}{{ result.object.principal_place_state.abbreviation }}</td>
+                    <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name_for_display }}{% if result.object.principal_place_state %}{% if result.object.principal_place_county_or_city_name %},&nbsp;{% endif %}{% endif %}{{ result.object.principal_place_state.abbreviation }}</td>
                     <td class="description">{{ result.object.project_description }}</td>
                     <td class="amount last">${{ result.object.federal_funding_amount|floatformat:"-0"|intcomma }}</td>
                   </tr>
