@@ -83,12 +83,12 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
-        # CFDA programs, subsectors and tags
+        # CFDA programs, subsectors
 
         if subsector_choices:
-            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))        
+            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))        
         else:
-            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('program', 'Program'))
+            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('program', 'Program'))
 
         cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
 
