@@ -83,7 +83,7 @@ class ProgramDescription(models.Model):
     cfda_edition = models.IntegerField("CFDA Edition", blank=True, null=True)
     load_date = models.DateTimeField("Load Date", auto_now=True)    
 
-    budget_accounts = models.ManyToManyField(BudgetAccount)
+    budget_accounts = models.ManyToManyField(BudgetAccount, blank=True, null=True)
     primary_tag = models.ForeignKey(CFDATag, blank=True, null=True, related_name='primary_tag')
     secondary_tags = models.ManyToManyField(CFDATag, blank=True, null=True, related_name='secondary_tags')
 
