@@ -143,12 +143,16 @@ def get_excluded_subsidy_program_ids(sector=None):
 
 
 def get_included_subsidy_program_ids(sector=None):
+    """ Returns false if all programs should be included """
     excluded_program_ids = set(get_excluded_subsidy_program_ids(sector))
     programs = ProgramDescription.objects.all()
     if sector is not None:
         programs = ProgramDescription.objects.filter(sectors=sector)
-    programs_in_sector_ids = set(map(lambda x: x.id, programs))
-    return list(programs_in_sector_ids - excluded_program_ids)
+    if len(programs)==0:
+        return False
+    else:
+        programs_in_sector_ids = set(map(lambda x: x.id, programs))
+        return list(programs_in_sector_ids - excluded_program_ids)
        
        
         
@@ -193,7 +197,9 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
 
         # using subsidyscope's selection of programs
         if form.cleaned_data['cfda_program_selection_method']=='subsidy_programs':
-            faads_search_query = faads_search_query.filter('cfda_program', get_included_subsidy_program_ids(sector))            
+            programs = get_included_subsidy_program_ids(sector)
+            if programs is not False:
+                faads_search_query = faads_search_query.filter('cfda_program', programs)            
 
         # by subsector
         elif form.cleaned_data['cfda_program_selection_method']=='subsector':
