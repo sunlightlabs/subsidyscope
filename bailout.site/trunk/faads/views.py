@@ -84,15 +84,18 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
         # CFDA programs, subsectors
-
+        cfda_program_selection_choices = [('subsidy_programs','Subsidy Programs')]
+        if len(cfda_program_choices)>0:
+            cfda_program_selection_choices.append(('program', 'Program'))
         if subsector_choices:
-            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))        
-        else:
-            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('program', 'Program'))
-
-        cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
-
-        program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
+            cfda_program_selection_choices.append(('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')))
+            
+        if len(cfda_program_selection_choices)==1:
+            cfda_program_selection_method = False       
+            program_selection_programs = False
+        else:                
+            cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
+            program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
         
         program_selection_tags = forms.MultipleChoiceField(choices=tag_choices, required=False, initial=initial_tag_choices, widget=CheckboxSelectMultipleMulticolumn(columns=3))
         tags_exclude_secondary = forms.BooleanField(label="Only include programs having the selected tag(s) as their primary function?", required=False, initial=True)

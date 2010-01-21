@@ -64,6 +64,7 @@ var sortOrder = '{{ sort_order }}';
             
             <legend id="advanced-options">Advanced Options</legend>
 
+            {% if form.cfda_program_selection_method %}
             <div class="section" id="programs">
             <h4>Select Programs</h4>
 
@@ -111,6 +112,7 @@ var sortOrder = '{{ sort_order }}';
               <div class="clear-left"></div>
             </div>
             </div>
+            {% endif %}
          
          
             <div class="section" id="type">
