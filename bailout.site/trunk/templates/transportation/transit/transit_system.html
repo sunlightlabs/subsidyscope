@@ -19,6 +19,8 @@
 .matrix { margin: 5px auto; width: 840px; height:270px; float:left; }
 .matrix table {width: 840px; }
 .matrix td {text-align:right; }
+#matrix table.no-matrix {font-size:1.5em; font-style: italic; color:#6D6767; text-align:center;}
+#matrix table.no-matrix td {text-align:center; }
 .container h4 {font-size:1.1em; margin-top:0; margin-bottom:5px;}
 .footnote {font-style:italic; font-size:.8em; float:right; }
 </style>
@@ -183,6 +185,7 @@
                         });
                    } else {
                        $("#matrix").siblings("h4").text(" "); 
+                       $("#matrix").append('<table class="no-matrix"><tbody><tr><td>Matrix data not available for aggregate</td></tr></tbody></table>');
                    }
                 });
         
