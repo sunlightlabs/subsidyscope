@@ -16,7 +16,7 @@
 .info-container { clear:both; display: block; width: 50%; }
 .line-chart-container {display:block; width:100%;}
 .long-header {display:block; width: 100%;}
-.matrix { margin: 5px auto; width: 840px; height:230px; float:left; }
+.matrix { margin: 5px auto; width: 840px; height:270px; float:left; }
 .matrix table {width: 840px; }
 .matrix td {text-align:right; }
 .container h4 {font-size:1.1em; margin-top:0; margin-bottom:5px;}
@@ -72,7 +72,11 @@
                 <tr>    
                     {% for cell in row %}
                     <td>{% if forloop.counter > 1 %}
-                            ${{cell|floatformat:0|intcomma}}
+                            {% if cell == 'n/a' %}
+                                {{cell}}
+                            {% else %}
+                                ${{cell|floatformat:0|intcomma}}
+                            {% endif %}
                         {% else %}
                             {{cell}}
                         {% endif %}
