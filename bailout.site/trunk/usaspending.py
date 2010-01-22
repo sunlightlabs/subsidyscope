@@ -154,7 +154,6 @@ class USASpendingSearchBase():
         query = ''
         
         if len(self.sectors):
-            print self.sectors
             query += "(%s:(%s)) AND " % (self.FIELD_MAPPINGS['sectors']['solr_field'], " OR ".join(map(lambda x: str(x.id), self.sectors)))        
         
         for i,f in enumerate(self.filters):
@@ -202,8 +201,6 @@ class USASpendingSearchBase():
         
         query = "(django_ct:%s.%s) AND (%s)" % (self.DJANGO_MODEL._meta.app_label, self.DJANGO_MODEL._meta.module_name, query)
         
-        print "returning solr query: %s" % query
-
         return query
 
     
@@ -452,6 +449,10 @@ class USASpendingSearchBase():
             
     
         s = SearchQuerySet().models(self.DJANGO_MODEL)
+        
+        # add sector filtering -- only works for a single sector at the moment
+        if len(self.sectors):
+            s = s.filter_and(sectors__in=map(lambda x: int(x.id), self.sectors))
         
         if len(or_filters):
             s = s.filter_or(**or_filters)
