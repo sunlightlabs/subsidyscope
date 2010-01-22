@@ -135,7 +135,7 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None, data_
         
     json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
     json["x_legend"] = {"text": "Fiscal Year", "style": "{font-size:12px;}"}
-    json["y_legend"] = {"text": "US Dollars ($)", "style": "{font-size: 12px;}"}
+    json["y_legend"] = {"text": "US Dollars ($)", "style": "{font-size: 13px; margin-right:7px;}"}
     
     return dumps(json) 
 

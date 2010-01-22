@@ -47,7 +47,7 @@
 		
 		private function build( text:String ): void {
 			var title:TextField = new TextField();
-
+            
 			title.x = 0;
 			title.y = 0;
 			
@@ -56,11 +56,12 @@
 			fmt.font = "spArial";
 			fmt.size = this.css.font_size;
 			fmt.align = "center";
-			
+
 			title.htmlText = text;
-			title.setTextFormat(fmt);
-			title.autoSize = "left";
-			title.embedFonts = true;
+			title.setTextFormat(fmt);			
+		    title.autoSize = "left";				
+			title.embedFonts = true;		
+			title.width += this.css.margin_bottom;		
 			title.rotation = 270;
 			title.height = title.textHeight;
 			title.antiAliasType = AntiAliasType.ADVANCED;
@@ -77,8 +78,11 @@
 		public function get_width(): Number {
 			if( this.numChildren == 0 )
 				return 0;
-			else
-				return this.getChildAt(0).width;
+			else if(this.css.margin_right){
+			    return this.getChildAt(0).width + this.css.margin_right;
+			}
+			else 
+				return this.getChildAt(0).width 
 		}
 		
 		public function die(): void {
