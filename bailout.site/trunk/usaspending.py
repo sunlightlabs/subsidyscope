@@ -68,7 +68,7 @@ class USASpendingSearchBase():
         self.aggregate_by = None
         self.use_solr = False
         self.order_by = None
-        self.cache = True
+        self.cache = False
         self.SearchQuerySet = None
         
         self.field_objects = {}
