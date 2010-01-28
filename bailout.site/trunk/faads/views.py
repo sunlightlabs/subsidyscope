@@ -430,6 +430,7 @@ def _get_state_summary_data(results, year_range):
     for (state_id, year_data) in results['state'].items():
         if state_id is None:
             continue
+        
         row = [states[state_id].name]
         for year in year_range:
             row.append(year_data.get(year, None))
@@ -495,6 +496,7 @@ def summary_statistics(request, sector_name=None):
     # need to translate the state_id back to FIPS codes for the map and normalize by population 
     # grabbing a complete list of state objects and building a table for translation    
     
+    
     if request.method == 'GET':
         if request.GET.has_key('q'):
             
@@ -505,7 +507,7 @@ def summary_statistics(request, sector_name=None):
 
             state_data = _get_state_summary_data(results, year_range)                        
             program_data = _get_program_summary_data(results, year_range)
-        
+                
             return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'program_data':program_data, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
     return Http404()

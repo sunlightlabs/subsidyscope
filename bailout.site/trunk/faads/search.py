@@ -187,19 +187,30 @@ class FAADSSearch(USASpendingSearchBase):
                 return {'program': cached_result_program, 'state': cached_result_state}
     
         # handling full-text aggregation with solr/python hack
-        if self.use_solr:                        
+        if self.use_solr:
             
             solr = Solr(settings.HAYSTACK_SOLR_URL)
 
-            if False: # this seems like it's pretty slow...
-            # if self.SOLR_USE_STATS_MODULE:
+            if self.SOLR_USE_STATS_MODULE:
+                result_state_temp = {}
+                result_program_temp = {}
                 
-                result = {}
                 year_range = self.get_year_range()
                 for year in year_range:
-                    result[year] = self.filter('fiscal_year', str(year)).aggregate('principal_place_state')
+                    result_state_temp[year] = self.filter('fiscal_year', str(year)).aggregate('principal_place_state')                
+                    result_program_temp[year] = self.filter('fiscal_year', str(year)).aggregate('cfda_program')
                 
-                                    
+                # invert the array
+                for year in result_state_temp:
+                    for state in result_state_temp[year]:
+                        if not result_state.has_key(state):
+                            result_state[state] = {}
+                        result_state[state][year] = result_state_temp[year][state]
+                        
+                    for program in result_program_temp[year]:
+                        if not result_program.has_key(program):
+                            result_program[program] = {}
+                        result_program[program][year] = result_program_temp[year][program]
                 
             else:
 
@@ -238,7 +249,7 @@ class FAADSSearch(USASpendingSearchBase):
                     if not result[row[index]].has_key(row[2]):
                         result[row[index]][row[2]] = Decimal(0)
                     result[row[index]][row[2]] += Decimal(str(row[3]))
-                                  
+                                          
     
         cache.set(self.get_query_cache_key(aggregate_by=CACHE_KEY_STATE), result_state)
         cache.set(self.get_query_cache_key(aggregate_by=CACHE_KEY_PROGRAM), result_program)

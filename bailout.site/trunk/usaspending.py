@@ -333,8 +333,10 @@ class USASpendingSearchBase():
             
             # can we use the solr stats module?
             if self.SOLR_USE_STATS_MODULE:
-                for (year, stats) in solr_result.stats['stats_fields'][self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']]['facets'][self.FIELD_MAPPINGS[aggregate_by]['solr_field']].items():
-                    result[int(year)] = Decimal(str(stats['sum']))
+
+                if solr_result.stats['stats_fields'][self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']] is not None:                    
+                    for (year, stats) in solr_result.stats['stats_fields'][self.FIELD_MAPPINGS[self.FIELD_TO_SUM]['solr_field']]['facets'][self.FIELD_MAPPINGS[aggregate_by]['solr_field']].items():
+                        result[int(year)] = Decimal(str(stats['sum']))
                 
             # if not: painful, slow aggregation
             else:            
