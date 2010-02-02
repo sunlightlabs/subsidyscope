@@ -25,12 +25,14 @@ def index(request):
     uza = UrbanizedArea.objects.all().order_by('name')
     systems = TransitSystemMode.objects.all()
     operations = OperationStats.objects.filter(transit_system=systems[0])
-    
+    has_searched = False
+
     tester = None
      
     tester = "test"
     if request.method =="POST":
         form = TransitQuery(request.POST) 
+        has_searched = True
         if form.is_valid():
             data = form.cleaned_data
             name = data['system_name']
@@ -98,15 +100,16 @@ def index(request):
                                           'paginator': systems, 
                                           'num_pages':paginator.num_pages, 
                                           'form':data, 
-                                          'metrics': metrics_selected})  
-           
+                                          'metrics': metrics_selected})   
+
             #else: tester = "no objects returned" 
                  
     return render_to_response('transportation/transit/transit_index.html', 
                              {'states': states, 
                               'uza': uza, 
                               'modes': mode_constants, 
-                              'by_mode':tester})
+                              'by_mode':tester,
+                              'has_searched': has_searched})
 
 
 def transitSystem(request, trs_id):
