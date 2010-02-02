@@ -152,13 +152,13 @@ def transitSystem(request, trs_id):
         mode_data = buildModePieChart(transit_system)
         
         #gather data for funding matrix in template
-        funding_percent = buildMatrix(trs_id, 2007)
+        funding_percent = buildMatrix(trs_id, 2008)
         
         #Get pie chart json data
         fund_json = buildFundingLineChart(funding)
-        #reduce funding to most recent year, 2007, for pie charts
-        fund_source_capital_json = buildSourcesPieChart(funding.filter(year=2007), 'capital')
-        fund_source_operating_json = buildSourcesPieChart(funding.filter(year=2007), 'operating')
+        #reduce funding to most recent year, 2008, for pie charts
+        fund_source_capital_json = buildSourcesPieChart(funding.filter(year=2008), 'capital')
+        fund_source_operating_json = buildSourcesPieChart(funding.filter(year=2008), 'operating')
         fund_mode = mode_data['expenses']
 
         upt_data = mode_data['upt_mode']
@@ -166,7 +166,7 @@ def transitSystem(request, trs_id):
 
         #year list for reference in template
         year_list = []
-        for x in range(1991, 2008): year_list.append(x)
+        for x in range(1991, 2009): year_list.append(x)
 
         return render_to_response('transportation/transit/transit_system.html', 
                                  {'system': transit_system, 
