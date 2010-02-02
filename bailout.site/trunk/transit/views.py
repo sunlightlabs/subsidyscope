@@ -141,7 +141,11 @@ def transitSystem(request, trs_id):
             fares_data['x_axis']['labels']['labels'].append(mode_hash[f.mode])
             if f.avg_fares:  fares_data['elements'][0]["values"].append(int( f.avg_fares)) 
 
-        maximum = chartMax(max(fares_data['elements'][0]['values']))
+        try:
+            maximum = chartMax(max(fares_data['elements'][0]['values']))
+
+        except ValueError:
+            maximum = 0
         
         fares_data["y_axis"] = {"max": int(maximum), "min": 0}
 
