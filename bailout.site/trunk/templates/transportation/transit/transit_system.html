@@ -12,17 +12,25 @@
 #info ul {margin:0; padding:0;}
 #map {height:290px; width: 400px; }
 .map-container {width: 45%; float:left;}
-.pie-container { width: 50%; margin-right:25px; float:left;}
+.pie-container { width: 50%; float:left;}
 .info-container { clear:both; display: block; width: 50%; }
 .line-chart-container {display:block; width:100%;}
 .long-header {display:block; width: 100%;}
-.matrix { margin: 5px auto; width: 840px; height:270px; float:left; }
+.matrix { margin: 5px auto; width: 840px; height:270px; clear:both; }
 .matrix table {width: 840px; }
 .matrix td {text-align:right; }
 #matrix table.no-matrix {font-size:1.5em; font-style: italic; color:#6D6767; text-align:center;}
 #matrix table.no-matrix td {text-align:center; }
 .container h4 {font-size:1.1em; margin-top:0; margin-bottom:5px;}
 .footnote {font-style:italic; font-size:.8em; float:right; }
+.funding-type {float:left; position:relative; left: 3px; top 3px; margin: 25px 3px 3px 3px; }
+.shadow2, .shadow3, .plain {position:relative; left: -1px; top: -1px;}
+.shadow1 {background: #F1F0F1; }
+.shadow2 {background: #DBDADB; }
+.shadow3 {background: #B8B6B8; }
+.plain {background: #ffffff; border: 1px solid #848284; padding:10px;}
+.ridership {float:left; margin-top:25px; }
+
 </style>
 <div class="container main_container">
     {% include "includes/transportation_nav.html" %}
@@ -34,60 +42,63 @@
                 <div id="fundingChart"></div>
                 <span class="footnote">*Fare data was not collected by the National Transit Database prior to 2002</span>
             </div>
-            
-            <h5 class="long-header">Funding Sources</h5>
-            <p>Use the dropdown to view this transit system's funding sources over the years, broken out by capital and operating expenses. You can also compare it with the overall sources of funding for transit systems in the same urbanized area and in the rest of the country.</p>
-            <form id="year-select">
-                <label for="year">Select year:
-                <select name="year">
-                    <option value="all">Total All Years</option>
-                    {% for x in year_list %}
-                        <option value="{{x}}" {%if x == 2008 %} selected {% endif %}>{{x}}</option>
-                    {% endfor %}
+            <div class="funding-type" id="fake-drop-shadow"><div class="shadow1"><div class="shadow2"><div class="shadow3"><div class="plain">    
+                <h5 class="long-header">Funding Sources by Type</h5>
+                <p>Use the dropdown to view this transit system's funding sources over the years, broken out by capital and operating expenses. You can also compare it with the overall sources of funding for transit systems in the same urbanized area and in the rest of the country.</p>
+                <form id="year-select">
+                    <label for="year">Select year:
+                    <select name="year">
+                       <option value="all">Total All Years</option>
+                        {% for x in year_list %}
+                            <option value="{{x}}" {%if x == 2008 %} selected {% endif %}>{{x}}</option>
+                        {% endfor %}
 
-                </select>
-                </label>
-            </form>
-            <div class="pie-container">
-                <h4>Operating Expenses - 2008</h4>
-                <div id="sourcesChart_operating"></div>
-            </div>
-            <div class="map-container">
-                <h4>Capital Expenses - 2008</h4>
-                <div id="sourcesChart_capital"></div>
-            </div>
-            <!--<div class="map-container">
-                <h5>Location</h5>
-                <div id="map"></div>
-            </div>-->
-            <div class="matrix">
-                <h4>Funding Source Comparison - 2008</h4>
-                <span id="matrix">
-                <table>
-                <tr>
-                    <th>Source</th>
-                    <th>{{system.name}}</th>
-                    <th>{{system.urbanized_area.name}}</th>
-                    <th>National</th>
-                </tr>
-                {% for row in matrix_data %}
-                <tr>    
-                    {% for cell in row %}
-                    <td>{% if forloop.counter > 1 %}
-                            {% if cell == 'n/a' %}
-                                {{cell}}
+                    </select>
+                    </label>
+                </form>
+                <div class="pie-container">
+                    <h4>Operating Expenses - 2008</h4>
+                    <div id="sourcesChart_operating"></div>
+                </div>
+                <div class="map-container">
+                    <h4>Capital Expenses - 2008</h4>
+                    <div id="sourcesChart_capital"></div>
+                </div>
+                <!--<div class="map-container">
+                    <h5>Location</h5>
+                    <div id="map"></div>
+                </div>-->
+                <div class="matrix">
+                    <h4>Funding Source Comparison - 2008</h4>
+                    <span id="matrix">
+                    <table>
+                    <tr>
+                        <th>Source</th>
+                        <th>{{system.name}}</th>
+                        <th>{{system.urbanized_area.name}}</th>
+                        <th>National</th>
+                    </tr>
+                    {% for row in matrix_data %}
+                    <tr>    
+                        {% for cell in row %}
+                        <td>{% if forloop.counter > 1 %}
+                                {% if cell == 'n/a' %}
+                                    {{cell}}
+                                {% else %}
+                                    ${{cell|floatformat:0|intcomma}}
+                                {% endif %}
                             {% else %}
-                                ${{cell|floatformat:0|intcomma}}
+                                {{cell}}
                             {% endif %}
-                        {% else %}
-                            {{cell}}
-                        {% endif %}
-                    </td>
+                        </td>
+                        {% endfor %}
+                    </tr>
                     {% endfor %}
-                </tr>
-                {% endfor %}
-                </table>
-                </span>
+                    </table>
+                    </span>
+                </div>
+                <!-- close fake drop shadow divs -->
+                </div></div></div></div>
             </div>
            <!-- <div class="pie-container" style="width:40%; margin-right:0px;margin-left:65px;">
                 <h5>Average Fares Generated by Mode</h5>
@@ -114,31 +125,32 @@
                 <h5>System Ridership By Mode (UPT)</h5>
                 <div id="uptChart"></div>
             </div>-->
-
-            <h5 style="clear:both;">Operations Info </h5>
-            <table style="text-align:right;">
-                <tr>
-                    <th>Mode</th>
-                    <th>Avg Operating Expenses</th>
-                    <th>Avg Capital Expenses</th>
-                    <th>Avg Revenue Hours</th>
-                    <th>Avg Revenue Miles</th>
-                    <th>Avg Passenger Miles Travelled</th>
-                    <th>Avg Unlinked Passenger Trips</th>
-                </tr>
-            {% for o in mode_operations %}
-                <tr>
-                <td>{{o.mode}}</td>
-                <td>${{o.op_exp|floatformat:0|intcomma}}</td>
-                <td>${{o.cap_exp|floatformat:0|intcomma}}</td>
-                <td>{{o.vrh|floatformat:0|intcomma}}</td>
-                <td>{{o.vrm|floatformat:0|intcomma}}</td>
-                <td>{{o.pmt|floatformat:0|intcomma}}</td>
-                <td>{{o.upt|floatformat:0|intcomma}}</td>
-                </tr>
-            {% endfor %}
-            </table>
-    
+        
+            <div class="ridership">
+                <h5 style="clear:both;">Ridership Data</h5>
+                <table style="text-align:right;">
+                    <tr>
+                        <th>Mode</th>
+                        <th>Avg Operating Expenses</th>
+                        <th>Avg Capital Expenses</th>
+                        <th>Avg Revenue Hours</th>
+                        <th>Avg Revenue Miles</th>
+                        <th>Avg Passenger Miles Travelled</th>
+                        <th>Avg Unlinked Passenger Trips</th>
+                    </tr>
+                {% for o in mode_operations %}
+                    <tr>
+                    <td>{{o.mode}}</td>
+                    <td>${{o.op_exp|floatformat:0|intcomma}}</td>
+                    <td>${{o.cap_exp|floatformat:0|intcomma}}</td>
+                    <td>{{o.vrh|floatformat:0|intcomma}}</td>
+                    <td>{{o.vrm|floatformat:0|intcomma}}</td>
+                    <td>{{o.pmt|floatformat:0|intcomma}}</td>
+                    <td>{{o.upt|floatformat:0|intcomma}}</td>
+                    </tr>
+                {% endfor %}
+                </table>
+            </div>
 
             <script type="text/javascript" charset="utf-8">
                 function linechart(){
