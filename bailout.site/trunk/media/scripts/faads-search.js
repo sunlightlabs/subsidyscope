@@ -241,7 +241,7 @@ $(document).ready(function(){
     });    
 
     // hook up datepicker
-    $('#obligation-date-wrapper input[type=text]').datepicker();
+    $('#obligation-date-wrapper input[type=text]').datepicker({ defaultDate: -365, minDate: new Date("January 1, 2000"), maxDate: new Date() });
 
     // tabs-ify results section
     $('#tabs').tabs();

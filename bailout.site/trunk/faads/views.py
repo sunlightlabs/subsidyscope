@@ -83,16 +83,19 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
-        # CFDA programs, subsectors and tags
-
+        # CFDA programs, subsectors
+        cfda_program_selection_choices = [('subsidy_programs','Subsidy Programs')]
+        if len(cfda_program_choices)>0:
+            cfda_program_selection_choices.append(('program', 'Program'))
         if subsector_choices:
-            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')), ('program', 'Program'))        
-        else:
-            cfda_program_selection_choices = (('subsidy_programs','Subsidy Programs'), ('tag', 'Tag'), ('program', 'Program'))
-
-        cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
-
-        program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
+            cfda_program_selection_choices.append(('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')))
+            
+        if len(cfda_program_selection_choices)==1:
+            cfda_program_selection_method = False       
+            program_selection_programs = False
+        else:                
+            cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
+            program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
         
         program_selection_tags = forms.MultipleChoiceField(choices=tag_choices, required=False, initial=initial_tag_choices, widget=CheckboxSelectMultipleMulticolumn(columns=3))
         tags_exclude_secondary = forms.BooleanField(label="Only include programs having the selected tag(s) as their primary function?", required=False, initial=True)
@@ -187,29 +190,30 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         
         # handle program selection
         # by tag
-        if form.cleaned_data['cfda_program_selection_method']=='tag':
-            if form.cleaned_data['tags_exclude_secondary']:
-                programs_with_tag = ProgramDescription.objects.filter(primary_tag__id__in=form.cleaned_data['program_selection_tags'])
-            else:
-                programs_with_tag = ProgramDescription.objects.filter(Q(primary_tag__id__in=form.cleaned_data['program_selection_tags']) | Q(secondary_tags__id__in=form.cleaned_data['program_selection_tags']))
-            faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
+        if form.cleaned_data.has_key('cfda_program_selection_method'):
+            if form.cleaned_data['cfda_program_selection_method']=='tag':
+                if form.cleaned_data['tags_exclude_secondary']:
+                    programs_with_tag = ProgramDescription.objects.filter(primary_tag__id__in=form.cleaned_data['program_selection_tags'])
+                else:
+                    programs_with_tag = ProgramDescription.objects.filter(Q(primary_tag__id__in=form.cleaned_data['program_selection_tags']) | Q(secondary_tags__id__in=form.cleaned_data['program_selection_tags']))
+                faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_with_tag))
 
 
-        # using subsidyscope's selection of programs
-        if form.cleaned_data['cfda_program_selection_method']=='subsidy_programs':
-            programs = get_included_subsidy_program_ids(sector)
-            if programs is not False:
-                faads_search_query = faads_search_query.filter('cfda_program', programs)            
+            # using subsidyscope's selection of programs
+            if form.cleaned_data['cfda_program_selection_method']=='subsidy_programs':
+                programs = get_included_subsidy_program_ids(sector)
+                if programs is not False:
+                    faads_search_query = faads_search_query.filter('cfda_program', programs)            
 
-        # by subsector
-        elif form.cleaned_data['cfda_program_selection_method']=='subsector':
-            programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['program_selection_subsector']))
-            faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_in_subsector))
+            # by subsector
+            elif form.cleaned_data['cfda_program_selection_method']=='subsector':
+                programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['program_selection_subsector']))
+                faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_in_subsector))
                 
-        # by CFDA program 
-        elif form.cleaned_data['cfda_program_selection_method']=='program':
-            selected_programs = form.cleaned_data['program_selection_programs']
-            faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
+            # by CFDA program 
+            elif form.cleaned_data['cfda_program_selection_method']=='program':
+                selected_programs = form.cleaned_data['program_selection_programs']
+                faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
 
         # handle assistance type
         if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
@@ -426,6 +430,7 @@ def _get_state_summary_data(results, year_range):
     for (state_id, year_data) in results['state'].items():
         if state_id is None:
             continue
+        
         row = [states[state_id].name]
         for year in year_range:
             row.append(year_data.get(year, None))
@@ -491,6 +496,7 @@ def summary_statistics(request, sector_name=None):
     # need to translate the state_id back to FIPS codes for the map and normalize by population 
     # grabbing a complete list of state objects and building a table for translation    
     
+    
     if request.method == 'GET':
         if request.GET.has_key('q'):
             
@@ -501,7 +507,7 @@ def summary_statistics(request, sector_name=None):
 
             state_data = _get_state_summary_data(results, year_range)                        
             program_data = _get_program_summary_data(results, year_range)
-        
+                
             return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'program_data':program_data, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
     return Http404()

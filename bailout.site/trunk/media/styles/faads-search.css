@@ -194,5 +194,4 @@ table.summary-data .null-value { text-align: center; }
 .summary-csv { float: right;}
 .summary-csv a { padding: 5px 0 5px 25px; background: url(../images/download_icon_smaller.png) 0 6px no-repeat;}
 
-#screencast-link-container { float: right; padding-left: 25px; padding-top: 2px; background: url(/media/images/screencast_small_icon.png) top left no-repeat; }
-a#screencast-link { text-decoration:none; font-size: 10px;}
+#screencast-link-container { float: right; padding-left: 25px; padding-top: 2px; text-decoration:none; font-size: 10px; background: url(/media/images/screencast_small_icon.png) top left no-repeat; }

@@ -19,7 +19,7 @@ class FPDSSearch(USASpendingSearchBase):
     FIELD_MAPPINGS = {
 
         'fiscal_year': {
-            'type': 'range',
+            'type': 'fk',
             'mysql_field': 'fiscal_year',
             'solr_field': 'fiscal_year',
             'aggregate': True
@@ -137,21 +137,41 @@ class FPDSSearch(USASpendingSearchBase):
         if self.use_solr:                        
             
             solr = Solr(settings.HAYSTACK_SOLR_URL)
-            query = self._build_solr_query()
-            solr_result = solr.search(q=query, rows=self.SOLR_MAX_RECORDS, fl='%s,fiscal_year,principal_place_state' % self.FIELD_TO_SUM)            
             
-            # aggregate by state/year
-            TO_PROCESS = { 'principal_place_state': result_state }
+            
+            if self.SOLR_USE_STATS_MODULE:
+                result_state_temp = {}
+                
+                year_range = self.get_year_range()
+                for year in year_range:
+                    print year
+                    result_state_temp[year] = self.filter('fiscal_year', str(year)).aggregate('principal_place_state')                
+                
+                # invert the array
+                for year in result_state_temp:
+                    for state in result_state_temp[year]:
+                        if not result_state.has_key(state):
+                            result_state[state] = {}
+                        result_state[state][year] = result_state_temp[year][state]
+                        
+            
+            else:
+                
+                query = self._build_solr_query()
+                solr_result = solr.search(q=query, rows=self.SOLR_MAX_RECORDS, fl='%s,fiscal_year,principal_place_state' % self.FIELD_TO_SUM)            
+            
+                # aggregate by state/year
+                TO_PROCESS = { 'principal_place_state': result_state }
 
-            for doc in solr_result.docs:
-                if doc.has_key(self.FIELD_TO_SUM) and doc.has_key('fiscal_year'):
-                    for (key, result) in TO_PROCESS.items():                        
-                        if doc.has_key(key):
-                            if not result.has_key(doc[key]):
-                                result[doc[key]] = {}
-                            if not result[doc[key]].has_key(doc['fiscal_year']):
-                                result[doc[key]][doc['fiscal_year']] = Decimal(0)
-                            result[doc[key]][doc['fiscal_year']] += Decimal(str(doc[self.FIELD_TO_SUM]))
+                for doc in solr_result.docs:
+                    if doc.has_key(self.FIELD_TO_SUM) and doc.has_key('fiscal_year'):
+                        for (key, result) in TO_PROCESS.items():                        
+                            if doc.has_key(key):
+                                if not result.has_key(doc[key]):
+                                    result[doc[key]] = {}
+                                if not result[doc[key]].has_key(doc['fiscal_year']):
+                                    result[doc[key]][doc['fiscal_year']] = Decimal(0)
+                                result[doc[key]][doc['fiscal_year']] += Decimal(str(doc[self.FIELD_TO_SUM]))
                                     
         
         # handling key based aggregation with db group by/sum

@@ -2,7 +2,7 @@
 	import flash.display.Sprite;
 	import elements.axis.YTextField;
 	import flash.text.TextFormat;
-	import org.flashdevelop.utils.FlashConnect;
+	//import org.flashdevelop.utils.FlashConnect;
 	import br.com.stimuli.string.printf;
 	import string.Utils;
 	

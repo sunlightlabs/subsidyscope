@@ -44,7 +44,7 @@ var sortOrder = '{{ sort_order }}';
     
     <div class="span-24">
         <div id="header_area">
-            <div id="screencast-link-container"><a id="screencast-link" href="{% url screencast %}">Need help? Watch the screencast.</a></div>
+            <a id="screencast-link-container" href="{% url screencast %}">Need help? Watch the screencast.</a>
             <h3>{% morsel_page_title %} (FY 2000&ndash;2009)</h3>
         </div>
         <div class="content_area">    
@@ -64,6 +64,7 @@ var sortOrder = '{{ sort_order }}';
             
             <legend id="advanced-options">Advanced Options</legend>
 
+            {% if form.cfda_program_selection_method %}
             <div class="section" id="programs">
             <h4>Select Programs</h4>
 
@@ -111,6 +112,7 @@ var sortOrder = '{{ sort_order }}';
               <div class="clear-left"></div>
             </div>
             </div>
+            {% endif %}
          
          
             <div class="section" id="type">
