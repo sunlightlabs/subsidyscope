@@ -13,6 +13,7 @@ form#transit-search select { width: 100%; margin-right: 25px; padding: 5px; }
 #form#transit-search input.submit {width: 80px; background-color: #F6F8FB; border: 1px solid #899EAB; padding: 0 3px; margin-left:10px;}
 #form#transit-search input { margin: 15px; padding: 5px;  width: 80%;  }
 form#transit-search span.filter-container { width: 40%; float:left; margin-left: 15px;}
+legend#advanced-options {font-size: 1.5em;}
 .performance-metrics { margin-top:20px;}
 .performance-metrics span.metric {display:block; padding: 10px 10px 10px 0px;width:100%; }
 .performance-metrics span.metric span.metric-input {text-align:right;}
@@ -25,6 +26,7 @@ form#transit-search span.filter-container { width: 40%; float:left; margin-left:
 #transit-search-results th { cursor: pointer; background: url(/media/images/bg.gif) right center no-repeat; padding: 2px 15px; vertical-align:middle;}
 #transit-search-results .headerAsc { background: url(/media/images/asc.gif) right center no-repeat;}
 #transit-search-results .headerDesc {background: url(/media/images/desc.gif) right center no-repeat;}
+#assistance-action-recipient-wrapper .dropdown-wrapper {padding-right: 30px;}
 .dropdown-wrapper ul {margin-right:100px; margin-top:15px; float:left;}
 .mode ul {margin-right:40px;}
 .pagination.first {padding-top:20px;}
@@ -35,7 +37,13 @@ td.abbrev { text-align:center; }
 td.number {text-align: right; }
 #metric-alert {display: none; color: red; font-weight: bold;} 
 #faads-search-form div.dropdown-wrapper ul.last {margin-right: 10px; }
+.faads-search-submit {margin-top:25px;}
 .fine-print{font-size:.8em; font-weight:normal;padding-left:5px;}
+.no-results { font-size: 1.5em; color: #6D6767; font-style:italic; font-weight:bold; margin-left:20px;}
+#id_text_query {margin-bottom: 30px;margin-top: 15px; color: #888888;  font-style: italic; font-weight:normal;}
+.active-field{ color: black !important; font-weight:bold !important; font-style:normal !important;}
+/*fieldset#advanced-options.collapsed legend {background: transparent url(/media/images/icons/down.png) no-repeat scroll right 4px;margin-right: 20px;padding-top:3px; }*/
+ 
 </style>
 
 
@@ -47,14 +55,18 @@ td.number {text-align: right; }
             <p>Some text on the search and what we're offering can go here I suppose. </p>    
 
             <form id="faads-search-form" method="post">
-            <fieldset id="text-query-wrapper">
+        <!--    <fieldset id="text-query-wrapper">
                 <legend>Search by Transit System Name</legend>
                 <div id="text-query-text-wrapper"> 
                 <input id="id_text_query" value="{{form.system_name}}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
                 </div>
-            </fieldset>
-            <fieldset id="advanced-options" class="collapsed">
-                <legend id="advanced-options">Advanced Options</legend>
+            </fieldset>-->
+            <fieldset id="advanced-options" {% if form %} class="collapsed" {% endif %}>
+                {% if form %} <legend id="advanced-options">Refine Search Results&nbsp;</legend> {% endif %}
+                <div class="section" id="text-query-text-wrapper"> 
+                    <h4>Name/Abbreviation</h4>
+                    <input id="id_text_query" value="{% if form%} {{form.system_name}} {%else%} new york city transit{% endif %}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
+                </div>
                 <div class="section" id="mode-select">
                     <h4>Mode <span class="select-all-or-none"> [<a href="#" class="select-all" id="mode-select-all">All</a>/<a href="#" class="select-none" id="mode-select-none">None</a>]</span></h4>
                     <div id="assistance-action-recipient-wrapper" class="field-wrapper">
@@ -116,12 +128,12 @@ td.number {text-align: right; }
                             </ul>
                             <ul>
                                 <li><strong>Ridership</strong</li>
-                                <li><label for="PMT"><input class="default-metric" type="checkbox" name="metrics_selected" value="PMT" {%if form and metrics.2|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />PMT</label></li>
+                                <li><label for="PMT"><input class="default-metric" type="checkbox" name="metrics_selected" value="PMT" {%if form and metrics.2|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />passenger miles travelled</label></li>
 
-                                <li><label for="UPT"><input class="default-metric" type="checkbox" name="metrics_selected" value="UPT" {%if form and metrics.3|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />UPT</label></li>
+                                <li><label for="UPT"><input class="default-metric" type="checkbox" name="metrics_selected" value="UPT" {%if form and metrics.3|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />unlinked passenger trips</label></li>
                             </ul>
                             <ul class="last">
-                                <li><strong>Derived</strong></li>
+                                <li><strong>Calculated</strong></li>
                                 <li><label for="recovery_ratio"><input type="checkbox" name="metrics_selected" value="recovery_ratio" {%if form and metrics.4|in_list:form.metrics_selected %} checked {% endif %}  />Recovery Ratio</label></li>
                                 <li><label for="op_expense_pmt"><input type="checkbox" name="metrics_selected" value="op_expense_pmt" {%if form and metrics.5|in_list:form.metrics_selected  %} checked {% endif %}  />Operating Expense per PMT</label></li>
                                 <li><label for="cap_expense_pmt"><input type="checkbox" name="metrics_selected" value="cap_expense_pmt" {%if form and metrics.6|in_list:form.metrics_selected %} checked {% endif %}  />Capital Expense per PMT</label></li>
@@ -139,7 +151,7 @@ td.number {text-align: right; }
             <input type="hidden" name="sort" id="sort_field" value="{%if form.sort%}{{form.sort}}{% endif %}" />
             <input type="hidden" name="order" id="sort_order" value="{%if form.order%}{{form.order}}{% endif %}" />
             {% if form %} 
-                <input id="reset-search" class="faads-search-submit" style="float:left;" type="button" value="Reset Search" />
+                <input id="reset-search" class="faads-search-submit" style="margin-top:25px; float:left;" type="button" value="Reset Search" />
             {% endif %}
             <input type="submit" class="faads-search-submit" value="Search" />
             
@@ -230,6 +242,12 @@ td.number {text-align: right; }
                     </span>
                 </div>
                 {% endif %}
+            {% else %}
+                {% if has_searched %}
+                    <span class="no-results">
+                    No Results Found
+                    </span>
+                {% endif %}
             {% endif %}
             </div>
         
@@ -240,6 +258,19 @@ td.number {text-align: right; }
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
+    $("#id_text_query").bind('focus', function(){
+        $(this).toggleClass("active-field");
+        if( $(this).val().trim() == "new york city transit" ){
+            this.value = "";
+        }
+    });
+    $("#id_text_query").bind('blur', function(){
+        if ( this.value === "" ){
+            this.value = "new york city transit";
+        }
+        $(this).toggleClass("active-field");
+    });
+
     $("#mode-select-all").click(function(){
        $("#mode-select input").attr("checked", "checked");
        return false;

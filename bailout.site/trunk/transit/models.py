@@ -31,7 +31,7 @@ MODE_TROLLEY = 'TB'
 MODE_TRAMWAY = 'TR'
 MODE_VANPOOL = 'VP'
    
-module_constants = {'MODE_CONSTANTS': ((MODE_AUTOMATED_GUIDEWAY, 'Automated Guideway'),
+mode_constants = ((MODE_AUTOMATED_GUIDEWAY, 'Automated Guideway'),
     (MODE_ALASKA_RAILROAD, 'Alaska Railroad'),
     (MODE_BUS, 'Bus'),
     (MODE_CABLE_CAR, 'Cable Car'),
@@ -46,7 +46,7 @@ module_constants = {'MODE_CONSTANTS': ((MODE_AUTOMATED_GUIDEWAY, 'Automated Guid
     (MODE_PUBLICO, 'Publico'),
     (MODE_TROLLEY, 'Trolley Bus'),
     (MODE_TRAMWAY, 'Aerial Tramway'),
-    (MODE_VANPOOL, 'Vanpool'))}
+    (MODE_VANPOOL, 'Vanpool'))
 
 class BigintField(models.Field):
     def db_type(self):
@@ -79,8 +79,11 @@ class TransitSystem(models.Model):
     
     urbanized_area =  models.ForeignKey(UrbanizedArea, null=True)
     
-    name = models.CharField(max_length=255, null=True, blank=True
-    )
+    name = models.CharField(max_length=255, null=True, blank=True)
+
+    common_name = models.CharField(max_length=50, null=True, blank=True)
+
+    
 class TransitSystemMode(models.Model):
     
     transit_system = models.ForeignKey(TransitSystem, null=False)
@@ -95,7 +98,7 @@ class TransitSystemMode(models.Model):
     
     common_name = models.CharField(max_length=50, null=True, blank=True)
     
-    MODE_CHOICES = module_constants['MODE_CONSTANTS']
+    MODE_CHOICES = mode_constants
 
     mode = models.CharField(max_length=2, choices=MODE_CHOICES)
 
@@ -135,6 +138,9 @@ class TransitSystemModeManager(models.Manager):
             params = line.split(",")
             try:
                 system = TransitSystem.objects.get(trs_id=int(params[0]))
+                system.common_name = params[1]
+                system.save() # add to transit system object as well
+
                 sys = TransitSystemMode.objects.filter(transit_system=system)
                 for s in sys:
                     s.common_name = params[1]
@@ -168,6 +174,7 @@ class TransitSystemModeManager(models.Manager):
                 operating_expense = 0
                 capital_expense = 0
                 fares = 0
+                avg_fares = 0
                 op_yr_count = 0
                 cap_yr_count = 0
                 avg_operating = 0
@@ -182,7 +189,9 @@ class TransitSystemModeManager(models.Manager):
                         cap_yr_count += 1
                         capital_expense += cpi.convertValue(stat.capital_expense, CURRENT_YEAR, stat.year)
                     if stat.fares:
-                        fares += cpi.convertValue(stat.fares, CURRENT_YEAR, stat.year)
+                        this_fare = cpi.convertValue(stat.fares, CURRENT_YEAR, stat.year)
+                        fares += this_fare
+                        avg_fares +=  this_fare
                 
                 if op_yr_count > 0 : avg_operating = operating_expense/op_yr_count
                 if cap_yr_count > 0: avg_capital = capital_expense/cap_yr_count
@@ -201,7 +210,9 @@ class TransitSystemModeManager(models.Manager):
 
                 if fares and operating_expense: rec_ratio = fares / operating_expense
                 
-                print "id: %s\n city: %s\n state: %s\n uza: %s\n name:%s\n mode:%s\n capital expenses:%s\n operating expenses:%s\n fares:%s\n UPT:%s\n PMT: %s\n  average operating dollars per UPT:%s\n average operating dollars per PMT:%s\n average capital dollars per UPT:%s\n average capital dollars per PMT: %s\n recovery ratio:%s\n======================" %(sys.trs_id, sys.city, sys.state.name, sys.urbanized_area, sys.name, m, capital_expense, operating_expense, fares, UPT, PMT, avg_op_UPT, avg_op_PMT, avg_cap_UPT, avg_cap_PMT, rec_ratio)
+                if avg_fares: avg_fares = avg_fares / len(mode_stats)
+
+                print "id: %s\n city: %s\n state: %s\n uza: %s\n name:%s\n mode:%s\n capital expenses:%s\n operating expenses:%s\n fares:%s\n average fares: %s\n UPT:%s\n PMT: %s\n  average operating dollars per UPT:%s\n average operating dollars per PMT:%s\n average capital dollars per UPT:%s\n average capital dollars per PMT: %s\n recovery ratio:%s\n======================" %(sys.trs_id, sys.city, sys.state.name, sys.urbanized_area, sys.name, m, capital_expense, operating_expense, fares, avg_fares, UPT, PMT, avg_op_UPT, avg_op_PMT, avg_cap_UPT, avg_cap_PMT, rec_ratio)
 
                 new_tsm = TransitSystemMode(transit_system=sys)
                 new_tsm.state = sys.state
@@ -214,6 +225,7 @@ class TransitSystemModeManager(models.Manager):
                 new_tsm.avg_capital_expenses=avg_capital
                 new_tsm.avg_operating_expenses=avg_operating
                 new_tsm.total_fares=fares
+                new_tsm.avg_fares=avg_fares
                 new_tsm.total_UPT=UPT
                 new_tsm.total_PMT=PMT
                 new_tsm.avg_operating_UPT=avg_op_UPT
@@ -255,13 +267,16 @@ class FundingStats(models.Model):
         
         return total
 
-    def total_funding_by_type(self, type):
+    def total_funding_by_type(self, type, category=None):
         total = 0
         if type == 'federal': funding = [self.capital_federal, self.operating_federal]
         elif type == 'state': funding = [self.capital_state, self.operating_state]
         elif type == 'local': funding = [self.capital_local, self.operating_local]
         else: funding = [self.capital_other, self.operating_other]
-
+        
+        if category == 'capital': funding[1] = None
+        elif category == 'operating': funding[0] = None
+            
         for f in funding:
             if f:
                 total += float(f)
@@ -275,12 +290,18 @@ class OperationStats(models.Model):
     
     year = models.IntegerField()
 
-    MODE_CHOICES = module_constants['MODE_CONSTANTS']
+    MODE_CHOICES = mode_constants
     
     mode = models.CharField(max_length=2, choices=MODE_CHOICES)
     
     operating_expense = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_expense_VO = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_expense_VM = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_expense_NVM = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    operating_expense_GA = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+
     capital_expense = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+    
     fares = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     
     vehicle_revenue_miles = models.DecimalField(max_digits=15, decimal_places=0, null=True)
