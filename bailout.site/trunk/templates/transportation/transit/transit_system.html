@@ -10,9 +10,8 @@
 <style>
 #info {padding: 10px; margin: 10px; border: 1px solid #AFAFAF;}
 #info ul {margin:0; padding:0;}
-#map {height:290px; width: 400px; }
 .map-container {width: 45%; float:left;}
-.pie-container { width: 50%; float:left;}
+.pie-container { width: 49%; float:left;}
 .info-container { clear:both; display: block; width: 50%; }
 .line-chart-container {display:block; width:100%;}
 .long-header {display:block; width: 100%;}
@@ -28,14 +27,37 @@
 .shadow1 {background: #F1F0F1; }
 .shadow2 {background: #DBDADB; }
 .shadow3 {background: #B8B6B8; }
-.plain {background: #ffffff; border: 1px solid #848284; padding:10px;}
+.plain {background: #ffffff; border: 1px solid #848284; padding:10px; padding-left:20px;}
 .ridership {float:left; margin-top:25px; }
-
+.system-info-container { width:880px; float:left; margin-left:20px; margin-bottom: 30px; padding:10px 15px; }
+.system-info-container h4 {margin-left:20px;} 
+.system-info {width: 450px; padding-left:20px; float:left; font-size:1.2em; }
+.system-info ul { margin-top: 20px; margin-bottom: 0px;  width: 300px; float:left; }
+.system-info ul li {margin: 3px 0px 10px;}
+.system-info ul.system-labels {width: 100px;font-weight: bold;}
+#map {height:150px; width: 400px;float:left; }
 </style>
 <div class="container main_container">
     {% include "includes/transportation_nav.html" %}
     <span class="span-24">
         <div id="header_area"><h3>{{system.name}}</h3></div>
+        <div class="system-info-container section-floating-nav">
+            <div class="system-info">
+                <ul class="system-labels">
+                    <li>Location</li>
+                    <li>Area</li>
+                    <li>Population</li>
+                </ul>
+                
+                <ul>
+                <li>{{system.city}}, {{system.state}}</li>
+                <li>{{system.urbanized_area.area|intcomma}} sq. mi.</li>
+                <li>{{system.urbanized_area.population|intcomma }}</li>
+                </ul>
+            
+            </div>
+            <div id="map"></div>
+        </div>
         <div class="content_area">
             <h5>Funding Sources Over Time</h5>
             <div class="line-chart-container">
@@ -175,8 +197,8 @@
                     return JSON.stringify({{upt_data|safe}});
                 }*/
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fundingChart", "900", "300", "9.0.0", "expressInstall.swf", {"get-data": "linechart"});
-                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_operating", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_operating"});
-                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_capital", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_capital"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_operating", "430", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_operating"});
+                swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_capital", "430", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_capital"});
                 //swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fareChart", "350", "305", "9.0.0", "expressInstall.swf", {"get-data":"farechart"});
 
                 $("#year-select").change(function(e){
@@ -207,9 +229,9 @@
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "pmtChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "pmtchart"});
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "uptChart", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "uptchart"});
   */          </script>
-            <!--<script src="http://www.google.com/jsapi?key=ABQIAAAAhsWrZ8VHxDxF9jrKbcsQ0xRvfLFziSZqANDNArw6yp0kxlhceBS-wjqDyDClpSNt9y_iJB5a-HjMig" type="text/javascript" charset="utf-8"></script>-->
-<!--            <script type="text/javascript" charset="utf-8">
-                //google.load("maps", "2");
+            <script src="http://www.google.com/jsapi?key=ABQIAAAAhsWrZ8VHxDxF9jrKbcsQ0xRvfLFziSZqANDNArw6yp0kxlhceBS-wjqDyDClpSNt9y_iJB5a-HjMig" type="text/javascript" charset="utf-8"></script>
+            <script type="text/javascript" charset="utf-8">
+                google.load("maps", "2");
             </script>
             <script type="text/javascript" charset="utf-8"> 
                 function init() {
@@ -229,7 +251,7 @@
 
                 init();
             </script>
--->
+
         </table>
 
         </div>
