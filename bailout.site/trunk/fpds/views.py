@@ -189,15 +189,16 @@ def search(request, sector_name=None):
                     order_by = '-'
 
 
+
                 if request.GET['s'] == 'obligation_date':
 
                     order_by += 'obligation_date'
                     sort_column = 'obligation_date'
 
-                elif request.GET['s'] == 'contractor_name':
+                elif request.GET['s'] == 'recipient':
 
-                    order_by += 'contractor_name'
-                    sort_column = 'contractor_name'
+                    order_by += 'vendor_name'
+                    sort_column = 'vendor_name'
 
                 elif request.GET['s'] == 'amount':
 

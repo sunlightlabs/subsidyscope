@@ -18,204 +18,34 @@ $(document).ready(function(){
     $('#recipient').removeClass('header headerAsc headerDesc');
     $('#amount').removeClass('header headerAsc headerDesc');
     
-  	if(sortColumn == 'obligation_date')
-  	{
-  		
-  		if(sortOrder == 'asc')
-  		{
-  			$('#obligation_date').addClass('headerAsc');
-  			
-  			$('#obligation_date').bind('click', function(e){
-  				$('#sortField').val('obligation_date');
-  				$('#sortOrder').val('desc');
-  				$('#sortForm').submit();
-  			});
-  		}	
-  		else
-  		{
-  			$('#obligation_date').addClass('headerDesc');
-  			
-  			$('#obligation_date').bind('click', function(e){
-  				$('#sortField').val('obligation_date');
-  				$('#sortOrder').val('asc');
-  				$('#sortForm').submit();
-  			});
-  		}
-  			
-  		$('#cfda_program').addClass('header');
-    	$('#recipient').addClass('header');
-    	$('#amount').addClass('header');
-    	
-    	
-    	$('#cfda_program').bind('click', function(e){
-			$('#sortField').val('cfda_program');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-  			
-  			
-  		$('#recipient').bind('click', function(e){
-			$('#sortField').val('recipient');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-  			
-  			
-  		$('#amount').bind('click', function(e){
-			$('#sortField').val('amount');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-    	
-  	}
-  	else if(sortColumn == 'cfda_program')
-  	{
-  		
-  		if(sortOrder == 'asc')
-  		{
-  			$('#cfda_program').addClass('headerAsc');
-  			
-  			$('#cfda_program').bind('click', function(e){
-  				$('#sortField').val('cfda_program');
-  				$('#sortOrder').val('desc');
-  				$('#sortForm').submit();
-  			});
-  		}
-  		else
-  		{
-  			$('#cfda_program').addClass('headerDesc');
-  			
-  			$('#cfda_program').bind('click', function(e){
-  				$('#sortField').val('cfda_program');
-  				$('#sortOrder').val('asc');
-  				$('#sortForm').submit();
-  			});
-  		}
-  			
-  		$('#obligation_date').addClass('header');
-    	$('#recipient').addClass('header');
-    	$('#amount').addClass('header');
-    	
-    	
-    	$('#obligation_date').bind('click', function(e){
-			$('#sortField').val('obligation_date');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-  			
-  			
-  		$('#recipient').bind('click', function(e){
-			$('#sortField').val('recipient');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-  			
-  			
-  		$('#amount').bind('click', function(e){
-			$('#sortField').val('amount');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-    	
-  	}
-  	else if(sortColumn == 'recipient')
-  	{
-  		if(sortOrder == 'asc')
-  		{
-  			$('#recipient').addClass('headerAsc');
-  			
-  			$('#recipient').bind('click', function(e){
-  				$('#sortField').val('recipient');
-  				$('#sortOrder').val('desc');
-  				$('#sortForm').submit();
-  			});
-  		}
-  		else
-  		{
-  			$('#recipient').addClass('headerDesc');
-  		
-  			$('#recipient').bind('click', function(e){
-  				$('#sortField').val('recipient');
-  				$('#sortOrder').val('asc');
-  				$('#sortForm').submit();
-  			});	
-  		}
-  			
-  		$('#cfda_program').addClass('header');
- 		$('#obligation_date').addClass('header'); 
-    	$('#amount').addClass('header');
-    	
-    	
-    	$('#cfda_program').bind('click', function(e){
-			$('#sortField').val('cfda_program');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-  			
-  			
-  		$('#obligation_date').bind('click', function(e){
-			$('#sortField').val('obligation_date');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-  			
-  			
-  		$('#amount').bind('click', function(e){
-			$('#sortField').val('amount');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-    	
-  	}
-  	else if(sortColumn == 'amount')
-  	{
-  		if(sortOrder == 'asc')
-  		{
-  			$('#amount').addClass('headerAsc');
+    // hacky...
+    if (sortColumn=='vendor_name'){
+        sortColumn = 'recipient';
+    }
+    
+  	var columns = ['obligation_date', 'recipient', 'amount'];
 
-			$('#amount').bind('click', function(e){
-  				$('#sortField').val('amount');
-  				$('#sortOrder').val('desc');
-  				$('#sortForm').submit();
-  			});  			
-  		}
-  		else
-  		{
-  			$('#amount').addClass('headerDesc');
-  			
-  			$('#amount').bind('click', function(e){
-  				$('#sortField').val('amount');
-  				$('#sortOrder').val('asc');
-  				$('#sortForm').submit();
-  			});  	
-  		}
-  			
-  		$('#cfda_program').addClass('header');
-    	$('#recipient').addClass('header');
-    	$('#obligation_date').addClass('header');
-    	
-    	
-    	$('#cfda_program').bind('click', function(e){
-			$('#sortField').val('cfda_program');
-			$('#sortOrder').val('desc');
+    for (i in columns) {
+        var thisColumn = columns[i];
+            
+        $('#' + thisColumn).removeClass('header headerAsc headerDesc');
+    
+        if(sortColumn==thisColumn) {
+            $('#' + thisColumn).addClass('header' + (sortOrder=='asc' ? 'Asc': 'Desc'));
+            $('#' + thisColumn).attr('rel', (thisColumn + ';' + (sortOrder=='asc' ? 'desc' : 'asc')));
+        }
+        else {
+            $('#' + thisColumn).addClass('header');
+            $('#' + thisColumn).attr('rel', (thisColumn + ';desc'));
+        }
+        
+        $('#' + thisColumn).bind('click', function(e){            
+            $('#sortField').val($(this).attr('rel').split(';')[0]);
+            $('#sortOrder').val($(this).attr('rel').split(';')[1]);
 			$('#sortForm').submit();
-		});
-  			
-  			
-  		$('#recipient').bind('click', function(e){
-			$('#sortField').val('recipient');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-  			
-  			
-  		$('#obligation_date').bind('click', function(e){
-			$('#sortField').val('obligation_date');
-			$('#sortOrder').val('desc');
-			$('#sortForm').submit();
-		});
-		
-  	}
+        });        
+    }
+    
     
     // display the initially-selected "choose programs by" div
     DisplayProgramPanel($('#program-selector ul li input:checked').val());

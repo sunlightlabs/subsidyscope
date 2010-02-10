@@ -116,6 +116,7 @@
 #fpds-search-results tr.odd td { background-color: #f0f0f0;}
 #fpds-search-results td.amount { text-align: right;}
 #fpds-search-results td.cfda-program,#fpds-search-results td.obligation-date { text-align: center;}
+#fpds-search-results td.description { overflow: hidden;}
 
 
 #no-fpds-results-found {
