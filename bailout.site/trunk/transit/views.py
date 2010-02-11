@@ -1,5 +1,5 @@
 
-from django.http import HttpResponse, HttpResponseRedirect, HttpRequest
+from django.http import HttpResponse, HttpResponseRedirect, HttpRequest, Http404
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.template import RequestContext, loader, Template, Context
@@ -13,6 +13,7 @@ from math import *
 from django import forms
 from copy import deepcopy
 from django.db.models import Q
+from csv import writer
 
 metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'recovery_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
 
@@ -21,17 +22,45 @@ mode_hash = {'AG':'Automated Guideway', 'AR': 'Alaska Railroad', 'MB':'Bus', 'CC
 #view functions
 
 def index(request):
+
+    return render_to_response('transportation/transit/transit_index.html', transit_search(request))
+
+def csv(request):
+    search_data = transit_search(request, request.GET)
+    try:
+       results = search_data['csv_results']
+       if results:
+            response = HttpResponse(mimetype="text/csv")
+            response['Content-Disposition'] = 'attachment; filename=transitsearch'
+            
+            csv_writer = writer(response)
+            csv_writer.writerow(["Name", "Mode", "City", "State", "Urbanized Area", "Total Capital Expense", "Total Operating Expense", "Average Yearly Capital Expense", "Average Yearly Operating Expense", "Passenger Miles Traveled", "Unlinked Passenger Trips", "Recovery Ratio", "Operating Expense per PMT", "Capital Expense per PMT", "Operating Expense per UPT", "Capital Expense per UPT"])
+
+            for r in results:
+                csv_writer.writerow([r.name, r.get_mode_display(), r.city, r.state, r.urbanized_area.name, r.total_capital_expenses, r.total_operating_expenses, r.avg_capital_expenses, r.avg_operating_expenses, r.total_PMT, r.total_UPT, r.recovery_ratio, r.avg_operating_PMT, r.avg_capital_PMT, r.avg_operating_UPT, r.avg_capital_UPT])
+           
+            response.close()
+
+            return response
+
+    except KeyError:
+            raise Http404
+
+def transit_search(request, csv_data=None):
+
     states = State.objects.all()
     uza = UrbanizedArea.objects.all().order_by('name')
     systems = TransitSystemMode.objects.all()
     operations = OperationStats.objects.filter(transit_system=systems[0])
     has_searched = False
-
+    
     tester = None
      
     tester = "test"
-    if request.method =="POST":
-        form = TransitQuery(request.POST) 
+    if request.method =="POST" or csv_data:
+        if request.method == "POST":  form = TransitQuery(request.POST) 
+        else: form = TransitQuery(csv_data)
+
         has_searched = True
         if form.is_valid():
             data = form.cleaned_data
@@ -43,6 +72,15 @@ def index(request):
             metrics = data['metrics_selected']
             sort = data["sort"]
             order = data["order"]
+            page_number = data["page"] or 1
+            
+            qs = ""
+            for k in data.keys(): 
+                if type(data[k]) == type([]):
+                    for val in data[k]:
+                        qs += "%s=%s&" % (k, val)
+                else:
+                    qs += "%s=%s&" % (k, data[k])
 
             if name:
                 systems = systems.filter(Q(name__icontains=name) | Q(common_name__icontains=name))
@@ -79,37 +117,33 @@ def index(request):
             
             else:
                 systems = systems.order_by('name')
-            paginator = Paginator(systems, 20)
-            try:
-                page = int(request.POST.get('page', '1'))
 
-            except ValueError:
-                page = 1
+            csv_results = systems
+            the_paginator = Paginator(systems, 20)
 
             try:
-                systems = paginator.page(page)
+                results  = the_paginator.page(page_number)
             except (EmptyPage, InvalidPage):
-                systems = paginator.page(paginator.num_pages)
+                results  = the_paginator.page(the_paginator.num_pages)
             
-            if len(systems.object_list) > 0: 
-                return render_to_response('transportation/transit/transit_index.html', 
-                                         {'states': states, 
-                                          'uza': uza, 
-                                          'results': systems, 
-                                          'modes': mode_constants ,
-                                          'paginator': systems, 
-                                          'num_pages':paginator.num_pages, 
-                                          'form':data, 
-                                          'metrics': metrics_selected})   
+            if len(results.object_list) > 0: 
+                return  {'states': states, 
+                         'uza': uza, 
+                         'results': results, 
+                         'modes': mode_constants ,
+                         'paginator': the_paginator, 
+                         'csv_results':csv_results,
+                         'form':data, 
+                         'metrics': metrics_selected,
+                         'qs': qs}
 
             #else: tester = "no objects returned" 
                  
-    return render_to_response('transportation/transit/transit_index.html', 
-                             {'states': states, 
-                              'uza': uza, 
-                              'modes': mode_constants, 
-                              'by_mode':tester,
-                              'has_searched': has_searched})
+    return {'states': states, 
+            'uza': uza, 
+            'modes': mode_constants, 
+            'by_mode':tester,
+            'has_searched': has_searched}
 
 
 def transitSystem(request, trs_id):

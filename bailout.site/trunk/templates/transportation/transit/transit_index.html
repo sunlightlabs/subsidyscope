@@ -65,7 +65,7 @@ td.number {text-align: right; }
                 {% if form %} <legend id="advanced-options">Refine Search Results&nbsp;</legend> {% endif %}
                 <div class="section" id="text-query-text-wrapper"> 
                     <h4>Name/Abbreviation</h4>
-                    <input id="id_text_query" value="{% if form%} {{form.system_name}} {%else%} new york city transit{% endif %}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
+                    <input id="id_text_query" value="{% if form%}{{form.system_name}}{% endif %}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
                 </div>
                 <div class="section" id="mode-select">
                     <h4>Mode <span class="select-all-or-none"> [<a href="#" class="select-all" id="mode-select-all">All</a>/<a href="#" class="select-none" id="mode-select-none">None</a>]</span></h4>
@@ -147,7 +147,7 @@ td.number {text-align: right; }
                     </div>
                 </div> 
             </fieldset>
-            <input type="hidden" name="page" id="page_value" value="" />
+            <input type="hidden" name="page" id="page_value" value="1" />
             <input type="hidden" name="sort" id="sort_field" value="{%if form.sort%}{{form.sort}}{% endif %}" />
             <input type="hidden" name="order" id="sort_order" value="{%if form.order%}{{form.order}}{% endif %}" />
             {% if form %} 
@@ -161,7 +161,7 @@ td.number {text-align: right; }
                 {% if paginator %}
                     <div class="pagination first">
                         <span class="step-links">
-                    {% if paginator.has_previous %}
+                    {% if results.has_previous %}
                         <a href="#" id="first_page">&laquo;&nbsp;first</a>
                         <a href="#" id="prev_page">&lsaquo;&nbsp;previous</a>
                     {% else %}
@@ -169,9 +169,9 @@ td.number {text-align: right; }
                         <span class="disabled">&lsaquo;&nbsp;previous</span>
                     {% endif %}
                     <span class="current">
-                       &nbsp;Page {{paginator.number}} of {{paginator.paginator.num_pages}} &nbsp;
+                       &nbsp;Page {{results.number}} of {{paginator.num_pages}} &nbsp;
                     </span>
-                    {% if paginator.has_next %}
+                    {% if results.has_next %}
                         <a href="#" id="next_page">next&nbsp;&rsaquo;</a>
                         <a href="#" id="last_page">last&nbsp;&raquo;</a>
                     {% else %}
@@ -222,7 +222,7 @@ td.number {text-align: right; }
                 {% if paginator %}
                     <div class="pagination">
                         <span class="step-links">
-                    {% if paginator.has_previous %}
+                    {% if results.has_previous %}
                         <a href="#" id="first_page_bottom">&laquo;&nbsp;first</a>
                         <a href="#" id="prev_page_bottom">&lsaquo;&nbsp;previous</a>
                     {% else %}
@@ -230,9 +230,9 @@ td.number {text-align: right; }
                         <span class="disabled">&lsaquo;&nbsp;previous</span>
                     {% endif %}
                     <span class="current">
-                       &nbsp;Page {{paginator.number}} of {{paginator.paginator.num_pages}} &nbsp;
+                       &nbsp;Page {{results.number}} of {{paginator.num_pages}} &nbsp;
                     </span>
-                    {% if paginator.has_next %}
+                    {% if results.has_next %}
                         <a href="#" id="next_page_bottom">next&nbsp;&rsaquo;</a>
                         <a href="#" id="last_page_bottom">last&nbsp;&raquo;</a>
                     {% else %}
@@ -242,6 +242,7 @@ td.number {text-align: right; }
                     </span>
                 </div>
                 {% endif %}
+                <div class="summary-csv"><a style="background: transparent url(/media/images/download_icon_smaller.png) no-repeat scroll 0 6px; padding-left: 25px; padding-top:7px;" href="{%url transit-csv-download %}?qs={{qs}}">CSV Download</a></div>
             {% else %}
                 {% if has_searched %}
                     <span class="no-results">
@@ -258,7 +259,7 @@ td.number {text-align: right; }
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
-    $("#id_text_query").bind('focus', function(){
+/*    $("#id_text_query").bind('focus', function(){
         $(this).toggleClass("active-field");
         if( $(this).val().trim() == "new york city transit" ){
             this.value = "";
@@ -270,7 +271,7 @@ $(document).ready(function(){
         }
         $(this).toggleClass("active-field");
     });
-
+*/
     $("#mode-select-all").click(function(){
        $("#mode-select input").attr("checked", "checked");
        return false;
@@ -281,7 +282,7 @@ $(document).ready(function(){
     });
     $("#prev_page, #prev_page_bottom").click(function(e){
         e.preventDefault();
-        $("#faads-search-form").find("#page_value").val("{{paginator.previous_page_number}}").end().submit();
+        $("#faads-search-form").find("#page_value").val("{{results.previous_page_number}}").end().submit();
     });
     $("#first_page, #first_page_bottom").click(function(e){
         e.preventDefault();
@@ -289,11 +290,11 @@ $(document).ready(function(){
     });
     $("#last_page, #last_page_bottom").click(function(e){
         e.preventDefault();
-        $("#faads-search-form").find("#page_value").val({{paginator.paginator.num_pages}}).end().submit();
+        $("#faads-search-form").find("#page_value").val({{paginator.num_pages}}).end().submit();
     });
     $("#next_page, #next_page_bottom").click(function(e){
         e.preventDefault();
-        $("#faads-search-form").find("#page_value").val("{{paginator.next_page_number}}").end().submit();
+        $("#faads-search-form").find("#page_value").val("{{results.next_page_number}}").end().submit();
     });
     
     $('fieldset#advanced-options legend').click(function(){

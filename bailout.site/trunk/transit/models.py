@@ -327,6 +327,8 @@ class TransitQuery(forms.Form):
     sort = forms.CharField(max_length=100, required=False)
     
     order = forms.CharField(max_length=20, required=False)
+
+    page = forms.CharField(max_length=4, required=False)
     
     
     
