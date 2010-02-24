@@ -29,4 +29,4 @@ def faads():
 def fpds():
     """ defines SQL clause identifying relevant FPDS program records """
     sector = _get_sector()
-    return { 'sector': { sector: "TRIM(extentCompeted) NOT IN ('A', 'F', 'CDO') AND (LOWER(TRIM(nonprofitOrganizationFlag))='t' OR LOWER(TRIM(educationalInstitutionFlag))='t')"}, 'subsectors': {}}
+    return { 'sector': { sector: "TRIM(UPPER(extentCompeted)) NOT IN ('A', 'F', 'CDO') AND (LOWER(TRIM(nonprofitOrganizationFlag))='t' OR LOWER(TRIM(educationalInstitutionFlag))='t')"}, 'subsectors': {}}
