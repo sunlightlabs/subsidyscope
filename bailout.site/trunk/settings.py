@@ -115,7 +115,8 @@ INSTALLED_APPS = (
     'news_briefs',
     'cfda',
     'transit',
-    'inflation'
+    'inflation',
+    'navigation',
 )
 
 #try:
@@ -211,6 +212,28 @@ HAYSTACK_SOLR_URL = 'http://127.0.0.1:8080/solr'
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_SITECONF = 'search_sites'
+
+#Navigation Configuration
+SUBSIDY_TYPES = (
+                    ('Grants and Contracts', 'direct-expenditures'), 
+                    ('Tax Subsidies', 'tax-expenditures'), 
+                    ('Loans and Loan Guarantees', 'risk-transfers')
+                )
+
+SECTORS = { 
+            'transportation': (SUBSIDY_TYPES, (
+                                                    ('Rail','rail'),
+                                                    ('Transit', 'transit'),
+                                                    ('Highways', 'highways'),
+                                                    ('Maritime', 'maritime'),
+                                                    ('Aviation', 'aviation'),
+                                                )
+                              ), 
+            'nonprofits': ( SUBSIDY_TYPES , ( 
+                                                ('Types of Nonprofits', 'types'),
+                                            )
+                            )
+          }
 
 
 # Auth 

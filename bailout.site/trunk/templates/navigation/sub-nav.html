@@ -1,0 +1,18 @@
+{% load smarterif %}
+{% load custom_filters %}
+
+
+{% for s in subsectors %}
+
+    {# First tuple in subsectors is subsidy type  #}
+    {# Second tuple in subsectors is other subsector (i.e. mode, etc) #}
+
+
+    {% for item in s %}
+        <li {% if item.1 == active_subsector %} class="active">{{item.0}}
+    {% else %}
+        >
+        <a href="{{item.1}}" class="">{{item.0}}</a></li>
+    {% endif %}
+    {% endfor %}
+{% endfor %}

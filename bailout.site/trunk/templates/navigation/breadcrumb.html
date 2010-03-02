@@ -1,0 +1,34 @@
+{% load smarterif %}
+{% load custom_filters %}
+
+<span class="breadcrumbs">
+    
+    <a href="/{{active_sector}}/">
+        {{active_sector|camelcase}}
+    </a>
+    &nbsp;&raquo;&nbsp;
+
+    {% if current_page == active_subsector.0 %}
+
+        {{active_subsector.1}}
+
+    {% else %}
+        <a href="/{{active_sector}}/{{active_subsector.0}}/">
+            {{active_subsector.1}}
+        </a>
+
+        {% for page in pages %}
+            
+            &nbsp; &raquo; &nbsp;
+            {% if current_page != page.1 %}
+                <a href="{{page.0}}">{{page.1}}</a>
+
+            {% else %}
+                
+                {{page.1}}
+
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+</span>
