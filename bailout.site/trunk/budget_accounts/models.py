@@ -8,11 +8,11 @@ class Agency(models.Model):
 
 class TreasuryAccountManager(models.Manager):
     
-    def createTreasuryAccount(self, agency, account, sub_account=None):
+    def createTreasuryAccount(self, agency, account, account_name, sub_account=None):
         
         agency, created = Agency.objects.get_or_create(code=agency)
         
-        treasury_account, created = self.get_or_create(agency=agency, account=account, sub_account=sub_account)
+        treasury_account, created = self.get_or_create(agency=agency, account=account, sub_account=sub_account, account_name=account_name)
         
         return treasury_account
          
@@ -24,6 +24,8 @@ class TreasuryAccount(models.Model):
     account = models.IntegerField(null=True, blank=True)
     
     sub_account = models.IntegerField(null=True, blank=True)
+    
+    account_name = models.TextField(blank=True)
 
     objects = TreasuryAccountManager()
 
@@ -48,7 +50,7 @@ class BudgetAccountManager(models.Manager):
             
             if created:
             
-                account.treasury_account = TreasuryAccount.objects.createTreasuryAccount(int(account_parts[0]), int(account_parts[1]))
+                account.treasury_account = TreasuryAccount.objects.createTreasuryAccount(int(account_parts[0]), int(account_parts[1]), '')
                         
                 account.transmittal_code = int(account_parts[2])
                 
@@ -64,7 +66,7 @@ class BudgetAccountManager(models.Manager):
                         print 'unknown budget function: %s' % (int(account_parts[4]))
                         
                 account.save()
-             
+
             return account
         else:
             return None
