@@ -49,20 +49,20 @@
 								
 								var total = data[2007]['federal'] + data[2007]['user'] + data[2007]['non_user'] + data[2007]['bonds']; 
 								
-								$('#source_sl_user_d').text(formatDollar(data[2007]['user']));
-								$('#source_sl_user_p').text(formatPercent(total, data[2007]['user']));
+								$('#source_sl_user_d').html(formatDollar(data[2007]['user']));
+								$('#source_sl_user_p').html(formatPercent(total, data[2007]['user']));
 								  
-								$('#source_sl_nonuser_d').text(formatDollar(data[2007]['non_user']));
-								$('#source_sl_nonuser_p').text(formatPercent(total, data[2007]['non_user']));
+								$('#source_sl_nonuser_d').html(formatDollar(data[2007]['non_user']));
+								$('#source_sl_nonuser_p').html(formatPercent(total, data[2007]['non_user']));
 								
-								$('#source_sl_bonds_d').text(formatDollar(data[2007]['bonds']));
-								$('#source_sl_bonds_p').text(formatPercent(total, data[2007]['bonds']));
+								$('#source_sl_bonds_d').html(formatDollar(data[2007]['bonds']));
+								$('#source_sl_bonds_p').html(formatPercent(total, data[2007]['bonds']));
 								  
-								$('#source_fed_d').text(formatDollar(data[2007]['federal']));
-								$('#source_fed_p').text(formatPercent(total, data[2007]['federal']));
+								$('#source_fed_d').html(formatDollar(data[2007]['federal']));
+								$('#source_fed_p').html(formatPercent(total, data[2007]['federal']));
 								  
-								$('#source_total_d').text(formatDollar(total));
-				 				$('#source_total_p').text(formatPercent(total, total));
+								$('#source_total_d').html(formatDollar(total));
+				 				$('#source_total_p').html(formatPercent(total, total));
 			 					
 			 					
 							});
@@ -76,17 +76,17 @@
 							{
 								var total = data[2007]['federal'] + data[2007]['state'] + data[2007]['local']; 
 								
-								$('#govt_fed_d').text(formatDollar(data[2007]['federal']));
-								$('#govt_fed_p').text(formatPercent(total, data[2007]['federal']));
+								$('#govt_fed_d').html(formatDollar(data[2007]['federal']));
+								$('#govt_fed_p').html(formatPercent(total, data[2007]['federal']));
 								  
-								$('#govt_state_d').text(formatDollar(data[2007]['state']));
-								$('#govt_state_p').text(formatPercent(total, data[2007]['state']));
+								$('#govt_state_d').html(formatDollar(data[2007]['state']));
+								$('#govt_state_p').html(formatPercent(total, data[2007]['state']));
 								  
-								$('#govt_local_d').text(formatDollar(data[2007]['local']));
-								$('#govt_local_p').text(formatPercent(total, data[2007]['local']));
+								$('#govt_local_d').html(formatDollar(data[2007]['local']));
+								$('#govt_local_p').html(formatPercent(total, data[2007]['local']));
 								  
-								$('#govt_total_d').text(formatDollar(total));
-				 				$('#govt_total_p').text(formatPercent(total, total));
+								$('#govt_total_d').html(formatDollar(total));
+				 				$('#govt_total_p').html(formatPercent(total, total));
 				 			});
 						}
 					}
@@ -112,7 +112,7 @@
 						if(percent == 0)
 							return '0%';
 						else if(percent < 1)
-							return '<1%';
+							return '&lt;1%';
 						else
 							return Math.round(percent) + '%';
 					}
