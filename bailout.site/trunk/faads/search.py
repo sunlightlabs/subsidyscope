@@ -47,28 +47,28 @@ class FAADSSearch(USASpendingSearchBase):
          
         'cfda_program': {
             'type': 'fk',
-            'mysql_field': 'cfda_program', 
+            'mysql_field': 'cfda_program_id', 
             'solr_field': 'cfda_program', 
             'aggregate': True
         },
                 
         'action_type': {
             'type': 'fk',
-            'mysql_field': 'action_type', 
+            'mysql_field': 'action_type_id', 
             'solr_field': 'action_type',
             'aggregate': True
         },
         
         'recipient_type': {
             'type': 'fk',
-            'mysql_field': 'recipient_type', 
+            'mysql_field': 'recipient_type_id', 
             'solr_field': 'recipient_type', 
             'aggregate': True
         },
         
         'record_type': {
             'type': 'fk',
-            'mysql_field': 'record_type', 
+            'mysql_field': 'record_type_id', 
             'solr_field': 'record_type', 
             'mysql_transformation': lambda x: self.RECORD_TYPE_FK_LOOKUP.get(int(x), None),
             'solr_transformation': lambda x: self.RECORD_TYPE_FK_LOOKUP.get(int(x), None),
@@ -77,7 +77,7 @@ class FAADSSearch(USASpendingSearchBase):
 
         'assistance_type': {
             'type': 'fk',
-            'mysql_field': 'assistance_type',
+            'mysql_field': 'assistance_type_id',
             'solr_field': 'assistance_type',
             'aggregate': True
         },
@@ -132,35 +132,35 @@ class FAADSSearch(USASpendingSearchBase):
         
         'recipient_state': {
             'type': 'fk',
-            'mysql_field': 'recipient_state', 
+            'mysql_field': 'recipient_state_id', 
             'solr_field': 'recipient_state', 
             'aggregate': True
         },
         
         'recipient_county': {
             'type': 'fk',
-            'mysql_field': 'recipient_county', 
+            'mysql_field': 'recipient_county_id', 
             'solr_field': 'recipient_county', 
             'aggregate': True
         },
         
         'principal_place_state': {
             'type': 'fk',
-            'mysql_field': 'principal_place_state', 
+            'mysql_field': 'principal_place_state_id', 
             'solr_field': 'principal_place_state', 
             'aggregate': True
         },
         
         'principal_place_county': {
             'type': 'fk',
-            'mysql_field': 'principal_place_county', 
+            'mysql_field': 'principal_place_county_id', 
             'solr_field': 'principal_place_county', 
             'aggregate': True
         },
         
         'all_states': {
             'type': 'fk',
-            'mysql_field': ('principal_place_state', 'recipient_state'),
+            'mysql_field': ('principal_place_state_id', 'recipient_state_id'),
             'solr_field': 'all_states',
         },
         
