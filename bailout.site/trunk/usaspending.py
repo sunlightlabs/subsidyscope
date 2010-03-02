@@ -216,12 +216,7 @@ class USASpendingSearchBase():
             if self.aggregate_by is None:
                 raise Exception("Must specify an aggregate field prior to MySQL query construction")
 
-            if self.aggregate_by == self.FIELD_MAPPINGS['fiscal_year']:
-                # an exception to the field naming rule...
-                aggregate_field = self.aggregate_by['mysql_field']
-            else:
-                # otherwise append id to all foreign key fields to match db schema
-                aggregate_field = self.aggregate_by['mysql_field'] + '_id'
+            aggregate_field = self.aggregate_by['mysql_field']
 
         sql_parameters = [] # uses proper django.db SQL-escaping, in case we ever introduce nonnumeric database queries for some reason
         
@@ -269,7 +264,7 @@ class USASpendingSearchBase():
                     
                     clauses = []
                     for mf in mysql_field:
-                        clauses.append(' (%s_id IN (%s)) ' % (mf, ','.join(fk_values)))                        
+                        clauses.append(' (%s IN (%s)) ' % (mf, ','.join(fk_values)))                        
                     
                     sql += '(' + ' OR '.join(clauses) + ')'
                    

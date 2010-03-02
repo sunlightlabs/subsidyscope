@@ -35,14 +35,14 @@ class FPDSSearch(USASpendingSearchBase):
         'naics_code': { 
             'type': 'fk',
             'solr_field': 'principal_naicscode',
-            'mysql_field': 'principal_naicscode',
+            'mysql_field': 'principal_naicscode_id',
             'aggregate': True
         },
 
         'psc_code': {
             'type': 'fk',
             'solr_field': 'product_or_service_code',
-            'mysql_field': 'product_or_service_code',
+            'mysql_field': 'product_or_service_code_id',
             'aggregate': True
         },
 
@@ -67,6 +67,7 @@ class FPDSSearch(USASpendingSearchBase):
             'mysql_field': 'extent_competed',
             'solr_field': 'extent_competed',
             'solr_transformation': lambda x: extent_competed_lookup(x),            
+            'mysql_transformation': lambda x: "'%s'" % x
         },
         
         # accepts 0 = false, 1 = true
@@ -87,21 +88,21 @@ class FPDSSearch(USASpendingSearchBase):
 
         'recipient_state': {
             'type': 'fk',
-            'mysql_field': 'state', 
+            'mysql_field': 'state_id', 
             'solr_field': 'recipient_state', 
             'aggregate': True
         },
 
         'principal_place_state': {
             'type': 'fk',
-            'mysql_field': 'place_of_performance_state', 
+            'mysql_field': 'place_of_performance_state_id', 
             'solr_field': 'principal_place_state', 
             'aggregate': True
         },
 
         'all_states': {
             'type': 'fk',
-            'mysql_field': ('place_of_performance_state', 'state'),
+            'mysql_field': ('place_of_performance_state_id', 'state_id'),
             'solr_field': 'all_states',
         },
 
