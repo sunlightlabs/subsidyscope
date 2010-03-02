@@ -1,0 +1,302 @@
+{% extends "base_sector.html" %}
+{% load media %}
+{% load morsel_tags %}
+{% block content %}
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>{% morsel_page_title %}</h3>
+        </div>
+        <div class="content_area">
+           
+			<div id="subsidy-charts">
+				<script type="text/javascript">
+				
+					$(document).ready(function()
+					{
+						$('#govt_table').hide();
+						$('#source_table').hide();
+					
+						$("input[name='query_type']").click(function()
+						{
+							loadData();
+						});
+						
+						
+						$("select#state_select").change(function()
+						{
+							loadData();
+						});
+						
+						
+						loadData();
+					});
+					
+					function loadData()
+					{
+						var state_id = $("select#state_select").val();
+						
+						var query_type = $("input[name='query_type']:checked").val();
+						
+						if(query_type == 'source')
+						{ 	
+							$.getJSON('/transportation/highways/funding/state/by_source/' + state_id + '/', function(data)
+							{
+								$('#govt_table').hide();
+								$('#source_table').show();
+								
+								var total = data[2007]['federal'] + data[2007]['user'] + data[2007]['non_user'] + data[2007]['bonds']; 
+								
+								$('#source_sl_user_d').text(formatDollar(data[2007]['user']));
+								$('#source_sl_user_p').text(formatPercent(total, data[2007]['user']));
+								  
+								$('#source_sl_nonuser_d').text(formatDollar(data[2007]['non_user']));
+								$('#source_sl_nonuser_p').text(formatPercent(total, data[2007]['non_user']));
+								
+								$('#source_sl_bonds_d').text(formatDollar(data[2007]['bonds']));
+								$('#source_sl_bonds_p').text(formatPercent(total, data[2007]['bonds']));
+								  
+								$('#source_fed_d').text(formatDollar(data[2007]['federal']));
+								$('#source_fed_p').text(formatPercent(total, data[2007]['federal']));
+								  
+								$('#source_total_d').text(formatDollar(total));
+				 				$('#source_total_p').text(formatPercent(total, total));
+			 					
+			 					
+							});
+						}
+						else if(query_type == 'govt')
+						{	
+							$('#source_table').hide();
+							$('#govt_table').show();
+								
+							$.getJSON('/transportation/highways/funding/state/by_govt/' + state_id + '/', function(data)
+							{
+								var total = data[2007]['federal'] + data[2007]['state'] + data[2007]['local']; 
+								
+								$('#govt_fed_d').text(formatDollar(data[2007]['federal']));
+								$('#govt_fed_p').text(formatPercent(total, data[2007]['federal']));
+								  
+								$('#govt_state_d').text(formatDollar(data[2007]['state']));
+								$('#govt_state_p').text(formatPercent(total, data[2007]['state']));
+								  
+								$('#govt_local_d').text(formatDollar(data[2007]['local']));
+								$('#govt_local_p').text(formatPercent(total, data[2007]['local']));
+								  
+								$('#govt_total_d').text(formatDollar(total));
+				 				$('#govt_total_p').text(formatPercent(total, total));
+				 			});
+						}
+					}
+					
+					function formatDollar(value)
+					{
+						var sValue = '' + (value / 1000);
+						
+						var sRegExp = new RegExp('(-?[0-9]+)([0-9]{3})');
+						while(sRegExp.test(sValue)) 
+						{ 
+							sValue = sValue.replace(sRegExp, '$1,$2'); 
+						} 
+						 	
+					
+						return '$' + sValue;
+					}
+					
+					function formatPercent(total, value)
+					{
+						var percent = (value / total) * 100;
+						
+						if(percent == 0)
+							return '0%';
+						else if(percent < 1)
+							return '>1%';
+						else
+							return Math.round(percent) + '%';
+					}
+				
+				</script>
+				
+				<h5 style="margin-top:20px;">Highway Funding Structures by State</h5>
+				
+				<div style="margin-bottom: 10px;">
+					Select State: <select id="state_select">
+						<option value="1">Alabama</option>
+							<option value="2">Alaska</option>
+							<option value="3">Arizona</option>
+							<option value="4">Arkansas</option>
+							<option value="5">California</option>
+							<option value="6">Colorado</option>
+							<option value="7">Connecticut</option>
+							<option value="8">Delaware</option>
+							<option value="9">District of Columbia</option>
+							<option value="10">Florida</option>
+							<option value="11">Georgia</option>
+							<option value="12">Hawaii</option>
+							<option value="13">Idaho</option>
+							<option value="14">Illinois</option>
+							<option value="15">Indiana</option>
+							<option value="16">Iowa</option>
+							<option value="17">Kansas</option>
+							<option value="18">Kentucky</option>
+							<option value="19">Louisiana</option>
+							<option value="20">Maine</option>
+							<option value="21">Maryland</option>
+							<option value="22">Massachusetts</option>
+							<option value="23">Michigan</option>
+							<option value="24">Minnesota</option>
+							<option value="25">Mississippi</option>
+							<option value="26">Missouri</option>
+							<option value="27">Montana</option>
+							<option value="28">Nebraska</option>
+							<option value="29">Nevada</option>
+							<option value="30">New Hampshire</option>
+							<option value="31">New Jersey</option>
+							<option value="32">New Mexico</option>
+							<option value="33">New York</option>
+							<option value="34">North Carolina</option>
+							<option value="35">North Dakota</option>
+							<option value="36">Ohio</option>
+							<option value="37">Oklahoma</option>
+							<option value="38">Oregon</option>
+							<option value="39">Pennsylvania</option>
+							<option value="40">Rhode Island</option>
+							<option value="41">South Carolina</option>
+							<option value="42">South Dakota</option>
+							<option value="43">Tennessee</option>
+							<option value="44">Texas</option>
+							<option value="45">Utah</option>
+							<option value="46">Vermont</option>
+							<option value="47">Virginia</option>
+							<option value="48">Washington</option>
+							<option value="49">West Virginia</option>
+							<option value="50">Wisconsin</option>
+							<option value="51">Wyoming</option>
+					</select> 
+					
+					Show Funding by: 
+					<input type="radio" name="query_type" value="source" id="qt_soruce" checked/><label for="source1">Source Type</label>
+					<input type="radio" name="query_type" value="govt" id="qt_govt"/><label for="source2">Level of Government</label>
+				</div>
+				
+				<table id="source_table">
+					<tbody>
+						<tr class="header-row">
+						  <td>Funding Source by Type</td>
+						  
+						  <td>FY 2007 Funding ($ thousands)</td>
+						  <td>Share of State's Total Highway Funding</td>
+			
+						 </tr>
+						 
+						<tr class="odd">
+						  <td class="program">State/Local Funding</td>
+						  
+						  <td></td>
+						  <td></td>
+						  
+						</tr>
+						
+						<tr class="even">
+						  <td class="subprogram">User Revenues</td>
+						
+						  <td id="source_sl_user_d"></td>
+						  <td id="source_sl_user_p"></td>
+						
+						</tr>
+						
+						<tr class="odd">
+						  <td class="subprogram">Non-user Revenues</td>
+						  
+						  <td id="source_sl_nonuser_d"></td>
+						  <td id="source_sl_nonuser_p"></td>
+						  
+						</tr>
+						
+						<tr class="even">
+						  <td class="subprogram">Bonds</td>
+						  
+						  <td id="source_sl_bonds_d"></td>
+						  <td id="source_sl_bonds_p"></td>
+						  
+						</tr>
+						
+						
+						<tr class="odd">
+						  <td class="program">Federal Funding</td>
+						  
+						  <td id="source_fed_d"></td>
+						  <td id="source_fed_p"></td>
+						  
+						</tr>
+						
+						<tr class="total"> 
+		 					<td class="program">Total</td>
+		 					
+		 					<td id="source_total_d"></td>
+		 					<td id="source_total_p"></td>
+		 				</tr> 
+		 				
+					</tbody>
+				</table>
+				
+				
+				<table id="govt_table">
+					<tbody>
+						<tr class="header-row">
+						  <td>Funding Source by Level of Government</td>
+						  
+						  <td>FY 2007 Funding ($ thousands)</td>
+						  <td>Share of State's Total Highway Funding</td>
+			
+						</tr>
+						
+						<tr class="odd">
+						  <td class="program">Federal Funding</td>
+						  
+						  <td id="govt_fed_d"></td>
+						  <td id="govt_fed_p"></td>
+						  
+						</tr>
+						
+						 
+						<tr class="even">
+						  <td class="program">State Funding</td>
+						  
+						   
+						  <td id="govt_state_d"></td>
+						  <td id="govt_state_p"></td>
+						  						  
+						</tr>
+						
+						<tr class="odd">
+						  <td class="program">Local Funding</td>
+						
+						  <td id="govt_local_d"></td>
+						  <td id="govt_local_p"></td>
+						
+						</tr>		
+						
+						
+						<tr class="total"> 
+		 					<td class="program">Total</td>
+		 					
+		 					<td id="govt_total_d"></td>
+		 					<td id="govt_total_p"></td>
+		 				</tr> 
+		 				
+					</tbody>
+				</table>
+					
+				
+				<cite>Source: <a href="http://www.fhwa.dot.gov/policy/ohpi/hss/index.cfm">Highway Statistics</a>, forms SDF, SF-1, LDF and LGF-1, Federal Highway Administration.</cite>
+				
+	
+			</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
