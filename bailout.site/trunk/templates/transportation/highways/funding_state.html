@@ -47,16 +47,28 @@
 								$('#govt_table').hide();
 								$('#source_table').show();
 								
-								var total = data[2007]['federal'] + data[2007]['user'] + data[2007]['non_user'] + data[2007]['bonds']; 
+								var total = data[2007]['federal'] + data[2007]['state_user'] + data[2007]['state_non_user'] + data[2007]['state_bonds'] + data[2007]['local_user'] + data[2007]['local_non_user'] + data[2007]['local_bonds']; 
 								
-								$('#source_sl_user_d').html(formatDollar(data[2007]['user']));
-								$('#source_sl_user_p').html(formatPercent(total, data[2007]['user']));
+								$('#source_s_user_d').html(formatDollar(data[2007]['state_user']));
+								$('#source_s_user_p').html(formatPercent(total, data[2007]['state_user']));
 								  
-								$('#source_sl_nonuser_d').html(formatDollar(data[2007]['non_user']));
-								$('#source_sl_nonuser_p').html(formatPercent(total, data[2007]['non_user']));
+								$('#source_s_nonuser_d').html(formatDollar(data[2007]['state_non_user']));
+								$('#source_s_nonuser_p').html(formatPercent(total, data[2007]['state_non_user']));
 								
-								$('#source_sl_bonds_d').html(formatDollar(data[2007]['bonds']));
-								$('#source_sl_bonds_p').html(formatPercent(total, data[2007]['bonds']));
+								$('#source_s_bonds_d').html(formatDollar(data[2007]['state_bonds']));
+								$('#source_s_bonds_p').html(formatPercent(total, data[2007]['state_bonds']));
+								
+								
+								$('#source_l_user_d').html(formatDollar(data[2007]['local_user']));
+								$('#source_l_user_p').html(formatPercent(total, data[2007]['local_user']));
+								  
+								$('#source_l_nonuser_d').html(formatDollar(data[2007]['local_non_user']));
+								$('#source_l_nonuser_p').html(formatPercent(total, data[2007]['local_non_user']));
+								
+								$('#source_l_bonds_d').html(formatDollar(data[2007]['local_bonds']));
+								$('#source_l_bonds_p').html(formatPercent(total, data[2007]['local_bonds']));
+								
+								
 								  
 								$('#source_fed_d').html(formatDollar(data[2007]['federal']));
 								$('#source_fed_p').html(formatPercent(total, data[2007]['federal']));
@@ -192,7 +204,7 @@
 						 </tr>
 						 
 						<tr class="odd">
-						  <td class="program">State/Local Funding</td>
+						  <td class="program">State Funding:</td>
 						  
 						  <td></td>
 						  <td></td>
@@ -202,24 +214,57 @@
 						<tr class="even">
 						  <td class="subprogram">User Revenues</td>
 						
-						  <td id="source_sl_user_d"></td>
-						  <td id="source_sl_user_p"></td>
+						  <td id="source_s_user_d"></td>
+						  <td id="source_s_user_p"></td>
 						
 						</tr>
 						
 						<tr class="odd">
 						  <td class="subprogram">Non-user Revenues</td>
 						  
-						  <td id="source_sl_nonuser_d"></td>
-						  <td id="source_sl_nonuser_p"></td>
+						  <td id="source_s_nonuser_d"></td>
+						  <td id="source_s_nonuser_p"></td>
 						  
 						</tr>
 						
 						<tr class="even">
 						  <td class="subprogram">Bonds</td>
 						  
-						  <td id="source_sl_bonds_d"></td>
-						  <td id="source_sl_bonds_p"></td>
+						  <td id="source_s_bonds_d"></td>
+						  <td id="source_s_bonds_p"></td>
+						  
+						</tr>
+						
+						
+						<tr class="odd">
+						  <td class="program">Local Funding:</td>
+						  
+						  <td></td>
+						  <td></td>
+						  
+						</tr>
+						
+						<tr class="even">
+						  <td class="subprogram">User Revenues</td>
+						
+						  <td id="source_l_user_d"></td>
+						  <td id="source_l_user_p"></td>
+						
+						</tr>
+						
+						<tr class="odd">
+						  <td class="subprogram">Non-user Revenues</td>
+						  
+						  <td id="source_l_nonuser_d"></td>
+						  <td id="source_l_nonuser_p"></td>
+						  
+						</tr>
+						
+						<tr class="even">
+						  <td class="subprogram">Bonds</td>
+						  
+						  <td id="source_l_bonds_d"></td>
+						  <td id="source_l_bonds_p"></td>
 						  
 						</tr>
 						

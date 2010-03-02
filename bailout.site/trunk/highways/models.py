@@ -112,29 +112,42 @@ class StateFundingManager(models.Manager):
             year = record.year 
             if not funding.has_key(year):
                 funding[year] = {}
-                funding[year]['user'] = 0
-                funding[year]['non_user'] = 0
-                funding[year]['bonds'] = 0
+                funding[year]['state_user'] = 0
+                funding[year]['state_non_user'] = 0
+                funding[year]['state_bonds'] = 0
+                funding[year]['local_user'] = 0
+                funding[year]['local_non_user'] = 0
+                funding[year]['local_bonds'] = 0
                 funding[year]['federal'] = 0 
     
-            funding[year]['user'] += record.sf1_fuel_revenue_for_highways if record.sf1_fuel_revenue_for_highways else 0
-            funding[year]['user'] += record.sf1_vehicle_revenue_for_highways if record.sf1_vehicle_revenue_for_highways else 0
-            funding[year]['user'] += record.sf1_toll_revenue_for_highways if record.sf1_toll_revenue_for_highways else 0
-            funding[year]['user'] += record.lgf1_fuel_vehicle_revenue_for_highways if record.lgf1_fuel_vehicle_revenue_for_highways else 0
-            funding[year]['user'] += record.lgf1_toll_revenue_for_highways if record.lgf1_toll_revenue_for_highways else 0
+    
+            funding[year]['state_user'] += record.sf1_fuel_revenue_for_highways if record.sf1_fuel_revenue_for_highways else 0
+            funding[year]['state_user'] += record.sf1_vehicle_revenue_for_highways if record.sf1_vehicle_revenue_for_highways else 0
+            funding[year]['state_user'] += record.sf1_toll_revenue_for_highways if record.sf1_toll_revenue_for_highways else 0
             
-            funding[year]['non_user'] += record.sf1_general_funds_for_highways if record.sf1_general_funds_for_highways else 0
-            funding[year]['non_user'] += record.sf1_other_imposts_for_highways if record.sf1_other_imposts_for_highways else 0
-            funding[year]['non_user'] += record.sf1_miscellanious_for_highways if record.sf1_miscellanious_for_highways else 0
-            funding[year]['non_user'] += record.lgf1_general_funds_for_highways if record.lgf1_general_funds_for_highways else 0
-            funding[year]['non_user'] += record.lgf1_property_tax_funds_for_highways if record.lgf1_property_tax_funds_for_highways else 0
-            funding[year]['non_user'] += record.lgf1_other_imposts_for_highways if record.lgf1_other_imposts_for_highways else 0
-            funding[year]['non_user'] += record.lgf1_miscellanious_for_highways if record.lgf1_miscellanious_for_highways else 0
+            funding[year]['local_user'] += record.lgf1_fuel_vehicle_revenue_for_highways if record.lgf1_fuel_vehicle_revenue_for_highways else 0
+            funding[year]['local_user'] += record.lgf1_toll_revenue_for_highways if record.lgf1_toll_revenue_for_highways else 0
             
-            funding[year]['bonds'] += record.sf1_bonds_original_for_highways if record.sf1_bonds_original_for_highways else 0
-            funding[year]['bonds'] += record.sf1_bonds_refunding_for_highways if record.sf1_bonds_refunding_for_highways else 0
-            funding[year]['bonds'] += record.lgf1_bonds_original_for_highways if record.lgf1_bonds_original_for_highways else 0
-            funding[year]['bonds'] += record.lgf1_bonds_refunding_for_highways if record.lgf1_bonds_refunding_for_highways else 0
+            
+            
+            funding[year]['state_non_user'] += record.sf1_general_funds_for_highways if record.sf1_general_funds_for_highways else 0
+            funding[year]['state_non_user'] += record.sf1_other_imposts_for_highways if record.sf1_other_imposts_for_highways else 0
+            funding[year]['state_non_user'] += record.sf1_miscellanious_for_highways if record.sf1_miscellanious_for_highways else 0
+            
+            funding[year]['local_non_user'] += record.lgf1_general_funds_for_highways if record.lgf1_general_funds_for_highways else 0
+            funding[year]['local_non_user'] += record.lgf1_property_tax_funds_for_highways if record.lgf1_property_tax_funds_for_highways else 0
+            funding[year]['local_non_user'] += record.lgf1_other_imposts_for_highways if record.lgf1_other_imposts_for_highways else 0
+            funding[year]['local_non_user'] += record.lgf1_miscellanious_for_highways if record.lgf1_miscellanious_for_highways else 0
+            
+            
+            
+            funding[year]['state_bonds'] += record.sf1_bonds_original_for_highways if record.sf1_bonds_original_for_highways else 0
+            funding[year]['state_bonds'] += record.sf1_bonds_refunding_for_highways if record.sf1_bonds_refunding_for_highways else 0
+                        
+            funding[year]['local_bonds'] += record.lgf1_bonds_original_for_highways if record.lgf1_bonds_original_for_highways else 0
+            funding[year]['local_bonds'] += record.lgf1_bonds_refunding_for_highways if record.lgf1_bonds_refunding_for_highways else 0
+            
+                        
                         
             funding[year]['federal'] += record.sf1_fhwa_funds_for_highways if record.sf1_fhwa_funds_for_highways else 0
             funding[year]['federal'] += record.sf1_other_federal_funds_for_highways if record.sf1_other_federal_funds_for_highways else 0
@@ -143,9 +156,14 @@ class StateFundingManager(models.Manager):
             
             
     
-            funding[year]['user'] = int(funding[year]['user'])
-            funding[year]['non_user'] = int(funding[year]['non_user'])
-            funding[year]['bonds'] = int(funding[year]['bonds'])
+            funding[year]['state_user'] = int(funding[year]['state_user'])
+            funding[year]['state_non_user'] = int(funding[year]['state_non_user'])
+            funding[year]['state_bonds'] = int(funding[year]['state_bonds'])
+            
+            funding[year]['local_user'] = int(funding[year]['local_user'])
+            funding[year]['local_non_user'] = int(funding[year]['local_non_user'])
+            funding[year]['local_bonds'] = int(funding[year]['local_bonds'])
+            
             funding[year]['federal'] = int(funding[year]['federal']) 
             
             
@@ -154,7 +172,7 @@ class StateFundingManager(models.Manager):
 
 class StateFunding(models.Model):
     
-    manager = StateFundingManager()
+    objects = StateFundingManager()
     
     state = models.ForeignKey(State)
     year = models.IntegerField()
