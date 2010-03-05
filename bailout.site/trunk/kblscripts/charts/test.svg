@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg background="white" height="300" version="1.1" width="400" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><style type="text/css">
+
+
+
+svg {enable-background: new; background-color: #ffffff;  }
+
+.x-axis-path, .y-axis-path, .y-gridline { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-opacity:1 }
+</style><g class="x-axis" id="x_axis"><path class="x-axis-path" d="M 30 270 L 370 270" /></g><g class="y-axis" id="y_axis"><path class="y-axis-path" d="M 30 270 L 30 30" /><path class="y-gridline" d="M 30 54 L 370 54" /><path class="y-gridline" d="M 30 78 L 370 78" /><path class="y-gridline" d="M 30 102 L 370 102" /><path class="y-gridline" d="M 30 126 L 370 126" /><path class="y-gridline" d="M 30 150 L 370 150" /><path class="y-gridline" d="M 30 174 L 370 174" /><path class="y-gridline" d="M 30 198 L 370 198" /><path class="y-gridline" d="M 30 222 L 370 222" /><path class="y-gridline" d="M 30 246 L 370 246" /></g></svg>
