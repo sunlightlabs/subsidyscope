@@ -9,10 +9,8 @@
 
 
     {% for item in s %}
-        <li {% if item.1 == active_subsector %} class="active">{{item.0}}
-    {% else %}
-        >
-        <a href="{{item.1}}" class="">{{item.0}}</a></li>
-    {% endif %}
+        <li {% if item.1 == active_subsector %} class="active" {%endif %}>
+            <a href="{{item.1}}" class="">{{item.0}}</a>
+        </li>
     {% endfor %}
 {% endfor %}
