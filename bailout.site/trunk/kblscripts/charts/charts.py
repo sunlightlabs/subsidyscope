@@ -24,33 +24,40 @@ class Chart():
         self.stylesheet = stylesheet
         self.padding = 30
         self.x_padding = 10
-        self.x_inner_padding = 5
-        self.y_inner_padding = 5
+        self.x_inner_padding = 2
+        self.y_inner_padding = 2
         self.y_scale = (self.height - (self.padding * 2)) / self.max_y_value
+        self.gridline_interval = 25 
+        self.gridlines = 10
         
         #find the width of each point in each series
-        #self.x_scale = (((self.width - (self.padding * 2)) / self.number_of_series) / self.max_data_points) - self.x_padding
         self.x_scale = int(float((float(self.width - (self.padding * 2)) / self.max_data_points) / self.number_of_series) - self.x_padding)
+        
         #width of each data point grouping over multiple series
         self.x_group_scale = self.x_scale * self.number_of_series
-
-        for key in kwargs:
-            self.__dict__[key] = kwargs[key] 
  
         #create svg node as root element in tree
         self.svg = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", version="1.1", background="white",  height=str(self.height), width=str(self.width) )
         self.svg.attrib["xmlns:svg"] = "http://www.w3.org/2000/svg"
     
-        #there really isn't a graceful way for loading an external stylesheet when you're not in a browser
+        #there really isn't a graceful way for loading an external stylesheet when you're not in a browser so we parse it in and spit it out inside style tags
         temp = []
         stylesheet = open(self.stylesheet, 'r')
         for x in stylesheet.readlines():
             temp.append(x)
              
         self.svg.append(ET.XML('<style type="text/css">' + "\n".join(temp)  + '</style>'))
+
+        #Chart subclass should have this method to setup the chart background, axes, and gridlines
         self.setup_chart()
+
+        #Chart subclass should have this method to chart the data series
         self.data_series()
         self.set_labels()
+
+        #Catch passed in keyword argument overrides of defaults
+        for key in kwargs:
+            self.__dict__[key] = kwargs[key] 
 
     def find_maximum(self):
                 
@@ -82,12 +89,15 @@ class Chart():
 
         return labels
 
+class GridChart(Chart):
+    """Subclass of Chart, containing functions relevant to all charts that use a grid"""
+    
     def setup_chart(self):
 
         #setup background color
         self.svg.append(ET.Element("rect", x="0", y="0", height="%s" % self.height, width="%s" % self.width, fill="white"))
 
-        #First, add x and y axes
+        #add x and y axes
         x_axis, y_axis = [ET.Element("g", id="x_axis"), ET.Element("g", id="y_axis")]
         x_axis.attrib['class'], y_axis.attrib['class'] = ['x-axis', 'y-axis']
 
@@ -100,29 +110,33 @@ class Chart():
         y_axis_path.attrib['class'] = 'y-axis-path'
 
         y_axis.append(y_axis_path)
-    
-        grid_space = (self.height - (self.padding * 2)) / 10
-    
-        for i in range(1, 10):
+        
+        y_axis_path2 = ET.Element("path", d="M %d %d L %d %d" % (self.width - self.padding, self.padding, self.width - self.padding, self.height - self.padding ))    
+        y_axis_path2.attrib['class'] = 'y-axis-path-2'
 
+        y_axis.append(y_axis_path2)
+
+        grid_space = (self.height - (self.padding * 2)) / self.gridlines
+    
+        for i in range(0, self.gridlines):
+            #draw the gridline
             gridline = ET.Element("path", d="M %d %d L %d %d" % (self.padding, (i * grid_space) + self.padding , self.width - self.padding, (i * grid_space) + self.padding))
             gridline.attrib['class'] = 'y-gridline'
             y_axis.append(gridline)
 
+            #draw the text label
+            if i != 0:
+               gridline_label = ET.Element("text", x="%s" % (self.padding), y="%s" % ( (i * grid_space) + self.padding + 4) )
+               gridline_label.text = "%s" % float(self.max_y_value / i)
+               gridline_label.attrib['class'] = 'y-axis-label'
+               y_axis.append(gridline_label)
+
         self.svg.append(x_axis)
         self.svg.append(y_axis)
 
-        #TO DO: add another y axis, change this method for Pie charts, add x gridlines
 
-
-class Column(Chart):
-    """Subclass of Chart class, specific to an n-series column chart """
-    
-    def set_background(self):
-        #add x axis
-        #self.svg.append('<g id="x_axis" ><path d="M 0,%d %d,%d" style="fill:none; stroke: #a7a9ac; stroke-width:1; stroke-opacity:1" /></g>"\n' % (self.height, self.width, self.height))
-        pass
-        
+class Column(GridChart):
+    """Subclass of GridChart class, specific to an n-series column chart """
     def data_series(self):
 
         series_count = 0
@@ -154,7 +168,7 @@ class Column(Chart):
         label_count = 0
 
         for l in self.labels:
-            text_item = ET.Element("text", x="%s" % (self.padding + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding))), y="%s" % (self.height - self.x_padding), width="%s" % self.x_group_scale) 
+            text_item = ET.Element("text", x="%s" % (int(self.padding + self.x_padding + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))), y="%s" % (self.height - self.x_padding)) 
             
             text_item.text = l
             text_item.attrib['class'] = 'x-axis-label'
@@ -164,14 +178,13 @@ class Column(Chart):
 
     def output(self):
        
+        #DEBUG - Dump properties
         for x in self.__dict__.keys():
             print "%s : %s\n" % (x, self.__dict__[x]) 
 
-        print ET.dump(ET.ElementTree(self.svg))
-        stylesheet = open(self.stylesheet,'r')
+        print ET.dump(ET.ElementTree(self.svg))  #DEBUG
 
         f = open("test.svg", 'w')
         f.write('<?xml version="1.0" encoding="UTF-8" ?>\n')
-#        f.write('<?xml-stylesheet type="text/css" href="charts.css" ?>\n')
         f.write(ET.tostring(self.svg) )
     
