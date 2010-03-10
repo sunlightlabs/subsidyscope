@@ -1,6 +1,6 @@
 
 
-.x-axis-path, .y-axis-path, .y-gridline { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-opacity:1 }
+.x-axis-path, .y-axis-path, .y-axis-path-2, .y-gridline { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
 
 .series-1-point { fill: #e0d1d1; }
 .series-1-point-inner {fill: #bf5004;}
@@ -12,5 +12,5 @@
 .series-3-point-inner {fill: #9ca991;}
 
 
-.x-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-align: center; text-anchor:middle; }
-
+.x-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-anchor:middle;}
+.y-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-anchor:end;}
