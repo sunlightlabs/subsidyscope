@@ -3,7 +3,31 @@
 
 
 
-svg {enable-background: new; background-color: #ffffff;  }
-
 .x-axis-path, .y-axis-path, .y-gridline { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-opacity:1 }
-</style><g class="x-axis" id="x_axis"><path class="x-axis-path" d="M 30 270 L 370 270" /></g><g class="y-axis" id="y_axis"><path class="y-axis-path" d="M 30 270 L 30 30" /><path class="y-gridline" d="M 30 54 L 370 54" /><path class="y-gridline" d="M 30 78 L 370 78" /><path class="y-gridline" d="M 30 102 L 370 102" /><path class="y-gridline" d="M 30 126 L 370 126" /><path class="y-gridline" d="M 30 150 L 370 150" /><path class="y-gridline" d="M 30 174 L 370 174" /><path class="y-gridline" d="M 30 198 L 370 198" /><path class="y-gridline" d="M 30 222 L 370 222" /><path class="y-gridline" d="M 30 246 L 370 246" /></g></svg>
+
+
+
+.series-1-point { fill: #e0d1d1; }
+
+.series-1-point-inner {fill: #bf5004;}
+
+
+
+.series-2-point { fill: #d6d9db;  }
+
+.series-2-point-inner { fill: #336699; }
+
+
+
+.series-3-point { fill: #eff5e6;}
+
+.series-3-point-inner {fill: #9ca991;}
+
+
+
+
+
+.x-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-align: center; text-anchor:middle; }
+
+
+</style><rect fill="white" height="300" width="400" x="0" y="0" /><g class="x-axis" id="x_axis"><path class="x-axis-path" d="M 30 270 L 370 270" /></g><g class="y-axis" id="y_axis"><path class="y-axis-path" d="M 30 270 L 30 30" /><path class="y-gridline" d="M 30 54 L 370 54" /><path class="y-gridline" d="M 30 78 L 370 78" /><path class="y-gridline" d="M 30 102 L 370 102" /><path class="y-gridline" d="M 30 126 L 370 126" /><path class="y-gridline" d="M 30 150 L 370 150" /><path class="y-gridline" d="M 30 174 L 370 174" /><path class="y-gridline" d="M 30 198 L 370 198" /><path class="y-gridline" d="M 30 222 L 370 222" /><path class="y-gridline" d="M 30 246 L 370 246" /></g><rect class="series-1-point" height="144" width="46" x="40" y="126" /><rect class="series-1-point-inner" height="139" width="36" x="45" y="131" /><rect class="series-1-point" height="192" width="46" x="142" y="78" /><rect class="series-1-point-inner" height="187" width="36" x="147" y="83" /><rect class="series-2-point" height="144" width="46" x="86" y="126" /><rect class="series-2-point-inner" height="139" width="36" x="91" y="131" /><rect class="series-2-point" height="96" width="46" x="188" y="174" /><rect class="series-2-point-inner" height="91" width="36" x="193" y="179" /><rect class="series-2-point" height="240" width="46" x="290" y="30" /><rect class="series-2-point-inner" height="235" width="36" x="295" y="35" /><text class="x-axis-label" width="92" x="76" y="290">aaaaaaaaaa</text><text class="x-axis-label" width="92" x="178" y="290">bbbbbbbbbb</text><text class="x-axis-label" width="92" x="280" y="290">cccc</text></svg>
