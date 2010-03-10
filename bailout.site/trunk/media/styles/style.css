@@ -603,6 +603,7 @@ ul.press-releases li
 #subsidy-charts td.program{text-align: left; padding-left: 10px;}
 #subsidy-charts td.subprogram{text-align: left; padding-left: 25px;}
 #subsidy-charts tr.total{font-weight:bold;}
+#subsidy-charts tr.subtotal{font-style: italic}
 #subsidy-charts tr.subheader{font-weight:bold; font-size:.9em;}
 #subsidy-charts tr.subheader td {border-right: 1px solid #cccccc;  border-bottom: 1px solid #cccccc; border-left: 1px solid #cccccc;}
 #subsidy-charts tr.even td { background-color: #f4f4f4; }

@@ -245,5 +245,51 @@ class StateFunding(models.Model):
     ldf_local_toll_revenue_for_mass_transit = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     ldf_local_toll_revenue_for_mass_transit = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     ldf_local_toll_revenue_for_general = models.DecimalField(max_digits=15, decimal_places=2, null=True)
-    
 
+
+class StateRoadJurisdictionManager(models.Manager):
+    
+    def getJurisdictionMiles(self, state_id):
+        
+        miles = {}
+        
+        for record in self.filter(state__id=state_id, year__gte=1995):
+                
+            year = record.year 
+            
+            if not miles.has_key(year):
+                miles[year] = {}
+                miles[year]['state'] = 0
+                miles[year]['county'] = 0
+                miles[year]['city'] = 0
+                miles[year]['other'] = 0
+                miles[year]['federal'] = 0
+                miles[year]['federal_aid'] = 0 
+        
+            miles[year]['state'] += record.state_miles if record.state_miles else 0
+            miles[year]['county'] += record.county_miles if record.county_miles else 0
+            miles[year]['city'] += record.city_miles if record.city_miles else 0
+            miles[year]['other'] += record.other_miles if record.other_miles else 0
+            miles[year]['federal'] += record.federal_miles if record.federal_miles else 0
+            miles[year]['federal_aid'] += record.federal_aid_miles if record.federal_aid_miles else 0
+            
+        return miles
+
+
+class StateRoadJurisdiction(models.Model):
+    
+    objects = StateRoadJurisdictionManager()
+    
+    state = models.ForeignKey(State)
+    year = models.IntegerField()
+    
+    state_miles = models.IntegerField()
+    county_miles = models.IntegerField()
+    city_miles = models.IntegerField()
+    other_miles = models.IntegerField()
+    federal_miles = models.IntegerField()
+    
+    federal_aid_miles = models.IntegerField()
+    
+    
+    

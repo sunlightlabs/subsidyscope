@@ -1,7 +1,9 @@
 {% extends "base_sector.html" %}
 {% load media %}
 {% load morsel_tags %}
+
 {% block content %}
+{% js "scripts/swfobject.js" %}
 
 <div class="container main_container">
     {% include "includes/transportation_nav.html" %}
@@ -14,20 +16,20 @@
 			<div id="subsidy-charts">
 				<script type="text/javascript">
 				
+					var data;
+									
 					$(document).ready(function()
 					{
-						$('#govt_table').hide();
-						$('#source_table').hide();
-					
-						$("input[name='query_type']").click(function()
-						{
-							loadData();
-						});
-						
+						swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "spendingchart", "900", "400", "9.0.0", "expressInstall.swf", {"data-file":"/transportation/highways/funding/state/chart/1/"});
 						
 						$("select#state_select").change(function()
 						{
 							loadData();
+						});
+						
+						$("select#year_select").change(function()
+						{
+							selectYear();
 						});
 						
 						
@@ -38,81 +40,178 @@
 					{
 						var state_id = $("select#state_select").val();
 						
-						var query_type = $("input[name='query_type']:checked").val();
+						var chart = findSWF('spendingchart');
 						
-						if(query_type == 'source')
-						{ 	
-							$.getJSON('/transportation/highways/funding/state/by_source/' + state_id + '/', function(data)
-							{
-								$('#govt_table').hide();
-								$('#source_table').show();
-								
-								var total = data[2007]['federal'] + data[2007]['state_user'] + data[2007]['state_non_user'] + data[2007]['state_bonds'] + data[2007]['local_user'] + data[2007]['local_non_user'] + data[2007]['local_bonds']; 
-								
-								$('#source_s_user_d').html(formatDollar(data[2007]['state_user']));
-								$('#source_s_user_p').html(formatPercent(total, data[2007]['state_user']));
-								  
-								$('#source_s_nonuser_d').html(formatDollar(data[2007]['state_non_user']));
-								$('#source_s_nonuser_p').html(formatPercent(total, data[2007]['state_non_user']));
-								
-								$('#source_s_bonds_d').html(formatDollar(data[2007]['state_bonds']));
-								$('#source_s_bonds_p').html(formatPercent(total, data[2007]['state_bonds']));
-								
-								
-								$('#source_l_user_d').html(formatDollar(data[2007]['local_user']));
-								$('#source_l_user_p').html(formatPercent(total, data[2007]['local_user']));
-								  
-								$('#source_l_nonuser_d').html(formatDollar(data[2007]['local_non_user']));
-								$('#source_l_nonuser_p').html(formatPercent(total, data[2007]['local_non_user']));
-								
-								$('#source_l_bonds_d').html(formatDollar(data[2007]['local_bonds']));
-								$('#source_l_bonds_p').html(formatPercent(total, data[2007]['local_bonds']));
-								
-								
-								  
-								$('#source_fed_d').html(formatDollar(data[2007]['federal']));
-								$('#source_fed_p').html(formatPercent(total, data[2007]['federal']));
-								  
-								$('#source_total_d').html(formatDollar(total));
-				 				$('#source_total_p').html(formatPercent(total, total));
-			 					
-			 					
-							});
-						}
-						else if(query_type == 'govt')
-						{	
-							$('#source_table').hide();
-							$('#govt_table').show();
-								
-							$.getJSON('/transportation/highways/funding/state/by_govt/' + state_id + '/', function(data)
-							{
-								var total = data[2007]['federal'] + data[2007]['state'] + data[2007]['local']; 
-								
-								$('#govt_fed_d').html(formatDollar(data[2007]['federal']));
-								$('#govt_fed_p').html(formatPercent(total, data[2007]['federal']));
-								  
-								$('#govt_state_d').html(formatDollar(data[2007]['state']));
-								$('#govt_state_p').html(formatPercent(total, data[2007]['state']));
-								  
-								$('#govt_local_d').html(formatDollar(data[2007]['local']));
-								$('#govt_local_p').html(formatPercent(total, data[2007]['local']));
-								  
-								$('#govt_total_d').html(formatDollar(total));
-				 				$('#govt_total_p').html(formatPercent(total, total));
-				 			});
-						}
+						if(chart)
+							chart.reload('/transportation/highways/funding/state/chart/' + state_id + '/');
+						
+						
+						$.getJSON('/transportation/highways/funding/state/fundingtable/' + state_id + '/', function(d)
+						{
+							data = d;
+		 					selectYear();	
+						});
+						
+						
+						$.getJSON('/transportation/highways/funding/state/milestable/' + state_id + '/', function(d)
+						{
+							var year = 2007;
+							
+							var total_miles = 0;
+							
+							total_miles += d[year]['state'];
+							total_miles += d[year]['county'];
+							total_miles += d[year]['city'];
+							total_miles += d[year]['federal'];
+							total_miles += d[year]['other'];
+							
+							$('#mile_state_d').html(formatNumber(d[year]['state']));
+							$('#mile_state_p').html(formatPercent(total_miles, d[year]['state']));
+							
+							$('#mile_county_d').html(formatNumber(d[year]['county']));
+							$('#mile_county_p').html(formatPercent(total_miles, d[year]['county']));
+							
+							$('#mile_city_d').html(formatNumber(d[year]['city']));
+							$('#mile_city_p').html(formatPercent(total_miles, d[year]['city']));
+							
+							$('#mile_other_d').html(formatNumber(d[year]['other']));
+							$('#mile_other_p').html(formatPercent(total_miles, d[year]['other']));
+							
+							$('#mile_federal_d').html(formatNumber(d[year]['federal']));
+							$('#mile_federal_p').html(formatPercent(total_miles, d[year]['federal']));
+							
+							$('#mile_total_d').html(formatNumber(total_miles));
+							$('#mile_total_p').html(formatPercent(total_miles, total_miles));
+							
+							$('#mile_federal_aid_d').html(formatNumber(d[year]['federal_aid']));
+							$('#mile_federal_aid_p').html(formatPercent(total_miles, d[year]['federal_aid']));
+							
+						});
 					}
 					
-					function formatDollar(value)
+					function selectYear()
 					{
-						var sValue = '' + (value / 1000);
+						var year = $("select#year_select").val();
+						
+						var total = 0;
+						var federal_total = 0;
+						var state_total = 0;
+						var local_total = 0;
+						
+						var source_s_user_total = 0;
+						var source_s_nonuser_total = 0;
+						var source_s_bonds_total = 0;
+						
+						var source_l_user_total = 0;
+						var source_l_nonuser_total = 0;
+						var source_l_bonds_total = 0;
+						
+						if(year == -1)
+						{
+							$('#fiscal_year').html('FY 1995-2007');
+							
+							for(year in data)
+							{
+								state_total += data[year]['state_user'] +
+											data[year]['state_non_user'] + 
+											data[year]['state_bonds'];
+											
+								local_total += data[year]['local_user'] + 
+											data[year]['local_non_user'] +
+											data[year]['local_bonds'];
+											
+								federal_total += data[year]['federal'];
+								
+								source_s_user_total += data[year]['state_user'];
+								source_s_nonuser_total += data[year]['state_non_user'];
+								source_s_bonds_total += data[year]['state_bonds'];
+								
+								source_l_user_total += data[year]['local_user'];
+								source_l_nonuser_total += data[year]['local_non_user'];
+								source_l_bonds_total += data[year]['local_bonds'];
+							}
+						
+						}
+						else
+						{
+							$('#fiscal_year').html('FY ' + year);
+						
+							state_total = data[year]['state_user'] +
+										data[year]['state_non_user'] + 
+										data[year]['state_bonds'];
+										
+							local_total = data[year]['local_user'] + 
+										data[year]['local_non_user'] +
+										data[year]['local_bonds'];
+										
+							federal_total = data[year]['federal'];
+							
+							source_s_user_total = data[year]['state_user'];
+							source_s_nonuser_total = data[year]['state_non_user'];
+							source_s_bonds_total = data[year]['state_bonds'];
+							
+							source_l_user_total = data[year]['local_user'];
+							source_l_nonuser_total = data[year]['local_non_user'];
+							source_l_bonds_total = data[year]['local_bonds'];
+							
+						}
+						
+						
+						total = state_total + local_total + federal_total;
+					
+					
+						$('#source_s_user_d').html(formatDollar(source_s_user_total));
+						$('#source_s_user_p').html(formatPercent(total, source_s_user_total));
+						  
+						$('#source_s_nonuser_d').html(formatDollar(source_s_nonuser_total));
+						$('#source_s_nonuser_p').html(formatPercent(total, source_s_nonuser_total));
+						
+						$('#source_s_bonds_d').html(formatDollar(source_s_bonds_total));
+						$('#source_s_bonds_p').html(formatPercent(total, source_s_bonds_total));
+						
+						$('#source_s_subtotal_d').html(formatDollar(state_total));
+						$('#source_s_subtotal_p').html(formatPercent(total, state_total));
+						
+						
+						
+						$('#source_l_user_d').html(formatDollar(source_l_user_total));
+						$('#source_l_user_p').html(formatPercent(total, source_l_user_total));
+						  
+						$('#source_l_nonuser_d').html(formatDollar(source_l_nonuser_total));
+						$('#source_l_nonuser_p').html(formatPercent(total, source_l_nonuser_total));
+						
+						$('#source_l_bonds_d').html(formatDollar(source_l_bonds_total));
+						$('#source_l_bonds_p').html(formatPercent(total, source_l_bonds_total));
+						
+						$('#source_l_subtotal_d').html(formatDollar(local_total));
+						$('#source_l_subtotal_p').html(formatPercent(total, local_total));
+						
+						
+						  
+						$('#source_fed_d').html(formatDollar(federal_total));
+						$('#source_fed_p').html(formatPercent(total, federal_total));
+						  
+						$('#source_total_d').html(formatDollar(total));
+		 				$('#source_total_p').html(formatPercent(total, total));
+					
+					}
+					
+					function formatNumber(value)
+					{
+						var sValue = '' + (value);
 						
 						var sRegExp = new RegExp('(-?[0-9]+)([0-9]{3})');
 						while(sRegExp.test(sValue)) 
 						{ 
 							sValue = sValue.replace(sRegExp, '$1,$2'); 
 						} 
-						 	
+						
+						return sValue;
+					}
+					
+					function formatDollar(value)
+					{
+						var sValue = formatNumber(value);						 	
 					
 						return '$' + sValue;
 					}
@@ -128,13 +227,26 @@
 						else
 							return Math.round(percent) + '%';
 					}
+					
+					function findSWF(movieName) 
+					{
+						if (navigator.appName.indexOf("Microsoft")!= -1) 
+						{
+							return window["ie_" + movieName];
+						} 
+						else 
+						{
+							return document[movieName];
+						}
+					}
 				
 				</script>
 				
-				<h5 style="margin-top:20px;">Highway Funding Structures by State</h5>
+				<h5 style="margin-top:20px;">Highway Funding Sources by State</h5>
 				
 				<div style="margin-bottom: 10px;">
-					Select State: <select id="state_select">
+				
+					<label for="state_select">Select State:</label> <select id="state_select">
 						<option value="1">Alabama</option>
 							<option value="2">Alaska</option>
 							<option value="3">Arizona</option>
@@ -188,22 +300,43 @@
 							<option value="51">Wyoming</option>
 					</select> 
 					
-					Show Funding by: 
-					<input type="radio" name="query_type" value="source" id="qt_soruce" checked/><label for="source1">Source Type</label>
-					<input type="radio" name="query_type" value="govt" id="qt_govt"/><label for="source2">Level of Government</label>
+					<label for="year_select">Fiscal Year:</label> 
+					<select id="year_select">
+						<option value="-1">Cumulative (1995-2007)</option>
+						<option value="2007">2007</option>
+						<option value="2006">2006</option>
+						<option value="2005">2005</option>
+						<option value="2004">2004</option>
+						<option value="2003">2003</option>
+						<option value="2002">2002</option>
+						<option value="2001">2001</option>
+						<option value="2000">2000</option>
+						<option value="1995">1999</option>
+						<option value="1995">1998</option>
+						<option value="1995">1997</option>
+						<option value="1995">1996</option>
+						<option value="1995">1995</option>
+					</select>
+					
+					
 				</div>
+				
+				
+				
 				
 				<table id="source_table">
 					<tbody>
 						<tr class="header-row">
-						  <td>Funding Source by Type</td>
+						
+						  <td>Funding Source</td>
 						  
-						  <td>FY 2007 Funding ($ thousands)</td>
-						  <td>Share of State's Total Highway Funding</td>
+						  <td><span id="fiscal_year"></span> Funding ($)</td>
+						  <td>Share of State's Total Highway Funding (%)</td>
 			
 						 </tr>
 						 
 						<tr class="odd">
+						
 						  <td class="program">State Funding:</td>
 						  
 						  <td></td>
@@ -212,6 +345,7 @@
 						</tr>
 						
 						<tr class="even">
+						
 						  <td class="subprogram">User Revenues</td>
 						
 						  <td id="source_s_user_d"></td>
@@ -220,6 +354,7 @@
 						</tr>
 						
 						<tr class="odd">
+						
 						  <td class="subprogram">Non-user Revenues</td>
 						  
 						  <td id="source_s_nonuser_d"></td>
@@ -228,6 +363,7 @@
 						</tr>
 						
 						<tr class="even">
+						
 						  <td class="subprogram">Bonds</td>
 						  
 						  <td id="source_s_bonds_d"></td>
@@ -235,8 +371,16 @@
 						  
 						</tr>
 						
+						<tr class="subtotal"> 
+		 					<td class="subprogram">State Subtotal</td>
+		 					
+		 					<td id="source_s_subtotal_d"></td>
+		 					<td id="source_s_subtotal_p"></td>
+		 				</tr> 
 						
-						<tr class="odd">
+						
+						<tr class="even">
+						
 						  <td class="program">Local Funding:</td>
 						  
 						  <td></td>
@@ -244,7 +388,8 @@
 						  
 						</tr>
 						
-						<tr class="even">
+						<tr class="odd">
+						
 						  <td class="subprogram">User Revenues</td>
 						
 						  <td id="source_l_user_d"></td>
@@ -252,7 +397,7 @@
 						
 						</tr>
 						
-						<tr class="odd">
+						<tr class="even">
 						  <td class="subprogram">Non-user Revenues</td>
 						  
 						  <td id="source_l_nonuser_d"></td>
@@ -260,7 +405,8 @@
 						  
 						</tr>
 						
-						<tr class="even">
+						<tr class="odd">
+						
 						  <td class="subprogram">Bonds</td>
 						  
 						  <td id="source_l_bonds_d"></td>
@@ -268,8 +414,17 @@
 						  
 						</tr>
 						
+						<tr class="even subtotal"> 
+						
+		 					<td class="subprogram">Local Subtotal</td>
+		 					
+		 					<td id="source_l_subtotal_d"></td>
+		 					<td id="source_l_subtotal_p"></td>
+		 				</tr> 
+						
 						
 						<tr class="odd">
+						
 						  <td class="program">Federal Funding</td>
 						  
 						  <td id="source_fed_d"></td>
@@ -277,7 +432,8 @@
 						  
 						</tr>
 						
-						<tr class="total"> 
+						<tr class="even total"> 
+						
 		 					<td class="program">Total</td>
 		 					
 		 					<td id="source_total_d"></td>
@@ -288,60 +444,77 @@
 				</table>
 				
 				
-				<table id="govt_table">
+				
+				
+				<div id="spendingchart"></div>
+				
+				<h5 style="margin-top:20px;">Public Road Mileage by Jurisdiction (2007)</h5>
+				
+				<table id="miles_table">
 					<tbody>
 						<tr class="header-row">
-						  <td>Funding Source by Level of Government</td>
+						
+						  <td>Jurisdiction</td>
 						  
-						  <td>FY 2007 Funding ($ thousands)</td>
-						  <td>Share of State's Total Highway Funding</td>
+						  <td>State's Public Road Mileage</td>
+						  <td>Share of State's Total Public Road Mileage (%)</td>
 			
 						</tr>
 						
-						<tr class="odd">
-						  <td class="program">Federal Funding</td>
-						  
-						  <td id="govt_fed_d"></td>
-						  <td id="govt_fed_p"></td>
-						  
+						<tr>
+							<td class="program">State</td>
+							<td id="mile_state_d"></td>
+							<td id="mile_state_p"></td>						
 						</tr>
 						
-						 
-						<tr class="even">
-						  <td class="program">State Funding</td>
-						  
-						   
-						  <td id="govt_state_d"></td>
-						  <td id="govt_state_p"></td>
-						  						  
+						<tr>
+							<td class="program">County</td>
+							<td id="mile_county_d"></td>
+							<td id="mile_county_p"></td>						
 						</tr>
 						
-						<tr class="odd">
-						  <td class="program">Local Funding</td>
+						<tr>
+							<td class="program">City</td>
+							<td id="mile_city_d"></td>
+							<td id="mile_city_p"></td>						
+						</tr>
 						
-						  <td id="govt_local_d"></td>
-						  <td id="govt_local_p"></td>
+						<tr>
+							<td class="program">Federal</td>
+							<td id="mile_federal_d"></td>
+							<td id="mile_federal_p"></td>						
+						</tr>
 						
-						</tr>		
+						<tr>
+							<td class="program">Other</td>
+							<td id="mile_other_d"></td>
+							<td id="mile_other_p"></td>						
+						</tr>
+						
+						<tr class="total">
+							<td class="program">Total (All Jurisdictions)</td>
+							<td id="mile_total_d"></td>
+							<td id="mile_total_p"></td>						
+						</tr>
+						
+						<tr class="">
+							<td class="program">Federal-aid Eligible</td>
+							<td id="mile_federal_aid_d"></td>
+							<td id="mile_federal_aid_p"></td>						
+						</tr>
 						
 						
-						<tr class="total"> 
-		 					<td class="program">Total</td>
-		 					
-		 					<td id="govt_total_d"></td>
-		 					<td id="govt_total_p"></td>
-		 				</tr> 
-		 				
+						
 					</tbody>
 				</table>
-					
+			
 				
-				<cite>Source: <a href="http://www.fhwa.dot.gov/policy/ohpi/hss/index.cfm">Highway Statistics</a>, forms SDF, SF-1, LDF and LGF-1, Federal Highway Administration.</cite>
-				
-	
+				<cite>Source: <a href="http://www.fhwa.dot.gov/policy/ohpi/hss/index.cfm">Highway Statistics</a>, forms SF-1, LGF-1, HM-10 and HM-20, Federal Highway Administration.</cite>
 			</div>
+			
         </div>
     </div>
 </div>
 
 {% endblock %}
+
