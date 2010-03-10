@@ -15,10 +15,6 @@ table = cpi.getConversionTable(2008, 1980, 2008) # builds table for converting v
 
 new_value = old_value * table[1985]  # converts old value in 1985 dollars into 2008 dollars
 
-
-
-
- 
 """
 
 class InflationIndex(models.Model):
