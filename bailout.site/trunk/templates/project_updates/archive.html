@@ -15,6 +15,7 @@
 		<div class="content_area">
 
 			{% for item in updates %}
+                {% if item.published %}
 			<div id="update_item">
 				<div id="update_headline"><h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3></div>
 				  {% if item.sectors %}
@@ -26,6 +27,7 @@
 			    </div>
 			
 			</div>
+                {% endif %}
 			{% endfor %}
 
 			<p>&nbsp;</p>
