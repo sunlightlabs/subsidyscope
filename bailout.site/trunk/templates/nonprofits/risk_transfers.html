@@ -3,12 +3,22 @@
 {% load morsel_tags %}
 {% block content %}
 
+{% load navigation_tags %}
+{% navigation main-nav %}
+
 <div class="container main_container">
+
+{# only one of the following two lines should appear #}    
     {% include "includes/nonprofits_nav.html" %}
+    
+    {% navigation sub-nav %}
+
     <div class="span-24">
         <div id="header_area">
             <h3>{% morsel_page_title %}</h3>
         </div>
+
+        {% navigation breadcrumb %}
         <div class="content_area">
           
             {% morsel summary glossarize %}

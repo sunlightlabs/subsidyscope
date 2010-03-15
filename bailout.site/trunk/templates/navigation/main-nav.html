@@ -1,0 +1,10 @@
+{% load smarterif %}
+{% load custom_filters %}
+
+{% for s in sectors %}
+
+<li {% if s == active_sector %} class="active"{% endif %}>
+    <a href="/{{s}}/" class="">{{s|camelcase}}</a>
+</li>
+
+{% endfor %}
