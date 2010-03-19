@@ -1,0 +1,16 @@
+{% extends "includes/generic_nav.html" %}
+
+{% block energy_active %}active_top{% endblock %}
+
+{% block subnav %}
+
+	<div id="sector_subnav">
+	<ul class="sf-menu">
+	          <li><a class="sf-with-ul" href="{% url energy-overview %}">Overview</a></li>                       
+            <li><a href="{% url energy-direct-expenditures %}">Grants and Contracts</a></li>
+            <li><a href="{% url energy-tax-expenditures %}">Tax Subsidies</a></li>
+            <li><a href="{% url energy-risk-transfers %}">Loans &amp; Loan Guarantees</a></li>
+        </ul>
+    </div>
+
+{% endblock %}
