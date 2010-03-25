@@ -1,16 +1,19 @@
 {% load smarterif %}
 {% load custom_filters %}
+{% load navigation_tags %}
 
+<div class="span-24">
+<div id="sector_subnav">
+    <ul class="sf-menu">
 
 {% for s in subsectors %}
-
-    {# First tuple in subsectors is subsidy type  #}
-    {# Second tuple in subsectors is other subsector (i.e. mode, etc) #}
-
-
-    {% for item in s %}
-        <li {% if item.1 == active_subsector %} class="active" {%endif %}>
-            <a href="{{item.1}}" class="">{{item.0}}</a>
+    {% if s.2 == active_sector.2 %}
+        <li class="sf-with-ul {% if active_subsector.0 == s.0%}active{% endif %}" >
+            <a href="{{ s.1 }}" class="">{{s.0}}</a>
+            {% navigation dropdown s.1 %}
         </li>
-    {% endfor %}
+    {% endif %}
 {% endfor %}
+    </ul>
+</div>
+</div>

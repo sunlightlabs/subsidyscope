@@ -2,33 +2,16 @@
 {% load custom_filters %}
 
 <span class="breadcrumbs">
-    
-    <a href="/{{active_sector}}/">
-        {{active_sector|camelcase}}
-    </a>
-    &nbsp;&raquo;&nbsp;
 
-    {% if current_page == active_subsector.0 %}
+{% for crumb in breadcrumbs %}
 
-        {{active_subsector.1}}
-
+    {% if forloop.last %}
+        {{crumb.0}}
     {% else %}
-        <a href="/{{active_sector}}/{{active_subsector.0}}/">
-            {{active_subsector.1}}
-        </a>
-
-        {% for page in pages %}
-            
-            &nbsp; &raquo; &nbsp;
-            {% if current_page != page.1 %}
-                <a href="{{page.0}}">{{page.1}}</a>
-
-            {% else %}
-                
-                {{page.1}}
-
-            {% endif %}
-        {% endfor %}
+        <a href="{{crumb.1}}">{{crumb.0}}</a>
+        &nbsp;&raquo;&nbsp;
     {% endif %}
+
+{% endfor %}
 
 </span>

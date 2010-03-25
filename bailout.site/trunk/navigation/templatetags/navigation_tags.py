@@ -1,101 +1,175 @@
 from django import template
+from django.core.urlresolvers import reverse, resolve
 from django.conf import settings
 from django.template import Library, Node, Context, TemplateDoesNotExist, TemplateSyntaxError
-from django.template.loader import get_template
+from django.template.loader import get_template, render_to_string
 from helpers.templatetags.custom_filters import camelcase
+from morsels.models import *
+from copy import deepcopy
+
 import re 
 register = Library()
 
-def get_subsector_display(active_sector, active_subsector):
+#module level globals to track path of navigation tree traversal
 
-    for tuple in settings.SECTORS[active_sector]:
-        for sec in tuple:
-            if active_subsector == sec[1]:
-                return sec[0]
+path = []
+sectors = []
+subsectors = []
+dropdowns = []
+inner_dropdowns = [] #deprecated - should use context menus instead of having inner dropdowns from now on
+breadcrumbs = []
+current_url = None
+leaf_depth = 1
+been_processed = False
+last_traverse_level = 0
+#initialize the list to the max depth we have and then some
+current_tree = [None, None, None, None, None, None]
 
-    return camelcase(active_subsector)
-                        
+
+def traverse(data, callback, url):
+    #pre order traversal so we put the callback here
+    callback(data, url)
+
+    subsectors = globals()['subsectors']
+    
+    if not been_processed and traverse.level > 2:
+        if traverse.level == 3: subsectors.append('<ul class="sf-menu" id="'+data['sector']+'">')
+        subsectors.append('<li id="'+data["url_name"]+'"><a ')
+        if data['children']: subsectors.append('class="sf-with-ul" ')
+        subsectors.append('href="'+reverse(data["url_name"])+'">'+data["name"]+'</a>')
+        if data['children']: subsectors.append('<ul>')
+
+    for child in data['children']:
+        traverse.level += 1
+        traverse(child, callback, url)
+        traverse.level -= 1
+
+    if not been_processed and traverse.level > 2:
+        if data['children']: subsectors.append('</ul>')
+        subsectors.append('</li>')
+        if traverse.level == 3: subsectors.append("</ul>")
+        
+
+def main_nav_path(data, url):
+    
+    #keep track of what our current path is at each nav depth since python dict trees don't really have parent pointers
+    current_tree =  globals()['current_tree']
+    last_traverse_level = globals()['last_traverse_level']
+    current_tree[traverse.level] = (data['name'], reverse(data['url_name']), data['sector'], data['url_name'])
+    
+    data_structs = [0, 0, 'sectors', 'subsectors', 'dropdowns', 'inner_dropdowns']
+
+    if reverse(data['url_name']) == url:
+        #this is the page we're on
+        globals()['leaf_depth'] = traverse.level
+        globals()['path'] = deepcopy(current_tree)
+         
+    if not been_processed:
+        #append a tuple to the sectors,subsectors, dropdowns, breadcrumb list, depending on the current traversal depth
+        try:
+            if traverse.level < 3:
+                globals()[data_structs[traverse.level]].append((data['name'], reverse(data['url_name']), data['sector'], data['url_name'] ))
+            
+        except KeyError:
+            pass
+
+    current_tree = []  
+    last_traverse_level = traverse.level
+
+                       
 class NavigationNode(template.Node):
 
-    def __init__(self, type):
+    def __init__(self, type, subnav_id=None):
+
         self.type = type
-    
+        if subnav_id:
+            self.subnav_id = template.Variable(subnav_id)
+        else:
+            self.subnav_id = None
 
     
     def render(self, context):
         
-        current_path = context['request'].path        
-        current_page = None
-        url_tokens = current_path.strip('/').rstrip('/').split('/')
-        nav_depth = len(url_tokens)
+        #initialize the list to the max depth we have and then some, reset every time render is called
+        current_tree = [None, None, None, None, None, None]
 
-        active_sector = url_tokens[0]
-        active_subsector = None 
-        subsectors = settings.SECTORS[active_sector]
+        traverse.level = 1
+        nav_tree = settings.SECTORS
+        try:
+            request = context['request']
+            url = request.path
+        except KeyError:
+            request = None
+            url = ''
+
+        globals()['path'] = []
+        globals()['breadcrumbs'] = []
+            
+        traverse(nav_tree, main_nav_path, url)
         
-        if nav_depth > 1:  
-            
-            active_subsector = url_tokens[1]    
-            
-            if nav_depth > 2:  current_page_set = url_tokens[2:]
-                
-            else: current_page_set = None
-
-        else: active_subsector = None
-
+        path = globals()['path']
+        
+        globals()['been_processed'] = True  
+        
         if self.type == 'main-nav':
+            if url == '/' : active_sector = None  # little hack to make sure there's no active sector on the homepage
+            else:
+                try:
+                    active_sector = path[2]
+                except IndexError:
+                    active_sector = None
 
-            return get_template('navigation/main-nav.html').render(Context({'active_sector': active_sector ,'sectors': settings.SECTORS.keys()}))
+            return get_template('navigation/main-nav.html').render(Context({'active_sector': active_sector, 'sectors': sectors }))
 
         elif self.type == 'sub-nav':
+            subsectors = globals()['subsectors'] 
+            return '<style> ul.sf-menu{ display: none;} #'+ path[2][2] +'{display:inline;}</style><div class="span-24"><div id="sector_subnav">' + "".join(subsectors) + '</div></div>'
+#            return get_template('navigation/sub-nav.html').render(Context({'active_subsector': path[3] , 'subsectors': subsectors, 'active_sector': path[2], 'request': request }))
 
+        elif self.type == 'dropdown':
+
+            if self.subnav_id:
             
-            return get_template('navigation/sub-nav.html').render(Context({'active_subsector': active_subsector, 'subsectors': subsectors }))
-             
-        elif self.type == 'breadcrumb':
+                sub_id = self.subnav_id.resolve(context)
+                this_dropdown = []
+                temp = []
+                for d in globals()['dropdowns']:
+                    if reverse(d[2]) == sub_id:
+                        #this_dropdown.append(d)
+                        temp.append("%s, %s" % (reverse(d[2]), sub_id) )
+    
+                if len(this_dropdown) > 0:
+
+                    return get_template('navigation/sub-nav-dropdown.html').render(Context({ 'this_dropdown': this_dropdown, 'request': request }))
+
+                else: return temp 
+
+            else: return "no id"
             
-            pages = []
-            search_pattern = ''
+         
+        elif self.type == 'breadcrumb':                     
+            if leaf_depth > 2:
 
-            if current_page_set: 
-                #depth is greater than just subsector
-                sector_patterns = __import__("%s.urls" % active_sector).urls.urlpatterns
-                current_page = current_page_set[len(current_page_set)-1] 
-                
-                for page in current_page_set:
-                    search_pattern += page + '/'
-                    for pattern in sector_patterns:
+               return get_template('navigation/breadcrumb.html').render(Context({'breadcrumbs': path[2:leaf_depth+1] }))
 
-                        exact_patt = re.compile(pattern.regex.pattern+'$')
+            else: return ""
 
-                        if  exact_patt.match("%s/%s" % (active_subsector, search_pattern) ):
-                            #eventually add display name to tuple here
-                            pages.append( ( "/%s/%s/%s" % (active_sector, active_subsector, search_pattern), page, ) )
-
-                        elif exact_patt.match(search_pattern):
-                            pages.append( ( "/%s/%s" % (active_sector, search_pattern), page, ) )
-
-            else: current_page = active_subsector
-                             
-                        
-            return get_template('navigation/breadcrumb.html').render(Context({'active_sector': active_sector, 'active_subsector': (active_subsector, get_subsector_display(active_sector, active_subsector) ), 'current_page': current_page, 'pages':pages, 'curr':current_page_set }))
-
-        return "%s, %s, %s " % (self.type, active_sector, current_path)
-#        try:
-#            nav_template = get_template('navigation/%s.html' % self.type)
-
-#            return menu.render(self.context)
-
-#        except TemplateDoesNotExist:
- #           pass            
 
 @register.tag
 def navigation(parser, token):
 
     try:
         tag_name, nav_type = token.split_contents()
-    
-    except ValueError:
-        raise template.TemplateSyntaxError, "%r tag requires 1 argument" % token.contents.split()[0]
+        return NavigationNode(nav_type)
 
-    return NavigationNode(nav_type)
+    except ValueError:
+    
+        try: 
+            tag_name, nav_type, subnav_id = token.split_contents()
+            
+            return NavigationNode(nav_type, subnav_id)
+
+        except ValueError:
+            raise template.TemplateSyntaxError, "%r tag requires at least 1 argument" % token.contents.split()[0]
+
+

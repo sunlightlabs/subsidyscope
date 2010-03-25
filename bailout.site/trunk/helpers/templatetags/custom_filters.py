@@ -10,4 +10,4 @@ def in_list(value, arg):
 
 @register.filter
 def camelcase(value):
-    return "".join([capitalize(w) for w in re.split(re.compile("[\W_]*"), value)])    
+    return " ".join([capitalize(w) for w in re.split(re.compile("[\W_]*"), value)])    

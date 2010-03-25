@@ -1,9 +1,11 @@
-{% extends "includes/generic_nav.html" %}
 
-{% block bailout_active %}active_top{% endblock %}
 
-{% block subnav %}
 
+{% load navigation_tags %}
+
+    {% navigation main-nav %}
+    {% navigation sub-nav %}
+    {% navigation breadcrumb %}
 	<div id="sector_subnav">
 	<ul class="sf-menu">
 		<li>
@@ -25,4 +27,3 @@
 	</ul>
 	</div>
 
-{% endblock %}

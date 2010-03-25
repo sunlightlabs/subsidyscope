@@ -216,29 +216,6 @@ HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_FPDS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_SITECONF = 'search_sites'
 
-#Navigation Configuration
-SUBSIDY_TYPES = (
-                    ('Grants and Contracts', 'direct-expenditures'), 
-                    ('Tax Subsidies', 'tax-expenditures'), 
-                    ('Loans and Loan Guarantees', 'risk-transfers')
-                )
-
-SECTORS = { 
-            'transportation': (SUBSIDY_TYPES, (
-                                                    ('Rail','rail'),
-                                                    ('Transit', 'transit'),
-                                                    ('Highways', 'highways'),
-                                                    ('Maritime', 'maritime'),
-                                                    ('Aviation', 'aviation'),
-                                                )
-                              ), 
-            'nonprofits': ( SUBSIDY_TYPES , ( 
-                                                ('Types of Nonprofits', 'types'),
-                                            )
-                            )
-          }
-
-
 # Auth 
 LOGIN_URL = '/subsidysort/login/'
 
@@ -263,3 +240,10 @@ try:
     from local_settings import *
 except ImportError, exp:    
     pass
+
+
+#Navigation configuration - kept in another file to keep settings clean
+from navigation.templatetags.navigation_tree import SECTORS
+
+
+
