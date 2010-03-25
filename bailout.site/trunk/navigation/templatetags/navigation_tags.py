@@ -15,13 +15,9 @@ register = Library()
 path = []
 sectors = []
 subsectors = []
-dropdowns = []
-inner_dropdowns = [] #deprecated - should use context menus instead of having inner dropdowns from now on
-breadcrumbs = []
 current_url = None
 leaf_depth = 1
 been_processed = False
-last_traverse_level = 0
 #initialize the list to the max depth we have and then some
 current_tree = [None, None, None, None, None, None]
 
@@ -54,18 +50,17 @@ def main_nav_path(data, url):
     
     #keep track of what our current path is at each nav depth since python dict trees don't really have parent pointers
     current_tree =  globals()['current_tree']
-    last_traverse_level = globals()['last_traverse_level']
     current_tree[traverse.level] = (data['name'], reverse(data['url_name']), data['sector'], data['url_name'])
     
     data_structs = [0, 0, 'sectors', 'subsectors', 'dropdowns', 'inner_dropdowns']
-
     if reverse(data['url_name']) == url:
         #this is the page we're on
         globals()['leaf_depth'] = traverse.level
         globals()['path'] = deepcopy(current_tree)
          
     if not been_processed:
-        #append a tuple to the sectors,subsectors, dropdowns, breadcrumb list, depending on the current traversal depth
+        pass        #append a tuple to the sectors,subsectors, dropdowns, breadcrumb list, depending on the current traversal depth
+
         try:
             if traverse.level < 3:
                 globals()[data_structs[traverse.level]].append((data['name'], reverse(data['url_name']), data['sector'], data['url_name'] ))
@@ -73,7 +68,7 @@ def main_nav_path(data, url):
         except KeyError:
             pass
 
-    current_tree = []  
+    current_tree = []
     last_traverse_level = traverse.level
 
                        
@@ -111,45 +106,27 @@ class NavigationNode(template.Node):
         
         globals()['been_processed'] = True  
         
+        active_sector = None
+        try:
+            if url != "/":
+                active_sector = path[2]
+        except IndexError:
+            pass
+        
         if self.type == 'main-nav':
-            if url == '/' : active_sector = None  # little hack to make sure there's no active sector on the homepage
-            else:
-                try:
-                    active_sector = path[2]
-                except IndexError:
-                    active_sector = None
-
-            return get_template('navigation/main-nav.html').render(Context({'active_sector': active_sector, 'sectors': sectors }))
+            
+            return get_template('navigation/main-nav.html').render(Context({'active_sector': active_sector, 'sectors': sectors, 'request': request }))
 
         elif self.type == 'sub-nav':
             subsectors = globals()['subsectors'] 
-            return '<style> ul.sf-menu{ display: none;} #'+ path[2][2] +'{display:inline;}</style><div class="span-24"><div id="sector_subnav">' + "".join(subsectors) + '</div></div>'
+            try:
+                return '<style> ul.sf-menu{ display: none;} #'+ path[2][2] +'{display:inline;}</style><div class="span-24"><div id="sector_subnav">' + "".join(subsectors) + '</div></div>'
+            except IndexError:
+                return globals()['tester']
 #            return get_template('navigation/sub-nav.html').render(Context({'active_subsector': path[3] , 'subsectors': subsectors, 'active_sector': path[2], 'request': request }))
 
-        elif self.type == 'dropdown':
-
-            if self.subnav_id:
-            
-                sub_id = self.subnav_id.resolve(context)
-                this_dropdown = []
-                temp = []
-                for d in globals()['dropdowns']:
-                    if reverse(d[2]) == sub_id:
-                        #this_dropdown.append(d)
-                        temp.append("%s, %s" % (reverse(d[2]), sub_id) )
-    
-                if len(this_dropdown) > 0:
-
-                    return get_template('navigation/sub-nav-dropdown.html').render(Context({ 'this_dropdown': this_dropdown, 'request': request }))
-
-                else: return temp 
-
-            else: return "no id"
-            
-         
         elif self.type == 'breadcrumb':                     
             if leaf_depth > 2:
-
                return get_template('navigation/breadcrumb.html').render(Context({'breadcrumbs': path[2:leaf_depth+1] }))
 
             else: return ""

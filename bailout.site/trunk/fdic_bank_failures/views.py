@@ -21,7 +21,7 @@ def fdic_bank_failures(request):
 
 def fdic_bank_failures_table(request):
     bank_failure_list = BankFailure.objects.all().order_by('-closing_date')    
-    return render_to_response('bailout/fdic/fdic_bank_failure_table.html', { 'bank_failure_list': bank_failure_list })
+    return render_to_response('bailout/fdic/fdic_bank_failure_table.html', { 'bank_failure_list': bank_failure_list }, context_instance=RequestContext(request))
     
 
 def fdic_bank_failures_csv(request):
