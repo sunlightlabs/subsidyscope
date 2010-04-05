@@ -1,5 +1,6 @@
 from faads.models import RecipientType
 from sectors.models import Sector, Subsector
+from fpds.models import ProductOrServiceCode, NAICSCode
 
 def _get_sector():
     """ returns the energy sector codes """
@@ -13,27 +14,26 @@ def _get_sector():
 
 def faads():
     """ defines SQL clause identifying relevant FAADS program records """
-    
-    # TODO: all of this
+    sector = _get_sector()    
 
-    # 
-    # recipient_type_codes = []
-    # for keyword in ('energy', 'education'):
-    #     try:
-    #         recipient_type_codes.append(RecipientType.objects.filter(name__icontains=keyword)[0].code)
-    #     except:
-    #         pass
-    #         
-    # sector = _get_sector()
-    # 
-    return { 'sector': { sector: " CONVERT('0'+recipient_type, SIGNED) IN (%s) " % ','.join(map(lambda x: str(x), recipient_type_codes)) }, 'subsectors': {} }
-    
+    cfda_programs = {}
+    for p in ProgramDescription.objects.filter(sectors=sector):
+        cfda_programs[p.program_number] = p
+
+    sql = "TRIM(cfda_program_num) IN ('%s')" %  ("','".join(map(lambda x: str(x), cfda_programs.keys())))
+    return { 'sector': { sector: sql }, 'subsectors': {} }
+
     
 def fpds():
     """ defines SQL clause identifying relevant FPDS program records """
-    # TODO: all of this
 
+    sector = _get_sector()    
 
-    # sector = _get_sector()
-    #     return { 'sector': { sector: "TRIM(UPPER(extentCompeted)) NOT IN ('A', 'F', 'CDO') AND (LOWER(TRIM(nonprofitOrganizationFlag))='t' OR LOWER(TRIM(educationalInstitutionFlag))='t')"}, 'subsectors': {}}
-    continue
+    psc_codes = ProductOrServiceCode.objects.filter(sectors=sector)
+    naics_codes = NAICSCode.objects.filter(sectors=sector)
+    
+    psc_code_string = "'%s'" % "','".join(map(lambda x: str(x.code).upper().strip(), psc_codes)) # chars -- need quotes
+    naics_code_string = "%s" % ",".join(map(lambda x: str(x.code), naics_codes)) # ints -- no quotes necessary
+    
+    sql = "(TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))" % (naics_code_string, psc_code_string)
+    return { 'sector': { sector: sql }, 'subsectors': {} }    

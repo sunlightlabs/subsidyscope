@@ -5,6 +5,7 @@ import sys
 from geo.models import *
 
 
+
 class ExtentCompetedMapper(object):
     # (code, title, description, considered subsidy?)
     CODES = (
@@ -42,6 +43,10 @@ class NAICSCode(models.Model):
         
     code = models.IntegerField("Numeric Code", max_length=6, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=True, default='')
+
+    sectors = models.ManyToManyField(Sector, blank=True)
+    subsectors = models.ManyToManyField(Subsector, blank=True)
+
     parent_code = models.ForeignKey('NAICSCode', blank=True, null=True)
 
 
@@ -57,6 +62,10 @@ class ProductOrServiceCode(models.Model):
 
     code = models.CharField("Numeric Code", max_length=5, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=True, default='')    
+
+    sectors = models.ManyToManyField(Sector, blank=True)
+    subsectors = models.ManyToManyField(Subsector, blank=True)
+
 
 
 class CodeMatcher(object):
