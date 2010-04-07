@@ -674,3 +674,6 @@ p#previous-updates { padding-left: 10px; margin-top: 10px;}
     font-size: 10px;
     display: block;
 }
+
+/* font size fix for bios page */
+.sub_list_bios li p { font-size: 100%;}
