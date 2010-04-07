@@ -20,6 +20,10 @@
 			fmt.font = "Verdana";
 			fmt.size = style['font-size'];
 			fmt.align = "center";
+			if(style['font-weight'] == 'bold') { 
+			    fmt.bold = true;
+			}
+			
 			this.setTextFormat(fmt);
 			this.autoSize = "left";
 			

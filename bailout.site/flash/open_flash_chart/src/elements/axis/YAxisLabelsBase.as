@@ -5,6 +5,7 @@
 	//import org.flashdevelop.utils.FlashConnect;
 	import br.com.stimuli.string.printf;
 	import string.Utils;
+	import flash.external.ExternalInterface;
 	
 	public class YAxisLabelsBase extends Sprite {
 		
@@ -245,7 +246,9 @@
 				var tf:YTextField = this.getChildAt(i) as YTextField;
 				max = Math.max( max, tf.width );
 			}
-			return max;
+            
+            //KBL added a little bit of padding here because the labels were getting cut off
+			return max +10;
 		}
 		
 		public function die(): void {

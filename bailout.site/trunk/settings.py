@@ -116,7 +116,10 @@ INSTALLED_APPS = (
     'tagging',
     'aip',
     'news_briefs',
-    'cfda'
+    'cfda',
+    'transit',
+    'inflation',
+    'navigation',
 )
 
 #try:
@@ -214,7 +217,6 @@ HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_FPDS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_SITECONF = 'search_sites'
 
-
 # Auth 
 LOGIN_URL = '/subsidysort/login/'
 
@@ -239,3 +241,10 @@ try:
     from local_settings import *
 except ImportError, exp:    
     pass
+
+
+#Navigation configuration - kept in another file to keep settings clean
+from navigation.templatetags.navigation_tree import SECTORS
+
+
+
