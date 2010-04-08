@@ -536,6 +536,7 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 #faq-page p.question { font-weight: bold; margin-bottom: 0.5em;}
 #faq-page ul { list-style-type: disc; }
 
+ul.press-releases, ul.press-releases li { margin-left: 0;}
 ul.press-releases li
 {
     margin-bottom: 1em;
@@ -673,3 +674,6 @@ p#previous-updates { padding-left: 10px; margin-top: 10px;}
     font-size: 10px;
     display: block;
 }
+
+/* font size fix for bios page */
+.sub_list_bios li p { font-size: 100%;}
