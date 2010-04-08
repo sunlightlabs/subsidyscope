@@ -84,17 +84,17 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
         # CFDA programs, subsectors
-        cfda_program_selection_choices = [('subsidy_programs','Subsidy Programs')]
-        if len(cfda_program_choices)>0:
-            cfda_program_selection_choices.append(('program', 'Program'))
+        cfda_program_selection_choices = [('program-selection-subsidy_programs','Subsidy Programs')]
         if subsector_choices:
-            cfda_program_selection_choices.append(('subsector', SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')))
+            cfda_program_selection_choices.append(('program-selection-subsector', 'Programs by ' + SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')))
+        if len(cfda_program_choices)>0:
+            cfda_program_selection_choices.append(('program-selection-program', 'All Programs'))
             
         if len(cfda_program_selection_choices)==1:
             cfda_program_selection_method = False       
             program_selection_programs = False
         else:                
-            cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=forms.RadioSelect, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'subsector' or 'subsidy_programs')
+            cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=TabbedSelectWidget, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'program-selection-subsector' or 'program-selection-subsidy_programs')
             program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
         
         program_selection_tags = forms.MultipleChoiceField(choices=tag_choices, required=False, initial=initial_tag_choices, widget=CheckboxSelectMultipleMulticolumn(columns=3))
@@ -200,18 +200,18 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
 
 
             # using subsidyscope's selection of programs
-            if form.cleaned_data['cfda_program_selection_method']=='subsidy_programs':
+            if form.cleaned_data['cfda_program_selection_method']=='program-selection-subsidy_programs':
                 programs = get_included_subsidy_program_ids(sector)
                 if programs is not False:
                     faads_search_query = faads_search_query.filter('cfda_program', programs)            
 
             # by subsector
-            elif form.cleaned_data['cfda_program_selection_method']=='subsector':
+            elif form.cleaned_data['cfda_program_selection_method']=='program-selection-subsector':
                 programs_in_subsector = ProgramDescription.objects.filter(subsectors__id__in=(form.cleaned_data['program_selection_subsector']))
                 faads_search_query = faads_search_query.filter('cfda_program', map(lambda x: x.id, programs_in_subsector))
                 
             # by CFDA program 
-            elif form.cleaned_data['cfda_program_selection_method']=='program':
+            elif form.cleaned_data['cfda_program_selection_method']=='program-selection-program':
                 selected_programs = form.cleaned_data['program_selection_programs']
                 faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
 
