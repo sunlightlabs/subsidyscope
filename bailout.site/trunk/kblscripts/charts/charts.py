@@ -2,7 +2,7 @@
 import xml.etree.ElementTree as ET
 import math
 
-class Chart():
+class Chart(object):
     """Base class for SVG chart generation\n
        Data is expected in a list of lists, with (x,y) tuples:\n
             [ [(1, 2),(2, 3), ..], [...] ]\n
@@ -19,7 +19,6 @@ class Chart():
         self.data = data
         self.type = chart_type
         self.number_of_series = len(data)
-        self.max_x_value, self.max_y_value, self.max_data_points = self.find_maximum()        
         self.labels = self.extract_labels()
         self.stylesheet = stylesheet
         self.padding = 30
@@ -34,22 +33,8 @@ class Chart():
         self.currency = True
         self.units = 'B'
          
-        #Catch passed in keyword argument overrides of defaults
-        for key in kwargs:
-            self.__dict__[key] = kwargs[key] 
-
-        self.gridline_interval = 25 
-        if self.max_y_value > 10: self.gridlines = 10
-        else: self.gridlines = int(math.ceil(self.max_y_value))
+               
         
-        self.max_y_axis_value = self.max_y_value + (self.max_y_value / self.gridlines)
-        self.y_scale = int(self.height - (self.padding * 2)) / float(self.max_y_axis_value)
-
-        #find the width of each point in each series
-        self.x_scale = self.set_scale()    #int(float((float(self.width - (self.padding * 2)) / self.max_data_points) / self.number_of_series) - self.x_padding)
-        
-        #width of each data point grouping over multiple series
-        self.x_group_scale = self.x_scale * self.number_of_series
  
         #create svg node as root element in tree
         self.svg = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", version="1.1", height=str(self.height), width=str(self.width) )
@@ -63,12 +48,6 @@ class Chart():
              
         self.svg.append(ET.XML('<style type="text/css">' + "\n".join(temp)  + '</style>'))
 
-        #Chart subclass should have this method to setup the chart background, axes, and gridlines
-        self.setup_chart()
-
-        #Chart subclass should have this method to chart the data series
-        self.data_series()
-        self.set_labels()
 
 
     def find_maximum(self):
@@ -112,10 +91,98 @@ class Chart():
         f = open(write_file, 'w')
         f.write('<?xml version="1.0" encoding="UTF-8" ?>\n')
         f.write(ET.tostring(self.svg) )
+   
+class PieChart(Chart):
+    """Subclass of Chart, containing functions relevant to all pie charts"""
+
+    def __init__(self, height, width, data, chart_type, stylesheet=None, **kwargs):
+
+        self.legend_width = 40 
+        self.legend_x_padding = 5
+
+        super(PieChart, self).__init__(height, width, data, chart_type, stylesheet, **kwargs)
+        
+        #find sum of values, only needed for pie charts
+        self.total = 0
+        for series in self.data:
+            for point in series:
+                self.total += point[1]
+        
+        self.diameter = self.width - (self.x_padding * 2) - self.legend_width
+        self.radius = self.diameter / 2
+        self.x_origin = self.x_padding + (self.diameter / 2)
+        self.y_origin = self.height / 2
+        
+        #Chart subclass should have this method to setup the chart background, axes, and gridlines
+        self.setup_chart()
+
+        #Chart subclass should have this method to chart the data series
+        self.data_series()
+
+    def setup_chart(self):
+        
+        #attach stage element
+        self.svg.append(ET.Element("rect", x="0", y="0", height="%s" % self.height, width="%s" % self.width, fill="white"))
+
+    def data_series(self):
+
+        total_angle = 0
+        count = 1
+        last_point = [self.radius, 0]
+        arc = 0 #draw the short arc by default
+        for series in self.data:
+            for point in series:
+                angle = (point[1]  / float(self.total)) * 360
+                total_angle += angle
+                if angle > 180:
+                    arc = 1  #draw the long arc
+
+                point1 = "M %s,%s " % (self.x_origin, self.y_origin)
+                point2 = "l %s,%s " % (last_point[0], -last_point[1])
+
+                x = int(math.cos(math.radians(total_angle)) * self.radius)
+                y = int(math.sin(math.radians(total_angle)) * self.radius)
+               
+                point3 = "a%s,%s 0 %s,0 %s,%s z" % (self.radius, self.radius, arc, (x - last_point[0]), -(y - last_point[1]))
+                last_point = [x, y]
+                end = " " 
+                path = ET.Element("path", d="%s %s %s" % (point1, point2, point3))
+                path.attrib['class'] = 'slice-%s' % count
+                self.svg.append(path)
+                count += 1
+
+
     
 class GridChart(Chart):
     """Subclass of Chart, containing functions relevant to all charts that use a grid"""
-    
+    def __init__(self, height, width, data, chart_type, stylesheet=None, **kwargs):
+
+        super(GridChart, self).__init__(height, width, data, chart_type, stylesheet, **kwargs)
+        #Catch passed in keyword argument overrides of defaults
+        for key in kwargs:
+            self.__dict__[key] = kwargs[key] 
+
+        self.max_x_value, self.max_y_value, self.max_data_points = self.find_maximum()        
+        self.gridline_interval = 25 
+        if self.max_y_value > 10: self.gridlines = 10
+        else: self.gridlines = int(math.ceil(self.max_y_value))
+        
+        self.max_y_axis_value = self.max_y_value + (self.max_y_value / self.gridlines)
+        self.y_scale = int(self.height - (self.padding * 2)) / float(self.max_y_axis_value)
+
+        #find the width of each point in each series
+        self.x_scale = self.set_scale()
+        
+        #width of each data point grouping over multiple series
+        self.x_group_scale = self.x_scale * self.number_of_series
+        
+        #Chart subclass should have this method to setup the chart background, axes, and gridlines
+        self.setup_chart()
+
+        #Chart subclass should have this method to chart the data series
+        self.data_series()
+        self.set_labels()
+         
     def setup_chart(self):
 
         #setup background color
