@@ -7,3 +7,7 @@ g.output("bar.svg")
 
 h = Line(300, 400, [[(2000, 10), (2001, 30), (2002, 40), (2003, 50)], [(2000, 30),  (2002, 40), (2003, 50)]], 'Line', 'linechart.css', label_intervals=2)
 h.output("line.svg")
+
+h = PieChart(400, 400, [[(2000, 10), (2001, 30), (2002, 40), (2003, 50)]], 'Pie', 'piechart.css')
+h.output("pie.svg")
+
