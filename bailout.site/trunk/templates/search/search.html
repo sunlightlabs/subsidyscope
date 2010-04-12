@@ -43,7 +43,11 @@
 					
 					{% else %}
 						<div style="float: right; text-transform:uppercase; color: #999; height: 15px;">
-							<img style="margin-right: 5px; vertical-align: top;" src="{{ page.object.sector.image_url_small }}"/>
+							{% if page.object.sector.image_url_small %}
+								<img style="margin-right: 5px; vertical-align: top;" src="{{ page.object.sector.image_url_small }}"/>
+							{% endif %}
+							
+							
 							<strong>{{ page.object.sector.name }}</strong>
 						</div>
 						<strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
