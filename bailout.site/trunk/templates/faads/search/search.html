@@ -18,7 +18,7 @@
 	{% js "scripts/ui.datepicker.js" %}
 	
 	{% js "scripts/swfobject.js" %}
-	{% js "scripts/faads-search.js?version=4" %}
+	{% js "scripts/faads-search.js?version=5" %}
 	
 
 <!-- if JS is enabled, assume that the tabs will work and hide the other divs -->
@@ -53,65 +53,55 @@ var sortOrder = '{{ sort_order }}';
 	
 					<form action="{{ page_path }}" method="POST" id="faads-search-form">
 
-					<fieldset id="text-query-wrapper">
-					  <legend>Recipient Name / Project Description</legend>
-						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
-						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
-					</fieldset>
 
 
-          <fieldset class="collapsed" id="advanced-options">
+          <fieldset id="advanced-options" {% if ran_search %}class="collapsed"{% endif %}>
             
-            <legend id="advanced-options">Advanced Options</legend>
+            <legend id="advanced-options">Search Options <a class="state" href="#" id="search-options-state"></a></legend>
 
             {% if form.cfda_program_selection_method %}
-            <div class="section" id="programs">
-            <h4>Select Programs</h4>
+	            <div class="section" id="programs">
+	            <h4>Select Programs</h4>
+	            
+	            	<div id="cfda_selector_tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+	            	
+	            		{{ form.cfda_program_selection_method }}
 
-            <div id="program-selector-text">Choose programs by:</div><div id="program-selector">{{ form.cfda_program_selection_method }}</div>
-            <div class="clear-left"></div>
-             
-             <div id="program-selection-subsidy_programs" class="program-selection-target">
-              {% morsel program_selection_subsidy_programs %}    
-              <div class="clear-left"></div>                    
-             </div>
-             
-            <div id="program-selection-tag" class="program-selection-target">
-              {% morsel program_selection_tag %}                 
-              
-              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-tag-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-tag-select-none">Select None</a> ]</p>
-              
-              {{ form.program_selection_tags }}
-              {{ form.program_selection_tags.errors }}
-              
-              <p style="clear:left; padding-top: 1.5em">{{ form.tags_exclude_secondary }}&nbsp;Only include programs having the selected tag(s) as their primary function</p>
-              <div class="clear-left"></div>
-            </div>
-            
-            {% if form.program_selection_subsector %}
-            <div id="program-selection-subsector" class="program-selection-target">
+			             <div id="program-selection-subsidy_programs" class="ui-tabs-panel">
+			              {% morsel program_selection_subsidy_programs %}    
+			              <div class="clear-left"></div>                    
+			             </div>
+			             
+			           
+			            <div id="program-selection-program" class="ui-tabs-panel">
+			           
+			              {% morsel program_selection_program %}
+			              
+			              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-program-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-program-select-none">Select None</a> ]</p>
+			              
+			              {{ form.program_selection_programs }}
+			              {{ form.program_selection_programs.errors }}
+			              <div class="clear-left"></div>
+			            
+			            </div>
+			           
+			            
+			            {% if form.program_selection_subsector %}
+			            <div id="program-selection-subsector" class="ui-tabs-panel">
+			
+			              {% morsel program_selection_subsector %}
+			
+			              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-subsector-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">Select None</a> ]</p>
+			
+			              {{ form.program_selection_subsector }}
+			              {{ form.program_selection_subsector.errors }}
+			              <div class="clear-left"></div>
+			            </div>
+			            {% endif %}
+			
 
-              {% morsel program_selection_subsector %}
-
-              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-subsector-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">Select None</a> ]</p>
-
-              {{ form.program_selection_subsector }}
-              {{ form.program_selection_subsector.errors }}
-              <div class="clear-left"></div>
-            </div>
-            {% endif %}
-
-            <div id="program-selection-program" class="program-selection-target">
-              
-              {% morsel program_selection_program %}
-              
-              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-program-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-program-select-none">Select None</a> ]</p>
-              
-              {{ form.program_selection_programs }}
-              {{ form.program_selection_programs.errors }}
-              <div class="clear-left"></div>
-            </div>
-            </div>
+			    	</div>
+	            </div>
             {% endif %}
          
          
@@ -161,8 +151,20 @@ var sortOrder = '{{ sort_order }}';
   						{{ form.obligation_amount_maximum.errors }}
 						</div>
 					</div>
+            	</div>
             </div>
-            </div>
+            
+            <div class="section" id="text">
+         		<h4>Recipient Name / Project Description</h4>
+         		
+         			{% morsel full_text_search %}
+         			
+					<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
+					<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
+         
+         	</div>
+            
+            
 
           
           <div class="section last" id="location">
@@ -206,7 +208,7 @@ var sortOrder = '{{ sort_order }}';
 				    
 			      {% if found_some_results and ran_search %}		
 			      
-			      <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+			  <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
           		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
           			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#faads-result-table">Results</a></li>
           			<li class="ui-state-default ui-corner-top"><a href="#faads-result-graph">By Year</a></li>

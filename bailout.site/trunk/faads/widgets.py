@@ -1,13 +1,54 @@
 from math import ceil
 from itertools import chain
-from django.utils.encoding import force_unicode
+
+from django.utils.encoding import StrAndUnicode, force_unicode
 from django.utils.html import escape, conditional_escape
 from django import forms
-from django.conf import settings
+
 from django.utils.safestring import mark_safe
 from django.forms import CheckboxInput
+from django.forms.widgets import Select 
 
+
+
+     
+class TabbedSelectWidget(Select):
+
+    def __init__(self, *args, **kwargs):
+        # Override the default renderer if we were passed one.
+        renderer = kwargs.pop('renderer', None)
+        if renderer:
+            self.renderer = renderer
+        super(TabbedSelectWidget, self).__init__(*args, **kwargs)
+
+    def render(self, name, value, attrs=None, choices=()):
         
+        output = []
+        
+        output.append(u'<input type="hidden" id="tabbedSelectWidgetValue" name="%s" value="%s"/>' % (name, value))
+        
+        output.append(u'<script type="text/javascript" charset="utf-8">var tabbedSelectWidgetIds = [];')
+        
+        id = 0
+        
+        for choice in self.choices:
+            output.append(u'tabbedSelectWidgetIds[%d] = "%s";' % (id, choice[0]))
+            id += 1
+        
+        output.append(u'</script>')
+        
+        output.append(u'<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">')
+         
+        
+        for choice in self.choices:
+            
+            output.append(u'<li class="ui-state-default ui-corner-top"><a href="#%s">%s</a></li>' % (choice[0], choice[1]))
+        
+        output.append(u'</ul>')
+        
+        return mark_safe('\n'.join(output))
+
+
 
 class CheckboxSelectMultipleMulticolumn(forms.CheckboxSelectMultiple):
 
