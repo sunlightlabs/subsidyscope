@@ -27,7 +27,7 @@ def remove_projects_redirect(request):
 class SubsidyContactForm(ContactForm):
     attrs_dict = { 'class': 'required' }    
     from_email = "bounce@sunlightfoundation.com"
-    recipient_list = ['kwebb@sunlightfoundation.com', 'tlee@sunlightfoundation.com', 'jmorris@sunlightfoundation.com', 'subsidyscope@pewtrusts.org']
+    recipient_list = ['kwebb@sunlightfoundation.com', 'tlee@sunlightfoundation.com', 'subsidyscope@pewtrusts.org']
     subject = "[SubsidyScope.com] Contact form submission"
     
     name = forms.CharField(max_length=100,
@@ -74,6 +74,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^methodology/tags/', direct_to_template, {'template': 'generic.html'}, name='methodology-tags'),
     url(r'^methodology/', direct_to_template, {'template': 'generic.html'}, name='methodology'),
     url(r'^data-quality/$', direct_to_template, { 'template': 'generic.html'}, name='data-quality'),
+    url(r'^framing-paper/html/$', direct_to_template, {'template': 'generic.html'}, name='framing-paper-html'),
     url(r'^framing-paper/$', redirect_to, {'url':'/media/pdf/Subsidyscope%%20Framing%%20Paper.pdf'}, name="framing-paper"),
     url(r'^screencast/$', direct_to_template, { 'template': 'generic.html'}, name='screencast'),
 )
