@@ -1,5 +1,5 @@
 
-.x-axis-path, .y-gridline { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+.x-axis-path, .y-gridline { fill:none; stroke: #a7a9ac; stroke-width:1; }
 
 .y-gridline { stroke-width: 50%; }
 .y-axis-path, .y-axis-path2 { display: none;}

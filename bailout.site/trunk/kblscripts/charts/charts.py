@@ -1,6 +1,10 @@
 
 import xml.etree.ElementTree as ET
+from xml.dom.minidom import parseString
 import math
+
+CURRENCY = [( 10**3, 'Th'), (10**6, 'M'), (10**9, 'B'), (10**12, 'Tr')]
+
 
 class Chart(object):
     """Base class for SVG chart generation\n
@@ -23,23 +27,22 @@ class Chart(object):
         self.stylesheet = stylesheet
         self.padding = 30
         self.x_padding = 10
-        self.y_label_padding = 15
+        self.y_padding = 0
+        self.x_label_height = 15
+        self.y_label_padding = 5
+        self.y_label_height = 15
         self.x_inner_padding = 2
         self.y_inner_padding = 2
-        
         self.label_intervals = 1
-
+        self.gridline_percent = .15
         #change these to be passed in
         self.currency = True
         self.units = 'B'
-         
-               
-        
  
         #create svg node as root element in tree
         self.svg = ET.Element('svg', xmlns="http://www.w3.org/2000/svg", version="1.1", height=str(self.height), width=str(self.width) )
         self.svg.attrib["xmlns:svg"] = "http://www.w3.org/2000/svg"
-    
+         
         #there really isn't a graceful way for loading an external stylesheet when you're not in a browser so we parse it in and spit it out inside style tags
         temp = []
         stylesheet = open(self.stylesheet, 'r')
@@ -47,7 +50,6 @@ class Chart(object):
             temp.append(x)
              
         self.svg.append(ET.XML('<style type="text/css">' + "\n".join(temp)  + '</style>'))
-
 
 
     def find_maximum(self):
@@ -86,11 +88,11 @@ class Chart(object):
         for x in self.__dict__.keys():
             print "%s : %s\n" % (x, self.__dict__[x]) 
 
-        print ET.dump(ET.ElementTree(self.svg))  #DEBUG
+        txt = ET.tostring(self.svg)
+        print parseString(txt).toprettyxml()
 
         f = open(write_file, 'w')
-        f.write('<?xml version="1.0" encoding="UTF-8" ?>\n')
-        f.write(ET.tostring(self.svg) )
+        f.write(parseString(txt).toprettyxml() )
    
 class PieChart(Chart):
     """Subclass of Chart, containing functions relevant to all pie charts"""
@@ -162,13 +164,21 @@ class GridChart(Chart):
         for key in kwargs:
             self.__dict__[key] = kwargs[key] 
 
+        #set the baseline coordinates of the actual grid
+        self.grid_y1_position = self.padding + self.y_padding
+        self.grid_y2_position = self.height - self.x_label_height - self.padding - self.y_padding
+        self.grid_x1_position = self.padding + self.x_padding
+        self.grid_x2_position = self.width - self.padding - self.x_padding
+        self.grid_height = self.grid_y2_position - self.grid_y1_position
+        self.grid_width = self.grid_x2_position - self.grid_x1_position
+
+        #where and how often for gridlines
         self.max_x_value, self.max_y_value, self.max_data_points = self.find_maximum()        
-        self.gridline_interval = 25 
-        if self.max_y_value > 10: self.gridlines = 10
-        else: self.gridlines = int(math.ceil(self.max_y_value))
-        
-        self.max_y_axis_value = self.max_y_value + (self.max_y_value / self.gridlines)
-        self.y_scale = int(self.height - (self.padding * 2)) / float(self.max_y_axis_value)
+        self.gridline_interval = self.gridline_percent * self.grid_height #in pixels
+        self.gridlines = int(self.grid_height / self.gridline_interval)
+        self.max_y_axis_value = self.max_y_value + (self.max_y_value * .1)
+        self.y_scale = self.grid_height / float(self.max_y_axis_value)
+
 
         #find the width of each point in each series
         self.x_scale = self.set_scale()
@@ -187,53 +197,76 @@ class GridChart(Chart):
 
         #setup background color
         self.svg.append(ET.Element("rect", x="0", y="0", height="%s" % self.height, width="%s" % self.width, fill="white"))
+        self.grid = ET.Element("g", id="grid", transform="translate(%s, %s)" % (self.grid_x1_position, self.grid_y1_position))
+
+        self.svg.append(self.grid)
 
         #add x and y axes
         x_axis, y_axis = [ET.Element("g", id="x_axis"), ET.Element("g", id="y_axis")]
         x_axis.attrib['class'], y_axis.attrib['class'] = ['x-axis', 'y-axis']
 
-        x_axis_path = ET.Element("path", d="M %d %d L %d %d" % (self.padding, self.height - self.padding, self.width - self.padding, self.height - self.padding))
+        x_axis_path = ET.Element("path", d="M %d %d L %d %d" % (0, self.grid_height, self.grid_width, self.grid_height))
         x_axis_path.attrib['class'] = 'x-axis-path'
 
         x_axis.append(x_axis_path)
 
-        y_axis_path = ET.Element("path", d="M %d %d L %d %d" % (self.padding, self.height - self.padding, self.padding, self.padding))
+        y_axis_path = ET.Element("path", d="M %d %d L %d %d" % (0, self.grid_height, 0, 0))
         y_axis_path.attrib['class'] = 'y-axis-path'
 
         y_axis.append(y_axis_path)
         
-        y_axis_path2 = ET.Element("path", d="M %d %d L %d %d" % (self.width - self.padding, self.padding, self.width - self.padding, self.height - self.padding ))    
+        y_axis_path2 = ET.Element("path", d="M %d %d L %d %d" % (self.grid_width, self.grid_height, self.grid_width, 0))    
         y_axis_path2.attrib['class'] = 'y-axis-path-2'
 
         y_axis.append(y_axis_path2)
 
-        grid_space = (self.height - (self.padding * 2)) / self.gridlines
+        grid_space = self.grid_height / self.gridlines
    
         grid_value_increment = self.max_y_axis_value / self.gridlines
          
         for i in range(0, self.gridlines):
             #draw the gridline
-            gridline = ET.Element("path", d="M %d %d L %d %d" % (self.padding, (i * grid_space) + self.padding , self.width - self.padding, (i * grid_space) + self.padding))
+            gridline = ET.Element("path", d="M %d %d L %d %d" % (0, (i * grid_space), self.grid_width, (i * grid_space)))
             gridline.attrib['class'] = 'y-gridline'
             y_axis.append(gridline)
 
             #draw the text label
-            gridline_label = ET.Element("text", x="%s" % (self.padding - self.y_label_padding), y="%s" % ( (i * grid_space) + self.padding + 4) )
-            gridline_label.text = "%s" % (self.max_y_axis_value - (i * grid_value_increment))
+            gridline_label = ET.Element("text", x="%s" % (-self.y_label_padding), y="%s" % ( (i * grid_space) ) )
+            num = self.max_y_axis_value - (i * grid_value_increment)
+            text = "%s" % num
+            text = self.convert_units(num)
+
+            gridline_label.text = text
             gridline_label.attrib['class'] = 'y-axis-label'
             y_axis.append(gridline_label)
 
-        self.svg.append(x_axis)
-        self.svg.append(y_axis)
+        self.grid.append(x_axis)
+        self.grid.append(y_axis)
 
     def data_point_label(self, value, x, y):
         dp_label = ET.Element("text", x="%s" % x, y="%s" % y)
         text = str(value)
-        if self.currency: text = "$" + text
-        if self.units: text = text + self.units
+        text = self.convert_units(value)
         dp_label.text = "%s" % text
         dp_label.attrib['class'] = 'data-point-label'
-        self.svg.append(dp_label)
+        self.grid.append(dp_label)
+
+    def convert_units(self, value):
+        text = ""
+        if self.currency:
+            text = "$"
+        for unit in reversed(CURRENCY):
+            if value / float(unit[0]) >= 1:
+                print value / float(unit[0])
+                text = text + "%.1d" % (value / float(unit[0]))
+                if self.units:
+                    text = text + unit[1]
+                return text
+                break
+
+        return str(value)
+
+
 
 class Line(GridChart):
 
@@ -254,7 +287,7 @@ class Line(GridChart):
             data_point_count = 0
 
             #move path to initial data point
-            path_string = "M %s %s" % (int(self.padding + self.x_padding), int(self.height - (bottom_offset * 2) - (series[0][1] * self.y_scale)))
+            path_string = "M %s %s" % (self.x_padding, self.grid_height - (series[0][1] * self.y_scale))
 
             for point in series:
 
@@ -263,9 +296,9 @@ class Line(GridChart):
                     continue
                      
                 path_string += " L "
-                x = int(data_point_count * self.x_scale) + self.padding + self.x_padding                
-                height = self.y_scale * point[1]                
-                y = int(bottom_offset + (( self.height - (bottom_offset * 2)) - height))
+                x = int(data_point_count * self.x_scale)                
+                point_height = self.y_scale * point[1]                
+                y = self.grid_height - point_height
     
                 path_string += "%s %s" % (x, y)
 
@@ -277,7 +310,7 @@ class Line(GridChart):
             line.attrib['class'] = 'series-%s-line' % series_count
             g_container.append(line)
         
-        self.svg.append(g_container)
+        self.grid.append(g_container)
     
     def set_labels(self):
 
@@ -287,12 +320,11 @@ class Line(GridChart):
 
             if  label_count % self.label_intervals == 0:
                 text_item = ET.Element("text")
-                text_item.attrib['x'] = "%s" % (int(self.padding + self.x_padding  + (label_count * (self.x_scale))))
-                text_item.attrib['y'] = "%s" % (self.height - self.x_padding) 
-            
+                text_item.attrib['x'] = "%s" % (self.x_padding + (label_count * self.x_scale))
+                text_item.attrib['y'] = "%s" % (self.grid_height + self.x_label_height) 
                 text_item.text = "%s" % l
                 text_item.attrib['class'] = 'x-axis-label'
-                self.svg.append(text_item)
+                self.grid.append(text_item)
 
             label_count += 1
 
@@ -302,7 +334,7 @@ class Column(GridChart):
     
     def set_scale(self):
         
-        return int(float((float(self.width - (self.padding * 2)) / self.max_data_points) / self.number_of_series) - self.x_padding)
+        return (self.grid_width / self.max_data_points / self.number_of_series) - self.x_padding
 
     def data_series(self):
 
@@ -317,31 +349,31 @@ class Column(GridChart):
 
             for point in series:
             
-                width = self.x_scale
-                height = self.y_scale * point[1]
-                x_position = left_offset + self.x_padding + (data_point_count * (self.x_group_scale + self.x_padding) ) + ((series_count - 1) * width)
-                y_position = bottom_offset + (( self.height - (bottom_offset * 2)) - height )
-                data_point = ET.Element("rect", x="%s" % x_position, y="%s" % y_position, height="%s" % height, width="%s" % width  )
+                point_width = self.x_scale
+                point_height = self.y_scale * point[1]
+                x_position = (data_point_count * (self.x_group_scale + self.x_padding) ) + ((series_count - 1) * point_width)
+                y_position = (self.grid_height - point_height)
+                data_point = ET.Element("rect", x="%s" % x_position, y="%s" % y_position, height="%s" % point_height, width="%s" % point_width  )
                 data_point.attrib['class'] = 'series-%s-point' % series_count
 
-                data_point_inner = ET.Element("rect", x="%s" % (x_position + self.x_inner_padding), y="%s" % (y_position + self.y_inner_padding), height="%s" % (height - self.y_inner_padding), width="%s" % (width - (2  * self.x_inner_padding))  )
+                data_point_inner = ET.Element("rect", x="%s" % (x_position + self.x_inner_padding), y="%s" % (y_position + self.y_inner_padding), height="%s" % (point_height - self.y_inner_padding), width="%s" % (point_width - (2  * self.x_inner_padding))  )
                 data_point_inner.attrib['class'] = 'series-%s-point-inner' % series_count
 
-                self.svg.append(data_point)
-                self.svg.append(data_point_inner)
+                self.grid.append(data_point)
+                self.grid.append(data_point_inner)
 
-                self.data_point_label(point[1], x_position + (width / 2), y_position - 5)
+                self.data_point_label(point[1], x_position + (point_width / 2), y_position - 5)
                 data_point_count += 1
 
     def set_labels(self):
         label_count = 0
 
         for l in self.labels:
-            text_item = ET.Element("text", x="%s" % (int(self.padding + self.x_padding + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))), y="%s" % (self.height - self.x_padding)) 
+            text_item = ET.Element("text", x="%s" % (int(self.x_padding + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))), y="%s" % (self.grid_height + self.x_label_height))
             
             text_item.text = l
             text_item.attrib['class'] = 'x-axis-label'
-            self.svg.append(text_item)
+            self.grid.append(text_item)
             label_count += 1
 
 
