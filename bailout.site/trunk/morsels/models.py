@@ -28,11 +28,43 @@ class Page(models.Model):
 
     sites = models.ManyToManyField(Site, verbose_name=_('sites'))
     
+    index_rendered_page = models.BooleanField()
+    
     objects = PageManager()
     
     def __unicode__(self):
         
         return u'%s' % (self.url)
+    
+    def render_text_page(self):
+        try:
+            
+            from django.test.client import Client
+            from django.utils.html import strip_tags 
+            from BeautifulSoup import BeautifulSoup
+            
+            
+            client = Client()
+            response = client.get(self.url + '/')
+            
+            content = ''
+            
+            content_area = BeautifulSoup(response.content).find('div', attrs={'class':'content_area'})
+            
+            if content_area:
+                content = unicode(content_area)
+            
+            non_content = BeautifulSoup(response.content).find('div', attrs={'class':'non_content'})
+            
+            if non_content:
+                content +=  unicode(non_content)
+            
+            return strip_tags(content)
+        
+        except Exception, e:
+            print 'error: %s' % self.url
+            print e
+        
     
 
 class Morsel(models.Model):
@@ -60,15 +92,14 @@ class Morsel(models.Model):
         return u'%s -- %s' % (self.page.url, self.name)
 
     def get_flat_text(self):
-        import lxml.html
-    
+        from django.utils.html import strip_tags        
+        
         c = Context()
         t = Template(self.content)
         raw_output = t.render(c)
+ 
+        return strip_tags(raw_output)
     
-        t = lxml.html.fromstring(raw_output)
-        
-        return t.text_content()
 
 
     def delete(self):
