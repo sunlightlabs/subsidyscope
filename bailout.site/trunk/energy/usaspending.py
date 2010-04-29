@@ -1,6 +1,7 @@
 from faads.models import RecipientType
 from sectors.models import Sector, Subsector
 from fpds.models import ProductOrServiceCode, NAICSCode
+from faads.models import ProgramDescription
 
 def _get_sector():
     """ returns the energy sector codes """
