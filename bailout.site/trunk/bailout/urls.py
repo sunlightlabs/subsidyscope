@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'tarp/subsidies/cbo/$', direct_to_template, {'template': 'bailout/tarp_subsidy_table_cbo.html'},  name='tarp-subsidies-cbo'),
     
     url(r'^tarp/warrants/$', direct_to_template, {'template': 'bailout/tarp_warrants.html'}, name="tarp-warrants"),
-    url(r'^tarp/warrants/original/$', 'bailout.views.tarp_warrants', name="tarp-warrants"),
+    url(r'^tarp/warrants/original/$', 'bailout.views.tarp_warrants', name="tarp-warrants-original"),
     url(r'^tarp/warrants/calculation/$', 'bailout.views.tarp_warrants_calculation', name="tarp-warrants-calculation"),
     
     url(r'^tarp/map/$', 'bailout.views.tarp_map', name='tarp-map'),
