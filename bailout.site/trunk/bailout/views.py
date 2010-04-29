@@ -51,40 +51,13 @@ def tarp_warrants(request):
     aig_strike = None 
     aig_percentage = None
     
+    total_transactions = None
+    out_percentage = None
+    
+    
     last_date = transactions[0].getLastPriceUpdateDate()
     
-    for transaction in transactions:
-        if transaction.isInMoneyReportedStrikePrice():
-            in_money += 1
-        else:
-            out_money += 1
-          
-        # get citi moneyness for transaction id 3  
-        if transaction.id == 3:
-
-            citi_stock = transaction.getLastClosingPrice()
-            citi_strike = transaction.warrant_reported_strike_price
-            
-
-            # assumes out of money 
-            citi_percentage =  '%d' % int(100 * (abs(transaction.getMoneyPercentage()))) 
-            
-        # get aig moneyness for transaction id 222  
-        if transaction.id == 222:
-            
-            aig_stock = transaction.getLastClosingPrice()
-            aig_strike = transaction.warrant_reported_strike_price
-            
-            # assumes out of money 
-            aig_percentage =  '%d' % int(100 * (abs(transaction.getMoneyPercentage())))  
-    
-    total_transactions = in_money + out_money
-
-    out_percentage = '%d%%' % round((out_money / total_transactions) * 100) 
-    
-    
-    
-    return render_to_response('bailout/tarp_warrants.html', {'transactions':transactions, 'last_date':last_date, 'in_money':in_money, 'total_transactions':total_transactions, 
+    return render_to_response('bailout/tarp_warrants_original.html', {'transactions':transactions, 'last_date':last_date, 'in_money':in_money, 'total_transactions':total_transactions, 
                                                              'out_percentage':out_percentage, 'citi_stock':citi_stock, 'citi_strike':citi_strike, 'citi_percentage':citi_percentage,
                                                              'aig_stock':aig_stock, 'aig_strike':aig_strike, 'aig_percentage':aig_percentage }, context_instance=RequestContext(request))
 
