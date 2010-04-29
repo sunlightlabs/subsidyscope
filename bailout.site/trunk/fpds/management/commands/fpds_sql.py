@@ -32,6 +32,8 @@ class Command(NoArgsCommand):
                 print "%s:" % app
                 r = f()
                 if r is not None:
-                    print "SELECT %s, SUM(%s) FROM %s WHERE %s GROUP BY %s;" % (AGGREGATION_FIELD, FIELD_TO_SUM, settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'fpds_award3_sf'), f()['sector'].values()[0].strip(), AGGREGATION_FIELD)
+                    print "SELECT %s, SUM(%s) FROM %s WHERE %s GROUP BY %s;" % (AGGREGATION_FIELD, FIELD_TO_SUM, getattr(settings,'FPDS_IMPORT_MYSQL_SETTINGS',{}).get('source_table', 'fpds_award3_sf'), f()['sector'].values()[0].strip(), AGGREGATION_FIELD)
                 else:
                     print "-- Not defined"
+                print ""
+                
