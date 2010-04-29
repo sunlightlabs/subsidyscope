@@ -31,3 +31,4 @@ class Command(NoArgsCommand):
             if f:
                 print "%s:" % app
                 print "SELECT %s, %s, SUM(%s) FROM %s WHERE %s GROUP BY %s, %s;" % (AGGREGATION_FIELD_1, AGGREGATION_FIELD_2, FIELD_TO_SUM, getattr(settings,'FAADS_IMPORT_MYSQL_SETTINGS',{}).get('source_table', 'faads_main_sf'), f()['sector'].values()[0].strip(), AGGREGATION_FIELD_1, AGGREGATION_FIELD_2)
+                print ""
