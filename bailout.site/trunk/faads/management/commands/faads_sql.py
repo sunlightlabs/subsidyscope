@@ -12,8 +12,8 @@ class Command(NoArgsCommand):
         self.sector_sql_mapping = {}
         
         AGGREGATION_FIELD_1 = FAADSSearch.FIELD_MAPPINGS[FAADSSearch.DEFAULT_AGGREGATION_FIELD]['mysql_field']
-        AGGREGATION_FIELD_2 = FAADSSearch.FIELD_MAPPINGS['cfda_program']['mysql_field']
-        FIELD_TO_SUM = FAADSSearch.FIELD_MAPPINGS[FAADSSearch.FIELD_TO_SUM]['mysql_field']
+        AGGREGATION_FIELD_2 = 'cfda_program_num';
+        FIELD_TO_SUM = 'fed_funding_amount';
         
         for app in settings.INSTALLED_APPS:
             try:
