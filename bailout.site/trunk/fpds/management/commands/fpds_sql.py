@@ -13,7 +13,7 @@ class Command(NoArgsCommand):
         self.sector_sql_mapping = {}
         
         AGGREGATION_FIELD = FPDSSearch.FIELD_MAPPINGS[FPDSSearch.DEFAULT_AGGREGATION_FIELD]['mysql_field']
-        FIELD_TO_SUM = FPDSSearch.FIELD_MAPPINGS[FPDSSearch.FIELD_TO_SUM]['mysql_field']
+        FIELD_TO_SUM = 'obligatedAmount'
         
         for app in settings.INSTALLED_APPS:
             try:
