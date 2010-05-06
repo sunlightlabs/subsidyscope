@@ -36,5 +36,5 @@ def fpds():
     psc_code_string = "'%s'" % "','".join(map(lambda x: str(x.code).upper().strip(), psc_codes)) # chars -- need quotes
     naics_code_string = "%s" % ",".join(map(lambda x: str(x.code), naics_codes)) # ints -- no quotes necessary
     
-    sql = "(TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))" % (naics_code_string, psc_code_string)
+    sql = "TRIM(UPPER(extentCompeted)) NOT IN ('A', 'F', 'CDO') AND ((TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s))))" % (naics_code_string, psc_code_string)
     return { 'sector': { sector: sql }, 'subsectors': {} }    
