@@ -60,7 +60,9 @@ urlpatterns += patterns('django.views.generic.simple',
 
     url(r'^transportation/', include('transportation.urls')),
     url(r'^nonprofits/', include('nonprofits.urls')),    
-    url(r'^bailout/', include('bailout.urls')),     
+    url(r'^bailout/', include('bailout.urls')),
+    
+    url(r'^tax_expenditures/', include('tax_expenditures.urls')),          
 
     url(r'^updates/', include('project_updates.urls')),
     url(r'^about/', 'direct_to_template', {'template': 'about.html'}, name="about"),
@@ -98,3 +100,4 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_MEDIA_DIR}),
     )
+
