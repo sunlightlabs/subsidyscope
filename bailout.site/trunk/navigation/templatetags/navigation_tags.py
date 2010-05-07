@@ -122,7 +122,7 @@ class NavigationNode(template.Node):
             try:
                 return '<style> ul.sf-menu{ display: none;} #'+ path[2][2] +'{display:inline;}</style><div class="span-24"><div id="sector_subnav">' + "".join(subsectors) + '</div></div>'
             except IndexError:
-                return globals()['tester']
+                return ''
 #            return get_template('navigation/sub-nav.html').render(Context({'active_subsector': path[3] , 'subsectors': subsectors, 'active_sector': path[2], 'request': request }))
 
         elif self.type == 'breadcrumb':                     

@@ -1,0 +1,74 @@
+{% extends "base_sector.html" %}
+{% load media %}
+{% load te_tags %}
+{% block content %}
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>Tax Expenditure: {{ expenditure.name }}</h3>
+        </div>
+        
+        <div class="content_area">
+        
+        	<strong>Category: <a href="/tax_expenditures/{{ top_category.id}}/">{{ top_category.name}}</a>
+        	
+        	{% for category in category_stack %}
+        		&raquo; 	{{ category.name }}
+        	{% endfor %}
+        	
+        	</strong>
+        	
+        	{% if jct %}
+				<div id="subsidy-charts">
+				<h5 style="margin-top:20px;">Joint Committee on Taxation Estimate ($ millions)</h5>
+				<table>
+				<tbody>
+				
+				<tr class="header-row"><td></td>
+				{% for year in jct.years %}
+				<td>{{ year }}</td>
+				{%  endfor %}
+				</tr><tr><td>Corporations</td>
+				{% for corp in jct.corporations %}
+				<td>{{ corp }}</td>
+				{%  endfor %}
+				</tr><tr><td>Individuals</td>
+				{% for individual in jct.individuals %}
+				<td>{{ individual }}</td>
+				{%  endfor %}
+				</tr>
+				</tbody>
+				</table>
+				</div>
+			{% endif %}
+
+			{% if treasury %}
+				<div id="subsidy-charts">
+				<h5 style="margin-top:20px;">Treasury Estimate ($ millions)</h5>
+				<table>
+				<tbody>
+				
+				<tr class="header-row"><td></td>
+				{% for year in treasury.years %}
+				<td>{{ year }}</td>
+				{%  endfor %}
+				</tr><tr><td>Corporations</td>
+				{% for corp in treasury.corporations %}
+				<td>{{ corp }}</td>
+				{%  endfor %}
+				</tr><tr><td>Individuals</td>
+				{% for individual in treasury.individuals %}
+				<td>{{ individual }}</td>
+				{%  endfor %}
+				</tr>
+				</tbody>
+				</table>
+				</div>
+			{% endif %}
+            
+        </div>
+</div>
+
+{% endblock %}

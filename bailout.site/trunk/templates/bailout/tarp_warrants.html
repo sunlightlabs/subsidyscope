@@ -1,119 +1,33 @@
 {% extends "base_sector.html" %}
 {% load humanize %}
-{% load bailout_tags %}
+{% load webdesign %}
 {% load media %}
 {% load morsel_tags %}
 
-{% block additional_css %}
-	{% css "styles/ui.theme.css" %}
-	{% css "styles/tarp-visualization.css" %}
+{% block additional_js %}
 {% endblock %}
 
-{% block additional_js %}
-
-	{% js "scripts/jquery-ui-personalized-tabs-1.5.3.js" %}
-	{% js "scripts/jquery.scrollTo-1.4.0-min.js" %}
-	{% js "scripts/jquery.localscroll-1.2.6-min.js" %}
-	{% js "scripts/jquery.serialScroll-1.2.1-min.js" %}	
-	{% js "scripts/jquery.tablesorter.js" %}
-	{% js "scripts/jquery.autocomplete.js" %}
-
-	{% js "scripts/tarp_warrants.js" %}
-	
+{% block additional_css %}
+	<style type="text/css">@import "{% url bailout-visualization-css %}";</style>
 {% endblock %}
 
 {% block content %}
 
 <div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
+{% include "includes/bailout_nav.html" %}
+
 	<div class="span-24">
 		<div id="header_area">
-			<h2>{% morsel_sector_title %}</h2>
 			<h3>{% morsel_page_title %}</h3>		
-		</div>
+		</div>		
 		
 		<div class="content_area">
 
-		{% morsel text1 %}
-
-
-	<p>Based on the closing prices on <b>{{ last_date|date:"F j, Y" }}</b>,   
-	
-	{% if in_money %}
-		{% ifequal in_money 1 %}
-			only one 
-		{% else %}
-			only {{ in_money }}
-		{% endifequal %}
-	{% else %}
-		none
-	{% endif %}
-	 of the {{ total_transactions }} warrant transactions listed on Subsidyscope are in the money. 
-	 Some of the biggest recipients of TARP funding are in the most difficult financial situations.
-	 For example, Citigroup's closing stock price of {{ citi_stock|price_abs }} on {{ last_date|date:"F j" }} is {{ citi_percentage }} 
-	 percent below the strike price of {{ citi_strike|price_abs }} of the warrants the government 
-	 received on October 28, 2008. </p>
-
-	{% morsel text2 %}
-	
-</div>
-
-<div class="non_content">
-	
-	<div id="table-filter" style="clear:left; padding-top: 15px;">Filter transactions by recipient: <input size="30" id="tarpFilterInput"/></div> 
-	
-		
-	<table class="tarp-table" id="tarp-header-table">
-	<thead>
-	<tr>
-		<th class="date">Date</th>
-		<th class="recipient">Recipient (Stock Symbol)</th>
-		<th class="program">Program</th>
-		<th class="strike">Strike<br/>Price</th>
-		<th class="warrants">Warrants<br/>Received</th>
-		<th class="current">Current Stock Price*</th>
-		<th class="inout">In/Out of Money ($)*</th>
-		<th class="percent">In/Out of Money (%)*</th>
-	</tr>
-	</thead>
-	</table>
-	
-	<div class="gray-label" style="clear:left">click on column headings to sort</div>
-	
-
-	<div id="tarp-table-container">	
-
-		
-	
-
-	<table class="tarp-table" id="tarp-data-table">
-	<tbody>
-	{% for t in transactions %}
-
-	<tr id="row-{{ t.id }}" class="{% cycle 'even' 'odd' %}">
-		<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
-		<td class="recipient">{% institution_name t.institution %} ({{ t.institution.stock_symbol }})</td>
-		<td class="program">{{ t.program }}</td>
-		<td class="strike">${{ t.warrant_reported_strike_price }}</td>
-		<td class="warrants">{{ t.warrants_issued }}</td>
-		<td class="current">${{ t.getLastClosingPrice }}</td>
-		<td class="inout">{% if t.isInMoneyReportedStrikePrice %}${{ t.getMoneyPositionReportedStrikePrice }}{% else %}<span style="color: red;">${{ t.getMoneyPositionReportedStrikePrice }}</span>{% endif %}</td>
-		<td class="percent">{% if t.isInMoneyReportedStrikePrice %}{{ t.getMoneyPercentage|percent }}%{% else %}<span style="color: red;">{{ t.getMoneyPercentage|percent }}%</span>{% endif %}</td>
-	</tr>
-
-	{% endfor %}
-	</tbody>
-	</table>
-	
-	</div>	
-	
-	
-	<div class="footnotes">
-		{% morsel text3 %}
-	</div>
-
+			{% morsel text1 %}
+			
 		</div>
-	</div>
+
 </div>
+
 
 {% endblock %}
