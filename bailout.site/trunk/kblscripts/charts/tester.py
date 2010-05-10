@@ -1,7 +1,7 @@
 
 from charts import *
 
-g = Column(300, 400, [[('aaaaaaaaaa',500), ('bbbbbbbbbb',800)], [('aaaaaaaaaa',230), ('bbbbbbbbbb',260), ('cccc', 300)]], 'Column', "barchart.css")
+g = Column(300, 600, [[('aaaaaaaaaa',500), ('bbbbbbbbbb',800)], [('aaaaaaaaaa',230), ('bbbbbbbbbb',260), ('cccc', 300)]], 'Column', "barchart.css")
 
 g.output("bar.svg")
 
@@ -13,7 +13,7 @@ h.output("pie.svg")
 
 
 #risk transfers
-risk_transfers = Column(185, 220, [[('Outstanding Credit', 7445983679), ('Subsidy', 114141251)]], 'Column', "barchart.css", padding=10)
+risk_transfers = Column(185, 370, [[('Outstanding Credit', 7445983679), ('Subsidy', 114141251)]], 'Column', "barchart.css", padding=10)
 risk_transfers.output("risk_transfers.svg")
 
 #contracts

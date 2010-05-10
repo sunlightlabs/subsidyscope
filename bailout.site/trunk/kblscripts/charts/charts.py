@@ -26,6 +26,7 @@ class Chart(object):
         self.labels = self.extract_labels()
         self.stylesheet = stylesheet
         self.padding = 30
+        self.max_x_point_width = 60
         self.x_padding = 10
         self.y_padding = 0
         self.x_label_height = 15
@@ -99,7 +100,7 @@ class PieChart(Chart):
 
     def __init__(self, height, width, data, chart_type, stylesheet=None, **kwargs):
 
-        self.legend_width = 40 
+        self.legend_width = .20  #percent of total width 
         self.legend_x_padding = 5
 
         super(PieChart, self).__init__(height, width, data, chart_type, stylesheet, **kwargs)
@@ -110,10 +111,10 @@ class PieChart(Chart):
             for point in series:
                 self.total += point[1]
         
-        self.diameter = self.width - (self.x_padding * 2) - self.legend_width
+        self.diameter = self.width - (self.x_padding * 2) - (self.legend_width * self.width)
         self.radius = self.diameter / 2
-        self.x_origin = self.x_padding + (self.diameter / 2)
-        self.y_origin = self.height / 2
+        self.x_origin = self.radius
+        self.y_origin = self.radius
         
         #Chart subclass should have this method to setup the chart background, axes, and gridlines
         self.setup_chart()
@@ -125,6 +126,17 @@ class PieChart(Chart):
         
         #attach stage element
         self.svg.append(ET.Element("rect", x="0", y="0", height="%s" % self.height, width="%s" % self.width, fill="white"))
+        self.setup_legend()
+
+    def setup_legend(self):
+        
+        #find distance from edge of circle
+        edge = (self.diameter * (math.sqrt(2) - 1)) / 2
+        edge_side = math.sqrt((edge**2)/2) - 5  #  5 px for padding
+
+        legend = ET.Element("rect", x="%d" % (self.diameter - edge_side), y="%d" % (self.diameter - edge_side), height="%d" % (self.height - self.diameter + edge_side), width="%d" % (self. width - self.diameter + edge_side))
+        legend.attrib['class'] = 'legend'
+        self.svg.append(legend)
 
     def data_series(self):
 
@@ -179,14 +191,12 @@ class GridChart(Chart):
         self.max_y_axis_value = self.max_y_value + (self.max_y_value * .1)
         self.y_scale = self.grid_height / float(self.max_y_axis_value)
 
-
         #find the width of each point in each series
         self.x_scale = self.set_scale()
         
         #width of each data point grouping over multiple series
         self.x_group_scale = self.x_scale * self.number_of_series
-        
-        #Chart subclass should have this method to setup the chart background, axes, and gridlines
+
         self.setup_chart()
 
         #Chart subclass should have this method to chart the data series
@@ -212,6 +222,13 @@ class GridChart(Chart):
 
         y_axis_path = ET.Element("path", d="M %d %d L %d %d" % (0, self.grid_height, 0, 0))
         y_axis_path.attrib['class'] = 'y-axis-path'
+        
+        notch1 = ET.Element("path", d="M %d %d, L %d %d" % (0, self.grid_height, 0, self.grid_height + 10))
+        notch2 = ET.Element("path", d="M %d %d, L %d %d" % (self.grid_width, self.grid_height, self.grid_width, self.grid_height + 10))
+        notch1.attrib['class'] = 'x-notch-left'
+        notch2.attrib['class'] = 'x-notch-right'
+        y_axis.append(notch1)
+        y_axis.append(notch2)
 
         y_axis.append(y_axis_path)
         
@@ -233,8 +250,8 @@ class GridChart(Chart):
             #draw the text label
             gridline_label = ET.Element("text", x="%s" % (-self.y_label_padding), y="%s" % ( (i * grid_space) ) )
             num = self.max_y_axis_value - (i * grid_value_increment)
-            text = "%s" % num
-            text = self.convert_units(num)
+            text = "%s" % int(num)
+            text = self.convert_units(int(num))
 
             gridline_label.text = text
             gridline_label.attrib['class'] = 'y-axis-label'
@@ -334,24 +351,29 @@ class Column(GridChart):
     
     def set_scale(self):
         
-        return (self.grid_width / self.max_data_points / self.number_of_series) - self.x_padding
+        scale = (self.grid_width / self.max_data_points / self.number_of_series) - self.x_padding
+        if self.max_x_point_width < scale:
+            #need to adjust white space padding
+            self.x_padding = (self.grid_width - (self.number_of_series * self.max_data_points * self.max_x_point_width)) / (self.max_data_points)
+            return self.max_x_point_width
+        else:
+            return scale
 
     def data_series(self):
 
         series_count = 0
         left_offset = self.padding  
         bottom_offset = self.padding
-
+        
         for series in self.data:
 
-            series_count += 1
             data_point_count = 0
 
             for point in series:
             
                 point_width = self.x_scale
                 point_height = self.y_scale * point[1]
-                x_position = (data_point_count * (self.x_group_scale + self.x_padding) ) + ((series_count - 1) * point_width)
+                x_position = (self.x_padding / 2) + (data_point_count * (self.x_group_scale + self.x_padding) ) + (series_count * point_width)
                 y_position = (self.grid_height - point_height)
                 data_point = ET.Element("rect", x="%s" % x_position, y="%s" % y_position, height="%s" % point_height, width="%s" % point_width  )
                 data_point.attrib['class'] = 'series-%s-point' % series_count
@@ -359,17 +381,27 @@ class Column(GridChart):
                 data_point_inner = ET.Element("rect", x="%s" % (x_position + self.x_inner_padding), y="%s" % (y_position + self.y_inner_padding), height="%s" % (point_height - self.y_inner_padding), width="%s" % (point_width - (2  * self.x_inner_padding))  )
                 data_point_inner.attrib['class'] = 'series-%s-point-inner' % series_count
 
+                #insert the notch between data point groups
+                if series == self.data[-1] and point != series[-1]:
+                    notch_x_pos = x_position + (point_width) + (self.x_padding / 2)
+                    notch_y_pos = self.grid_height
+                    notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 10))
+                    notch.attrib['class'] = 'x-notch'
+                    self.grid.append(notch)
+            
                 self.grid.append(data_point)
                 self.grid.append(data_point_inner)
 
                 self.data_point_label(point[1], x_position + (point_width / 2), y_position - 5)
                 data_point_count += 1
 
+            series_count += 1
+
     def set_labels(self):
         label_count = 0
 
         for l in self.labels:
-            text_item = ET.Element("text", x="%s" % (int(self.x_padding + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))), y="%s" % (self.grid_height + self.x_label_height))
+            text_item = ET.Element("text", x="%s" % (int((self.x_padding / 2) + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))), y="%s" % (self.grid_height + self.x_label_height))
             
             text_item.text = l
             text_item.attrib['class'] = 'x-axis-label'
