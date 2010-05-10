@@ -34,7 +34,15 @@
             
             <h4>{{ selected_category.name }}</h4>
             
-            {% if expenditures %}
+            <ul>
+            	
+            	{% for category in subcategories %}	
+          			{% render_te_category category %}
+          		{% endfor %}
+          		
+       		</ul>
+       		
+       		{% if expenditures %}
             
             <ul>
             	{% for expenditure in expenditures %}
@@ -46,13 +54,7 @@
             
             {% endif %}
             
-            <ul>
-            	
-            	{% for category in subcategories %}	
-          			{% render_te_category category %}
-          		{% endfor %}
-          		
-       		</ul>
+            
         </div>
 </div>
 
