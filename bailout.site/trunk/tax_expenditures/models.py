@@ -64,11 +64,15 @@ class JCTExpenditure(models.Model):
         for year in years:
             individuals.append(int(most_recent_estimate_years[year].individuals_amount * 1000))
         
+        totals_list = [corporations, individuals]
+        totals = map(sum, zip(*totals_list))
+        
         results = {}
         
         results['years'] = years 
         results['corporations'] = corporations
         results['individuals'] = individuals
+        results['totals'] = totals
 
         return results
 
@@ -162,11 +166,15 @@ class OMBExpenditure(models.Model):
         for year in years:
             individuals.append(int(most_recent_estimate_years[year].individuals_amount))
         
+        totals_list = [corporations, individuals]
+        totals = map(sum, zip(*totals_list))
+        
         results = {}
         
         results['years'] = years 
         results['corporations'] = corporations
         results['individuals'] = individuals
+        results['totals'] = totals
 
         return results
   
