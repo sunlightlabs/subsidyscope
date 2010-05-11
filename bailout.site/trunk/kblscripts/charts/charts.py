@@ -105,16 +105,20 @@ class PieChart(Chart):
 
         super(PieChart, self).__init__(height, width, data, chart_type, stylesheet, **kwargs)
         
+        #Catch passed in keyword argument overrides of defaults
+        for key in kwargs:
+            self.__dict__[key] = kwargs[key]
+             
         #find sum of values, only needed for pie charts
         self.total = 0
         for series in self.data:
             for point in series:
                 self.total += point[1]
-        
-        self.diameter = self.width - (self.x_padding * 2) - (self.legend_width * self.width)
+        self.diameter = self.width - (2 * self.y_padding)
+        #self.diameter = self.width - (self.x_padding * 2) - (self.legend_width * self.width)
         self.radius = self.diameter / 2
-        self.x_origin = self.radius
-        self.y_origin = self.radius
+        self.x_origin = self.radius + self.x_padding
+        self.y_origin = self.radius + self.y_padding
         
         #Chart subclass should have this method to setup the chart background, axes, and gridlines
         self.setup_chart()
@@ -126,7 +130,7 @@ class PieChart(Chart):
         
         #attach stage element
         self.svg.append(ET.Element("rect", x="0", y="0", height="%s" % self.height, width="%s" % self.width, fill="white"))
-        self.setup_legend()
+        #self.setup_legend()
 
     def setup_legend(self):
         
@@ -151,21 +155,57 @@ class PieChart(Chart):
                 if angle > 180:
                     arc = 1  #draw the long arc
 
+                percent = (point[1] / float(self.total)) * 100
                 point1 = "M %s,%s " % (self.x_origin, self.y_origin)
                 point2 = "l %s,%s " % (last_point[0], -last_point[1])
 
                 x = int(math.cos(math.radians(total_angle)) * self.radius)
                 y = int(math.sin(math.radians(total_angle)) * self.radius)
-               
+              
+                total_label_angle = total_angle - (angle / 2)
+
+                x_label = int(math.cos(math.radians(total_label_angle)) * self.radius)  
+                y_label = int(math.sin(math.radians(total_label_angle)) * self.radius)
+                
+                print "xlabel: %s" % (x_label)
+                print "ylabel %s" % (y_label)
+                 
+                x_label += self.x_origin
+                y_label = self.y_origin - y_label 
+
+                if x_label > self.x_origin: x_label += 10
+                else: x_label -= 10
+
+                if y_label > self.y_origin: y_label += 10
+                else: y_label -= 10
+
                 point3 = "a%s,%s 0 %s,0 %s,%s z" % (self.radius, self.radius, arc, (x - last_point[0]), -(y - last_point[1]))
+                
+                
+                
+                x1 = self.x_origin + last_point[0] 
+                y1 = self.y_origin - last_point[1]
+                x2 = x1 + x - last_point[0] 
+                y2 = y1 -(y - last_point[1])
+                
+                label = ET.Element("text", x="%d" % x_label, y="%d" % y_label)
+                if x_label < self.x_origin:
+                    label.attrib['class'] = 'pie-label-left'
+                else:
+                    label.attrib['class'] = 'pie-label-right'
+                label.text = "%d" % percent + "%" + " - %s" % point[0]
+
+
                 last_point = [x, y]
                 end = " " 
                 path = ET.Element("path", d="%s %s %s" % (point1, point2, point3))
                 path.attrib['class'] = 'slice-%s' % count
                 self.svg.append(path)
+                self.svg.append(label)
                 count += 1
 
-
+                print "angle: %s" % angle
+                print "total angle: %s" % total_angle
     
 class GridChart(Chart):
     """Subclass of Chart, containing functions relevant to all charts that use a grid"""
