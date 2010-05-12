@@ -1,11 +1,11 @@
-.slice-1 { fill: #bf5004; stroke: #bf5004;}
-.slice-2 { fill: #336699; stroke: #336699; }
-.slice-3 { fill: #e0d1d1; stroke: #e0d1d1; }
-.slice-4 { fill: #669FB3; stroke: #669eb3; }
-.slice-5 { fill: #9ca991; stroke: #9ca991; }
-.slice-6 { fill: #d6d9db; stroke: #d6d9db; }
-.slice-7 { fill: purple; stroke: purple;}
-.slice-8 { fill: yellow; stroke: yellow;}
+.slice-1 { fill: #385a2a; stroke: #385a2a;}
+.slice-2 { fill: #66903d; stroke: #66903d; }
+.slice-3 { fill: #c1d69f; stroke: #c1d69f; }
+.slice-4 { fill: #79bcab; stroke: #79bcab; }
+.slice-5 { fill: #c2e0d5; stroke: #c2e0d5; }
+.slice-6 { fill: #e9ece3; stroke: #e9ece3; }
+.slice-7 { fill: #bad9e0; stroke: #bad9e0;}
+.slice-8 { fill: #669eb3; stroke: #669eb3;}
 
 .pie-label-right {font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
 .pie-label-left {font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
