@@ -1,7 +1,7 @@
 
 from charts import *
 
-g = Column(300, 600, [[('aaaaaaaaaa',500), ('bbbbbbbbbb',800)], [('aaaaaaaaaa',230), ('bbbbbbbbbb',260), ('cccc', 300)]], 'Column', "barchart.css")
+g = Column(300, 600, [[('aaaaaaaaaa', 'Subsidy Spending Unknown'), ('bbbbbbbbbb',800)], [('aaaaaaaaaa',230), ('bbbbbbbbbb',260), ('cccc', 300)]], 'Column', "barchart.css")
 
 g.output("bar.svg")
 

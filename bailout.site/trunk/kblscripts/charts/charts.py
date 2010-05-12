@@ -377,11 +377,23 @@ class Line(GridChart):
 
             if  label_count % self.label_intervals == 0:
                 text_item = ET.Element("text")
-                text_item.attrib['x'] = "%s" % (self.x_padding + (label_count * self.x_scale))
-                text_item.attrib['y'] = "%s" % (self.grid_height + self.x_label_height) 
+                x_position = self.x_padding + (label_count * self.x_scale)
+                y_position = self.grid_height + self.x_label_height
+                text_item.attrib['x'] = "%s" % x_position
+                text_item.attrib['y'] = "%s" % y_position
                 text_item.text = "%s" % l
                 text_item.attrib['class'] = 'x-axis-label'
                 self.grid.append(text_item)
+                
+                #insert the notch between data point groups
+                if l != self.labels[-1]:
+                    notch_x_pos = x_position + ((label_count + 1) * self.x_scale / 2)
+                    notch_y_pos = self.grid_height
+                    #FINISH THIS PART, PARTWAY THROUGH ADDING NOTCHES
+                    notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 10))
+                    notch.attrib['class'] = 'x-notch'
+                    self.grid.append(notch)
+
 
             label_count += 1
 
@@ -412,8 +424,27 @@ class Column(GridChart):
             for point in series:
             
                 point_width = self.x_scale
-                point_height = self.y_scale * point[1]
                 x_position = (self.x_padding / 2) + (data_point_count * (self.x_group_scale + self.x_padding) ) + (series_count * point_width)
+
+                if isinstance(point[1], (int, long, float, complex)):
+                    point_height = self.y_scale * point[1]
+                else:
+                    #value may be a string to display
+                    point_height = self.max_y_axis_value * self.y_scale
+                    text = ET.Element("text", x="%s" % x_position, y="%s" % (self.grid_height - (point_height/2)))
+                    words = point[1].split(' ')
+                    num_words = 0
+                    for w in words:
+                        text_span = ET.Element("tspan", x="%s" % x_position, y="%s" % (self.grid_height - ((len(words) * 14) - (num_words * 14) ) ))  
+                        text_span.text = w
+                        text.append(text_span)
+                        num_words += 1
+
+                    text.attrib['class'] = 'value-as-label'
+                    self.grid.append(text)
+                    data_point_count += 1
+                    continue
+                
                 y_position = (self.grid_height - point_height)
                 data_point = ET.Element("rect", x="%s" % x_position, y="%s" % y_position, height="%s" % point_height, width="%s" % point_width  )
                 data_point.attrib['class'] = 'series-%s-point' % series_count
