@@ -16,20 +16,21 @@ class Chart(object):
             [ [('risk transfers', 300), ('loans', 200), ..], ... ] \n
 
     """
-    def __init__(self, height, width, data, chart_type, stylesheet=None, **kwargs):
+    def __init__(self, width, height, data, stylesheet=None, **kwargs):
         
         self.height = height
         self.width = width
         self.data = data
-        self.type = chart_type
         self.number_of_series = len(data)
         self.labels = self.extract_labels()
+        self.label_rotate = 0
         self.stylesheet = stylesheet
         self.padding = 30
         self.max_x_point_width = 60
         self.x_padding = 10
         self.y_padding = 0
         self.x_label_height = 15
+        self.x_label_padding = 15
         self.y_label_padding = 5
         self.y_label_height = 15
         self.x_inner_padding = 2
@@ -95,15 +96,15 @@ class Chart(object):
         f = open(write_file, 'w')
         f.write(parseString(txt).toprettyxml() )
    
-class PieChart(Chart):
+class Pie(Chart):
     """Subclass of Chart, containing functions relevant to all pie charts"""
 
-    def __init__(self, height, width, data, chart_type, stylesheet=None, **kwargs):
+    def __init__(self, height, width, data, stylesheet=None, **kwargs):
 
         self.legend_width = .20  #percent of total width 
         self.legend_x_padding = 5
 
-        super(PieChart, self).__init__(height, width, data, chart_type, stylesheet, **kwargs)
+        super(Pie, self).__init__(height, width, data, stylesheet, **kwargs)
         
         #Catch passed in keyword argument overrides of defaults
         for key in kwargs:
@@ -114,7 +115,10 @@ class PieChart(Chart):
         for series in self.data:
             for point in series:
                 self.total += point[1]
-        self.diameter = self.width - (2 * self.y_padding)
+        if (self.width - (2 * self.x_padding)) > (self.height - (2 * self.y_padding)):
+            self.diameter = self.width - (2 * self.x_padding)
+        else:
+            self.diameter = self.height - (2 * self.y_padding)
         #self.diameter = self.width - (self.x_padding * 2) - (self.legend_width * self.width)
         self.radius = self.diameter / 2
         self.x_origin = self.radius + self.x_padding
@@ -209,9 +213,9 @@ class PieChart(Chart):
     
 class GridChart(Chart):
     """Subclass of Chart, containing functions relevant to all charts that use a grid"""
-    def __init__(self, height, width, data, chart_type, stylesheet=None, **kwargs):
+    def __init__(self, height, width, data, stylesheet=None, **kwargs):
 
-        super(GridChart, self).__init__(height, width, data, chart_type, stylesheet, **kwargs)
+        super(GridChart, self).__init__(height, width, data, stylesheet, **kwargs)
         #Catch passed in keyword argument overrides of defaults
         for key in kwargs:
             self.__dict__[key] = kwargs[key] 
@@ -378,7 +382,7 @@ class Line(GridChart):
             if  label_count % self.label_intervals == 0:
                 text_item = ET.Element("text")
                 x_position = self.x_padding + (label_count * self.x_scale)
-                y_position = self.grid_height + self.x_label_height
+                y_position = self.grid_height - self.x_label_height
                 text_item.attrib['x'] = "%s" % x_position
                 text_item.attrib['y'] = "%s" % y_position
                 text_item.text = "%s" % l
@@ -390,7 +394,7 @@ class Line(GridChart):
                     notch_x_pos = x_position + ((label_count + 1) * self.x_scale / 2)
                     notch_y_pos = self.grid_height
                     #FINISH THIS PART, PARTWAY THROUGH ADDING NOTCHES
-                    notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 10))
+                    notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 5))
                     notch.attrib['class'] = 'x-notch'
                     self.grid.append(notch)
 
@@ -456,7 +460,7 @@ class Column(GridChart):
                 if series == self.data[-1] and point != series[-1]:
                     notch_x_pos = x_position + (point_width) + (self.x_padding / 2)
                     notch_y_pos = self.grid_height
-                    notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 10))
+                    notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 5))
                     notch.attrib['class'] = 'x-notch'
                     self.grid.append(notch)
             
@@ -472,10 +476,22 @@ class Column(GridChart):
         label_count = 0
 
         for l in self.labels:
-            text_item = ET.Element("text", x="%s" % (int((self.x_padding / 2) + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))), y="%s" % (self.grid_height + self.x_label_height))
+            x_position = int((self.x_padding / 2) + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))
+            y_position = self.grid_height + self.x_label_padding 
+
+            text_item = ET.Element("text", x="%s" % x_position, y="%s" % y_position)
             
             text_item.text = l
             text_item.attrib['class'] = 'x-axis-label'
+            if self.label_rotate:
+                # rotated labels don't always look as centered so we add some padding
+                #x_position = "%s" % (x_position + 3 + (3 * label_count))
+                #text_item.attrib['x'] = x_position
+                text_item.attrib['transform'] = "rotate(%s, %s, %s)" % (self.label_rotate, x_position, y_position)
+                if self.label_rotate < 1:
+                    text_item.attrib['style'] = "text-anchor: end;"
+                else:
+                    text_item.attrib['style'] = 'text-anchor: start;'
             self.grid.append(text_item)
             label_count += 1
 
