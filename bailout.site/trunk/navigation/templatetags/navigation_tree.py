@@ -239,7 +239,11 @@ SECTORS = { 'sector': 'home',
                           'children':[{'sector': 'nonprofits-index',
                                        'name': 'Overview',
                                        'url_name': 'nonprofits-overview',
-                                       'children': []
+                                       'children': [{'sector': 'nonprofits-overview',
+                                                      'name': 'Structure of Nonprofit Sector',
+                                                      'url_name': 'nonprofits-overview-structure',
+                                                      'children':[]
+                                                    }]
                                        },
                                       {'sector': 'nonprofits-index',
                                        'name': 'Grants and Contracts',
@@ -260,7 +264,41 @@ SECTORS = { 'sector': 'home',
                                       {'sector': 'nonprofits-index',
                                        'name': 'Tax Subsidies',
                                        'url_name': 'nonprofits-tax-expenditures',
-                                       'children':[]
+                                       'children':[{'sector': 'nonprofits-tax-expenditures',
+                                                      'name': 'Other Contributions',
+                                                      'url_name': 'nonprofits-tax-expenditures-other-contrib',
+                                                      'children':[]
+                                                    },
+                                                    {'sector': 'nonprofits-tax-expenditures',
+                                                      'name': 'Contributions for Health Organizations',
+                                                      'url_name': 'nonprofits-tax-expenditures-health-contrib',
+                                                      'children':[]
+                                                    },
+                                                    {'sector': 'nonprofits-tax-expenditures',
+                                                      'name': 'Contributions for Education Institutions',
+                                                      'url_name': 'nonprofits-tax-expenditures-edu-contrib',
+                                                      'children':[]
+                                                    },
+                                                    {'sector': 'nonprofits-tax-expenditures',
+                                                      'name': 'Credit Union Income',
+                                                      'url_name': 'nonprofits-tax-expenditures-credit-union-income',
+                                                      'children':[]
+                                                    },
+                                                    {'sector': 'nonprofits-tax-expenditures',
+                                                      'name': 'Bonds for Private Nonprofit Educational Facilities',
+                                                      'url_name': 'nonprofits-tax-expenditures-edu-bonds',
+                                                      'children':[]
+                                                    },
+                                                     {'sector': 'nonprofits-tax-expenditures',
+                                                      'name': 'Blue Cross Blue Shield',
+                                                      'url_name': 'nonprofits-tax-expenditures-bcbs',
+                                                      'children':[]
+                                                    },
+                                                    {'sector': 'nonprofits-tax-expenditures',
+                                                      'name': 'Housing Allowances for Ministers',
+                                                      'url_name': 'nonprofits-tax-expenditures-minister-housing',
+                                                      'children':[]
+                                                    },]
                                       },
                                       {'sector': 'nonprofits-index',
                                        'name': 'Loans & Loan Guarantees',
