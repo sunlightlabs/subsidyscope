@@ -10,11 +10,12 @@ urlpatterns = patterns('',
     url(r'^contracts/search/', 'fpds.views.search', {'sector_name': 'nonprofits'}, name='nonprofits-fpds-search'),
     url(r'^direct-expenditures/', direct_to_template, {'template': 'nonprofits/direct_payments.html'}, name='nonprofits-direct-expenditures'),
     
-    url(r'^tax-expenditures/bond-interest-for-educational-facilities/', direct_to_template, {'template': 'nonprofits/tax_expenditures/index.html'}, name='nonprofits-tax-expenditures-edu-bonds'),
+    
     url(r'^tax-expenditures/other-charitable-contributions/', direct_to_template, {'template': 'nonprofits/tax_expenditures/index.html'}, name='nonprofits-tax-expenditures-other-contrib'),
     url(r'^tax-expenditures/health-charitable-contributions/', direct_to_template, {'template': 'nonprofits/tax_expenditures/index.html'}, name='nonprofits-tax-expenditures-health-contrib'),
     url(r'^tax-expenditures/education-charitable-contributions/', direct_to_template, {'template': 'nonprofits/tax_expenditures/index.html'}, name='nonprofits-tax-expenditures-edu-contrib'),
     url(r'^tax-expenditures/credit-union-income/', direct_to_template, {'template': 'nonprofits/tax_expenditures/index.html'}, name='nonprofits-tax-expenditures-credit-union-income'),
+    url(r'^tax-expenditures/bond-interest-for-educational-facilities/', direct_to_template, {'template': 'nonprofits/tax_expenditures/index.html'}, name='nonprofits-tax-expenditures-edu-bonds'),
     url(r'^tax-expenditures/blue-cross-blue-shield/', direct_to_template, {'template': 'nonprofits/tax_expenditures/index.html'}, name='nonprofits-tax-expenditures-bcbs'),
     url(r'^tax-expenditures/minister-housing-exclusion/', direct_to_template, {'template': 'nonprofits/tax_expenditures/index.html'}, name='nonprofits-tax-expenditures-minister-housing'),
     
