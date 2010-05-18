@@ -49,29 +49,34 @@ var sortOrder = '{{ sort_order }}';
         </div>
         <div class="content_area">    
 	
-					<p>{% morsel text1 %}</p>
+		<p>{% morsel text1 %}</p>
 	
-					<form action="{{ page_path }}" method="POST" id="fpds-search-form">
-
-					<fieldset id="text-query-wrapper">
-					  <legend>Recipient Name / Project Description</legend>
-						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
-						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
-					</fieldset>
+		<form action="{{ page_path }}" method="POST" id="fpds-search-form">
 
 
-          <fieldset class="collapsed" id="advanced-options">
+          <fieldset id="advanced-options" {% if ran_search %}class="collapsed"{% endif %}>
             
-            <legend id="advanced-options">Advanced Options</legend>
+             <legend id="advanced-options">Search Options <a class="state" href="#" id="search-options-state"></a></legend>
             
+            
+            <div class="section" id="text">  					
+              <h4>Recipient Name / Project Description</h4>
+              		
+              		{% morsel full_text_search %}
+              		
+    					<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
+						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>   					
+            </div>
             
             <div class="section" id="filter">  					
               <h4>Vendor Type</h4>
               {% morsel recipient_type %}
     					<div id="vendor-type-wrapper">{{ form.vendor_type }}{{ form.vendor_type.errors }}</div>    					
             </div>
+            
+          
 					
-					  <div class="section" id="filter">  					
+			<div class="section" id="filter">  					
               <h4>Extent Competed</h4>
               {% morsel extent_competed %}
               <p class="select-all-or-none">[ <a href="#" class="select-all" id="location-selection-select-all">Select All</a> / <a href="#" class="select-none" id="location-selection-tag-select-none">Select None</a> ]</p>              

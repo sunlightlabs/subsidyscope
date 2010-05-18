@@ -104,6 +104,16 @@ var sortOrder = '{{ sort_order }}';
 	            </div>
             {% endif %}
          
+         	<div class="section" id="text">
+         		<h4>Recipient Name / Project Description</h4>
+         		
+         			{% morsel full_text_search %}
+         			
+					<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
+					<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
+         
+         	</div>
+            
          
             <div class="section" id="type">
             <h4>Expenditure Type</h4>
@@ -154,15 +164,6 @@ var sortOrder = '{{ sort_order }}';
             	</div>
             </div>
             
-            <div class="section" id="text">
-         		<h4>Recipient Name / Project Description</h4>
-         		
-         			{% morsel full_text_search %}
-         			
-					<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
-					<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
-         
-         	</div>
             
             
 
