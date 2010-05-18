@@ -60,11 +60,6 @@ $(document).ready(function(){
        return false;
     });
     
-    // make slide-toggle-able fieldsets
-    $('fieldset#advanced-options legend').click(function(){
-       $(this).parent().toggleClass('collapsed'); 
-    });
-    
     
     if($('fieldset#advanced-options').hasClass('collapsed'))
  	   $('#search-options-state').text('[show]');
