@@ -240,7 +240,7 @@ SECTORS = { 'sector': 'home',
                                        'name': 'Overview',
                                        'url_name': 'nonprofits-overview',
                                        'children': [{'sector': 'nonprofits-overview',
-                                                      'name': 'Structure of Nonprofit Sector',
+                                                      'name': 'Structure of Nonprofit Sector in the U.S.',
                                                       'url_name': 'nonprofits-overview-structure',
                                                       'children':[]
                                                     }]
