@@ -630,7 +630,7 @@ ul.press-releases li
 /* footnotes */
 ol.footnotes { font-size: 0.9em; }
 ol.footnotes li { margin-bottom: 0.8em; line-height: 1.3em;}
-a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
+a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
 
 ul.bibliography, ul.bibliography li { list-style-type: disc; }
 ul.bibliography li { margin-top: 0.5em; }
