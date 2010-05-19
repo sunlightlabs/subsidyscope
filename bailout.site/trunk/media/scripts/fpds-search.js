@@ -60,10 +60,23 @@ $(document).ready(function(){
        return false;
     });
     
+    
+    if($('fieldset#advanced-options').hasClass('collapsed'))
+ 	   $('#search-options-state').text('[show]');
+    else
+ 	   $('#search-options-state').text('[hide]');
+    
     // make slide-toggle-able fieldsets
     $('fieldset#advanced-options legend').click(function(){
        $(this).parent().toggleClass('collapsed'); 
+       
+       if($(this).parent().hasClass('collapsed'))
+    	   $('#search-options-state').text('[show]');
+       else
+    	   $('#search-options-state').text('[hide]');
+       
     });
+    
         
     // hook up program radio buttons
     $('#program-selector ul li label input').click(function(){

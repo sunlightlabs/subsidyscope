@@ -155,15 +155,17 @@
 #assistance-action-recipient-wrapper .dropdown-wrapper ul li { font-weight: normal; }
 
 fieldset legend { padding-right: 18px !important; cursor: pointer; margin-top:2px; }
-fieldset#advanced-options legend { background: url(/media/images/collapse_minus.png) right 5px no-repeat; }
-fieldset#advanced-options.collapsed legend { background: url(/media/images/collapse_plus.png) right 5px no-repeat;}
+fieldset#advanced-options legend { }
+fieldset#advanced-options.collapsed legend { }
+fieldset#advanced-options legend a.state { font-size: 11px;  }
 
 fieldset.collapsed * { display: none; }
 fieldset.collapsed .program-selection-target { display: none !important;}
 fieldset.collapsed legend { display: block !important; margin-left: 1px; }
+fieldset.collapsed a.state { display: inline !important; }
 fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0; /*background-position: 8px right;*/}
 
-#program-selection-program .cfda-program-details { visibility: hidden; float: right;}
+#program-selection-program .cfda-program-details {visibility: hidden; float: right;}
 #program-selection-program li .program-title { padding-bottom: 5px;}
 #program-selection-program li:hover .cfda-program-details { visibility: visible; margin-right: 7px;}
 #program-selection-program ul li:hover .program-title { background-color: #eee !important;}

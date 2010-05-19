@@ -1,8 +1,15 @@
 {{ object.title }}
 
-{% for morsel in object.morsel_set.all %}
 
-	{{ morsel.get_flat_text }}
+{% if object.index_rendered_page %}
 
-{% endfor %}
+	{{ object.render_text_page }}
+	
+{% else %}
 
+	{% for morsel in object.morsel_set.all %}
+	
+		{{ morsel.get_flat_text }}
+	
+	{% endfor %}
+{% endif %}

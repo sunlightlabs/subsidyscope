@@ -55,9 +55,20 @@ $(document).ready(function(){
        return false;
     });
     
+    if($('fieldset#advanced-options').hasClass('collapsed'))
+ 	   $('#search-options-state').text('[show]');
+    else
+ 	   $('#search-options-state').text('[hide]');
+    
     // make slide-toggle-able fieldsets
     $('fieldset#advanced-options legend').click(function(){
        $(this).parent().toggleClass('collapsed'); 
+       
+       if($(this).parent().hasClass('collapsed'))
+    	   $('#search-options-state').text('[show]');
+       else
+    	   $('#search-options-state').text('[hide]');
+       
     });
         
     // hook up program radio buttons
@@ -68,6 +79,28 @@ $(document).ready(function(){
     // hook up datepicker
     $('#obligation-date-wrapper input[type=text]').datepicker({ defaultDate: -365, minDate: new Date("January 1, 2000"), maxDate: new Date() });
 
+    // tabs-ify results section
+    $('#cfda_selector_tabs').tabs();
+    
+    var curValue = $('#tabbedSelectWidgetValue').val();
+    $('#cfda_selector_tabs').tabs( "select" , curValue);
+    	
+	//for(id in tabbedSelectWidgetIds)
+	//{
+	//	if(tabbedSelectWidgetIds[id] == curValue)
+	//}
+    
+    
+    $('#cfda_selector_tabs').bind('tabsselect', function(event, ui) {
+    	
+    	$('#tabbedSelectWidgetValue').val(tabbedSelectWidgetIds[ui.index]);
+    	
+    	return true;
+
+    });	
+    	
+   
+    
     // tabs-ify results section
     $('#tabs').tabs();
 		
