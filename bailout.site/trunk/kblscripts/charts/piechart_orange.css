@@ -10,7 +10,7 @@
 .slice-9 { fill: #9f9f9f; stroke: #e0d1d1; stroke-width:2; }
 .slice-10{ fill: #7d7d7d; stroke: #e0d1d1; stroke-width:2; }
 
-.pie-label-right {font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
-.pie-label-left {font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+.pie-label-left {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
 
 

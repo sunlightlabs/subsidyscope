@@ -9,8 +9,8 @@
 .slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
 .slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
 
-.pie-label-right {font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
-.pie-label-left {font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
 
 
 

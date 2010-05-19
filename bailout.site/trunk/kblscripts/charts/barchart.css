@@ -12,6 +12,6 @@
 .series-2-point-inner {fill: #9ca991;}
 
 
-.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: helvetica; fill: #58595b; text-anchor:middle;}
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
 
 .y-axis-label { display:none;}
