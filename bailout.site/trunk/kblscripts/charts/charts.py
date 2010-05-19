@@ -116,9 +116,9 @@ class Pie(Chart):
             for point in series:
                 self.total += point[1]
         if (self.width - (2 * self.x_padding)) > (self.height - (2 * self.y_padding)):
-            self.diameter = self.width - (2 * self.x_padding)
-        else:
             self.diameter = self.height - (2 * self.y_padding)
+        else:
+            self.diameter = self.width - (2 * self.x_padding)
         #self.diameter = self.width - (self.x_padding * 2) - (self.legend_width * self.width)
         self.radius = self.diameter / 2
         self.x_origin = self.radius + self.x_padding
@@ -177,11 +177,11 @@ class Pie(Chart):
                 x_label += self.x_origin
                 y_label = self.y_origin - y_label 
 
-                if x_label > self.x_origin: x_label += 10
-                else: x_label -= 10
+                if x_label > (self.x_origin + 24): x_label += 7
+                elif x_label < (self.x_origin - 24): x_label -= 7
 
-                if y_label > self.y_origin: y_label += 10
-                else: y_label -= 10
+                if y_label > (self.y_origin + 12): y_label += 10  #check and see if it's with 12 pixels, avg font height
+                elif y_label < (self.y_origin - 12): y_label -= 10
 
                 point3 = "a%s,%s 0 %s,0 %s,%s z" % (self.radius, self.radius, arc, (x - last_point[0]), -(y - last_point[1]))
                 
@@ -197,7 +197,7 @@ class Pie(Chart):
                     label.attrib['class'] = 'pie-label-left'
                 else:
                     label.attrib['class'] = 'pie-label-right'
-                label.text = "%d" % percent + "%" + " - %s" % point[0]
+                label.text = "%g" % percent + "%" + " - %s" % point[0]
 
 
                 last_point = [x, y]
@@ -221,10 +221,10 @@ class GridChart(Chart):
             self.__dict__[key] = kwargs[key] 
 
         #set the baseline coordinates of the actual grid
-        self.grid_y1_position = self.padding + self.y_padding
+        self.grid_y1_position = self.padding
         self.grid_y2_position = self.height - self.x_label_height - self.padding - self.y_padding
-        self.grid_x1_position = self.padding + self.x_padding
-        self.grid_x2_position = self.width - self.padding - self.x_padding
+        self.grid_x1_position = self.padding
+        self.grid_x2_position = self.width - self.padding
         self.grid_height = self.grid_y2_position - self.grid_y1_position
         self.grid_width = self.grid_x2_position - self.grid_x1_position
 
@@ -271,8 +271,8 @@ class GridChart(Chart):
         notch2 = ET.Element("path", d="M %d %d, L %d %d" % (self.grid_width, self.grid_height, self.grid_width, self.grid_height + 10))
         notch1.attrib['class'] = 'x-notch-left'
         notch2.attrib['class'] = 'x-notch-right'
-        y_axis.append(notch1)
-        y_axis.append(notch2)
+        x_axis.append(notch1)
+        x_axis.append(notch2)
 
         y_axis.append(y_axis_path)
         
@@ -333,7 +333,7 @@ class Line(GridChart):
 
     def set_scale(self):
         #pixels between data points
-        return int(float(self.width - (self.padding * 2) - (self.x_padding * 2) ) / (self.max_data_points - 1) )
+        return float(self.grid_width - (self.x_padding * 2) ) / (self.max_data_points - 1) 
 
     def data_series(self):
         
@@ -357,10 +357,10 @@ class Line(GridChart):
                     continue
                      
                 path_string += " L "
-                x = int(data_point_count * self.x_scale)                
+                x = self.x_padding + int(data_point_count * (self.x_scale))
                 point_height = self.y_scale * point[1]                
                 y = self.grid_height - point_height
-    
+                self.grid.append(ET.Element("rect", x="%s" % x, y="%s" % y, height='5', width='5'))
                 path_string += "%s %s" % (x, y)
 
                 data_point_count += 1
@@ -378,11 +378,10 @@ class Line(GridChart):
         label_count = 0
 
         for l in self.labels:
-
-            if  label_count % self.label_intervals == 0:
+            if  (self.label_intervals and label_count % self.label_intervals == 0) or not self.label_intervals:
                 text_item = ET.Element("text")
                 x_position = self.x_padding + (label_count * self.x_scale)
-                y_position = self.grid_height - self.x_label_height
+                y_position = self.grid_height + self.x_label_padding
                 text_item.attrib['x'] = "%s" % x_position
                 text_item.attrib['y'] = "%s" % y_position
                 text_item.text = "%s" % l
@@ -391,14 +390,18 @@ class Line(GridChart):
                 
                 #insert the notch between data point groups
                 if l != self.labels[-1]:
-                    notch_x_pos = x_position + ((label_count + 1) * self.x_scale / 2)
+                    if self.label_intervals:
+                        skip_labels = self.label_intervals
+                    else: skip_labels = 1
+
+                    notch_x_pos = x_position + (((self.x_padding + ((label_count + skip_labels) * self.x_scale)) - x_position) / 2)
                     notch_y_pos = self.grid_height
                     #FINISH THIS PART, PARTWAY THROUGH ADDING NOTCHES
                     notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 5))
                     notch.attrib['class'] = 'x-notch'
                     self.grid.append(notch)
 
-
+    
             label_count += 1
 
 
@@ -484,9 +487,6 @@ class Column(GridChart):
             text_item.text = l
             text_item.attrib['class'] = 'x-axis-label'
             if self.label_rotate:
-                # rotated labels don't always look as centered so we add some padding
-                #x_position = "%s" % (x_position + 3 + (3 * label_count))
-                #text_item.attrib['x'] = x_position
                 text_item.attrib['transform'] = "rotate(%s, %s, %s)" % (self.label_rotate, x_position, y_position)
                 if self.label_rotate < 1:
                     text_item.attrib['style'] = "text-anchor: end;"
