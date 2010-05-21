@@ -13,10 +13,10 @@ h.output("pie.svg")
 
 
 #risk transfers
-risk_transfers = Column(370, 185, [[('Outstanding Credit', 7445983679), ('Subsidy', 114141251)]], "barchart.css", padding=10)
+risk_transfers = Column(370, 185, [[('Outstanding Credit', 7445983679), ('Subsidy', 114141251)]], "barchart.css", padding=10, currency=True)
 risk_transfers.output("risk_transfers.svg")
 
 #contracts
 
-contracts = Line(515, 230, [[(2000, 12972951342), (2001, 14109441817), (2002, 15780150198), (2003, 20911608531), (2004, 21064466760), (2005, 15275901189), (2006, 15939230914), (2007, 19124684255), (2008, 18239197959), (2009, 16226290107)]], 'linechart.css', label_intervals=3, units='', currency=False, x_padding=15)
+contracts = Line(515, 230, [[(2000, 12972951342), (2001, 14109441817), (2002, 15780150198), (2003, 20911608531), (2004, 21064466760), (2005, 15275901189), (2006, 15939230914), (2007, 19124684255), (2008, 18239197959), (2009, 16226290107)]], 'linechart.css', label_intervals=3, units='', currency=False, x_padding=35)
 contracts.output("contracts.svg")
