@@ -37,8 +37,7 @@ class Chart(object):
         self.y_inner_padding = 2
         self.label_intervals = 1
         self.gridline_percent = .15
-        #change these to be passed in
-        self.currency = True
+        self.currency = False
         self.units = 'B'
  
         #create svg node as root element in tree
@@ -50,9 +49,7 @@ class Chart(object):
         stylesheet = open(self.stylesheet, 'r')
         for x in stylesheet.readlines():
             temp.append(x)
-             
         self.svg.append(ET.XML('<style type="text/css">' + "\n".join(temp)  + '</style>'))
-
 
     def find_maximum(self):
                 
@@ -62,9 +59,7 @@ class Chart(object):
         max_count = 0
 
         for series in self.data:
-
             for point in series:
-
                 max_count += 1
                 if not isinstance(point[0], "".__class__) and point[0] > max_x_value: max_x_value = point[0]
                 if not isinstance(point[1], "".__class__) and point[1] > max_y_value: max_y_value = point[1]
@@ -85,7 +80,6 @@ class Chart(object):
         return labels
 
     def output(self, write_file):
-       
         #DEBUG - Dump properties
         for x in self.__dict__.keys():
             print "%s : %s\n" % (x, self.__dict__[x]) 
@@ -131,20 +125,8 @@ class Pie(Chart):
         self.data_series()
 
     def setup_chart(self):
-        
         #attach stage element
         self.svg.append(ET.Element("rect", x="0", y="0", height="%s" % self.height, width="%s" % self.width, fill="white"))
-        #self.setup_legend()
-
-    def setup_legend(self):
-        
-        #find distance from edge of circle
-        edge = (self.diameter * (math.sqrt(2) - 1)) / 2
-        edge_side = math.sqrt((edge**2)/2) - 5  #  5 px for padding
-
-        legend = ET.Element("rect", x="%d" % (self.diameter - edge_side), y="%d" % (self.diameter - edge_side), height="%d" % (self.height - self.diameter + edge_side), width="%d" % (self. width - self.diameter + edge_side))
-        legend.attrib['class'] = 'legend'
-        self.svg.append(legend)
 
     def data_series(self):
 
@@ -160,6 +142,7 @@ class Pie(Chart):
                     arc = 1  #draw the long arc
 
                 percent = (point[1] / float(self.total)) * 100
+                if math.floor(percent) == percent: percent = int(percent)
                 point1 = "M %s,%s " % (self.x_origin, self.y_origin)
                 point2 = "l %s,%s " % (last_point[0], -last_point[1])
 
@@ -168,48 +151,31 @@ class Pie(Chart):
               
                 total_label_angle = total_angle - (angle / 2)
 
-                x_label = int(math.cos(math.radians(total_label_angle)) * self.radius)  
-                y_label = int(math.sin(math.radians(total_label_angle)) * self.radius)
+                x_label = int(math.cos(math.radians(total_label_angle)) * self.radius) + self.x_origin 
+                y_label = self.y_origin - int(math.sin(math.radians(total_label_angle)) * self.radius)
                 
-                print "xlabel: %s" % (x_label)
-                print "ylabel %s" % (y_label)
-                 
-                x_label += self.x_origin
-                y_label = self.y_origin - y_label 
-
-                if x_label > (self.x_origin + 24): x_label += 7
+                if x_label > (self.x_origin + 24): x_label += 7  
                 elif x_label < (self.x_origin - 24): x_label -= 7
 
-                if y_label > (self.y_origin + 12): y_label += 10  #check and see if it's with 12 pixels, avg font height
+                if y_label > (self.y_origin + 12): y_label += 10  #check and see if it's within 12 pixels of the 180 line, avg font height
                 elif y_label < (self.y_origin - 12): y_label -= 10
 
                 point3 = "a%s,%s 0 %s,0 %s,%s z" % (self.radius, self.radius, arc, (x - last_point[0]), -(y - last_point[1]))
-                
-                
-                
-                x1 = self.x_origin + last_point[0] 
-                y1 = self.y_origin - last_point[1]
-                x2 = x1 + x - last_point[0] 
-                y2 = y1 -(y - last_point[1])
                 
                 label = ET.Element("text", x="%d" % x_label, y="%d" % y_label)
                 if x_label < self.x_origin:
                     label.attrib['class'] = 'pie-label-left'
                 else:
                     label.attrib['class'] = 'pie-label-right'
-                label.text = "%g" % percent + "%" + " - %s" % point[0]
-
-
+                
+                if isinstance(percent, float): label.text = "%0.1f" % percent + "%" + " - %s" % point[0]
+                else: label.text = "%g" % percent + "%" + " - %s" % point[0]
                 last_point = [x, y]
-                end = " " 
                 path = ET.Element("path", d="%s %s %s" % (point1, point2, point3))
                 path.attrib['class'] = 'slice-%s' % count
                 self.svg.append(path)
                 self.svg.append(label)
                 count += 1
-
-                print "angle: %s" % angle
-                print "total angle: %s" % total_angle
     
 class GridChart(Chart):
     """Subclass of Chart, containing functions relevant to all charts that use a grid"""
@@ -240,7 +206,6 @@ class GridChart(Chart):
         
         #width of each data point grouping over multiple series
         self.x_group_scale = self.x_scale * self.number_of_series
-
         self.setup_chart()
 
         #Chart subclass should have this method to chart the data series
@@ -252,7 +217,6 @@ class GridChart(Chart):
         #setup background color
         self.svg.append(ET.Element("rect", x="0", y="0", height="%s" % self.height, width="%s" % self.width, fill="white"))
         self.grid = ET.Element("g", id="grid", transform="translate(%s, %s)" % (self.grid_x1_position, self.grid_y1_position))
-
         self.svg.append(self.grid)
 
         #add x and y axes
@@ -327,8 +291,6 @@ class GridChart(Chart):
 
         return str(value)
 
-
-
 class Line(GridChart):
 
     def set_scale(self):
@@ -341,17 +303,14 @@ class Line(GridChart):
         left_offset = self.padding  
         bottom_offset = self.padding
         g_container = ET.Element('g')
-
+        
         for series in self.data:
-
             series_count += 1
             data_point_count = 0
-
             #move path to initial data point
             path_string = "M %s %s" % (self.x_padding, self.grid_height - (series[0][1] * self.y_scale))
 
             for point in series:
-
                 if data_point_count == 0: 
                     data_point_count += 1
                     continue
@@ -360,17 +319,13 @@ class Line(GridChart):
                 x = self.x_padding + int(data_point_count * (self.x_scale))
                 point_height = self.y_scale * point[1]                
                 y = self.grid_height - point_height
-                self.grid.append(ET.Element("rect", x="%s" % x, y="%s" % y, height='5', width='5'))
                 path_string += "%s %s" % (x, y)
-
                 data_point_count += 1
-                
                 #put point markers in here at some point?
 
             line = ET.Element("path", d=path_string)
             line.attrib['class'] = 'series-%s-line' % series_count
             g_container.append(line)
-        
         self.grid.append(g_container)
     
     def set_labels(self):
@@ -396,14 +351,10 @@ class Line(GridChart):
 
                     notch_x_pos = x_position + (((self.x_padding + ((label_count + skip_labels) * self.x_scale)) - x_position) / 2)
                     notch_y_pos = self.grid_height
-                    #FINISH THIS PART, PARTWAY THROUGH ADDING NOTCHES
                     notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 5))
                     notch.attrib['class'] = 'x-notch'
                     self.grid.append(notch)
-
-    
             label_count += 1
-
 
 class Column(GridChart):
     """Subclass of GridChart class, specific to an n-series column chart """
@@ -425,11 +376,8 @@ class Column(GridChart):
         bottom_offset = self.padding
         
         for series in self.data:
-
             data_point_count = 0
-
             for point in series:
-            
                 point_width = self.x_scale
                 x_position = (self.x_padding / 2) + (data_point_count * (self.x_group_scale + self.x_padding) ) + (series_count * point_width)
 
@@ -456,9 +404,6 @@ class Column(GridChart):
                 data_point = ET.Element("rect", x="%s" % x_position, y="%s" % y_position, height="%s" % point_height, width="%s" % point_width  )
                 data_point.attrib['class'] = 'series-%s-point' % series_count
 
-                data_point_inner = ET.Element("rect", x="%s" % (x_position + self.x_inner_padding), y="%s" % (y_position + self.y_inner_padding), height="%s" % (point_height - self.y_inner_padding), width="%s" % (point_width - (2  * self.x_inner_padding))  )
-                data_point_inner.attrib['class'] = 'series-%s-point-inner' % series_count
-
                 #insert the notch between data point groups
                 if series == self.data[-1] and point != series[-1]:
                     notch_x_pos = x_position + (point_width) + (self.x_padding / 2)
@@ -468,8 +413,6 @@ class Column(GridChart):
                     self.grid.append(notch)
             
                 self.grid.append(data_point)
-                self.grid.append(data_point_inner)
-
                 self.data_point_label(point[1], x_position + (point_width / 2), y_position - 5)
                 data_point_count += 1
 
@@ -481,9 +424,7 @@ class Column(GridChart):
         for l in self.labels:
             x_position = int((self.x_padding / 2) + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))
             y_position = self.grid_height + self.x_label_padding 
-
             text_item = ET.Element("text", x="%s" % x_position, y="%s" % y_position)
-            
             text_item.text = l
             text_item.attrib['class'] = 'x-axis-label'
             if self.label_rotate:
