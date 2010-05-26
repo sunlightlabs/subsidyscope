@@ -362,12 +362,12 @@ class USASpendingSearchBase():
         return result    
     
     
-    def get_year_range(self):
+    def get_year_range(self, force_update=False):
         """ return the range of years present in the database (useful for generating the summary statistics table) """
         YEAR_RANGE_CACHE_KEY = '%s.get_year_range' % self.__module__
         
         cached_year_range = cache.get(YEAR_RANGE_CACHE_KEY)
-        if cached_year_range is not None:
+        if cached_year_range is not None and force_update is False:
             return cached_year_range        
         
         from django.db import connection
