@@ -367,7 +367,7 @@ class USASpendingSearchBase():
         YEAR_RANGE_CACHE_KEY = '%s.get_year_range' % self.__module__
         
         cached_year_range = cache.get(YEAR_RANGE_CACHE_KEY)
-        if cached_year_range is not None and force_update is False:
+        if (cached_year_range is not None) and not force_update:
             return cached_year_range        
         
         from django.db import connection
