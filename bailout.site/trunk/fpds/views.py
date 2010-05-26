@@ -240,7 +240,7 @@ def search(request, sector_name=None):
                 year_range_text = re.sub(r'(\s)0(\d)', r'\1\2', "Cumulative Dollars, %s &ndash; %s" % (form.cleaned_data['obligation_date_start'].strftime("%B %d, %Y"), form.cleaned_data['obligation_date_end'].strftime("%B %d, %Y")) )
             else:
                 year_range = fpds_search_query.get_year_range()
-                year_range_text = "Cumulative Dollar Values, FY%d &ndash; FY%s" % (str(year_range[0]), str(year_range[-1]))
+                year_range_text = "Cumulative Dollar Values, FY%s &ndash; FY%s" % (str(year_range[0]), str(year_range[-1]))
 
             query = urllib.quote(request.GET['q'])                        
 
