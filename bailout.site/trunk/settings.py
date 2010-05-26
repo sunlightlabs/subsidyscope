@@ -135,6 +135,13 @@ EMAIL_USE_TLS = True
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
+MEDIASYNC = {
+    'BACKEND': 'mediasync.backends.s3',
+    'AWS_KEY': "***REMOVED***",
+    'AWS_SECRET': "***REMOVED***",
+    'AWS_BUCKET': "assets.sunlightlabs.com",    
+    'AWS_PREFIX': 'subsidyscope'
+}
 MEDIASYNC_SERVE_REMOTE = False
 MEDIASYNC_AWS_KEY = '***REMOVED***'
 MEDIASYNC_AWS_SECRET = '***REMOVED***'
