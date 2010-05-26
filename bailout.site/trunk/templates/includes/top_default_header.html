@@ -41,9 +41,7 @@
 					<li id="email-form-container"><span id="email-message" class="instruction">Please enter your email address.</span><form action="/mailinglist/subscribed/" method="post" id="email-subscribe"><input type="text" value="" class="text" name="email" />&nbsp;<input class="submit" type="submit" value="Subscribe" /></form></li>
 					<li><a href="{% url email_signup_nojavascript %}" id="email-updates-toggle">Get Email Updates</a></li>
 					<li><a href="/contact/">Contact</a></li>
-					<li><a href="/press/">Press</a></li>
-					<li><a href="/board/">Board</a></li>
-					<li><a href="/faq/">FAQ</a></li>
+					<li><a href="{% url about %}">About</a></li>					
 					<li><a href="/">Home</a></li>
 					
 				</ul>		
@@ -53,7 +51,7 @@
 
 	<div class="container">	
 		<div class="span-12">
-			<div id="logo_box"><a href="/"><img src="/media/images/ss_logo.png"></a></div>	
+			<div id="logo_box"><a href="/"><img src="/media/images/ss_logo.png" alt="Subsidyscope Logo" /></a></div>	
 		</div>
 
 		<div class="span-12 last">

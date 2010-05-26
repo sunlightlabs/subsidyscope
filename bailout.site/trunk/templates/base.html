@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 {% load media %}
 {% load morsel_tags %}
+{% load sector_tags %}
 
 <html lang="en">
 <head>
@@ -17,8 +18,17 @@
 	{% js "scripts/jquery.autocomplete.js" %}
 	{% block additional_js %}{% endblock %}
 
-	{% css "styles/transportation.css" %}
+  {% sector_css  %}
 
+    <link rel="stylesheet" type="text/css" media="screen" href="/media/styles/superfish.css" />
+    <script type="text/javascript" src="/media/scripts/hoverIntent.js"></script>
+    <script type="text/javascript" src="/media/scripts/superfish.js"></script>
+
+    <script type="text/javascript">  
+        $(document).ready(function(){ 
+            $("ul.sf-menu").superfish(); 
+        }); 
+    </script>
 
 	<title>{% block title %}Subsidyscope.com{% morsel_page_title page_title %}{% endblock %}</title>
 </head>

@@ -56,7 +56,6 @@ package  {
 	
 	
 	public class main extends Sprite {
-		
 		public  var VERSION:String = "2 Lug Wyrm Charmer";
 		private var title:Title = null;
 		//private var x_labels:XAxisLabels;
@@ -82,6 +81,7 @@ package  {
 	
 		
 		public function main() {
+		    
 			this.chart_parameters = LoaderInfo(this.loaderInfo).parameters;
 			if( this.chart_parameters['loading'] == null )
 				this.chart_parameters['loading'] = 'Loading data...';
@@ -762,9 +762,12 @@ package  {
 			else
 			{
 				// this is a PIE chart
+				g.set_radius_padding(json.elements[0].radius_padding);
+				
 				this.obs = Factory.MakeChart( json );
 				// PIE charts default to FOLLOW tooltips
 				this.tooltip.set_tip_style( Tooltip.NORMAL );
+				
 			}
 
 			// these are added in the Flash Z Axis order
@@ -883,13 +886,14 @@ package  {
 
 			// OFC CREDITS
 			var fs:ContextMenuItem = new ContextMenuItem("Charts by Open Flash Chart [Version "+VERSION+"]" );
-			fs.addEventListener(
+			/*fs.addEventListener(
 				ContextMenuEvent.MENU_ITEM_SELECT,
 				function doSomething(e:ContextMenuEvent):void {
 					var url:String = "http://teethgrinder.co.uk/open-flash-chart-2/";
 					var request:URLRequest = new URLRequest(url);
 					flash.net.navigateToURL(request, '_blank');
 				});
+				*/
 			cm.customItems.push( fs );
 			
 			var save_image_message:String = ( this.chart_parameters['save_image_message'] ) ? this.chart_parameters['save_image_message'] : 'Save Image Locally';

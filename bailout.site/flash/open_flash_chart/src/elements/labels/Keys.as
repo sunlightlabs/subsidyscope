@@ -77,16 +77,15 @@ package elements.labels {
 			
 			for( var i:Number=0; i<this.numChildren; i++ )
 			{
-				var width:Number = this.getChildAt(i).width;
-				
+				var width:Number = this.getChildAt(i).width;
 				if( ( this.x + x + width + 12 ) > this.stage.stageWidth )
 				{
 					// it is past the edge of the stage, so move it down a line
 					x = 0;
 					y += this.getChildAt(i).height;
 					height += this.getChildAt(i).height;
-				}
 					
+				}
 				this.draw_line( x, y, this.getChildAt(i).height, this.colours[i] );
 				x += 12;
 

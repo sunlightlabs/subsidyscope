@@ -6,7 +6,6 @@ from sectors.models import Sector, Subsector
 from budget_accounts.models import BudgetAccount
 
 
-
 class ProgramDescriptionManager(models.Manager):
 
     def parseBudgetAccounts(self):
@@ -46,7 +45,7 @@ class ProgramDescription(models.Model):
     minor_agency = models.TextField("Minor agency",blank=True,default="")
     authorization = models.TextField("Authorization",blank=True,default="")
     objectives = models.TextField("Objectives",blank=True,default="")
-    types_of_assistance = models.CharField("Types of assistance",blank=True,default="", max_length=300)
+    types_of_assistance = models.TextField("Types of assistance",blank=True,default="")
     uses_and_use_restrictions = models.TextField("Uses and use restrictions",blank=True,default="")
     applicant_eligibility = models.TextField("Applicant eligibility",blank=True,default="")
     beneficiary_eligibility = models.TextField("Beneficiary eligibility",blank=True,default="")
@@ -83,7 +82,7 @@ class ProgramDescription(models.Model):
     cfda_edition = models.IntegerField("CFDA Edition", blank=True, null=True)
     load_date = models.DateTimeField("Load Date", auto_now=True)    
 
-    budget_accounts = models.ManyToManyField(BudgetAccount)
+    budget_accounts = models.ManyToManyField(BudgetAccount, blank=True, null=True)
     primary_tag = models.ForeignKey(CFDATag, blank=True, null=True, related_name='primary_tag')
     secondary_tags = models.ManyToManyField(CFDATag, blank=True, null=True, related_name='secondary_tags')
 

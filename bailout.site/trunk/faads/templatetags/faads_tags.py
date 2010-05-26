@@ -7,12 +7,15 @@ register = Library()
 class QuickSearchNode(Node):
     def __init__(self, sector=None):
         self.sector = sector
-        print sector
     
     def render(self, context):
         form_class = faads.views.MakeFAADSSearchFormClass(sector=self.sector)
         form = form_class()
-        return render_to_string('faads/search/quick_search.html', {'form': form, 'sector_name': getattr(self.sector, 'name', False)})
+        sector_name = getattr(self.sector, 'name', False)
+        if sector_name:
+            if sector_name[-1]=='s':
+                sector_name = sector_name[:-1]
+        return render_to_string('faads/search/quick_search.html', {'form': form, 'sector_name': sector_name})
 
 @register.tag
 def faads_quick_search(parser, token):

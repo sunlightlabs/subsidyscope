@@ -46,6 +46,8 @@ urlpatterns = patterns('',
 	url(r'^glossary/', include('glossary.urls')),
     url(r'^subsidysort/', include('subsidysort.urls')),
     url(r'^budget_capture/', include('budget_capture.urls')),
+    url(r'^faads/', include('faads.urls')),
+    url(r'^fpds/', include('fpds.urls')),
 )
 
 urlpatterns += patterns('django.views.generic.simple',
@@ -57,10 +59,14 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^projects/', redirect_to_index, name="projects"),
 
     url(r'^transportation/', include('transportation.urls')),
-    url(r'^bailout/', include('bailout.urls')),     
+    url(r'^nonprofits/', include('nonprofits.urls')),    
+    url(r'^bailout/', include('bailout.urls')),
+    
+    url(r'^tax_expenditures/', include('tax_expenditures.urls')),          
 
     url(r'^updates/', include('project_updates.urls')),
     url(r'^about/', 'direct_to_template', {'template': 'about.html'}, name="about"),
+    url(r'^future-sectors/', 'direct_to_template', {'template': 'generic.html'}, name="future_sectors"),
     url(r'^contact/', include('contact_form.urls'), {"form_class": SubsidyContactForm, "fail_silently": False}, name="contact"),
     url(r'^sent/', 'direct_to_template', {'template': 'contact_form/contact_form_sent.html'}, name="contact_sent"),  
     url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': feeds}, name="feed_project_updates"),  
@@ -94,3 +100,4 @@ if settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_MEDIA_DIR}),
     )
+

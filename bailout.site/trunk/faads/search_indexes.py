@@ -8,35 +8,41 @@ class RecordIndex(indexes.SearchIndex):
     
     type = 'faads'
     
-    cfda_program = indexes.IntegerField(model_attr='cfda_program__id', null=True)
+    # sectors
+    sectors = indexes.MultiValueField(null=False)
+    subsectors = indexes.MultiValueField(null=True)
+
+    # categories
+    cfda_program = indexes.IntegerField(model_attr='cfda_program__id', null=True)    
     
     budget_function = indexes.MultiValueField(null=True) # many-to-many via cfda program description
     funding_type = indexes.MultiValueField(null=True) # many-to-many via cfda program description
-    
-    sector = indexes.IntegerField(null=True) 
-    subsector = indexes.IntegerField(null=True)
     
     action_type = indexes.IntegerField(model_attr='action_type__id', null=True)
     recipient_type = indexes.IntegerField(model_attr='recipient_type__id', null=True)
     record_type = indexes.IntegerField(model_attr='record_type__id', null=True)
     assistance_type = indexes.IntegerField(model_attr='assistance_type__id', null=True)
     
+    # chrono
     fiscal_year = indexes.IntegerField(model_attr='fiscal_year', null=True)
     obligation_date = indexes.DateField(model_attr='obligation_action_date', null=True)
     
+    # dollars
     non_federal_amount = indexes.IntegerField(model_attr='non_federal_funding_amount', null=True)
     federal_amount = indexes.IntegerField(model_attr='federal_funding_amount', null=True)
     total_amount = indexes.IntegerField(model_attr='total_funding_amount', null=True)
     
-    text = indexes.CharField(document=True, model_attr='project_description', null=True)
-    
+    # text
+    text = indexes.CharField(document=True, model_attr='project_description', null=True)    
     recipient = indexes.CharField(model_attr='recipient_name', null=True)
+
+    # geo
     recipient_county = indexes.IntegerField(model_attr='recipient_county__id', null=True)
-    recipient_state = indexes.IntegerField(model_attr='recipient_state__id', null=True)
-    
+    recipient_state = indexes.IntegerField(model_attr='recipient_state__id', null=True)    
     principal_place_state = indexes.IntegerField(model_attr='principal_place_state__id', null=True)
     principal_place_county = indexes.IntegerField(model_attr='principal_place_county__id', null=True)
     
+    # combo
     all_text = indexes.CharField(null=True)
     all_states = indexes.MultiValueField(null=True)
     
@@ -56,9 +62,15 @@ class RecordIndex(indexes.SearchIndex):
         return len(r)>0 and r or None
         
     def prepare_cfda_program(self, object):        
+        if object.cfda_program is None:
+            return None
         return object.cfda_program.id
     
+    
     def prepare_budget_function(self, object):
+        
+        if object.cfda_program is None:
+            return None
         
         budget_functions = []
         
@@ -69,6 +81,9 @@ class RecordIndex(indexes.SearchIndex):
         return budget_functions
     
     def prepare_funding_type(self, object):
+        
+        if object.cfda_program is None:
+            return None
         
         funding_types = []
         
@@ -177,6 +192,9 @@ class RecordIndex(indexes.SearchIndex):
             return object.principal_place_state.id
         else:
             return None
+            
+    def prepare_sectors(self, object):
+        return map(lambda x: x.id, object.sectors.all())
     
     
     def get_queryset(self):

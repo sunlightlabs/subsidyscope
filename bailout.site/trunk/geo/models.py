@@ -81,6 +81,9 @@ class StateManager(models.Manager):
 
 class State(models.Model):
 
+    class Meta:
+        ordering = ["name"]
+
     name = models.CharField("Name", max_length=50)
     abbreviation = models.CharField("Name", max_length=2)
     

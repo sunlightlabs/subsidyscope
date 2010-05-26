@@ -1,62 +1,6 @@
-{% extends "includes/generic_nav.html" %}
 
-{% block transportation_active %}active_top{% endblock %}
+{% load navigation_tags %}
+{% navigation main-nav %}
+{% navigation sub-nav %}
+{% navigation breadcrumb %}
 
-{% block subnav %}
-
-	<div id="sector_subnav">
-	<ul class="sf-menu">
-	          <li>
-                    <a class="sf-with-ul" href="{% url transportation-overview %}">Overview</a>
-                    <ul>
-          				  <li><a href="{% url transportation-aviation %}">Aviation</a></li>
-	  					  <li><a href="{% url transportation-highways %}">Highways</a></li>
-		                  <li><a href="{% url transportation-maritime %}">Maritime</a></li>
-		                  <li><a href="{% url transportation-rail %}">Rail</a></li>
-		                  <li><a href="{% url transportation-transit %}">Transit</a></li>
-		                  {# <li><a href="{% url transportation-general %}">Other</a></li> #}
-
-                    </ul>
-            </li>
-            <li>
-                <a class="sf-with-ul" href="{% url transportation-direct-expenditures %}">Direct Expenditures</a>
-                <ul>
-                  <li><a href="{% url transportation-cfdaprograms-index %}">Direct Expenditures Program Directory (CFDA)</a></li>
-                	<li><a href="{% url transportation-faads-search %}">Search Direct Expenditures</a></li>
-                    <li><a href="{% url aip-story %}">Airport Improvement Program (AIP)</a>
-                        <ul style="padding-top:0;">
-                            <li><a href="{% url aip-story %}">Analysis</a></li> 
-                            <li><a href="{% url aip-index %}">Grant Search</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{% url transportation-amtrak %}">Amtrak</a>
-                        <ul style="padding-top:0;">
-                            <li><a href="{% url transportation-amtrak %}">Analysis</a></li> 
-                            <li><a href="{% url transportation-amtrak-table %}">Route Performance Table</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{% url transportation-highway-funding %}">Highway Funding Analysis</a></li>
-                </ul>
-            </li>
-            <li>
-                    <a class="sf-with-ul" href="{% url transportation-tax-expenditures %}">Tax Expenditures</a>
-                    <ul>
-                      <li><a href="{% url transportation-tax-expenditures-employer-paid-benefits %}">Employer-paid Transportation Benefits</a></li>
-                      <li><a href="{% url transportation-tax-expenditures-track-maintenance %}">Tax Credit for Certain Expenditures for Maintaining Tracks</a></li>
-                      <li><a href="{% url transportation-tax-expenditures-bond-interest-exclusion %}">Exclusion of Interest on Bonds for Financing of Highway Project and Rail-Truck Transfer Facilities</a></li>
-                      <li><a href="{% url transportation-tax-expenditures-capital-construction-funds %}">Deferral of Tax on Shipping Companies</a></li>
-                    </ul>
-            </li>
-            <li>
-                    <a class="sf-with-ul" href="{% url transportation-risk-transfers %}">Risk Transfers</a>
-                    <ul>
-                      <li><a href="{% url transportation-exim %}">Export/Import Bank</a></li>
-                    </ul>
-            </li>
-            <li>
-                    <a class="sf-with-ul" href="{% url transportation-contracts %}">Contracts</a>
-            </li>            
-        </ul>
-    </div>
-
-{% endblock %}
