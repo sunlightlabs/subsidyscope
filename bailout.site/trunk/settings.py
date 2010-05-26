@@ -134,11 +134,14 @@ EMAIL_USE_TLS = True
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-MEDIASYNC_SERVE_REMOTE = False
-MEDIASYNC_AWS_KEY = '***REMOVED***'
-MEDIASYNC_AWS_SECRET = '***REMOVED***'
-MEDIASYNC_AWS_BUCKET = 'assets.subsidyscope.com'
-MEDIASYNC_AWS_PREFIX = 'v2'
+MEDIASYNC = {
+    'BACKEND': 'mediasync.backends.s3',
+    'AWS_KEY': "***REMOVED***",
+    'AWS_SECRET': "***REMOVED***",
+    'AWS_BUCKET': "assets.sunlightlabs.com",
+    'AWS_PREFIX': 'subsidyscope',
+    'SERVE_REMOTE': False
+}
 
 # send welcome email -- not used
 def send_welcome_email(recipient):
