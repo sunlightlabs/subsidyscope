@@ -8,6 +8,7 @@ from hashlib import md5
 from pysolr import Solr
 from base64 import urlsafe_b64encode, urlsafe_b64decode
 from django.db import models
+from datetime import date
 from django import forms
 from haystack.query import SearchQuerySet
 import django.db.models.fields
@@ -368,13 +369,13 @@ class USASpendingSearchBase():
         
         cached_year_range = cache.get(YEAR_RANGE_CACHE_KEY)
         if (cached_year_range is not None) and not force_update:
-            return cached_year_range        
+            return cached_year_range
         
         from django.db import connection
         cursor = connection.cursor()
         cursor.execute('SELECT MIN(fiscal_year), MAX(fiscal_year) FROM %s LIMIT 1' % self.DJANGO_MODEL._meta.db_table)
         for row in cursor.fetchall():
-            r = range(int(row[0]), int(row[1]))
+            r = range(int(row[0]), min(date.today().year+1, int(row[1])+1))
 
         cache.set(YEAR_RANGE_CACHE_KEY,r)
         
