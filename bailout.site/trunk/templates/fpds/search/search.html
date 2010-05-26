@@ -244,28 +244,31 @@ var sortOrder = '{{ sort_order }}';
     
     				
     
-    				<script type="text/javascript" charset="utf-8">
+    				<script type="text/javascript" charset="utf-8">    					
+      					var mapLoaded = false;
     					
-    					var mapLoaded = false;
-    					
-    					function loadMapFlash()
-    					{
-    						if(!mapLoaded)
-            			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url fpds-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+      					function loadMapFlash()
+      					{
+      						if(!mapLoaded)
+              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url fpds-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
   	              			
-            		mapLoaded = true;
-    	        }	
-    	              	
-					</script>
+              		mapLoaded = true;
+      	        }	    	              	
+  					</script>
+
+            <div style="text-align: center">      
+              <span id="map-year-range-label">{{ year_range_text|safe }}</span>
                   
-                  	<div style="float: right;  margin-right: 25px;">
-						View: <select name="dataType">
-							<option value="state">Total Spending</option>
-							<option value="state_per_capital">Per Capita Spending </option>
-						</select>
-					</div>
-					
-					<br clear="all"/> 
+              <div style="float: right;  margin-right: 25px;">
+    						  View:
+    						  <select name="dataType">
+    							  <option value="state">Total Spending</option>
+    							  <option value="state_per_capital">Per Capita Spending </option>
+    						  </select>
+    					</div>
+					  </div>
+					  
+					<br clear="all" /> 
 					
 					<div style="margin-left: 50px;">
 						<div id="mapVis" >

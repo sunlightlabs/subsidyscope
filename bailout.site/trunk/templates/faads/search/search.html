@@ -317,12 +317,17 @@ var sortOrder = '{{ sort_order }}';
     	        }	
     	              	
 					</script>
-                  
-                  	<div style="float: right;  margin-right: 25px;">
-						View: <select name="dataType">
-							<option value="state">Total Spending</option>
-							<option value="state_per_capital">Per Capita Spending </option>
-						</select>
+            
+            <div style="text-align: center">
+          
+              <span id="map-year-range-label">{{ year_range_text|safe }}</span>
+          
+            	<div style="float: right;  margin-right: 25px;">
+    						View: <select name="dataType">
+    							<option value="state">Total Spending</option>
+    							<option value="state_per_capital">Per Capita Spending </option>
+    						</select>
+              </div>
 					</div>
 					
 					<br clear="all"/> 

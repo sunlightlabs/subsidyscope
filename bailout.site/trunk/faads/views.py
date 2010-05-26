@@ -272,7 +272,7 @@ def search(request, sector_name=None):
     ran_search = False
     faads_results_page = None
     found_some_results = False
-    
+    year_range_text = None    
     sort_column = 'obligation_date'
     sort_order = 'asc'
     
@@ -366,6 +366,15 @@ def search(request, sector_name=None):
             found_some_results = len(faads_results)>0
     
             ran_search = True
+            
+            # display date range on map
+            if form.cleaned_data['obligation_date_start'] is not None or form.cleaned_data['obligation_date_end'] is not None:
+                year_range_text = re.sub(r'(\s)0(\d)', r'\1\2', "Cumulative Dollars, %s &ndash; %s" % (form.cleaned_data['obligation_date_start'].strftime("%B %d, %Y"), form.cleaned_data['obligation_date_end'].strftime("%B %d, %Y")) )
+            else:
+                year_range = faads_search_query.get_year_range()
+                year_range_text = "Cumulative Dollar Values, %d &ndash; %s" % (year_range[0], year_range[-1])
+
+            date_string = faads_search_query
     
             query = urllib.quote(request.GET['q'])                        
 
@@ -392,7 +401,7 @@ def search(request, sector_name=None):
             form = formclass()
         
 
-    return render_to_response('faads/search/search.html', {'faads_results':faads_results_page, 'sector': sector_name, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order, 'page_path': request.path}, context_instance=RequestContext(request))
+    return render_to_response('faads/search/search.html', {'year_range_text': year_range_text, 'faads_results':faads_results_page, 'sector': sector_name, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order, 'page_path': request.path}, context_instance=RequestContext(request))
 
 
 
