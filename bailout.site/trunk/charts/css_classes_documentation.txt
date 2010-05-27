@@ -1,0 +1,26 @@
+
+Classes:
+
+.pie-label-left  #left aligned pie graph label
+.pie-label-right #right aligned pie graph label
+.slice-n # slice-n is the nth pie slice starting from 0 degrees on the circle
+
+.x-axis  #x axis group 
+.y-axis  #y axis group
+.x-axis-path #actual line of x axis
+.y-axis-path #actual line of y axis
+.y-axis-path2 #actual line of second y axis
+.x-notch-left  #notch that falls at left end of x axis
+.x-notch-right #notch that falls at right end of x axis
+.x-notch #notch that will appear between x axis labels
+.y-gridline #gridline intersecting y axis
+.y-axis-label #y axis label
+.x-axis-label #x axis label
+.data-point-label #data label that appears near each data point
+
+.series-n-line #series-n-line is the class applied to the nth data series
+.series-n-point # series-n-point is the class applied to the data points of the nth series that appears a few pixels outside of an inner element, making this class the border (bar chart)
+.series-n-point-inner # series-n-point-inner is the class applied to the data points of the nth series, where the inner bar is a few pixels smaller than the .series-n-point class, giving it a border
+.value-as-label #if text is passed in instead of a value, the text will appear in the designated place on the graph. You can style the text with this class
+
+
