@@ -16,3 +16,6 @@ energy_related_CO2.output("./energy/US_energy_related_CO2_emissions_by_major_fue
 
 electric_power = Pie(495, 310, [[('Petroleum', 1.1), ('Coal', 48.2), ('Other', 0.6), ('Natural Gas', 21.4), ('Other Renewables', 3.1), ('Nuclear', 19.6), ('Hydroelectric', 6.0)]], 'piechart.css', y_padding=30, x_padding=130)
 electric_power.output('./energy/US_electric_power_industry_net_generation_2008.svg')
+
+energy_tax_expenditures = Pie(495, 310, [[('Coal and refined Coal', 2660), ('Natural Gas and Petroleum Liquids', 2090), ('Nuclear', 199), ('Renewables', 670), ('Electricity (not fuel specific)', 735), ('End Use', 120), ('Conservation', 670)]], y_padding=30, x_padding=130)
+energy_tax_expenditures.output('./energy/energy_tax_expenditures_by_fuel_type_2007.svg')
