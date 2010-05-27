@@ -161,21 +161,39 @@ class Pie(Chart):
                 elif y_label < (self.y_origin - 12): y_label -= 10
 
                 point3 = "a%s,%s 0 %s,0 %s,%s z" % (self.radius, self.radius, arc, (x - last_point[0]), -(y - last_point[1]))
-                
-                label = ET.Element("text", x="%d" % x_label, y="%d" % y_label)
-                if x_label < self.x_origin:
-                    label.attrib['class'] = 'pie-label-left'
-                else:
-                    label.attrib['class'] = 'pie-label-right'
-                
-                if isinstance(percent, float): label.text = "%0.1f" % percent + "%" + " - %s" % point[0]
-                else: label.text = "%g" % percent + "%" + " - %s" % point[0]
+                              
+                self.add_label(x_label, y_label, point[0], percent) 
                 last_point = [x, y]
                 path = ET.Element("path", d="%s %s %s" % (point1, point2, point3))
                 path.attrib['class'] = 'slice-%s' % count
                 self.svg.append(path)
-                self.svg.append(label)
                 count += 1
+   
+    def add_label(self, x, y, label_text, percent):
+
+        label = ET.Element("text", x="%d" % x, y="%d" % y)
+        if x < self.x_origin:
+            label.attrib['class'] = 'pie-label-left'
+        else:
+            label.attrib['class'] = 'pie-label-right'
+        
+        if isinstance(percent, float): pct_text = "%0.1f" % percent + "%" + " - "
+        else: pct_text = "%g" % percent + "%" + " - "
+        
+        lines = label_text.split("\n")
+        height = (len(lines) - 1) * 15
+        label.y = y + height
+
+        for l in lines:
+            elem = ET.Element("tspan", dy="15", x="%s" % x)
+            if l == lines[0]:
+                elem.text = pct_text + l 
+                elem.attrib['dy'] = "0"
+            else:
+                elem.text = l
+            label.append(elem)
+
+        self.svg.append(label)
     
 class GridChart(Chart):
     """Subclass of Chart, containing functions relevant to all charts that use a grid"""
@@ -283,7 +301,7 @@ class GridChart(Chart):
         for unit in reversed(CURRENCY):
             if value / float(unit[0]) >= 1:
                 print value / float(unit[0])
-                text = text + "%.1d" % (value / float(unit[0]))
+                text = text + "%.1f" % (value / float(unit[0]))
                 if self.units:
                     text = text + unit[1]
                 return text
