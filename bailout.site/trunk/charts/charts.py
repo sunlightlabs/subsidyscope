@@ -71,14 +71,14 @@ class Chart(object):
     def extract_labels(self):
         
         labels = []
-
+        self.numeric_labels = True
         for series in self.data:
             for point in series:
-                #if isinstance(point[0], "".__class__):
+                if isinstance(point[0], str): self.numeric_labels = False
                 if not point[0] in labels: labels.append(point[0])
 
         return labels
-
+            
     def output(self, write_file):
         #DEBUG - Dump properties
         for x in self.__dict__.keys():
@@ -140,7 +140,7 @@ class Pie(Chart):
                 total_angle += angle
                 if angle > 180:
                     arc = 1  #draw the long arc
-
+                else: arc = 0
                 percent = (point[1] / float(self.total)) * 100
                 if math.floor(percent) == percent: percent = int(percent)
                 point1 = "M %s,%s " % (self.x_origin, self.y_origin)
@@ -180,7 +180,7 @@ class Pie(Chart):
         if isinstance(percent, float): pct_text = "%0.1f" % percent + "%" + " - "
         else: pct_text = "%g" % percent + "%" + " - "
         
-        lines = label_text.split("\n")
+        lines = str(label_text).split("\n")
         height = (len(lines) - 1) * 15
         label.y = y + height
 
@@ -197,13 +197,14 @@ class Pie(Chart):
     
 class GridChart(Chart):
     """Subclass of Chart, containing functions relevant to all charts that use a grid"""
-    def __init__(self, height, width, data, stylesheet=None, **kwargs):
+    def __init__(self, height, width, data, stylesheet=None, *args, **kwargs):
 
         super(GridChart, self).__init__(height, width, data, stylesheet, **kwargs)
         #Catch passed in keyword argument overrides of defaults
         for key in kwargs:
             self.__dict__[key] = kwargs[key] 
 
+        self.dash_series = args #an array of series that should be dashed
         #set the baseline coordinates of the actual grid
         self.grid_y1_position = self.padding
         self.grid_y2_position = self.height - self.x_label_height - self.padding - self.y_padding
@@ -228,6 +229,7 @@ class GridChart(Chart):
 
         #Chart subclass should have this method to chart the data series
         self.data_series()
+        self.labels.sort()
         self.set_labels()
          
     def setup_chart(self):
@@ -313,7 +315,7 @@ class Line(GridChart):
 
     def set_scale(self):
         #pixels between data points
-        return float(self.grid_width - (self.x_padding * 2) ) / (self.max_data_points - 1) 
+        return float(self.grid_width - (self.x_padding * 2) ) / (len(self.labels) - 1) 
 
     def data_series(self):
         
@@ -325,8 +327,20 @@ class Line(GridChart):
         for series in self.data:
             series_count += 1
             data_point_count = 0
+            
+            #check for dashed styles, won't work in stylesheet
+            dashed = False
+            if self.dash_series:
+                if series_count in self.dash_series:
+                    dashed = True
+
             #move path to initial data point
-            path_string = "M %s %s" % (self.x_padding, self.grid_height - (series[0][1] * self.y_scale))
+            for l in self.labels:
+                if l == series[0][0]:
+                    break
+                else: data_point_count += 1
+
+            path_string = "M %s %s" % (self.x_padding + int(data_point_count * self.x_scale), self.grid_height - (series[0][1] * self.y_scale))
 
             for point in series:
                 if data_point_count == 0: 
@@ -334,7 +348,7 @@ class Line(GridChart):
                     continue
                      
                 path_string += " L "
-                x = self.x_padding + int(data_point_count * (self.x_scale))
+                x = self.x_padding + int(data_point_count * self.x_scale)
                 point_height = self.y_scale * point[1]                
                 y = self.grid_height - point_height
                 path_string += "%s %s" % (x, y)
@@ -343,6 +357,8 @@ class Line(GridChart):
 
             line = ET.Element("path", d=path_string)
             line.attrib['class'] = 'series-%s-line' % series_count
+            if dashed:
+                line.attrib['stroke-dasharray'] = '10,10'
             g_container.append(line)
         self.grid.append(g_container)
     
