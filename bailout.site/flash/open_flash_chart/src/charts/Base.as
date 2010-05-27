@@ -368,7 +368,7 @@ package charts {
 				//
 				
 				// filter out the 'null' values
-				if( val != null )
+				if( val != null && val != 'null' )
 				{
 					tmp = this.get_element( index, val );
 					

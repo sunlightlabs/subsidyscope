@@ -1,74 +1,73 @@
-{{ object.program_number }}
+{{ object.program_number|striptags }} 
 
-{{ object.program_title }}
+{{ object.program_title|striptags }} 
 
-{{ object.federal_agency }}
+{{ object.federal_agency|striptags }} 
 
-{{ object.program_note }}
+{{ object.program_note|striptags }} 
 
-{{ object.objectives }}
+{{ object.objectives|striptags }} 
 
-{{ object.federal_agency }}
+{{ object.federal_agency|striptags }} 
 
-{{ object.major_agency }}
+{{ object.major_agency|striptags }} 
 
-{{ object.minor_agency }}
+{{ object.minor_agency|striptags }} 
 
-{{ object.authorization }}
+{{ object.authorization|striptags }} 
 
-{{ object.types_of_assistance }}
+{{ object.types_of_assistance|striptags }} 
 
-{{ object.uses_and_use_restrictions }}
+{{ object.uses_and_use_restrictions|striptags }} 
 
-{{ object.applicant_eligibility }}
+{{ object.applicant_eligibility|striptags }} 
 
-{{ object.beneficiary_eligibility }}
+{{ object.beneficiary_eligibility|striptags }} 
 
-{{ object.credentials_documentation }}
+{{ object.credentials_documentation|striptags }} 
 
-{{ object.preapplication_coordination }}
+{{ object.preapplication_coordination|striptags }} 
 
-{{ object.application_procedure }}
+{{ object.application_procedure|striptags }} 
 
-{{ object.deadlines }}
+{{ object.deadlines|striptags }} 
+{{ object.range_of_approval_disapproval_time|striptags }} 
 
-{{ object.range_of_approval_disapproval_time }}
+{{ object.appeals|striptags }} 
 
-{{ object.appeals }}
+{{ object.renewals|striptags }} 
 
-{{ object.renewals }}
+{{ object.formula_and_matching_requirements|striptags }} 
 
-{{ object.formula_and_matching_requirements }}
+{{ object.length_and_time_phasing_of_assistance|striptags }} 
 
-{{ object.length_and_time_phasing_of_assistance }}
+{{ object.reports|striptags }} 
 
-{{ object.reports }}
+{{ object.audits|striptags }} 
 
-{{ object.audits }}
+{{ object.records|striptags }} 
 
-{{ object.records }}
+{{ object.audits|striptags }} 
 
-{{ object.audits }}
+{{ object.obligations|striptags }} 
 
-{{ object.obligations }}
+{{ object.range_and_average_of_financial_assistance|striptags }} 
 
-{{ object.range_and_average_of_financial_assistance }}
+{{ object.program_accomplishments|striptags }} 
 
-{{ object.program_accomplishments }}
+{{ object.regulations_guidelines_and_literature|striptags }} 
 
-{{ object.regulations_guidelines_and_literature }}
+{{ object.regional_or_local_office|striptags }} 
 
-{{ object.regional_or_local_office }}
+{{ object.headquarters_office|striptags }} 
 
-{{ object.headquarters_office }}
+{{ object.web_site_address|striptags }} 
 
-{{ object.web_site_address }}
+{{ object.related_programs|striptags }} 
 
-{{ object.related_programs }}
+{{ object.examples_of_funded_projects|striptags }} 
 
-{{ object.examples_of_funded_projects }}
+{{ object.criteria_for_selecting_proposals|striptags }} 
 
-{{ object.criteria_for_selecting_proposals }}
-
-{{ object.web_site_address }}
+{{ object.web_site_address|striptags }} 
 

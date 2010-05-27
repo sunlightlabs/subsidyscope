@@ -108,12 +108,17 @@ INSTALLED_APPS = (
     'carousel',
     'search',
     'faads',
+    'fpds',
     'budget_accounts',
     'transportation',
+    'nonprofits',
     'tagging',
     'aip',
     'news_briefs',
-    'cfda'
+    'cfda',
+    'transit',
+    'inflation',
+    'navigation',
 )
 
 #try:
@@ -129,11 +134,14 @@ EMAIL_USE_TLS = True
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-MEDIASYNC_SERVE_REMOTE = False
-MEDIASYNC_AWS_KEY = '***REMOVED***'
-MEDIASYNC_AWS_SECRET = '***REMOVED***'
-MEDIASYNC_AWS_BUCKET = 'assets.subsidyscope.com'
-MEDIASYNC_AWS_PREFIX = 'v2'
+MEDIASYNC = {
+    'BACKEND': 'mediasync.backends.s3',
+    'AWS_KEY': "***REMOVED***",
+    'AWS_SECRET': "***REMOVED***",
+    'AWS_BUCKET': "assets.sunlightlabs.com",
+    'AWS_PREFIX': 'subsidyscope',
+    'SERVE_REMOTE': False
+}
 
 # send welcome email -- not used
 def send_welcome_email(recipient):
@@ -208,8 +216,8 @@ HAYSTACK_SEARCH_ENGINE = 'solr'
 HAYSTACK_SOLR_URL = 'http://127.0.0.1:8080/solr'
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
+HAYSTACK_FPDS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_SITECONF = 'search_sites'
-
 
 # Auth 
 LOGIN_URL = '/subsidysort/login/'
@@ -235,3 +243,10 @@ try:
     from local_settings import *
 except ImportError, exp:    
     pass
+
+
+#Navigation configuration - kept in another file to keep settings clean
+from navigation.templatetags.navigation_tree import SECTORS
+
+
+

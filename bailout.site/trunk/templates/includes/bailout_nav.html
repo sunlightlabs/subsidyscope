@@ -1,28 +1,9 @@
-{% extends "includes/generic_nav.html" %}
 
-{% block bailout_active %}active_top{% endblock %}
 
-{% block subnav %}
 
-	<div id="sector_subnav">
-	<ul class="sf-menu">
-		<li>
-			<a class="sf-with-ul" href="{% url bailout_treasury_index %}">Treasury</a>
-			{% include "includes/bailout_treasury_nav.html" %}
-		</li>
-		<li>
-			<a class="sf-with-ul" href="{% url bailout_fdic_index %}">FDIC</a>
-			{% include "includes/bailout_fdic_nav.html" %}
-		</li>
-		<li>
-			<a class="sf-with-ul" href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>
-		</li>
-		<li>
-			<a href="{% url bailout_other_index %}">Other Agencies</a>
-			{% include "includes/bailout_other_nav.html" %}
-		</li>
-		<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>
-	</ul>
-	</div>
+{% load navigation_tags %}
 
-{% endblock %}
+    {% navigation main-nav %}
+    {% navigation sub-nav %}
+    {% navigation breadcrumb %}
+

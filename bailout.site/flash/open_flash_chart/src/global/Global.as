@@ -3,14 +3,17 @@ package global {
 	import elements.axis.AxisLabel;
 	import elements.labels.XLegend;
 	import elements.axis.XAxisLabels;
-	
+	import flash.external.ExternalInterface;
 	public class Global {
 		private static var instance:Global = null;
 		private static var allowInstantiation:Boolean = false;
 		
 		public var x_labels:XAxisLabels;
 		public var x_legend:XLegend;
+		public var total_value:Number = 0; 
+		public var radius_padding:Number = 0;
 		private var tooltip:String;
+		
 		
 		public function Global() {
 		}
@@ -58,5 +61,20 @@ package global {
 		public function get_tooltip_string():String {
 			return this.tooltip;
 		}
+		
+		public function get_total_value():Number {
+		    return this.total_value;
+		}
+		
+		public function set_total_value(the_total:Number):void {
+		    this.total_value = the_total;
+		}
+		public function get_radius_padding():int {
+		    return this.radius_padding;
+		}
+		public function set_radius_padding(padding:int):void {
+		    this.radius_padding = padding;
+		}
+		    
 	}
 }
