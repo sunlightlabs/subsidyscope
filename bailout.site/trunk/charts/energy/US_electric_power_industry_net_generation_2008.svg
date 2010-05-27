@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<svg height="310" version="1.1" width="495" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+	<rect fill="white" height="310" width="495" x="0" y="0"/>
+	<path class="slice-1" d="M 247,147  l 117,0  a117,117 0 0,0 -1,-8 z"/>
+	<text class="pie-label-right" x="370" y="143">
+		1.1% - Petroleum
+	</text>
+	<path class="slice-2" d="M 247,147  l 116,-8  a117,117 0 0,0 -232,3 z"/>
+	<text class="pie-label-left" x="246" y="21">
+		48.2% - Coal
+	</text>
+	<path class="slice-3" d="M 247,147  l -116,-5  a117,117 0 0,0 0,5 z"/>
+	<text class="pie-label-left" x="124" y="145">
+		0.6% - Other
+	</text>
+	<path class="slice-4" d="M 247,147  l -116,0  a117,117 0 0,0 90,113 z"/>
+	<text class="pie-label-left" x="149" y="229">
+		21.4% - Natural Gas
+	</text>
+	<path class="slice-5" d="M 247,147  l -26,113  a117,117 0 0,0 22,3 z"/>
+	<text class="pie-label-left" x="232" y="272">
+		3.1% - Other Renewables
+	</text>
+	<path class="slice-6" d="M 247,147  l -4,116  a117,117 0 0,0 112,-73 z"/>
+	<text class="pie-label-right" x="317" y="254">
+		19.6% - Nuclear
+	</text>
+	<path class="slice-7" d="M 247,147  l 108,43  a117,117 0 0,0 9,-43 z"/>
+	<text class="pie-label-right" x="368" y="178">
+		6% - Hydroelectric
+	</text>
+</svg>

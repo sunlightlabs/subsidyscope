@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<svg height="400" version="1.1" width="400" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+	<rect fill="white" height="400" width="400" x="0" y="0"/>
+	<path class="slice-1" d="M 200,200  l 130,0  a130,130 0 0,0 -23,-73 z"/>
+	<text class="pie-label-right" x="331" y="152">
+		9.6% - 2000
+	</text>
+	<path class="slice-2" d="M 200,200  l 107,-73  a130,130 0 0,0 -182,-33 z"/>
+	<text class="pie-label-right" x="222" y="62">
+		25.2% - 2001
+	</text>
+	<path class="slice-3" d="M 200,200  l -75,-106  a130,130 0 0,0 6,215 z"/>
+	<text class="pie-label-left" x="64" y="203">
+		31.2% - 2002
+	</text>
+	<path class="slice-4" d="M 200,200  l -69,109  a130,130 0 0,0 75,20 z"/>
+	<text class="pie-label-left" x="161" y="335">
+		9.8% - 2003
+	</text>
+	<path class="slice-5" d="M 200,200  l 6,129  a130,130 0 0,0 60,-18 z"/>
+	<text class="pie-label-right" x="244" y="334">
+		7.8% - 2004
+	</text>
+	<path class="slice-6" d="M 200,200  l 66,111  a130,130 0 0,0 51,-56 z"/>
+	<text class="pie-label-right" x="303" y="297">
+		9.4% - 2005
+	</text>
+	<path class="slice-7" d="M 200,200  l 117,55  a130,130 0 0,0 12,-49 z"/>
+	<text class="pie-label-right" x="333" y="241">
+		6.2% - 2006
+	</text>
+	<path class="slice-8" d="M 200,200  l 129,6  a130,130 0 0,0 1,-6 z"/>
+	<text class="pie-label-right" x="336" y="203">
+		0.8% - 2007
+	</text>
+</svg>

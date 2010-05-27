@@ -1,0 +1,27 @@
+Downloading/unpacking pythonmagick
+  Getting page http://pypi.python.org/simple/pythonmagick
+  URLs to search for versions for pythonmagick:
+  * http://pypi.python.org/simple/pythonmagick/
+  Getting page http://pypi.python.org/simple/pythonmagick/
+  Getting page http://www.procoders.net/pythonmagick
+  Could not fetch URL http://www.procoders.net/pythonmagick (from http://pypi.python.org/simple/PythonMagick/): HTTP Error 404: Not Found
+  Will skip URL http://www.procoders.net/pythonmagick when looking for download links for pythonmagick
+  Getting page http://www.procoders.net/moinmoin/PythonMagick
+  Could not fetch URL http://www.procoders.net/moinmoin/PythonMagick (from http://pypi.python.org/simple/PythonMagick/): HTTP Error 404: Not Found
+  Will skip URL http://www.procoders.net/moinmoin/PythonMagick when looking for download links for pythonmagick
+  Analyzing links from page http://pypi.python.org/simple/PythonMagick/
+    Skipping link http://www.procoders.net/pythonmagick (from http://pypi.python.org/simple/PythonMagick/); not a file
+    Skipping link http://www.procoders.net/moinmoin/PythonMagick (from http://pypi.python.org/simple/PythonMagick/); not a file
+  Could not find any downloads that satisfy the requirement pythonmagick
+No distributions at all found for pythonmagick
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 117, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for pythonmagick

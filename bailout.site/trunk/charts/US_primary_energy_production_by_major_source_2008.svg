@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<svg height="260" version="1.1" width="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.y-axis-path, .y-axis-path2, .y-gridline {display:none;}
+
+
+
+.x-notch, .x-notch-left, .x-notch-right { stroke: #a7a9ac; }
+
+.x-axis-path { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+
+.series-0-point { fill: #e0d1d1; }
+
+.series-0-point-inner {fill: #bf5004;}
+
+
+
+.series-1-point { fill: #d6d9db;  }
+
+.series-1-point-inner { fill: #336699; }
+
+
+
+.series-2-point { fill: #eff5e6;}
+
+.series-2-point-inner {fill: #9ca991;}
+
+
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: helvetica; fill: #58595b; text-anchor:middle;}
+
+
+
+.y-axis-label { display:none;}
+
+	</style>
+	<rect fill="white" height="260" width="480" x="0" y="0"/>
+	<g id="grid" transform="translate(40, 30)">
+		<g class="x-axis" id="x_axis">
+			<path class="x-axis-path" d="M 0 120 L 400 120"/>
+		</g>
+		<g class="y-axis" id="y_axis">
+			<path class="x-notch-left" d="M 0 120, L 0 130"/>
+			<path class="x-notch-right" d="M 400 120, L 400 130"/>
+			<path class="y-axis-path" d="M 0 120 L 0 0"/>
+			<path class="y-axis-path-2" d="M 400 120 L 400 0"/>
+			<path class="y-gridline" d="M 0 0 L 400 0"/>
+			<text class="y-axis-label" x="-5" y="0">
+				26
+			</text>
+			<path class="y-gridline" d="M 0 20 L 400 20"/>
+			<text class="y-axis-label" x="-5" y="20">
+				21
+			</text>
+			<path class="y-gridline" d="M 0 40 L 400 40"/>
+			<text class="y-axis-label" x="-5" y="40">
+				17
+			</text>
+			<path class="y-gridline" d="M 0 60 L 400 60"/>
+			<text class="y-axis-label" x="-5" y="60">
+				13
+			</text>
+			<path class="y-gridline" d="M 0 80 L 400 80"/>
+			<text class="y-axis-label" x="-5" y="80">
+				8
+			</text>
+			<path class="y-gridline" d="M 0 100 L 400 100"/>
+			<text class="y-axis-label" x="-5" y="100">
+				4
+			</text>
+		</g>
+		<path class="x-notch" d="M 50 120 L 50 125"/>
+		<rect class="series-0-point" height="109.090909091" width="40" x="5" y="10.9090909091"/>
+		<rect class="series-0-point-inner" height="107.090909091" width="36" x="7" y="12.9090909091"/>
+		<text class="data-point-label" x="25" y="5.90909090909">
+			23.9
+		</text>
+		<path class="x-notch" d="M 100 120 L 100 125"/>
+		<rect class="series-0-point" height="96.7668314949" width="40" x="55" y="23.2331685051"/>
+		<rect class="series-0-point-inner" height="94.7668314949" width="36" x="57" y="25.2331685051"/>
+		<text class="data-point-label" x="75" y="18.2331685051">
+			21.2
+		</text>
+		<path class="x-notch" d="M 150 120 L 150 125"/>
+		<rect class="series-0-point" height="47.9269684291" width="40" x="105" y="72.0730315709"/>
+		<rect class="series-0-point-inner" height="45.9269684291" width="36" x="107" y="74.0730315709"/>
+		<text class="data-point-label" x="125" y="67.0730315709">
+			10.5
+		</text>
+		<path class="x-notch" d="M 200 120 L 200 125"/>
+		<rect class="series-0-point" height="38.7980220616" width="40" x="155" y="81.2019779384"/>
+		<rect class="series-0-point-inner" height="36.7980220616" width="36" x="157" y="83.2019779384"/>
+		<text class="data-point-label" x="175" y="76.2019779384">
+			8.5
+		</text>
+		<path class="x-notch" d="M 250 120 L 250 125"/>
+		<rect class="series-0-point" height="17.8014454165" width="40" x="205" y="102.198554583"/>
+		<rect class="series-0-point-inner" height="15.8014454165" width="36" x="207" y="104.198554583"/>
+		<text class="data-point-label" x="225" y="97.1985545835">
+			3.9
+		</text>
+		<path class="x-notch" d="M 300 120 L 300 125"/>
+		<rect class="series-0-point" height="11.4111829593" width="40" x="255" y="108.588817041"/>
+		<rect class="series-0-point-inner" height="9.4111829593" width="36" x="257" y="110.588817041"/>
+		<text class="data-point-label" x="275" y="103.588817041">
+			2.5
+		</text>
+		<path class="x-notch" d="M 350 120 L 350 125"/>
+		<rect class="series-0-point" height="10.9547356409" width="40" x="305" y="109.045264359"/>
+		<rect class="series-0-point-inner" height="8.95473564093" width="36" x="307" y="111.045264359"/>
+		<text class="data-point-label" x="325" y="104.045264359">
+			2.4
+		</text>
+		<rect class="series-0-point" height="4.56447318372" width="40" x="355" y="115.435526816"/>
+		<rect class="series-0-point-inner" height="2.56447318372" width="36" x="357" y="117.435526816"/>
+		<text class="data-point-label" x="375" y="110.435526816">
+			1.0
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 25, 130)" x="25" y="130">
+			Coal
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 75, 130)" x="75" y="130">
+			Natural Gas
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 125, 130)" x="125" y="130">
+			Crude Oil
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 175, 130)" x="175" y="130">
+			Nuclear Electric Power
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 225, 130)" x="225" y="130">
+			Biomass
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 275, 130)" x="275" y="130">
+			Hydroelectric Power
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 325, 130)" x="325" y="130">
+			Natural Gas Plant Liquids
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 375, 130)" x="375" y="130">
+			Wind, Geothermal, Solar P/V
+		</text>
+	</g>
+</svg>

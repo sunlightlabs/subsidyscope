@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<svg height="310" version="1.1" width="475" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		
+
+.slice-1 { fill: #621D11; stroke: #e0d1d1; stroke-width:2; }
+
+.slice-2 { fill: #be5227; stroke: #e0d1d1; stroke-width:2; }
+
+.slice-3 { fill: #ea8640; stroke: #e0d1d1; stroke-width:2; }
+
+.slice-4 { fill: #f3b34a; stroke: #e0d1d1; stroke-width:2;  }
+
+.slice-5 { fill: #f2d64b; stroke: #e0d1d1; stroke-width:2; }
+
+.slice-6 { fill: #f2ec9d; stroke: #e0d1d1; stroke-width:2; }
+
+.slice-7 { fill: #e9ece3; stroke: #e0d1d1; stroke-width:2; }
+
+.slice-8 { fill: #cfcece; stroke: #e0d1d1; stroke-width:2; }
+
+.slice-9 { fill: #9f9f9f; stroke: #e0d1d1; stroke-width:2; }
+
+.slice-10{ fill: #7d7d7d; stroke: #e0d1d1; stroke-width:2; }
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+	</style>
+	<rect fill="white" height="310" width="475" x="0" y="0"/>
+	<path class="slice-1" d="M 237,147  l 117,0  a117,117 0 0,0 -197,-85 z"/>
+	<text class="pie-label-right" x="290" y="30">
+		37% - Petroleum
+	</text>
+	<path class="slice-2" d="M 237,147  l -80,-85  a117,117 0 0,0 -33,114 z"/>
+	<text class="pie-label-left" x="118" y="105">
+		17% - Non-Fossil
+	</text>
+	<path class="slice-3" d="M 237,147  l -113,29  a117,117 0 0,0 120,87 z"/>
+	<text class="pie-label-left" x="162" y="251">
+		22% - Coal
+	</text>
+	<path class="slice-4" d="M 237,147  l 7,116  a117,117 0 0,0 110,-116 z"/>
+	<text class="pie-label-right" x="329" y="237">
+		24% - Natural Gas
+	</text>
+</svg>
