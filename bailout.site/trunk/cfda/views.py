@@ -129,10 +129,13 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None, data_
     maximum = max(0,max(cfdamax, budgetmax))
 
     # slightly better scale-definition function
-    p = pow(10, (math.floor(math.log(maximum,10)))) * 1.0
-    maximum = round((maximum / p) + 0.5) * p
+    try:
+        p = pow(10, (math.floor(math.log(maximum,10)))) * 1.0
+        maximum = round((maximum / p) + 0.5) * p
+    except Exception:
+        #max is probably 0
+        maximum = 10
 
-        
     json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
     json["x_legend"] = {"text": "Fiscal Year", "style": "{font-size:12px;}"}
     json["y_legend"] = {"text": "US Dollars ($)", "style": "{font-size: 13px; margin-right:7px;}"}
