@@ -27,7 +27,7 @@ class Chart(object):
         self.stylesheet = stylesheet
         self.padding = 30
         self.max_x_point_width = 60
-        self.x_padding = 10
+        self.x_padding = 0
         self.y_padding = 0
         self.x_label_height = 15
         self.x_label_padding = 15
@@ -95,9 +95,6 @@ class Pie(Chart):
 
     def __init__(self, height, width, data, stylesheet=None, **kwargs):
 
-        self.legend_width = .20  #percent of total width 
-        self.legend_x_padding = 5
-
         super(Pie, self).__init__(height, width, data, stylesheet, **kwargs)
         
         #Catch passed in keyword argument overrides of defaults
@@ -109,14 +106,15 @@ class Pie(Chart):
         for series in self.data:
             for point in series:
                 self.total += point[1]
+
         if (self.width - (2 * self.x_padding)) > (self.height - (2 * self.y_padding)):
-            self.diameter = self.height - (2 * self.y_padding)
+            self.diameter = self.height - (2 * self.y_padding) - (2 * self.padding)
         else:
-            self.diameter = self.width - (2 * self.x_padding)
-        #self.diameter = self.width - (self.x_padding * 2) - (self.legend_width * self.width)
+            self.diameter = self.width - (2 * self.x_padding) - (2 * self.padding)
+        
         self.radius = self.diameter / 2
-        self.x_origin = self.radius + self.x_padding
-        self.y_origin = self.radius + self.y_padding
+        self.x_origin = self.radius + self.x_padding + self.padding
+        self.y_origin = self.radius + self.y_padding + self.padding
         
         #Chart subclass should have this method to setup the chart background, axes, and gridlines
         self.setup_chart()
@@ -146,12 +144,12 @@ class Pie(Chart):
                 point1 = "M %s,%s " % (self.x_origin, self.y_origin)
                 point2 = "l %s,%s " % (last_point[0], -last_point[1])
 
-                x = int(math.cos(math.radians(total_angle)) * self.radius)
-                y = int(math.sin(math.radians(total_angle)) * self.radius)
+                x = math.cos(math.radians(total_angle)) * self.radius
+                y = math.sin(math.radians(total_angle)) * self.radius
               
                 total_label_angle = total_angle - (angle / 2)
 
-                x_label = int(math.cos(math.radians(total_label_angle)) * self.radius) + self.x_origin 
+                x_label = (math.cos(math.radians(total_label_angle)) * self.radius) + self.x_origin 
                 y_label = self.y_origin - int(math.sin(math.radians(total_label_angle)) * self.radius)
                 
                 if x_label > (self.x_origin + 24): x_label += 7  
