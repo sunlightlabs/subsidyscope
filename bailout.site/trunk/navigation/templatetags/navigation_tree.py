@@ -307,44 +307,5 @@ SECTORS = { 'sector': 'home',
                                       }
                           
                                     ]
-                        },
-                        
-                        
-                        { 'sector': 'energy-index',
-                          'name': 'Energy',
-                          'url_name': 'energy-index',
-                          'children':[{'sector': 'energy-index',
-                                       'name': 'Overview',
-                                       'url_name': 'energy-overview',
-                                       'children': []
-                                       },
-                                      {'sector': 'energy-index',
-                                       'name': 'Grants and Contracts',
-                                       'url_name': 'energy-direct-expenditures',
-                                       'children':[{ 'sector': 'energy-direct-expenditures',
-                                                     'name': 'Search Grants',
-                                                     'url_name': 'energy-faads-search',
-                                                     'children':[]
-                                       
-                                                  },
-                                                  { 'sector':'energy-direct-expenditures',
-                                                    'name': 'Search Contracts',
-                                                    'url_name': 'energy-fpds-search',
-                                                    'children':[]
-                                                    
-                                                  }],
-                                      },
-                                      {'sector': 'energy-index',
-                                       'name': 'Tax Subsidies',
-                                       'url_name': 'energy-tax-expenditures',
-                                       'children':[]
-                                      },
-                                      {'sector': 'energy-index',
-                                       'name': 'Loans & Loan Guarantees',
-                                       'url_name': 'energy-risk-transfers',
-                                       'children':[]
-                                      }                         
-                                    ]
-                        }                        
-                        ]
+                        }]
                 }
