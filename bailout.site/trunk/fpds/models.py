@@ -552,7 +552,7 @@ class FPDSLoader(object):
         }
 
 
-    def reset_FPDS_import(self):
+    def reset_fpds_import(self):
         FPDSRecord.objects.all().delete()
 
     def assign_sectors(self, *args, **kwargs):
