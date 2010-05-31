@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<svg height="400" version="1.1" width="650" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+	<rect fill="white" height="400" width="650" x="0" y="0"/>
+	<text class="pie-label-right" x="376" y="62">
+		<tspan dy="0" x="376.654498523">
+			37.2% - Coal and refined Coal
+		</tspan>
+	</text>
+	<path class="slice-1" d="M 315,200  l 140,0  a140,140 0 0,0 -237.326939874,-100.635315743 z"/>
+	<text class="pie-label-left" x="202" y="99">
+		<tspan dy="0" x="202.250055984">
+			2.8% - Nuclear
+		</tspan>
+	</text>
+	<path class="slice-2" d="M 315,200  l -97.3269398744,-100.635315743  a140,140 0 0,0 -16.0366776519,18.4849035629 z"/>
+	<text class="pie-label-left" x="173" y="250">
+		<tspan dy="0" x="173.926020371">
+			29.3% - Natural Gas and 
+		</tspan>
+		<tspan dy="15" x="173.926020371">
+			Petroleum Liquids
+		</tspan>
+	</text>
+	<path class="slice-3" d="M 315,200  l -113.363617526,-82.15041218  a140,140 0 0,0 64.0822237507,213.189888017 z"/>
+	<text class="pie-label-left" x="305" y="349">
+		<tspan dy="0" x="305.894757146">
+			9.4% - Renewables
+		</tspan>
+	</text>
+	<path class="slice-4" d="M 315,200  l -49.2813937757,131.039475837  a140,140 0 0,0 81.1370205071,5.28814075502 z"/>
+	<text class="pie-label-right" x="395" y="329">
+		<tspan dy="0" x="395.506424579">
+			10.3% - Electricity (not fuel specific)
+		</tspan>
+	</text>
+	<path class="slice-5" d="M 315,200  l 31.8556267314,136.327616592  a140,140 0 0,0 75.6890022144,-46.6941809501 z"/>
+	<text class="pie-label-right" x="434" y="293">
+		<tspan dy="0" x="434.122713126">
+			1.7% - End Use
+		</tspan>
+	</text>
+	<path class="slice-6" d="M 315,200  l 107.544628946,89.6334356415  a140,140 0 0,0 8.84401202056,-11.8280100338 z"/>
+	<text class="pie-label-right" x="455" y="250">
+		<tspan dy="0" x="455.967178322">
+			9.4% - Conservation
+		</tspan>
+	</text>
+	<path class="slice-7" d="M 315,200  l 116.388640966,77.8054256077  a140,140 0 0,0 23.6113590336,-77.8054256077 z"/>
+</svg>

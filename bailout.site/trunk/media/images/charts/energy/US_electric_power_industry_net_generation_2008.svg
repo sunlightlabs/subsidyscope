@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<svg height="400" version="1.1" width="650" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+	<rect fill="white" height="400" width="650" x="0" y="0"/>
+	<text class="pie-label-right" x="486" y="195">
+		<tspan dy="0" x="486.901486479">
+			1.1% - Petroleum
+		</tspan>
+	</text>
+	<path class="slice-1" d="M 315,200  l 165,0  a165,165 0 0,0 -0.393936450398,-11.3949042429 z"/>
+	<text class="pie-label-left" x="312" y="26">
+		<tspan dy="0" x="312.926603419">
+			48.2% - Coal
+		</tspan>
+	</text>
+	<path class="slice-2" d="M 315,200  l 164.60606355,-11.3949042429  a165,165 0 0,0 -329.446497771,4.14016472043 z"/>
+	<text class="pie-label-left" x="143" y="196">
+		<tspan dy="0" x="143.052108768">
+			0.6% - Other
+		</tspan>
+	</text>
+	<path class="slice-3" d="M 315,200  l -164.840434222,-7.25473952245  a165,165 0 0,0 -0.156308819372,6.21802076813 z"/>
+	<text class="pie-label-left" x="178" y="311">
+		<tspan dy="0" x="178.262408697">
+			21.4% - Natural Gas
+		</tspan>
+	</text>
+	<path class="slice-4" d="M 315,200  l -164.996743041,-1.03671875432  a165,165 0 0,0 126.98248764,161.597973066 z"/>
+	<text class="pie-label-left" x="292" y="373">
+		<tspan dy="0" x="292.778131733">
+			3.1% - Other Renewables
+		</tspan>
+	</text>
+	<path class="slice-5" d="M 315,200  l -38.0142554016,160.561254312  a165,165 0 0,0 31.7953752611,4.32150867365 z"/>
+	<text class="pie-label-right" x="412" y="348">
+		<tspan dy="0" x="412.155067211">
+			19.6% - Nuclear
+		</tspan>
+	</text>
+	<path class="slice-6" d="M 315,200  l -6.21888014054,164.882762986  a165,165 0 0,0 159.632000312,-104.142211793 z"/>
+	<text class="pie-label-right" x="484" y="240">
+		<tspan dy="0" x="484.07739637">
+			6% - Hydroelectric
+		</tspan>
+	</text>
+	<path class="slice-7" d="M 315,200  l 153.413120172,60.740551193  a165,165 0 0,0 11.5868798284,-60.740551193 z"/>
+</svg>
