@@ -82,6 +82,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^framing-paper/html/$', direct_to_template, {'template': 'generic.html'}, name='framing-paper-html'),
     url(r'^framing-paper/$', redirect_to, {'url':'/media/pdf/Subsidyscope%%20Framing%%20Paper.pdf'}, name="framing-paper"),
     url(r'^screencast/$', direct_to_template, { 'template': 'generic.html'}, name='screencast'),
+    url(r'^charttemplate/$', direct_to_template, {'template': 'charts/chart_template.html'}),
 )
 
 urlpatterns += patterns('',
