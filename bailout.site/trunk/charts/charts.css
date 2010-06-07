@@ -1,0 +1,20 @@
+
+
+.x-axis-path, .y-axis-path, .y-axis-path-2, .y-gridline { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+
+.series-1-point { fill: #e0d1d1; }
+.series-1-point-inner {fill: #bf5004;}
+
+.series-2-point { fill: #d6d9db;  }
+.series-2-point-inner { fill: #336699; }
+
+.series-3-point { fill: #eff5e6;}
+.series-3-point-inner {fill: #9ca991;}
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: helvetica; fill: #58595b; text-anchor:middle;}
+.y-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-anchor:end;}
+
+
+
+.series-1-line { fill: none; stroke: #bf5004; stroke-width:2; }
