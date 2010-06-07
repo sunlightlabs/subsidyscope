@@ -74,23 +74,23 @@ primary_energy_consumption.output("../media/images/charts/energy/US_primary_ener
 
 #little charts
 transportation_energy_consumption = Pie(120, 120, [[('Petroleum', 26332),
-                                                    ('', 0), #dummy so colors are consistent
+                                                    (' ', 0), #dummy so colors are consistent
                                                     ('Natural Gas', 677),
-                                                    ('', 0), #dummy
+                                                    (' ', 0), #dummy
                                                     ('Renewable', 833)]], 'piechart_no_label.css', padding=3)
 transportation_energy_consumption.output('../media/images/charts/energy/energy_consumption_transportation_2008_SMALL.svg')
 
 industrial_energy_consumption = Pie(120, 120, [[('Petroleum', 8586), 
                                                 ('Coal', 1840),
                                                 ('Natural Gas', 8149),  
-                                                ('', 0),
+                                                (' ', 0),
                                                 ('Renewable', 2056)]], 'piechart_no_label.css', padding=3)
 industrial_energy_consumption.output('../media/images/charts/energy/energy_consumption_industrial_2008_SMALL.svg')
 
 residential_commerical_energy_consumption = Pie(120, 120, [[('Petroleum', 1756), 
                                                             ('Coal', 74),
                                                             ('Natural Gas', 8198),  
-                                                            ('', 0),
+                                                            (' ', 0),
                                                             ('Renewable', 722)]], 'piechart_no_label.css', padding=3)
 residential_commerical_energy_consumption.output('../media/images/charts/energy/energy_residential_and_commercial_industrial_2008_SMALL.svg')
 
