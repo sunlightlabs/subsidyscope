@@ -105,25 +105,25 @@
 			1.0
 		</text>
 		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 26, 190)" x="26" y="190">
-			Biomass
+			Coal
 		</text>
 		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 78, 190)" x="78" y="190">
-			Coal
+			Natural Gas
 		</text>
 		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 130, 190)" x="130" y="190">
 			Crude Oil
 		</text>
 		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 182, 190)" x="182" y="190">
-			Hydroelectric Power
+			Nuclear Electric Power
 		</text>
 		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 234, 190)" x="234" y="190">
-			Natural Gas
+			Biomass
 		</text>
 		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 286, 190)" x="286" y="190">
-			Natural Gas Plant Liquids
+			Hydroelectric Power
 		</text>
 		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 338, 190)" x="338" y="190">
-			Nuclear Electric Power
+			Natural Gas Plant Liquids
 		</text>
 		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 390, 190)" x="390" y="190">
 			Wind, Geothermal, Solar P/V
