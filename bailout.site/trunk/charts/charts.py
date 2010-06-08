@@ -227,7 +227,7 @@ class GridChart(Chart):
 
         #Chart subclass should have this method to chart the data series
         self.data_series()
-        self.labels.sort()
+        #self.labels.sort() # Yikes! sorting the labels independently from the data leads to problems... 
         self.set_labels()
          
     def setup_chart(self):
