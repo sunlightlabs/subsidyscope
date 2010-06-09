@@ -36,45 +36,39 @@
 	</style>
 	<rect fill="white" height="400" width="650" x="0" y="0"/>
 	<text class="pie-label-right" x="486" y="195">
-		<tspan dy="0" x="486.901486479">
-			1.1% - Petroleum
+		<tspan dy="0" x="486.891408478">
+			1.2% - Petroleum
 		</tspan>
 	</text>
-	<path class="slice-1" d="M 315,200  l 165,0  a165,165 0 0,0 -0.393936450398,-11.3949042429 z"/>
-	<text class="pie-label-left" x="312" y="26">
-		<tspan dy="0" x="312.926603419">
-			48.2% - Coal
+	<path class="slice-1" d="M 315,200  l 165,0  a165,165 0 0,0 -0.434223153716,-11.9626540107 z"/>
+	<text class="pie-label-left" x="296" y="27">
+		<tspan dy="0" x="296.574503672">
+			51.3% - Coal
 		</tspan>
 	</text>
-	<path class="slice-2" d="M 315,200  l 164.60606355,-11.3949042429  a165,165 0 0,0 -329.446497771,4.14016472043 z"/>
-	<text class="pie-label-left" x="143" y="196">
-		<tspan dy="0" x="143.052108768">
-			0.6% - Other
+	<path class="slice-2" d="M 315,200  l 164.565776846,-11.9626540107  a165,165 0 1,0 -327.682265661,36.8224825869 z"/>
+	<text class="pie-label-left" x="180" y="314">
+		<tspan dy="0" x="180.316501889">
+			17.0% - Natural Gas
 		</tspan>
 	</text>
-	<path class="slice-3" d="M 315,200  l -164.840434222,-7.25473952245  a165,165 0 0,0 -0.156308819372,6.21802076813 z"/>
-	<text class="pie-label-left" x="178" y="311">
-		<tspan dy="0" x="178.262408697">
-			21.4% - Natural Gas
+	<path class="slice-3" d="M 315,200  l -163.116488814,24.8598285763  a165,165 0 0,0 106.506348942,130.124983788 z"/>
+	<text class="pie-label-left" x="304" y="374">
+		<tspan dy="0" x="304.933802412">
+			9.2% - Renewables
 		</tspan>
 	</text>
-	<path class="slice-4" d="M 315,200  l -164.996743041,-1.03671875432  a165,165 0 0,0 126.98248764,161.597973066 z"/>
-	<text class="pie-label-left" x="292" y="373">
-		<tspan dy="0" x="292.778131733">
-			3.1% - Other Renewables
+	<path class="slice-4" d="M 315,200  l -56.6101398722,154.984812364  a165,165 0 0,0 93.9237138914,5.74072136901 z"/>
+	<text class="pie-label-right" x="450" y="313">
+		<tspan dy="0" x="450.287379287">
+			21.1% - Nuclear
 		</tspan>
 	</text>
-	<path class="slice-5" d="M 315,200  l -38.0142554016,160.561254312  a165,165 0 0,0 31.7953752611,4.32150867365 z"/>
-	<text class="pie-label-right" x="412" y="348">
-		<tspan dy="0" x="412.155067211">
-			19.6% - Nuclear
+	<path class="slice-5" d="M 315,200  l 37.3135740192,160.725533733  a165,165 0 0,0 127.661006512,-157.829367565 z"/>
+	<text class="pie-label-right" x="486" y="201">
+		<tspan dy="0" x="486.99364501">
+			0.3% - Imports
 		</tspan>
 	</text>
-	<path class="slice-6" d="M 315,200  l -6.21888014054,164.882762986  a165,165 0 0,0 159.632000312,-104.142211793 z"/>
-	<text class="pie-label-right" x="484" y="240">
-		<tspan dy="0" x="484.07739637">
-			6% - Hydroelectric
-		</tspan>
-	</text>
-	<path class="slice-7" d="M 315,200  l 153.413120172,60.740551193  a165,165 0 0,0 11.5868798284,-60.740551193 z"/>
+	<path class="slice-6" d="M 315,200  l 164.974580531,2.89616616896  a165,165 0 0,0 0.0254194685685,-2.89616616896 z"/>
 </svg>

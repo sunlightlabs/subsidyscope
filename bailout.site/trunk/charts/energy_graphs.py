@@ -1,6 +1,18 @@
 from charts import *
 
-primary_energy = Column(480, 340, [[('Coal', 23.9), 
+#primary_energy = Column(480, 340, [[('Coal', 23.9), 
+#				    ('Natural Gas', 21.2), 
+#				    ('Crude Oil', 10.5), 
+#				    ('Nuclear Electric Power', 8.5), 
+#				    ('Biomass', 3.9), 
+#				    ('Hydroelectric Power', 2.5), 
+#				    ('Natural Gas Plant Liquids', 2.4), 
+#				    ('Wind, Geothermal, Solar P/V', 1.0)]], "barchart.css", label_rotate=-35, x_label_padding=10, x_label_height=100)
+#primary_energy.output("../media/images/charts/energy/US_primary_energy_production_by_major_source_2008.svg")
+
+
+
+top_five_tes = Column(480, 340, [[('Coal', 23.9), 
 				    ('Natural Gas', 21.2), 
 				    ('Crude Oil', 10.5), 
 				    ('Nuclear Electric Power', 8.5), 
@@ -8,28 +20,116 @@ primary_energy = Column(480, 340, [[('Coal', 23.9),
 				    ('Hydroelectric Power', 2.5), 
 				    ('Natural Gas Plant Liquids', 2.4), 
 				    ('Wind, Geothermal, Solar P/V', 1.0)]], "barchart.css", label_rotate=-35, x_label_padding=10, x_label_height=100)
-primary_energy.output("../media/images/charts/energy/US_primary_energy_production_by_major_source_2008.svg")
+top_five_tes.output("../media/images/charts/energy/US_primary_energy_production_by_major_source_2008.svg")
+
 
 #primary_energy_consumption = Pie(475, 310, [[('Petroleum', 37), 
 #					     ('Non-Fossil', 17), 
 #					     ('Coal', 22), 
 #					     ('Natural Gas', 24)]], 'piechart_orange.css', y_padding=30, x_padding=120, padding=0)
 #primary_energy_consumption.output("../media/images/charts/energy/US_primary_energy_consumption_by_major_fuel_type_2008.svg")
-#
+##
 #energy_related_CO2 = Pie(475, 310, [[('Petroleum', 42), 
 #                                     ('Coal', 37),  
 #                                     ('Natural Gas', 21)]], 'piechart.css', y_padding=30, x_padding=100, padding=0)
 #energy_related_CO2.output("../media/images/charts/energy/US_energy_related_CO2_emissions_by_major_fuel_type_2009.svg")
+##
 #
-#electric_power = Pie(650, 400, [[('Petroleum', 1.1), 
-#                                 ('Coal', 48.2), 
-#                                 ('Other', 0.6), 
-#                                 ('Natural Gas', 21.4), 
-#                                 ('Other Renewables', 3.1), 
-#                                 ('Nuclear', 19.6), 
-#                                 ('Hydroelectric', 6.0)]], 'piechart.css', y_padding=5, x_padding=120)
+#electric_power = Pie(650, 400, [[('Petroleum', 463), 
+#                                 ('Coal', 20547), 
+#                                 ('Natural Gas', 6823), 
+#                                 ('Renewables', 3690), 
+#                                 ('Nuclear', 8455), 
+#                                 ('Imports', 112)]], 'piechart.css', y_padding=5, x_padding=120)
 #electric_power.output('../media/images/charts/energy/US_electric_power_industry_net_generation_2008.svg')
+
+																
+
+#energy_te_history = Line(500, 350, [    [(1998, 178),
+#									    (1999, 212),
+#									    (2000, 162),  
+#                                        (2001, 182), 
+#                                        (2002, 250), 
+#                                        (2003, 431), 
+#                                        (2004, 488), 
+#                                        (2005, 890), 
+#                                        (2006, 1245), 
+#                                        (2007, 1086), 
+#                                        (2008, 797), 
+#                                        (2009, 1000),
+#                                        (2010, 864),
+#                                        (2011, 603),
+#                                        (2012, 522),
+#                                        (2013, 453),
+#                                        (2014, -405),
+#                                        (2015, -368)],
+#                                        																	
+#                                        [(1998, 20),
+#									    (1999, 19),
+#									    (2000, 25),  
+#                                        (2001, 36), 
+#                                        (2002, 36), 
+#                                        (2003, 35), 
+#                                        (2004, 34), 
+#                                        (2005, 44), 
+#                                        (2006, 160), 
+#                                        (2007, 331), 
+#                                        (2008, 976), 
+#                                        (2009, 900),
+#                                        (2010, 2612),
+#                                        (2011, 10114),
+#                                        (2012, 12043),
+#                                        (2013, 7792),
+#                                        (2014, 4874),
+#                                        (2015, 3450)],
+#                                        
+#                                        
+#                                        																                                        
+#                                        [(1998, 99),
+#									    (1999, 109),
+#									    (2000, 75),  
+#                                        (2001, 61), 
+#                                        (2002, 83), 
+#                                        (2003, 82), 
+#                                        (2004, 79), 
+#                                        (2005, 165), 
+#                                        (2006, 713), 
+#                                        (2007, 1097), 
+#                                        (2008, 1176), 
+#                                        (2009, 1180),
+#                                        (2010, 2670),
+#                                        (2011, 2102),
+#                                        (2012, 567),
+#                                        (2013, 640),
+#                                        (2014, 638),
+#                                        (2015, 695)],
+#                                        
+#                                        																
 #
+#                                        [(1998, 1434),
+#									    (1999, 1680),
+#									    (2000, 1769),  
+#                                        (2001, 1599), 
+#                                        (2002, 2897), 
+#                                        (2003, 2623), 
+#                                        (2004, 3077), 
+#                                        (2005, 3767), 
+#                                        (2006, 4948), 
+#                                        (2007, 4790), 
+#                                        (2008, 3208), 
+#                                        (2009, 3200),
+#                                        (2010, 4340),
+#                                        (2011, 3506),
+#                                        (2012, 3304),
+#                                        (2013, 3083),
+#                                        (2014, 1915),
+#                                        (2015, 1072)],
+#                                        
+#                                        
+#                                        ], 'linechart.css', label_intervals=2, currency=False, x_padding=35, padding=40, units="")
+#energy_te_history.output('../media/images/charts/energy/energy_te_history.svg')
+
+
 #energy_tax_expenditures = Pie(650, 400, [[('Coal and refined Coal', 2660), 
 #                                          ('Nuclear', 199), 
 #                                          ('Natural Gas and \nPetroleum Liquids', 2090), 
