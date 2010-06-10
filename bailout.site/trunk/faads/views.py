@@ -97,9 +97,6 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
             cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=TabbedSelectWidget, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'program-selection-subsector' or 'program-selection-subsidy_programs')
             program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
         
-        program_selection_tags = forms.MultipleChoiceField(choices=tag_choices, required=False, initial=initial_tag_choices, widget=CheckboxSelectMultipleMulticolumn(columns=3))
-        tags_exclude_secondary = forms.BooleanField(label="Only include programs having the selected tag(s) as their primary function?", required=False, initial=True)
-
         if subsector_choices:
             program_selection_subsector = forms.MultipleChoiceField(choices=subsector_choices, required=False, widget=CheckboxSelectMultipleMulticolumn(columns=3))
         else:

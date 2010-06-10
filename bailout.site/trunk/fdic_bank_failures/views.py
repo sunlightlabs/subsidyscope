@@ -8,7 +8,7 @@ import datetime
 
 
 def fdic_bank_failures_xml(request):
-    bank_failure_list = BankFailure.objects.all().order_by('closing_date')    
+    bank_failure_list = BankFailure.objects.exclude(closing_date=None).order_by('closing_date')    
     return render_to_response('bailout/fdic/fdic_bank_failures.xml', { 'bank_failure_list': bank_failure_list }, mimetype='text/xml')
 
 def fdic_bank_failures(request):
