@@ -754,6 +754,7 @@ class FPDSLoader(object):
         # TODO: figure out why the fuck you get this error:
         # TypeError: 'ManyRelatedManager' object is not iterable        
 
+        django_record.save()
         django_record.sectors = self.assign_sectors(FPDS_record)
         django_record.save()
 
