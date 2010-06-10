@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="340"
+   version="1.1"
+   width="480"
+   id="svg2"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="US_primary_energy_production_by_major_source_2008.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/top_five_tes.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata87">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs85">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 170 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="480 : 170 : 1"
+       inkscape:persp3d-origin="240 : 113.33333 : 1"
+       id="perspective89" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
+     id="namedview83"
+     showgrid="false"
+     inkscape:zoom="0.69411765"
+     inkscape:cx="-0.59322034"
+     inkscape:cy="167.11864"
+     inkscape:window-x="1400"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <style
+     type="text/css"
+     id="style4">
+		.y-axis-path, .y-axis-path2, .y-gridline {display:none;}
+
+
+
+.x-notch, .x-notch-left, .x-notch-right { stroke: #a7a9ac; }
+
+.x-axis-path { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+
+.series-0-point { stroke: #e0d1d1; fill: #bf5004; stroke-width: 2px; }
+
+
+
+.series-1-point { stroke: #d6d9db; fill: #336699; stroke-width:2px; }
+
+
+
+.series-2-point { stroke: #eff5e6; fill: #9ca991; stroke-width: 2px; }
+
+
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+
+
+.y-axis-label { display:none;}
+
+	</style>
+  <rect
+     height="383.22034"
+     width="577.96613"
+     x="-96.525421"
+     y="-43.220341"
+     id="rect6"
+     style="fill:#ffffff" />
+  <g
+     id="grid"
+     transform="translate(30, 30)">
+    <g
+       class="x-axis"
+       id="x_axis">
+      <path
+         class="x-axis-path"
+         d="M 0 180 L 420 180"
+         id="path10" />
+      <path
+         class="x-notch-left"
+         d="M 0 180, L 0 190"
+         id="path12" />
+      <path
+         class="x-notch-right"
+         d="M 420 180, L 420 190"
+         id="path14" />
+    </g>
+    <g
+       class="y-axis"
+       id="y_axis">
+      <path
+         class="y-axis-path"
+         d="M 0 180 L 0 0"
+         id="path17" />
+      <path
+         class="y-axis-path-2"
+         d="M 420 180 L 420 0"
+         id="path19" />
+      <path
+         class="y-gridline"
+         d="M 0 0 L 420 0"
+         id="path21" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="0"
+         id="text23">
+				1.8Th
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 30 L 420 30"
+         id="path25" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="30"
+         id="text27">
+				1.5Th
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 60 L 420 60"
+         id="path29" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="60"
+         id="text31">
+				1.2Th
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 90 L 420 90"
+         id="path33" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="90"
+         id="text35">
+				902
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 120 L 420 120"
+         id="path37" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="120"
+         id="text39">
+				601
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 150 L 420 150"
+         id="path41" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="150"
+         id="text43">
+				300
+			</text>
+    </g>
+    <path
+       class="x-notch"
+       d="M 84 180 L 84 185"
+       id="path45" />
+    <rect
+       class="series-0-point"
+       height="163.636363636"
+       width="60"
+       x="12"
+       y="16.3636363636"
+       id="rect47" />
+    <text
+       class="data-point-label"
+       x="42"
+       y="11.363636"
+       id="text49"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$1,640</text>
+    <path
+       class="x-notch"
+       d="M 168 180 L 168 185"
+       id="path51" />
+    <rect
+       class="series-0-point"
+       height="76.8292682927"
+       width="60"
+       x="96"
+       y="103.170731707"
+       id="rect53" />
+    <text
+       class="data-point-label"
+       x="126"
+       y="98.170731"
+       id="text55"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$770</text>
+    <path
+       class="x-notch"
+       d="M 252 180 L 252 185"
+       id="path57" />
+    <rect
+       class="series-0-point"
+       height="56.8736141907"
+       width="60"
+       x="180"
+       y="123.126385809"
+       id="rect59" />
+    <text
+       class="data-point-label"
+       x="210"
+       y="118.12639"
+       id="text61"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$570</text>
+    <path
+       class="x-notch"
+       d="M 336 180 L 336 185"
+       id="path63" />
+    <rect
+       class="series-0-point"
+       height="42.9046563193"
+       width="60"
+       x="264"
+       y="137.095343681"
+       id="rect65" />
+    <text
+       class="data-point-label"
+       x="294"
+       y="132.09534"
+       id="text67"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$430</text>
+    <rect
+       class="series-0-point"
+       height="33.9246119734"
+       width="60"
+       x="348"
+       y="146.075388027"
+       id="rect69" />
+    <text
+       class="data-point-label"
+       x="378"
+       y="141.07539"
+       id="text71"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$340</text>
+    <text
+       class="x-axis-label"
+       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+       transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
+       x="-82.399971"
+       y="173.17416"
+       id="text73">Expensing of exploration</text>
+    <text
+       class="x-axis-label"
+       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+       transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
+       x="-64.254158"
+       y="189.39749"
+       id="text2907">and development</text>
+    <text
+       class="x-axis-label"
+       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+       transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
+       x="-7.4961524"
+       y="225.62239"
+       id="text75">Temporary 50% expensing</text>
+    <text
+       class="x-axis-label"
+       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+       transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
+       x="11.418977"
+       y="241.30846"
+       id="text2909">for equipment</text>
+    <text
+       class="x-axis-label"
+       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+       transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
+       x="59.274643"
+       y="271.01016"
+       id="text77">Credit for energy</text>
+    <text
+       class="x-axis-label"
+       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+       transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
+       x="79.747749"
+       y="286.42154"
+       id="text2905">efficiency improvements</text>
+    <text
+       class="x-axis-label"
+       style="text-anchor: end;"
+       transform="rotate(-35, 294, 190)"
+       x="294"
+       y="190"
+       id="text79">
+			New technology credit
+		</text>
+    <text
+       class="x-axis-label"
+       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+       transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
+       x="195.74504"
+       y="369.00931"
+       id="text81">Excess of percentage</text>
+    <text
+       class="x-axis-label"
+       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+       transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
+       x="216.67632"
+       y="384.74149"
+       id="text2911">over cost depletion</text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+     x="207.69492"
+     y="10.966102"
+     id="text2913"><tspan
+       sodipodi:role="line"
+       id="tspan2915"
+       x="207.69492"
+       y="10.966102"
+       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">Top Five Tax Expenditures by Revenue loss FY 2009</tspan><tspan
+       sodipodi:role="line"
+       x="207.69492"
+       y="30.966103"
+       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+       id="tspan2917">($ millions)</tspan></text>
+</svg>

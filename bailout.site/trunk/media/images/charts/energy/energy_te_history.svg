@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,56 +38,14 @@
        inkscape:persp3d-origin="250 : 116.66667 : 1"
        id="perspective97" />
     <inkscape:perspective
-       id="perspective3685"
+       id="perspective3668"
        inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
        inkscape:vp_z="1 : 0.5 : 1"
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
     <inkscape:perspective
-       id="perspective3685-3"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 0.5 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3685-0"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 0.5 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3725"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 0.5 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3751"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 0.5 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3751-9"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 0.5 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3751-6"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 0.5 : 1"
-       sodipodi:type="inkscape:persp3d" />
-    <inkscape:perspective
-       id="perspective3817"
+       id="perspective3683"
        inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
        inkscape:vp_z="1 : 0.5 : 1"
        inkscape:vp_y="0 : 1000 : 0"
@@ -107,9 +65,9 @@
      inkscape:window-height="1059"
      id="namedview91"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="130.89849"
-     inkscape:cy="163.02475"
+     inkscape:zoom="2"
+     inkscape:cx="170.5"
+     inkscape:cy="152.0339"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -143,18 +101,24 @@
 
 	</style>
   <rect
-     height="423.91306"
-     width="531.30432"
-     x="-23.478273"
-     y="-31.304348"
+     height="409.5"
+     width="515"
+     x="-10"
+     y="-28"
      id="rect6"
-     style="fill:#ffffff" />
+     style="fill:#ffffff"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
   <g
      id="grid"
      transform="translate(40, 40)">
     <g
        class="x-axis"
        id="x_axis">
+      <path
+         class="x-axis-path"
+         d="M 0 255 L 420 255"
+         id="path10" />
       <path
          class="x-notch-left"
          d="M 0 255, L 0 265"
@@ -163,10 +127,6 @@
          class="x-notch-right"
          d="M 420 255, L 420 265"
          id="path14" />
-      <path
-         class="x-axis-path"
-         d="M 0 255 L 420 255"
-         id="path10" />
     </g>
     <g
        class="y-axis"
@@ -188,7 +148,7 @@
          x="-5"
          y="0"
          id="text23"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$13.2</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$12.9</text>
       <path
          class="y-gridline"
          d="M 0 42 L 420 42"
@@ -198,7 +158,7 @@
          x="-5"
          y="42"
          id="text27"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$11.0</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$10.8</text>
       <path
          class="y-gridline"
          d="M 0 84 L 420 84"
@@ -208,7 +168,7 @@
          x="-5"
          y="84"
          id="text31"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$8.8</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$8.6</text>
       <path
          class="y-gridline"
          d="M 0 126 L 420 126"
@@ -218,7 +178,7 @@
          x="-5"
          y="126"
          id="text35"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$6.6</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$6.5</text>
       <path
          class="y-gridline"
          d="M 0 168 L 420 168"
@@ -228,7 +188,7 @@
          x="-5"
          y="168"
          id="text39"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$4.4</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$4.3</text>
       <path
          class="y-gridline"
          d="M 0 210 L 420 210"
@@ -238,29 +198,48 @@
          x="-5"
          y="210"
          id="text43"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$2.2</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$2.1</text>
     </g>
-    <g
-       id="g45">
-      <path
-         class="series-2-line"
-         d="M 35 254.61501589 L 55 254.634265096 L 76 254.518769863 L 96 254.307028602 L 117 254.307028602 L 137 254.326277808 L 158 254.345527013 L 179 254.153034958 L 199 251.92012712 L 220 248.62851298 L 240 236.212775433 L 261 237.675715051 L 282 204.721075238 L 302 60.3135355884 L 323 23.1818181818 L 343 105.010190756 L 364 161.1793724 L 385 188.59024103"
-         id="path49" />
-      <path
-         class="series-3-line"
-         d="M 35 253.094328656 L 55 252.901836601 L 76 253.556309588 L 96 253.825798465 L 117 253.402315944 L 137 253.421565149 L 158 253.479312766 L 179 251.823881093 L 199 241.27531648 L 220 233.883621568 L 240 232.362934334 L 261 232.285937512 L 282 203.604621319 L 302 214.538170042 L 323 244.085700482 L 343 242.680508481 L 364 242.719006892 L 385 241.621802179"
-         id="path51"
-         style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
-      <path
-         class="series-4-line"
-         d="M 35 227.396639315 L 55 222.661334763 L 76 220.948155473 L 96 224.220520408 L 117 199.235051671 L 137 204.509333977 L 158 195.770194681 L 179 182.488242887 L 199 159.754931194 L 220 162.796305662 L 240 193.248548761 L 261 193.402542405 L 282 171.458448137 L 302 187.512285522 L 323 191.400625033 L 343 195.654699448 L 364 218.13777147 L 385 234.364851706"
-         id="path53"
-         style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
-      <path
-         class="series-1-line"
-         d="M 35 251.573641421 L 55 250.919168434 L 76 251.881628709 L 96 251.496644599 L 117 250.187698625 L 137 246.70359243 L 158 245.606387717 L 179 237.868207106 L 199 231.034739154 L 220 234.095362829 L 240 239.658383218 L 261 235.750794502 L 282 238.368686449 L 302 243.392729084 L 323 244.95191473 L 343 246.280109909 L 364 262.795928227 L 385 262.083707623"
-         id="path47" />
-    </g>
+    <path
+       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 300.9375 286.50198 L 301 286.50198 L 322 280.37549 L 342 279.38735 L 363 275.23715 L 383 273.85375 L 404 274.05138 L 425 274.05138 "
+       id="path3697"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-opacity:1"
+       d="M 75 292.33202 L 95 291.73913 L 116 292.43083 L 136 292.03557 L 157 290.8498 L 177 287.68775 L 198 286.50198 L 219 278.99209 L 239 271.87747 L 260 274.24901 L 280 286.50198 L 300.9375 286.50198 "
+       id="path47"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#336699;stroke-width:2;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 301.05453 285.64271 L 322 259.22927 L 342 105.86958 L 363 63.181838 L 383 151.91702 L 404 213.5771 L 425 243.22136 "
+       id="path3682"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#336699;stroke-width:2;stroke-opacity:1"
+       d="M 75 294.70356 L 95 294.70356 L 116 294.60476 L 136 294.40713 L 157 294.40713 L 177 294.40713 L 198 294.40713 L 219 294.20951 L 239 292.03559 L 260 288.67591 L 280 284.13045 L 301 285.71148 L 301.05453 285.64271 "
+       id="path49"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 301.34006 271.1774 L 322 240.65217 L 342 250.92885 L 363 282.74704 L 383 280.77075 L 404 280.37549 L 425 278.59684 "
+       id="path3692"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 75 293.51779 L 95 293.32016 L 116 293.81423 L 136 294.01186 L 157 293.6166 L 177 293.6166 L 198 293.6166 L 219 292.03557 L 239 281.75889 L 260 274.05138 L 280 271.67984 L 301 271.67984 L 301.34006 271.1774 "
+       id="path51"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 301.25677 231.452 L 322 206.66008 L 342 221.48221 L 363 223.65613 L 383 226.42292 L 404 251.12648 L 425 269.70356 "
+       id="path3687"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 75 273.4585 L 95 269.20949 L 116 266.93676 L 136 268.91304 L 157 246.97628 L 177 250.5336 L 198 241.44269 L 219 227.21344 L 239 203.10277 L 260 203.49802 L 280 231.36364 L 301 231.75889 L 301.25677 231.452 "
+       id="path53"
+       transform="translate(-40,-40)" />
     <text
        class="x-axis-label"
        x="35.0"
@@ -349,10 +328,6 @@
        class="x-notch"
        d="M 343.823529412 255 L 343.823529412 260"
        id="path85" />
-    <path
-       class="x-notch"
-       d="M 385.0 255 L 385.0 260"
-       id="path89" />
     <text
        class="x-axis-label"
        x="364.411764706"
@@ -360,10 +335,28 @@
        id="text87">
 			2014
 		</text>
+    <path
+       class="x-notch"
+       d="M 385.0 255 L 385.0 260"
+       id="path89" />
   </g>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+     x="249.10938"
+     y="4.9023438"
+     id="text3890"><tspan
+       sodipodi:role="line"
+       id="tspan3892"
+       x="249.10938"
+       y="4.9023438">Energy Related Tax Expenditures</tspan><tspan
+       sodipodi:role="line"
+       x="249.10938"
+       y="24.902344"
+       id="tspan3894">($ billions)</tspan></text>
   <g
      id="g3873"
-     transform="translate(-180.94197,334.27324)">
+     transform="translate(-178.19106,339.83294)">
     <g
        id="g3800"
        transform="translate(130.66932,-334.13043)">
@@ -457,18 +450,4 @@
            y="351.86493">Multi-use</tspan></text>
     </g>
   </g>
-  <text
-     xml:space="preserve"
-     style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
-     x="236.52174"
-     y="2.1739128"
-     id="text3890"><tspan
-       sodipodi:role="line"
-       id="tspan3892"
-       x="236.52174"
-       y="2.1739128">Energy Related Tax Expenditures</tspan><tspan
-       sodipodi:role="line"
-       x="236.52174"
-       y="22.173912"
-       id="tspan3894">($ billions, 2009)</tspan></text>
 </svg>
