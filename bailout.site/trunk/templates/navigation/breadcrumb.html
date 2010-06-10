@@ -1,0 +1,17 @@
+{% load smarterif %}
+{% load custom_filters %}
+
+<span class="breadcrumbs">
+
+{% for crumb in breadcrumbs %}
+
+    {% if forloop.last %}
+        {{crumb.0}}
+    {% else %}
+        <a href="{{crumb.1}}">{{crumb.0}}</a>
+        &nbsp;&raquo;&nbsp;
+    {% endif %}
+
+{% endfor %}
+
+</span>

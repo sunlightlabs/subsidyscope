@@ -47,7 +47,7 @@
 			
 			this.pieSlice = new PieSlice( index, value );
 			this.addChild( this.pieSlice );
-			var textlabel:String = value.get('label');
+			var textlabel:String = this.pieSlice.get_label(); //value.get('label');
 			
 			//
 			// we set the alpha of the parent container
@@ -57,13 +57,14 @@
 			if ( !value.has('label-colour') )
 				value.set('label-colour', value.get('colour'));
 			
-			var l:String = value.get('no-labels') ? '' : value.get('label');
+			var l:String = value.get('no-labels') ? '' : textlabel;
 			
 			this.pieLabel = new PieLabel(
 				{
 					label:			l,
 					colour:			value.get('label-colour'),
 					'font-size':	value.get('font-size'),
+					'font-weight':  value.get('font-weight'),
 					'on-click':		value.get('on-click') } )
 			this.addChild( this.pieLabel );
 			

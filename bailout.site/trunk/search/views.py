@@ -39,7 +39,6 @@ def main_search_view(request):
 #            else:
 #                search_scope = 'all'
 #            
-#            
 #            if search_scope == 'site' or search_scope == 'all':
 #                page_result_set = SearchQuerySet().auto_query(query).highlight()
 #                

@@ -13,7 +13,10 @@
 	import flash.events.MouseEvent;
 	import caurina.transitions.Tweener;
 	import caurina.transitions.Equations;
-	
+	import global.Global;
+
+		
+		
 	public class PieSlice extends Element {
 		
 		private var TO_RADIANS:Number = Math.PI / 180;
@@ -78,9 +81,16 @@
 		}
 
 		private function replace_magic_values( t:String ): String {
+            
+			var g:Global = Global.getInstance();
 			
 			t = t.replace('#label#', this.label );
 			t = t.replace('#val#', NumberUtils.formatNumber( this.value ));
+			if (g.get_total_value() != 0){			
+    			t = t.replace('#percent#', NumberUtils.formatNumber( value / g.get_total_value() * 100 ) + '%');    		
+    		} else {
+    		    t = t.replace('#percent#', '');
+    		}
 			t = t.replace('#radius#', NumberUtils.formatNumber( this.pieRadius ));
 			return t;
 		}
@@ -203,7 +213,9 @@
 			//var lineEnd_y:Number = (rad+tick_size)*Math.sin(slice_angle/2*TO_RADIANS);
 			//this.graphics.lineTo(lineEnd_x, lineEnd_y);
 		}
-		
+		public function get_label():String{
+		    return this.label;
+		}
 		
 		public override function toString():String {
 			return "PieSlice: "+ this.get_tooltip();

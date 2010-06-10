@@ -5,6 +5,7 @@
 {% load bailout_tags %}
 {% load carousel_tags %}
 {% load faads_tags %}
+{% load navigation_tags %}
 {% block content %}
 {% js "scripts/cookie.js" %}
 {% js "scripts/carouselinit.js" %}
@@ -57,8 +58,10 @@ $(function () {
 </script>
 
 
-<div class="container top_solid_box">&nbsp;</div>
+
 <div class="container white">
+{% navigation main-nav %}
+<div class="container top_solid_box">&nbsp;</div>
 	<div class="span-11">
 		<div class="feature_leftside">
 	
@@ -87,6 +90,7 @@ $(function () {
 </div> <!-- ends feature left side -->		
 
 </div>
+
 	
 <div class="span-13 last">
 	<div class="feature_rightside">
@@ -109,10 +113,10 @@ $(function () {
 				</div>
 				
 				<div class="tax_item">
-					<div id="tax_icon"><img src="/media/images/sector_icons/philanthropy/philanthropy_lg_grey.png" border="0" alt="Nonprofits"></div>	
+					<div id="tax_icon"><a href="{% url nonprofits-index %}"><img src="/media/images/sector_icons/nonprofits/nonprofits_lg.png" border="0" alt="Nonprofits"></a></div>	
 						<div>
-							<h3 class="coming">Nonprofits</h3>
-							<p>Coming soon</p>
+							<h3><a href="{% url nonprofits-index %}">Nonprofits</a></h3>
+              <p>Universities, Charities and other Tax-exempt Entities</p>
 						</div>
 					</div>
 				</div>
@@ -149,7 +153,7 @@ $(function () {
 			<div class="news_head"><h2>Framing Paper</h2>
 			</div>	
 			<p id="framing-paper"><a href="{% url framing-paper %}"><img src="{% media_url %}/images/framing-paper-document-icon.png" class="alignright" style="margin: 1em 0.25em 1em 0.6em"/></a><a href="{% url framing-paper %}">Government Subsidies: 
-      Revealing the Hidden&nbsp;Budget</a><span class="framing-paper-update-notice">Updated 11/18/2009</span></p>
+      Revealing the Hidden&nbsp;Budget</a> <small>(<a href="{% url framing-paper %}">PDF</a>&nbsp;|&nbsp;<a href="{% url framing-paper-html %}">HTML</a>)</small><span class="framing-paper-update-notice">Updated 11/18/2009</span></p>
 		</div>
 	  
 		<div class="news_box">
@@ -175,13 +179,9 @@ $(function () {
 	
 	<div class="span-8 last">
 		
-    <div class="homepage-quick-search-container">{% faads_quick_search transportation %}</div>
 
 		{% news_briefs %}
 		
-		{% bank_search %}
-
-		{% tarp_warrant_tracker %}
 		
 		<div class="front_about">
 			<h3 class="front_about_head">Who is Involved?</h3>			

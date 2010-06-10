@@ -230,10 +230,12 @@
 	            	<span id="route" style=""></span>
 	            		
             	</div>
-            	
+
        			<div id="noData"><em>(Performance data not mapped for this route, please see the <a href="{% url transportation-amtrak-table %}">complete list of routes</a> for additional information.)</em></div>
            		
            		<div id="routeDataTable">
+
+
 	           		<table style="width: 800px;">
 		            	<tr>
 		            		<td style="width: 300px;"><strong>Total Revenue:</strong></td><td id="gross" style="width: 100px;"></td><td style="width: 300px;"><strong>Profit/Loss per Passenger Mile:<sup>1</sup></strong><br/>(excluding costs such as depreciation)</td><td  style="width: 100px;" id="pass_mile"></td>
@@ -253,6 +255,7 @@
 	            	
             		<cite style="font-style: normal; font-size: 85%;"><sup>1</sup><em>Monthly Performance Report for September 2008</em>, Amtrak, pages C-1 and C-2.</cite><br/>
 					<cite style="font-style: normal; font-size: 85%;"><sup>2</sup>Subsidyscope calculation. Including depreciation and other unallocated costs adds an additional loss of $0.11 per passenger mile. Subsidyscope applies this cost to the per passenger mile profit/loss for each route.
+
 					Methodology and steps involved in this calculation are presented <a href="{% url transportation-amtrak-table %}">here</a>. </cite><br/>
 					<cite style="font-style: normal; font-size: 85%;"><sup>3</sup>Subsidyscope calculation, based on aggregate numbers provided by Amtrak. Amtrak does not present per passenger costs on a route-by-route basis.</cite><br/> 
 					<cite style="font-style: normal; font-size: 85%;"><sup>4</sup>Subsidyscope calculation. Including depreciation and other unallocated costs adds an additional loss of $24.29 per passenger. Subsidyscope applies this cost to the per passenger profit/loss for each route.  Methodology and steps involved in this calculation are presented <a href="{% url transportation-amtrak-table %}">here</a>.</cite>         	

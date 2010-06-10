@@ -14,7 +14,7 @@ package elements.axis {
 		// move y axis labels to the correct x pos
 		public override function resize( left:Number, sc:ScreenCoords ):void {
 			
-			var maxWidth:Number = this.get_width();
+			var maxWidth:Number = this.get_width(); 
 			var i:Number;
 			var tf:YTextField;
 			

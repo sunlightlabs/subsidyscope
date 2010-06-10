@@ -10,6 +10,7 @@ from faads.models import *
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from datetime import *
 from simplejson import * 
+import math
 
 def getDataSeries(cfda_id):
     program = ProgramDescription.objects.get(id=int(cfda_id))
@@ -62,7 +63,7 @@ def getDataSeries(cfda_id):
     return {'labels': labels, 'cfdaseries':cfdaseries, 'budgetseries':budgetseries, 'estimateDescription': prog_desc}
 
 
-def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
+def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None, data_src="Obligations (from FAADS)"):
     
     years = [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009]
     
@@ -105,7 +106,7 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
     
     if cfdaseries:
         
-        json["elements"].append({"type": "bar_3d", "tip":"Obligations (from FAADS): $#val#", "text":"Obligations (from FAADS)", "values": cfdaseries})
+        json["elements"].append({"type": "bar_3d", "tip":"%s: $#val#" % data_src, "text":data_src, "values": cfdaseries})
         cfdamax = max(cfdaseries)
         
     if budgetseries:
@@ -124,16 +125,20 @@ def buildChart(cfdaseries, budgetseries=None, labels=None, prog_desc=None):
     json["x_axis"] = {"3d": 5, "colour":"#909090", "tick-height":20, "labels": {"labels":labels}}
     
     mod = 1000
-    maximum = max(cfdamax, budgetmax)
-    
-    while maximum % mod != maximum:
-        mod = mod * 10
-        
-    maximum = maximum + (mod-(maximum % mod))
-    
+    # now safe for negative numbers
+    maximum = max(0,max(cfdamax, budgetmax))
+
+    # slightly better scale-definition function
+    try:
+        p = pow(10, (math.floor(math.log(maximum,10)))) * 1.0
+        maximum = round((maximum / p) + 0.5) * p
+    except Exception:
+        #max is probably 0
+        maximum = 10
+
     json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
     json["x_legend"] = {"text": "Fiscal Year", "style": "{font-size:12px;}"}
-    json["y_legend"] = {"text": "", "style": "{font-size: 12px;}"}
+    json["y_legend"] = {"text": "US Dollars ($)", "style": "{font-size: 13px; margin-right:7px;}"}
     
     return dumps(json) 
 

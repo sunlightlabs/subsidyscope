@@ -73,11 +73,14 @@
 			var val:Object;
 			
 			for each ( val in this.values ) {
-				if( val is Number )
+				if( val is Number ) {
 					total += val;
-				else
+				}
+				else {
 					total += val.value;
+		        }
 			}
+			g.set_total_value(total);
 			this.total_value = total;
 			
 			i = 0;
@@ -152,11 +155,12 @@
 
 		public override function resize( sc:ScreenCoordsBase ): void {
 			var radius:Number = this.style.radius;
+			var g:Global = Global.getInstance();
 			if (isNaN(radius)){
 				radius = ( Math.min( sc.width, sc.height ) / 2.0 );
 				var offsets:Object = {top:0, right:0, bottom:0, left:0};
 				trace("sc.width, sc.height, radius", sc.width, sc.height, radius);
-
+                
 				var i:Number;
 				var sliceContainer:PieSliceContainer;
 
@@ -175,19 +179,22 @@
 				// Shrink radius by the largest top/bottom offset
 				vRadius -= Math.max(offsets.top, offsets.bottom);
 				// check to see if the left/right labels will fit
+
 				if ((vRadius + offsets.left) > (sc.width / 2))
 				{
 					//radius -= radius + offsets.left - (sc.width / 2);
-					vRadius = (sc.width / 2) - offsets.left;
+					vRadius = (sc.width / 2) - (offsets.left);
 				}
 				if ((vRadius + offsets.right) > (sc.width / 2))
 				{
 					//radius -= radius + offsets.right - (sc.width / 2);
-					vRadius = (sc.width / 2) - offsets.right;
+					vRadius = (sc.width / 2) - (offsets.right);
 				}
-
+                
+                
 				// Make sure the radius is at least 10
-				radius = Math.max(vRadius, 10);
+				radius = Math.max(vRadius, 10) + g.get_radius_padding(); //KBL added an optional increase in the radius size since start angle affects where lables are placed
+				
 			}
 
 			var rightTopTicAngle:Number		= 720;

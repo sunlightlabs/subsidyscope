@@ -4,6 +4,7 @@
 {% load webdesign %}
 {% load humanize %}
 {% load search_tags %}
+{% load sector_tags %}
 
 {% block additional_css %}
   {% css "styles/jquery-ui/ui.all.css" %}
@@ -17,11 +18,11 @@
 	{% js "scripts/ui.datepicker.js" %}
 	
 	{% js "scripts/swfobject.js" %}
-	{% js "scripts/faads-search.js?version=4" %}
+	{% js "scripts/faads-search.js?version=5" %}
 	
 
 <!-- if JS is enabled, assume that the tabs will work and hide the other divs -->
-<script language="javascript" type="text/javascript">  		
+<script language="javascript" type="text/javascript">
 	document.write('<style type="text/css">.program-selection-target { display: none; }</style>');
 </script>
 
@@ -38,76 +39,92 @@ var sortOrder = '{{ sort_order }}';
 {% block content %}
 
 <div class="container main_container">
-    {% include "includes/transportation_nav.html" %}
+    
+    {% sector_nav %}
+    
     <div class="span-24">
         <div id="header_area">
-            <div id="screencast-link-container"><a id="screencast-link" href="{% url screencast %}">Need help? Watch the screencast.</a></div>
+            <a id="screencast-link-container" href="{% url screencast %}">Need help? Watch the screencast.</a>
             <h3>{% morsel_page_title %} (FY 2000&ndash;2009)</h3>
         </div>
         <div class="content_area">    
 	
 					<p>{% morsel text1 %}</p>
 	
-					<form action="{% url faads.views.search %}" method="POST" id="faads-search-form">
-
-					<fieldset id="text-query-wrapper">
-					  <legend>Recipient Name / Project Description</legend>
-						<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
-						<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
-					</fieldset>
+					<form action="{{ page_path }}" method="POST" id="faads-search-form">
 
 
-          <fieldset class="collapsed" id="advanced-options">
+
+          <fieldset id="advanced-options" {% if ran_search %}class="collapsed"{% endif %}>
             
-            <legend id="advanced-options">Advanced Options</legend>
+            <legend id="advanced-options">Search Options <a class="state" href="#" id="search-options-state"></a></legend>
 
-            <div class="section" id="programs">
-            <h4>Select Programs</h4>
+            {% if form.cfda_program_selection_method %}
+	            <div class="section" id="programs">
+	            <h4>Select Programs</h4>
+	            
+	            	<div id="cfda_selector_tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+	            	
+	            		{{ form.cfda_program_selection_method }}
 
-            <div id="program-selector-text">Choose programs by:</div><div id="program-selector">{{ form.cfda_program_selection_method }}</div>
-            <div class="clear-left"></div>
-             
-             <div id="program-selection-subsidy_programs" class="program-selection-target">
-              {% morsel program_selection_subsidy_programs %}    
-              <div class="clear-left"></div>                    
-             </div>                      
-            
-            {% if form.program_selection_subsector %}
-            <div id="program-selection-subsector" class="program-selection-target">
+			             <div id="program-selection-subsidy_programs" class="ui-tabs-panel">
+			              {% morsel program_selection_subsidy_programs %}    
+			              <div class="clear-left"></div>                    
+			             </div>
+			             
+			           
+			            <div id="program-selection-program" class="ui-tabs-panel">
+			           
+			              {% morsel program_selection_program %}
+			              
+			              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-program-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-program-select-none">Select None</a> ]</p>
+			              
+			              {{ form.program_selection_programs }}
+			              {{ form.program_selection_programs.errors }}
+			              <div class="clear-left"></div>
+			            
+			            </div>
+			           
+			            
+			            {% if form.program_selection_subsector %}
+			            <div id="program-selection-subsector" class="ui-tabs-panel">
+			
+			              {% morsel program_selection_subsector %}
+			
+			              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-subsector-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">Select None</a> ]</p>
+			
+			              {{ form.program_selection_subsector }}
+			              {{ form.program_selection_subsector.errors }}
+			              <div class="clear-left"></div>
+			            </div>
+			            {% endif %}
+			
 
-              {% morsel program_selection_subsector %}
-
-              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-subsector-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">Select None</a> ]</p>
-
-              {{ form.program_selection_subsector }}
-              {{ form.program_selection_subsector.errors }}
-              <div class="clear-left"></div>
-            </div>
+			    	</div>
+	            </div>
             {% endif %}
-
-            <div id="program-selection-program" class="program-selection-target">
-              
-              {% morsel program_selection_program %}
-              
-              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-program-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-program-select-none">Select None</a> ]</p>
-              
-              {{ form.program_selection_programs }}
-              {{ form.program_selection_programs.errors }}
-              <div class="clear-left"></div>
-            </div>
-            </div>
          
+         	<div class="section" id="text">
+         		<h4>Recipient Name / Project Description</h4>
+         		
+         			{% morsel full_text_search %}
+         			
+					<div id="text-query-text-wrapper">{{ form.text_query }}{{ form.text_query.errors }}</div>
+					<div id="text-query-type-wrapper">{{ form.text_query_type }}{{ form.text_query_type.errors }}</div>
+         
+         	</div>
+            
          
             <div class="section" id="type">
             <h4>Expenditure Type</h4>
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
-  						<div class="dropdown-wrapper" id="assistance-type">
+  						<div class="dropdown-wrapper">
   						  <label for="assistance_type">Assistance Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.assistance_type }}
   							{{ form.assistance_type.errors }}
   						</div>
-  						<div class="dropdown-wrapper" id="action-type">
+  						<div class="dropdown-wrapper">
   						  <label for="action_type">Action Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.action_type }}
   							{{ form.action_type.errors }}
@@ -144,8 +161,11 @@ var sortOrder = '{{ sort_order }}';
   						{{ form.obligation_amount_maximum.errors }}
 						</div>
 					</div>
+            	</div>
             </div>
-            </div>
+            
+            
+            
 
           
           <div class="section last" id="location">
@@ -172,10 +192,12 @@ var sortOrder = '{{ sort_order }}';
           {% if ran_search %}
             <input type="button" id="reset-faads-search" value="Reset Search" />
             <script type="text/javascript" charset="utf-8">
-            $(function(){ $('#reset-faads-search').click(function(){ window.location.href='{% url transportation-faads-search %}';})});
+            var original_url = window.location.href.replace(/\?.*$/,'');
+            $(function(){ $('#reset-faads-search').click(function(){ window.location.href = original_url;})});
             </script>
           {% endif %}
           
+          {{ form.sector_name }}
 					<input type="submit" value="Search" class="faads-search-submit" />
           <div class="clear-right"></div>
           
@@ -187,7 +209,7 @@ var sortOrder = '{{ sort_order }}';
 				    
 			      {% if found_some_results and ran_search %}		
 			      
-			      <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+			  <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
           		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
           			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#faads-result-table">Results</a></li>
           			<li class="ui-state-default ui-corner-top"><a href="#faads-result-graph">By Year</a></li>
@@ -196,7 +218,7 @@ var sortOrder = '{{ sort_order }}';
           		</ul>
           		
           		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-table">
-			      		    
+			         			         
 				      <table id="faads-search-results">
 				        <thead>
 				          <tr>
@@ -214,10 +236,10 @@ var sortOrder = '{{ sort_order }}';
                 {% for result in faads_results.object_list %}
                   <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.object.record_id }}">
                     <td class="obligation-date">{{ result.object.obligation_action_date }}</td>
-                    <td class="cfda-program"><a href="{% url transportation-cfda-programpage-by-programnumber result.object.cfda_program.program_number %}" title="{{ result.object.cfda_program.program_number }} {{ result.object.cfda_program.program_title }}">{{ result.object.cfda_program.program_number }}</a></td>
+                    <td class="cfda-program"><a href="/{{ sector }}/direct-expenditures/programs/{{ result.object.cfda_program.program_number }}/" title="{{ result.object.cfda_program.program_number }} {{ result.object.cfda_program.program_title }}">{{ result.object.cfda_program.program_number }}</a></td>
                     <td class="recipient-name">{{ result.object.recipient_name }}</td>
                     <td class="recipient-location">{{ result.object.recipient_city_name_for_display }}{% if result.object.recipient_city_name %}{% if result.object.recipient_state_name %},&nbsp;{% endif %}{% endif %}{{ result.object.recipient_state.abbreviation }}</td>
-                    <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name_for_display }}{% if result.object.principal_place_state_name %}{% if result.object.principal_place_county_or_city_name %},&nbsp;{% endif %}{% endif %}{{ result.object.principal_place_state.abbreviation }}</td>
+                    <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name_for_display }}{% if result.object.principal_place_state %}{% if result.object.principal_place_county_or_city_name %},&nbsp;{% endif %}{% endif %}{{ result.object.principal_place_state.abbreviation }}</td>
                     <td class="description">{{ result.object.project_description }}</td>
                     <td class="amount last">${{ result.object.federal_funding_amount|floatformat:"-0"|intcomma }}</td>
                   </tr>
@@ -270,7 +292,7 @@ var sortOrder = '{{ sort_order }}';
                     function loadChartFlash()
                     {
                     	if(!chartLoaded)
-                    		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '/transportation/direct-expenditures/search/by-year/', 'data-query':'{{ query|safe }}'});
+                    		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '{% url faads-search-by-year %}', 'data-query':'{{ query|safe }}'});
                     		
                     	chartLoaded = true;
                     }
@@ -289,18 +311,23 @@ var sortOrder = '{{ sort_order }}';
     					function loadMapFlash()
     					{
     						if(!mapLoaded)
-    	              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'/transportation/direct-expenditures/search/map/','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
-    	              			
-    	              		mapLoaded = true;
-    	              	}	
+            			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url faads-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+  	              			
+            		mapLoaded = true;
+    	        }	
     	              	
 					</script>
-                  
-                  	<div style="float: right;  margin-right: 25px;">
-						View: <select name="dataType">
-							<option value="state">Total Spending</option>
-							<option value="state_per_capital">Per Capita Spending </option>
-						</select>
+            
+            <div style="text-align: center">
+          
+              <span id="map-year-range-label"><strong>{{ year_range_text|safe }}</strong></span>
+          
+            	<div style="float: right;  margin-right: 25px;">
+    						View: <select name="dataType">
+    							<option value="state">Total Spending</option>
+    							<option value="state_per_capital">Per Capita Spending </option>
+    						</select>
+              </div>
 					</div>
 					
 					<br clear="all"/> 
@@ -324,7 +351,7 @@ var sortOrder = '{{ sort_order }}';
                  <script type="text/javascript" charset="utf-8">
 	                 function loadSummary()
 	                 {
-	                   $.get('{% url transportation-faads-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
+	                   $.get('{% url faads-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
 	                     $('#summary-container').html(data);
 	                   });
 	                 }
