@@ -134,7 +134,16 @@ class FPDSRecordIndex(indexes.SearchIndex):
             return int(object.fiscal_year)
         else:
             return None
-        
+            
+    def obligation_date(self, object):
+        try:
+            if object.effective_date.year > 1900:
+                return object.effective_date
+            else:
+                return None
+        except:
+            return None
+      
     def prepare_sectors(self, object):
         return map(lambda x: x.id, object.sectors.all())
         
