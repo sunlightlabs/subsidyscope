@@ -129,12 +129,15 @@ class RecordIndex(indexes.SearchIndex):
         else:
             return None
         
-    def prepare_obligation_date(self, object):
-        
-        if object.obligation_action_date != None:
-            return object.obligation_action_date
-        else:
-            return None       
+            
+    def obligation_date(self, object):
+        try:
+            if object.effective_date.year > 1900:
+                return object.effective_date
+            else:
+                return None
+        except:
+            return None          
     
     def prepare_federal_amount(self, object):
         
