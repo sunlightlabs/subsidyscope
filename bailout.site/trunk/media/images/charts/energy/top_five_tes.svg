@@ -12,7 +12,7 @@
    width="480"
    id="svg2"
    inkscape:version="0.47pre4 r22446"
-   sodipodi:docname="US_primary_energy_production_by_major_source_2008.svg"
+   sodipodi:docname="top_five_tes.svg"
    inkscape:export-filename="/home/kpwebb/workspace/top_five_tes.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -51,9 +51,9 @@
      inkscape:window-height="1059"
      id="namedview83"
      showgrid="false"
-     inkscape:zoom="0.69411765"
-     inkscape:cx="-0.59322034"
-     inkscape:cy="167.11864"
+     inkscape:zoom="2.5102888"
+     inkscape:cx="184.87645"
+     inkscape:cy="138.64781"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -91,12 +91,15 @@
 
 	</style>
   <rect
-     height="383.22034"
+     height="414.69083"
      width="577.96613"
      x="-96.525421"
      y="-43.220341"
      id="rect6"
-     style="fill:#ffffff" />
+     style="fill:#ffffff"
+     inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy/top_five_tes.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
   <g
      id="grid"
      transform="translate(30, 30)">
@@ -288,21 +291,21 @@
        transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
        x="-64.254158"
        y="189.39749"
-       id="text2907">and development</text>
+       id="text2907">and development, fuels</text>
     <text
        class="x-axis-label"
        style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
        transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
        x="-7.4961524"
        y="225.62239"
-       id="text75">Temporary 50% expensing</text>
+       id="text75">Temporary 50% expensing for</text>
     <text
        class="x-axis-label"
        style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
        transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
        x="11.418977"
        y="241.30846"
-       id="text2909">for equipment</text>
+       id="text2909"> liquid fuel refining equipment</text>
     <text
        class="x-axis-label"
        style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
@@ -339,7 +342,7 @@
        transform="matrix(0.81915204,-0.57357644,0.57357644,0.81915204,0,0)"
        x="216.67632"
        y="384.74149"
-       id="text2911">over cost depletion</text>
+       id="text2911">over cost depletion, fuels</text>
   </g>
   <text
      xml:space="preserve"

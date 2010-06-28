@@ -65,13 +65,14 @@
      inkscape:window-height="1059"
      id="namedview91"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="170.5"
-     inkscape:cy="152.0339"
+     inkscape:zoom="1"
+     inkscape:cx="306.5"
+     inkscape:cy="128"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
+     inkscape:current-layer="svg2"
+     inkscape:snap-bbox="true" />
   <style
      type="text/css"
      id="style4">
@@ -112,6 +113,11 @@
   <g
      id="grid"
      transform="translate(40, 40)">
+    <path
+       class="x-notch"
+       d="M 261.70269,0.15555556 261.47059,260"
+       id="path77"
+       sodipodi:nodetypes="cc" />
     <g
        class="x-axis"
        id="x_axis">
@@ -201,7 +207,7 @@
          style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$2.1</text>
     </g>
     <path
-       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
        d="M 300.9375 286.50198 L 301 286.50198 L 322 280.37549 L 342 279.38735 L 363 275.23715 L 383 273.85375 L 404 274.05138 L 425 274.05138 "
        id="path3697"
        transform="translate(-40,-40)" />
@@ -211,7 +217,7 @@
        id="path47"
        transform="translate(-40,-40)" />
     <path
-       style="fill:none;stroke:#336699;stroke-width:2;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       style="fill:none;stroke:#336699;stroke-width:2;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
        d="M 301.05453 285.64271 L 322 259.22927 L 342 105.86958 L 363 63.181838 L 383 151.91702 L 404 213.5771 L 425 243.22136 "
        id="path3682"
        transform="translate(-40,-40)" />
@@ -221,7 +227,7 @@
        id="path49"
        transform="translate(-40,-40)" />
     <path
-       style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
        d="M 301.34006 271.1774 L 322 240.65217 L 342 250.92885 L 363 282.74704 L 383 280.77075 L 404 280.37549 L 425 278.59684 "
        id="path3692"
        transform="translate(-40,-40)" />
@@ -231,7 +237,7 @@
        id="path51"
        transform="translate(-40,-40)" />
     <path
-       style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
        d="M 301.25677 231.452 L 322 206.66008 L 342 221.48221 L 363 223.65613 L 383 226.42292 L 404 251.12648 L 425 269.70356 "
        id="path3687"
        transform="translate(-40,-40)" />
@@ -302,10 +308,6 @@
        id="text75">
 			2008
 		</text>
-    <path
-       class="x-notch"
-       d="M 261.470588235 255 L 261.470588235 260"
-       id="path77" />
     <text
        class="x-axis-label"
        x="282.058823529"
