@@ -175,8 +175,8 @@ class Pie(Chart):
         else:
             label.attrib['class'] = 'pie-label-right'
         
-        if isinstance(percent, float): pct_text = "%0.1f" % percent + "%" + " - "
-        else: pct_text = "%g" % percent + "%" + " - "
+        if isinstance(percent, float): pct_text = "%0.1f" % percent + "%"
+        else: pct_text = "%g" % percent + "%"
         
         lines = str(label_text).split("\n")
         height = (len(lines) - 1) * 15
@@ -185,7 +185,11 @@ class Pie(Chart):
         for l in lines:
             elem = ET.Element("tspan", dy="15", x="%s" % x)
             if l == lines[0]:
-                elem.text = pct_text + l 
+            	if l == '':
+            		elem.text = pct_text
+            	else:
+                	elem.text = pct_text  + " - " + l 
+                
                 elem.attrib['dy'] = "0"
             else:
                 elem.text = l

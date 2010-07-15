@@ -1,66 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="350"
-   version="1.1"
-   width="500"
-   id="svg2"
-   inkscape:version="0.47pre4 r22446"
-   sodipodi:docname="depletion_allowance.svg"
-   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy/depletion_allowance.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
-  <metadata
-     id="metadata89">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs87">
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="0 : 175 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_z="500 : 175 : 1"
-       inkscape:persp3d-origin="250 : 116.66667 : 1"
-       id="perspective91" />
-  </defs>
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1059"
-     id="namedview85"
-     showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="250"
-     inkscape:cy="212.0339"
-     inkscape:window-x="1400"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
-  <style
-     type="text/css"
-     id="style4">
+<?xml version="1.0" ?>
+<svg height="350" version="1.1" width="500" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
 		
 
 .x-axis-path, .y-gridline, .x-notch { fill:none; stroke: #a7a9ac; stroke-width:1; }
@@ -86,235 +26,79 @@
 .series-2-line { fill: none; stroke: #336699; stroke-width: 2;}
 
 	</style>
-  <rect
-     height="395"
-     width="511"
-     x="-11"
-     y="-45"
-     id="rect6"
-     style="fill:#ffffff" />
-  <g
-     id="grid"
-     transform="translate(40, 40)">
-    <g
-       class="x-axis"
-       id="x_axis">
-      <path
-         class="x-axis-path"
-         d="M 0 255 L 420 255"
-         id="path10" />
-      <path
-         class="x-notch-left"
-         d="M 0 255, L 0 265"
-         id="path12" />
-      <path
-         class="x-notch-right"
-         d="M 420 255, L 420 265"
-         id="path14" />
-    </g>
-    <g
-       class="y-axis"
-       id="y_axis">
-      <path
-         class="y-axis-path"
-         d="M 0 255 L 0 0"
-         id="path17" />
-      <path
-         class="y-axis-path-2"
-         d="M 420 255 L 420 0"
-         id="path19" />
-      <path
-         class="y-gridline"
-         d="M 0 0 L 420 0"
-         id="path21" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="0"
-         id="text23"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$1,452</text>
-      <path
-         class="y-gridline"
-         d="M 0 42 L 420 42"
-         id="path25" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="42"
-         id="text27"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$1,210</text>
-      <path
-         class="y-gridline"
-         d="M 0 84 L 420 84"
-         id="path29" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="84"
-         id="text31"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$968</text>
-      <path
-         class="y-gridline"
-         d="M 0 126 L 420 126"
-         id="path33" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="126"
-         id="text35"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$726</text>
-      <path
-         class="y-gridline"
-         d="M 0 168 L 420 168"
-         id="path37" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="168"
-         id="text39"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$484</text>
-      <path
-         class="y-gridline"
-         d="M 0 210 L 420 210"
-         id="path41" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="210"
-         id="text43"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$242</text>
-    </g>
-    <g
-       id="g45">
-      <path
-         class="series-1-line"
-         d="M 35 211.095041322 L 55 208.460743802 L 76 195.289256198 L 96 211.095041322 L 117 147.871900826 L 137 142.603305785 L 158 23.1818181818 L 179 151.384297521 L 199 121.52892562 L 220 116.260330579 L 240 195.289256198 L 261 195.289256198 L 282 147.871900826 L 302 137.334710744 L 323 89.9173553719 L 343 56.5495867769 L 364 51.2809917355 L 385 46.0123966942"
-         id="path47" />
-    </g>
-    <text
-       class="x-axis-label"
-       x="35.0"
-       y="270"
-       id="text49">
+	<rect fill="white" height="350" width="500" x="0" y="0"/>
+	<g id="grid" transform="translate(40, 40)">
+		<g class="x-axis" id="x_axis">
+			<path class="x-axis-path" d="M 0 255 L 420 255"/>
+			<path class="x-notch-left" d="M 0 255, L 0 265"/>
+			<path class="x-notch-right" d="M 420 255, L 420 265"/>
+		</g>
+		<g class="y-axis" id="y_axis">
+			<path class="y-axis-path" d="M 0 255 L 0 0"/>
+			<path class="y-axis-path-2" d="M 420 255 L 420 0"/>
+			<path class="y-gridline" d="M 0 0 L 420 0"/>
+			<text class="y-axis-label" x="-5" y="0">
+				1.5
+			</text>
+			<path class="y-gridline" d="M 0 42 L 420 42"/>
+			<text class="y-axis-label" x="-5" y="42">
+				1.2
+			</text>
+			<path class="y-gridline" d="M 0 84 L 420 84"/>
+			<text class="y-axis-label" x="-5" y="84">
+				968
+			</text>
+			<path class="y-gridline" d="M 0 126 L 420 126"/>
+			<text class="y-axis-label" x="-5" y="126">
+				726
+			</text>
+			<path class="y-gridline" d="M 0 168 L 420 168"/>
+			<text class="y-axis-label" x="-5" y="168">
+				484
+			</text>
+			<path class="y-gridline" d="M 0 210 L 420 210"/>
+			<text class="y-axis-label" x="-5" y="210">
+				242
+			</text>
+		</g>
+		<g>
+			<path class="series-1-line" d="M 35 211.095041322 L 55 208.460743802 L 76 195.289256198 L 96 211.095041322 L 117 147.871900826 L 137 142.603305785 L 158 23.1818181818 L 179 151.384297521 L 199 121.52892562 L 220 116.260330579 L 240 195.289256198 L 261 195.289256198 L 282 147.871900826 L 302 137.334710744 L 323 89.9173553719 L 343 56.5495867769 L 364 51.2809917355 L 385 46.0123966942"/>
+		</g>
+		<text class="x-axis-label" x="35.0" y="270">
 			1998
 		</text>
-    <path
-       class="x-notch"
-       d="M 55.5882352941 255 L 55.5882352941 260"
-       id="path51" />
-    <text
-       class="x-axis-label"
-       x="76.1764705882"
-       y="270"
-       id="text53">
+		<path class="x-notch" d="M 55.5882352941 255 L 55.5882352941 260"/>
+		<text class="x-axis-label" x="76.1764705882" y="270">
 			2000
 		</text>
-    <path
-       class="x-notch"
-       d="M 96.7647058824 255 L 96.7647058824 260"
-       id="path55" />
-    <text
-       class="x-axis-label"
-       x="117.352941176"
-       y="270"
-       id="text57">
+		<path class="x-notch" d="M 96.7647058824 255 L 96.7647058824 260"/>
+		<text class="x-axis-label" x="117.352941176" y="270">
 			2002
 		</text>
-    <path
-       class="x-notch"
-       d="M 137.941176471 255 L 137.941176471 260"
-       id="path59" />
-    <text
-       class="x-axis-label"
-       x="158.529411765"
-       y="270"
-       id="text61">
+		<path class="x-notch" d="M 137.941176471 255 L 137.941176471 260"/>
+		<text class="x-axis-label" x="158.529411765" y="270">
 			2004
 		</text>
-    <path
-       class="x-notch"
-       d="M 179.117647059 255 L 179.117647059 260"
-       id="path63" />
-    <text
-       class="x-axis-label"
-       x="199.705882353"
-       y="270"
-       id="text65">
+		<path class="x-notch" d="M 179.117647059 255 L 179.117647059 260"/>
+		<text class="x-axis-label" x="199.705882353" y="270">
 			2006
 		</text>
-    <path
-       class="x-notch"
-       d="M 220.294117647 255 L 220.294117647 260"
-       id="path67" />
-    <text
-       class="x-axis-label"
-       x="240.882352941"
-       y="270"
-       id="text69">
+		<path class="x-notch" d="M 220.294117647 255 L 220.294117647 260"/>
+		<text class="x-axis-label" x="240.882352941" y="270">
 			2008
 		</text>
-    <path
-       class="x-notch"
-       d="M 261.470588235 255 L 261.470588235 260"
-       id="path71" />
-    <text
-       class="x-axis-label"
-       x="282.058823529"
-       y="270"
-       id="text73">
+		<path class="x-notch" d="M 261.470588235 255 L 261.470588235 260"/>
+		<text class="x-axis-label" x="282.058823529" y="270">
 			2010
 		</text>
-    <path
-       class="x-notch"
-       d="M 302.647058824 255 L 302.647058824 260"
-       id="path75" />
-    <text
-       class="x-axis-label"
-       x="323.235294118"
-       y="270"
-       id="text77">
+		<path class="x-notch" d="M 302.647058824 255 L 302.647058824 260"/>
+		<text class="x-axis-label" x="323.235294118" y="270">
 			2012
 		</text>
-    <path
-       class="x-notch"
-       d="M 343.823529412 255 L 343.823529412 260"
-       id="path79" />
-    <text
-       class="x-axis-label"
-       x="364.411764706"
-       y="270"
-       id="text81">
+		<path class="x-notch" d="M 343.823529412 255 L 343.823529412 260"/>
+		<text class="x-axis-label" x="364.411764706" y="270">
 			2014
 		</text>
-    <path
-       class="x-notch"
-       d="M 385.0 255 L 385.0 260"
-       id="path83" />
-  </g>
-  <text
-     xml:space="preserve"
-     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
-     x="240"
-     y="-20.5"
-     id="text2897"><tspan
-       sodipodi:role="line"
-       id="tspan2899"
-       x="242.78125"
-       y="-20.5">Percentage Depletion Allowance </tspan><tspan
-       sodipodi:role="line"
-       x="240"
-       y="-0.5"
-       id="tspan2901">from FY 1998 to FY 2013</tspan><tspan
-       sodipodi:role="line"
-       x="240"
-       y="19.5"
-       id="tspan2911">($ millions)</tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
-     x="342"
-     y="3"
-     id="text2903"><tspan
-       sodipodi:role="line"
-       id="tspan2907" /></text>
+		<path class="x-notch" d="M 385.0 255 L 385.0 260"/>
+	</g>
 </svg>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="350"
+   version="1.1"
+   width="500"
+   id="svg2"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="depletion_allowance.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy_final_charts/depletion_allowance.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata89">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs87">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 175 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="500 : 175 : 1"
+       inkscape:persp3d-origin="250 : 116.66667 : 1"
+       id="perspective91" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
+     id="namedview85"
+     showgrid="false"
+     inkscape:zoom="1.5273506"
+     inkscape:cx="344.73218"
+     inkscape:cy="169.26049"
+     inkscape:window-x="1400"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <style
+     type="text/css"
+     id="style4">
+		
+
+.x-axis-path, .y-gridline, .x-notch { fill:none; stroke: #a7a9ac; stroke-width:1; }
+
+
+
+.y-gridline { stroke-width: 1; }
+
+.y-axis-path, .y-axis-path2, .x-notch-left, .x-notch-right { display: none;}
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:normal; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+.y-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-anchor:end;}
+
+
+
+.series-1-line { fill: none; stroke: #bf5004; stroke-width:2; }
+
+
+
+.series-2-line { fill: none; stroke: #336699; stroke-width: 2;}
+
+	</style>
+  <rect
+     height="395"
+     width="511"
+     x="-11"
+     y="-45"
+     id="rect6"
+     style="fill:#ffffff" />
+  <g
+     id="x_axis"
+     class="x-axis"
+     transform="translate(40,40)">
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path10"
+       d="m 0,255 420,0"
+       class="x-axis-path" />
+    <path
+       style="display:none"
+       id="path12"
+       d="M 0,255"
+       class="x-notch-left" />
+    <path
+       style="display:none"
+       id="path14"
+       d="M 420,255"
+       class="x-notch-right" />
+  </g>
+  <g
+     id="y_axis"
+     class="y-axis"
+     transform="translate(40,40)">
+    <path
+       style="display:none"
+       id="path17"
+       d="M 0,255 0,0"
+       class="y-axis-path" />
+    <path
+       id="path19"
+       d="M 420,255 420,0"
+       class="y-axis-path-2" />
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path21"
+       d="M 0,0 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text23"
+       y="0"
+       x="-5"
+       class="y-axis-label">$1,452</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path25"
+       d="m 0,42 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text27"
+       y="42"
+       x="-5"
+       class="y-axis-label">$1,210</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path29"
+       d="m 0,84 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text31"
+       y="84"
+       x="-5"
+       class="y-axis-label">$968</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path33"
+       d="m 0,126 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text35"
+       y="126"
+       x="-5"
+       class="y-axis-label">$726</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path37"
+       d="m 0,168 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text39"
+       y="168"
+       x="-5"
+       class="y-axis-label">$484</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path41"
+       d="m 0,210 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text43"
+       y="210"
+       x="-5"
+       class="y-axis-label">$242</text>
+  </g>
+  <g
+     id="g45"
+     transform="translate(40,40)">
+    <path
+       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 301 235.28926 L 301 235.28926 L 322 187.8719 L 342 177.33471 L 363 129.91735 L 383 96.549587 L 404 91.280992 L 425 86.012397 "
+       id="path2915"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#bf5004;stroke-width:2"
+       d="M 75 251.09504 L 95 248.46074 L 116 235.28926 L 136 251.09504 L 157 187.8719 L 177 182.60331 L 198 63.181818 L 219 191.3843 L 239 161.52893 L 260 156.26033 L 280 235.28926 L 301 235.28926 "
+       id="path47"
+       transform="translate(-40,-40)" />
+  </g>
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text49"
+     y="310"
+     x="75"
+     class="x-axis-label">1998</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path51"
+     d="m 95.588235,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text53"
+     y="310"
+     x="116.17647"
+     class="x-axis-label">2000</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path55"
+     d="m 136.76471,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text57"
+     y="310"
+     x="157.35294"
+     class="x-axis-label">2002</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path59"
+     d="m 177.94118,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text61"
+     y="310"
+     x="198.52942"
+     class="x-axis-label">2004</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path63"
+     d="m 219.11765,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text65"
+     y="310"
+     x="239.70589"
+     class="x-axis-label">2006</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path67"
+     d="m 260.29412,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text69"
+     y="310"
+     x="280.88235"
+     class="x-axis-label">2008</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path71"
+     d="M 301.00763,39.907407 301.47059,300"
+     class="x-notch"
+     sodipodi:nodetypes="cc" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text73"
+     y="310"
+     x="322.05884"
+     class="x-axis-label">2010</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path75"
+     d="m 342.64706,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text77"
+     y="310"
+     x="363.23529"
+     class="x-axis-label">2012</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path79"
+     d="m 383.82353,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text81"
+     y="310"
+     x="404.41177"
+     class="x-axis-label">2014</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path83"
+     d="m 425,295 0,5"
+     class="x-notch" />
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+     x="240"
+     y="-20.5"
+     id="text2897"><tspan
+       sodipodi:role="line"
+       id="tspan2899"
+       x="242.78125"
+       y="-20.5">Percentage Depletion Allowance </tspan><tspan
+       sodipodi:role="line"
+       x="240"
+       y="-0.5"
+       id="tspan2901">from FY 1998 to FY 2015</tspan><tspan
+       sodipodi:role="line"
+       x="240"
+       y="19.5"
+       id="tspan2911">($ millions)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+     x="342"
+     y="3"
+     id="text2903"><tspan
+       sodipodi:role="line"
+       id="tspan2907" /></text>
+</svg>
