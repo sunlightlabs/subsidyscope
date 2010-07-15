@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="350"
+   version="1.1"
+   width="500"
+   id="svg2"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="energy_te_history.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy_final_charts/energy_te_history.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata95">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs93">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 175 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="500 : 175 : 1"
+       inkscape:persp3d-origin="250 : 116.66667 : 1"
+       id="perspective97" />
+    <inkscape:perspective
+       id="perspective3668"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3683"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
+     id="namedview91"
+     showgrid="false"
+     inkscape:zoom="0.94047619"
+     inkscape:cx="512.22631"
+     inkscape:cy="41.237132"
+     inkscape:window-x="1400"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     inkscape:snap-bbox="true" />
+  <style
+     type="text/css"
+     id="style4">
+		
+
+.x-axis-path, .y-gridline, .x-notch { fill:none; stroke: #a7a9ac; stroke-width:1; }
+
+
+
+.y-gridline { stroke-width: 1; }
+
+.y-axis-path, .y-axis-path2, .x-notch-left, .x-notch-right { display: none;}
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:normal; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+.y-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-anchor:end;}
+
+
+
+.series-1-line { fill: none; stroke: #bf5004; stroke-width:2; }
+
+
+
+.series-2-line { fill: none; stroke: #336699; stroke-width: 2;}
+
+	</style>
+  <rect
+     height="409.5"
+     width="515"
+     x="-10"
+     y="-28"
+     id="rect6"
+     style="fill:#ffffff"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90" />
+  <g
+     id="grid"
+     transform="translate(40, 40)">
+    <path
+       class="x-notch"
+       d="M 261.70269,0.15555556 261.47059,260"
+       id="path77"
+       sodipodi:nodetypes="cc" />
+    <g
+       class="x-axis"
+       id="x_axis">
+      <path
+         class="x-axis-path"
+         d="M 0 255 L 420 255"
+         id="path10" />
+      <path
+         class="x-notch-left"
+         d="M 0 255, L 0 265"
+         id="path12" />
+      <path
+         class="x-notch-right"
+         d="M 420 255, L 420 265"
+         id="path14" />
+    </g>
+    <g
+       class="y-axis"
+       id="y_axis">
+      <path
+         class="y-axis-path"
+         d="M 0 255 L 0 0"
+         id="path17" />
+      <path
+         class="y-axis-path-2"
+         d="M 420 255 L 420 0"
+         id="path19" />
+      <path
+         class="y-gridline"
+         d="M 0 0 L 420 0"
+         id="path21" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="0"
+         id="text23"
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$12.9</text>
+      <path
+         class="y-gridline"
+         d="M 0 42 L 420 42"
+         id="path25" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="42"
+         id="text27"
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$10.8</text>
+      <path
+         class="y-gridline"
+         d="M 0 84 L 420 84"
+         id="path29" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="84"
+         id="text31"
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$8.6</text>
+      <path
+         class="y-gridline"
+         d="M 0 126 L 420 126"
+         id="path33" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="126"
+         id="text35"
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$6.5</text>
+      <path
+         class="y-gridline"
+         d="M 0 168 L 420 168"
+         id="path37" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="168"
+         id="text39"
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$4.3</text>
+      <path
+         class="y-gridline"
+         d="M 0 210 L 420 210"
+         id="path41" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="210"
+         id="text43"
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">$2.1</text>
+    </g>
+    <path
+       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 300.9375 286.50198 L 301 286.50198 L 322 280.37549 L 342 279.38735 L 363 275.23715 L 383 273.85375 L 404 274.05138 L 425 274.05138 "
+       id="path3697"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-opacity:1"
+       d="M 75 292.33202 L 95 291.73913 L 116 292.43083 L 136 292.03557 L 157 290.8498 L 177 287.68775 L 198 286.50198 L 219 278.99209 L 239 271.87747 L 260 274.24901 L 280 286.50198 L 300.9375 286.50198 "
+       id="path47"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#336699;stroke-width:2;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 301.05453 285.64271 L 322 259.22927 L 342 105.86958 L 363 63.181838 L 383 151.91702 L 404 213.5771 L 425 243.22136 "
+       id="path3682"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#336699;stroke-width:2;stroke-opacity:1"
+       d="M 75 294.70356 L 95 294.70356 L 116 294.60476 L 136 294.40713 L 157 294.40713 L 177 294.40713 L 198 294.40713 L 219 294.20951 L 239 292.03559 L 260 288.67591 L 280 284.13045 L 301 285.71148 L 301.05453 285.64271 "
+       id="path49"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 301.34006 271.1774 L 322 240.65217 L 342 250.92885 L 363 282.74704 L 383 280.77075 L 404 280.37549 L 425 278.59684 "
+       id="path3692"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 75 293.51779 L 95 293.32016 L 116 293.81423 L 136 294.01186 L 157 293.6166 L 177 293.6166 L 198 293.6166 L 219 292.03557 L 239 281.75889 L 260 274.05138 L 280 271.67984 L 301 271.67984 L 301.34006 271.1774 "
+       id="path51"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 301.25677 231.452 L 322 206.66008 L 342 221.48221 L 363 223.65613 L 383 226.42292 L 404 251.12648 L 425 269.70356 "
+       id="path3687"
+       transform="translate(-40,-40)" />
+    <path
+       style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 75 273.4585 L 95 269.20949 L 116 266.93676 L 136 268.91304 L 157 246.97628 L 177 250.5336 L 198 241.44269 L 219 227.21344 L 239 203.10277 L 260 203.49802 L 280 231.36364 L 301 231.75889 L 301.25677 231.452 "
+       id="path53"
+       transform="translate(-40,-40)" />
+    <text
+       class="x-axis-label"
+       x="35.0"
+       y="270"
+       id="text55">
+			1998
+		</text>
+    <path
+       class="x-notch"
+       d="M 55.5882352941 255 L 55.5882352941 260"
+       id="path57" />
+    <text
+       class="x-axis-label"
+       x="76.1764705882"
+       y="270"
+       id="text59">
+			2000
+		</text>
+    <path
+       class="x-notch"
+       d="M 96.7647058824 255 L 96.7647058824 260"
+       id="path61" />
+    <text
+       class="x-axis-label"
+       x="117.352941176"
+       y="270"
+       id="text63">
+			2002
+		</text>
+    <path
+       class="x-notch"
+       d="M 137.941176471 255 L 137.941176471 260"
+       id="path65" />
+    <text
+       class="x-axis-label"
+       x="158.529411765"
+       y="270"
+       id="text67">
+			2004
+		</text>
+    <path
+       class="x-notch"
+       d="M 179.117647059 255 L 179.117647059 260"
+       id="path69" />
+    <text
+       class="x-axis-label"
+       x="199.705882353"
+       y="270"
+       id="text71">
+			2006
+		</text>
+    <path
+       class="x-notch"
+       d="M 220.294117647 255 L 220.294117647 260"
+       id="path73" />
+    <text
+       class="x-axis-label"
+       x="240.882352941"
+       y="270"
+       id="text75">
+			2008
+		</text>
+    <text
+       class="x-axis-label"
+       x="282.058823529"
+       y="270"
+       id="text79">
+			2010
+		</text>
+    <path
+       class="x-notch"
+       d="M 302.647058824 255 L 302.647058824 260"
+       id="path81" />
+    <text
+       class="x-axis-label"
+       x="323.235294118"
+       y="270"
+       id="text83">
+			2012
+		</text>
+    <path
+       class="x-notch"
+       d="M 343.823529412 255 L 343.823529412 260"
+       id="path85" />
+    <text
+       class="x-axis-label"
+       x="364.411764706"
+       y="270"
+       id="text87">
+			2014
+		</text>
+    <path
+       class="x-notch"
+       d="M 385.0 255 L 385.0 260"
+       id="path89" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+     x="249.10938"
+     y="4.9023438"
+     id="text3890"><tspan
+       sodipodi:role="line"
+       id="tspan3892"
+       x="249.10938"
+       y="4.9023438">Energy Related Tax Expenditures</tspan><tspan
+       sodipodi:role="line"
+       x="249.10938"
+       y="24.902344"
+       id="tspan3894">($ billions)</tspan></text>
+  <g
+     id="g3873"
+     transform="translate(-178.19106,339.83294)">
+    <g
+       id="g3800"
+       transform="translate(130.66932,-334.13043)">
+      <rect
+         style="fill:#028900;fill-opacity:1;stroke:none"
+         id="rect3675"
+         width="13.043478"
+         height="13.043478"
+         x="83.478271"
+         y="325.65216" />
+      <rect
+         style="fill:#336699;fill-opacity:1;stroke:none"
+         id="rect3675-3"
+         width="13.043478"
+         height="13.043478"
+         x="83.478271"
+         y="341.73914" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+         x="103.28415"
+         y="336.08698"
+         id="text3739"
+         inkscape:transform-center-x="-26.956522"
+         inkscape:transform-center-y="-13.913043"><tspan
+           sodipodi:role="line"
+           id="tspan3741"
+           x="103.28415"
+           y="336.08698">Support fossil fuels</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+         x="104.36813"
+         y="352.36078"
+         id="text3739-3"
+         inkscape:transform-center-x="-26.956522"
+         inkscape:transform-center-y="-13.913043"><tspan
+           sodipodi:role="line"
+           x="104.36813"
+           y="352.36078"
+           id="tspan2885">Support renewable and </tspan><tspan
+           sodipodi:role="line"
+           x="104.36813"
+           y="367.36078"
+           id="tspan2889">alternative fuels</tspan><tspan
+           sodipodi:role="line"
+           x="104.36813"
+           y="382.36078"
+           id="tspan3790" /></text>
+    </g>
+    <rect
+       y="-8.4782677"
+       x="429.79974"
+       height="13.043478"
+       width="13.043478"
+       id="rect3675-5"
+       style="fill:#f1b100;fill-opacity:1;stroke:none" />
+    <rect
+       y="23.608707"
+       x="429.79974"
+       height="13.043478"
+       width="13.043478"
+       id="rect3675-1"
+       style="fill:#bf5004;fill-opacity:1;stroke:none" />
+    <text
+       inkscape:transform-center-y="-13.913043"
+       inkscape:transform-center-x="-26.956522"
+       id="text3739-1"
+       y="2.330235"
+       x="450.10953"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+       xml:space="preserve"><tspan
+         y="2.330235"
+         x="450.10953"
+         id="tspan3741-2"
+         sodipodi:role="line">Encourage energy efficiency </tspan><tspan
+         id="tspan2881"
+         y="17.330235"
+         x="450.10953"
+         sodipodi:role="line">or conservation</tspan></text>
+    <text
+       inkscape:transform-center-y="-13.913043"
+       inkscape:transform-center-x="-26.956522"
+       id="text3739-4"
+       y="34.604069"
+       x="449.60562"
+       style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+       xml:space="preserve"><tspan
+         y="34.604069"
+         x="449.60562"
+         id="tspan3741-7"
+         sodipodi:role="line">Multi-use</tspan></text>
+  </g>
+</svg>

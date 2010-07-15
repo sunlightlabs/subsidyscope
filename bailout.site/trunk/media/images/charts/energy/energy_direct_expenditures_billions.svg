@@ -38,31 +38,31 @@
 			<path class="y-axis-path-2" d="M 420 255 L 420 0"/>
 			<path class="y-gridline" d="M 0 0 L 420 0"/>
 			<text class="y-axis-label" x="-5" y="0">
-				14.9
+				20.5
 			</text>
 			<path class="y-gridline" d="M 0 42 L 420 42"/>
 			<text class="y-axis-label" x="-5" y="42">
-				12.4
+				17.1
 			</text>
 			<path class="y-gridline" d="M 0 84 L 420 84"/>
 			<text class="y-axis-label" x="-5" y="84">
-				9.9
+				13.6
 			</text>
 			<path class="y-gridline" d="M 0 126 L 420 126"/>
 			<text class="y-axis-label" x="-5" y="126">
-				7.4
+				10.2
 			</text>
 			<path class="y-gridline" d="M 0 168 L 420 168"/>
 			<text class="y-axis-label" x="-5" y="168">
-				5.0
+				6.8
 			</text>
 			<path class="y-gridline" d="M 0 210 L 420 210"/>
 			<text class="y-axis-label" x="-5" y="210">
-				2.5
+				3.4
 			</text>
 		</g>
 		<g>
-			<path class="series-1-line" d="M 35 231.491132654 L 73 229.711399445 L 112 225.035941805 L 151 222.827991102 L 190 218.494481165 L 229 218.748824273 L 268 219.409302328 L 307 217.819859258 L 346 220.067111326 L 385 23.1818181818"/>
+			<path class="series-1-line" d="M 35 214.948091882 L 73 213.97278079 L 112 188.397428832 L 151 196.475474479 L 190 204.968401987 L 229 201.747962605 L 268 190.877313663 L 307 201.084585514 L 346 197.309492953 L 385 23.1818181818"/>
 		</g>
 		<text class="x-axis-label" x="35.0" y="270">
 			2000

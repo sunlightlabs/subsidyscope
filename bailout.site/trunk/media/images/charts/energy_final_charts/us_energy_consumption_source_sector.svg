@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2864"
+   version="1.1"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="us_energy_consumption_source_sector.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy_final_charts/us_energy_consumption_source_sector.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs2866">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective2872" />
+    <inkscape:perspective
+       id="perspective3029"
+       inkscape:persp3d-origin="60 : 40 : 1"
+       inkscape:vp_z="120 : 60 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 60 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3191"
+       inkscape:persp3d-origin="60 : 40 : 1"
+       inkscape:vp_z="120 : 60 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 60 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3342"
+       inkscape:persp3d-origin="60 : 40 : 1"
+       inkscape:vp_z="120 : 60 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 60 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3505"
+       inkscape:persp3d-origin="60 : 40 : 1"
+       inkscape:vp_z="120 : 60 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 60 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2949"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2978"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       id="perspective3007" />
+    <inkscape:perspective
+       id="perspective2892"
+       inkscape:persp3d-origin="60 : 40 : 1"
+       inkscape:vp_z="120 : 60 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 60 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3407"
+       inkscape:persp3d-origin="60 : 40 : 1"
+       inkscape:vp_z="120 : 60 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 60 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3618"
+       inkscape:persp3d-origin="60 : 40 : 1"
+       inkscape:vp_z="120 : 60 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 60 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3944"
+       inkscape:persp3d-origin="60 : 40 : 1"
+       inkscape:vp_z="120 : 60 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 60 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.2372568"
+     inkscape:cx="227.82451"
+     inkscape:cy="458.23887"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
+     inkscape:window-x="1400"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata2869">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;stroke:none;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 2;stroke-dashoffset:0;fill-opacity:1"
+       id="rect3621"
+       width="723.37445"
+       height="253.78725"
+       x="17.781273"
+       y="421.12701" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+       x="34.285713"
+       y="483.79074"
+       id="text3054"><tspan
+         sodipodi:role="line"
+         id="tspan3056" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+       x="89.24868"
+       y="453.4566"
+       id="text3058"><tspan
+         sodipodi:role="line"
+         id="tspan3060"
+         x="89.24868"
+         y="453.4566">U.S. Primary Energy Consumption by Sector, by Source, 2008</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+       x="79.879463"
+       y="515.48511"
+       id="text3062"><tspan
+         sodipodi:role="line"
+         id="tspan3064"
+         x="79.879463"
+         y="515.48511">Electric </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+       x="228.1983"
+       y="512.38354"
+       id="text3213"><tspan
+         sodipodi:role="line"
+         id="tspan3215"
+         x="228.1983"
+         y="512.38354">Transportation</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3364"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:sans;font-style:normal;font-weight:bold;font-size:16;-inkscape-font-specification:Bitstream Charter Bold"><flowRegion
+         id="flowRegion3366"><rect
+           id="rect3368"
+           width="150.33258"
+           height="37.179024"
+           x="173.77153"
+           y="514.88281" /></flowRegion><flowPara
+         id="flowPara3370" /></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+       x="436.96313"
+       y="515.48511"
+       id="text3372"><tspan
+         sodipodi:role="line"
+         x="436.96313"
+         y="515.48511"
+         id="tspan3376">Industrial</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:bold;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+       x="593.56256"
+       y="495.48511"
+       id="text3527"><tspan
+         sodipodi:role="line"
+         id="tspan3529"
+         x="593.56256"
+         y="495.48511">Residential &amp;</tspan><tspan
+         sodipodi:role="line"
+         x="593.56256"
+         y="515.48511"
+         id="tspan3531">Commercial</tspan></text>
+    <g
+       transform="translate(55.875234,533.28206)"
+       id="g2894-7">
+      <rect
+         style="fill:#ffffff"
+         height="120"
+         width="120"
+         x="0"
+         y="0"
+         id="rect2854-5" />
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif"
+         class="pie-label-right"
+         x="123"
+         y="58"
+         id="text2856-3">
+        <tspan
+           dy="0"
+           x="123.96227"
+           id="tspan2858-8">1.2%</tspan>
+      </text>
+      <path
+         style="fill:#072744;stroke:#d6d9db;stroke-width:2"
+         class="slice-1"
+         d="m 60,60 57,0 a 57,57 0 0 0 -0.15085,-4.14411 z"
+         id="path2860-8" />
+      <text
+         class="pie-label-left"
+         x="11.305085"
+         y="18.915255"
+         id="text2862-3"
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
+        <tspan
+           dy="0"
+           x="11.672959"
+           id="tspan2864-1">51.4%</tspan>
+      </text>
+      <path
+         style="fill:#2b5b8e;stroke:#d6d9db;stroke-width:2"
+         class="slice-2"
+         d="m 60,60 56.84915,-4.14411 A 57,57 0 1 0 3.7322879,69.107391 z"
+         id="path2866-8" />
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
+         class="pie-label-left"
+         x="9"
+         y="106"
+         id="text2868-9">
+        <tspan
+           dy="0"
+           x="9.2808104"
+           id="tspan2870-6">17.1%</tspan>
+      </text>
+      <path
+         style="fill:#669eb3;stroke:#d6d9db;stroke-width:2"
+         class="slice-3"
+         d="M 60,60 3.7322879,69.107391 A 57,57 0 0 0 41.09952,113.7752 z"
+         id="path2872-4" />
+      <text
+         class="pie-label-right"
+         x="102.91525"
+         y="111.81356"
+         id="text2874-3"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           dy="0"
+           x="103.19329"
+           id="tspan2876-3">21.1%</tspan>
+      </text>
+      <path
+         style="fill:#bad9e0;stroke:#d6d9db;stroke-width:2"
+         class="slice-4"
+         d="M 60,60 41.09952,113.7752 A 57,57 0 0 0 107.68016,91.234638 z"
+         id="path2878-3" />
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif"
+         class="pie-label-right"
+         x="121"
+         y="86"
+         id="text2880-8">
+        <tspan
+           dy="0"
+           x="121.62037"
+           id="tspan2882-6">9.2%</tspan>
+      </text>
+      <path
+         style="fill:#e9ece3;stroke:#d6d9db;stroke-width:2"
+         class="slice-5"
+         d="m 60,60 47.68016,31.234638 A 57,57 0 0 0 117,60 z"
+         id="path2884-0" />
+    </g>
+    <g
+       id="g3411"
+       transform="translate(236.34763,535.70678)">
+      <rect
+         id="rect3369"
+         y="0"
+         x="0"
+         width="120"
+         height="120"
+         style="fill:#ffffff" />
+      <text
+         id="text3371"
+         y="13"
+         x="23"
+         class="pie-label-left"
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3373"
+           x="22.825367"
+           dy="0">94.6%</tspan>
+      </text>
+      <path
+         id="path3375"
+         d="m 60,60 57,0 a 57,57 0 1 0 -3.27756,19.049927 z"
+         class="slice-1"
+         style="fill:#072744;stroke:#d6d9db;stroke-width:2" />
+      <path
+         id="path3381"
+         d="m 60,60 53.72244,19.049927 a 0,0 0 0 0 0,0 z"
+         class="slice-2"
+         style="fill:#2b5b8e;stroke:#d6d9db;stroke-width:2" />
+      <text
+         id="text3383"
+         y="84"
+         x="122"
+         class="pie-label-right"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3385"
+           x="122.01958"
+           dy="0">2.4%</tspan>
+      </text>
+      <path
+         id="path3387"
+         d="m 60,60 53.72244,19.049927 a 57,57 0 0 0 2.27337,-8.39775 z"
+         class="slice-3"
+         style="fill:#669eb3;stroke:#d6d9db;stroke-width:2" />
+      <path
+         id="path3393"
+         d="m 60,60 55.99581,10.652177 a 0,0 0 0 0 0,0 z"
+         class="slice-4"
+         style="fill:#bad9e0;stroke:#d6d9db;stroke-width:2" />
+      <text
+         id="text3395"
+         y="67"
+         x="123"
+         class="pie-label-right"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3397"
+           x="123.7484"
+           dy="0">3.0%</tspan>
+      </text>
+      <path
+         id="path3399"
+         d="m 60,60 55.99581,10.652177 A 57,57 0 0 0 117,60 z"
+         class="slice-5"
+         style="fill:#e9ece3;stroke:#d6d9db;stroke-width:2" />
+    </g>
+    <g
+       id="g3622"
+       transform="translate(423.54451,534.45135)">
+      <rect
+         id="rect3580"
+         y="0"
+         x="0"
+         width="120"
+         height="120"
+         style="fill:#ffffff" />
+      <text
+         id="text3582"
+         y="13"
+         x="-20"
+         class="pie-label-right"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3584"
+           x="-19.1614"
+           dy="0">41.6%</tspan>
+      </text>
+      <path
+         id="path3586"
+         d="m 60,60 57,0 A 57,57 0 0 0 10.725759,31.346044 z"
+         class="slice-1"
+         style="fill:#072744;stroke:#d6d9db;stroke-width:2" />
+      <text
+         id="text3588"
+         y="43"
+         x="2"
+         class="pie-label-left"
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3590"
+           x="1.7234433"
+           dy="0">8.9%</tspan>
+      </text>
+      <path
+         id="path3592"
+         d="M 60,60 10.725759,31.346044 A 57,57 0 0 0 3.0322736,61.91785 z"
+         class="slice-2"
+         style="fill:#2b5b8e;stroke:#d6d9db;stroke-width:2" />
+      <text
+         id="text3594"
+         y="114"
+         x="23"
+         class="pie-label-left"
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3596"
+           x="23.359577"
+           dy="0">39.5%</tspan>
+      </text>
+      <path
+         id="path3598"
+         d="M 60,60 3.0322736,61.91785 A 57,57 0 0 0 106.18631,93.403968 z"
+         class="slice-3"
+         style="fill:#669eb3;stroke:#d6d9db;stroke-width:2" />
+      <path
+         id="path3604"
+         d="m 60,60 46.18631,33.403968 a 0,0 0 0 0 0,0 z"
+         class="slice-4"
+         style="fill:#bad9e0;stroke:#d6d9db;stroke-width:2" />
+      <text
+         id="text3606"
+         y="87"
+         x="115"
+         class="pie-label-right"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3608"
+           x="115.22923"
+           dy="0">10.0%</tspan>
+      </text>
+      <path
+         id="path3610"
+         d="m 60,60 46.18631,33.403968 A 57,57 0 0 0 117,60 z"
+         class="slice-5"
+         style="fill:#e9ece3;stroke:#d6d9db;stroke-width:2" />
+    </g>
+    <g
+       id="g3948"
+       transform="translate(586.14607,536.85167)">
+      <rect
+         id="rect3906"
+         y="0"
+         x="0"
+         width="120"
+         height="120"
+         style="fill:#ffffff" />
+      <text
+         id="text3908"
+         y="31"
+         x="110"
+         class="pie-label-right"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3910"
+           x="110.65782"
+           dy="0">16.3%</tspan>
+      </text>
+      <path
+         id="path3912"
+         d="m 60,60 57,0 A 57,57 0 0 0 89.52279,11.241361 z"
+         class="slice-1"
+         style="fill:#072744;stroke:#d6d9db;stroke-width:2" />
+      <text
+         id="text3914"
+         y="7"
+         x="89"
+         class="pie-label-right"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3916"
+           x="89.461525"
+           dy="0">0.7%</tspan>
+      </text>
+      <path
+         id="path3918"
+         d="M 60,60 89.52279,11.241361 a 57,57 0 0 0 -2.135846,-1.230913 z"
+         class="slice-2"
+         style="fill:#2b5b8e;stroke:#d6d9db;stroke-width:2" />
+      <text
+         id="text3920"
+         y="10"
+         x="23"
+         class="pie-label-left"
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3922"
+           x="22.962166"
+           dy="0">76.3%</tspan>
+      </text>
+      <path
+         id="path3924"
+         d="M 60,60 87.386944,10.010448 a 57,57 0 1 0 24.612626,73.335749 z"
+         class="slice-3"
+         style="fill:#669eb3;stroke:#d6d9db;stroke-width:2" />
+      <path
+         id="path3930"
+         d="m 60,60 51.99957,23.346197 a 0,0 0 0 0 0,0 z"
+         class="slice-4"
+         style="fill:#bad9e0;stroke:#d6d9db;stroke-width:2" />
+      <text
+         id="text3932"
+         y="77"
+         x="120"
+         class="pie-label-right"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           id="tspan3934"
+           x="120.73588"
+           dy="0">6.7%</tspan>
+      </text>
+      <path
+         id="path3936"
+         d="m 60,60 51.99957,23.346197 A 57,57 0 0 0 117,60 z"
+         class="slice-5"
+         style="fill:#e9ece3;stroke:#d6d9db;stroke-width:2" />
+    </g>
+  </g>
+  <style
+     id="style2983"
+     type="text/css">
+		
+
+.pie-label-left, .pie-label-right { display: none;}
+
+
+
+
+
+.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+	</style>
+  <style
+     id="style3151"
+     type="text/css">
+		
+
+.pie-label-left, .pie-label-right { display: none;}
+
+
+
+
+
+.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+	</style>
+  <style
+     id="style3302"
+     type="text/css">
+		
+
+.pie-label-left, .pie-label-right { display: none;}
+
+
+
+
+
+.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+	</style>
+  <style
+     id="style3465"
+     type="text/css">
+		
+
+.pie-label-left, .pie-label-right { display: none;}
+
+
+
+
+
+.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+	</style>
+  <style
+     id="style2852"
+     type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+  <style
+     id="style3367"
+     type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+  <style
+     id="style3578"
+     type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+  <style
+     id="style3904"
+     type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+</svg>

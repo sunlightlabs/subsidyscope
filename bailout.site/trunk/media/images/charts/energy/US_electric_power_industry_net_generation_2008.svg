@@ -1,66 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="400"
-   version="1.1"
-   width="650"
-   id="svg2"
-   inkscape:version="0.47pre4 r22446"
-   sodipodi:docname="US_electric_power_industry_net_generation_2008.svg"
-   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy/US_electric_power_industry_net_generation_2008.png"
-   inkscape:export-xdpi="90"
-   inkscape:export-ydpi="90">
-  <metadata
-     id="metadata48">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs46">
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="0 : 200 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_z="650 : 200 : 1"
-       inkscape:persp3d-origin="325 : 133.33333 : 1"
-       id="perspective50" />
-  </defs>
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1059"
-     id="namedview44"
-     showgrid="false"
-     inkscape:zoom="0.59"
-     inkscape:cx="325"
-     inkscape:cy="264.40678"
-     inkscape:window-x="1400"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
-  <style
-     type="text/css"
-     id="style4">
+<?xml version="1.0" ?>
+<svg height="400" version="1.1" width="650" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
 		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
 
 .slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
@@ -94,115 +34,35 @@
 
 
 	</style>
-  <rect
-     height="467.79663"
-     width="661.86438"
-     x="0"
-     y="-42.372883"
-     id="rect6"
-     style="fill:#ffffff" />
-  <text
-     class="pie-label-right"
-     x="486"
-     y="191"
-     id="text8"
-     style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
-    <tspan
-       dy="0"
-       x="486.89142"
-       id="tspan10">1.2% - Petroleum</tspan>
-  </text>
-  <path
-     class="slice-1"
-     d="M 315,200  l 165,0  a165,165 0 0,0 -0.434223153716,-11.9626540107 z"
-     id="path12" />
-  <text
-     class="pie-label-left"
-     x="194.30508"
-     y="71.067795"
-     id="text14"
-     style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
-    <tspan
-       dy="0"
-       x="194.87958"
-       id="tspan16">51.3% - Coal</tspan>
-  </text>
-  <path
-     class="slice-2"
-     d="M 315,200  l 164.565776846,-11.9626540107  a165,165 0 1,0 -327.682265661,36.8224825869 z"
-     id="path18" />
-  <text
-     class="pie-label-left"
-     x="180"
-     y="314"
-     id="text20">
-    <tspan
-       dy="0"
-       x="180.316501889"
-       id="tspan22">
-			17.0% - Natural Gas
+	<rect fill="white" height="400" width="650" x="0" y="0"/>
+	<text class="pie-label-right" x="486" y="194">
+		<tspan dy="0" x="486.890799246">
+			1.2% - Petroleum
 		</tspan>
-  </text>
-  <path
-     class="slice-3"
-     d="M 315,200  l -163.116488814,24.8598285763  a165,165 0 0,0 106.506348942,130.124983788 z"
-     id="path24" />
-  <text
-     class="pie-label-left"
-     x="304"
-     y="374"
-     id="text26">
-    <tspan
-       dy="0"
-       x="304.933802412"
-       id="tspan28">
+	</text>
+	<path class="slice-1" d="M 315,200  l 165,0  a165,165 0 0,0 -0.436658474391,-11.9961087827 z"/>
+	<text class="pie-label-left" x="295" y="27">
+		<tspan dy="0" x="295.801741399">
+			51.4% - Coal
+		</tspan>
+	</text>
+	<path class="slice-2" d="M 315,200  l 164.563341526,-11.9961087827  a165,165 0 1,0 -327.443560815,38.3596093923 z"/>
+	<text class="pie-label-left" x="181" y="315">
+		<tspan dy="0" x="181.444452077">
+			17.1% - Natural Gas
+		</tspan>
+	</text>
+	<path class="slice-3" d="M 315,200  l -162.880219289,26.3635006096  a165,165 0 0,0 108.168302974,129.301544321 z"/>
+	<text class="pie-label-left" x="307" y="374">
+		<tspan dy="0" x="307.08069476">
 			9.2% - Renewables
 		</tspan>
-  </text>
-  <path
-     class="slice-4"
-     d="M 315,200  l -56.6101398722,154.984812364  a165,165 0 0,0 93.9237138914,5.74072136901 z"
-     id="path30" />
-  <text
-     class="pie-label-right"
-     x="450"
-     y="313"
-     id="text32">
-    <tspan
-       dy="0"
-       x="450.287379287"
-       id="tspan34">
+	</text>
+	<path class="slice-4" d="M 315,200  l -54.7119163153,155.66504493  a165,165 0 0,0 94.246451645,4.52865193794 z"/>
+	<text class="pie-label-right" x="451" y="311">
+		<tspan dy="0" x="451.900343205">
 			21.1% - Nuclear
 		</tspan>
-  </text>
-  <path
-     class="slice-5"
-     d="M 315,200  l 37.3135740192,160.725533733  a165,165 0 0,0 127.661006512,-157.829367565 z"
-     id="path36" />
-  <text
-     class="pie-label-right"
-     x="486"
-     y="209"
-     id="text38"
-     style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
-    <tspan
-       dy="0"
-       x="486.99365"
-       id="tspan40">0.3% - Imports</tspan>
-  </text>
-  <path
-     class="slice-6"
-     d="M 315,200  l 164.974580531,2.89616616896  a165,165 0 0,0 0.0254194685685,-2.89616616896 z"
-     id="path42" />
-  <text
-     xml:space="preserve"
-     style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
-     x="86.610161"
-     y="19.254236"
-     id="text2856"><tspan
-       sodipodi:role="line"
-       id="tspan2858"
-       x="86.610161"
-       y="19.254236"
-       style="font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">U.S. Electric Power Industry Net Generation, 2008</tspan></text>
+	</text>
+	<path class="slice-5" d="M 315,200  l 39.5345353297,160.193696868  a165,165 0 0,0 125.46546467,-160.193696868 z"/>
 </svg>
