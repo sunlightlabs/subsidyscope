@@ -114,9 +114,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.2372568"
      inkscape:cx="227.82451"
-     inkscape:cy="458.23887"
+     inkscape:cy="456.62239"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3622"
      showgrid="false"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -234,12 +234,12 @@
          style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif"
          class="pie-label-right"
          x="123"
-         y="58"
+         y="62"
          id="text2856-3">
         <tspan
            dy="0"
            x="123.96227"
-           id="tspan2858-8">1.2%</tspan>
+           id="tspan2858-8">1%</tspan>
       </text>
       <path
          style="fill:#072744;stroke:#d6d9db;stroke-width:2"
@@ -255,7 +255,7 @@
         <tspan
            dy="0"
            x="11.672959"
-           id="tspan2864-1">51.4%</tspan>
+           id="tspan2864-1">51%</tspan>
       </text>
       <path
          style="fill:#2b5b8e;stroke:#d6d9db;stroke-width:2"
@@ -271,7 +271,7 @@
         <tspan
            dy="0"
            x="9.2808104"
-           id="tspan2870-6">17.1%</tspan>
+           id="tspan2870-6">17%</tspan>
       </text>
       <path
          style="fill:#669eb3;stroke:#d6d9db;stroke-width:2"
@@ -287,7 +287,7 @@
         <tspan
            dy="0"
            x="103.19329"
-           id="tspan2876-3">21.1%</tspan>
+           id="tspan2876-3">21%</tspan>
       </text>
       <path
          style="fill:#bad9e0;stroke:#d6d9db;stroke-width:2"
@@ -303,7 +303,7 @@
         <tspan
            dy="0"
            x="121.62037"
-           id="tspan2882-6">9.2%</tspan>
+           id="tspan2882-6">9%</tspan>
       </text>
       <path
          style="fill:#e9ece3;stroke:#d6d9db;stroke-width:2"
@@ -330,7 +330,7 @@
         <tspan
            id="tspan3373"
            x="22.825367"
-           dy="0">94.6%</tspan>
+           dy="0">95%</tspan>
       </text>
       <path
          id="path3375"
@@ -351,7 +351,7 @@
         <tspan
            id="tspan3385"
            x="122.01958"
-           dy="0">2.4%</tspan>
+           dy="0">2%</tspan>
       </text>
       <path
          id="path3387"
@@ -372,7 +372,7 @@
         <tspan
            id="tspan3397"
            x="123.7484"
-           dy="0">3.0%</tspan>
+           dy="0">3%</tspan>
       </text>
       <path
          id="path3399"
@@ -393,13 +393,12 @@
       <text
          id="text3582"
          y="13"
-         x="-20"
+         x="-8"
          class="pie-label-right"
          style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
         <tspan
            id="tspan3584"
-           x="-19.1614"
-           dy="0">41.6%</tspan>
+           x="-7.1613998">42%</tspan>
       </text>
       <path
          id="path3586"
@@ -408,14 +407,13 @@
          style="fill:#072744;stroke:#d6d9db;stroke-width:2" />
       <text
          id="text3588"
-         y="43"
+         y="47"
          x="2"
          class="pie-label-left"
          style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
         <tspan
            id="tspan3590"
-           x="1.7234433"
-           dy="0">8.9%</tspan>
+           x="1.7234433">9%</tspan>
       </text>
       <path
          id="path3592"
@@ -430,8 +428,7 @@
          style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
         <tspan
            id="tspan3596"
-           x="23.359577"
-           dy="0">39.5%</tspan>
+           x="23.359577">40%</tspan>
       </text>
       <path
          id="path3598"
@@ -452,7 +449,7 @@
         <tspan
            id="tspan3608"
            x="115.22923"
-           dy="0">10.0%</tspan>
+           dy="0">10%</tspan>
       </text>
       <path
          id="path3610"
@@ -479,7 +476,7 @@
         <tspan
            id="tspan3910"
            x="110.65782"
-           dy="0">16.3%</tspan>
+           dy="0">16%</tspan>
       </text>
       <path
          id="path3912"
@@ -494,8 +491,7 @@
          style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
         <tspan
            id="tspan3916"
-           x="89.461525"
-           dy="0">0.7%</tspan>
+           x="89.461525">1%</tspan>
       </text>
       <path
          id="path3918"
@@ -511,7 +507,7 @@
         <tspan
            id="tspan3922"
            x="22.962166"
-           dy="0">76.3%</tspan>
+           dy="0">76%</tspan>
       </text>
       <path
          id="path3924"
@@ -531,8 +527,7 @@
          style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
         <tspan
            id="tspan3934"
-           x="120.73588"
-           dy="0">6.7%</tspan>
+           x="120.73588">7%</tspan>
       </text>
       <path
          id="path3936"
