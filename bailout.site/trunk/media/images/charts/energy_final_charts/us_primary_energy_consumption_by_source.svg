@@ -12,7 +12,7 @@
    width="600"
    id="svg2"
    inkscape:version="0.47pre4 r22446"
-   sodipodi:docname="US_primary_energy_consumption_by_source_and_sector_2008.svg"
+   sodipodi:docname="us_primary_energy_consumption_by_source.svg"
    inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy/US_primary_energy_consumption_by_source_2008.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -53,7 +53,7 @@
      showgrid="false"
      inkscape:zoom="1"
      inkscape:cx="300"
-     inkscape:cy="87.457627"
+     inkscape:cy="245.45763"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -172,10 +172,8 @@
      id="text32">
     <tspan
        dy="0"
-       x="472.424184768"
-       id="tspan34">
-			7.0% - Renewable
-		</tspan>
+       x="472.42419"
+       id="tspan34">7% - Renewable</tspan>
   </text>
   <path
      class="slice-5"
