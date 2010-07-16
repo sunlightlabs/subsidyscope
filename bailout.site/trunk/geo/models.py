@@ -12,11 +12,17 @@ class StateMatcher():
         self.name_list = {}
         self.abbreviation_list = {}
         self.fips_list = {}
+        
+        self.unmatched_state = State.objects.get(pk=-1)   
+        self.unmatched_county = County.objects.get(pk=-1)   
     
         self.county_matchers = {}
         
         for state in State.objects.all():
-                
+            
+            if state.id == -1:
+                continue
+            
             self.name_list[state.name.lower()] = state
             self.abbreviation_list[state.abbreviation.lower()] = state
             self.fips_list[state.fips_state_code] = state
@@ -38,9 +44,9 @@ class StateMatcher():
                 return self.name_list[state]
             
             else:
-                return False
+                self.unmatched_state
         except:
-            return False
+            self.unmatched_state
 
     def matchFips(self, fips):
         
@@ -49,10 +55,10 @@ class StateMatcher():
             if self.fips_list.has_key(fips):
                 return self.fips_list[fips]
             else:
-                return False
+                self.unmatched_state
             
         except:
-            return False
+            self.unmatched_state
         
     def getCountyMatcher(self, state):
             
@@ -104,14 +110,20 @@ class CountyMatcher():
         self.name_complete_list = {}
         self.fips_list = {}
         
+        self.unmatched_county = County.objects.get(pk=-1)   
+        
         self.state = state
         
         for county in County.objects.filter(state=state):
             
+            if county.id == -1:
+                continue
+            
             self.name_list[county.name.lower()] = county
             self.name_complete_list[county.name_complete.lower()] = county
             self.fips_list[county.fips_county_code] = county
-            
+        
+        
     def matchName(self, county):
         
         county = county.lower()
@@ -134,10 +146,10 @@ class CountyMatcher():
                 return self.name_list[county.replace(' county', '')]
             
             else:
-                return False
+                return self.unmatched_county
                 
         except:
-            return False
+            return self.unmatched_county
 
     def matchFips(self, fips):
         
@@ -146,10 +158,10 @@ class CountyMatcher():
             if self.fips_list.has_key(fips):
                 return self.fips_list[fips]
             else:
-                return False
+                return self.unmatched_county
             
         except:
-            return False
+            return self.unmatched_county
  
 
 class FAADSMatcher():
@@ -162,8 +174,8 @@ class FAADSMatcher():
 
     def matchPrincipalPlace(self, place_code):
         
-        state = None
-        county = None
+        state = self.matcher.unmatched_state
+        county = self.matcher.unmatched_county
         
         try:
             state_code = int(place_code[0:2])
