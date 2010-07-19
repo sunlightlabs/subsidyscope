@@ -145,6 +145,7 @@ MEDIASYNC = {
 }
 
 
+
 # send welcome email -- not used
 def send_welcome_email(recipient):
     from django.core.mail import send_mail
