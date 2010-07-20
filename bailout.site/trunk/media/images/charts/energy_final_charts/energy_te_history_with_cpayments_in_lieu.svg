@@ -12,7 +12,7 @@
    width="500"
    id="svg2"
    inkscape:version="0.47pre4 r22446"
-   sodipodi:docname="energy_te_history.svg"
+   sodipodi:docname="energy_te_history_with_cpayments_in_lieu.svg"
    inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy_final_charts/energy_te_history.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -74,7 +74,7 @@
      showgrid="false"
      inkscape:zoom="1.9331742"
      inkscape:cx="280.5"
-     inkscape:cy="158.88272"
+     inkscape:cy="157.84815"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -138,7 +138,9 @@
   <g
      id="y_axis"
      class="y-axis"
-     transform="translate(40,40)">
+     transform="translate(40,40)"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90">
     <path
        style="display:none"
        id="path17"
@@ -263,9 +265,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text55"
-     y="310"
-     x="75"
-     class="x-axis-label">1998</text>
+     y="312"
+     x="95"
+     class="x-axis-label">1999</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path57"
@@ -274,9 +276,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text59"
-     y="310"
-     x="116.17647"
-     class="x-axis-label">2000</text>
+     y="312"
+     x="136.17647"
+     class="x-axis-label">2001</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path61"
@@ -285,9 +287,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text63"
-     y="310"
-     x="157.35294"
-     class="x-axis-label">2002</text>
+     y="312"
+     x="177.35294"
+     class="x-axis-label">2003</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path65"
@@ -296,9 +298,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text67"
-     y="310"
-     x="198.52942"
-     class="x-axis-label">2004</text>
+     y="312"
+     x="218.52942"
+     class="x-axis-label">2005</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path69"
@@ -307,9 +309,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text71"
-     y="310"
-     x="239.70589"
-     class="x-axis-label">2006</text>
+     y="312"
+     x="259.70587"
+     class="x-axis-label">2007</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path73"
@@ -318,9 +320,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text75"
-     y="310"
-     x="280.88235"
-     class="x-axis-label">2008</text>
+     y="312"
+     x="300.88235"
+     class="x-axis-label">2009</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path77"
@@ -330,9 +332,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text79"
-     y="310"
-     x="322.05884"
-     class="x-axis-label">2010</text>
+     y="312"
+     x="342.05884"
+     class="x-axis-label">2011</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path81"
@@ -341,9 +343,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text83"
-     y="310"
-     x="363.23529"
-     class="x-axis-label">2012</text>
+     y="312"
+     x="383.23529"
+     class="x-axis-label">2013</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path85"
@@ -352,9 +354,9 @@
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      id="text87"
-     y="310"
-     x="404.41177"
-     class="x-axis-label">2014</text>
+     y="312"
+     x="424.41177"
+     class="x-axis-label">2015</text>
   <path
      style="fill:none;stroke:#a7a9ac;stroke-width:1"
      id="path89"
