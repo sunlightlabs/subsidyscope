@@ -58,6 +58,13 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2917"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -74,7 +81,7 @@
      showgrid="false"
      inkscape:zoom="1.9331742"
      inkscape:cx="280.5"
-     inkscape:cy="157.84815"
+     inkscape:cy="115.43087"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -364,7 +371,7 @@
      class="x-notch" />
   <g
      id="g3873"
-     transform="translate(-169.39312,332.62587)">
+     transform="translate(-169.39312,346.62587)">
     <g
        id="g3800"
        transform="translate(130.66932,-334.13043)">
@@ -472,4 +479,10 @@
        x="243.25011"
        y="19.35667"
        id="tspan3894">($ billions)</tspan></text>
+  <text
+     class="x-axis-label"
+     x="257.54169"
+     y="330.16129"
+     id="text57-6"
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">Fiscal Year</text>
 </svg>

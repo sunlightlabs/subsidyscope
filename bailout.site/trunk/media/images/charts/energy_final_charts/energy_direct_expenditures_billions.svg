@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -50,6 +50,13 @@
        inkscape:vp_z="500 : 175 : 1"
        inkscape:persp3d-origin="250 : 116.66667 : 1"
        id="perspective75" />
+    <inkscape:perspective
+       id="perspective2917"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -66,7 +73,7 @@
      showgrid="false"
      inkscape:zoom="1.5277688"
      inkscape:cx="151.63682"
-     inkscape:cy="215.35832"
+     inkscape:cy="214.04922"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -102,8 +109,8 @@
   <rect
      style="fill:#ffffff;fill-opacity:1;stroke:none"
      id="rect4086"
-     width="522.98492"
-     height="359.34756"
+     width="518.40308"
+     height="378.3295"
      x="-13.090986"
      y="-23.093102" />
   <g
@@ -279,12 +286,12 @@
      id="text2881"><tspan
        sodipodi:role="line"
        id="tspan2883"
-       x="249.20154"
-       y="3.5253115">Direct Expenditures in the Energy Sector FY2000-2009</tspan><tspan
+       x="251.98279"
+       y="3.5253115">Figure 1: Direct Expenditures in the Energy Sector </tspan><tspan
        sodipodi:role="line"
        x="249.20154"
        y="23.525311"
-       id="tspan2885">($ billions)</tspan></text>
+       id="tspan2885">FY2000-2009 ($ billions)</tspan></text>
   <text
      xml:space="preserve"
      style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
@@ -311,8 +318,14 @@
          height="17.672831"
          x="312.87457"
          y="109.7804" /></flowRegion><flowPara
-       id="flowPara2860"></flowPara></flowRoot>  <path
+       id="flowPara2860" /></flowRoot>  <path
      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
      d="m 358.03847,116.3259 39.9275,13.09099"
      id="path2864" />
+  <text
+     class="x-axis-label"
+     x="233.74565"
+     y="334.18259"
+     id="text57-6"
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">Fiscal Year</text>
 </svg>
