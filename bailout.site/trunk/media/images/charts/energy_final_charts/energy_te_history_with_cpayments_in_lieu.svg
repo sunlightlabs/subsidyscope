@@ -75,13 +75,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1059"
+     inkscape:window-width="1680"
+     inkscape:window-height="1029"
      id="namedview91"
      showgrid="false"
      inkscape:zoom="1.9331742"
      inkscape:cx="280.5"
-     inkscape:cy="115.43087"
+     inkscape:cy="279.92717"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -467,17 +467,17 @@
   </g>
   <text
      xml:space="preserve"
-     style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
      x="243.25011"
      y="-0.64333361"
      id="text3890"><tspan
        sodipodi:role="line"
        id="tspan3892"
        x="243.25011"
-       y="-0.64333361">Energy Related Tax Expenditures</tspan><tspan
+       y="-0.64333361">Figure 1: Energy Related Tax Expenditures</tspan><tspan
        sodipodi:role="line"
        x="243.25011"
-       y="19.35667"
+       y="19.356667"
        id="tspan3894">($ billions)</tspan></text>
   <text
      class="x-axis-label"
