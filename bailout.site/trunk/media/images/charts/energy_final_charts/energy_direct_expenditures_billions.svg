@@ -73,7 +73,7 @@
      showgrid="false"
      inkscape:zoom="1.5277688"
      inkscape:cx="151.63682"
-     inkscape:cy="214.04922"
+     inkscape:cy="212.74012"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -224,10 +224,10 @@
     </g>
     <text
        class="x-axis-label"
-       x="35"
-       y="270"
+       x="75"
+       y="274"
        id="text49"
-       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2000</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2001</text>
     <path
        class="x-notch"
        d="m 73.888889,255 0,5"
@@ -235,10 +235,10 @@
        style="fill:none;stroke:#a7a9ac;stroke-width:1" />
     <text
        class="x-axis-label"
-       x="112.77778"
-       y="270"
+       x="152.77777"
+       y="274"
        id="text53"
-       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2002</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2003</text>
     <path
        class="x-notch"
        d="m 151.66667,255 0,5"
@@ -246,10 +246,10 @@
        style="fill:none;stroke:#a7a9ac;stroke-width:1" />
     <text
        class="x-axis-label"
-       x="190.55556"
-       y="270"
+       x="230.55556"
+       y="274"
        id="text57"
-       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2004</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2005</text>
     <path
        class="x-notch"
        d="m 229.44444,255 0,5"
@@ -257,10 +257,10 @@
        style="fill:none;stroke:#a7a9ac;stroke-width:1" />
     <text
        class="x-axis-label"
-       x="268.33334"
-       y="270"
+       x="308.33334"
+       y="274"
        id="text61"
-       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2006</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2007</text>
     <path
        class="x-notch"
        d="m 307.22222,255 0,5"
@@ -268,10 +268,10 @@
        style="fill:none;stroke:#a7a9ac;stroke-width:1" />
     <text
        class="x-axis-label"
-       x="346.11111"
-       y="270"
+       x="386.11111"
+       y="274"
        id="text65"
-       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2008</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2009</text>
     <path
        class="x-notch"
        d="m 385,255 0,5"
