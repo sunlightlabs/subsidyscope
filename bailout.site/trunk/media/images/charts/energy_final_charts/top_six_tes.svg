@@ -95,7 +95,7 @@
      showgrid="false"
      inkscape:zoom="1.3882353"
      inkscape:cx="356.83673"
-     inkscape:cy="258.13601"
+     inkscape:cy="197.62753"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -418,16 +418,21 @@
      xml:space="preserve"
      style="font-size:16px;font-style:normal;font-weight:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
      x="252.73993"
-     y="0.43624115"
+     y="-15.563759"
      id="text2913"><tspan
        sodipodi:role="line"
        id="tspan2915"
-       x="252.73993"
-       y="0.43624115"
-       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">Top Tax Expenditures by Revenue Loss FY 2009</tspan><tspan
+       x="255.52118"
+       y="-15.563759"
+       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">Figure 1: Top Tax Expenditures </tspan><tspan
        sodipodi:role="line"
        x="252.73993"
-       y="20.436241"
+       y="4.4362411"
+       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
+       id="tspan2870">by Revenue Loss FY 2009</tspan><tspan
+       sodipodi:role="line"
+       x="252.73993"
+       y="24.436241"
        style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
        id="tspan2917">($ millions)</tspan></text>
 </svg>

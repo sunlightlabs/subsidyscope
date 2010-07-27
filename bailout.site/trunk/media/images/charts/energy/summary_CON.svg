@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="220"
+   version="1.1"
+   width="440"
+   id="svg2"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="summary_CON.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy/summary_CON.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata73">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs71">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 110 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="440 : 110 : 1"
+       inkscape:persp3d-origin="220 : 73.333333 : 1"
+       id="perspective75" />
+    <inkscape:perspective
+       id="perspective4323"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3906"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3081"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2869"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="851"
+     id="namedview69"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="1.0727273"
+     inkscape:cx="-5.2556924"
+     inkscape:cy="106.27118"
+     inkscape:window-x="1459"
+     inkscape:window-y="95"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <style
+     type="text/css"
+     id="style4">
+		
+
+.x-axis-path, .y-gridline, .x-notch { fill:none; stroke: #a7a9ac; stroke-width:1; }
+
+
+
+.y-gridline { stroke-width: 1; }
+
+.y-axis-path, .y-axis-path2, .x-notch-left, .x-notch-right { display: none;}
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:normal; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+.y-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-anchor:end;}
+
+
+
+.series-1-line { fill: none; stroke: #bf5004; stroke-width:2; }
+
+
+
+.series-2-line { fill: none; stroke: #336699; stroke-width: 2;}
+
+	</style>
+  <rect
+     height="316.94916"
+     width="440"
+     x="0"
+     y="-65.254234"
+     id="rect6"
+     style="fill:#ffffff" />
+  <g
+     id="grid"
+     transform="translate(50, 10)">
+    <g
+       class="x-axis"
+       id="x_axis">
+      <path
+         class="x-axis-path"
+         d="M 0 185 L 340 185"
+         id="path10" />
+      <path
+         class="x-notch-left"
+         d="M 0 185, L 0 195"
+         id="path12" />
+      <path
+         class="x-notch-right"
+         d="M 340 185, L 340 195"
+         id="path14" />
+    </g>
+    <g
+       class="y-axis"
+       id="y_axis">
+      <path
+         class="y-axis-path"
+         d="M 0 185 L 0 0"
+         id="path17" />
+      <path
+         class="y-axis-path-2"
+         d="M 340 185 L 340 0"
+         id="path19" />
+      <path
+         class="y-gridline"
+         d="M 0 0 L 340 0"
+         id="path21" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="0"
+         id="text23">
+				$8.4B
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 30 L 340 30"
+         id="path25" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="30"
+         id="text27">
+				$7.0B
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 60 L 340 60"
+         id="path29" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="60"
+         id="text31">
+				$5.6B
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 90 L 340 90"
+         id="path33" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="90"
+         id="text35">
+				$4.2B
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0 120 L 340 120"
+         id="path37" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="120"
+         id="text39">
+				$2.8B
+			</text>
+      <path
+         class="y-gridline"
+         d="M 0,150 9.6610169,150 340,150"
+         id="path41"
+         sodipodi:nodetypes="ccc" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="150"
+         id="text43">
+				$1.4B
+			</text>
+    </g>
+    <g
+       id="g45">
+      <path
+         class="series-1-line"
+         d="M 40 16.8181818182 L 68 146.254580414 L 97 133.914256707 L 126 129.821900768 L 155 107.744889728 L 184 89.7358268566 L 213 27.6129409262 L 242 118.343744423 L 271 74.8853933682 L 300 91.6350801751"
+         id="path47" />
+    </g>
+    <text
+       class="x-axis-label"
+       x="40.0"
+       y="200"
+       id="text49">
+			2000
+		</text>
+    <path
+       class="x-notch"
+       d="M 68.8888888889 185 L 68.8888888889 190"
+       id="path51" />
+    <text
+       class="x-axis-label"
+       x="97.7777777778"
+       y="200"
+       id="text53">
+			2002
+		</text>
+    <path
+       class="x-notch"
+       d="M 126.666666667 185 L 126.666666667 190"
+       id="path55" />
+    <text
+       class="x-axis-label"
+       x="155.555555556"
+       y="200"
+       id="text57">
+			2004
+		</text>
+    <path
+       class="x-notch"
+       d="M 184.444444444 185 L 184.444444444 190"
+       id="path59" />
+    <text
+       class="x-axis-label"
+       x="213.333333333"
+       y="200"
+       id="text61">
+			2006
+		</text>
+    <path
+       class="x-notch"
+       d="M 242.222222222 185 L 242.222222222 190"
+       id="path63" />
+    <text
+       class="x-axis-label"
+       x="271.111111111"
+       y="200"
+       id="text65">
+			2008
+		</text>
+    <path
+       class="x-notch"
+       d="M 300.0 185 L 300.0 190"
+       id="path67" />
+  </g>
+  <text
+     id="text3964-6"
+     y="-43.806271"
+     x="219.77344"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
+     xml:space="preserve"><tspan
+       y="-43.806271"
+       x="222.55469"
+       id="tspan3966-4"
+       sodipodi:role="line">Figure 2: Energy Sector </tspan><tspan
+       id="tspan2897-1"
+       y="-23.806271"
+       x="219.77344"
+       sodipodi:role="line">Non-competed Contracts FY2000-2009</tspan></text>
+  <text
+     class="x-axis-label"
+     x="219.41699"
+     y="230.89359"
+     id="text57-3"
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">Fiscal Year</text>
+</svg>

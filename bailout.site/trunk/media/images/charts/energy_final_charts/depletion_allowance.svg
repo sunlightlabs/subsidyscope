@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -39,6 +39,13 @@
        id="perspective91" />
     <inkscape:perspective
        id="perspective2917"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2905"
        inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
        inkscape:vp_z="1 : 0.5 : 1"
        inkscape:vp_y="0 : 1000 : 0"
@@ -60,7 +67,7 @@
      showgrid="false"
      inkscape:zoom="1.5273506"
      inkscape:cx="344.73218"
-     inkscape:cy="166.64157"
+     inkscape:cy="162.71319"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -208,11 +215,6 @@
        d="M 301 235.28926 L 301 235.28926 L 322 187.8719 L 342 177.33471 L 363 129.91735 L 383 96.549587 L 404 91.280992 L 425 86.012397 "
        id="path2915"
        transform="translate(-40,-40)" />
-    <path
-       style="fill:none;stroke:#bf5004;stroke-width:2"
-       d="M 75 251.09504 L 95 248.46074 L 116 235.28926 L 136 251.09504 L 157 187.8719 L 177 182.60331 L 198 63.181818 L 219 191.3843 L 239 161.52893 L 260 156.26033 L 280 235.28926 L 301 235.28926 "
-       id="path47"
-       transform="translate(-40,-40)" />
   </g>
   <text
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
@@ -323,7 +325,7 @@
        sodipodi:role="line"
        id="tspan2899"
        x="242.78125"
-       y="-20.5">Percentage Depletion Allowance </tspan><tspan
+       y="-20.5">Figure 2: Percentage Depletion Allowance </tspan><tspan
        sodipodi:role="line"
        x="240"
        y="-0.5"
@@ -348,4 +350,8 @@
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90">Fiscal Year</text>
+  <path
+     style="fill:none;stroke:#bf5004;stroke-width:2"
+     d="M 75.106297 250.81169 L 95.106297 248.17739 L 116.1063 235.00591 L 136.1063 250.81169 L 157.1063 187.58855 L 177.1063 182.31996 L 198.1063 62.898475 L 219.1063 191.10095 L 239.1063 161.24558 L 260.1063 155.97698 L 280.1063 133.14641 L 301.1063 235.00591 L 301.20268 234.78828 "
+     id="path47-5" />
 </svg>
