@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -60,11 +60,11 @@
      showgrid="false"
      inkscape:zoom="1.1"
      inkscape:cx="325"
-     inkscape:cy="121.78737"
+     inkscape:cy="119.96919"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g2871" />
+     inkscape:current-layer="svg2" />
   <style
      type="text/css"
      id="style4">
@@ -118,7 +118,7 @@
        id="tspan2858"
        x="317.75507"
        y="1.0724181"
-       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">U.S. Electric Power Sector Energy </tspan><tspan
+       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">Figure 2: U.S. Electric Power Sector Energy </tspan><tspan
        sodipodi:role="line"
        x="314.97382"
        y="21.072418"
