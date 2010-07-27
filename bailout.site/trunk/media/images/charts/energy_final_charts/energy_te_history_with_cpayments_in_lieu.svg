@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -65,6 +65,13 @@
        inkscape:vp_y="0 : 1000 : 0"
        inkscape:vp_x="0 : 0.5 : 1"
        sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3691"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -75,13 +82,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1680"
-     inkscape:window-height="1029"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
      id="namedview91"
      showgrid="false"
-     inkscape:zoom="1.9331742"
-     inkscape:cx="280.5"
-     inkscape:cy="279.92717"
+     inkscape:zoom="2.7339212"
+     inkscape:cx="220.41948"
+     inkscape:cy="36.638517"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -234,19 +241,9 @@
        id="path3801"
        transform="translate(-40,-40)" />
     <path
-       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-opacity:1;fill-opacity:1"
-       d="M 75 293.04036 L 95 292.60488 L 116 293.11294 L 136 292.82262 L 157 291.95167 L 177 289.62913 L 198 288.75818 L 219 283.24216 L 239 278.01645 L 260 279.75835 L 280 288.75818 L 301 288.75818 L 301.53354 288.64385 "
-       id="path47"
-       transform="translate(-40,-40)" />
-    <path
        style="fill:none;stroke:#336699;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
        d="M 301.10979 272.67937 L 322 223.8723 L 342 91.342554 L 363 63.181798 L 383 155.64779 L 404 231.85602 L 425 256.53297 "
        id="path3786"
-       transform="translate(-40,-40)" />
-    <path
-       style="fill:none;stroke:#336699;stroke-width:2;stroke-opacity:1;fill-opacity:1"
-       d="M 75 294.78226 L 95 294.78226 L 116 294.70966 L 136 294.5645 L 157 294.5645 L 177 294.5645 L 198 294.5645 L 219 294.41935 L 239 292.8226 L 260 290.35491 L 280 287.01626 L 301 272.93588 L 301.10979 272.67937 "
-       id="path49"
        transform="translate(-40,-40)" />
     <path
        style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;fill-opacity:1;stroke-dashoffset:0"
@@ -254,19 +251,9 @@
        id="path3796"
        transform="translate(-40,-40)" />
     <path
-       style="fill:none;stroke:#f1b100;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
-       d="M 75 293.91131 L 95 293.76615 L 116 294.12905 L 136 294.27421 L 157 293.98389 L 177 293.98389 L 198 293.98389 L 219 292.82262 L 239 285.27438 L 260 279.6132 L 280 277.87129 L 301 277.87129 L 301.56987 277.25285 "
-       id="path51"
-       transform="translate(-40,-40)" />
-    <path
        style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;fill-opacity:1;stroke-dashoffset:0"
        d="M 301.56554 248.0528 L 322 230.11413 L 342 241.00102 L 363 242.59777 L 383 244.62999 L 404 262.77481 L 425 276.41971 "
        id="path3791"
-       transform="translate(-40,-40)" />
-    <path
-       style="fill:none;stroke:#028900;stroke-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
-       d="M 75 279.17772 L 95 276.05681 L 116 274.38749 L 136 275.83907 L 157 259.72648 L 177 262.33933 L 198 255.66204 L 219 245.21062 L 239 227.50128 L 260 227.7916 L 280 248.25895 L 301 248.54927 L 301.56554 248.0528 "
-       id="path53"
        transform="translate(-40,-40)" />
   </g>
   <text
@@ -474,7 +461,7 @@
        sodipodi:role="line"
        id="tspan3892"
        x="243.25011"
-       y="-0.64333361">Figure 1: Energy Related Tax Expenditures</tspan><tspan
+       y="-0.64333361">Energy Related Tax Expenditures</tspan><tspan
        sodipodi:role="line"
        x="243.25011"
        y="19.356667"
@@ -485,4 +472,20 @@
      y="330.16129"
      id="text57-6"
      style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">Fiscal Year</text>
+  <path
+     style="fill:none;stroke:#bf5004;stroke-width:2"
+     d="M 75.190092 292.87676 L 95.190092 292.44155 L 116.19009 292.94929 L 136.19009 292.65915 L 157.19009 291.78875 L 177.19009 289.46767 L 198.19009 288.59726 L 219.19009 283.08469 L 239.19009 277.86225 L 260.19009 279.60306 L 280.19009 281.77908 L 301.19009 288.59726 L 301.40564 288.5511 "
+     id="path47-9" />
+  <path
+     style="fill:none;stroke:#336699;stroke-width:2"
+     d="M 75.190092 294.61757 L 95.190092 294.61757 L 116.19009 294.54507 L 136.19009 294.40001 L 157.19009 294.40001 L 177.19009 294.40001 L 198.19009 294.40001 L 219.19009 292.07892 L 239.19009 292.65919 L 260.19009 290.19304 L 280.19009 292.22399 L 301.19009 273.51026 L 301.71687 272.25845 "
+     id="path49-0" />
+  <path
+     style="fill:none;stroke:#f1b100;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="M 75.190092 292.58662 L 95.190092 292.36902 L 116.19009 292.65915 L 136.19009 293.09436 L 157.19009 292.65915 L 177.19009 292.65915 L 198.19009 292.36902 L 219.19009 292.65915 L 239.19009 285.11563 L 260.19009 279.45799 L 280.19009 282.35935 L 301.19009 277.86225 L 301.41435 277.61748 "
+     id="path51-9" />
+  <path
+     style="fill:none;stroke:#028900;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+     d="M 75.190092 276.99184 L 95.190092 272.63981 L 116.19009 269.73846 L 136.19009 271.10209 L 157.19009 254.79649 L 177.19009 256.39223 L 198.19009 250.73459 L 219.19009 240.14465 L 239.19009 227.37869 L 260.19009 227.66883 L 280.19009 239.99958 L 301.19009 248.41351 L 301.40674 248.22344 "
+     id="path53-1" />
 </svg>
