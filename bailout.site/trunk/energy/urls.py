@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^risk-transfers/', direct_to_template, {'template': 'energy/risk_transfers.html'}, name='energy-risk-transfers'),
     url(r'^overview/structure/', direct_to_template, {'template': 'energy/overview.html'}, name='energy-overview-structure'),
     url(r'^overview/', direct_to_template, {'template': 'energy/overview.html'}, name='energy-overview'),
+    url(r'^overview/data-limitations/', direct_to_template, {'template': 'energy/overview.html'}, name='energy-overview-data-limitations'),
     url(r'^docs/', direct_to_template, {'template': 'energy/docs.html'}, name='energy-docs'),
     url(r'^$', direct_to_template, {'template': 'energy/index.html'}, name='energy-index'),
 )
