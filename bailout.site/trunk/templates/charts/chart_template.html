@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+
+
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link  href="/media/favicon.ico" rel="shortcut icon" type="image/ico" />
+	<link rel="alternate" type="application/rss+xml" title="Subsidyscope Project Updates" href="/feeds/updates/" />
+	<link rel="stylesheet" href="/media/styles/screen.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="/media/styles/print.css" type="text/css" media="print" />
+
+  <!--[if IE ]><link rel="stylesheet" href="/media/styles/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+	<link rel="stylesheet" href="/media/styles/style.css" type="text/css" media="screen, projection" />
+	
+	
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="/media/scripts/jquery.autocomplete.js"></script>
+	
+
+  <link rel="stylesheet" href="/media/styles/transportation.css" type="text/css" media="screen, projection" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/media/styles/superfish.css" />
+    <script type="text/javascript" src="/media/scripts/hoverIntent.js"></script>
+
+    <script type="text/javascript" src="/media/scripts/superfish.js"></script>
+
+    <script type="text/javascript">  
+        $(document).ready(function(){ 
+            $("ul.sf-menu").superfish(); 
+        }); 
+    </script>
+
+	<title>Subsidyscope.com &mdash; Transportation: Tax Expenditures</title>
+</head>
+<body>
+
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$('a#email-updates-toggle').click(function(){
+			$('#email-form-container').animate({width: "200px"}, { queue:false, duration:400, complete: function(){ 
+					$('#email-message').css('left',$('form#email-subscribe input.text').position().left).removeClass('warning').text('Please enter your email address.').fadeIn(400, function(){ $('form#email-subscribe input.text').focus() });					
+				} });
+			return false;
+		});
+		
+
+		$('form#email-subscribe').submit(function(){
+			var valid = ($('form#email-subscribe input.text').val().match(/^\s*[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\s*$/i)!=null);
+			if(!valid)
+			{
+				if($('#email-message').css('display')!='none')
+				{
+					$('#email-message').fadeOut(400, function(){ $('#email-message').addClass('warning').text('This does not appear to be a valid email address.').fadeIn(400); });
+				}
+				else
+				{
+					$('#email-message').addClass('warning').text('This does not appear to be a valid email address.').fadeIn(400, function(){ $('form#email-subscribe input.text').focus(); });
+				}	
+			}
+			return valid;
+		});
+		
+		$('form#email-subscribe input.text').blur(function(){
+			$('#email-message').fadeOut(400);
+		});
+	});
+	</script>
+
+	
+	<div class="top_nav_bg">
+		<div class="container">
+			<div class="span-24 top_nav_header_height">				
+				<ul id="top_nav_header">
+					
+					<li id="email-form-container"><span id="email-message" class="instruction">Please enter your email address.</span><form action="/mailinglist/subscribe/" method="post" id="email-subscribe"><input type="text" value="" class="text" name="email" />&nbsp;<input class="submit" type="submit" value="Subscribe" /></form></li>
+					<li><a href="/mailinglist-subscribe/" id="email-updates-toggle">Get Email Updates</a></li>
+					<li><a href="/contact/">Contact</a></li>
+					<li><a href="/about/">About</a></li>					
+					<li><a href="/">Home</a></li>
+
+					
+				</ul>		
+			</div>
+		</div>	
+	</div>
+
+	<div class="container">	
+		<div class="span-12">
+			<div id="logo_box"><a href="/"><img src="/media/images/ss_logo.png" alt="Subsidyscope Logo" /></a></div>	
+		</div>
+
+		<div class="span-12 last">
+			<div id="search_box_header">
+
+				<div id="search_box">
+					<form id="search_form" action="/search/" method="GET">
+						<input id="id_query" name="query" type="text"/>
+						<input class="submit" type="submit" value="Search"/>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="span-24">
+			<div id="header_spacer">&nbsp;</div>
+		</div>		
+	</div>
+
+
+
+
+<div class="container main_container">
+    
+
+
+
+
+
+<div class="span-24">	
+	<div id="navbar">
+		<ul id="navbar_items">
+
+            
+
+                <li >
+                    <a href="/" class="">Home</a>
+                </li>
+
+            
+
+                <li >
+                    <a href="/bailout/" class="">Financial Bailout</a>
+                </li>
+
+            
+
+                <li  class="active_top" >
+
+                    <a href="/transportation/" class="">Transportation</a>
+                </li>
+
+            
+
+                <li >
+                    <a href="/nonprofits/" class="">Nonprofits</a>
+                </li>
+
+                 
+            <li class="inactive_top"><a href="/faq/#future-sectors">Future Sectors</a></li>
+
+        </ul>
+    </div>
+</div>
+
+<style> ul.sf-menu{ display: none;} #transportation-index{display:inline;}</style><div class="span-24"><div id="sector_subnav"><ul class="sf-menu" id="bailout-index"><li id="bailout_treasury_index"><a class="sf-with-ul" href="/bailout/treasury/">Treasury</a><ul><li id="bailout_treasury_index"><a href="/bailout/treasury/">Overview</a></li><li id="fannie_freddie_index"><a href="/bailout/treasury/fannie-freddie/">Fannie Mae and Freddie Mac</a></li><li id="tarp"><a href="/bailout/tarp/">TARP Disbursements</a></li><li id="tarp-map"><a href="/bailout/tarp/map/">TARP Map</a></li><li id="tarp-subsidies"><a class="sf-with-ul" href="/bailout/tarp/subsidies/">TARP Subsidies</a><ul><li id="tarp-subsidies-cop"><a href="/bailout/tarp/subsidies/cop/">COP Estimates</a></li><li id="tarp-subsidies-cbo"><a href="/bailout/tarp/subsidies/cbo/">CBO Estimates</a></li></ul></li><li id="tarp-warrants"><a class="sf-with-ul" href="/bailout/tarp/warrants/">TARP Warrants</a><ul><li id="tarp-warrants-calculation"><a href="/bailout/tarp/warrants/calculation/">Inconsistencies in Warrant Policy</a></li></ul></li></ul></li></ul><ul class="sf-menu" id="bailout-index"><li id="bailout_fdic_index"><a class="sf-with-ul" href="/bailout/fdic/">FDIC</a><ul><li id="bailout_fdic_index"><a href="/bailout/fdic/">Overview</a></li><li id="fdic_bank_failures"><a class="sf-with-ul" href="/bailout/fdic/bank-failures/">Bank Failures and the Deposit Insurance Fund</a><ul><li id="fdic_bank_failures_table"><a href="/bailout/fdic/bank-failures/table/">Bank Failures Table</a></li><li id="fdic_bank_failures_prepayment_requirement"><a href="/bailout/fdic/bank-failures/prepayment-requirement/">Prepayment Requirement</a></li></ul></li><li id="fdic_llp_comments"><a href="/bailout/fdic/ppip/llp/comments/">Legacy Loan Program Comments</a></li><li id="fdic_tlgp"><a href="/bailout/fdic/tlgp/">TLGP Monthly Reports</a></li></ul></li></ul><ul class="sf-menu" id="bailout-index"><li id="bailout_federal_reserve_index"><a href="/bailout/federal-reserve/">Federal Reserve</a></li></ul><ul class="sf-menu" id="bailout-index"><li id="bailout_other_index"><a class="sf-with-ul" href="/bailout/other/">Other Agencies</a><ul><li id="bailout_other_index"><a href="/bailout/other/">Overview</a></li><li id="fhlb_index"><a href="/bailout/fhlb/">Federal Home Loan Banks</a></li></ul></li></ul><ul class="sf-menu" id="bailout-index"><li id="bailoutpdf_index"><a href="/documents/">Key Documents</a></li></ul><ul class="sf-menu" id="transportation-index"><li id="transportation-overview"><a class="sf-with-ul" href="/transportation/overview/">Overview</a><ul><li id="transportation-aviation"><a href="/transportation/aviation/">Aviation</a></li><li id="transportation-highways"><a href="/transportation/highways/">Highways</a></li><li id="transportation-maritime"><a href="/transportation/maritime/">Maritime</a></li><li id="transportation-rail"><a href="/transportation/rail/">Rail</a></li><li id="transportation-transit"><a href="/transportation/transit/">Transit</a></li></ul></li></ul><ul class="sf-menu" id="transportation-index"><li id="transportation-direct-expenditures"><a class="sf-with-ul" href="/transportation/direct-expenditures/">Direct Expenditures</a><ul><li id="transportation-cfdaprograms-index"><a href="/transportation/direct-expenditures/programs/">Direct Expenditures Program Directory (CFDA)</a></li><li id="transportation-faads-search"><a href="/transportation/direct-expenditures/search/">Search Direct Expenditures</a></li><li id="aip-story"><a class="sf-with-ul" href="/transportation/aip/">Airport Improvement Program (AIP)</a><ul><li id="aip-story"><a href="/transportation/aip/">Analysis</a></li><li id="aip-index"><a href="/transportation/aip/search/">Grant Search</a></li></ul></li><li id="transportation-amtrak"><a class="sf-with-ul" href="/transportation/amtrak/">Amtrak</a><ul><li id="transportation-amtrak"><a href="/transportation/amtrak/">Analysis</a></li><li id="transportation-amtrak-table"><a href="/transportation/amtrak/table/">Route Performance Table</a></li></ul></li><li id="transportation-highway-funding"><a href="/transportation/highways/funding/">Highway Funding Analysis</a></li></ul></li></ul><ul class="sf-menu" id="transportation-index"><li id="transportation-tax-expenditures"><a class="sf-with-ul" href="/transportation/tax-expenditures/">Tax Expenditures</a><ul><li id="transportation-tax-expenditures-employer-paid-benefits"><a href="/transportation/tax-expenditures/employer-paid-benefits/">Employer-paid Transportation Benefits</a></li><li id="transportation-tax-expenditures-track-maintenance"><a href="/transportation/tax-expenditures/track-maintenance/">Tax Credit for Certain Expenditures for Maintaining Tracks</a></li><li id="transportation-tax-expenditures-bond-interest-exclusion"><a href="/transportation/tax-expenditures/bond-interest-exclusion/">Exclusion of Interest on Bonds for Financing of Highway Project and Rail-Truck Transfer Facilities</a></li><li id="transportation-tax-expenditures-capital-construction-funds"><a href="/transportation/tax-expenditures/capital-construction-funds/">Deferral of Tax on Shipping Companies</a></li></ul></li></ul><ul class="sf-menu" id="transportation-index"><li id="transportation-risk-transfers"><a class="sf-with-ul" href="/transportation/risk-transfers/">Risk Transfers</a><ul><li id="transportation-exim"><a href="/transportation/risk-transfers/exim/">Export/Import Bank</a></li></ul></li></ul><ul class="sf-menu" id="transportation-index"><li id="transportation-contracts"><a href="/transportation/contracts/">Contracts</a></li></ul><ul class="sf-menu" id="nonprofits-index"><li id="nonprofits-overview"><a class="sf-with-ul" href="/nonprofits/overview/">Overview</a><ul><li id="nonprofits-overview-structure"><a href="/nonprofits/overview/structure/">Structure of Nonprofit Sector in the U.S.</a></li></ul></li></ul><ul class="sf-menu" id="nonprofits-index"><li id="nonprofits-direct-expenditures"><a class="sf-with-ul" href="/nonprofits/direct-expenditures/">Grants and Contracts</a><ul><li id="nonprofits-faads-search"><a href="/nonprofits/direct-expenditures/search/">Search Grants</a></li><li id="nonprofits-fpds-search"><a href="/nonprofits/contracts/search/">Search Contracts</a></li></ul></li></ul><ul class="sf-menu" id="nonprofits-index"><li id="nonprofits-tax-expenditures"><a class="sf-with-ul" href="/nonprofits/tax-expenditures/">Tax Subsidies</a><ul><li id="nonprofits-tax-expenditures-edu-contrib"><a href="/nonprofits/tax-expenditures/education-charitable-contributions/">Deduction for Charitable Contributions for Educational Institutions</a></li><li id="nonprofits-tax-expenditures-health-contrib"><a href="/nonprofits/tax-expenditures/health-charitable-contributions/">Deduction for Charitable Contributions for Health Organizations</a></li><li id="nonprofits-tax-expenditures-other-contrib"><a href="/nonprofits/tax-expenditures/other-charitable-contributions/">Deduction for Charitable Contributions for Institutions Other than Education and Health</a></li><li id="nonprofits-tax-expenditures-credit-union-income"><a href="/nonprofits/tax-expenditures/credit-union-income/">Credit Union Income</a></li><li id="nonprofits-tax-expenditures-edu-bonds"><a href="/nonprofits/tax-expenditures/bond-interest-for-educational-facilities/">Bonds for Private Nonprofit Educational Facilities</a></li><li id="nonprofits-tax-expenditures-bcbs"><a href="/nonprofits/tax-expenditures/blue-cross-blue-shield/">Special BlueCross BlueShield Deduction</a></li><li id="nonprofits-tax-expenditures-minister-housing"><a href="/nonprofits/tax-expenditures/minister-housing-exclusion/">Exclusion of Housing Allowances for Ministers</a></li></ul></li></ul><ul class="sf-menu" id="nonprofits-index"><li id="nonprofits-risk-transfers"><a href="/nonprofits/risk-transfers/">Loans & Loan Guarantees</a></li></ul></div></div>
+
+
+
+<span class="breadcrumbs">
+
+
+
+    
+        <a href="/transportation/">Transportation</a>
+        &nbsp;&raquo;&nbsp;
+    
+
+
+
+    
+        Tax Expenditures
+    
+
+
+
+</span>
+
+
+    <div class="span-24">
+        <div id="header_area">
+            <h3>Tax Expenditures</h3>
+        </div>
+        <div class="content_area">
+            
+            <script type="text/javascript">
+            if(typeof(jQuery)=='undefined') { 
+                document.write('<script type="text/javascript" src="jquery.js"></' + 'script>');
+            }
+            </script>
+            <script type="text/javascript" src="jquery.jeditable.js"></script>
+
+            <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery('.jeditable-morsel').each(function(i){
+                    jQuery(this).editable(jQuery(this).attr('rel'), 
+                    {
+                        type      : 'textarea',
+                        cancel    : 'Cancel',
+                        submit    : 'OK',
+                        indicator : 'Saving...',
+                        tooltip   : 'Double-click to edit...',
+                        event     : 'dblclick',
+                        loadurl   : '/morsels/morsel-load/%2Ftransportation%2Ftax-expenditures%2F',
+                        onblur    : 'ignore'                                          
+                    });
+                });
+            });
+            </script>
+            <div class="jeditable-morsel" id="summary" rel="/morsels/morsel-save/%2Ftransportation%2Ftax-expenditures%2F"><div class="jeditable-morsel-label"></div><div class="section-floating-nav page-summary"><h5>In this section...</h5><ul><li>When the government allows certain taxpayers to take deductions, exemptions or credits, a tax expenditure -- or government spending through the tax code -- results.</li><li>Tax expenditures have the same effect on the federal budget as government spending, but have a number of features that warrant more attention.</li><li>Unlike <a href="/glossary/#direct-expenditures">direct expenditures</a>, most of the revenue loss through tax expenditures constitutes a subsidy.</li></ul></div></div>
+            <div class="jeditable-morsel" id="text1" rel="/morsels/morsel-save/%2Ftransportation%2Ftax-expenditures%2F"><div class="jeditable-morsel-label"></div><p>Tax expenditures are government revenue losses resulting from provisions in the tax code that allow a taxpayer or business to reduce his or her tax burden by taking certain deductions, exemptions, or credits.  Tax expenditures have the same effect on the federal budget as government spending.  They can have effects on recipients similar to grants or other types of subsidies.  For instance, if the government wants to encourage people to buy solar panels for their homes, it can either send checks to those who promise to buy the panels or offer tax breaks once the panels have been purchased.</p>
+
+
+<p>Tax expenditures can affect more than just the targeted activity.  When certain people or organizations are selected to receive targeted tax breaks through tax subsidies, the size of the tax base is reduced and tax rates then have to be increased for everyone in order to bring in an equivalent amount of revenue to the pre-tax expenditure level.  Further, if a tax subsidy is not expressly intended to make a tax more efficient, then it will most likely produce an economic inefficiency.  For example, when a tax subsidy is given to businesses to invest in a specific commodity, private investment is shifted from some other commodity into the tax-preferred area of investment without regard to the return on investment.  This creates an economic inefficiency. Tax subsidies can also end up rewarding taxpayers for behavior they would have engaged in regardless of the tax benefit.</p>
+
+<!-- CHART CODE EXAMPLE -->
+<style>
+img.chart {  }
+img.center { margin: 0 auto; width: 600px; display:block; }
+
+ul.horizontal { display:inline; width: 100%; float:left; margin-left: 50px;}
+ul.horizontal li { float:left; width: 20%; }
+ul.horizontal li h6 {text-align:center;}
+ul.horizontal li img {margin-left: auto; margin-right: auto; display:block; width: 120px; }
+
+
+div.full {width: 100%; }
+div.charts {float:left; font-family: sans-serif;}
+div.charts h4 {text-align:center;}
+</style>
+
+<div class="charts full">
+<h4>US Primary Energy Consumption by Source and Sector - 2008</h5>
+<img class="chart center" title="Total Tax Expenditures FY2008-20014"  src="/media/images/charts/energy/US_primary_energy_consumption_by_source_and_sector_2008.png"/><br/>
+
+<ul class="charts horizontal">
+<li>
+    <h6>Transportation</h6>
+    <img src="/media/images/charts/energy/energy_consumption_transportation_2008_SMALL.png" />
+</li>
+<li>
+    <h6>Industrial</h6>
+    <img src="/media/images/charts/energy/energy_consumption_industrial_2008_SMALL.png" />
+</li>
+<li>
+    <h6>Electric</h6>
+    <img src="/media/images/charts/energy/energy_consumption_electric_2008_SMALL.png" />
+</li>
+<li>
+    <h6 style="margin-top: 3px;">Residential & Commercial</h6>
+    <img src="/media/images/charts/energy/energy_residential_and_commercial_industrial_2008_SMALL.png" />
+</li>
+</ul>
+</div>
+<!-- END CHART CODE EXAMPLE -->
+
+
+<p>Not only do tax subsidies benefit a small group of interests — often those with higher incomes — they usually do not go through open, transparent political processes. Particularly true in the case of tax subsidies, expenditures through the revenue code are often large, hidden, and not subject to the same public debate as direct spending. Further, they do not get evaluated like much direct government spending does. Politicians often employ tax expenditures because they can use the tax code to confer benefits to constituents while campaigning on a platform of lowering taxes, which sounds quite a bit different than explaining that they use the tax code to benefit certain people and not others.</p>
+
+<p>There are experts who disagree on what baseline should be used to measure tax expenditures.  Some assume that the current tax system is, or should be, a broad-based income tax.  Others argue it is, or should be, a consumption tax.  The baseline one uses can greatly change what gets counted.  For instance, using an income tax baseline, the exemption for investment income from Individual Retirement Accounts would be considered a tax expenditure.  Using the consumption tax baseline, this provision would not be counted as a tax expenditure since income from investments is not subject to a consumption tax.</p>
+
+<!-- CHART CODE EXAMPLE -->
+<div class="charts">
+<h4>Tax Expenditures by Fuel Type - 2007</h4>
+<img style="margin-right:10px;" src="/media/images/charts/energy/energy_tax_expenditures_by_fuel_type_2007.png" />
+</div>
+
+
+<!-- END CHART CODE EXAMPLE -->
+<p>Subsidyscope does not take a position on which tax structure is appropriate but presents tax expenditures estimates based on the income tax baseline because the Department of the Treasury and the Joint Committee on Taxation (JCT) use this baseline in making their estimates.</p>
+
+<p>However, there are still differences between the estimates produced by the JCT and the Treasury even though the same income tax baseline is used. As the JCT explains in a recent document entitled "<a href="http://www.jct.gov/publications.html?func=startdown&id=1196">A Reconsideration of Tax Expenditure Analysis</a>," the Treasury's analysis has changed over time. It has shifted from the use of a "normal" to a "reference" baseline, as the tax starting point from which to measure income tax expenditures. A "normal" baseline is considered more theoretical in nature, and based on the economic notion of a comprehensive income tax that applies to all income, which we have never had in practice as some types of income are excluded from taxation. Alternatively, a "reference" baseline more closely matches the actual tax code that we have, and considers some of the deviations from a normal income tax as part of the baseline rather than counting them as tax expenditures.<sup>1</sup></p>
+
+<p>Illustrating the dynamic nature of this debate, the JCT proposed in 2008 to move away from the use of a "normal" income tax baseline toward the use of a "reference" baseline. This would incorporate current codified tax law and would more closely resemble Treasury's model, rather than comparing current law to some theoretical and heretofore undefined in practical use, "normal" baseline. JCT asserts that this revised approach will result in a more principled and neutral approach to the issues.</p>
+
+<p>Based on this information, Subsidyscope will present the Treasury's estimates, which are compiled annually by the Office of Management and Budget in the Analytical Perspectives of the President's Budget. Those interested in the JCT estimates may find them <a href="http://www.jct.gov/publications.html?func=startdown&id=1192">here</a>; for the transportation sector, the estimates are very similar.</p>
+
+<h3>Tax Expenditures for Transportation</h3>
+
+<p>Tax expenditures are not heavily used in the transportation sector in comparison to direct expenditures. As the table below illustrates, the totals in a given year are around $4 billion. Just as there are difficulties measuring subsidies in general, estimating tax subsidies is no different. Tax expenditure data presented are estimates of revenue forgone. They represent the lost revenue attributable to the use of the provision, which is not necessarily the same as what would be raised if the tax expenditure were repealed. Summing tax expenditures, while not technically accurate, often provides a reasonably good estimate for the total cost of groups of tax expenditures. The repeal of any single tax expenditure can trigger behavioral effects that in turn affect other tax expenditure amounts or even the total amount of tax revenue flowing into the Treasury. For example, if the tax expenditure favoring employee parking is repealed, more taxpayers may take the tax expenditure for employee transit passes, thus increasing the estimate for that tax expenditure.</p>
+
+
+
+
+
+<div id="subsidy-charts">
+<h5 style="margin-top:20px;">Transportation Tax Expenditures for Individuals and Corporations by fiscal year ($ millions)</h5>
+
+<table>
+<tbody>
+<tr class="header-row">
+  <td></td>
+
+  
+  <td>2008</td>
+  <td>2009</td>
+  <td>2010</td>
+  <td>2011</td>
+  <td>2012</td>
+  <td>2013</td>
+
+  <td>2014</td></tr>
+
+<tr class="odd">
+  <td class="program"><a href="/projects/transportation/tax-expenditures/employer-paid-benefits/">Exclusion of employer-paid transportation benefits</a></td>
+
+  <td colspan="7"></td>
+
+</tr>
+
+<tr class="even">
+  <td class="subprogram" >Exclusion of reimbursed employee parking expenses</td>
+
+  
+  <td>2,920</td>
+  <td>3,000</td>
+  <td>3,120</td>
+  <td>3,270</td>
+  <td>3,400</td>
+  <td>3,520</td>
+
+  <td>3,630</td>
+  
+</tr>
+
+<tr class="odd">
+  <td class="subprogram">Exclusion of reimbursed employee transit passes</td>
+  
+  <td>480</td>
+  <td>500</td>
+  <td>530</td>
+
+  <td>570</td>
+  <td>600</td>
+  <td>630</td>
+  <td>660</td>
+  
+</tr>
+
+<tr class="even">
+  <td class="program"><a href="/projects/transportation/tax-expenditures/track-maintenance/">Tax credit for certain expenditures for maintaining tracks</a></td>
+
+  
+  <td>180</td>
+  <td>180</td>
+  <td>70</td>
+  <td>20</td>
+  <td>10</td>
+  <td>10</td>
+
+  <td>0</td>
+  
+</tr>
+
+
+<tr class="odd">
+  <td class="program"><a href="/projects/transportation/tax-expenditures/bond-interest-exclusion/">Exclusion of interest on bonds for financing of highway projects and rail-truck transfer facilities</a></td>
+  
+  <td>80</td>
+  <td>90</td>
+
+  <td>100</td>
+  <td>100</td>
+  <td>90</td>
+  <td>60</td>
+  <td>60</td>
+  
+</tr>
+
+<tr class="even">
+  <td class="program"><a href="/projects/transportation/tax-expenditures/capital-construction-funds/">Deferral of tax on shipping companies</a></td>
+  
+  <td>20</td>
+  <td>20</td>
+  <td>20</td>
+  <td>20</td>
+
+  <td>20</td>
+  <td>20</td>
+  <td>20</td>
+  
+<tr class="total">
+ <td class="program">Total</td>
+ 
+ <td>3,680</td>
+
+ <td>3,790</td>
+ <td>3,840</td>
+ <td>3,980</td>
+ <td>4,120</td>
+ <td>4,240</td>
+ <td>4,370</td>
+
+
+</tr>
+
+
+</tbody>
+</table>
+<cite>Source: <a href="http://www.gpoaccess.gov/usbudget/fy10/pdf/spec.pdf">Analytical Perspectives</a>, President’s Fiscal Year 2010 Budget, p. 297.</cite>
+
+
+<p>Click on specific tax expenditures above for time series estimates of revenue loss, as well as a description of each provision, including impact, rationale and assessment of each, done by the Congressional Research Service. </p>
+
+
+</div>
+
+
+<ol class="footnotes"><li>See pages 25-27 of <a href="http://www.jct.gov/publications.html?func=startdown&id=1196">this document</a> for a summary of the methodological variation between the Congress' Joint Committee on Taxation and the estimates produced for the President's Budget by the Treasury Department.</li></ol>
+
+
+
+</div>
+        </div>
+</div>
+
+
+<div class="container pew_container">
+	<div class="span-19"> 
+		<p class="pew_footer">
+	<a href="http://www.pewtrusts.org/" class="footer">The Pew Charitable Trusts</a> is driven by the power of knowledge to solve today’s most challenging problems. Pew applies a rigorous, analytical approach to improve public policy, inform the public and stimulate civic life. We partner with a diverse range of donors, public and private organizations and concerned citizens who share our commitment to fact-based solutions and goal-driven investments to improve society.
+		</p>
+	</div>
+	
+		<div class="span-5 last"><a href="http://www.pewtrusts.org"><img src="/media/images/pew_footer.gif"></a></div>
+</div>
+
+<div class="container footer_container">
+
+
+	
+	
+
+
+	<div class="span-2">&nbsp;</div>
+
+	<div class="span-4">
+	<h4 class="footer">Subsidyscope</h4>
+	<ul id="footer_list">
+		<li><a href="/faq/">Frequently Asked Questions</a></li>
+		<li><a href="/board/">Board of Advisors</a></li>
+
+		<li><a href="/press/">Press Center</a></li>	
+		<li><a href="/staff/">Staff</a></li>
+	</ul>	
+	</div>	
+
+	<div class="span-4">
+	<h4 class="footer">Financial Bailout</h4>
+	<ul id="footer_list">
+		<li><a href="/bailout/treasury/">Treasury</a></li>
+
+		<li><a href="/bailout/fdic/">FDIC</a></li>
+		<li><a href="/bailout/federal-reserve/">Federal Reserve</a></li>	
+		<li><a href="/bailout/other/">Other Agencies</a></li>
+		<li><a href="/documents/">Key Documents</a></li>
+	</ul>	
+	</div>
+	
+	<div class="span-4">
+	<h4 class="footer">Transportation</h4>
+
+	<ul id="footer_list">
+		<li><a href="/transportation/overview/">Overview</a></li>
+		<li><a href="/transportation/direct-expenditures/">Direct Expenditures</a></li>
+    <li><a href="/transportation/tax-expenditures/">Tax Expenditures</a></li>
+    <li><a href="/transportation/risk-transfers/">Risk Transfers</a></li>
+    <li><a href="/transportation/contracts/">Contracts</a></li>
+
+    
+    
+	</ul>	
+	</div>
+	
+
+	<div class="span-4">
+	<h4 class="footer">Need Help?</h4>
+	<ul id="footer_list">
+		<li><a href="/rss/">About RSS</a></li>
+		<li><a href="/contact/">Contact Us</a></li>	
+	</ul>	
+	</div>
+
+	<div class="span-4">
+	<h4 class="footer">Reference</h4>
+	<ul id="footer_list">
+	  <li><a href="/framing-paper/">Subsidyscope Framing Paper</a></li>
+		<li><a href="/data/">Datasets</a></li>
+		<li><a href="/glossary/">Glossary</a></li>
+
+		<li><a href="/methodology/">Methodology</a></li>	
+	</ul>
+	</div>	
+
+	<div class="span-2 last">&nbsp;</div>
+	
+	<div class="span-24">&nbsp;</div>
+	
+	
+</div>
+
+
+
+</body>
+</html>
+
