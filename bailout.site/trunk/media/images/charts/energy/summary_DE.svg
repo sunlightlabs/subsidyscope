@@ -131,13 +131,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1680"
-     inkscape:window-height="1029"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
      id="namedview71"
      showgrid="false"
      inkscape:zoom="1.1330531"
-     inkscape:cx="295.98555"
-     inkscape:cy="25.345142"
+     inkscape:cx="148.59616"
+     inkscape:cy="-11.722847"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -177,10 +177,10 @@
 
 	</style>
   <rect
-     height="675.08667"
-     width="440"
-     x="0"
-     y="-102.37825"
+     height="617.71954"
+     width="331.44373"
+     x="53.836842"
+     y="-84.72683"
      id="rect6"
      style="fill:#ffffff" />
   <g
@@ -264,359 +264,348 @@
        class="y-axis-label">$5.7B</text>
   </g>
   <g
-     id="g3036">
-    <g
-       transform="translate(9.554168,53.00084)"
-       class="x-axis"
-       id="x_axis-5">
-      <path
-         class="x-axis-path"
-         d="m 0,170 420,0"
-         id="path10-8"
-         style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-      <path
-         class="x-notch-left"
-         d="M 0,170"
-         id="path12-1"
-         style="stroke:#a7a9ac" />
-      <path
-         class="x-notch-right"
-         d="M 420,170"
-         id="path14-0"
-         style="stroke:#a7a9ac" />
-    </g>
+     id="x_axis-5"
+     class="x-axis"
+     transform="matrix(0.75,0,0,0.75,62.054168,94.451771)">
     <path
-       class="x-notch"
-       d="m 219.55417,223.00084 0,5"
-       id="path51-4"
-       style="stroke:#a7a9ac" />
-    <g
-       transform="translate(-86.597853,-526.14823)"
-       id="g3922">
-      <rect
-         style="fill:#336699;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px"
-         id="rect53-8"
-         y="722.89618"
-         x="190.72943"
-         width="60"
-         height="26.252914"
-         class="series-0-point" />
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text55-5"
-         y="717.89618"
-         x="220.72943"
-         class="data-point-label">$5.3B</text>
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text63"
-         y="764.14905"
-         x="220.72943"
-         class="x-axis-label">Tax Expenditure</text>
-    </g>
-    <g
-       transform="translate(-30.021064,-526.14823)"
-       id="g3927">
-      <rect
-         style="fill:#336699;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px"
-         id="rect57"
-         y="722.89618"
-         x="330.72943"
-         width="60"
-         height="26.252914"
-         class="series-0-point" />
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text59"
-         y="717.89618"
-         x="360.72943"
-         class="data-point-label">$5.3B</text>
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text65"
-         y="764.14905"
-         x="360.72943"
-         class="x-axis-label">Subsidy</text>
-    </g>
+       style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path10-8"
+       d="m 0,170 420,0"
+       class="x-axis-path" />
+    <path
+       style="stroke:#a7a9ac"
+       id="path12-1"
+       d="M 0,170"
+       class="x-notch-left" />
+    <path
+       style="stroke:#a7a9ac"
+       id="path14-0"
+       d="M 420,170"
+       class="x-notch-right" />
+  </g>
+  <path
+     style="stroke:#a7a9ac;stroke-width:0.75"
+     id="path51-4"
+     d="m 219.55417,221.95177 0,3.75"
+     class="x-notch" />
+  <g
+     id="g3922"
+     transform="matrix(0.75,0,0,0.75,-10.059848,-339.91003)">
+    <rect
+       class="series-0-point"
+       height="26.252914"
+       width="60"
+       x="190.72943"
+       y="722.89618"
+       id="rect53-8"
+       style="fill:#336699;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px" />
     <text
-       id="text3964"
-       y="141.47636"
-       x="220.02292"
-       style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
-       xml:space="preserve"><tspan
-         y="141.47636"
-         x="222.80417"
-         id="tspan3966"
-         sodipodi:role="line">Figure 3: Energy Sector </tspan><tspan
-         id="tspan2897"
-         y="161.47636"
-         x="220.02292"
-         sodipodi:role="line">Tax Expenditures FY2009</tspan></text>
+       class="data-point-label"
+       x="220.72943"
+       y="717.89618"
+       id="text55-5"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$5.3B</text>
+    <text
+       class="x-axis-label"
+       x="220.72943"
+       y="764.14905"
+       id="text63"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Tax Expenditure</text>
   </g>
   <g
-     id="g3003"
-     transform="translate(0,12)">
-    <g
-       transform="translate(9.838615,333.10996)"
-       class="x-axis"
-       id="x_axis-4">
-      <path
-         class="x-axis-path"
-         d="m 0,170 420,0"
-         id="path10-0"
-         style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-      <path
-         class="x-notch-left"
-         d="M 0,170"
-         id="path12-5"
-         style="stroke:#a7a9ac" />
-      <path
-         class="x-notch-right"
-         d="M 420,170"
-         id="path14-9"
-         style="stroke:#a7a9ac" />
-    </g>
-    <g
-       transform="translate(9.838615,333.10996)"
-       class="y-axis"
-       id="y_axis-4">
-      <path
-         class="y-axis-path"
-         d="M 0,170 0,0"
-         id="path17-6"
-         style="display:none" />
-      <path
-         class="y-axis-path-2"
-         d="M 420,170 420,0"
-         id="path19-9" />
-      <path
-         class="y-gridline"
-         d="M 0,0 420,0"
-         id="path21-2"
-         style="display:none" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="0"
-         id="text23-2"
-         style="display:none">$34.3B</text>
-      <path
-         class="y-gridline"
-         d="m 0,28 420,0"
-         id="path25-4"
-         style="display:none" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="28"
-         id="text27-7"
-         style="display:none">$28.6B</text>
-      <path
-         class="y-gridline"
-         d="m 0,56 420,0"
-         id="path29-7"
-         style="display:none" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="56"
-         id="text31-5"
-         style="display:none">$22.9B</text>
-      <path
-         class="y-gridline"
-         d="m 0,84 420,0"
-         id="path33-4"
-         style="display:none" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="84"
-         id="text35-8"
-         style="display:none">$17.2B</text>
-      <path
-         class="y-gridline"
-         d="m 0,112 420,0"
-         id="path37-1"
-         style="display:none" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="112"
-         id="text39-2"
-         style="display:none">$11.4B</text>
-      <path
-         class="y-gridline"
-         d="m 0,140 420,0"
-         id="path41-8"
-         style="display:none" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="140"
-         id="text43-9"
-         style="display:none">$5.7B</text>
-    </g>
-    <path
-       class="x-notch"
-       d="m 219.83861,503.10996 0,5"
-       id="path51-3"
-       style="stroke:#a7a9ac" />
-    <g
-       transform="translate(-0.274397,178.27924)"
-       id="g3802">
-      <rect
-         style="fill:#9ca991;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px"
-         id="rect53-6"
-         y="170.28526"
-         x="104.11301"
-         width="60"
-         height="154.54546"
-         class="series-0-point" />
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text55-8"
-         y="165.28526"
-         x="134.11301"
-         class="data-point-label">$31.2B</text>
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text67-5-8"
-         y="341.12787"
-         x="134.55724"
-         class="x-axis-label">Outstanding Credit</text>
-    </g>
-    <g
-       transform="translate(-29.926124,102.27924)"
-       id="g3807">
-      <text
-         id="text57-0"
-         y="315.83072"
-         x="330.11301"
-         class="value-as-label">
-        <tspan
-           id="tspan61-1"
-           y="372.83072"
-           x="330.11301">Unknown</tspan>
-      </text>
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text69-1"
-         y="415.83072"
-         x="360.11301"
-         class="x-axis-label">Subsidy</text>
-    </g>
+     id="g3927"
+     transform="matrix(0.75,0,0,0.75,32.372744,-339.91003)">
+    <rect
+       class="series-0-point"
+       height="26.252914"
+       width="60"
+       x="330.72943"
+       y="722.89618"
+       id="rect57"
+       style="fill:#336699;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px" />
     <text
-       id="text3964-4"
-       y="297.07663"
-       x="219.13548"
-       style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
-       xml:space="preserve"><tspan
-         id="tspan2897-9"
-         y="297.07663"
-         x="219.13548"
-         sodipodi:role="line">Figure 4: Energy Sector</tspan><tspan
-         id="tspan2961"
-         y="317.07663"
-         x="219.13548"
-         sodipodi:role="line">Risk Transfers FY2009</tspan></text>
-  </g>
-  <g
-     id="g3054"
-     transform="translate(0,-8)">
-    <g
-       transform="translate(10,-112)"
-       class="x-axis"
-       id="x_axis">
-      <path
-         class="x-axis-path"
-         d="m 0,170 420,0"
-         id="path10"
-         style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-      <path
-         class="x-notch-left"
-         d="M 0,170"
-         id="path12"
-         style="stroke:#a7a9ac" />
-      <path
-         class="x-notch-right"
-         d="M 420,170"
-         id="path14"
-         style="stroke:#a7a9ac" />
-    </g>
-    <path
-       class="x-notch"
-       d="m 220,58 0,5"
-       id="path51"
-       style="stroke:#a7a9ac" />
-    <g
-       transform="translate(-0.38990603,-122)"
-       id="g2922">
-      <rect
-         style="fill:#bf5004;stroke:#e0d1d1;stroke-width:2px"
-         id="rect53"
-         y="113.12936"
-         x="104"
-         width="60"
-         height="66.870628"
-         class="series-0-point" />
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text55"
-         y="108.12936"
-         x="134"
-         class="data-point-label">$13.5B</text>
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text67"
-         y="195"
-         x="134"
-         class="x-axis-label">Programs Containing</text>
-    </g>
-    <g
-       transform="translate(10.186883,-100)"
-       id="g2915">
-      <text
-         id="text57"
-         y="73"
-         x="290"
-         class="value-as-label">
-        <tspan
-           id="tspan61"
-           y="130"
-           x="290">Unknown</tspan>
-      </text>
-      <text
-         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-         id="text69"
-         y="173"
-         x="320"
-         class="x-axis-label">Subsidy</text>
-    </g>
+       class="data-point-label"
+       x="360.72943"
+       y="717.89618"
+       id="text59"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$5.3B</text>
     <text
-       id="text3964-6"
-       y="-65.645287"
-       x="219.77344"
-       style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
-       xml:space="preserve"><tspan
-         y="-65.645287"
-         x="222.55469"
-         id="tspan3966-4"
-         sodipodi:role="line">Figure 1: Energy Sector </tspan><tspan
-         id="tspan2897-1"
-         y="-45.645287"
-         x="219.77344"
-         sodipodi:role="line">Direct Expenditures FY2009</tspan></text>
-    <text
-       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
-       id="text69-8"
-       y="88.230293"
-       x="134.71405"
-       class="x-axis-label">Subsidy</text>
+       class="x-axis-label"
+       x="360.72943"
+       y="764.14905"
+       id="text65"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Subsidy</text>
   </g>
   <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
+     x="220.02292"
+     y="141.47636"
+     id="text3964"><tspan
+       sodipodi:role="line"
+       id="tspan3966"
+       x="222.80417"
+       y="141.47636">Figure 3: Energy Sector </tspan><tspan
+       sodipodi:role="line"
+       x="220.02292"
+       y="161.47636"
+       id="tspan2897">Tax Expenditures FY2009</tspan></text>
+  <g
+     id="x_axis-4"
+     class="x-axis"
+     transform="matrix(0.75,0,0,0.75,62.338615,368.888)">
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path10-0"
+       d="m 0,170 420,0"
+       class="x-axis-path" />
+    <path
+       style="stroke:#a7a9ac"
+       id="path12-5"
+       d="M 0,170"
+       class="x-notch-left" />
+    <path
+       style="stroke:#a7a9ac"
+       id="path14-9"
+       d="M 420,170"
+       class="x-notch-right" />
+  </g>
+  <g
+     id="y_axis-4"
+     class="y-axis"
+     transform="translate(9.838615,345.10996)">
+    <path
+       style="display:none"
+       id="path17-6"
+       d="M 0,170 0,0"
+       class="y-axis-path" />
+    <path
+       id="path19-9"
+       d="M 420,170 420,0"
+       class="y-axis-path-2" />
+    <path
+       style="display:none"
+       id="path21-2"
+       d="M 0,0 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text23-2"
+       y="0"
+       x="-5"
+       class="y-axis-label">$34.3B</text>
+    <path
+       style="display:none"
+       id="path25-4"
+       d="m 0,28 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text27-7"
+       y="28"
+       x="-5"
+       class="y-axis-label">$28.6B</text>
+    <path
+       style="display:none"
+       id="path29-7"
+       d="m 0,56 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text31-5"
+       y="56"
+       x="-5"
+       class="y-axis-label">$22.9B</text>
+    <path
+       style="display:none"
+       id="path33-4"
+       d="m 0,84 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text35-8"
+       y="84"
+       x="-5"
+       class="y-axis-label">$17.2B</text>
+    <path
+       style="display:none"
+       id="path37-1"
+       d="m 0,112 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text39-2"
+       y="112"
+       x="-5"
+       class="y-axis-label">$11.4B</text>
+    <path
+       style="display:none"
+       id="path41-8"
+       d="m 0,140 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text43-9"
+       y="140"
+       x="-5"
+       class="y-axis-label">$5.7B</text>
+  </g>
+  <path
+     style="stroke:#a7a9ac;stroke-width:0.75"
+     id="path51-3"
+     d="m 219.83861,496.388 0,3.75"
+     class="x-notch" />
+  <g
+     id="g3802"
+     transform="matrix(0.75,0,0,0.75,54.753856,252.76496)">
+    <rect
+       class="series-0-point"
+       height="154.54546"
+       width="60"
+       x="104.11301"
+       y="170.28526"
+       id="rect53-6"
+       style="fill:#9ca991;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px" />
+    <text
+       class="data-point-label"
+       x="134.11301"
+       y="165.28526"
+       id="text55-8"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$31.2B</text>
+    <text
+       class="x-axis-label"
+       x="134.55724"
+       y="341.12787"
+       id="text67-5-8"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Outstanding Credit</text>
+  </g>
+  <g
+     id="g3807"
+     transform="matrix(0.75,0,0,0.75,32.515061,195.76496)">
+    <text
+       class="value-as-label"
+       x="330.11301"
+       y="315.83072"
+       id="text57-0">
+      <tspan
+         x="330.11301"
+         y="372.83072"
+         id="tspan61-1">Unknown</tspan>
+    </text>
+    <text
+       class="x-axis-label"
+       x="360.11301"
+       y="415.83072"
+       id="text69-1"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Subsidy</text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
+     x="219.13548"
+     y="325.07663"
+     id="text3964-4"><tspan
+       sodipodi:role="line"
+       x="219.13548"
+       y="325.07663"
+       id="tspan2897-9">Figure 4: Energy Sector</tspan><tspan
+       sodipodi:role="line"
+       x="219.13548"
+       y="345.07663"
+       id="tspan2961">Risk Transfers FY2009</tspan></text>
+  <g
+     id="x_axis"
+     class="x-axis"
+     transform="matrix(0.75,0,0,0.75,62.5,-83.520962)">
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path10"
+       d="m 0,170 420,0"
+       class="x-axis-path" />
+    <path
+       style="stroke:#a7a9ac"
+       id="path12"
+       d="M 0,170"
+       class="x-notch-left" />
+    <path
+       style="stroke:#a7a9ac"
+       id="path14"
+       d="M 420,170"
+       class="x-notch-right" />
+  </g>
+  <path
+     style="stroke:#a7a9ac;stroke-width:0.75"
+     id="path51"
+     d="m 220,43.979038 0,3.75"
+     class="x-notch" />
+  <g
+     id="g2922"
+     transform="matrix(0.75,0,0,0.75,54.70757,-91.020962)">
+    <rect
+       class="series-0-point"
+       height="66.870628"
+       width="60"
+       x="104"
+       y="113.12936"
+       id="rect53"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:2px" />
+    <text
+       class="data-point-label"
+       x="134"
+       y="108.12936"
+       id="text55"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">$13.5B</text>
+    <text
+       class="x-axis-label"
+       x="134"
+       y="195"
+       id="text67"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Programs Containing</text>
+  </g>
+  <g
+     id="g2915"
+     transform="matrix(0.75,0,0,0.75,62.640162,-74.520962)">
+    <text
+       class="value-as-label"
+       x="290"
+       y="73"
+       id="text57">
+      <tspan
+         x="290"
+         y="130"
+         id="tspan61">Unknown</tspan>
+    </text>
+    <text
+       class="x-axis-label"
+       x="320"
+       y="173"
+       id="text69"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Subsidy</text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
+     x="219.77344"
+     y="-61.645287"
+     id="text3964-6"><tspan
+       sodipodi:role="line"
+       id="tspan3966-4"
+       x="222.55469"
+       y="-61.645287">Figure 1: Energy Sector </tspan><tspan
+       sodipodi:role="line"
+       x="219.77344"
+       y="-41.645287"
+       id="tspan2897-1">Direct Expenditures FY2009</tspan></text>
+  <text
      class="x-axis-label"
-     x="133.83148"
-     y="252.38852"
+     x="156.03554"
+     y="66.651756"
+     id="text69-8"
+     style="font-size:9px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Subsidy</text>
+  <text
+     class="x-axis-label"
+     x="155.26215"
+     y="243.99252"
      id="text69-7"
-     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Program</text>
+     style="font-size:9px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Program</text>
 </svg>
