@@ -94,6 +94,24 @@ input[type='text'] { cursor: text; }
 .container ol ol, .container ul ol { margin-left: 2.5em; }
 .container form div { margin-bottom: .8em; }
 
+/* CHARTS */
+
+img.chart {  }
+img.center { margin: 0 auto; width: 600px; display:block; }
+
+ul.horizontal { display:inline; width: 100%; float:left; margin-left: 50px;}
+ul.horizontal li { float:left; width: 20%; }
+ul.horizontal li h6 {text-align:center;}
+ul.horizontal li img {margin-left: auto; margin-right: auto; display:block; width: 120px; }
+
+
+div.full {width: 100%; }
+div.charts {float:left; font-family: sans-serif;}
+div.charts h4 {text-align:center;}
+div.charts h5 {text-align:center;}
+div.charts h6 {text-align:center;}
+
+
 /* COLORS */
 
 .container a:link { text-decoration: underline; color: #36c; }
