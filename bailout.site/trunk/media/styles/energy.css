@@ -34,17 +34,17 @@ img.subsidy-per-household { margin: 20px 20px 0px 25px; }
 #sources-of-error { padding-top:1em; clear: left; font-size: 0.9em; line-height: 1.15em; color: #aaa; padding-left: 15px; padding-right: 8px; text-align: justify;}
 
 
-#subscribe { /* background image block */
+#house_images { /* background image block */
 display: block;
 width: 215px;
 height: 60px;
 background: url(images/options.png) no-repeat;
 margin-top: 0px;
 }
-#subscribe a {
+#house_images a {
 text-decoration:none;
 }
-.hide {
+a .hide_link {
 visibility:hidden;
 }
 
