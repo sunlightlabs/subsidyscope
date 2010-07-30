@@ -106,10 +106,12 @@ ul.horizontal li img {margin-left: auto; margin-right: auto; display:block; widt
 
 
 div.full {width: 100%; }
-div.charts {float:left; font-family: sans-serif;}
+div.charts {font-family: sans-serif;}
 div.charts h4 {text-align:center;}
 div.charts h5 {text-align:center;}
 div.charts h6 {text-align:center;}
+div.charts.left {float:left;}
+div.charts.right {float:right;}
 
 
 /* COLORS */
