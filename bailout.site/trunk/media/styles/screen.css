@@ -55,6 +55,14 @@ input[type='text'] { cursor: text; }
 .container h5 { font-size: 1.2em; }
 .container h6 { font-size: 1em; }
 
+
+h1 { font-size: 1.9em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
+
 /* LISTS */
 
 .container ul li { margin-left: .85em; }
@@ -97,7 +105,7 @@ input[type='text'] { cursor: text; }
 /* CHARTS */
 
 img.chart {  }
-img.center { margin: 0 auto; width: 600px; display:block; }
+img.center { margin: 0 auto; display:block; }
 
 ul.horizontal { display:inline; width: 100%; float:left; margin-left: 50px;}
 ul.horizontal li { float:left; width: 20%; }
