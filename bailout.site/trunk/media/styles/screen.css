@@ -109,7 +109,7 @@ img.center { margin: 0 auto; display:block; }
 
 ul.horizontal { display:inline; width: 100%; float:left; margin-left: 50px;}
 ul.horizontal li { float:left; width: 20%; }
-ul.horizontal li h6 {text-align:center;}
+ul.horizontal li h6 {text-align:center; font-size: 1em;}
 ul.horizontal li img {margin-left: auto; margin-right: auto; display:block; }
 
 
