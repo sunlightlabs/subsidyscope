@@ -50,7 +50,11 @@ def main_nav_path(data, url):
     
     #keep track of what our current path is at each nav depth since python dict trees don't really have parent pointers
     current_tree =  globals()['current_tree']
-    current_tree[traverse.level] = (data['name'], reverse(data['url_name']), data['sector'], data['url_name'])
+    try:
+        current_tree[traverse.level] = (data['name'], reverse(data['url_name']), data['sector'], data['url_name'])
+    except IndexError:
+        #this page does exist in nav tree
+        return "" #fail silently
     
     data_structs = [0, 0, 'sectors', 'subsectors', 'dropdowns', 'inner_dropdowns']
     if reverse(data['url_name']) == url:
