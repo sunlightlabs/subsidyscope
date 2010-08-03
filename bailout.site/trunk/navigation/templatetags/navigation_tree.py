@@ -320,7 +320,7 @@ SECTORS = { 'sector': 'home',
                                                        'children':[]
                                                        },
                                                        {'sector': 'energy-overview',
-                                                       'name': 'Limitations of Government Energy Sector Data and Possible Solutions',
+                                                       'name': 'Limitations of Energy Sector Data',
                                                        'url_name': 'energy-overview-data-limitations',
                                                        'children':[]
                                                        }]
