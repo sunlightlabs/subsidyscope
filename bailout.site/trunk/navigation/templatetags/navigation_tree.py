@@ -318,6 +318,11 @@ SECTORS = { 'sector': 'home',
                                                        'name': 'Structure of the U.S. Energy Sector',
                                                        'url_name': 'energy-overview-structure',
                                                        'children':[]
+                                                       },
+                                                       {'sector': 'energy-overview',
+                                                       'name': 'Limitations of Government Energy Sector Data and Possible Solutions',
+                                                       'url_name': 'energy-overview-data-limitations',
+                                                       'children':[]
                                                        }]
                                         },
                                         {'sector': 'energy-index',
