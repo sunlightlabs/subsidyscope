@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -54,15 +54,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1059"
+     inkscape:window-width="1400"
+     inkscape:window-height="985"
      id="namedview44"
      showgrid="false"
      inkscape:zoom="1.1"
-     inkscape:cx="325"
-     inkscape:cy="119.96919"
-     inkscape:window-x="1400"
-     inkscape:window-y="0"
+     inkscape:cx="188.78176"
+     inkscape:cy="190.87828"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <style
@@ -125,87 +125,93 @@
        style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
        id="tspan2833">Consumption, by Primary Source, 2008</tspan></text>
   <g
-     id="g2871"
-     transform="translate(-46.363636,28.181818)">
-    <text
-       style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif"
-       id="text8"
-       y="166.15546"
-       x="537.94397"
-       class="pie-label-right">
-      <tspan
-         id="tspan10"
-         x="538.83478"
-         dy="0">1% - Petroleum</tspan>
-    </text>
-    <path
-       style="fill:#072744;stroke:#d6d9db;stroke-width:2"
-       id="path12"
-       d="m 366.94396,172.15545 165,0 a 165,165 0 0 0 -0.43666,-11.99611 z"
-       class="slice-1" />
-    <text
-       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
-       id="text14"
-       y="16.428179"
-       x="290.58032"
-       class="pie-label-left">
-      <tspan
-         id="tspan16"
-         x="291.38205"
-         dy="0">51% - Coal</tspan>
-    </text>
-    <path
-       style="fill:#2b5b8e;stroke:#d6d9db;stroke-width:2"
-       id="path18"
-       d="M 366.94396,172.15545 531.5073,160.15934 a 165,165 0 1 0 -327.44356,38.35961 z"
-       class="slice-2" />
-    <text
-       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
-       id="text20"
-       y="287.15546"
-       x="232.94395"
-       class="pie-label-left">
-      <tspan
-         id="tspan22"
-         x="233.38841"
-         dy="0">17% - Natural Gas</tspan>
-    </text>
-    <path
-       style="fill:#669eb3;stroke:#d6d9db;stroke-width:2"
-       id="path24"
-       d="m 366.94396,172.15545 -162.88022,26.3635 a 165,165 0 0 0 108.1683,129.30154 z"
-       class="slice-3" />
-    <text
-       style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif"
-       id="text26"
-       y="344.33728"
-       x="325.30762"
-       class="pie-label-left">
-      <tspan
-         id="tspan28"
-         x="325.38831"
-         dy="0">9% - Renewables</tspan>
-    </text>
-    <path
-       style="fill:#bad9e0;stroke:#d6d9db;stroke-width:2"
-       id="path30"
-       d="m 366.94396,172.15545 -54.71192,155.66504 a 165,165 0 0 0 94.24646,4.52866 z"
-       class="slice-4" />
-    <text
-       style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif"
-       id="text32"
-       y="283.15546"
-       x="502.94397"
-       class="pie-label-right">
-      <tspan
-         id="tspan34"
-         x="503.8443"
-         dy="0">21% - Nuclear</tspan>
-    </text>
-    <path
-       style="fill:#e9ece3;stroke:#d6d9db;stroke-width:2"
-       id="path36"
-       d="m 366.94396,172.15545 39.53454,160.1937 a 165,165 0 0 0 125.46546,-160.1937 z"
-       class="slice-5" />
+     id="g2833"
+     inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy_final_charts/US_electric_power_industry_net_generation_2008.png"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90">
+    <g
+       transform="translate(-46.363636,28.181818)"
+       id="g2871">
+      <text
+         class="pie-label-right"
+         x="509.94397"
+         y="170.15546"
+         id="text8"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           dy="0"
+           x="510.83478"
+           id="tspan10">1% - Petroleum</tspan>
+      </text>
+      <path
+         class="slice-1"
+         d="m 366.94396,172.15545 123.75,0 a 123.75,123.75 0 0 0 -0.3275,-8.99708 z"
+         id="path12"
+         style="fill:#072744;stroke:#d6d9db;stroke-width:1.5" />
+      <text
+         class="pie-label-left"
+         x="290.58032"
+         y="58.428177"
+         id="text14"
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
+        <tspan
+           dy="0"
+           x="291.38205"
+           id="tspan16">51% - Coal</tspan>
+      </text>
+      <path
+         class="slice-2"
+         d="m 366.94396,172.15545 123.4225,-8.99708 a 123.75,123.75 0 1 0 -245.58267,28.7697 z"
+         id="path18"
+         style="fill:#2b5b8e;stroke:#d6d9db;stroke-width:1.5" />
+      <text
+         class="pie-label-left"
+         x="248.94395"
+         y="251.15546"
+         id="text20"
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
+        <tspan
+           dy="0"
+           x="249.38841"
+           id="tspan22">17% - Natural Gas</tspan>
+      </text>
+      <path
+         class="slice-3"
+         d="m 366.94396,172.15545 -122.16017,19.77262 a 123.75,123.75 0 0 0 81.12623,96.97616 z"
+         id="path24"
+         style="fill:#669eb3;stroke:#d6d9db;stroke-width:1.5" />
+      <text
+         class="pie-label-left"
+         x="353.30762"
+         y="314.33728"
+         id="text26"
+         style="font-size:12px;font-weight:bold;text-anchor:end;fill:#58595b;font-family:sans-serif">
+        <tspan
+           dy="0"
+           x="353.38831"
+           id="tspan28">9% - Renewables</tspan>
+      </text>
+      <path
+         class="slice-4"
+         d="m 366.94396,172.15545 -41.03394,116.74878 a 123.75,123.75 0 0 0 70.68484,3.39649 z"
+         id="path30"
+         style="fill:#bad9e0;stroke:#d6d9db;stroke-width:1.5" />
+      <text
+         class="pie-label-right"
+         x="470.94397"
+         y="275.15546"
+         id="text32"
+         style="font-size:12px;font-weight:bold;text-anchor:start;fill:#58595b;font-family:sans-serif">
+        <tspan
+           dy="0"
+           x="471.8443"
+           id="tspan34">21% - Nuclear</tspan>
+      </text>
+      <path
+         class="slice-5"
+         d="m 366.94396,172.15545 29.6509,120.14527 a 123.75,123.75 0 0 0 94.0991,-120.14527 z"
+         id="path36"
+         style="fill:#e9ece3;stroke:#d6d9db;stroke-width:1.5" />
+    </g>
   </g>
 </svg>

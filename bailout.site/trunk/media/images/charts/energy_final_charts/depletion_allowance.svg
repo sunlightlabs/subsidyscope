@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -61,15 +61,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1059"
+     inkscape:window-width="1280"
+     inkscape:window-height="1003"
      id="namedview85"
      showgrid="false"
      inkscape:zoom="1.5273506"
      inkscape:cx="344.73218"
-     inkscape:cy="162.71319"
+     inkscape:cy="161.40373"
      inkscape:window-x="1400"
-     inkscape:window-y="0"
+     inkscape:window-y="26"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <style
@@ -101,10 +101,10 @@
 
 	</style>
   <rect
-     height="395"
+     height="340.00281"
      width="511"
      x="-11"
-     y="-45"
+     y="9.9971962"
      id="rect6"
      style="fill:#ffffff" />
   <g
@@ -323,17 +323,9 @@
      y="-20.5"
      id="text2897"><tspan
        sodipodi:role="line"
-       id="tspan2899"
-       x="242.78125"
-       y="-20.5">Figure 2: Percentage Depletion Allowance </tspan><tspan
-       sodipodi:role="line"
-       x="240"
-       y="-0.5"
-       id="tspan2901">from FY 1998 to FY 2015</tspan><tspan
-       sodipodi:role="line"
        x="240"
        y="19.5"
-       id="tspan2911">($ millions)</tspan></text>
+       id="tspan2911" /></text>
   <text
      xml:space="preserve"
      style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"

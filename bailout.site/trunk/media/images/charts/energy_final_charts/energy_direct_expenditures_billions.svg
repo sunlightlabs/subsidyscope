@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -67,13 +67,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1059"
+     inkscape:window-width="1680"
+     inkscape:window-height="1029"
      id="namedview69"
      showgrid="false"
      inkscape:zoom="1.5277688"
      inkscape:cx="151.63682"
-     inkscape:cy="212.74012"
+     inkscape:cy="211.43102"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -110,9 +110,9 @@
      style="fill:#ffffff;fill-opacity:1;stroke:none"
      id="rect4086"
      width="518.40308"
-     height="378.3295"
+     height="337.0929"
      x="-13.090986"
-     y="-23.093102" />
+     y="18.143505" />
   <g
      id="grid"
      transform="translate(40,40)">
@@ -285,13 +285,9 @@
      y="3.5253115"
      id="text2881"><tspan
        sodipodi:role="line"
-       id="tspan2883"
-       x="251.98279"
-       y="3.5253115">Figure 1: Direct Expenditures in the Energy Sector </tspan><tspan
-       sodipodi:role="line"
        x="249.20154"
        y="23.525311"
-       id="tspan2885">FY2000-2009 ($ billions)</tspan></text>
+       id="tspan2885" /></text>
   <text
      xml:space="preserve"
      style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"

@@ -44,9 +44,9 @@ class StateMatcher():
                 return self.name_list[state]
             
             else:
-                self.unmatched_state
+                return self.unmatched_state
         except:
-            self.unmatched_state
+            return self.unmatched_state
 
     def matchFips(self, fips):
         
@@ -55,10 +55,10 @@ class StateMatcher():
             if self.fips_list.has_key(fips):
                 return self.fips_list[fips]
             else:
-                self.unmatched_state
+                return self.unmatched_state
             
         except:
-            self.unmatched_state
+            return self.unmatched_state
         
     def getCountyMatcher(self, state):
             
@@ -88,7 +88,7 @@ class StateManager(models.Manager):
 class State(models.Model):
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["order", "name"]
 
     name = models.CharField("Name", max_length=50)
     abbreviation = models.CharField("Name", max_length=2)
@@ -96,6 +96,8 @@ class State(models.Model):
     fips_state_code = models.IntegerField()
     
     population = models.IntegerField(null=True)
+    
+    order = models.IntegerField(null=True)
  
     objects = StateManager()
 
