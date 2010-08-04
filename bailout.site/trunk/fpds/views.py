@@ -38,7 +38,7 @@ def MakeFPDSSearchFormClass(sector=None, subsectors=[]):
         # recipient_type_choices = (('nonprofit', 'Nonprofits'), ('education', 'Higher Education'), ('all', 'Either'))
         # recipient_type = forms.TypedChoiceField(label="Include recipients classified as", widget=forms.RadioSelect, choices=recipient_type_choices, initial='all')
 
-        vendor_type = forms.TypedChoiceField(label='Vendor Type', widget=forms.RadioSelect, choices=((0, 'Nonprofits'), (1, 'Educational Institutions'), (2, 'Both')), initial=2, coerce=int)
+        vendor_type = forms.TypedChoiceField(label='Vendor Type', widget=forms.RadioSelect, choices=((0, 'Nonprofits'), (1, 'Educational Institutions'), (2, 'Any')), initial=2, coerce=int)
 
         extent_competed_choices = []
         for (code, name, description, include) in ExtentCompetedMapper.CODES:
