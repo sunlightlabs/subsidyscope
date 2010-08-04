@@ -96,6 +96,8 @@ class State(models.Model):
     fips_state_code = models.IntegerField()
     
     population = models.IntegerField(null=True)
+    
+    order = models.IntegerField(null=True)
  
     objects = StateManager()
 
