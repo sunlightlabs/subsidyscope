@@ -65,7 +65,7 @@ td.number {text-align: right; }
                 {% if form %} <legend id="advanced-options">Refine Search Results&nbsp;</legend> {% endif %}
                 <div class="section" id="text-query-text-wrapper"> 
                     <h4>Name/Abbreviation</h4>
-                    <input id="id_text_query" value="{% if form%} {{form.system_name}} {%else%} new york city transit{% endif %}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
+                    <input id="id_text_query" value="{% if form%} {{form.system_name}}{% endif %}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
                 </div>
                 <div class="section" id="mode-select">
                     <h4>Mode <span class="select-all-or-none"> [<a href="#" class="select-all" id="mode-select-all">All</a>/<a href="#" class="select-none" id="mode-select-none">None</a>]</span></h4>
@@ -263,12 +263,6 @@ $(document).ready(function(){
         if( $(this).val().trim() == "new york city transit" ){
             this.value = "";
         }
-    });
-    $("#id_text_query").bind('blur', function(){
-        if ( this.value === "" ){
-            this.value = "new york city transit";
-        }
-        $(this).toggleClass("active-field");
     });
 
     $("#mode-select-all").click(function(){
