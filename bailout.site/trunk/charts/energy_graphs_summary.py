@@ -1,52 +1,56 @@
 
 from charty import *
 
-DE = Column(440, 220, 
-            [
-                [ ('Direct Expenditures', 13500000000),
-                  ('Direct Expenditures\n (subsidy)', 'Subsidy Spending Unknown'),
-                ]
-            ],
-            'barchart.css',
-            currency="$",
-            units=True,
-            padding=10,
-            x_label_height=30
-            )
+#DE = Column(440, 220, 
+#            [
+#                [ ('scale', 31200000000),
+#		  ('Direct Expenditures', 13500000000),
+#                  ('Direct Expenditures\n (subsidy)', 'Subsidy Spending Unknown'),
+#                ]
+#            ],
+#            'barchart.css',
+#            currency="$",
+#            units=True,
+#            padding=10,
+#            x_label_height=30
+#            )
+#
+#DE.output('summary_DE.svg')
+#
+#TE = Column(440, 220, 
+#            [
+#                [ 
+#		  ('scale', 31200000000),
+#		  ('Tax Expenditures', 5300000000),
+#                  ('Tax Expenditures\n(subsidy)', 5300000000),
+#                ]
+#            ],
+#            'barchart_TE.css',
+#            currency="$",
+#            units=True,
+#            x_label_height=30,
+#            padding=10
+#            )
+#
+#TE.output('summary_TE.svg')
+#
+#RT = Column(440, 220, 
+#            [
+#                [ ('scale', 31200000000),
+#		  ('Risk Transfers \n(outstanding credit)', 31200000000),
+#                  ('Risk Transfers \n(subsidy)', 'Subsidy Spending Unknown'),
+#                ]
+#            ],
+#            'barchart_RT.css',
+#            currency="$",
+#            units=True,
+#            padding=10,
+#            x_label_height=30,
+#            )
+#
+#RT.output('summary_RT.svg')
 
-DE.output('summary_DE.svg')
-
-TE = Column(440, 220, 
-            [
-                [ ('Tax Expenditures', 5300000000),
-                  ('Tax Expenditures\n(subsidy)', 5300000000),
-                ]
-            ],
-            'barchart_TE.css',
-            currency="$",
-            units=True,
-            x_label_height=30,
-            padding=10
-            )
-
-TE.output('summary_TE.svg')
-
-RT = Column(440, 220, 
-            [
-                [ ('Risk Transfers \n(outstanding credit)', 31200000000),
-                  ('Risk Transfers \n(subsidy)', 'Subsidy Spending Unknown'),
-                ]
-            ],
-            'barchart_RT.css',
-            currency="$",
-            units=True,
-            padding=10,
-            x_label_height=30,
-            )
-
-RT.output('summary_RT.svg')
-
-CO = Line(440, 220,
+CO = Line(440, 130,
          [
             [ (2000, 7677302177),
               (2001, 1768682830),

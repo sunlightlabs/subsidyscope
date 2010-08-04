@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -89,13 +89,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1059"
+     inkscape:window-width="1680"
+     inkscape:window-height="1029"
      id="namedview91"
      showgrid="false"
      inkscape:zoom="1.3882353"
      inkscape:cx="266.43419"
-     inkscape:cy="196.18685"
+     inkscape:cy="194.74617"
      inkscape:window-x="1400"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -133,10 +133,10 @@
 
 	</style>
   <rect
-     height="392.58475"
+     height="339.27966"
      width="606.61017"
      x="-103.00848"
-     y="-30.81356"
+     y="22.491524"
      id="rect6"
      style="fill:#ffffff" />
   <g
@@ -421,18 +421,8 @@
      y="-15.563759"
      id="text2913"><tspan
        sodipodi:role="line"
-       id="tspan2915"
-       x="202.34348"
-       y="-15.563759"
-       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold">Figure 1: Top Tax Expenditures </tspan><tspan
-       sodipodi:role="line"
-       x="199.56223"
-       y="4.4362411"
-       style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
-       id="tspan2870">by Revenue Loss FY 2009</tspan><tspan
-       sodipodi:role="line"
        x="199.56223"
        y="24.436241"
        style="font-weight:bold;text-align:center;text-anchor:middle;-inkscape-font-specification:Bitstream Charter Bold"
-       id="tspan2917">($ millions)</tspan></text>
+       id="tspan2917" /></text>
 </svg>
