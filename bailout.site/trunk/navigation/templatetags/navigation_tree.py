@@ -172,6 +172,13 @@ SECTORS = { 'sector': 'home',
                                                                        'name': 'Grant Search',
                                                                        'url_name': 'aip-index',
                                                                        'children': []
+                                                                     }, 
+                                                                     {'sector':'aip-story', 
+                                                                        'name': 'Airport Detail', 
+                                                                        'url_name': 'aip.views.portdata',
+                                                                        'url_pattern': '.*/transportation/aip/airports/.*', 
+                                                                        'children': [], 
+                                                                        'hide': True
                                                                      }]
                                                       },
                                                       {'sector': 'transportation-direct-expenditures',

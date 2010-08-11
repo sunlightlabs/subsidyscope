@@ -1,12 +1,12 @@
 from django import template
-from django.core.urlresolvers import reverse, resolve
+from django.core.urlresolvers import reverse, resolve, NoReverseMatch
 from django.conf import settings
 from django.template import Library, Node, Context, TemplateDoesNotExist, TemplateSyntaxError
 from django.template.loader import get_template, render_to_string
 from helpers.templatetags.custom_filters import camelcase
 from morsels.models import *
 from copy import deepcopy
-
+import logging
 import re 
 register = Library()
 
@@ -29,6 +29,8 @@ def traverse(data, callback, url):
     subsectors = globals()['subsectors']
     
     if not been_processed and traverse.level > 2:
+        if data.has_key('hide') and data['hide'] == True:
+            return
         if traverse.level == 3: subsectors.append('<ul class="sf-menu" id="'+data['sector']+'">')
         subsectors.append('<li id="'+data["url_name"]+'"><a ')
         if data['children']: subsectors.append('class="sf-with-ul" ')
@@ -52,16 +54,28 @@ def main_nav_path(data, url):
     current_tree =  globals()['current_tree']
     try:
         current_tree[traverse.level] = (data['name'], reverse(data['url_name']), data['sector'], data['url_name'])
-    except IndexError:
-        #this page does exist in nav tree
-        return "" #fail silently
     
+    except Exception:
+        if data.has_key('hide') and data['hide']==True:   #for automated pages 
+            current_tree[traverse.level] = (data['name'], data['url_pattern'],  data['sector'],  data['url_name'])
+        else:
+            #this page does not exist in nav tree
+            return "" #fail silently
+            
     data_structs = [0, 0, 'sectors', 'subsectors', 'dropdowns', 'inner_dropdowns']
-    if reverse(data['url_name']) == url:
+    try:
+        test_url = re.compile(reverse(data['url_name']))
+    except NoReverseMatch:
+        test_url = re.compile(data['url_pattern'])  #it should be a url regex pattern instead
+    
+    if  test_url.match(url):
         #this is the page we're on
         globals()['leaf_depth'] = traverse.level
         globals()['path'] = deepcopy(current_tree)
-         
+
+    if url=="/transportation/aip/airports/HPB":
+        return url
+
     if not been_processed:
         pass        #append a tuple to the sectors,subsectors, dropdowns, breadcrumb list, depending on the current traversal depth
 
