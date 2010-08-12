@@ -59,7 +59,7 @@ class RecordIndex(indexes.SearchIndex):
                 if i is not None:
                     r.append(i)
                     
-        return len(r)>0 and r or None
+        return len(r)>0 and r or -1
         
     def prepare_cfda_program(self, object):        
         if object.cfda_program is None:
@@ -172,14 +172,14 @@ class RecordIndex(indexes.SearchIndex):
         if object.recipient_county:
             return object.recipient_county.id
         else:
-            return None
+            return -1
     
     def prepare_recipient_state(self, object):
         
         if object.recipient_state:
             return object.recipient_state.id
         else:
-            return None
+            return -1
         
         
     def prepare_principal_place_county(self, object):
@@ -187,14 +187,14 @@ class RecordIndex(indexes.SearchIndex):
         if object.principal_place_county:
             return object.principal_place_county.id
         else:
-            return None
+            return -1
     
     def prepare_principal_place_state(self, object):
         
         if object.principal_place_state:
             return object.principal_place_state.id
         else:
-            return None
+            return -1
             
     def prepare_sectors(self, object):
         return map(lambda x: x.id, object.sectors.all())
