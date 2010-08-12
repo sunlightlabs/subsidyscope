@@ -33,7 +33,7 @@ def portdata (request, code):
             service_level = service[airport.service_level]
         except KeyError:
             service_level = 'Unknown'
-        return render_to_response('aip/airports.html', {'airport': airport,'enplanements': enplanements, 'operations':operations, 'grants':grants, 'projects':projects, 'stimulus': stimulus, 'totalfunding':totalfunding['total__sum'], 'avggrant':avggrant['total__avg'], 'avgops':avgops['operations__avg'], 'avgenps':avgenps['amount__avg'], 'service_level': service_level })
+        return render_to_response('aip/airports.html', {'airport': airport,'enplanements': enplanements, 'operations':operations, 'grants':grants, 'projects':projects, 'stimulus': stimulus, 'totalfunding':totalfunding['total__sum'], 'avggrant':avggrant['total__avg'], 'avgops':avgops['operations__avg'], 'avgenps':avgenps['amount__avg'], 'service_level': service_level , 'request': request})
 
 def get_districts():
     from django.db import connection, transaction

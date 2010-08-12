@@ -49,7 +49,7 @@ td.number {text-align: right; }
 
 <div class="container main_container">
     {% include "includes/transportation_nav.html" %}
-    <span class="span-24">
+    <div class="span-24">
         <div id="header_area"><h3>Transit System Search</h3></div>
         <div class="content_area">
             <p>Some text on the search and what we're offering can go here I suppose. </p>    
@@ -66,6 +66,27 @@ td.number {text-align: right; }
                 <div class="section" id="text-query-text-wrapper"> 
                     <h4>Name/Abbreviation</h4>
                     <input id="id_text_query" value="{% if form%} {{form.system_name}}{% endif %}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
+                </div>
+                <div class="section">
+                    <h4>Location</h4>
+                    <div class="dropdown-wrapper" style="padding-top:10px;">
+                        <label for="state-select">By State:</label>
+                        <select id="state-select" name="state_select">
+                                <option value=""></option>
+                            {% for state in states %}
+                                <option value="{{state.abbreviation}}" {% if form.state_select == state.abbreviation%} selected {% endif %}>{{state.name}}</option>    
+                            {% endfor %} 
+                        </select>
+                        <span style="padding-left: 60px;padding-right:60px;font-weight:bold;">&mdash; or &mdash;</span>
+                        <label for="uza-select">By Urban Area:</label>
+                        <select id="uza-select" name="uza_select">
+                                <option value=""></option>
+                            {% for u in uza %}
+                                <option value="{{u.id}}" {% if form.uza_select == u.id|stringformat:"s" %} selected {% endif %}>{{u.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="clear-left" style="margin-bottom:40px;"></div>
                 </div>
                 <div class="section" id="mode-select">
                     <h4>Mode <span class="select-all-or-none"> [<a href="#" class="select-all" id="mode-select-all">All</a>/<a href="#" class="select-none" id="mode-select-none">None</a>]</span></h4>
@@ -96,27 +117,7 @@ td.number {text-align: right; }
                     </div>
                     <div class="clear-left"></div>
                 </div>
-                <div class="section">
-                    <h4>Location</h4>
-                    <div class="dropdown-wrapper" style="padding-top:10px;">
-                        <label for="state-select">By State:</label>
-                        <select id="state-select" name="state_select">
-                                <option value=""></option>
-                            {% for state in states %}
-                                <option value="{{state.abbreviation}}" {% if form.state_select == state.abbreviation%} selected {% endif %}>{{state.name}}</option>    
-                            {% endfor %} 
-                        </select>
-                        <span style="padding-left: 60px;padding-right:60px;font-weight:bold;">&mdash; or &mdash;</span>
-                        <label for="uza-select">By Urban Area:</label>
-                        <select id="uza-select" name="uza_select">
-                                <option value=""></option>
-                            {% for u in uza %}
-                                <option value="{{u.id}}" {% if form.uza_select == u.id|stringformat:"s" %} selected {% endif %}>{{u.name}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="clear-left" style="margin-bottom:40px;"></div>
-                </div>               
+                               
                 <div class="section last" id="performance-metrics">
                     <h4>Performance Metrics <span class="fine-print">(maximum of 5 )</span></h4>
                     <div class="field-wrapper">
@@ -323,6 +324,7 @@ $(document).ready(function(){
                 .end()
                 .find(".default-metric").attr("checked", "checked");
 
+         $('fieldset#advanced-options legend').trigger('click');       
     });
     $("#performance-metrics input").click(function(e){
         if ($("#performance-metrics input:checked").length > 5) { 
