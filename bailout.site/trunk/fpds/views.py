@@ -386,7 +386,7 @@ def summary_statistics(request, sector_name=None):
             
             state_data, state_totals = _get_state_summary_data(results, year_range)                        
 
-            return render_to_response('fpds/search/summary_table.html', {'state_data':state_data, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+            return render_to_response('fpds/search/summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
     return Http404()
 
