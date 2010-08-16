@@ -298,21 +298,45 @@ def _get_state_summary_data(results, year_range):
     """ compiles aggregate data for the by-state summary table """
 
     states = {}    
+    
+    states_order = {}
+    
+    order_id = 1
+    
     for state in State.objects.filter(id__in=results['state'].keys()):
         states[state.id] = state
+        
+        states_order[state.id] = order_id
+        
+        order_id += 1
 
     state_data = []
+    
+    totals_dict  = {}
+    for year in year_range: 
+        totals_dict[year] = 0
+    
     for (state_id, year_data) in results['state'].items():
         if state_id is None:
             continue
-        row = [states[state_id].name]
+        row = [states_order[state_id], states[state_id].name]
         for year in year_range:
-            row.append(year_data.get(year, None))
+            annual_total = year_data.get(year, None)
+            row.append(annual_total)
+            totals_dict[year] += annual_total 
+            
         state_data.append(row)
 
     state_data.sort(key=lambda x: x[0])
+    state_data = map(lambda x: x[1:], state_data)
 
-    return state_data
+    
+    totals = []
+    
+    for year in year_range:
+        totals.append(totals_dict[year])
+
+    return state_data, totals
 
 
 
@@ -358,7 +382,7 @@ def summary_statistics(request, sector_name=None):
             results = fpds_search_query.get_summary_statistics()
             year_range = fpds_search_query.get_year_range()
             
-            state_data = _get_state_summary_data(results, year_range)                        
+            state_data, state_totals = _get_state_summary_data(results, year_range)                        
 
             return render_to_response('fpds/search/summary_table.html', {'state_data':state_data, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 

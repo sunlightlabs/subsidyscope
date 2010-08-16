@@ -428,23 +428,45 @@ def annual_chart_data(request, sector_name=None):
 def _get_state_summary_data(results, year_range):
     """ compiles aggregate data for the by-state summary table """
     
-    states = {}    
+    states = {}
+    states_order = {}
+    
+    order_id = 1
+    
     for state in State.objects.filter(id__in=results['state'].keys()):
         states[state.id] = state
+        states_order[state.id] = order_id
+        
+        order_id += 1
+        
 
     state_data = []
+    
+    totals_dict  = {}
+    for year in year_range: 
+        totals_dict[year] = 0
+    
     for (state_id, year_data) in results['state'].items():
         if state_id is None:
             continue
         
-        row = [states[state_id].name]
+        row = [states_order[state_id], states[state_id].name]
         for year in year_range:
-            row.append(year_data.get(year, None))
+            annual_total = year_data.get(year, None)
+            row.append(annual_total)
+            totals_dict[year] += annual_total 
+            
         state_data.append(row)
-        
+    
+    totals = []
+    
+    for year in year_range:
+        totals.append(totals_dict[year])
+
     state_data.sort(key=lambda x: x[0])
-        
-    return state_data
+    state_data = map(lambda x: x[1:], state_data)
+    
+    return state_data, totals
     
 def _get_program_summary_data(results, year_range):
     """ compiles aggregate data for the by-program summary table """
@@ -455,17 +477,30 @@ def _get_program_summary_data(results, year_range):
 
         
     program_data = []
+    
+    totals_dict  = {}
+    for year in year_range: 
+        totals_dict[year] = 0
+    
     for (program_id, year_data) in results['program'].items():
         if program_id is None:
             continue
         row = ["<a href=\"%s\">%s %s</a>" % (reverse('transportation-cfda-programpage', None, (program_id,)), programs[program_id].program_number, programs[program_id].program_title)]
         for year in year_range:
-            row.append(year_data.get(year, None))
+            annual_total = year_data.get(year, None)
+            row.append(annual_total)
+            totals_dict[year] += annual_total 
+            
         program_data.append(row)
         
     program_data.sort(key=lambda x: x[0])
     
-    return program_data
+    totals = []
+    
+    for year in year_range:
+        totals.append(totals_dict[year])
+    
+    return program_data, totals
 
 
 def summary_statistics_csv(request, sector_name=None, first_column_label='', data_fetcher=''):
@@ -511,10 +546,10 @@ def summary_statistics(request, sector_name=None):
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
 
-            state_data = _get_state_summary_data(results, year_range)                        
-            program_data = _get_program_summary_data(results, year_range)
+            state_data, state_totals = _get_state_summary_data(results, year_range)                        
+            program_data, program_totals = _get_program_summary_data(results, year_range)
                 
-            return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'program_data':program_data, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+            return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'program_data':program_data, 'program_totals':program_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
     return Http404()
     

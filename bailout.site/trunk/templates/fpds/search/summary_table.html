@@ -16,6 +16,10 @@
     {% for cell in row %}<td{% if forloop.first %} class="first"{% endif %}{% if forloop.last %} class="last"{% endif %}>{% if cell %}{% if forloop.first %}{{ cell|safe }}{% else %}{{ cell|floatformat:"-0"|intcomma}}{% endif %}{% else %}<div class="null-value">&mdash;</div>{% endif %}</td>{% endfor %}
   </tr>
   {% endfor %}
+  
+  <tr class="total">
+    <td class="first">Total</td>{% for cell in state_totals %}<td{% if forloop.last %} class="last"{% endif %}>{% if cell %}{{ cell|floatformat:"-0"|intcomma}}{% else %}<div class="null-value">&mdash;</div>{% endif %}</td>{% endfor %}
+  </tr>
 
 </table>
 
