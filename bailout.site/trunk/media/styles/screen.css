@@ -71,7 +71,7 @@ h6 { font-size: 1em; }
 .container ol { list-style-position: outside; list-style-type: decimal; }
 .container dt { font-weight: bold; }
 
-.bulleted-list ul { list-style: disk outside; margin-left: 2em; } 
+#bulleted-list ul { list-style: disk outside; margin-left: 2em; list-style-type: disk; }  
 
 /* TABLES */
 
