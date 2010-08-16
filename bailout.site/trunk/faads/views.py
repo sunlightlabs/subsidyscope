@@ -454,7 +454,9 @@ def _get_state_summary_data(results, year_range):
         for year in year_range:
             annual_total = year_data.get(year, None)
             row.append(annual_total)
-            totals_dict[year] += annual_total 
+            
+            if annual_total:
+                totals_dict[year] += annual_total 
             
         state_data.append(row)
     
