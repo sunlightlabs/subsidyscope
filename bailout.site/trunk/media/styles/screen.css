@@ -66,11 +66,12 @@ h6 { font-size: 1em; }
 /* LISTS */
 
 .container ul li { margin-left: .85em; }
-.container .bulleted-list ul { list-style: disk outside; margin-left: 2em; list-style-type: disk !important; } 
 
 /*.container ul li:before {content: "\2022\00a0\00a0"; }  REMOVED FOR FF3 */
 .container ol { list-style-position: outside; list-style-type: decimal; }
 .container dt { font-weight: bold; }
+
+ul.bulleted-list { list-style: disk outside; margin-left: 2em; } 
 
 /* TABLES */
 
