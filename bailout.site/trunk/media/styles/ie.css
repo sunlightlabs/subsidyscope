@@ -9,7 +9,6 @@ sub {vertical-align:text-bottom;}
 html>body p code {*white-space:normal;}
 hr {margin:-8px auto 11px;}
 .container ul { list-style: none outside; margin-left: 2em; list-style-type: none !important; } /* IE can't handle :before and :after */
-ul#bulleted-list { list-style: disk outside; margin-left: 2em; list-style-type: disk; } 
 .container ul li { text-indent: 0; margin-left: 0; }
 .container legend { margin-bottom: 1.6em; } /* IE form margin bug */
 sup, sub { font-size: 100%; } /* IE superscript & subscript bug */
