@@ -148,7 +148,7 @@ SECTORS = { 'sector': 'home',
                                                     }]
                                         },
                                         {'sector': 'transportation-index',
-                                         'name': 'Direct Expenditures',
+                                         'name': 'Grants and Contracts',
                                          'url_name': 'transportation-direct-expenditures',
                                          'children': [{ 'sector': 'transportation-direct-expenditures',
                                                         'name': 'Direct Expenditures Program Directory (CFDA)',
@@ -202,7 +202,7 @@ SECTORS = { 'sector': 'home',
                                                       }]
                                         },
                                         {'sector': 'transportation-index',
-                                         'name': 'Tax Expenditures',
+                                         'name': 'Tax Subsidies',
                                          'url_name': 'transportation-tax-expenditures',
                                          'children': [{ 'sector': 'transportation-tax-expenditures',
                                                         'name': 'Employer-paid Transportation Benefits',
@@ -226,7 +226,7 @@ SECTORS = { 'sector': 'home',
                                                       }]
                                         },
                                         {'sector': 'transportation-index',
-                                         'name': 'Risk Transfers',
+                                         'name': 'Loans and Loan Guarantees',
                                          'url_name': 'transportation-risk-transfers',
                                          'children': [{'sector': 'transportation-risk-transfers',
                                                        'name': 'Export/Import Bank',
@@ -234,11 +234,12 @@ SECTORS = { 'sector': 'home',
                                                        'children': []
                                                       }]
                                         },
-                                        {'sector': 'transportation-index',
-                                         'name': 'Contracts',
-                                         'url_name': 'transportation-contracts',
-                                         'children':[]
-                                        }]
+                                       # {'sector': 'transportation-index',
+                                       #  'name': 'Contracts',
+                                       #  'url_name': 'transportation-contracts',
+                                       #  'children':[]
+                                       #}
+                                        ]
                          },
                         { 'sector': 'nonprofits-index',
                           'name': 'Nonprofits',
