@@ -28,35 +28,14 @@
 	</div>	
 
 	<div class="span-4">
-	<h4 class="footer">Financial Bailout</h4>
+	<h4 class="footer">Subsidy Types</h4>
 	<ul id="footer_list">
-		<li><a href="{% url bailout_treasury_index %}">Treasury</a></li>
-		<li><a href="{% url bailout_fdic_index %}">FDIC</a></li>
-		<li><a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a></li>	
-		<li><a href="{% url bailout_other_index %}">Other Agencies</a></li>
-		<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>
+		<li><a href="{% url grants-contracts %}">Grants and Contracts</a></li>
+		<li><a href="{% url tax-subsidies %}">Tax Subsidies</a></li>
+		<li><a href="{% url loans %}">Loans and Loan Guarantees</a></li>	
+		<li><a href="{% url regulations %}">Regulations</a></li>
 	</ul>	
 	</div>
-	
-	<div class="span-4">
-	<h4 class="footer">Transportation</h4>
-	<ul id="footer_list">
-		<li><a href="{% url transportation-overview %}">Overview</a></li>
-		<li><a href="{% url transportation-direct-expenditures %}">Direct Expenditures</a></li>
-    <li><a href="{% url transportation-tax-expenditures %}">Tax Expenditures</a></li>
-    <li><a href="{% url transportation-risk-transfers %}">Risk Transfers</a></li>
-    <li><a href="{% url transportation-contracts %}">Contracts</a></li>
-    
-    {% comment %}
-    <li><a href="{% url transportation-aviation %}">Aviation</a></li>
-    <li><a href="{% url transportation-highways %}">Highways</a></li>
-    <li><a href="{% url transportation-maritime %}">Maritime</a></li>
-    <li><a href="{% url transportation-rail %}">Rail</a></li>
-    <li><a href="{% url transportation-transit %}">Transit</a></li>
-    {% endcomment %}
-	</ul>	
-	</div>
-	
 
 	<div class="span-4">
 	<h4 class="footer">Need Help?</h4>
@@ -73,6 +52,7 @@
 		<li><a href="{% url datasets %}">Datasets</a></li>
 		<li><a href="{% url glossary %}">Glossary</a></li>
 		<li><a href="{% url methodology %}">Methodology</a></li>	
+		<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>
 	</ul>
 	</div>	
 

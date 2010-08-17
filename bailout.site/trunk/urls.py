@@ -72,6 +72,12 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^sent/', 'direct_to_template', {'template': 'contact_form/contact_form_sent.html'}, name="contact_sent"),  
     url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': feeds}, name="feed_project_updates"),  
     url(r'^data/about-faads/', direct_to_template, { 'template': 'generic.html'}, name='about-faads'),
+
+    url(r'^grants-contracts', direct_to_template, {'template': 'generic.html'}, name='grants-contracts'),
+    url(r'^tax-subsidies', direct_to_template, {'template': 'generic.html'}, name='tax-subsidies'),
+    url(r'^loans', direct_to_template, {'template': 'generic.html'}, name='loans'),
+    url(r'^regulations', direct_to_template, {'template': 'generic.html'}, name='regulations'),
+
     url(r'^data/', 'direct_to_template', {'template': 'misc/data.html'}, name='datasets'),
     url(r'^rss/', 'direct_to_template', {'template': 'misc/rss.html'}, name='about_rss'),
     url(r'^staff/', 'direct_to_template', {'template': 'misc/staff.html'}, name='staff'),
