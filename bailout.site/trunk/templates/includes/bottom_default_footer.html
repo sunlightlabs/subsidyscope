@@ -30,12 +30,24 @@
 	<div class="span-4">
 	<h4 class="footer">Subsidy Types</h4>
 	<ul id="footer_list">
-		<li><a href="{% url grants-contracts %}">Grants and Contracts</a></li>
+		<li><a href="{% url grants %}">Grants</a></li>
+		<li><a href="{% url contracts %}">Contracts</a></li>
 		<li><a href="{% url tax-subsidies %}">Tax Subsidies</a></li>
-		<li><a href="{% url loans %}">Loans and Loan Guarantees</a></li>	
-		<li><a href="{% url regulations %}">Regulations</a></li>
+		<li><a href="{% url loans %}">Risk Transfers (Loans, Loan Guarantees and Insurance)</a></li>	
 	</ul>	
 	</div>
+
+
+	<div class="span-4">
+	<h4 class="footer">Reference</h4>
+	<ul id="footer_list">
+	  <li><a href="{% url framing-paper %}">Subsidyscope Framing Paper</a></li>
+		<li><a href="{% url methodology %}">Methodology</a></li>	
+		<li><a href="{% url datasets %}">Datasets</a></li>
+		<li><a href="{% url glossary %}">Glossary</a></li>
+		<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>
+	</ul>
+	</div>	
 
 	<div class="span-4">
 	<h4 class="footer">Need Help?</h4>
@@ -44,18 +56,6 @@
 		<li><a href="{% url contact_form %}">Contact Us</a></li>	
 	</ul>	
 	</div>
-
-	<div class="span-4">
-	<h4 class="footer">Reference</h4>
-	<ul id="footer_list">
-	  <li><a href="{% url framing-paper %}">Subsidyscope Framing Paper</a></li>
-		<li><a href="{% url datasets %}">Datasets</a></li>
-		<li><a href="{% url glossary %}">Glossary</a></li>
-		<li><a href="{% url methodology %}">Methodology</a></li>	
-		<li><a href="{% url bailoutpdf_index %}">Key Documents</a></li>
-	</ul>
-	</div>	
-
 	<div class="span-2 last">&nbsp;</div>
 	
 	<div class="span-24">&nbsp;</div>
