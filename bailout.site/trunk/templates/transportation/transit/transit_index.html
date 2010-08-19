@@ -305,7 +305,8 @@ $(document).ready(function(){
         $("#faads-search-form").find("#page_value").val("{{paginator.next_page_number}}").end().submit();
     });
     $('span.summary-csv').click(function(e) {
-        $('#faads-search-form').attr('action', '{% url transit-csv-download %}').submit();
+        $('#faads-search-form').attr('action', '{% url transit-csv-download %}').submit().attr('action', '');
+        
         return false;
      });
  

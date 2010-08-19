@@ -63,7 +63,7 @@ def get_csv_from_search(request):
 
     systems, data, name, modes, size, metrics, sort, order = get_search_results(request)
     response = HttpResponse(mimetype="text/csv")
-    response['Content-Disposition'] = 'attachment; filename=grantsearch'
+    response['Content-Disposition'] = 'attachment; filename=transit_search_results'
     writer = csv.writer(response)
     #headers
     writer.writerow([   "System Name", "Mode", "City", "State", "Urbanized Area",
