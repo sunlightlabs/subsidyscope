@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext, loader, Template, Context
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.db.models import Avg, Sum
+from django.db.models.query import QuerySet
 from django.db import connection 
 from transit.models import *
 from geo.models import *
@@ -13,6 +14,7 @@ from math import *
 from django import forms
 from copy import deepcopy
 from django.db.models import Q
+from haystack.query import SearchQuerySet
 
 metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'recovery_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
 
@@ -45,7 +47,10 @@ def index(request):
             order = data["order"]
 
             if name:
-                systems = systems.filter(Q(name__icontains=name) | Q(common_name__icontains=name))
+                #added a more sophisticated solr search query on the free text field
+                systems = systems.filter(transit_system__in=[x.pk for x in SearchQuerySet().models(TransitSystem).filter(content=name)] )
+                
+                #systems = systems.filter(Q(name__icontains=name) | Q(common_name__icontains=name))
             if modes:
                 systems = systems.filter(mode__in=modes)
             if size:
