@@ -20,6 +20,7 @@ legend#advanced-options {font-size: 1.5em;}
 .performance-metrics span.metric label { display:block; float:left; width: 290px;}
 .section div { padding-left:10px;}
 #results { width: 100%; margin-top:10px; margin-bottom: 40px; }
+#results table { font-weight: normal; }
 .pages {display:block; text-align:right; width:100%;margin: 30px 5px 5px 0px; padding-top:15px;}
 .bottom {margin-top:0px; padding-top:0px;}
 #program-selector { float: none; }
@@ -28,9 +29,10 @@ legend#advanced-options {font-size: 1.5em;}
 #transit-search-results .headerAsc { background: url(/media/images/asc.gif) right center no-repeat;}
 #transit-search-results .headerDesc {background: url(/media/images/desc.gif) right center no-repeat;}
 #assistance-action-recipient-wrapper .dropdown-wrapper {padding-right: 30px;}
+#mode-select { padding-bottom: 25px; }
 .dropdown-wrapper ul {margin-right:100px; margin-top:15px; float:left;}
 .mode ul {margin-right:40px;}
-.pagination.first {padding-top:20px;}
+.pagination.first {padding-top:20px;height: 25px;}
 span.select-all-or-none {font-size:.8em; vertical-align:top; font-weight: normal; padding-left: 5px; } 
 span.select-all-or-none a {padding-left:4px;padding-right:4px;}
 td.text { text-align: left;}
@@ -44,8 +46,9 @@ td.number {text-align: right; }
 #id_text_query {margin-bottom: 30px;margin-top: 15px; color: #888888;  font-style: italic; font-weight:normal;}
 .active-field{ color: black !important; font-weight:bold !important; font-style:normal !important;}
 /*fieldset#advanced-options.collapsed legend {background: transparent url(/media/images/icons/down.png) no-repeat scroll right 4px;margin-right: 20px;padding-top:3px; }*/
-table.legend { font-size:.9em; margin-top:40px; display: inline; }
+table.legend { font-size:.9em; float:left; font-weight: normal; }
 table.legend td { padding: 0px 15px; text-align: center; } 
+.summary-csv { margin-top :30px; }
 </style>
 
 
@@ -92,7 +95,7 @@ table.legend td { padding: 0px 15px; text-align: center; }
                 </div>
                 <div class="section" id="mode-select">
                     <h4>Mode <span class="select-all-or-none"> [<a href="#" class="select-all" id="mode-select-all">All</a>/<a href="#" class="select-none" id="mode-select-none">None</a>]</span></h4>
-                    <div id="assistance-action-recipient-wrapper" class="field-wrapper">
+                    <div class="field-wrapper">
                         <div class="dropdown-wrapper mode">
                             <ul>
                             {% for m in modes %}
@@ -159,8 +162,8 @@ table.legend td { padding: 0px 15px; text-align: center; }
             <input type="submit" class="faads-search-submit" value="Search" />
             
             </form>
-            <div id="results" style="clear:both;">
             {% if results  %}
+            	<div id="results" style="clear:both;">
                 {% if paginator %}
                     <div class="pagination first">
                         <span class="step-links">
@@ -246,6 +249,7 @@ table.legend td { padding: 0px 15px; text-align: center; }
                     </div>
                 
                 {% endif %}
+            	</div>
             {% else %}
                 {% if has_searched %}
                     <span class="no-results">
@@ -253,15 +257,10 @@ table.legend td { padding: 0px 15px; text-align: center; }
                     </span>
                 {% endif %}
             {% endif %}
-            </div>
             <table class="legend">
-                <tr>
-                    <td colspan="2"><strong>Key</strong></td>
-                </tr><tr>
-                    <td>PMT</td><td>Passenger Miles Travelled</td>
-                </tr><tr>
-                    <td>UPT</td><td>Unlinked Passenger Trips</td>
-                </tr>
+                <tr><td colspan="2"><strong>Key</strong></td></tr>
+		<tr><td>PMT</td><td>Passenger Miles Travelled</td></tr>
+		<tr><td>UPT</td><td>Unlinked Passenger Trips</td></tr>
             </table>
             {% if results %}
                 <span class="summary-csv"><a style="background: transparent url (/media/images/download_icon_smaller.png) no-repeat scroll 0 6px; padding-left: 25px; padding-top: 7px;" href="{% url transit-csv-download %}">CSV Download</a></span>
