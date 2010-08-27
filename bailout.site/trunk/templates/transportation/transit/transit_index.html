@@ -19,17 +19,20 @@ legend#advanced-options {font-size: 1.5em;}
 .performance-metrics span.metric span.metric-input {text-align:right;}
 .performance-metrics span.metric label { display:block; float:left; width: 290px;}
 .section div { padding-left:10px;}
-.results { width: 100%; margin-top:10px; }
+#results { width: 100%; margin-top:10px; margin-bottom: 40px; }
+#results table { font-weight: normal; }
 .pages {display:block; text-align:right; width:100%;margin: 30px 5px 5px 0px; padding-top:15px;}
 .bottom {margin-top:0px; padding-top:0px;}
+#program-selector { float: none; }
 #program-selector ul li {margin-right: 20px;}
 #transit-search-results th { cursor: pointer; background: url(/media/images/bg.gif) right center no-repeat; padding: 2px 15px; vertical-align:middle;}
 #transit-search-results .headerAsc { background: url(/media/images/asc.gif) right center no-repeat;}
 #transit-search-results .headerDesc {background: url(/media/images/desc.gif) right center no-repeat;}
 #assistance-action-recipient-wrapper .dropdown-wrapper {padding-right: 30px;}
+#mode-select { padding-bottom: 25px; }
 .dropdown-wrapper ul {margin-right:100px; margin-top:15px; float:left;}
 .mode ul {margin-right:40px;}
-.pagination.first {padding-top:20px;}
+.pagination.first {padding-top:20px;height: 25px;}
 span.select-all-or-none {font-size:.8em; vertical-align:top; font-weight: normal; padding-left: 5px; } 
 span.select-all-or-none a {padding-left:4px;padding-right:4px;}
 td.text { text-align: left;}
@@ -43,7 +46,9 @@ td.number {text-align: right; }
 #id_text_query {margin-bottom: 30px;margin-top: 15px; color: #888888;  font-style: italic; font-weight:normal;}
 .active-field{ color: black !important; font-weight:bold !important; font-style:normal !important;}
 /*fieldset#advanced-options.collapsed legend {background: transparent url(/media/images/icons/down.png) no-repeat scroll right 4px;margin-right: 20px;padding-top:3px; }*/
- 
+table.legend { font-size:.9em; float:left; font-weight: normal; }
+table.legend td { padding: 0px 15px; text-align: center; } 
+.summary-csv { margin-top :30px; }
 </style>
 
 
@@ -52,7 +57,7 @@ td.number {text-align: right; }
     <div class="span-24">
         <div id="header_area"><h3>Transit System Search</h3></div>
         <div class="content_area">
-            <p>Some text on the search and what we're offering can go here I suppose. </p>    
+            <p>Use the search engine below to get funding and ridership metrics from transit systems across the country. All data has been taken from the <a href="http://www.ntdprogram.gov/ntdprogram/data.htm">National Transit Database</a>.</p>    
 
             <form id="faads-search-form" method="post">
         <!--    <fieldset id="text-query-wrapper">
@@ -90,7 +95,7 @@ td.number {text-align: right; }
                 </div>
                 <div class="section" id="mode-select">
                     <h4>Mode <span class="select-all-or-none"> [<a href="#" class="select-all" id="mode-select-all">All</a>/<a href="#" class="select-none" id="mode-select-none">None</a>]</span></h4>
-                    <div id="assistance-action-recipient-wrapper" class="field-wrapper">
+                    <div class="field-wrapper">
                         <div class="dropdown-wrapper mode">
                             <ul>
                             {% for m in modes %}
@@ -129,9 +134,9 @@ td.number {text-align: right; }
                             </ul>
                             <ul>
                                 <li><strong>Ridership</strong</li>
-                                <li><label for="PMT"><input class="default-metric" type="checkbox" name="metrics_selected" value="PMT" {%if form and metrics.2|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />passenger miles travelled</label></li>
+                                <li><label for="PMT"><input class="default-metric" type="checkbox" name="metrics_selected" value="PMT" {%if form and metrics.2|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />passenger miles travelled (PMT)</label></li>
 
-                                <li><label for="UPT"><input class="default-metric" type="checkbox" name="metrics_selected" value="UPT" {%if form and metrics.3|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />unlinked passenger trips</label></li>
+                                <li><label for="UPT"><input class="default-metric" type="checkbox" name="metrics_selected" value="UPT" {%if form and metrics.3|in_list:form.metrics_selected %} checked {% elif not form %} checked {% endif %}  />unlinked passenger trips (UPT)</label></li>
                             </ul>
                             <ul class="last">
                                 <li><strong>Calculated</strong></li>
@@ -157,8 +162,8 @@ td.number {text-align: right; }
             <input type="submit" class="faads-search-submit" value="Search" />
             
             </form>
-            <div id="results" style="clear:both;">
             {% if results  %}
+            	<div id="results" style="clear:both;">
                 {% if paginator %}
                     <div class="pagination first">
                         <span class="step-links">
@@ -223,26 +228,28 @@ td.number {text-align: right; }
                 {% if paginator %}
                     <div class="pagination">
                         <span class="step-links">
-                    {% if paginator.has_previous %}
+                        {% if paginator.has_previous %}
                         <a href="#" id="first_page_bottom">&laquo;&nbsp;first</a>
                         <a href="#" id="prev_page_bottom">&lsaquo;&nbsp;previous</a>
-                    {% else %}
+                        {% else %}
                         <span class="disabled">&laquo;&nbsp;first</span>
                         <span class="disabled">&lsaquo;&nbsp;previous</span>
-                    {% endif %}
-                    <span class="current">
-                       &nbsp;Page {{paginator.number}} of {{paginator.paginator.num_pages}} &nbsp;
-                    </span>
-                    {% if paginator.has_next %}
+                        {% endif %}
+                        <span class="current">
+                            &nbsp;Page {{paginator.number}} of {{paginator.paginator.num_pages}} &nbsp;
+                        </span>
+                        {% if paginator.has_next %}
                         <a href="#" id="next_page_bottom">next&nbsp;&rsaquo;</a>
                         <a href="#" id="last_page_bottom">last&nbsp;&raquo;</a>
-                    {% else %}
+                        {% else %}
                         <span class="disabled">next&nbsp;&rsaquo;</span>
                         <span class="disabled">last&nbsp;&raquo;</span>
-                    {% endif %}
-                    </span>
-                </div>
+                        {% endif %}
+                        </span>
+                    </div>
+                
                 {% endif %}
+            	</div>
             {% else %}
                 {% if has_searched %}
                     <span class="no-results">
@@ -250,8 +257,15 @@ td.number {text-align: right; }
                     </span>
                 {% endif %}
             {% endif %}
-            </div>
-        
+            <table class="legend">
+                <tr><td colspan="2"><strong>Key</strong></td></tr>
+		<tr><td>PMT</td><td>Passenger Miles Travelled</td></tr>
+		<tr><td>UPT</td><td>Unlinked Passenger Trips</td></tr>
+            </table>
+            {% if results %}
+                <span class="summary-csv"><a style="background: transparent url (/media/images/download_icon_smaller.png) no-repeat scroll 0 6px; padding-left: 25px; padding-top: 7px;" href="{% url transit-csv-download %}">CSV Download</a></span>
+
+            {% endif %}
         </div>
     </span>
 
@@ -290,7 +304,12 @@ $(document).ready(function(){
         e.preventDefault();
         $("#faads-search-form").find("#page_value").val("{{paginator.next_page_number}}").end().submit();
     });
-    
+    $('span.summary-csv').click(function(e) {
+        $('#faads-search-form').attr('action', '{% url transit-csv-download %}').submit().attr('action', '');
+        
+        return false;
+     });
+ 
     $('fieldset#advanced-options legend').click(function(){
         $(this).parent().toggleClass('collapsed'); 
     }); 

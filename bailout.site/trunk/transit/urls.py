@@ -4,6 +4,7 @@ from django.conf.urls.defaults import *
 from django.views.generic.simple import direct_to_template, redirect_to
 
 urlpatterns = patterns( '', 
+    url(r'^systems/results/csv', 'transit.views.get_csv_from_search', name='transit-csv-download'),
     url(r'^systems/', 'transit.views.index', name='transit-search'),
     url(r'^system/(?P<trs_id>[0-9]+)/$', 'transit.views.transitSystem', name='transit-system'),
     url(r'^system/(?P<trs_id>[0-9]+)/matrix/(?P<year>[0-9]+)/$', 'transit.views.matrixReloader', name='matrix-reloader'),

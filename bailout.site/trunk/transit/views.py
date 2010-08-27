@@ -5,14 +5,17 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext, loader, Template, Context
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.db.models import Avg, Sum
+from django.db.models.query import QuerySet
 from django.db import connection 
 from transit.models import *
 from geo.models import *
 from simplejson import * 
 from math import *
+import csv
 from django import forms
 from copy import deepcopy
 from django.db.models import Q
+from haystack.query import SearchQuerySet
 
 metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'recovery_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
 
@@ -21,18 +24,77 @@ mode_hash = {'AG':'Automated Guideway', 'AR': 'Alaska Railroad', 'MB':'Bus', 'CC
 #view functions
 
 def index(request):
+
+    states = State.objects.all()
+    uza = UrbanizedArea.objects.all().order_by('name')
+    systems, data, name, modes, size, metrics, sort, order = get_search_results(request)
+    if systems:
+        paginator = Paginator(systems, 20)
+        try:
+            page = int(request.POST.get('page', '1'))
+
+        except ValueError:
+            page = 1
+
+        try:
+            systems = paginator.page(page)
+        except (EmptyPage, InvalidPage):
+            systems = paginator.page(paginator.num_pages)
+        
+        if len(systems.object_list) > 0: 
+            return render_to_response('transportation/transit/transit_index.html', 
+                                        {'states': states, 
+                                        'uza': uza, 
+                                        'results': systems, 
+                                        'modes': mode_constants ,
+                                        'paginator': systems, 
+                                        'num_pages':paginator.num_pages, 
+                                        'form':data, 
+                                        'metrics': metrics_selected})   
+
+    return render_to_response('transportation/transit/transit_index.html', 
+                             {'states': states, 
+                              'uza': uza, 
+                              'modes': mode_constants, 
+                              'has_searched': False})
+
+
+def get_csv_from_search(request):
+
+    systems, data, name, modes, size, metrics, sort, order = get_search_results(request)
+    response = HttpResponse(mimetype="text/csv")
+    response['Content-Disposition'] = 'attachment; filename=transit_search_results.csv'
+    writer = csv.writer(response)
+    #headers
+    writer.writerow([   "System Name", "Mode", "City", "State", "Urbanized Area",
+                        "Avg Capital Expenses", "Avg Operating Expenses", "Passenger Miles Travelled (PMT)",
+                        "Unlinked Passenger Trips (UPT)", "Recovery Ratio", "Operating Expense per PMT", 
+                        "Capital Expense per PMT", "Operating Expense per UPT", "Capital Expense per UPT"
+                    ])
+    #write the data out
+    for sys in systems:
+        writer.writerow([   sys.name, sys.mode, sys.city, sys.state.name, 
+                            sys.urbanized_area.name, sys.avg_capital_expenses,
+                            sys.avg_operating_expenses, sys.total_PMT, sys.total_UPT,
+                            sys.recovery_ratio, sys.avg_operating_PMT, sys.avg_capital_PMT,
+                            sys.avg_operating_UPT, sys.avg_capital_UPT
+                       ])
+
+    response.close()
+    return response
+
+    
+    
+        
+def get_search_results(request):
+
     states = State.objects.all()
     uza = UrbanizedArea.objects.all().order_by('name')
     systems = TransitSystemMode.objects.all()
     operations = OperationStats.objects.filter(transit_system=systems[0])
-    has_searched = False
 
-    tester = None
-     
-    tester = "test"
     if request.method =="POST":
         form = TransitQuery(request.POST) 
-        has_searched = True
         if form.is_valid():
             data = form.cleaned_data
             name = data['system_name']
@@ -45,7 +107,10 @@ def index(request):
             order = data["order"]
 
             if name:
-                systems = systems.filter(Q(name__icontains=name) | Q(common_name__icontains=name))
+                #added a more sophisticated solr search query on the free text field
+                systems = systems.filter(transit_system__in=[x.pk for x in SearchQuerySet().models(TransitSystem).filter(content=name)] )
+                
+                #systems = systems.filter(Q(name__icontains=name) | Q(common_name__icontains=name))
             if modes:
                 systems = systems.filter(mode__in=modes)
             if size:
@@ -79,39 +144,12 @@ def index(request):
             
             else:
                 systems = systems.order_by('name')
-            paginator = Paginator(systems, 20)
-            try:
-                page = int(request.POST.get('page', '1'))
 
-            except ValueError:
-                page = 1
+            return [ systems, data, name, modes, size, metrics, sort, order ]
 
-            try:
-                systems = paginator.page(page)
-            except (EmptyPage, InvalidPage):
-                systems = paginator.page(paginator.num_pages)
-            
-            if len(systems.object_list) > 0: 
-                return render_to_response('transportation/transit/transit_index.html', 
-                                         {'states': states, 
-                                          'uza': uza, 
-                                          'results': systems, 
-                                          'modes': mode_constants ,
-                                          'paginator': systems, 
-                                          'num_pages':paginator.num_pages, 
-                                          'form':data, 
-                                          'metrics': metrics_selected})   
-
+    return [None, None, None, None, None, None, None, None]
             #else: tester = "no objects returned" 
                  
-    return render_to_response('transportation/transit/transit_index.html', 
-                             {'states': states, 
-                              'uza': uza, 
-                              'modes': mode_constants, 
-                              'by_mode':tester,
-                              'has_searched': has_searched})
-
-
 def transitSystem(request, trs_id):
     
     try:
