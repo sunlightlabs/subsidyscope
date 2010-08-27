@@ -67,15 +67,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1680"
-     inkscape:window-height="1029"
+     inkscape:window-width="1400"
+     inkscape:window-height="985"
      id="namedview69"
      showgrid="false"
      inkscape:zoom="1.5277688"
      inkscape:cx="151.63682"
-     inkscape:cy="211.43102"
-     inkscape:window-x="1400"
-     inkscape:window-y="0"
+     inkscape:cy="210.12192"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <style
@@ -292,16 +292,21 @@
      xml:space="preserve"
      style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
      x="301.09268"
-     y="96.034866"
+     y="92.034866"
      id="text2848"><tspan
        sodipodi:role="line"
        id="tspan2850"
        x="301.09268"
-       y="96.034866"
-       style="font-size:12px;font-weight:bold;-inkscape-font-specification:Andale Mono Bold">Stimulus </tspan><tspan
+       y="92.034866"
+       style="font-size:12px;font-weight:bold;-inkscape-font-specification:Andale Mono Bold">Includes</tspan><tspan
        sodipodi:role="line"
        x="301.09268"
-       y="111.03487"
+       y="107.03487"
+       style="font-size:12px;font-weight:bold;-inkscape-font-specification:Andale Mono Bold"
+       id="tspan2859">Stimulus </tspan><tspan
+       sodipodi:role="line"
+       x="301.09268"
+       y="122.03487"
        id="tspan2852"
        style="font-size:12px;font-weight:bold;-inkscape-font-specification:Andale Mono Bold">Funds</tspan></text>
   <flowRoot
