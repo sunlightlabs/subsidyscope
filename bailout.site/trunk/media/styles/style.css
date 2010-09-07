@@ -110,7 +110,7 @@ ul#top_nav_header li { display: block !important; float: right;}
     #navbar li.active_top a:hover { color:#2b5b8e;}
     #navbar li.active_top a:active { color:#2b5b8e;}    
 
-#sector_subnav {  padding:10px 0 0 10px; background-image:url(/media/images/template/sector_subnav_bg.png); background-repeat:repeat-x; height:25px; background-position:bottom;}
+#sector_subnav { position:relative; z-index: 2; padding:10px 0 0 10px; background-image:url(/media/images/template/sector_subnav_bg.png); background-repeat:repeat-x; height:25px; background-position:bottom;}
 #sector_subnav_items ul { margin:0; padding:0;}
 #sector_subnav_items li { display:inline; padding:0; padding-right:40px; font-family:verdana; font-weight:normal;}
 

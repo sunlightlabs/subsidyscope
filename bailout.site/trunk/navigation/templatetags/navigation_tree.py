@@ -342,7 +342,7 @@ SECTORS = { 'sector': 'home',
                                                        'children':[]
                                                        },
                                                        {'sector': 'energy-direct-expenditures',
-                                                       'name': 'Search Contacts',
+                                                       'name': 'Search Contracts',
                                                        'url_name': 'energy-fpds-search',
                                                        'children':[]
                                                        }]

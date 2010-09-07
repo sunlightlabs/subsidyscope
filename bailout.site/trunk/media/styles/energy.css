@@ -36,9 +36,9 @@ img.subsidy-per-household { margin: 20px 20px 0px 25px; }
 
 #house_images { /* background image block */
 display: block;
-width: 494px;
-height: 171px;
-background: url(/media/images/energy/energy_houses.png) no-repeat;
+width: 486px;
+height: 158px;
+background: url(/media/images/energy/energy_landing_page_houses.png) no-repeat;
 margin-top: 0px;
 }
 #house_images a {

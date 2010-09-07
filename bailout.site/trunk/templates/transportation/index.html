@@ -14,7 +14,7 @@
 	<div class="span-11">
 		<div class="feature_leftside">
             <div id="feature_box">
-			    <div class="tabs" style="height: 400px;">
+			    <div class="tabs" style="height: 400px; position:relative;">
                     {% carousel_entries 2 %}
                 </div>
 			</div><!-- end feature box -->
@@ -58,19 +58,7 @@
 
 
 <div class="span-13 last graphs">
-    <div class="border" style="border-right:0; padding-right: 0; margin-right: 0">
-        <span class="graph-container"><a class="deanchor hoveranchor" href="{% url transportation-direct-expenditures %}"></a><a class="teanchor hoveranchor" href="{% url transportation-tax-expenditures %}"></a><img src="{% media_url %}/images/transportation/transportation_spending_homepage.png" style="float:left; display:inline;" />
-        <img src="{% media_url %}/images/transportation-subsidy_per_household.png" alt="$400: average amount spent per household on programs containing subsidies" id="transportation-subsidy-per-household" class="subsidy-per-household" />
-        
-        {# <span class="hhsubsidy">Average $ spent per household on programs containing subsidies: <span style="font-weight:bold;display:block;">$400</span><cite>(excludes contracts)</cite></span> #}
-        </span>
-    </div>
-    <div class="border" style="border-right:0; padding-right: 0; margin-right: 0; padding-bottom: 30px">
-        <span style="float:left;padding-top:5px;"><img src="{% media_url %}/images/transportation/noncomp_fpds_spending_homepage.png" /></span>
-        <span style="float:left;height:210px; width:222px;position:relative;"><a class="rtanchor hoveranchor" href="{% url transportation-risk-transfers %}"></a><img src="{% media_url %}/images/transportation/risktransfers_homepage.png" /></span>
-        <div style="clear:left"></div>
-    </div>
-        
+            
     {% morsel text2 %}
     
 </div>
