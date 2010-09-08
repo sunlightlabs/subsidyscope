@@ -311,23 +311,27 @@ var sortOrder = '{{ sort_order }}';
     					function loadMapFlash()
     					{
     						if(!mapLoaded)
-            			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url faads-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
-  	              			
-            		mapLoaded = true;
-    	        }	
+		            			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url faads-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+		  	              			
+		            		mapLoaded = true;
+		            		
+			            	$.get('{% url faads-search-map-table %}', { 'q': '{{ query|safe }}' }, function(data){
+		                     $('#map-summary-container').html(data);
+		                   });
+		    	        }	
     	              	
 					</script>
             
-            <div style="text-align: center">
-          
-              <span id="map-year-range-label"><strong>{{ year_range_text|safe }}</strong></span>
-          
-            	<div style="float: right;  margin-right: 25px;">
-    						View: <select name="dataType">
-    							<option value="state">Total Spending</option>
-    							<option value="state_per_capital">Per Capita Spending </option>
-    						</select>
-              </div>
+		            <div style="text-align: center">
+		          
+		              <span id="map-year-range-label"><strong>{{ year_range_text|safe }}</strong></span>
+		          
+		            	<div style="float: right;  margin-right: 25px;">
+		    						View: <select name="dataType">
+		    							<option value="state">Total Spending</option>
+		    							<option value="state_per_capital">Per Capita Spending </option>
+		    						</select>
+		              </div>
 					</div>
 					
 					<br clear="all"/> 
@@ -341,7 +345,9 @@ var sortOrder = '{{ sort_order }}';
 						</div>
 					</div>
                   
-                  
+                  	<div id="map-summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
+                 
+
               </div>
 
 
