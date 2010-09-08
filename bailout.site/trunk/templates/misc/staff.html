@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load media %}
+{% load morsel_tags %}
 
 {% block content %}
 
@@ -13,145 +14,9 @@
 		</div>
 		
 		<div class="content_area">				
-		<p>Subsidyscope is a project of <a href="http://www.pewtrusts.org"><em>The Pew Charitable Trusts</em></a>, with research and technical implementation by<br/><a href="http://www.sunlightfoundation.com">The Sunlight Foundation</a>.  Here are the people who have made it possible.</p>
 		
-		<style type="text/css">
-		#subsidyscope-contributors, #subsidyscope-contributors *
-		{
-			border: 0;
-		}
-		</style>
 		
-		<table id="subsidyscope-contributors" width="75%" border="0">
-		<tbody>
-			<tr>
-				<td>
-					Project Director
-				</td>
-				<td>
-					Marcus Peacock<br/>
-					<em>The Pew Charitable Trusts</em>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					Senior Associate
-				</td>
-				<td>
-					Lori Metcalf<br/>
-					<em>The Pew Charitable Trusts</em>					
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					Senior Associate
-				</td>
-				<td>
-						Emily Askew<br/>
-					<em>The Pew Charitable Trusts</em>					
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					Administrative Associate
-				</td>				
-				<td>
-					Joanna Breslow<br/>
-					<em>The Pew Charitable Trusts</em>					
-				</td>
-			</tr>
-			
-			<tr>
-				<td colspan="2">
-					&nbsp;<br/>
-					<em><strong>Research and Technology Consultants</strong></em>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					Project Manager
-				</td>				
-				<td>
-					Tom Lee<br/>
-					<em>Sunlight Foundation</em>				
-				</td>
-			</tr>
-			
-			
-			<tr>
-				<td>
-					Project Manager
-				</td>				
-				<td>
-					Kevin Webb<br/>
-					<em>Sunlight Foundation</em>				
-				</td>
-			</tr>		
-			
-			<tr>
-				<td>
-					Data Analyst/Developer
-				</td>				
-				<td>
-					Kaitlin Lee<br/>
-					<em>Sunlight Foundation</em>			
-				</td>
-			</tr>		
-			
-			<tr>
-				<td>
-					Staff Writer
-				</td>				
-				<td>
-					Sarah Dorsey<br/>
-					<em>Sunlight Foundation</em>				
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					Staff Writer
-				</td>				
-				<td>
-					Ryan Sibley<br/>
-					<em>Sunlight Foundation</em>				
-				</td>
-			</tr>
-			
-			<tr>
-				<td colspan="2">
-					&nbsp;<br/>
-					<em><strong>An Initiative of the Economic Policy Group of the Pew Charitable Trusts</strong></em>
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					Managing Director
-				</td>				
-				<td>
-					John Morton<br/>
-					<em>The Pew Charitable Trusts</em>				
-				</td>
-			</tr>
-			
-			<tr>
-				<td>
-					Deputy Director
-				</td>				
-				<td>
-					Douglas Hamilton<br/>
-					<em>The Pew Charitable Trusts</em>			
-				</td>
-			</tr>
-							
-			
-		</tbody>
-		</table>
+		{% morsel text1 %}
 		
 		</div>
 		
