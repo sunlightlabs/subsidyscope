@@ -290,7 +290,6 @@ def search(request, sector_name=None):
         else:
             return HttpResponseRedirect(reverse('transportation-faads-search'))
         
-            
     # if this is a get w/ a querystring, unpack the form 
     if request.method == 'GET':
         if request.GET.has_key('q'):
@@ -343,8 +342,7 @@ def search(request, sector_name=None):
                     
                     
             (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
-            
-            
+	              
             faads_results = faads_search_query.get_haystack_queryset(order_by)
             
                 
