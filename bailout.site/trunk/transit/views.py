@@ -58,6 +58,18 @@ def index(request):
                               'modes': mode_constants, 
                               'has_searched': False})
 
+def get_system_ridership_csv(request, trs_id):
+    system = TransitSystem.objects.get(trs_id=trs_id)
+    operations = OperationStats.objects.filter(transit_system=system).order_by('mode')
+    response = HttpResponse(mimetype="text/csv")
+    response['Content-Disposition'] = 'attachment; filename=%s_ridership_stats.csv' % system.name.replace(' ', '_')
+    writer = csv.writer(response)
+    writer.writerow([  'mode', 'year', 'passenger miles travelled', 'unlinked passenger trips', 'vehicle revenue miles', 'vehicle revenue hours', 'directional route miles', 'fares', 'operating expense'])
+    for o in operations:
+        writer.writerow((o.get_mode_display(), o.year, o.passenger_miles_traveled, o.unlinked_passenger_trips, o.vehicle_revenue_miles, o.vehicle_revenue_hours, o.directional_route_miles, o.fares, o.operating_expense ))
+
+    response.close()
+    return response
 
 def get_csv_from_search(request):
 

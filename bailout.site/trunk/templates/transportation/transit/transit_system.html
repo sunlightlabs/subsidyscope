@@ -128,7 +128,7 @@
             </div>-->
         
             <div class="ridership">
-                <h5 style="clear:both;">Ridership Data</h5>
+                <h5 style="clear:both;">Ridership Data (Averages for 1991-2008)</h5>
                 <table style="text-align:right;">
                     <tr>
                         <th>Mode</th>
@@ -151,6 +151,7 @@
                     </tr>
                 {% endfor %}
                 </table>
+                <span class="summary-csv"><a style="background: transparent url(/media/images/download_icon_smaller.png) no-repeat scroll 0 6px; padding-left: 25px; padding-top: 7px;" href="{% url transit-ridership-download  system.trs_id %}">Download ridership stats for this system</a></span>
             </div>
 
             <script type="text/javascript" charset="utf-8">
