@@ -1,5 +1,7 @@
 {% extends "base_about.html" %}
 
+{% load morsel_tags %}
+
 {% block content %}
 
 <div class="container main_container">
@@ -11,7 +13,7 @@
 			</div>
 			
 			<div class="content_area">	
-				<p>For press inquiries, please contact Jeremy Ratner at 202-552-2137.</p>
+				{% morsel text1 %}
 				<div id="contact_form">
     				<form action="." method="post" id="contactus">
 					<ul>
