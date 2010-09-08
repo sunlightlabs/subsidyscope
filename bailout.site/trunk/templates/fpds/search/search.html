@@ -254,7 +254,7 @@ var sortOrder = '{{ sort_order }}';
   	              			
               		mapLoaded = true;
               		
-              		$.get('{% url faads-search-map-table %}', { 'q': '{{ query|safe }}' }, function(data){
+              		$.get('{% url fpds-search-map-table %}', { 'q': '{{ query|safe }}' }, function(data){
 		                     $('#map-summary-container').html(data);
 		                   });
       	        }	    	              	
