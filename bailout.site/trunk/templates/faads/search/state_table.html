@@ -1,0 +1,22 @@
+{% load humanize %}
+
+{% if state_data %}
+
+<h4>Direct Expenditures by State</h4>
+
+<table id="summary-state-data" class="summary-data">
+  <tr>
+    <th></th>
+    <th>Total Funding</th>
+    <th>Per Capita</th>
+  </tr>
+  
+  {% for row in results %}
+  <tr class="{% cycle "odd" "even" %}">
+    <td>{{ line.name }}</td><td>{{ line.total }}</td><td>{{ line.per_capita }}</td>
+  </tr>
+  {% endfor %}
+  
+<div id="summary-csv-program" class="summary-csv"><a href="{% url faads-search-map-data %}?q={{ query|safe }}">CSV Download</a></div>
+
+<div class="clear"></div>
