@@ -1,7 +1,7 @@
 {% load humanize %}
 
 
-<h4>Direct Expenditures by State</h4>
+<h4>Contracts by State</h4>
 
 <table id="summary-state-data" class="summary-data">
   <tr>
@@ -16,6 +16,6 @@
   </tr>
   {% endfor %}
 </table> 
-<div id="summary-csv-program" class="summary-csv"><a href="{% url faads-search-map-csv %}?q={{ query|safe }}">CSV Download</a></div>
+<div id="summary-csv-program" class="summary-csv"><a href="{% url fpds-search-map-csv %}?q={{ query|safe }}">CSV Download</a></div>
 
 <div class="clear"></div>

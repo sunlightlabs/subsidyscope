@@ -253,6 +253,10 @@ var sortOrder = '{{ sort_order }}';
               			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url fpds-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
   	              			
               		mapLoaded = true;
+              		
+              		$.get('{% url faads-search-map-table %}', { 'q': '{{ query|safe }}' }, function(data){
+		                     $('#map-summary-container').html(data);
+		                   });
       	        }	    	              	
   					</script>
 
@@ -278,7 +282,8 @@ var sortOrder = '{{ sort_order }}';
 						
 						</div>
 					</div>
-                  
+					
+					<div id="map-summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
                   
               </div>
 

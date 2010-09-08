@@ -391,6 +391,112 @@ def summary_statistics(request, sector_name=None):
     return Http404()
 
 
+def map_data_table(request, sector_name=None):
+
+
+
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation
+    states = {}
+
+    for state in State.objects.all():
+
+        states[state.id] = state
+
+
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+            fpds_results = fpds_search_query.aggregate('recipient_state')
+
+            max_state_total = 0
+            max_per_capital_total = 0
+
+            per_capita_totals = {}
+
+            for state_id in fpds_results:
+                if states.has_key(state_id) and states[state_id].population and fpds_results[state_id] > 0:
+
+                    per_capita_totals[state_id] =  fpds_results[state_id] / states[state_id].population
+
+                    if per_capita_totals[state_id] > max_per_capital_total:
+                        max_per_capital_total = per_capita_totals[state_id]
+
+                    if fpds_results[state_id] > max_state_total:
+                        max_state_total = fpds_results[state_id]
+
+
+            results = []
+
+            for state_id in per_capita_totals:
+                if states.has_key(state_id):
+
+                    line = {'name':states[state_id].name, 'total':fpds_results[state_id], 'per_capita':per_capita_totals[state_id]}
+
+                    results.append(line)
+                
+            
+            return render_to_response('fpds/search/state_table.html', {'results':results, 'query': request.GET['q']}, context_instance=RequestContext(request))
+          
+
+    return Http404()
+
+
+def map_data_csv(request, sector_name=None):
+
+
+
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation
+    states = {}
+
+    for state in State.objects.all():
+
+        states[state.id] = state
+
+
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+            fpds_results = fpds_search_query.aggregate('recipient_state')
+
+            max_state_total = 0
+            max_per_capital_total = 0
+
+            per_capita_totals = {}
+
+            for state_id in fpds_results:
+                if states.has_key(state_id) and states[state_id].population and fpds_results[state_id] > 0:
+
+                    per_capita_totals[state_id] =  fpds_results[state_id] / states[state_id].population
+
+                    if per_capita_totals[state_id] > max_per_capital_total:
+                        max_per_capital_total = per_capita_totals[state_id]
+
+                    if fpds_results[state_id] > max_state_total:
+                        max_state_total = fpds_results[state_id]
+
+
+            results = []
+
+            for state_id in per_capita_totals:
+                if states.has_key(state_id):
+                    
+                    line = '%s,%f,%f' % (states[state_id].name, 
+                                                           fpds_results[state_id], 
+                                                           per_capita_totals[state_id])
+                    
+                    results.append(line)
+                
+            
+            return HttpResponse('\n'.join(results), mimetype="text/csv")
+
+    return Http404()
+
 
 def map_data(request, sector_name=None):
 
