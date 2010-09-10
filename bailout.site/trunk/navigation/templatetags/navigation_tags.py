@@ -73,8 +73,6 @@ def main_nav_path(data, url):
         globals()['leaf_depth'] = traverse.level
         globals()['path'] = deepcopy(current_tree)
 
-    if url=="/transportation/aip/airports/HPB":
-        return url
 
     if not been_processed:
         pass        #append a tuple to the sectors,subsectors, dropdowns, breadcrumb list, depending on the current traversal depth
