@@ -61,7 +61,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     action_type_options = map(lambda x: (x.id, x.name), ActionType.objects.filter(code__in=action_type_codes).order_by('code'))
 
     re_assistance_type_tidier = re.compile(r'(\,.*$|\s\([a-z]\))', re.I)
-    assistance_type_codes = (3,4,5,6,7,8)
+    assistance_type_codes = (3,4,5,6)
     assistance_type_options = map(lambda x: (x.id, re_assistance_type_tidier.sub('',x.name)), AssistanceType.objects.filter(code__in=assistance_type_codes).order_by('code'))
     
     recipient_type_codes = (0,1,2,4,5,6,11,12,20,21,22,23,25)
@@ -214,7 +214,10 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
 
         # handle assistance type
         if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
-            faads_search_query = faads_search_query.filter('assistance_type', form.cleaned_data['assistance_type'])
+            assistance_filter = form.cleaned_data['assistance_type']
+            assistance_filter.append(u'39')
+            assistance_filter.append(u'40')
+            faads_search_query = faads_search_query.filter('assistance_type', assistance_filter)
 
         
         # handle recipient type
