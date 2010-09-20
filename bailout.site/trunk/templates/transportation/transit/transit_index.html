@@ -49,6 +49,7 @@ td.number {text-align: right; }
 table.legend { font-size:.9em; float:left; font-weight: normal; }
 table.legend td { padding: 0px 15px; text-align: center; } 
 .summary-csv { margin-top :30px; }
+#search-options-state { font-size: 11px; }
 </style>
 
 
@@ -57,17 +58,17 @@ table.legend td { padding: 0px 15px; text-align: center; }
     <div class="span-24">
         <div id="header_area"><h3>Transit System Search</h3></div>
         <div class="content_area">
-            <p>Use the search engine below to get funding and ridership metrics from transit systems across the country. All data has been taken from the <a href="http://www.ntdprogram.gov/ntdprogram/data.htm">National Transit Database</a>.</p>    
+            <p>Use the search engine below to find funding and ridership metrics from transit systems across the country. All data are from the <a href="http://www.ntdprogram.gov/ntdprogram/data.htm">National Transit Database</a>. Data have been converted to 2008 dollars using the CPI-U U.S. annual averages (non-chained).</p>    
 
             <form id="faads-search-form" method="post">
-        <!--    <fieldset id="text-query-wrapper">
+            <!--    <fieldset id="text-query-wrapper">
                 <legend>Search by Transit System Name</legend>
                 <div id="text-query-text-wrapper"> 
                 <input id="id_text_query" value="{{form.system_name}}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
                 </div>
             </fieldset>-->
             <fieldset id="advanced-options" {% if form %} class="collapsed" {% endif %}>
-                {% if form %} <legend id="advanced-options">Refine Search Results&nbsp;</legend> {% endif %}
+                {% if form %} <legend id="advanced-options">Search Options&nbsp;<a style="display:inline;" id="search-options-state" href="#">[show]</a></legend> {% endif %}
                 <div class="section" id="text-query-text-wrapper"> 
                     <h4>Name/Abbreviation</h4>
                     <input id="id_text_query" value="{% if form%} {{form.system_name}}{% endif %}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
@@ -312,6 +313,11 @@ $(document).ready(function(){
  
     $('fieldset#advanced-options legend').click(function(){
         $(this).parent().toggleClass('collapsed'); 
+        var link = $('a#search-options-state');
+        if (link.text() == '[show]') {
+            link.text('[hide]');
+        }
+        else { link.text('[show]'); }
     }); 
     $("#transit-search-results th").click(function(){
         var that = this;

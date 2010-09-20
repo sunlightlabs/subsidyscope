@@ -390,13 +390,13 @@ def buildFundingLineChart(funding):
     for f in funding:
 
         for key in data.keys():
-            if key == 'Total': data[key].append(f.total_funding())
+            if key == 'Total': data[key].append(int(f.total_funding()))
             
             elif key == 'Fares': 
-                data['Fares'].append(float(OperationStats.objects.filter(transit_system=f.transit_system,year=f.year).aggregate(Sum('fares'))['fares__sum']) or 'null')
+                data['Fares'].append(int(OperationStats.objects.filter(transit_system=f.transit_system,year=f.year).aggregate(Sum('fares'))['fares__sum']) or 'null')
 
             else:
-                data[key].append( f.total_funding_by_type(key.lower()) )
+                data[key].append( int(f.total_funding_by_type(key.lower()) ))
 
         fund_labels.append(str(f.year))
     
