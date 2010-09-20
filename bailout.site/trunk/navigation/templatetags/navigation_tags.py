@@ -56,11 +56,16 @@ def main_nav_path(data, url):
         current_tree[traverse.level] = (data['name'], reverse(data['url_name']), data['sector'], data['url_name'])
     
     except Exception:
-        if data.has_key('hide') and data['hide']==True:   #for automated pages 
-            current_tree[traverse.level] = (data['name'], data['url_pattern'],  data['sector'],  data['url_name'])
-        else:
-            #this page does not exist in nav tree
-            return "" #fail silently
+        
+        try:
+            if data.has_key('hide') and data['hide']==True:   #for automated pages 
+                current_tree[traverse.level] = (data['name'], data['url_pattern'],  data['sector'],  data['url_name'])
+            else:
+                #this page does not exist in nav tree
+                return "" #fail silently
+        except:
+            return "" #fail silently'er
+        
             
     data_structs = [0, 0, 'sectors', 'subsectors', 'dropdowns', 'inner_dropdowns']
     try:
