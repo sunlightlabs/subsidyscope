@@ -2,8 +2,10 @@ import os, re
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 from transit.models import *
-
+from inflation.models import InflationIndex
 import csv
+
+CURRENT_YEAR = 2008 
 
 uza_list = {}
 system_list = {}
@@ -11,7 +13,7 @@ system_list = {}
 funding_stats_list = {}
 operation_stats_list = {}
  
- 
+cpi = InflationIndex.objects.get(name="CPI")
  
 def get_uza(uza_id, name, pop, area):
     
@@ -88,7 +90,7 @@ def parse_funding_line(line, funding_type):
             funding_stats_list[system.id][year] = {}
             
         try:
-            funding_stats_list[system.id][year][funding_type] = int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', ''))
+            funding_stats_list[system.id][year][funding_type] = cpi.convertValue(int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', '')), CURRENT_YEAR, year)
         except:
             funding_stats_list[system.id][year][funding_type] = None
         
