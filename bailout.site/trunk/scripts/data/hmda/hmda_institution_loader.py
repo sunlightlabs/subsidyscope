@@ -4,6 +4,7 @@ county_amounts = {}
 county_loans = {}
 
 for institution in Institution.objects.exclude(fed_number__is=None)
+    pass
 
 for institution in institutions.readlines():
     

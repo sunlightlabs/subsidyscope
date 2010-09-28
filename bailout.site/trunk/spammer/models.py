@@ -1,6 +1,6 @@
 from django.db import models
 import datetime
-import md5
+import hashlib
 import random
 
 class Recipient(models.Model):
@@ -12,7 +12,7 @@ class Recipient(models.Model):
     def save(self):
         if not self.id:
             if self.email:
-                self.hashcode = md5.new(self.email).hexdigest()
+                self.hashcode = hashlib.md5(self.email).hexdigest()
         super(Recipient, self).save()
     def __unicode__(self):
         return "%s %s" % (self.email, self.zipcode)
