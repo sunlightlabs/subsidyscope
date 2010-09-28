@@ -8,10 +8,6 @@ from django.db.models import Avg, Sum
 
 from decimal import *
 
-from inflation.models import InflationIndex
-
-#for inflation calculations
-CURRENT_YEAR = 2008
 
 
 MODE_AUTOMATED_GUIDEWAY = 'AG'
@@ -161,45 +157,20 @@ class TransitSystemModeManager(models.Manager):
         for sys in systems:
             
             modes = []
-            cpi = InflationIndex.objects.get(name="CPI")
             funding = FundingStats.objects.filter(transit_system=sys)
             for item in OperationStats.objects.filter(transit_system=sys).distinct().values('mode'):
                  modes.append(item['mode'])
 
-            for fs in funding:
-                for att in fs.__dict__.keys():
-                    if fs.__dict__[att]:
-                        if att not in ['year', '_state', 'transit_system_id', 'id']:
-                            fs.__dict__[att] = cpi.convertValue(fs.__dict__[att], CURRENT_YEAR, fs.year)
-                fs.save()
-
             for m in modes:
                 
-                mode_stats = operations.filter(transit_system=sys, mode=m)
+                mode_stats = OperationStats.objects.filter(transit_system=sys, mode=m) #re-retrieve to get saved cpi adjustments
 
-                operating_expense = 0
-                capital_expense = 0
-                fares = 0
-                avg_fares = 0
-                op_yr_count = 0
-                cap_yr_count = 0
-                avg_operating = 0
-                avg_capital  = 0
-                 
-                for stat in mode_stats:
-                    if stat.operating_expense:
-                        op_yr_count += 1
-                        operating_expense += cpi.convertValue(stat.operating_expense, CURRENT_YEAR, stat.year)
-                    if stat.capital_expense:
-                        cap_yr_count += 1
-                        capital_expense += cpi.convertValue(stat.capital_expense, CURRENT_YEAR, stat.year)
-                    if stat.fares:
-                        this_fare = cpi.convertValue(stat.fares, CURRENT_YEAR, stat.year)
-                        fares += this_fare
-                        avg_fares +=  this_fare
-                
-                if op_yr_count > 0 : avg_operating = operating_expense/op_yr_count
-                if cap_yr_count > 0: avg_capital = capital_expense/cap_yr_count
+                fares = mode_stats.aggregate(fare=Sum('fares'))['fare'] or 0
+                avg_fares = Decimal(str(mode_stats.aggregate(av_fare=Avg('fares'))['av_fare'] or 0))
+                operating_expense = mode_stats.aggregate(op_ex=Sum('operating_expense'))['op_ex'] or 0
+                capital_expense = mode_stats.aggregate(cap_ex=Sum('capital_expense'))['cap_ex'] or 0
+                avg_operating = Decimal(str(mode_stats.aggregate(avg_op=Avg('operating_expense'))['avg_op'] or 0))
+                avg_capital = Decimal(str(mode_stats.aggregate(avg_cap=Avg('capital_expense'))['avg_cap'] or 0))
             
                 UPT = mode_stats.aggregate(Sum('unlinked_passenger_trips'))['unlinked_passenger_trips__sum']
 
@@ -215,7 +186,6 @@ class TransitSystemModeManager(models.Manager):
 
                 if fares and operating_expense: rec_ratio = fares / operating_expense
                 
-                if avg_fares: avg_fares = avg_fares / len(mode_stats)
 
                 print "id: %s\n city: %s\n state: %s\n uza: %s\n name:%s\n mode:%s\n capital expenses:%s\n operating expenses:%s\n fares:%s\n average fares: %s\n UPT:%s\n PMT: %s\n  average operating dollars per UPT:%s\n average operating dollars per PMT:%s\n average capital dollars per UPT:%s\n average capital dollars per PMT: %s\n recovery ratio:%s\n======================" %(sys.trs_id, sys.city, sys.state.name, sys.urbanized_area, sys.name, m, capital_expense, operating_expense, fares, avg_fares, UPT, PMT, avg_op_UPT, avg_op_PMT, avg_cap_UPT, avg_cap_PMT, rec_ratio)
 
@@ -228,7 +198,9 @@ class TransitSystemModeManager(models.Manager):
                 new_tsm.total_capital_expenses=capital_expense
                 new_tsm.total_operating_expenses=operating_expense
                 new_tsm.avg_capital_expenses=avg_capital
+                new_tsm.save()
                 new_tsm.avg_operating_expenses=avg_operating
+                new_tsm.save()
                 new_tsm.total_fares=fares
                 new_tsm.avg_fares=avg_fares
                 new_tsm.total_UPT=UPT

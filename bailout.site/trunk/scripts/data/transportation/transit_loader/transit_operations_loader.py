@@ -2,8 +2,11 @@ import os, re
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 from transit.models import *
-
+from inflation.models import InflationIndex
 import csv
+
+CURRENT_YEAR = 2008
+cpi = InflationIndex.objects.get(name="CPI")
 
 uza_list = {}
 system_list = {}
@@ -98,6 +101,9 @@ def parse_operation_line(line, operation_type):
             operation_stats_list[system.id][year][mode][operation_type] = 0
             
         try:
+            if operation_type in ['operating_expense', 'capital_expense', 'fares']:
+                operation_stats_list[system.id][year][mode][operation_type] += cpi.convertValue(int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', '')), CURRENT_YEAR, year)
+
             operation_stats_list[system.id][year][mode][operation_type] += int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', ''))
             
         except:
