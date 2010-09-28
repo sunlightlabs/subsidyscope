@@ -1,9 +1,9 @@
-Table 5–2. CORPORATE AND INDIVIDUAL INCOME TAX REVENUE LOSS ESTIMATES FOR TAX EXPENDITURES
+Table 5-2. CORPORATE AND INDIVIDUAL INCOME TAX REVENUE LOSS ESTIMATES FOR TAX EXPENDITURES
 (In millions of dollars)
 Revenue Loss
 Corporations Individuals
-1998 1999 2000 2001 2002 2003 2004 2000–
-2004 1998 1999 2000 2001 2002 2003 2004 2000–
+1998 1999 2000 2001 2002 2003 2004 2000-
+2004 1998 1999 2000 2001 2002 2003 2004 2000-
 2004
 National Defense:
 1 Exclusion of benefits and allowances to
@@ -25,7 +25,7 @@ expenditures (normal tax method) ............ 255 325 500 600 665 720 750 3,235 
 8 Credit for increasing research activities ........ 2,095 1,625 965 425 180 60 0 1,630 30 30 15 0 0 0 0 15
 Energy:
 9 Expensing of exploration and development
-costs, fuels ................................................. –90 –55 –10 –15 0 25 30 30 –20 –15 0 0 0 5 10 15
+costs, fuels ................................................. -90 -55 -10 -15 0 25 30 30 -20 -15 0 0 0 5 10 15
 10 Excess of percentage over cost depletion,
 fuels ............................................................ 200 205 210 215 220 225 235 1,105 50 55 55 55 55 55 55 275
 11 Alternative fuel production credit ................... 815 765 720 680 640 420 120 2,580 45 45 40 40 35 15 5 135
@@ -128,12 +128,12 @@ Community and regional development:
 (other than historic) .......................... 15 15 15 15 15 15 15 75 15 15 15 15 15 15 15 75
 65 Exclusion of interest for airport, dock, and
 similar bonds .............................................. 180 185 185 185 190 190 195 945 515 520 525 530 535 540 545 2,675
-66 Exemption of certain mutuals’ and cooperatives’
+66 Exemption of certain mutuals- and cooperatives-
 income .............................................. 45 50 50 50 50 50 55 255 ............ ............ ............ ............ ............ ............ .............. ..............
 67 Empowerment zones and enterprise communities
 ........................................................... 135 185 205 190 170 130 115 810 155 195 225 245 245 175 175 1,065
 68 Expensing of environmental remediation
-costs ........................................................... 75 90 120 50 –10 –20 –30 110 15 20 25 10 0 –5 –5 25
+costs ........................................................... 75 90 120 50 -10 -20 -30 110 15 20 25 10 0 -5 -5 25
 Education, training, employment, and social services:
 Education:
 69 Exclusion of scholarship and fellowship income
@@ -179,7 +179,7 @@ Health:
 94 Exclusion of employer contributions for medical
 insurance premiums and medical care ............ ............ ............ ............ ............ ............ ............ .............. 67,920 72,535 77,670 83,095 88,830 94,960 101,520 446,075
 95 Self-employed medical insurance premiums ............ ............ ............ ............ ............ ............ ............ .............. 765 980 1,310 1,405 1,550 2,055 2,905 9,225
-96 Workers’ compensation insurance premiums ............ ............ ............ ............ ............ ............ ............ .............. 4,260 4,420 4,585 4,755 4,935 5,120 5,315 24,710
+96 Workers- compensation insurance premiums ............ ............ ............ ............ ............ ............ ............ .............. 4,260 4,420 4,585 4,755 4,935 5,120 5,315 24,710
 97 Medical Savings Accounts ............................. ............ ............ ............ ............ ............ ............ ............ .............. 15 20 25 25 20 20 15 105
 98 Deductibility of medical expenses ................. ............ ............ ............ ............ ............ ............ ............ .............. 3,615 3,775 3,985 4,215 4,475 4,750 5,035 22,460
 99 Exclusion of interest on hospital construction
@@ -191,7 +191,7 @@ bonds .......................................................... 305 305 310 310
 Income security:
 103 Exclusion of railroad retirement system benefits
 ............................................................. ............ ............ ............ ............ ............ ............ ............ .............. 420 420 425 425 430 435 440 2,155
-104 Exclusion of workers’ compensation benefits ............ ............ ............ ............ ............ ............ ............ .............. 5,140 5,330 5,475 5,940 6,205 6,480 6,755 30,855
+104 Exclusion of workers-compensation benefits ............ ............ ............ ............ ............ ............ ............ .............. 5,140 5,330 5,475 5,940 6,205 6,480 6,755 30,855
 105 Exclusion of public assistance benefits (normal
 tax method) ......................................... ............ ............ ............ ............ ............ ............ ............ .............. 440 345 360 375 390 405 420 1,950
 106 Exclusion of special benefits for disabled

@@ -129,7 +129,6 @@ class TransitSystemMode(models.Model):
     avg_fares = models.DecimalField(max_digits=15, decimal_places=2, null=True, blank=True)
 
 
-
 class TransitSystemModeManager(models.Manager):
 
     def match_common(self):
@@ -162,11 +161,18 @@ class TransitSystemModeManager(models.Manager):
         for sys in systems:
             
             modes = []
-
+            cpi = InflationIndex.objects.get(name="CPI")
+            funding = FundingStats.objects.filter(transit_system=sys)
             for item in OperationStats.objects.filter(transit_system=sys).distinct().values('mode'):
                  modes.append(item['mode'])
 
-            print modes
+            for fs in funding:
+                for att in fs.__dict__.keys():
+                    if fs.__dict__[att]:
+                        if att not in ['year', '_state', 'transit_system_id', 'id']:
+                            fs.__dict__[att] = cpi.convertValue(fs.__dict__[att], CURRENT_YEAR, fs.year)
+                fs.save()
+
             for m in modes:
                 
                 mode_stats = operations.filter(transit_system=sys, mode=m)
@@ -179,7 +185,6 @@ class TransitSystemModeManager(models.Manager):
                 cap_yr_count = 0
                 avg_operating = 0
                 avg_capital  = 0
-                cpi = InflationIndex.objects.get(name="CPI")
                  
                 for stat in mode_stats:
                     if stat.operating_expense:

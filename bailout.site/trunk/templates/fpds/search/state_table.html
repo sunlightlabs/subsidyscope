@@ -1,0 +1,21 @@
+{% load humanize %}
+
+
+<h4>Contracts by State FY2000 – FY2010</h4>
+
+<table id="summary-state-data" class="summary-data">
+  <tr>
+    <th style="text-align: left`;" class="first"></th>
+    <th style="text-align: right;">Total Spending</th>
+    <th style="text-align: right;" class="last"">Per Capita Spending</th>
+  </tr>
+  
+  {% for row in results %}
+  <tr class="{% cycle "odd" "even" %}">
+    <td class="first"><strong>{{ row.name }}</strong></td><td>${{ row.total|floatformat:"-0"|intcomma }}</td><td class="last">${{ row.per_capita|floatformat:"-2"|intcomma }}</td>
+  </tr>
+  {% endfor %}
+</table> 
+<div id="summary-csv-program" class="summary-csv"><a href="{% url fpds-search-map-csv %}?q={{ query|safe }}">CSV Download</a></div>
+
+<div class="clear"></div>

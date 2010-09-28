@@ -1,0 +1,1385 @@
+
+<!-- saved from url=(0109)http://frwebgate.access.gpo.gov/cgi-bin/getdoc.cgi?dbname=1998_joint_committee_on_taxation&docid=f:52597.wais -->
+<HTML><STYLE>body.delicious {
+	font: normal 12px arial, helvetica, arial, verdana;
+	color: #000;
+	overflow: hidden;
+	border: 0px;
+	}
+	.delicious div.toolstrip-button {
+		color: #000;
+		cursor: hand;
+		padding: 6px;
+		border-bottom: 1px solid #eee;
+		}
+	.delicious div.toolstrip-button {
+		color: #000;
+		cursor: hand;
+		font: normal 12px helvetica, arial, verdana;
+		width: 150px;
+		padding: 6px;
+		border-bottom: 1px solid #eee;
+		}
+		div.toolstrip-button:last-child {border-bottom-style: none;}
+		.delicious div.toolstrip-button:hover {
+			background-color: #3274d0;
+			color: #fff;
+			}
+	/*************************
+	OPTIONS pages
+	**************************/
+	.delicious .options h3 {
+		font-weight: bold;
+		margin-bottom: 9px;
+		}
+		.options small {font-size: 10px; font-family: verdana;}
+		.message p {padding: 4px;}
+			p.fail {
+				background-color: #ff0000;
+				color: #000;
+				}
+			p.success {
+				background-color: #ffff99;
+				color: #000;
+				}
+	.delicious #bookmarks {
+		padding: 6px;
+		}
+	.delicious #bookmarks h3 {
+		font-weight: normal;
+		font-size: 12px;
+		}
+	.delicious #bookmarks h3 small {
+		font-size: 10px;
+		text-decoration: underline;
+		}
+	.delicious #bookmarks ul {
+		margin: 0;
+		padding: 0;
+		list-style: none outside;
+		}
+	.delicious #bookmarks li {
+		margin: 0;
+		padding: 4px;
+		line-height: 14px;
+		list-style: none outside;
+		}
+	.delicious #bookmarks li.even {
+		background-color: #f1f1f1;
+		}
+	.delicious #bookmarks li a,
+	.delicious #bookmarks li a:link {
+		color: #1259c7;
+		text-decoration: none;
+		}
+	.delicious #bookmarks li a:visited {
+		color: #515697;
+		}
+	.delicious #bookmarks li a:hover,
+	.delicious #bookmarks li a:active,
+	.delicious #bookmarks li a:focus {
+		color: #1259c7;
+		text-decoration: underline;
+		}
+</STYLE><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></HEAD><BODY><PRE>&lt;DOC&gt;
+[DOCID: f:52597.wais]
+
+
+                        [JOINT COMMITTEE PRINT]
+
+
+ 
+                         ESTIMATES OF FEDERAL
+                         TAX EXPENDITURES FOR
+                        FISCAL YEARS 1999-2003
+
+                            prepared for the
+
+                      COMMITTEE ON WAYS AND MEANS
+
+                                and the
+
+                          COMMITTEE ON FINANCE
+
+                          by the staff of the
+
+                      JOINT COMMITTEE ON TAXATION
+
+[GRAPHIC] [TIFF OMITTED] TONGRESS.#13
+
+
+                           DECEMBER 14, 1998
+
+
+
+                      JOINT COMMITTEE ON TAXATION
+
+                      105th Congress, 2nd Session
+                                 ------                                
+               SENATE                               HOUSE
+WILLIAM V. ROTH, Jr., Delaware,      BILL ARCHER, Texas,
+  Chairman                             Vice Chairman
+JOHN H. CHAFEE, Rhode Island         PHILIP M. CRANE, Illinois
+CHARLES GRASSLEY, Iowa               WILLIAM M. THOMAS, California
+DANIEL PATRICK MOYNIHAN, New York    CHARLES B. RANGEL, New York
+MAX BAUCUS, Montana                  FORTNEY PETE STARK, California
+                     Lindy L. Paull, Chief of Staff
+              Mary M. Schmitt, Deputy Chief of Staff (Law)
+      Bernard A. Schmitt, Deputy Chief of Staff (Revenue Analysis)
+
+
+
+                            C O N T E N T S
+
+                              ----------                              
+                                                                   Page
+Introduction.....................................................     1
+
+ I. The Concept of Tax Expenditures...................................2
+
+II. Measurement of Tax Expenditures..................................12
+
+III.Tax Expenditure Estimates........................................14
+
+
+        Table 1. Tax Expenditure Estimates by Budget Function, 
+            Fiscal Years 1999-2003...............................    15
+
+        Table 2. Distribution of All Returns, Taxable Returns, 
+            Itemized Returns, and Tax Liability by Income Class..    25
+
+        Table 3. Distribution of Selected Individual Tax 
+            Expenditures by Income Class.........................    26
+
+
+                              INTRODUCTION
+
+    This report \1\ on tax expenditures for fiscal years 1999-
+2003 is prepared by the staff of the Joint Committee on 
+Taxation (``Joint Committee staff'') for the House Committee on 
+Ways and Means and the Senate Committee on Finance. The report 
+also is submitted to the House and Senate Committees on the 
+Budget.
+---------------------------------------------------------------------------
+    \1\ This report may be cited as follows: Joint Committee on 
+Taxation, Estimates of Federal Tax Expenditures for Fiscal Years 1999-
+2003 (JCS-7-98), December 14, 1998.
+---------------------------------------------------------------------------
+    As in the case of earlier reports,\2\ the estimates of tax 
+expenditures in this report were prepared in consultation with 
+the staff of the Office of Tax Analysis in the Treasury 
+Department (``the Treasury''). The Treasury published its 
+estimates of tax expenditures for fiscal years 1997-2003 in the 
+Administration's budgetary statement of February 1998.\3\ The 
+lists of tax expenditures in this Joint Committee staff report 
+and the Administration's budgetary statement overlap 
+considerably; the differences are discussed in Part I of this 
+report under the heading ``Comparisons with Treasury.''
+---------------------------------------------------------------------------
+    \2\ Joint Committee on Taxation, Estimates of Federal Tax 
+Expenditures, October 4, 1972, June 1, 1973, July 8, 1975, March 15, 
+1976, March 16, 1977, March 14, 1978, March 15, 1979, March 6, 1980, 
+March 16, 1981, March 8, 1982, March 7, 1983, November 9, 1984, April 
+12, 1985, March 1, 1986, February 27, 1987, March 8, 1988, February 28, 
+1989, March 9, 1990, March 11, 1991, April 24, 1992, April 22, 1993, 
+November 9, 1994, September 1, 1995, November 26, 1996, and December 
+15, 1997.
+    \3\ Office of Management and Budget, ``Tax Expenditures,'' Budget 
+of the United States Government: Analytical Perspectives, Fiscal Year 
+1999, February 2, 1998, pp. 89-120.
+---------------------------------------------------------------------------
+    The Joint Committee staff has made its estimates (as shown 
+in Table 1) based on the provisions in tax law as enacted 
+through December 1, 1998. Expired or repealed provisions are 
+not listed unless they have continuing revenue effects that are 
+associated with ongoing taxpayer activity. Proposed extensions 
+or modifications of expiring provisions are not included until 
+they have been enacted into law.
+    Part I of this report contains a discussion of the concept 
+of tax expenditures. Part II is a discussion of the measurement 
+of tax expenditures. Estimates of tax expenditures for fiscal 
+years 1999-2003 are presented in Table 1 in Part III. Table 2 
+shows the distribution of tax returns by income class, and 
+Table 3 presents distributions of selected individual tax 
+expenditures by income class.
+
+                   I. THE CONCEPT OF TAX EXPENDITURES
+
+Overview
+    ``Tax expenditures'' are defined under the Congressional 
+Budget and Impoundment Control Act of 1974 (``the Budget Act'') 
+as ``revenue losses attributable to provisions of the Federal 
+tax laws which allow a special exclusion, exemption, or 
+deduction from gross income or which provide a special credit, 
+a preferential rate of tax, or a deferral of tax liability.\4\ 
+Thus, tax expenditures include any reductions in individual and 
+corporate income tax liabilities that result from special tax 
+provisions or regulations that provide tax benefits to 
+particular taxpayers.
+---------------------------------------------------------------------------
+    \4\ Congressional Budget and Impoundment Control Act of 1974 (P.L. 
+93-344), sec. 3(3).
+---------------------------------------------------------------------------
+    Special income tax provisions are referred to as tax 
+expenditures because they may be considered to be analogous to 
+direct outlay programs, and the two can be considered as 
+alternative means of accomplishing similar budget policy 
+objectives. Tax expenditures are most similar to those direct 
+spending programs that have no spending limits, and that are 
+available as entitlements to those who meet the statutory 
+criteria established for the programs.\5\
+---------------------------------------------------------------------------
+    \5\ There are a few tax expenditures that have statutorily imposed 
+limits. One example is the tax credit for low-income rental housing. 
+This credit is available only to those who have received credit 
+allocations from State housing authorities. There are statutory limits 
+on the total amounts of credit allocations that the States can make 
+each year.
+---------------------------------------------------------------------------
+    Estimates of tax expenditures are prepared for use in 
+budget analysis. They are a measure of the economic benefits 
+that are provided through the tax laws to various groups of 
+taxpayers and sectors of the economy. The estimates also may be 
+useful in determining the relative merits of achieving 
+specified public goals through tax benefits or direct outlays.
+    The legislative history of the Budget Act indicates that 
+tax expenditures are to be defined with reference to a normal 
+income tax structure (referred to here as ``normal income tax 
+law''). The Joint Committee staff has used its judgment in 
+distinguishing between those income tax provisions (and 
+regulations) that can be viewed as a part of normal income tax 
+law and those special provisions that result in tax 
+expenditures. A provision traditionally has been listed as a 
+tax expenditure by the Joint Committee staff if there is a 
+reasonable basis for such classification and the provision 
+results in more than a de minimis revenue loss, which solely 
+for this purpose means a total revenue loss of at least $50 
+million over the five fiscal years, 1999-2003. The Joint 
+Committee staff emphasizes, however, that in the process of 
+listing tax expenditures, no judgment is made, nor any 
+implication intended, about the desirability of any special tax 
+provision as a matter of public policy.
+    If a tax expenditure provision were eliminated, Congress 
+might choose to continue financial assistance through other 
+means rather than terminate all Federal assistance for the 
+activity. If a replacement spending program were enacted, the 
+higher revenues received as a result of the elimination of a 
+tax expenditure might not represent a net budget gain. A 
+replacement program could involve direct expenditures, direct 
+loans or loan guarantees, regulatory activity, a different form 
+of tax expenditure, or a general reduction in tax rates. Joint 
+Committee staff estimates of tax expenditures do not anticipate 
+such policy responses.
+    The Budget Act uses the term tax expenditure to refer to 
+the special tax provisions that are contained in the Federal 
+individual and corporate income taxes. Other Federal taxes such 
+as excise taxes, employment taxes, and estate and gift taxes 
+may also have exceptions, exclusions, and credits, but those 
+special tax provisions are not included in this report because 
+they are not part of the income tax. Thus, for example, the 
+income tax exclusion for employer-paid health insurance is 
+included, but the Federal Insurance Contributions Act 
+(``FICA'') tax exclusion for employer-paid health insurance is 
+not treated as a tax expenditure.\6\
+---------------------------------------------------------------------------
+    \6\ In its budget statement, the Treasury Department identifies tax 
+expenditures in the unified transfer tax (the estate and gift tax and 
+the generation-skipping transfer tax). See, Office of Management and 
+Budget, ``Tax Expenditures,'' February 2, 1998, pp. 119-120. Other 
+analysts have explored applying the concept of tax expenditures to the 
+payroll and excise taxes. See, Jonathan Barry Forman, ``Would a Social 
+Security Tax Expenditure Budget Make Sense?'' Public Budgeting and 
+Financial Management, 5, 1993, pp. 311-335, and Bruce F. Davie, ``Tax 
+Expenditures in the Federal Excise Tax System,'' National Tax Journal, 
+XLVII, March 1994, pp. 39-62.
+---------------------------------------------------------------------------
+    Some provisions in the Internal Revenue Code provide for 
+special tax treatment that is less favorable than normal income 
+tax law. Examples of such provisions include (1) the denial of 
+deductions for certain lobbying expenses, (2) the denial of 
+deductions for certain executive compensation, and (3) the 2-
+percent floor on itemized deductions for unreimbursed employee 
+expenses. Tax provisions that provide treatment less favorable 
+than normal income tax law are not shown in this report because 
+they are not included in the statutory definition of a tax 
+expenditure.
+Individual Income Tax
+    Under the Joint Committee staff methodology, the normal 
+structure of the individual income tax includes the following 
+major components: one personal exemption for each taxpayer and 
+one for each dependent, the standard deduction, the existing 
+tax rate schedule, and deductions for investment and employee 
+business expenses. Most other tax benefits to individual 
+taxpayers can be classified as exceptions to ``normal income 
+tax law.''
+    Personal exemptions and the standard deduction are treated 
+as part of normal income tax law because one may consider these 
+amounts as approximating the level of income below which it 
+would be difficult for an individual or a family to obtain 
+minimal amounts of food, clothing, and shelter. Those itemized 
+deductions that are not necessary for the generation of income 
+are classified as tax expenditures, but only to the extent that 
+they exceed the standard deduction level.
+    Under present law, all employee compensation is subject to 
+tax unless the tax code contains a specific exclusion for the 
+income. There are specific exclusions for the following 
+employer-provided benefits: coverage under accident and health 
+plans,\7\ accident and disability insurance, group term life 
+insurance, educational assistance, transportation benefits 
+(parking, van pools, and transit passes), child care, meals and 
+lodging (furnished for the convenience of the employer), 
+employee awards, and other miscellaneous fringe benefits (e.g., 
+employee discounts, services provided to employees at no 
+additional cost to employers, tuition reductions, and de 
+minimis fringe benefits). Each of these exclusions is 
+classified as a tax expenditure in this report.
+---------------------------------------------------------------------------
+    \7\ Present law contains an exclusion for employer-provided 
+coverage under accident and health plans (sec. 106 of the Internal 
+Revenue Code of 1986, the ``Code'') and an exclusion for benefits 
+received by employees under employer- provided accident and health 
+plans (Code sec. 105(b)). These two exclusions are viewed as a single 
+tax expenditure. Under normal income tax law, the value of employer-
+provided accident and health coverage would be includable in the income 
+of employees, but employees would not be subject to tax on the accident 
+and health insurance benefits (reimbursements) that they might receive.
+---------------------------------------------------------------------------
+    Under normal income tax law, employer contributions to 
+pension plans and income earned on pension assets would be 
+taxable to employees as the contributions are made and as the 
+income is earned, and employees would not receive any deduction 
+or exclusion for their pension contributions. Under present 
+law, employer contributions to qualified pension plans and 
+employee contributions made at the election of the employee 
+through salary reduction are not taxed until distributed to the 
+employee during retirement, and income earned on pension assets 
+is not taxed until distributed during retirement. The tax 
+expenditure for ``net exclusion of pension contributions and 
+earnings'' is computed as the income taxes forgone on current 
+tax-excluded pension contributions and earnings less the income 
+taxes paid on current pension distributions to retirees.
+    Under present law, social security retirement benefits are 
+fully or partially excluded from gross income.\8\ Under normal 
+income tax law, retirees would be entitled to an exclusion for 
+only the portion of social security retirement benefits that 
+represents a return of the social security taxes that they paid 
+during their working years. Thus, the exclusion of social 
+security retirement benefits in excess of social security tax 
+payments is classified as a tax expenditure.
+---------------------------------------------------------------------------
+    \8\ For taxpayers with modified adjusted gross incomes above 
+certain levels, up to 85 percent of social security retirement benefits 
+are includable in income.
+---------------------------------------------------------------------------
+    All Medicare benefits are excluded from taxation. The value 
+of Medicare Part A insurance generally is greater than the 
+Health Insurance (``HI'') tax contributions that enrollees made 
+during their working years, and the value of Medicare Part B 
+insurance generally is greater than the Part B premium that 
+enrollees must pay. The exclusion of the value of Medicare Part 
+A insurance in excess of HI tax contributions is classified as 
+a tax expenditure, and the exclusion of the value of Medicare 
+Part B insurance in excess of premiums paid also is classified 
+as a tax expenditure.
+    Public assistance benefits are excluded from gross income 
+by law or by Internal Revenue Service regulations. Table 1 
+contains tax expenditure estimates for workers' compensation 
+benefits, special benefits for disabled coal miners, and cash 
+public assistance benefits (which include Supplemental Security 
+Income (``SSI'') benefits and Aid to Families with Dependent 
+Children (``AFDC'') benefits).
+    The individual income tax does not include in gross income 
+the imputed income that individuals receive from the services 
+provided by owner-occupied homes and durable goods.\9\ However, 
+the Joint Committee staff does not classify this exclusion as a 
+tax expenditure. The measurement of imputed income for tax 
+purposes presents administrative problems and its exclusion 
+from taxable income may be regarded as an administrative 
+necessity.\10\
+---------------------------------------------------------------------------
+    \9\ The National Income and Product Accounts include estimates of 
+this imputed income. The accounts appear in U.S. Department of 
+Commerce, Bureau of Economic Analysis, Survey of Current Business, 
+published monthly.
+    \10\ If the imputed income from owner-occupied homes were included 
+in adjusted gross income, it would be proper to include all mortgage 
+interest deductions and related property tax deductions as part of the 
+normal income tax structure, since interest and property tax deductions 
+would be allowable as a cost of producing imputed income. It also would 
+be appropriate to allow deductions for depreciation and maintenance 
+expenses for owner-occupied homes.
+---------------------------------------------------------------------------
+    Under normal income tax law, individuals would be allowed 
+to deduct only the interest on indebtedness incurred in 
+connection with a trade or business or an investment. Thus, the 
+deduction for mortgage interest on a principal or second 
+residence is classified as a tax expenditure.
+    The Joint Committee staff assumes that, for administrative 
+feasibility, normal income tax law would tax capital gains in 
+full in the year the gains are realized through sale or 
+exchange. Thus, the deferral of tax until realization is not 
+classified as a tax expenditure, but reduced rates of tax, 
+further deferrals of tax (beyond the year of sale or exchange), 
+and exclusions of certain capital gains are classified as tax 
+expenditures.
+    It also is assumed that normal income tax law would not 
+provide for any indexing of the basis of capital assets for 
+changes in the general price level. Thus, under normal income 
+tax law (as under present law), the income tax would be levied 
+on nominal gains as opposed to real gains in asset values. If, 
+as an alternative, normal income tax law were defined to 
+include full indexing of the basis of capital assets, the 
+capital gains tax expenditure estimates in Table 1 generally 
+would be much lower than those shown. For consistency, if there 
+were indexation of the basis of capital assets, it should be 
+coupled with a general indexation of the income and expenses 
+associated with capital assets and the indexation of interest. 
+If normal income tax law were defined to include the indexation 
+of interest paid and received, the tax expenditure estimates 
+for exclusion of interest on State and local government debt 
+would be much lower than those shown in Table 1.
+    There are many types of State and local government bonds 
+and private purpose bonds that qualify for tax-exempt status 
+for Federal income tax purposes. Table 1 contains a separate 
+tax expenditure listing for each type of bond.
+
+Business Income Taxation
+
+    Regardless of the legal form of organization (sole 
+proprietorship, partnership, or S or C corporation), the same 
+general principles are used in the computation of taxable 
+business income. Thus, most business tax expenditures apply 
+equally to unincorporated and incorporated businesses.
+    One of the most difficult issues in defining tax 
+expenditures for business income relates to the tax treatment 
+of capital costs. Under present law, capital costs may be 
+recovered under a variety of alternative methods, depending 
+upon the nature of the costs and the status of the taxpayer. 
+For example, investments in equipment and structures may 
+qualify for tax credits, expensing, accelerated depreciation, 
+or straight-line depreciation. The Joint Committee staff 
+generally classifies as tax expenditures cost recovery 
+allowances that are more favorable than those provided under 
+the alternative depreciation system (sec. 168(g)), which 
+provides for straight-line recovery over tax lives that are 
+longer than those permitted under the accelerated system.
+    As indicated above, the Joint Committee staff assumes that 
+normal income tax law would not provide for any indexing of the 
+basis of capital assets. Thus, normal income tax law would not 
+take into account the effects of inflation on tax depreciation. 
+The expensing and depreciation tax expenditure estimates in 
+Table 1 are larger than would be the case if normal income tax 
+law provided for inflation adjustments in the basis of assets 
+for tax depreciation purposes.
+    The alternative minimum tax (``AMT'') and the passive 
+activity loss rules are not viewed by the Joint Committee staff 
+as a part of normal income tax law. Instead, they are viewed as 
+provisions that reduce the magnitude of the tax expenditures to 
+which they apply. For example, the AMT reduces the value of 
+business tax credits (for those taxpayers subject to the AMT) 
+by not allowing the tax credits to be claimed in the 
+calculation of AMT liability. Similarly, the passive loss rules 
+defer otherwise allowable deductions and credits from passive 
+activities until a time when the taxpayer has passive income or 
+disposes of the assets associated with the passive activity. 
+Exceptions to the AMT and the passive loss rules are not 
+classified as tax expenditures by the Joint Committee staff 
+because the effects of the exceptions already are incorporated 
+in the estimates of related tax expenditures.
+
+Corporate Income Tax
+
+    The income of corporations (other than S corporations) 
+generally is subject to the corporate income tax. The corporate 
+income tax includes a graduated tax rate schedule. The lower 
+tax rates in the schedule are classified by the Joint Committee 
+staff as a tax expenditure (as opposed to normal income tax 
+law) because they are intended to provide tax benefits to small 
+business and, unlike the graduated individual income tax rates, 
+are unrelated to concerns about ability of individuals to pay 
+taxes.
+    Certain income of pass-through entities is exempt from the 
+corporate income tax. The income of sole proprietorships, S 
+corporations, and most partnerships is taxed only at the 
+individual level. The special tax rules for these pass-through 
+entities are not classified as tax expenditures because the tax 
+benefits are available to any entity that chooses to organize 
+itself and operate in the required manner in order to avoid the 
+corporate income tax.
+    Nonprofit corporations that satisfy the requirements of 
+Code section 501 also generally are exempt from corporate 
+income tax. The tax exemption of certain nonprofit cooperative 
+business organizations, such as trade associations, is not 
+treated as a tax expenditure for the same reason applicable to 
+for-profit pass-through business entities. With respect to 
+other nonprofit organizations, such as charities, tax-exempt 
+status is not classified as a tax expenditure because the 
+nonbusiness activities of such organizations generally must 
+predominate and their unrelated business activities are subject 
+to tax. In general, the imputed income derived from nonbusiness 
+activities conducted by individuals or collectively by certain 
+nonprofit organizations is outside the normal income tax base. 
+However, the ability of donors to such nonprofit organizations 
+to claim a charitable contribution deduction is a tax 
+expenditure (because such contributions do not generate income 
+to the donor), as is the exclusion from income granted to 
+holders of tax-exempt financing issued by charities.
+
+Recent Legislation
+
+            Surface Transportation Revenue Act of 1998
+    The Surface Transportation Revenue Act of 1998, enacted on 
+June 9, 1998, as part of the Transportation Equity Act for the 
+21st Century (Title IX of H.R. 2400) (P.L. 105-178), modified 
+two existing tax expenditures:
+    --The excise tax exemptions and income tax credits for 
+alcohol fuels were extended through September 30, 2007 (excise 
+tax exemptions), and December 31, 2007 (income tax credits), 
+and the tax incentives will be reduced from 54 cents per gallon 
+to 51 cents per gallon over a five-year period beginning on 
+January 1, 2001. (The income tax credits are classified as a 
+tax expenditure, but not the excise tax exemptions.)
+    --The exclusion for employer-provided parking and transit 
+benefits was modified as follows: (1) no parking or 
+transportation benefit is includible in gross income or wages 
+of an employee merely because the employee is offered the 
+choice of cash in lieu of one or more qualified transportation 
+benefits, effective for taxable years beginning after December 
+31, 1997; (2) there is no indexing of the dollar limits on the 
+exclusions for qualified transportation benefits in 1999; and 
+(3) the exclusion for employer-provided transit passes and 
+vanpooling is increased to $100 per month effective for taxable 
+years beginning after December 31, 2001.
+            Internal Revenue Service Restructuring and Reform Act of 
+                    1998
+    The Internal Revenue Service Restructuring and Reform Act 
+of 1998 (``IRS Reform Act'') (H.R. 2676), enacted on July 22, 
+1998 (P.L. 105-206), modified two existing tax expenditures:
+    --Property held more than one year (rather than more than 
+18 months) is eligible for reduced capital gains tax rates, 
+effective January 1, 1998.
+    --All of the meals provided to employees on the business 
+premises of an employer are generally treated as being provided 
+for the convenience of the employer (and are thus excludable 
+under section 119) if more than one-half of the employees who 
+are provided meals are being provided meals for the convenience 
+of the employer, effective for taxable years beginning before, 
+on, or after July 22, 1998.
+            Tax and Trade Relief Extension Act of 1998
+    The Tax and Trade Relief Extension Act of 1998 (``the Tax 
+Extension Act''), enacted on October 21, 1998, as part of the 
+Omnibus Consolidated and Emergency Supplemental Appropriations 
+Act, 1999 (Division J of H.R. 4328) (P.L. 105-277), extended 
+and modified some existing tax expenditures and added a new tax 
+expenditure to the Internal Revenue Code.
+    Extensions of expiring tax provisions.--The Tax Extension 
+Act extended a number of tax expenditure provisions that had 
+recently expired or were scheduled to expire. The tax credit 
+for qualified research expenditures (Code sec. 41), which 
+expired after June 30, 1998, was extended for the period July 
+1, 1998, through June 30, 1999. The work opportunity tax 
+credit, which expired after June 30, 1998, was extended through 
+June 30, 1999. The welfare-to-work tax credit, which was 
+scheduled to expire after April 30, 1999, was extended through 
+June 30, 1999. The deduction equal to the fair market value of 
+``qualified appreciated stock'' contributed to a private 
+foundation, which expired after June 30, 1998, was permanently 
+extended. (The effects of this provision are reflected in the 
+tax expenditure estimates for ``deduction for charitable 
+contributions'' in Table 1.) Income averaging for farmers, 
+which was scheduled to expire for taxable years beginning after 
+December 31, 2000, was permanently extended.
+    Modifications to existing tax expenditures.--The Tax 
+Extension Act also modified two existing tax expenditures:
+    --The rates of deduction for health insurance expenses of 
+self-employed individuals are increased as follows: the 
+deduction is 45 percent in 1998, 60 percent in 1999 through 
+2001, 70 percent in 2002, and 100 percent in 2003 and 
+thereafter.
+    --The limit on State private activity tax-exempt bonds is 
+increased to $75 per resident of each State or $225 million (if 
+greater) beginning in calendar year 2007. The increase is 
+phased in, beginning with $55 per resident or $165 million (if 
+greater) in calendar year 2003.
+    New tax expenditure.--The Tax Extension Act provided a 
+special five-year carryback period for net operating losses 
+attributable to farming businesses. The provision is effective 
+for net operating losses arising in taxable years beginning 
+after December 31, 1997.
+    Alternative minimum tax effects on personal credits.--The 
+Tax Extension Act contained a provision that allows 
+nonrefundable personal credits to offset the regular tax in 
+full for taxable years beginning in 1998, thereby reducing or 
+eliminating the alternative minimum tax liabilities of some 
+taxpayers. This provision will allow taxpayers to receive 
+greater benefits from the nonrefundable personal credits. Thus, 
+in Table 1, the tax expenditure estimates for these credits are 
+larger than would otherwise be the case.
+
+Cancelled Tax Provisions
+
+    The Taxpayer Relief Act of 1997 contained two tax 
+expenditure provisions that were cancelled by the President 
+pursuant to the Line Item Veto Act of 1996. In June 1998, the 
+Supreme Court held that the provisions of the Line Item Veto 
+Act were unconstitutional. Thus, the two cancelled tax 
+provisions are now present law. The first provision provides a 
+temporary exception from foreign personal holding company 
+income (for subpart F purposes) for certain income that is 
+derived in the active conduct of an insurance, banking, 
+financing, or similar business, for taxable years beginning in 
+1998. The Tax Extension Act modified and extended this 
+provision through taxable years beginning in 1999. The 
+provision is listed in Table 1. The second cancelled tax 
+provision provides for a deferral of tax on gains from the sale 
+of stock in a qualified refiner or processor to an eligible 
+farmer's cooperative, effective for sales after December 31, 
+1997. This provision is not listed in Table 1 because the 
+associated revenue loss is less than the de minimis amount 
+required for inclusion in the table.
+
+Comparisons with Treasury Department
+
+    The Joint Committee staff and Treasury lists of tax 
+expenditures differ in two respects. First, the Treasury uses a 
+different classification of those provisions that can be 
+considered a part of normal income tax law under both the 
+individual and business income taxes. In general, the Joint 
+Committee staff methodology involves a narrower concept of 
+normal income tax law. Thus, the Joint Committee list of tax 
+expenditures includes some provisions that are not contained in 
+the Treasury list. The cash method of accounting provides an 
+example. The Treasury considers the cash accounting option for 
+certain businesses as a part of normal income tax law, but the 
+Joint Committee staff methodology treats it as a departure from 
+normal income tax law that constitutes a tax expenditure.
+    Second, the Joint Committee staff list excludes those 
+provisions that are estimated to result in revenue losses below 
+the de minimis amount, i.e., less than $50 million over the 
+five fiscal years, 1999-2003. The Treasury does not have a de 
+minimis exception. Thus, the Treasury list of tax expenditures 
+includes some provisions that are not contained in the Joint 
+Committee staff list.
+    The Joint Committee staff and Treasury estimates of tax 
+expenditures span slightly different sets of years. The 
+Treasury's estimates cover a seven-year period--the last fiscal 
+year, the current fiscal year when the President's budget is 
+submitted, and the next five fiscal years, i.e., fiscal years 
+1997-2003. The Joint Committee staff estimates cover the 
+current fiscal year and the succeeding four fiscal years, i.e., 
+fiscal years 1999-2003.
+    For the past seven years, the President's budget has 
+contained a section that reviews and tabulates the estate and 
+gift tax provisions that the Treasury considers as tax 
+expenditures. The Joint Committee staff considers estate and 
+gift tax provisions as being outside of the normal income tax 
+structure and thus omits them from its list of tax 
+expenditures.
+    In some cases, two or more of the tax expenditure items in 
+the Treasury list have been combined into a single item in the 
+Joint Committee staff list, and vice versa. The Table 1 
+descriptions of some tax expenditures also may vary from the 
+descriptions used by the Treasury.
+    The following is a list of tax expenditure provisions in 
+the Joint Committee staff list that are not classified as tax 
+expenditures by the Treasury: \11\
+---------------------------------------------------------------------------
+    \11\ There are two additional tax expenditure provisions in the 
+Joint Committee staff list that are not classified a tax expenditures 
+by the Treasury: the expensing of tertiary injectants and the exclusion 
+of investment income from structured settlement amounts. These 
+provisions are not listed in Table 1 because the estimated revenue 
+losses are below the de minimis amount ($50 million over the five 
+fiscal years, 1999-2003).
+---------------------------------------------------------------------------
+
+Natural resources and environment
+
+--Exclusion of contributions in aid of construction for water 
+            and sewer utilities
+
+Agriculture
+
+--Exclusion of cost-sharing payments
+--Cash accounting for agriculture
+--Five-year carryback period for net operating losses 
+            attributable to farming
+
+Insurance companies
+
+--Special treatment of life insurance company reserves
+--Deduction of unpaid property loss reserves of property and 
+            casualty companies
+
+Business and commerce
+
+--Expensing of magazine circulation expenditures
+--Special rules for magazine, paperback book, and record 
+            returns
+--Completed contract rules
+--Cash accounting, other than agriculture
+--Deferral of gain on like-kind exchanges
+--Exception from net operating loss limitations for 
+            corporations in bankruptcy
+--Tax credit for employer-paid FICA taxes on tips
+--Deferral of gain on involuntary conversions resulting from 
+            Presidentially-declared disasters
+
+Employment
+
+--Exclusion of miscellaneous fringe benefits
+--Exclusion of employee awards
+--Exclusion of income earned by voluntary employee beneficiary 
+            associations
+
+Medicare
+
+--Exclusion of untaxed Medicare benefits for Hospital Insurance
+--Exclusion of untaxed Medicare benefits for Supplementary 
+            Medical Insurance
+
+    The following is a list of the tax expenditure provisions 
+that are included in the Treasury list but are excluded from 
+the Joint Committee staff list because the estimated revenue 
+losses are below the de minimis amount (less than $50 million 
+over the five fiscal years, 1999-2003):
+
+Energy
+
+--Tax credit for electric vehicles
+--Deductions for clean-fuel vehicles and refueling property
+
+Natural resources and environment
+
+--Tax credit and seven-year amortization for reforestation 
+            expenditures
+
+Agriculture
+
+--Deferral of tax on gains from the sale of stock in a 
+            qualified refiner or processor to an eligible 
+            farmer's cooperative \12\
+---------------------------------------------------------------------------
+    \12\ This provision was not included in the Treasury list of tax 
+expenditures that was published as part of the budget statement on 
+February 2, 1998. However, it is expected that the provision will be 
+included in the Treasury list that will accompany the budget statement 
+forthcoming in February 1999.
+---------------------------------------------------------------------------
+
+Financial institutions
+
+--Bad debt reserves of financial institutions
+
+Insurance companies
+
+--Special alternative tax on small property and casualty 
+            insurance companies
+--Tax exemption for insurance companies owned by tax-exempt 
+            organizations
+
+Business and commerce
+
+--Ordinary income treatment of losses from sales of small 
+            business corporation stock
+--Exclusion of income from discharge of indebtedness incurred 
+            in connection with qualified real property
+
+Social services
+
+--Expensing of costs for removing architectural barriers
+
+    There are three additional tax expenditure provisions in 
+the Treasury list that are not included in the Joint Committee 
+staff list. Two of the provisions involve exceptions to the 
+passive loss rules: (1) the exception for working interests in 
+oil and gas properties; and (2) the exception for up to $25,000 
+of rental losses. The Joint Committee staff does not classify 
+these two provisions as tax expenditures; the revenue effects 
+of the passive loss rules (and exceptions to the rules) are 
+included in the estimates of the tax expenditure provisions 
+that are affected by the rules.\13\ The third tax expenditure 
+in the Treasury list that is not included in the Joint 
+Committee staff list is the exemption of certain income of 
+telephone and electric cooperatives. The Joint Committee staff 
+does not classify this provision as a tax expenditure because 
+the special tax rules for pass-through entities are assumed to 
+be a part of normal tax law.\14\
+---------------------------------------------------------------------------
+    \13\ See discussion of the alternative minimum tax and passive loss 
+rules on p. 6, above.
+    \14\ See discussion of pass-through entities on p. 6, above.
+
+                  II. MEASUREMENT OF TAX EXPENDITURES
+
+Tax Expenditure Estimates Generally
+    A tax expenditure is measured by the difference between tax 
+liability under present law and the tax liability that would 
+result from a recomputation of tax without benefit of the tax 
+expenditure provision. Taxpayer behavior is assumed to remain 
+unchanged for tax expenditure estimate purposes.\15\
+---------------------------------------------------------------------------
+    \15\ An alternative way to measure tax expenditures is to express 
+their values in terms of ``outlay equivalents.'' An outlay equivalent 
+is the dollar size of a direct spending program that would provide 
+taxpayers with net benefits that would equal what they now receive from 
+a tax expenditure. The Treasury Department presents estimates of outlay 
+equivalents in the President's budget in addition to presenting 
+estimates in the same manner as the Joint Committee staff.
+---------------------------------------------------------------------------
+    The tax expenditure estimates in this report are based on 
+Congressional Budget Office and Joint Committee staff 
+projections of the gross income, deductions, and expenditures 
+of individuals and corporations for calendar years 1998-2003. 
+These projections are used to compute tax liabilities for the 
+present-law revenue baseline and tax liabilities for the 
+alternative baseline that assumes that the tax expenditure 
+provision does not exist.
+    Internal Revenue Service (``IRS'') statistics from recent 
+tax returns are used to develop projections of the tax credits, 
+deductions, and exclusions that will be claimed under the 
+present-law baseline. These IRS statistics show the actual 
+usage of the various tax expenditure provisions. In the case of 
+some tax expenditures, such as the earned income tax credit, 
+there is evidence that some taxpayers are not claiming all of 
+the benefits to which they are entitled, while others are 
+filing claims that exceed their entitlements. The tax 
+expenditure estimates in this report are based on projections 
+of actual claims under the various tax provisions, not the tax 
+benefits to which taxpayers are entitled.
+    Some tax expenditure estimates are based partly on 
+statistics for income, deductions, and expenses for prior 
+years. Accelerated depreciation is an example. Estimates for 
+this tax expenditure are based on the difference between tax 
+depreciation deductions under present law and the deductions 
+that would have been claimed in the current year if investments 
+in the current year and all prior years had been depreciated 
+using the alternative (normal income tax law) depreciation 
+system.
+    Each tax expenditure is estimated separately, under the 
+assumption that all other tax expenditures remain in the tax 
+code. If two or more tax expenditures were estimated 
+simultaneously, the total change in tax liability could be 
+smaller or larger than the sum of the amounts shown for each 
+item separately, as a result of interactions among the tax 
+expenditure provisions.
+    Year-to-year differences in the estimates for each tax 
+expenditure reflect changes in tax law, including phaseouts of 
+tax expenditure provisions and changes that alter the 
+definition of the normal income tax structure, such as the tax 
+rate schedule, the personal exemption amount, and the standard 
+deduction. Some of the estimates for this tax expenditure 
+report may differ from estimates made in previous years because 
+of changes in law and economic conditions, the availability of 
+better data, and improved estimating techniques.
+Tax Expenditures versus Revenue Estimates
+    A tax expenditure estimate is not the same as a revenue 
+estimate for the repeal of the tax expenditure provision for 
+two reasons. First, tax expenditure estimates do not 
+incorporate any changes in taxpayer behavior, whereas revenue 
+estimates incorporate the effects of the behavioral changes 
+that are anticipated to occur in response to the repeal of a 
+tax provision. Second, tax expenditure estimates are concerned 
+with changes in the tax liabilities of taxpayers. Because the 
+tax expenditure focus is on tax liabilities as opposed to 
+Federal Government tax receipts, there is no concern for the 
+timing of tax payments. Revenue estimates are concerned with 
+changes in Federal tax receipts, which are affected by the 
+timing of tax payments.
+    If a tax expenditure provision were repealed, it is likely 
+that the repeal would be made effective at the beginning of a 
+calendar year. In this case, the revenue estimate for repeal 
+would show a smaller revenue gain in the first fiscal year than 
+in subsequent years, because the repeal would be occurring 
+after the start of the government's fiscal year. The revenue 
+estimate might also reflect some delay in the timing of the 
+revenue gains as a result of the taxpayer tendency to postpone 
+or forgo changes in tax withholding and estimated tax payments.
+
+                     III. TAX EXPENDITURE ESTIMATES
+
+    Tax expenditures are grouped in Table 1 in the same 
+functional categories as outlays in the Federal budget. 
+Estimates are shown separately for individuals and 
+corporations. Those tax expenditures that do not fit clearly 
+into any single budget category have been placed in the most 
+appropriate category.
+    Several of the tax expenditure items involve small amounts 
+of revenue, and those estimates are indicated in Table 1 by 
+footnote 1. For each of these items, the footnote means that 
+the tax expenditure is less than $50 million in the fiscal 
+year.
+    Table 2 presents tax return information for each of nine 
+income classes on the number of all returns filed, the number 
+of all returns and taxable returns with itemized deductions, 
+and the amount of tax liability.
+    Table 3 provides distributional estimates by income class 
+for some of the tax expenditures that affect individual 
+taxpayers. Not all tax expenditures that affect individuals are 
+shown in this table because of the difficulty in making 
+reliable estimates of the income distribution of items that do 
+not appear on tax returns under present law.
+
+                                     Table 1.--Tax Expenditure Estimates By Budget Function, Fiscal Years 1999-2003
+                                                                  [Billions of dollars]
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                     Corporations                                 Individuals
+                      Function                      ------------------------------------------------------------------------------------------   Total
+                                                       1999     2000     2001     2002     2003     1999     2000     2001     2002     2003   1999-2003
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+National Defense
+  Exclusion of benefits and allowances to Armed
+   Forces personnel................................  .......  .......  .......  .......  .......      2.0      2.0      2.0      2.1      2.1      10.2
+  Exclusion of military disability benefits........  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.5
+International Affairs
+  Exclusion of income earned abroad by U.S.
+   citizens........................................  .......  .......  .......  .......  .......      1.9      2.0      2.2      2.3      2.5      10.9
+  Exclusion of certain allowances for Federal
+   employees abroad................................  .......  .......  .......  .......  .......      0.2      0.2      0.2      0.2      0.2       1.0
+  Exclusion of income of foreign sales corporations
+   (FSCs)..........................................      1.8      1.9      2.0      2.1      2.2  .......  .......  .......  .......  .......      10.0
+  Deferral of active income of controlled foreign
+   corporations....................................      1.3      1.4      1.4      1.5      1.6  .......  .......  .......  .......  .......       7.2
+  Inventory property sales source rule exception...      3.9      4.0      4.1      4.2      4.3  .......  .......  .......  .......  .......      20.5
+Footnotes at end of table.
+  Deferral of certain active financing income......      0.2      0.3  .......  .......  .......  .......  .......  .......  .......  .......       0.5
+General Science, Space, and Technology
+  Tax credit for qualified research expenditures...      1.6      0.9      0.5      0.3      0.1  .......  .......  .......  .......  .......       3.4
+  Expensing of research and experimental
+   expenditures....................................      1.9      2.4      2.7      2.8      3.0  .......  .......  .......  .......  .......      12.7
+Energy
+  Expensing of exploration and development costs:
+    Oil and gas....................................      0.4      0.4      0.4      0.5      0.5    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       2.2
+    Other fuels....................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+  Excess of percentage over cost depletion:
+    Oil and gas....................................      0.4      0.4      0.4      0.4      0.4      0.1      0.1      0.1      0.1      0.1       2.4
+    Other fuels....................................      0.2      0.2      0.2      0.2      0.2      0.1      0.1      0.1      0.1      0.1       1.5
+  Tax credit for enhanced oil recovery costs.......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.3
+  Tax credit for production of non-conventional
+   fuels...........................................      1.0      1.0      1.0      1.0      0.8      0.3      0.3      0.3      0.3      0.2       6.2
+  Tax credits for alcohol fuels (\2\)..............    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......  .......  .......  .......     (\1\)
+  Exclusion of interest on State and local
+   government industrial development bonds for
+   energy production facilities....................      0.1    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.8
+  Exclusion of energy conservation subsidies
+   provided by public utilities....................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+  Tax credit for investments in solar and
+   geothermal energy facilities....................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.3
+  Tax credit for electricity production from wind
+   and biomass.....................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.4
+Natural Resources and Environment
+  Expensing of exploration and development costs,
+   nonfuel minerals................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
+  Excess of percentage over cost depletion, nonfuel
+   minerals........................................      0.2      0.2      0.2      0.2      0.2      0.1      0.1      0.1      0.1      0.1       1.5
+  Expensing of multiperiod timber-growing costs....      0.1      0.1      0.2      0.2      0.2    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.9
+  Exclusion of interest on State and local
+   government sewage, water, and hazardous waste
+   facilities bonds................................      0.2      0.2      0.2      0.2      0.2      0.4      0.5      0.5      0.5      0.5       3.4
+  Special rules for mining reclamation reserves....    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
+  Exclusion of contributions in aid of construction
+   for water and sewer utilities...................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......  .......  .......  .......       0.1
+Agriculture
+  Expensing of soil and water conservation
+   expenditures....................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
+  Expensing of fertilizer and soil conditioner
+   costs...........................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1       0.3
+  Expensing of the costs of raising dairy and
+   breeding cattle.................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.2      0.2      0.2      0.2       0.9
+  Exclusion of cost-sharing payments...............    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+  Exclusion of cancellation of indebtedness income
+   of farmers......................................  .......  .......  .......  .......  .......      0.1      0.1      0.1    (\1\)    (\1\)       0.3
+  Cash accounting for agriculture..................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.4      0.5      0.6      0.6      0.6       3.0
+  Income averaging for farmers.....................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+  Five-year carryback period for net operating
+   losses attributable to farming..................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1    (\1\)    (\1\)       0.3
+Commerce and Housing
+  Financial institutions:
+    Exemption of credit union income...............      0.9      0.9      1.0      1.0      1.1  .......  .......  .......  .......  .......       4.8
+  Insurance companies:
+    Exclusion of investment income on life
+     insurance and annuity contracts...............     22.6     23.3     24.0     24.8     25.6      1.3      1.3      1.4      1.4      1.5     127.1
+    Small life insurance company taxable income
+     adjustment....................................      0.1      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.7
+    Special treatment of life insurance company
+     reserves......................................      1.3      1.4      1.4      1.5      1.5  .......  .......  .......  .......  .......       7.1
+    Deduction of unpaid property loss reserves for
+     property and casualty insurance companies.....      3.3      3.4      3.4      3.5      3.5  .......  .......  .......  .......  .......      17.1
+    Special deduction for Blue Cross and Blue
+     Shield companies..............................      0.4      0.4      0.4      0.4      0.3  .......  .......  .......  .......  .......       1.9
+Footnotes at end of table.
+  Housing:
+    Deduction for mortgage interest on owner-
+     occupied residences...........................  .......  .......  .......  .......  .......     48.5     50.4     52.4     54.5     56.8     262.6
+    Deduction for property taxes on owner-occupied
+     residences....................................  .......  .......  .......  .......  .......     17.8     18.4     19.1     19.7     20.3      95.3
+    Exclusion of capital gains on sales of
+     principal residences..........................  .......  .......  .......  .......  .......      5.8      6.0      6.2      6.4      6.6      31.0
+    Exclusion of interest on State and local
+     government bonds for owner-occupied housing...      0.6      0.6      0.6      0.7      0.7      1.4      1.5      1.5      1.6      1.7      10.9
+    Exclusion of interest on State and local
+     government bonds for rental housing...........      0.3      0.3      0.3      0.3      0.3      0.7      0.8      0.8      0.8      0.8       5.4
+    Depreciation of rental housing in excess of
+     alternative depreciation system...............      0.2      0.2      0.2      0.2      0.2      1.6      1.5      1.5      1.6      1.7       8.6
+    Tax credit for low-income housing..............      1.2      1.4      1.5      1.7      1.9      2.3      2.6      2.8      3.1      3.4      22.0
+    Tax credit for first-time homebuyers in the
+     District of Columbia..........................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)  .......  .......       0.1
+    Tax credit for rehabilitation of historic
+     structures....................................      0.3      0.4      0.4      0.4      0.4      0.1      0.1      0.1      0.1      0.1       2.3
+  Other business and commerce:
+    Reduced rates of tax on long-term capital gains  .......  .......  .......  .......  .......     35.1     32.0     33.8     34.9     36.1     171.9
+    Exclusion of capital gains at death............  .......  .......  .......  .......  .......     19.2     20.7     22.2     23.9     25.2     111.2
+    Carryover basis of capital gains on gifts......  .......  .......  .......  .......  .......      1.9      2.1      2.3      2.5      2.7      11.5
+    Deferral of gain on non-dealer installment
+     sales.........................................      0.5      0.5      0.5      0.5      0.6      0.4      0.4      0.4      0.4      0.4       4.7
+    Deferral of gain on like-kind exchanges........      0.4      0.4      0.4      0.4      0.4      0.3      0.3      0.3      0.3      0.3       3.5
+    Deferral of gain on involuntary conversions
+     resulting from Presidentially-declared
+     disasters.....................................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+    Depreciation of buildings other than rental
+     housing in excess of alternative depreciation
+     system........................................      1.9      1.5      1.2      1.2      1.1      0.9      0.7      0.5      0.5      0.4       9.9
+    Depreciation of equipment in excess of
+     alternative depreciation system...............     23.7     24.8     25.3     25.7     26.1      6.3      6.7      6.9      6.8      6.7     158.9
+    Expensing of depreciable business property.....      0.5      0.5      0.7      0.7      0.5      0.3      0.2      0.3      0.4      0.2       4.4
+    Amortization of business startup costs.........    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.3      0.3      0.3      0.3      0.3       1.6
+    Reduced rates on first $10,000,000 of corporate
+     taxable income................................      4.4      4.4      4.4      4.4      4.5  .......  .......  .......  .......  .......      22.1
+    Permanent exemption from imputed interest rules    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.2      0.2      0.2      0.2      0.2       1.1
+    Expensing of magazine circulation expenditures.    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
+    Special rules for magazine, paperback book, and
+     record returns................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+    Completed contract rules.......................      0.2      0.2      0.2      0.2      0.2    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       1.1
+    Cash accounting, other than agriculture........    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.6
+    Exclusion of interest on State and local
+     government small-issue industrial development
+     bonds.........................................      0.1      0.1      0.1      0.1      0.1      0.2      0.2      0.2      0.2      0.2       1.3
+    Exception from net operating loss limitations
+     for corporations in bankruptcy proceedings....      0.5      0.5      0.5      0.4      0.4  .......  .......  .......  .......  .......       2.3
+    Tax credit for employer-paid FICA taxes on tips      0.1      0.2      0.2      0.2      0.2      0.2      0.2      0.3      0.3      0.3       2.1
+Footnotes at end of table.
+Transportation
+  Deferral of tax on capital construction funds of
+   shipping companies..............................      0.1      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.5
+  Exclusion of employer-paid transportation
+   benefits........................................  .......  .......  .......  .......  .......      3.5      3.6      3.6      3.7      3.7      18.1
+  Exclusion of interest on State and local
+   government bonds for high-speed rail............    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.5
+Community and Regional Development
+  Empowerment zone tax incentives..................      0.2      0.2      0.2      0.2      0.2      0.1      0.1      0.2      0.1      0.1       1.8
+  District of Columbia tax incentives..............      0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1       0.7
+  Indian reservation tax incentives................      0.1      0.1      0.1      0.1    (\1\)      0.1      0.1      0.1    (\1\)    (\1\)       0.8
+  Expensing of redevelopment costs in certain
+   environmentally contaminated areas
+   (``Brownfields'')...............................      0.1      0.1      0.1    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.3
+  Tax credit for rehabilitation of structures,
+   other than historic structures..................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+  Exclusion of interest on State and local
+   government bonds for private airports, docks,
+   and mass-commuting facilities...................      0.3      0.3      0.3      0.4      0.4      0.7      0.8      0.9      0.9      1.0       6.1
+Education, Training, Employment, and Social
+ Services
+  Education and training:
+    Tax credits for tuition for post-secondary
+     education.....................................  .......  .......  .......  .......  .......      5.6      6.4      6.2      6.2      6.2      30.6
+    Deduction for interest on student loans........  .......  .......  .......  .......  .......      0.1      0.2      0.2      0.3      0.3       1.1
+    Exclusion of earnings of trust accounts for
+     higher education (``education IRAs'').........  .......  .......  .......  .......  .......      0.3      0.5      0.5      0.6      0.7       2.6
+    Exclusion of interest on educational savings
+     bonds.........................................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+    Deferral of tax on earnings of qualified State
+     tuition programs..............................  .......  .......  .......  .......  .......      0.2      0.2      0.2      0.3      0.4       1.2
+    Exclusion of scholarship and fellowship income.  .......  .......  .......  .......  .......      0.9      1.0      1.0      1.1      1.2       5.3
+    Exclusion of employer-provided education
+     assistance benefits...........................  .......  .......  .......  .......  .......      0.2      0.2      0.2      0.2      0.2       1.1
+    Parental personal exemption for students age 19
+     to 23.........................................  .......  .......  .......  .......  .......      0.8      0.8      0.8      0.9      0.9       4.2
+    Exclusion of interest on State and local
+     government student loan bonds.................      0.1      0.1      0.1      0.1      0.1      0.2      0.2      0.2      0.2      0.2       1.3
+    Exclusion of interest on State and local
+     government bonds for private nonprofit
+     educational facilities........................      0.3      0.3      0.3      0.4      0.4      0.7      0.8      0.8      0.9      0.9       5.9
+    Tax credit for holders of qualified education
+     bonds.........................................    (\1\)      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.3
+    Deduction for charitable contributions to
+     educational institutions......................      1.0      1.1      1.2      1.4      1.5      2.8      2.9      3.1      3.3      3.5      21.8
+  Employment:
+    Exclusion of employee meals and lodging (other
+     than military)................................  .......  .......  .......  .......  .......      0.7      0.8      0.8      0.8      0.9       4.0
+    Exclusion of benefits provided under cafeteria
+     plans (\3\)...................................  .......  .......  .......  .......  .......      4.3      4.5      4.9      5.3      5.7      24.6
+    Exclusion of housing allowances for ministers..  .......  .......  .......  .......  .......      0.4      0.4      0.4      0.4      0.4       2.0
+    Exclusion of miscellaneous fringe benefits.....  .......  .......  .......  .......  .......      6.2      6.5      6.9      7.3      7.8      34.7
+    Exclusion of employee awards...................  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.7
+    Exclusion of income earned by voluntary
+     employees' beneficiary associations...........  .......  .......  .......  .......  .......      0.5      0.5      0.6      0.6      0.6       2.8
+    Special tax provisions for employee stock
+     ownership plans (ESOPs).......................      0.8      0.8      0.9      0.9      0.9    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       4.6
+    Work opportunity tax credit....................      0.3      0.2      0.1    (\1\)    (\1\)      0.1    (\1\)    (\1\)    (\1\)  .......       0.7
+    Welfare-to-work tax credit.....................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......       0.1
+Footnotes at end of table.
+  Social services:
+    Tax credit for children under age 17 (\4\).....  .......  .......  .......  .......  .......     19.1     20.0     20.0     19.8     19.5      98.4
+    Tax credit for child and dependent care
+     expenses......................................  .......  .......  .......  .......  .......      2.5      2.5      2.5      2.5      2.5      12.6
+    Exclusion of employer-provided child care (\5\)  .......  .......  .......  .......  .......      0.4      0.4      0.5      0.5      0.6       2.4
+    Exclusion of certain foster care payments......  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
+    Adoption credit and employee adoption benefits
+     exclusion.....................................  .......  .......  .......  .......  .......      0.4      0.4      0.4      0.2      0.1       1.5
+    Deduction for charitable contributions, other
+     than for education and health.................      1.0      1.1      1.2      1.3      1.4     19.8     20.9     22.1     23.3     24.6     116.6
+    Tax credit for disabled access expenditures....    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.3
+Health
+  Exclusion of employer contributions for health
+   care, health insurance premiums, and long-term
+   care insurance premiums (\6\)...................  .......  .......  .......  .......  .......     57.9     61.3     65.1     69.2     73.8     327.3
+  Exclusion of medical care and CHAMPUS/TRICARE
+   medical insurance for military dependents,
+   retirees, and retiree dependents................  .......  .......  .......  .......  .......      1.5      1.6      1.6      1.6      1.6       7.9
+  Deduction for health insurance premiums and long-
+   term care insurance premiums by the self-
+   employed........................................  .......  .......  .......  .......  .......      1.0      1.2      1.2      1.5      2.4       7.3
+  Deducation for medical expenses and long-term
+   care expenses...................................  .......  .......  .......  .......  .......      4.2      4.3      4.5      4.7      4.9      22.6
+  Exclusion of workers' compensation benefits
+   (medical benefits)..............................  .......  .......  .......  .......  .......      4.3      4.5      4.7      4.9      5.1      23.4
+  Medical savings accounts.........................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+  Exclusion of interest on State and local
+   government bonds for private nonprofit hospital
+   facilities......................................      0.5      0.6      0.6      0.7      0.7      1.3      1.5      1.5      1.6      1.7      10.8
+  Deduction for charitable contributions to health
+   organizations...................................      0.7      0.8      0.9      1.0      1.1      2.0      2.1      2.3      2.4      2.5      15.8
+  Tax credit for orphan drug research..............    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......  .......  .......  .......       0.2
+Medicare
+  Exclusion of untaxed medicare benefits:
+    Hospital insurance.............................  .......  .......  .......  .......  .......     14.7     15.2     15.9     16.8     17.8      80.4
+    Supplementary medical insurance................  .......  .......  .......  .......  .......      7.2      8.0      9.1     10.4     11.8      46.5
+Income Security
+  Exclusion of workers' compensation benefits
+   (disability and survivors payments).............  .......  .......  .......  .......  .......      3.7      3.8      3.9      4.0      4.2      19.7
+  Exclusion of special benefits for disabled coal
+   miners..........................................  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.4
+  Exclusion of cash public assistance benefits.....  .......  .......  .......  .......  .......      0.5      0.5      0.5      0.5      0.5       2.5
+  Net exclusion of pension contributions and
+   earnings:
+    Employer plans.................................  .......  .......  .......  .......  .......     76.1     78.3     78.2     78.1     78.4     388.9
+    Individual retirement plans....................  .......  .......  .......  .......  .......     11.4     12.4     13.1     14.2     15.5      66.6
+    Keogh plans....................................  .......  .......  .......  .......  .......      4.8      5.1      5.2      5.4      5.7      26.1
+  Exclusion of other employee benefits:
+    Premiums on group term life insurance..........  .......  .......  .......  .......  .......      2.0      2.0      2.1      2.2      2.3      10.5
+    Premiums on accident and disability insurance..  .......  .......  .......  .......  .......      0.2      0.2      0.2      0.2      0.2       1.0
+  Additional standard deduction for the blind and
+   the elderly.....................................  .......  .......  .......  .......  .......      2.0      2.0      2.0      2.1      2.2      10.3
+  Tax credit for the elderly and disabled..........  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+  Deduction for casualty and theft losses..........  .......  .......  .......  .......  .......      0.3      0.3      0.3      0.3      0.4       1.6
+  Earned income credit (EIC) (\7\).................  .......  .......  .......  .......  .......      4.2      4.3      4.5      4.6      4.7      22.3
+Footnotes at end of table.
+Social Security and Railroad Retirement
+  Exclusion of untaxed social security and railroad
+   retirement benefits.............................  .......  .......  .......  .......  .......     25.4     26.1     27.0     28.0     28.9     135.4
+Veterans' Benefits and Services
+  Exclusion of veterans' disability compensation...  .......  .......  .......  .......  .......      2.0      2.1      2.2      2.2      2.3      10.8
+  Exclusion of veterans' pensions..................  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.6
+  Exclusion of GI bill benefits....................  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.5
+  Exclusion of interest on State and local
+   government bonds for veterans' housing..........    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.4
+General Purpose Fiscal Assistance
+  Exclusion of interest on public purpose State and
+   local government debt...........................      4.2      4.8      4.9      5.2      5.6     10.4     11.7     11.9     12.8     13.8      85.3
+  Deduction of nonbusiness State and local
+   government income and personal property taxes...  .......  .......  .......  .......  .......     31.2     32.1     33.0     33.9     34.8     165.0
+  Tax credit for Puerto Rico and possession income.      3.6      3.8      4.0      3.6      3.2  .......  .......  .......  .......  .......      18.2
+Interest
+  Deferral of interest on savings bonds............  .......  .......  .......  .......  .......      1.2      1.2      1.2      1.2      1.2       6.0
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Footnotes for Table 1:
+
+\1\ Positive tax expenditure of less than $50 million.
+\2\ In addition, the exemption from excise tax for alcohol fuels results in a reduction in excise tax receipts, net of income tax effect, of $0.5
+  billion in fiscal year 1999 and $0.6 billion per year in fiscal years 2000 through 2003.
+\3\ Estimate includes amounts of employer-provided health insurance purchased through cafeteria plans and employer-provided child care  purchased
+  dependent care flexible spending accounts. These amounts are also included in other line items in this table.
+\4\ The figures in the table show the effect of the child credit on receipts. The increase in outlays is: $0.9 billion in 1999, $1.2 billion in  2000,
+  $1.2 billion in 2001, $1.2 billion in 2002, and $1.2 billion in 2003.
+\5\ Estimate includes employer-provided child care purchased through dependent care flexible spending accounts.
+\6\ Estimate includes employer-provided health insurance purchased through cafeteria plans.
+\7\ The figures in the table show the effect of the earned income credit on receipts. The increase in outlays is: $25.6 billion in 1999, $26.2  billion
+  in 2000, $26.8 billion in 2001, $27.3 billion in 2002, and $27.9 billion in 2003.
+
+Note: Details may not add to totals due to rounding.
+
+Source: Joint Committee on Taxation.
+
+
+            Table 2.--Distribution by Income Class of All Returns, Taxable Returns, Itemized Returns,
+                     and Tax Liability at 1998 Rates and 1998 Law and 1998 Income Levels \1\
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                    All returns       Taxable        Itemized
+          Income class [thousands] \2\                  \3\           returns         returns      Tax liability
+----------------------------------------------------------------------------------------------------------------
+Below $10.......................................          19,763           1,388             110         -$5,401
+$10 to $20......................................          25,158           8,527             858          -6,186
+$20 to $30......................................          20,397          12,446           2,015          14,101
+$30 to $40......................................          16,189          12,860           3,258          29,025
+$40 to $50......................................          12,434          11,269           3,918          38,022
+$50 to $75......................................          19,469          19,167           9,711          99,413
+$75 to $100.....................................          10,015           9,976           7,322          94,567
+$100 to $200....................................           8,383           8,367           7,240         164,726
+$200 and over...................................           2,129           2,125           1,936         272,265
+                                                 ---------------------------------------------------------------
+      Total.....................................         133,938          86,125          36,367        $700,532
+----------------------------------------------------------------------------------------------------------------
+\1\ Tax law as in effect on January 1, 1998, is applied to the 1998 level and sources of income and their
+  distribution among taxpayers.
+\2\ The income concept used to place tax returns into classes is adjusted gross income (AGI) plus: (a) tax-
+  exempt interest, (b) employer  contributions for health plans and life insurance, (c) employer share of FICA
+  tax, (d) workers' compensation, (e) nontaxable Social Security  benefits, (f) insurance value of Medicare
+  benefits, (g) alternative minimum tax preference items, and (h) excluded income of U.S. citizens  living
+  abroad.
+\3\ Includes filing and nonfiling units. Filing units include all taxable and nontaxable returns. Nonfiling
+  units include individuals with  income that is exempt from Federal income taxation (e.g., transfer payments,
+  interest from tax-exempt bonds, etc.). Excludes individuals  who are dependents of other taxpayers and
+  taxpayers with negative income.
+
+Note: Details may not add to totals due to rounding.
+
+Source: Joint Committee on Taxation.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                                    at 1998 Rates and 1998 Income Levels \1\
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                       Medical deduction \3\         Real estate tax deduction
+          Income class [thousands] \2\           ---------------------------------------------------------------
+                                                      Returns         Amount          Returns         Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10.......................................               7              $2               9              $1
+$10 to $20......................................             170              49             373              59
+$20 to $30......................................             556             172           1,257             206
+$30 to $40......................................             827             352           2,405             498
+$40 to $50......................................             794             406           3,199             825
+$50 to $75......................................           1,424             934           8,452           2,803
+$75 to $100.....................................             578             683           6,616           3,611
+$100 to $200....................................             306             830           6,668           5,682
+$200 and over...................................              38             319           1,614           3,672
+                                                 ---------------------------------------------------------------
+    Total.......................................           4,701          $3,746          30,594         $17,358
+----------------------------------------------------------------------------------------------------------------
+Footnotes at end of table.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                               at 1998 Rates and 1998 Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                    State and local income and       Charitable contributions
+                                                       personal property tax                 deduction
+          Income class [thousands] \2\                       deduction           -------------------------------
+                                                 --------------------------------
+                                                      Returns         Amount          Returns         Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10.......................................              20           (\6\)              54              $4
+$10 to $20......................................             487             $20             930             113
+$20 to $30......................................           1,460              84           2,196             302
+$30 to $40......................................           2,833             299           3,187             598
+$40 to $50......................................           3,554             775           3,830             955
+$50 to $75......................................           9,201           2,925           9,221           3,511
+$75 to $100.....................................           6,719           4,526           5,593           3,482
+$100 to $200....................................           6,594           8,721           5,151           5,223
+$200 and over...................................           1,697          13,121           1,617           9,395
+                                                 ---------------------------------------------------------------
+      Total.....................................          32,565         $30,469          31,777         $23,583
+----------------------------------------------------------------------------------------------------------------
+Footnotes at end of table.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                               at 1998 Rates and 1998 Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                         Child care credit           Earned income credit \4\
+          Income class [thousands] \2\           ---------------------------------------------------------------
+                                                      Returns         Amount          Returns         Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10.......................................               3           (\6\)           4,976          $5,732
+$10 to $20......................................             346            $102           6,683          13,805
+$20 to $30......................................             935             389           5,279           7,543
+$30 to $40......................................             831             349           2,061           1,722
+$40 to $50......................................             718             296             160             145
+$50 to $75......................................           1,473             662              41              53
+$75 to $100.....................................             804             391           (\5\)           (\6\)
+$100 to $200....................................             531             267              --              --
+$200 and over...................................              95              49              --              --
+                                                 ---------------------------------------------------------------
+      Total.....................................           5,738          $2,504          19,201         $29,000
+----------------------------------------------------------------------------------------------------------------
+Footnotes at end of table.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                               at 1998 Rates and 1998 Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                    Untaxed Social Security and         Child tax credit \4\
+                                                   Railroad Retirement benefits  -------------------------------
+          Income class [thousands] \2\           --------------------------------
+                                                      Returns         Amount          Returns         Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10.......................................             172             $30              19              $6
+$10 to $20......................................           3,977           1,664           1,676             545
+$20 to $30......................................           4,902           4,705           3,697           1,802
+$30 to $40......................................           4,467           5,783           4,125           2,775
+$40 to $50......................................           3,561           5,561           3,396           2,447
+$50 to $75......................................           4,228           5,768           7,322           5,339
+$75 to $100.....................................           1,432             583           4,397           3,223
+$100 to $200....................................           1,312             320           2,131           1,369
+$200 and over...................................             362             122               3               2
+                                                 ---------------------------------------------------------------
+      Total.....................................          24,411         $24,536          26,766         $17,508
+----------------------------------------------------------------------------------------------------------------
+Footnotes at end of table.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                               at 1998 Rates and 1998 Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                                         Mortgage interest deduction
+                     Income class [thousands] \2\                     -------------------------------
+                                                                           Returns         Amount
+----------------------------------------------------------------------------------------------------- -------------
+Below $10............................................................              14              $3
+$10 to $20...........................................................             345             128
+$20 to $30...........................................................           1,134             466
+$30 to $40...........................................................           2,375           1,238
+$40 to $50...........................................................           3,080           2,270
+$50 to $75...........................................................           8,201           7,667
+$75 to $100..........................................................           6,538          10,029
+$100 to $200.........................................................           6,306          15,739
+$200 and over........................................................           1,554           9,438
+                                                                      ------------------------------------------
+      Total..........................................................          29,548         $46,977
+----------------------------------------------------------------------------------------------------------------
+Footnotes for Table 3:
+
+\1\ Excludes individuals who are dependents of other taxpayers and taxpayers with negative income.
+\2\ The income concept used to place tax returns into classes is adjusted gross income (AGI) plus: (a) tax-
+  exempt interest, (b) employer  contributions for health plans and life insurance, (c) employer share of FICA
+  tax, (d) workers' compensation, (e) nontaxable Social Security  benefits, (f) insurance value of Medicare
+  benefits, (g) alternative minimum tax preference items, and (h) excluded income of U.S. citizens  living
+  abroad.
+\3\ Tax expenditure estimate does not include revenue losses attributable to deductions for long-term care and
+  long-term care insurance  premiums.
+\4\ Includes the refundable portion.
+\5\ Less than 500 returns.
+\6\ Less than $500,000.
+
+Note: Details may not add to totals due to rounding.
+
+Source: Joint Committee on Taxation.
+
+
+                              &lt;all&gt;
+</PRE></BODY><STYLE type="text/css">#AdContainer,#AdMiddle,#RadAd_Skyscraper,#ad-frame,#bbccom_leaderboard,#bbccom_mpu,#center_banner,#footer_adcode,#hbBHeaderSpon,#header_adcode,#hiddenHeaderSpon,#navbar_adcode,#pagelet_adbox,#rightAds,#rightcolumn_adcode,#top-advertising,#topMPU,#tracker_advertorial,.ad-now,.adbox,.adspot,.dfpad,.prWrap,.sponsored,[id^="adbrite"],[id^="dclkAds"],[id^="konaLayer"],div[id="tooltipbox"][class^="itxt"],div[id^="google_ads_div"],embed[flashvars*="AdID"],iframe[id="dapIfM0"],iframe[name^="AdBrite"],iframe[src*="clicksor.com"],img[src*="clicksor.com"],ispan#ab_pointer,[src*="sixsigmatraffic.com"],#A9AdsMiddleBoxTop,#A9AdsOutOfStockWidgetTop,#A9AdsServicesWidgetTop,#ADsmallWrapper,#Ad1,#Ad2,#Ad3Left,#Ad3Right,#AdBar1,#AdContainerTop,#AdHeader,#AdRectangle,#AdShowcase_F1,#AdSky23,#AdSkyscraper,#AdSponsor_SF,#AdTargetControl1_iframe,#AdText,#Ad_Block,#Ad_Center1,#Ad_Top,#Adbanner,#Adrectangle,#AdsContent,#AdsWrap,#AdvertMPU23b,#AdvertiseFrame,#Advertorial,#BannerAdvert,#BigBoxAd,#CompanyDetailsNarrowGoogleAdsPresentationControl,#CompanyDetailsWideGoogleAdsPresentationControl,#ContentAd,#ContentAd1,#ContentAd2,#ContentAdPlaceHolder1,#ContentAdPlaceHolder2,#FP_Ad,#FooterAd,#FooterAdContainer,#HEADERAD,#HeaderAdsBlock,#HeroAd,#HomeAd1,#HouseAd,#Journal_Ad_125,#Journal_Ad_300,#LeftAdF1,#LeftAdF2,#PageLeaderAd,#RightSponsoredAd,#SectionAd300-250,#SidebarAdContainer,#SkyAd,#SponsoredAd,#TOP_ADROW,#TopAdPos,#VM-MPU-adspace,#VM-header-adwrap,#XEadLeaderboard,#XEadSkyscraper,#ad-160x600,#ad-250x300,#ad-300x250,#ad-300x250Div,#ad-728,#ad-banner,#ad-bottom,#ad-bottom-wrapper,#ad-colB-1,#ad-container,#ad-footer,#ad-footprint-160x600,#ad-front-footer,#ad-front-sponsoredlinks,#ad-halfpage,#ad-label,#ad-leaderboard,#ad-leaderboard-bottom,#ad-leaderboard-top,#ad-left,#ad-lrec,#ad-medium-rectangle,#ad-middlethree,#ad-middletwo,#ad-module,#ad-mpu,#ad-placard,#ad-rectangle,#ad-righttop,#ad-side-text,#ad-skyscraper,#ad-space,#ad-splash,#ad-target,#ad-target-Leaderbord,#ad-teaser,#ad-top,#ad-top-text-low,#ad-tower,#ad-typ1,#ad-wrap,#ad-wrap-right,#ad-wrapper1,#ad-yahoo-simple,#ad1,#ad125BL,#ad125BR,#ad125TL,#ad125TR,#ad125x125,#ad160x600,#ad160x600right,#ad1Sp,#ad2,#ad2Sp,#ad3,#ad300,#ad300-250,#ad300X250,#ad300_x_250,#ad300x150,#ad300x250,#ad300x250Module,#ad300x60,#ad336,#ad375x85,#ad526x250,#ad600,#ad7,#ad728Wrapper,#ad728x90,#adB,#adBadges,#adBanner,#adBanner120x600,#adBannerTable,#adBannerTop,#adBar,#adBlock125,#adBlocks,#adContainer,#adFps,#adFtofrs,#adGroup1,#adHeader,#adL,#adLB,#adMPU,#adMiddle0Frontpage,#adMiniPremiere,#adPlaceHolderRight,#adRight,#adSenseModule,#adServer_marginal,#adSidebar,#adSidebarSq,#adSky,#adSlider,#adSpace3,#adSpace300_ifrMain,#adSpace4,#adSpace5,#adSpace6,#adSpace7,#adSpace_footer,#adSpace_top,#adSpecial,#adSpot-Leader,#adSpot-banner,#adSpot-mrec1,#adSpot-sponsoredlinks,#adSpot-textbox1,#adSpot-widestrip,#adSpotAdvertorial,#adSpotIsland,#adSpotSponsoredLinks,#adSquare,#adStaticA,#adStrip,#adSuperPremiere,#adTableCell,#adTag1,#adTag2,#adTop,#adTopboxright,#adUnit,#adWrapper,#adZoneTop,#ad_160x160,#ad_160x600,#ad_190x90,#ad_300,#ad_300x250,#ad_468_60,#ad_5,#ad_728_foot,#ad_728x90,#ad_A,#ad_B,#ad_Banner,#ad_C,#ad_C2,#ad_D,#ad_E,#ad_F,#ad_G,#ad_H,#ad_I,#ad_J,#ad_K,#ad_L,#ad_M,#ad_N,#ad_O,#ad_P,#ad_YieldManager-300x250,#ad_anchor,#ad_banner,#ad_banner_top,#ad_bar,#ad_block_1,#ad_block_2,#ad_bottom,#ad_box_colspan,#ad_branding,#ad_bs_area,#ad_center_monster,#ad_container,#ad_content_wrap,#ad_feature,#ad_footer,#ad_haha_1,#ad_haha_4,#ad_halfpage,#ad_head,#ad_header,#ad_horseshoe_left,#ad_horseshoe_right,#ad_horseshoe_spacer,#ad_horseshoe_top,#ad_island,#ad_label,#ad_layer2,#ad_leader,#ad_leaderBoard,#ad_leaderboard,#ad_lwr_square,#ad_medium_rectangle,#ad_medium_rectangular,#ad_middle,#ad_mpu,#ad_play_300,#ad_rect,#ad_rect_body,#ad_rect_bottom,#ad_rectangle,#ad_related_links_div,#ad_related_links_div_program,#ad_report_leaderboard,#ad_report_rectangle,#ad_right,#ad_right_main,#ad_ros_tower,#ad_sidebar1,#ad_sidebar2,#ad_sidebar3,#ad_skyscraper,#ad_slot_livesky,#ad_space,#ad_square,#ad_ss,#ad_top,#ad_top_holder,#ad_vertical,#ad_wrapper,#adbanner,#adbnr,#adbottom,#adbox,#adbox2,#adclear,#adcode1,#adcode2,#adcode3,#adcode4,#adcolumnwrapper,#adcontainer,#adcontainsm,#addiv-bottom,#addiv-top,#adframe:not(frameset),#adhead,#adhead_g,#adheader,#adiframe1_iframe,#adiframe2_iframe,#adiframe3_iframe,#adimg,#adlabel,#adlabelFooter,#adleaderboard,#adlinks,#adlinkws,#admid,#admiddle3center,#admiddle3left,#adposition,#adposition-C,#adposition2,#adposition3,#adposition4,#adrectanglea,#adrectangleb,#adright,#adright2,#ads,#ads-468,#ads-block,#ads-bot,#ads-bottom,#ads-dell,#ads-horizontal,#ads-indextext,#ads-lrec,#ads-rhs,#ads-top,#ads2,#ads300,#ads336x280,#ads7,#adsID,#ads_160,#ads_300,#ads_728,#ads_belowforumlist,#ads_belownav,#ads_bottom_outer,#ads_catDiv,#ads_right,#ads_sidebar_roadblock,#ads_top,#adsbottom,#adsense,#adsense-text,#adsenseWrap,#adsense_placeholder_2,#adsensetopplay,#adsonar,#adspace,#adspace-300x250,#adspace300x250,#adspaceBox,#adspaceBox300,#adspace_header,#adsright,#adstop,#adtech_takeover,#adtop,#adv-masthead,#adv_google_300,#adv_google_728,#adv_top_banner_wrapper,#adv_wide_banner,#advert,#advert-boomer,#advert-header,#advert-leaderboard,#advert-top,#advertBanner,#advert_250x250,#advert_box,#advert_leaderboard,#advert_lrec_format,#advert_mpu,#advertbox,#advertbox2,#advertbox3,#advertbox4,#adverthome,#advertise,#advertise-now,#advertisement,#advertisement160x600,#advertisement728x90,#advertisementLigatus,#advertisementPrio2,#advertiserLinks,#advertising,#advertising-skyscraper,#adwhitepaperwidget,#adwin_rec,#adwith,#adwords-4-container,#adwrapper,#adxtop,#adzoneBANNER,#agi-ad300x250,#agi-ad300x250overlay,#agi-sponsored,#annoying_ad,#ap_adframe,#araHealthSponsorAd,#article-box-ad,#articleAdReplacement,#articleSideAd,#article_ad,#article_box_ad,#atlasAdDivGame,#banner-ad,#banner-ads,#banner468x60,#banner728x90,#bannerAdTop,#bannerAd_ctr,#banner_ad,#banner_topad,#bannerad,#bannerad2,#bg_YieldManager-300x250,#bigAd,#bigBoxAd,#bigadbox,#bigadspot,#billboard_ad,#block-ad_cube-1,#block_advert,#blox-big-ad,#blox-halfpage-ad,#blox-tile-ad,#botad,#bottom-ad-container,#bottom-ads,#bottomAd,#bottomAdSenseDiv,#bottomAds,#bottomRightAdSpace,#bottom_ad,#bottom_ad_area,#bottom_ads,#bottom_overture,#bottom_sponsor_ads,#bottom_sponsored_links,#bottom_text_ad,#bottomad,#box-googleadsense-1,#box-googleadsense-r,#box1ad,#boxAd300,#boxAdContainer,#boxad1,#boxad2,#boxad3,#boxad4,#boxad5,#bps-header-ad-container,#btr_horiz_ad,#button-ads-horizontal,#button-ads-vertical,#button_ad_wrap,#cellAd,#channel_ad,#channel_ads,#cnnRR336ad,#cnnTopAd,#colRightAd,#column4-google-ads,#commercial_ads,#common_right_lower_player_adspace,#common_right_player_adspace,#common_top_adspace,#containerLocalAds,#containerMrecAd,#content-ad-header,#contentAd,#content_ad_square,#content_ad_top,#content_ads_content,#content_box_300body_sponsoredoffers,#content_box_adright300_google,#contentad,#contentad_imtext,#contentad_right,#contentads,#contentinlineAd,#contextual-ads-block,#contextualad,#ctl00_MasterHolder_IBanner_adHolder,#ctl00_VBanner_adHolder,#ctl00_adFooter,#ctl00_ctl00_MainPlaceHolder_itvAdSkyscraper,#ctrlsponsored,#cubeAd,#cube_ads,#cube_ads_inner,#cubead,#cubead-2,#divAd,#divAdBox,#divWrapper_Ad,#div_video_ads,#dlads,#dni-header-ad,#download_ads,#ds-mpu,#evotopTen_advert,#exads,#featuread,#featuredAdContainer2,#featuredAds,#feed_links_ad_container,#first_ad_unit,#fl_hdrAd,#footer-ad,#footer-sponsored,#footerAd,#footerAdDiv,#footerAdverts,#footer_ad,#footer_ad_block,#footer_ads,#footer_adspace,#footer_text_ad,#footerad,#fr_ad_center,#frnContentAd,#from_our_sponsors,#front_advert,#front_mpu,#ft-ad,#ft-ad-1,#ft-ad-container,#fusionad,#fw-advertisement,#g_ad,#g_adsense,#ga_300x250,#gad,#gallery-ad-m0,#gallery_ads,#game-info-ad,#global_header_ad_area,#google-ad,#google-ad-art,#google-ad-tower,#google-ads,#google-ads-bottom,#google-ads-left-side,#google-adsense-mpusize,#googleAd,#googleAds,#googleAdsense,#googleAdsenseBanner,#googleAdsenseBannerBlog,#googleAdwordsModule,#googleAfcContainer,#google_ad,#google_ad_test,#google_ads,#google_ads_frame1,#google_ads_test,#googlead,#googleads,#googlesponsor,#grid_ad,#gsyadrectangleload,#gsyadrightload,#gsyadtop,#gsyadtopload,#gtopadvts,#halfPageAd,#halfe-page-ad-box,#hdtv_ad_ss,#head-ad,#head_advert,#header-ad,#header-ads,#header-advert,#headerAd,#headerAdBackground,#headerAdContainer,#headerAdsWrapper,#headerTopAd,#header_ad,#header_advertisement_top,#header_leaderboard_ad_container,#headerad,#headeradbox,#headline_ad,#hiddenadAC,#homeTopRightAd,#home_ad,#home_spensoredlinks,#homepage-ad,#homepage_right_ad,#homepage_right_ad_container,#hometop_234x60ad,#horizontal-banner-ad,#horizontal_ad,#houseAd,#hp-store-ad,#icePage_SearchLinks_AdRightDiv,#icePage_SearchLinks_DownloadToolbarAdRightDiv,#inlinead,#inlinegoogleads,#inner-advert-row,#insider_ad_wrapper,#instoryad,#int-ad,#interstitial_ad_wrapper,#islandAd,#j_ad,#jmp-ad-buttons,#landing-adserver,#lateAd,#lb-sponsor-left,#lb-sponsor-right,#leader-board-ad,#leader-sponsor,#leaderAdContainer,#leaderad,#leaderad_section,#leaderboard-ad,#leaderboard-bottom-ad,#leaderboard_ad,#leftAdContainer,#leftAdvert,#leftSectionAd300-100,#left_ad,#left_adspace,#leftad,#leftads,#lg-banner-ad,#linkAds,#live-ad,#longAdSpace,#mBannerAd,#main-ad,#main-ad160x600,#main-ad160x600-img,#main-ad728x90,#mainAdUnit,#mainAdvert,#main_ad,#main_rec_ad,#mastAdvert,#mastad,#masthead_ad,#masthead_topad,#medRecAd,#media_ad,#menuAds,#mid-ad300x250,#mid-table-ad,#mid_ad_title,#mid_mpu,#middlead,#middleads,#midrect_ad,#midstrip_ad,#mini-ad,#module-google_ads,#module_box_ad,#most_popular_ad,#mpu,#mpu-advert,#mpuAd,#mpuDiv,#mpuWrapper,#mpuWrapperAd,#mpu_banner,#mpu_holder,#mpuad,#mrecAdContainer,#ms_ad,#multiLinkAdContainer,#n_sponsor_ads,#natadad300x250,#navi_banner_ad_780,#nba300Ad,#new_topad,#noresultsads,#northad,#oanda_ads,#onespot-ads,#p-googleadsense,#page-header-ad,#page_content_top_ad,#pcworldAdBottom,#pcworldAdTop,#pinball_ad,#player_ad,#portlet-advertisement-left,#portlet-advertisement-right,#post5_adbox,#priceGrabberAd,#product-adsense,#promo-ad,#promoAds,#ps-vertical-ads,#pub468x60,#publicidad,#r1SoftAd,#rail_ad1,#rail_ad2,#realEstateAds,#rect_ad,#rectangle-ad,#rectangle_ad,#refine-300-ad,#region-top-ad,#rh-ad-container,#rh_tower_ad,#right-ad,#rightAd,#rightAd300x250,#rightAdColumn,#rightColAd,#rightColumnMpuAd,#rightColumnSkyAd,#right_ad_wrapper,#right_advertisement,#right_advertising,#rightad,#rightadvertbar-doubleclickads,#rightbar-ad,#rightside_ad,#rotatingads,#rtMod_ad,#sAdsBox,#search-google-ads,#search_ads,#secondBoxAdContainer,#servfail-ads,#sew-ad1,#shoppingads,#show-ad,#side-ad,#side-ad-container,#sideAd,#sideBarAd,#side_ad_wrapper,#side_ads_by_google,#sidead,#sidebar-125x125-ads,#sidebar-125x125-ads-below-index,#sidebar-ad-boxes,#sidebar-ad-space,#sidebar-ad-wrap,#sidebar-ads,#sidebar_ad_widget,#sidebar_ads,#sidebar_sponsoredresult_body,#sidebarad,#sideline-ad,#site-leaderboard-ads,#site_top_ad,#sky-ad,#skyAd,#skyScrapperAd,#sky_ad,#skyscraperAd,#skyscraper_advert,#sliderAdHolder,#slideshow_ad_300x250,#sm-banner-ad,#small_ad,#smallerAd,#speeds_ads,#sphereAd,#splinks,#sponLinkDiv_1,#sponlink,#spons_left,#sponseredlinks,#sponsorAd1,#sponsorAd2,#sponsorLinks,#sponsor_banderole,#sponsor_box,#sponsor_panSponsor,#sponsored,#sponsored-ads,#sponsored-features,#sponsored-links,#sponsored-resources,#sponsored1,#sponsoredBox1,#sponsoredBox2,#sponsoredLinks,#sponsoredList,#sponsoredResults,#sponsoredSiteMainline,#sponsoredSiteSidebar,#sponsored_content,#sponsored_game_row_listing,#sponsored_links,#sponsoredlinks,#sponsoredlinks_cntr,#sponsoredresults_top,#sponsorlink,#spotlightAds,#spotlightad,#squareAd,#squareAdSpace,#square_ad,#sticky-ad,#stickyBottomAd,#story-ad-a,#story-ad-b,#story-sponsoredlinks,#storyAdWrap,#subpage-ad-right,#subpage-ad-top,#swads,#synch-ad,#tabAdvertising,#tblAd,#tbl_googlead,#template_ad_leaderboard,#tertiary_advertising,#textAd,#textAds,#text_ad,#text_advert,#the-last-ad-standing,#thefooterad,#themis-ads,#tile-ad,#tmglBannerAd,#top-ad,#top-ad-menu,#top-ads,#top-ads-tabs,#top-advertisement,#top-banner-ad,#top-search-ad-wrapper,#topAd,#topAd728x90,#topAdBanner,#topAdSenseDiv,#topAds,#topAdvert,#topBannerAd,#topNavLeaderboardAdHolder,#top_ad,#top_ad_area,#top_ad_game,#top_ad_wrapper,#top_ads,#top_advertise,#top_advertising,#topad,#topad_left,#topad_right,#topads,#topcustomad,#toprightAdvert,#towerad,#twogamesAd,#txt_link_ads,#undergameAd,#upperMpu,#upperad,#urban_contentad_article,#v_ad,#vert_ad,#vertical_ad,#vertical_ads,#video_cnv_ad,#video_overlay_ad,#walltopad,#welcomeAdsContainer,#welcome_ad_mrec,#wgtAd,#widget_advertisement,#wrapAdRight,#wrapAdTop,#yahoo-ads,#yahoo-sponsors,#yahoo_ads,#yahoo_ads_2010,#yan-sponsored,#ybf-ads,#yfi_fp_ad_mort,#yfi_fp_ad_nns,#ygrp-sponsored-links,#ymap_adbanner,#yn-gmy-ad-lrec,#yreSponsoredLinks,#ysm_ad_iframe,#zoneAdserverMrec,#zoneAdserverSuper,.ADBAR,.Ad120x600,.Ad160x600,.Ad247x90,.Ad300x250,.Ad300x250L,.Ad728x90,.AdBox,.AdBox7,.AdContainerBox308,.AdHere,.AdInfo,.AdPlaceHolder,.AdRingtone,.AdSense,.AdSpace,.AdTitle,.AdUnit,.AdUnit300,.Ad_C,.Ad_D_Wrapper,.Ad_E_Wrapper,.Ad_Right,.Ads,.AdsBoxSection,.AdvertMidPage,.AdvertiseWithUs,.AdvertisementTextTag,.ArticleInlineAd,.BannerAd,.BlockAd,.CG_adkit_leaderboard,.CommentAd,.DeptAd,.FT_Ad,.FlatAds,.HPNewAdsBannerDiv,.HomeContentAd,.LeftTowerAd,.M2Advertisement,.MD_adZone,.MPU,.MPUHolder,.PU_DoubleClickAdsContent,.Post5ad,.RelatedAds,.RightRailTop300x250Ad,.RightSponsoredAdTitle,.RightTowerAd,.SidebarAd,.SponsoredAdTitle,.SponsoredLinksGrayBox,.StandardAdLeft,.StandardAdRight,.TextAd,.TheEagleGoogleAdSense300x250,.TopAd,.TopAdL,.TopAdR,.UIStandardFrame_SidebarAds,.UIWashFrame_SidebarAds,.UnderAd,.VerticalAd,.WidgetAdvertiser,.ad-160x600,.ad-300,.ad-300-block,.ad-300-blog,.ad-300x100,.ad-300x250,.ad-728,.ad-background,.ad-banner,.ad-bigsize,.ad-block,.ad-bottom,.ad-button,.ad-cell,.ad-container,.ad-div,.ad-filler,.ad-footer,.ad-footer-leaderboard,.ad-google,.ad-gray,.ad-hdr,.ad-holder,.ad-homeleaderboard,.ad-island,.ad-leaderboard,.ad-links,.ad-medium,.ad-medium-two,.ad-mpu,.ad-other,.ad-placeholder,.ad-poster,.ad-rect,.ad-rectangle,.ad-rectangle-text,.ad-related,.ad-rh,.ad-ri,.ad-right,.ad-right-txt,.ad-section,.ad-sidebar300,.ad-slot,.ad-space,.ad-space-mpu-box,.ad-spot,.ad-text,.ad-tile,.ad-top,.ad-top-left,.ad-unit,.ad-wrap,.ad-wrapper,.ad0,.ad1,.ad10,.ad120,.ad160,.ad18,.ad19,.ad2,.ad21,.ad250c,.ad3,.ad300,.ad300_250,.ad300x250,.ad300x250Top,.ad300x250box,.ad300x600,.ad310,.ad336x280,.ad343x290,.ad450,.ad468,.ad468_60,.ad6,.ad620x70,.ad626X35,.ad7,.ad728,.ad728_90,.ad728x90,.ad8,.adAgate,.adBanner,.adBannerTyp1,.adBannerTypSortableList,.adBannerTypW300,.adBgBottom,.adBgMId,.adBgTop,.adBox,.adBoxSingle,.adCMRight,.adColumn,.adContainer,.adCreative,.adElement,.adFrame,.adFtr,.adFullWidthMiddle,.adGoogle,.adHeader,.adHeadline,.adHolder,.adHome300x250,.adInNews,.adLabel,.adLeader,.adLeaderForum,.adLeaderboard,.adLeft,.adMkt2Colw,.adModule,.adNewsChannel,.adNoOutline,.adNoticeOut,.adObj,.adRect,.adRight,.adServer,.adSlot,.adSpBelow,.adSpace,.adSpacer,.adSpot,.adSpot-textBox,.adSpotIsland,.adSquare,.adSummary,.adSuperboard,.adTag,.adText,.adTileWrap,.adTiler,.adTitle,.adTout,.adTxt,.adWithTab,.adWrap,.adWrapper,.ad_1,.ad_125,.ad_130x90,.ad_160,.ad_160x600,.ad_2,.ad_3,.ad_300,.ad_300_250,.ad_300x250,.ad_336,.ad_336x280,.ad_350x250,.ad_468,.ad_600,.ad_728,.ad_728x90,.ad_amazon,.ad_biz,.ad_block_338,.ad_bottom_leaderboard,.ad_box,.ad_box2,.ad_caption,.ad_contain,.ad_container,.ad_content,.ad_content_wide,.ad_descriptor,.ad_footer,.ad_framed,.ad_front_promo,.ad_header,.ad_hpm,.ad_launchpad,.ad_leader,.ad_leaderboard,.ad_left,.ad_loc,.ad_lrec,.ad_medrect,.ad_mpu,.ad_mrec,.ad_mrec_title_article,.ad_notice,.ad_p360,.ad_partner,.ad_partners,.ad_plus,.ad_post,.ad_power,.ad_rectangle,.ad_right,.ad_sidebar,.ad_skyscraper,.ad_slug_table,.ad_space,.ad_sponsor,.ad_sponsoredsection,.ad_spot_b,.ad_spot_c,.ad_square_r,.ad_square_top,.ad_text,.ad_top,.ad_top_leaderboard,.ad_tower,.ad_unit,.ad_wide,.ad_wrap,.ad_wrapper,.ad_wrapper_fixed,.ad_zone,.adarea,.adbanner,.adbannerright,.adbar,.adborder,.adbot,.adbottom,.adbox-outer,.adbox_366x280,.adbox_468X60,.adbox_bottom,.adboxclass,.adcode,.adcolumn_wrapper,.adcontainer,.adcopy,.addiv,.adfoot,.adframe,.adhead,.adheader,.adheader100,.adhere,.adi,.adinfo,.adinside,.adjlink,.adkit-advert,.adkit-lb-footer,.adlabel-horz,.adlabel-vert,.adline,.adlink,.adlist,.adlnklst,.admarker,.admedrec,.admodule,.admpu,.adnotice,.adops,.adpadding,.adpic,.adright,.adrow,.adrow-post,.adrule,.ads-banner,.ads-categories-bsa,.ads-links-general,.ads-profile,.ads-right,.ads-sidebar,.ads-text,.ads2,.ads3,.ads:not(body),.adsArea,.adsBox,.adsImages,.adsTextHouse,.adsWithUs,.ads_300,.ads_728x90,.ads_big,.ads_big-half,.ads_container,.ads_disc_anchor,.ads_disc_leader,.ads_disc_lwr_square,.ads_disc_skyscraper,.ads_disc_square,.ads_div,.ads_header,.ads_mpu,.ads_right,.ads_sc_tl_i,.ads_side,.ads_takeover,.adsborder,.adscreen,.adsection_a2,.adsection_c2,.adsense,.adsense-heading,.adsense-title,.adsenseBlock,.adsenseContainer,.adsingle,.adslogan,.adspace,.adspace-MR,.adspacer,.adstrip,.adtag,.adtext,.adtop,.adtravel,.adv-mpu,.adverTag,.adver_cont_below,.advert,.advert-box,.advert-horizontal,.advert-mpu,.advert-skyscraper,.advert-text,.advertCont,.advertContainer,.advertHeadline,.advertRight,.advertText,.advert_468x60,.advert_box,.advert_cont,.advert_leaderboard,.advert_note,.advertise,.advertise-homestrip,.advertise-horz,.advertise-leaderboard,.advertise-vert,.advertiseContainer,.advertisement,.advertisement-728x90,.advertisement-block,.advertisement-top,.advertisement468,.advertisementColumnGroup,.advertisementContainer,.advertisementLabel,.advertisementPanel,.advertisement_caption,.advertisement_header,.advertisement_horizontal,.advertiser,.advertising,.advertising-header,.advertisingTable,.advertisment,.advertisment_two,.advertize,.advertorial,.adverts,.advt,.advt-banner-3,.advt300,.advt720,.adwrapper,.adwrapper-lrec,.affiliate,.affiliate-link,.affiliate-sidebar,.affiliateAdvertText,.agi-adsaleslinks,.alt_ad,.anchorAd,.aolSponsoredLinks,.aopsadvert,.article-ads,.articleAd,.articleAds,.articleAdsL,.articleEmbeddedAdBox,.article_ad,.article_adbox,.aseadn,.aux-ad-widget-2,.b-astro-sponsored-links_horizontal,.b-astro-sponsored-links_vertical,.banner-ad,.banner-ads,.banner-adverts,.banner300x100,.banner300x250,.banner468,.bannerAd,.bannerAdWrapper300x250,.bannerAdWrapper730x86,.banner_300x250,.banner_728x90,.banner_ad,.banner_ad_footer,.banner_ad_leaderboard,.bannerad,.barkerAd,.bgnavad,.bigAd,.big_ads,.bigad,.billboard_ad,.block-ad,.block-adsense,.block_ad,.blocked-ads,.blog-ads-container,.blogAdvertisement,.blogBigAd,.blog_ad,.body_ad,.body_sponsoredresults_bottom,.body_sponsoredresults_middle,.body_sponsoredresults_top,.bookseller-header-advt,.bottomAd,.bottomAds,.bottom_ad_block,.bottom_sponsor,.bottomad,.bottomrightrailAd,.boxAd,.box_ad,.box_advertisment_62_border,.box_content_ad,.box_content_ads,.boxad,.bps-ad-wrapper,.bps-advertisement,.bps-advertisement-inline-ads,.bullet-sponsored-links,.bullet-sponsored-links-gray,.burstContentAdIndex,.buttonAd,.buttonadbox,.cA-adStrap,.cColumn-TextAdsBox,.cb_footer_sponsor,.cb_navigation_ad,.cbzadvert,.cdAdTitle,.cdmainlineSearchAdParent,.cdsidebarSearchAdParent,.centerAd,.center_ad,.centerad,.clearerad,.cm_ads,.cms-Advert,.cnn160AdFooter,.cnnAd,.cnnMosaic160Container,.cnnStoreAd,.cnnStoryElementBoxAd,.cnnWCAdBox,.cnnWireAdLtgBox,.cnn_728adbin,.cnn_adcntr300x100,.cnn_adspc336cntr,.cnn_adtitle,.column2-ad,.conductor_ad,.confirm_ad_left,.confirm_ad_right,.confirm_leader_ad,.consoleAd,.container_serendipity_plugin_google_adsense,.contentAd,.content_ad,.content_adsq,.contentad,.contenttextad,.cp_ad,.cpmstarHeadline,.cpmstarText,.ct_ad,.cubeAd,.cube_ads,.darla_ad,.dartAdImage,.dart_ad,.dart_tag,.dartadvert,.dartiframe,.dc-ad,.dcAdvertHeader,.deckAd,.deckads,.detailMpu,.divads,.dmco_advert_iabrighttitle,.download_ad,.downloadad,.dynamic_ad,.ec-ads,.entryad,.ez-clientAd,.f_Ads,.featuredAds,.featuredadvertising,.flagads,.flash_advert,.flashad,.flexiad,.flipbook_v2_sponsor_ad,.footerAd,.footerAdModule,.footerTextAd,.footer_ad,.footer_ads,.footer_block_ad,.footer_line_ad,.ft-ad,.ftdContentAd,.full_ad_box,.g3rtn-ad-site,.g_ggl_ad,.gads_cb,.gglAds,.google-ad-container,.google-ads,.google-ads-boxout,.google-right-ad,.google-sponsored-ads,.google468_60,.googleAd,.googleAd-content,.googleAd-list,.googleAdBox,.googleAdSense,.googleAd_body,.googleAds,.googleAdsense,.googleProfileAd,.google_ads_bom_title,.googlead,.googleads,.googleads_300x250,.googleads_title,.gpAds,.gradientAd,.gt_ad_300x250,.gt_ad_728x90,.gutter-ad-left,.gutter-ad-right,.h_Ads,.h_ad,.hd_advert,.header-ad,.header-advert,.headerAd,.headerAdvert,.header_ad,.header_ad_center,.header_advertisment,.hi5-ad,.highlightsAd,.hm_advertisment,.home-ad-links,.homeAd,.homeMediumAdGroup,.homepage-ad,.homepageFlexAdOuter,.homepageMPU,.hor_ad,.horizontalAd,.horizontal_ad,.hortad,.houseAdsStyle,.hp2-adtag,.hp_ad_cont,.hp_ad_text,.hp_t_ad,.hp_w_ad,.ic-ads,.ico-adv,.idMultiAd,.image-advertisement,.imageads,.in-page-ad,.in-story-text-ad,.indy_googleads,.inline-mpu-left,.inlineSideAd,.inline_ad_title,.inlinead,.inlist-ad,.inner-advt-banner-3,.innerAds,.innerad,.inpostad,.islandAd,.islandAdvert,.js-advert,.kw_advert,.kw_advert_pair,.l_ad_sub,.largeRectangleAd,.leader_ad,.leaderboardAd,.left-ad,.leftAd,.leftad,.leftnavad,.lgRecAd,.linead,.link_advertise,.live-search-list-ad-container,.log_ads,.lowerAds,.m_banner_ads,.macAd,.macad,.main-tabs-ad-block,.main_ad,.main_adbox,.map_media_banner_ad,.marginadsthin,.marketing-ad,.mdl-ad,.media-advert,.medium-rectangle-ad,.messageBoardAd,.micro_ad,.mid_ad,.midad,.min_navi_ad,.miniad,.mod-ad-lrec,.mod-ad-n,.mod-adopenx,.mod_admodule,.module-ad-small,.module-ads,.modulegad,.moduletable-advert,.moduletablesquaread,.mpu,.mpu-ad,.mpu-footer,.mpu-fp,.mpu-title,.mpu-top-left,.mpu-top-right,.mpuAd,.mpuBox,.mpuContainer,.mpuTextAd,.mpu_ad,.mpu_gold,.mpu_platinum,.mpuholderportalpage,.ms-ads-link,.msfg-shopping-mpu,.mwaads,.nSponsoredLcContent,.nSponsoredLcTopic,.nadvt300,.naviad,.nba300Ad,.nbaT3Ad160,.nbaTVPodAd,.nbaTwo130Ads,.nbc_ad_carousel_wrp,.newTopAdContainer,.newad,.nf-adbox,.nn-mpu,.normalAds,.nrAds,.oas-bottom-ads,.oio-banner-zone,.oio-link-sidebar,.oio-zone-position,.onethirdadholder,.openx,.openx-ad,.ov_spns,.pageLeaderAd,.pagead,.partnersTextLinks,.pencil_ad,.player_ad_box,.player_page_ad_box,.pnp_ad,.podSponsoredLink,.post-ad,.post_ad,.post_sponsor_unit,.postbit_adcode,.prebodyads,.premium_ad_container,.promoAd,.promoAds,.publication-ad,.publicidad,.puff-advertorials,.quigo-ad,.qzvAdDiv,.r_ad_box,.rad_container,.rectad,.rectangleAd,.rectanglead,.redads_cont,.regularad,.relatedAds,.remads,.result_ad,.results_sponsor,.results_sponsor_right,.rght300x250,.rhads,.rhs-ad,.rhs-ads-panel,.right-ad,.right-ad-holder,.right-ad2,.rightAd,.right_ad,.right_ad_text,.right_hand_advert_column,.rightad,.rightad_1,.rightad_2,.rightads,.rightadunit,.rightcol_boxad,.rightcoladvert,.rt_ad1_300x90,.rt_ad_300x250,.rt_ad_call,.savvyad_unit,.sb-ad-sq-bg,.sbAdUnitContainer,.sb_adsN,.sb_adsNv2,.sb_adsW,.sb_adsWv2,.scanAd,.sci-ad-main,.sci-ad-sub,.search-sponsor,.search-sponsored,.searchAd,.searchSponsoredResultsBox,.search_column_results_sponsored,.search_results_sponsored_top,.section-sponsor,.section_mpu_wrapper,.selfServeAds,.sidbaread,.side-ad,.side-ads,.side_ad,.sidead,.sideadsbox,.sideadvert,.sidebar-ad,.sidebar-text-ad,.sidebarAd,.sidebarAdUnit,.sidebarAdvert,.sidebar_ad,.sidebar_box_ad,.sidebarad,.sidebarad_bottom,.sideheadnarrowad,.sideheadsponsorsad,.singleAd,.singleAdsContainer,.singlead,.sitesponsor,.skinAd,.skin_ad_638,.sky-ad,.skyAd,.skyAdd,.sky_ad,.skyscraper-ad,.smallSkyAd1,.smallSkyAd2,.small_ad,.small_ads,.smallad-left,.smallsponsorad,.specialAd175x90,.spl_ad,.spl_ad2,.spl_ad_plus,.splitAd,.spons-link,.sponslink,.sponsor-ad,.sponsor-links,.sponsorArea,.sponsorPost,.sponsorPostWrap,.sponsor_line,.sponsoradtitle,.sponsorbox,.sponsored,.sponsored-chunk,.sponsored-links,.sponsored-post,.sponsored-text,.sponsoredLinks,.sponsoredLinksHeader,.sponsored_ads,.sponsored_box,.sponsored_box_search,.sponsored_by,.sponsored_links,.sponsored_links_title_container,.sponsored_links_title_container_top,.sponsored_links_top,.sponsoredibbox,.sponsoredlinks,.sponsorlink,.squareAd,.square_ad,.squared_ad,.ss-ad-mpu,.staticAd,.store-ads,.story_AD,.subad,.subcontent-ad,.supercommentad_left,.supercommentad_right,.surveyad,.t10ad,.tab_ad,.tab_ad_area,.tablebordersponsor,.tadsanzeige,.tadsbanner,.tadselement,.tblTopAds,.tbl_ad,.teaserAdContainer,.teaser_adtiles,.text-ad-links,.text-g-advertisement,.text-g-group-short-rec-ad,.text-g-net-grp-google-ads-article-page,.textAd,.textAds,.text_ad,.text_ads,.textad,.textad_headline,.textads,.textlink-ads,.thisIsAd,.thisIsAnAd,.ticket-ad,.tileAds,.title-ad,.title_adbig,.toolad,.toolbar-ad,.top-ad,.top-ad-space,.top-ads,.top-menu-ads,.topAdWrap,.topAds,.topAdvertisement,.topBannerAd,.top_ad,.top_ad_disclaimer,.top_ad_wrapper,.top_ads,.top_advert,.top_sponsor,.topad,.topadbox,.topadspot,.topcontentadvertisement,.topic_inad,.topstoriesad,.towerAds,.tower_ad_disclaimer,.ts-ad_unit_bigbox,.ts-banner_ad,.ttlAdsensel,.twoColumnAd,.twoadcoll,.twoadcolr,.tx_smartadserver_pi1,.txt-ads,.txtadvertise,.type_promoads,.usenext,.vertad,.videoAd,.videoBoxAd,.view-promo-mpu-right,.wide-ad,.wide-skyscraper-ad,.wideAdTable,.wide_ads,.widget-entry-ads-160,.wikia_ad_placeholder,.withAds,.wnMultiAd,.x03-adunit,.x04-adunit,.y7-advertisement,.yahoo-sponsored,.yahoo_ads,.yan-sponsored,.ygrp-ad,.yrail_ad_wrap,.yrail_ads,.ysmsponsor,.ysponsor,a[href^="http://adserving.liveuniversenetwork.com/"],a[href^="http://latestdownloads.net/download.php?"],a[href^="http://www.FriendlyDuck.com/AF_"],a[href^="http://www.adbrite.com/mb/commerce/purchase_form.php?"],a[href^="http://www.liutilities.com/aff"],a[href^="http://www.my-dirty-hobby.com/?sub="],a[href^="http://www.ringtonematcher.com/"],#adt[align="right"][style="border-left: 1px solid rgb(201, 215, 241);"],#mbEnd[cellspacing="0"][style="padding: 0pt; white-space: nowrap;"],#mbEnd[width="30%"][style],#mboxEnd[width="30%"][style],div#mclip_container:first-child:last-child,div#tads.c,div.ch[id^="tba"][style],div.ch[id^="tpa"][style],div[style="font-size: small; background-color: rgb(255, 249, 221);"],div[style^="background: rgb(255, 248, 221) none repeat scroll 0% 0%; margin-top: 10px;"],table.ra[align="left"][width="30%"],table.ra[align="right"][width="30%"],table[align="center"][cellpadding="0"][style*="padding: 8px;"][style*="rgb(255, 248, 221);"][width="100%"],table[style="background: none repeat scroll 0% 0% rgb(255, 248, 231); padding: 8px; margin-top: 0px;"],table[style^="padding: 8px; background: rgb(255, 248, 221) none repeat scroll 0% 0%; -moz-background-clip:"] { visibility:hidden !important;    display:none !important; }</STYLE></HTML>

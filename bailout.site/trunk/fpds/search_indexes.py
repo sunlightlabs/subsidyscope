@@ -101,7 +101,7 @@ class FPDSRecordIndex(indexes.SearchIndex):
                 if i is not None:
                     r.append(i)
                     
-        return len(r)>0 and r or None
+        return len(r)>0 and r or -1
         
 
     def prepare_product_or_service_code(self, object):
@@ -120,13 +120,13 @@ class FPDSRecordIndex(indexes.SearchIndex):
         if object.place_of_performance_state:
             return object.place_of_performance_state.id
         else:
-            return None
+            return -1
             
     def prepare_recipient_state(self, object):
         if object.state:
             return object.state.id
         else:
-            return None
+            return -1
 
     
     def prepare_fiscal_year(self, object):  
@@ -134,7 +134,16 @@ class FPDSRecordIndex(indexes.SearchIndex):
             return int(object.fiscal_year)
         else:
             return None
-        
+            
+    def obligation_date(self, object):
+        try:
+            if object.effective_date.year > 1900:
+                return object.effective_date
+            else:
+                return None
+        except:
+            return None
+      
     def prepare_sectors(self, object):
         return map(lambda x: x.id, object.sectors.all())
         

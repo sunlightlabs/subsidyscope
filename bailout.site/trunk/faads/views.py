@@ -61,7 +61,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     action_type_options = map(lambda x: (x.id, x.name), ActionType.objects.filter(code__in=action_type_codes).order_by('code'))
 
     re_assistance_type_tidier = re.compile(r'(\,.*$|\s\([a-z]\))', re.I)
-    assistance_type_codes = (3,4,5,6,7,8)
+    assistance_type_codes = (3,4,5,6)
     assistance_type_options = map(lambda x: (x.id, re_assistance_type_tidier.sub('',x.name)), AssistanceType.objects.filter(code__in=assistance_type_codes).order_by('code'))
     
     recipient_type_codes = (0,1,2,4,5,6,11,12,20,21,22,23,25)
@@ -112,7 +112,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         obligation_amount_minimum = USDecimalHumanizedField(label="Obligation Amount Minimum", required=False, decimal_places=2, max_digits=12)
         obligation_amount_maximum = USDecimalHumanizedField(label="Obligation Amount Maximum", required=False, decimal_places=2, max_digits=12)
         
-        state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
+        state_choices = map(lambda x: (x.id, x.name), State.objects.all())
         location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=1, coerce=int)
         location_choices = forms.MultipleChoiceField(label='State', required=False, choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
     
@@ -214,7 +214,11 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
 
         # handle assistance type
         if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
-            faads_search_query = faads_search_query.filter('assistance_type', form.cleaned_data['assistance_type'])
+            assistance_filter = form.cleaned_data['assistance_type']
+            if len(form.cleaned_data['assistance_type']) > 0:
+                assistance_filter.append(u'39')
+                assistance_filter.append(u'40')
+            faads_search_query = faads_search_query.filter('assistance_type', assistance_filter)
 
         
         # handle recipient type
@@ -290,7 +294,6 @@ def search(request, sector_name=None):
         else:
             return HttpResponseRedirect(reverse('transportation-faads-search'))
         
-            
     # if this is a get w/ a querystring, unpack the form 
     if request.method == 'GET':
         if request.GET.has_key('q'):
@@ -343,8 +346,7 @@ def search(request, sector_name=None):
                     
                     
             (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
-            
-            
+	              
             faads_results = faads_search_query.get_haystack_queryset(order_by)
             
                 
@@ -428,23 +430,47 @@ def annual_chart_data(request, sector_name=None):
 def _get_state_summary_data(results, year_range):
     """ compiles aggregate data for the by-state summary table """
     
-    states = {}    
+    states = {}
+    states_order = {}
+    
+    order_id = 1
+    
     for state in State.objects.filter(id__in=results['state'].keys()):
         states[state.id] = state
+        states_order[state.id] = order_id
+        
+        order_id += 1
+        
 
     state_data = []
+    
+    totals_dict  = {}
+    for year in year_range: 
+        totals_dict[year] = 0
+    
     for (state_id, year_data) in results['state'].items():
         if state_id is None:
             continue
         
-        row = [states[state_id].name]
+        row = [states_order[state_id], states[state_id].name]
         for year in year_range:
-            row.append(year_data.get(year, None))
+            annual_total = year_data.get(year, None)
+            row.append(annual_total)
+            
+            if annual_total:
+                totals_dict[year] += annual_total 
+            
         state_data.append(row)
-        
+    
+    totals = []
+    
+    for year in year_range:
+        totals.append(totals_dict[year])
+
     state_data.sort(key=lambda x: x[0])
-        
-    return state_data
+    state_data = map(lambda x: x[1:], state_data)
+    
+    return state_data, totals
     
 def _get_program_summary_data(results, year_range):
     """ compiles aggregate data for the by-program summary table """
@@ -455,17 +481,32 @@ def _get_program_summary_data(results, year_range):
 
         
     program_data = []
+    
+    totals_dict  = {}
+    for year in year_range: 
+        totals_dict[year] = 0
+    
     for (program_id, year_data) in results['program'].items():
         if program_id is None:
             continue
         row = ["<a href=\"%s\">%s %s</a>" % (reverse('transportation-cfda-programpage', None, (program_id,)), programs[program_id].program_number, programs[program_id].program_title)]
         for year in year_range:
-            row.append(year_data.get(year, None))
+            annual_total = year_data.get(year, None)
+            row.append(annual_total)
+            
+            if annual_total:
+                totals_dict[year] += annual_total 
+            
         program_data.append(row)
         
     program_data.sort(key=lambda x: x[0])
     
-    return program_data
+    totals = []
+    
+    for year in year_range:
+        totals.append(totals_dict[year])
+    
+    return program_data, totals
 
 
 def summary_statistics_csv(request, sector_name=None, first_column_label='', data_fetcher=''):
@@ -511,13 +552,118 @@ def summary_statistics(request, sector_name=None):
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
 
-            state_data = _get_state_summary_data(results, year_range)                        
-            program_data = _get_program_summary_data(results, year_range)
+            state_data, state_totals = _get_state_summary_data(results, year_range)                        
+            program_data, program_totals = _get_program_summary_data(results, year_range)
                 
-            return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'program_data':program_data, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+            return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'program_data':program_data, 'program_totals':program_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
     return Http404()
     
+    
+    
+def map_data_table(request, sector_name=None):
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation    
+    
+    states = {}
+    
+    for state in State.objects.all():
+    
+        states[state.id] = state
+        
+    
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+        
+            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+                   
+            faads_results = faads_search_query.aggregate('recipient_state')
+
+            max_state_total = 0
+            max_per_capital_total = 0
+            
+            per_capita_totals = {}
+            
+            for state_id in faads_results:
+                if states.has_key(state_id) and states[state_id].population and faads_results[state_id] > 0:
+                    
+                    per_capita_totals[state_id] =  faads_results[state_id] / states[state_id].population
+                    
+                    if per_capita_totals[state_id] > max_per_capital_total:
+                        max_per_capital_total = per_capita_totals[state_id]
+                    
+                    if faads_results[state_id] > max_state_total:
+                        max_state_total = faads_results[state_id]
+                    
+        
+            results = []
+            
+            for state_id in per_capita_totals:
+                if states.has_key(state_id):
+                                    
+                    line = {'name':states[state_id].name, 'total':faads_results[state_id], 'per_capita':per_capita_totals[state_id]}
+
+                    results.append(line)
+                
+            
+            return render_to_response('faads/search/state_table.html', {'results':results, 'query': request.GET['q']}, context_instance=RequestContext(request))
+                
+    return Http404()
+
+
+def map_data_csv(request, sector_name=None):
+    
+
+        
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation
+    states = {}
+    
+    for state in State.objects.all():
+    
+        states[state.id] = state
+        
+    
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+        
+            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+                   
+            faads_results = faads_search_query.aggregate('recipient_state')
+
+            max_state_total = 0
+            max_per_capital_total = 0
+            
+            per_capita_totals = {}
+            
+            for state_id in faads_results:
+                if states.has_key(state_id) and states[state_id].population and faads_results[state_id] > 0:
+                    
+                    per_capita_totals[state_id] =  faads_results[state_id] / states[state_id].population
+                    
+                    if per_capita_totals[state_id] > max_per_capital_total:
+                        max_per_capital_total = per_capita_totals[state_id]
+                    
+                    if faads_results[state_id] > max_state_total:
+                        max_state_total = faads_results[state_id]
+                    
+        
+            results = []
+            
+            for state_id in per_capita_totals:
+                if states.has_key(state_id):
+                        
+                    
+                    line = '%s,%f,%f' % (states[state_id].name, 
+                                                           faads_results[state_id], 
+                                                           per_capita_totals[state_id])
+
+                    results.append(line)
+                
+            
+            return HttpResponse('\n'.join(results), mimetype="text/csv")
+                
+    return Http404()
 
 
 def map_data(request, sector_name=None):

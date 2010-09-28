@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load te_tags %}
+
+
+{% block content %}
+
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>Tax Expenditures</h3>
+        </div>
+        <div class="content_area">
+        
+        	<h5 style="margin-top:20px;">Summary of {{ category.name }} Tax Expenditures for Individuals and Corporations ($ millions)</h5> 
+        
+        	<div id="subsidy-charts"> 
+				<table>
+				
+				<tbody>
+				
+					<tr class="header-row"> 
+					  <td>Expenditure and Estimate Source</td> 
+					  <td style="text-align: right;">2008</td> 
+					  <td style="text-align: right;">2009</td> 
+					  <td style="text-align: right;">2010</td> 
+					  <td style="text-align: right;">2011</td> 
+					  <td style="text-align: right;">2012</td> 
+					  <td style="text-align: right;">2013</td> 
+					  <td style="text-align: right;">2014</td>
+					  <td style="text-align: right;">2015</td>  
+					</tr> 
+				
+					{% for expenditure in category.expendituregroup_set.all %}
+						
+						{% te_expenditure_summary expenditure %}
+						
+					{% endfor %}
+				
+				</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

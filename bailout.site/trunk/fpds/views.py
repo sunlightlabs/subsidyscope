@@ -38,7 +38,7 @@ def MakeFPDSSearchFormClass(sector=None, subsectors=[]):
         # recipient_type_choices = (('nonprofit', 'Nonprofits'), ('education', 'Higher Education'), ('all', 'Either'))
         # recipient_type = forms.TypedChoiceField(label="Include recipients classified as", widget=forms.RadioSelect, choices=recipient_type_choices, initial='all')
 
-        vendor_type = forms.TypedChoiceField(label='Vendor Type', widget=forms.RadioSelect, choices=((0, 'Nonprofits'), (1, 'Educational Institutions'), (2, 'Both')), initial=2, coerce=int)
+        vendor_type = forms.TypedChoiceField(label='Vendor Type', widget=forms.RadioSelect, choices=((0, 'Nonprofits'), (1, 'Educational Institutions'), (2, 'Any')), initial=2, coerce=int)
 
         extent_competed_choices = []
         for (code, name, description, include) in ExtentCompetedMapper.CODES:
@@ -52,7 +52,7 @@ def MakeFPDSSearchFormClass(sector=None, subsectors=[]):
         obligation_amount_minimum = USDecimalHumanizedField(label="Obligated Amount Minimum", required=False, decimal_places=2, max_digits=12)
         obligation_amount_maximum = USDecimalHumanizedField(label="Obligated Amount Maximum", required=False, decimal_places=2, max_digits=12)
 
-        state_choices = map(lambda x: (x.id, x.name), State.objects.all().order_by('name'))
+        state_choices = map(lambda x: (x.id, x.name), State.objects.all())
         location_type = forms.TypedChoiceField(label='Location Type', widget=forms.RadioSelect, choices=((0, 'Recipient Location'), (1, 'Principal Place of Performance'), (2, 'Both')), initial=1, coerce=int)
         location_choices = forms.MultipleChoiceField(label='State', required=False, choices=state_choices, initial=map(lambda x: x[0], state_choices), widget=CheckboxSelectMultipleMulticolumn(columns=4))
 
@@ -298,21 +298,47 @@ def _get_state_summary_data(results, year_range):
     """ compiles aggregate data for the by-state summary table """
 
     states = {}    
+    
+    states_order = {}
+    
+    order_id = 1
+    
     for state in State.objects.filter(id__in=results['state'].keys()):
         states[state.id] = state
+        
+        states_order[state.id] = order_id
+        
+        order_id += 1
 
     state_data = []
+    
+    totals_dict  = {}
+    for year in year_range: 
+        totals_dict[year] = 0
+    
     for (state_id, year_data) in results['state'].items():
         if state_id is None:
             continue
-        row = [states[state_id].name]
+        row = [states_order[state_id], states[state_id].name]
         for year in year_range:
-            row.append(year_data.get(year, None))
+            annual_total = year_data.get(year, None)
+            row.append(annual_total)
+            
+            if annual_total:
+                totals_dict[year] += annual_total 
+            
         state_data.append(row)
 
     state_data.sort(key=lambda x: x[0])
+    state_data = map(lambda x: x[1:], state_data)
 
-    return state_data
+    
+    totals = []
+    
+    for year in year_range:
+        totals.append(totals_dict[year])
+
+    return state_data, totals
 
 
 
@@ -358,12 +384,118 @@ def summary_statistics(request, sector_name=None):
             results = fpds_search_query.get_summary_statistics()
             year_range = fpds_search_query.get_year_range()
             
-            state_data = _get_state_summary_data(results, year_range)                        
+            state_data, state_totals = _get_state_summary_data(results, year_range)                        
 
-            return render_to_response('fpds/search/summary_table.html', {'state_data':state_data, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+            return render_to_response('fpds/search/summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
     return Http404()
 
+
+def map_data_table(request, sector_name=None):
+
+
+
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation
+    states = {}
+
+    for state in State.objects.all():
+
+        states[state.id] = state
+
+
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+            fpds_results = fpds_search_query.aggregate('recipient_state')
+
+            max_state_total = 0
+            max_per_capital_total = 0
+
+            per_capita_totals = {}
+
+            for state_id in fpds_results:
+                if states.has_key(state_id) and states[state_id].population and fpds_results[state_id] > 0:
+
+                    per_capita_totals[state_id] =  fpds_results[state_id] / states[state_id].population
+
+                    if per_capita_totals[state_id] > max_per_capital_total:
+                        max_per_capital_total = per_capita_totals[state_id]
+
+                    if fpds_results[state_id] > max_state_total:
+                        max_state_total = fpds_results[state_id]
+
+
+            results = []
+
+            for state_id in per_capita_totals:
+                if states.has_key(state_id):
+
+                    line = {'name':states[state_id].name, 'total':fpds_results[state_id], 'per_capita':per_capita_totals[state_id]}
+
+                    results.append(line)
+                
+            
+            return render_to_response('fpds/search/state_table.html', {'results':results, 'query': request.GET['q']}, context_instance=RequestContext(request))
+          
+
+    return Http404()
+
+
+def map_data_csv(request, sector_name=None):
+
+
+
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation
+    states = {}
+
+    for state in State.objects.all():
+
+        states[state.id] = state
+
+
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+
+            (form, fpds_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+
+            fpds_results = fpds_search_query.aggregate('recipient_state')
+
+            max_state_total = 0
+            max_per_capital_total = 0
+
+            per_capita_totals = {}
+
+            for state_id in fpds_results:
+                if states.has_key(state_id) and states[state_id].population and fpds_results[state_id] > 0:
+
+                    per_capita_totals[state_id] =  fpds_results[state_id] / states[state_id].population
+
+                    if per_capita_totals[state_id] > max_per_capital_total:
+                        max_per_capital_total = per_capita_totals[state_id]
+
+                    if fpds_results[state_id] > max_state_total:
+                        max_state_total = fpds_results[state_id]
+
+
+            results = []
+
+            for state_id in per_capita_totals:
+                if states.has_key(state_id):
+                    
+                    line = '%s,%f,%f' % (states[state_id].name, 
+                                                           fpds_results[state_id], 
+                                                           per_capita_totals[state_id])
+                    
+                    results.append(line)
+                
+            
+            return HttpResponse('\n'.join(results), mimetype="text/csv")
+
+    return Http404()
 
 
 def map_data(request, sector_name=None):

@@ -1,9 +1,9 @@
-Table 5–2. CORPORATE AND INDIVIDUAL INCOME TAX REVENUE LOSS ESTIMATES FOR TAX EXPENDITURES
+Table 5-2. CORPORATE AND INDIVIDUAL INCOME TAX REVENUE LOSS ESTIMATES FOR TAX EXPENDITURES
 (In millions of dollars)
 Revenue Loss
 Corporations Individuals
-1999 2000 2001 2002 2003 2004 2005 2001–
-2005 1999 2000 2001 2002 2003 2004 2005 2001–
+1999 2000 2001 2002 2003 2004 2005 2001-
+2005 1999 2000 2001 2002 2003 2004 2005 2001-
 2005
 National Defense:
 1 Exclusion of benefits and allowances to
@@ -28,7 +28,7 @@ expenditures (normal tax method)
 9 Credit for increasing research activities .. 1,675 995 3,300 3,650 2,925 2,565 1,490 13,930 30 15 60 60 45 40 15 220
 Energy:
 10 Expensing of exploration and development
-costs, fuels .................................. –70 –15 –30 –10 15 15 15 5 –10 0 0 0 0 0 0 0
+costs, fuels .................................. -70 -15 -30 -10 15 15 15 5 -10 0 0 0 0 0 0 0
 11 Excess of percentage over cost depletion,
 fuels .............................................. 220 225 230 230 235 240 240 1,175 45 50 50 50 50 50 50 250
 12 Alternative fuel production credit ............. 975 915 860 805 125 125 125 2,040 50 45 45 40 0 0 0 85
@@ -45,7 +45,7 @@ bonds .................................................... 30 30 30 30 30 30 30 
 19 Tax credit and deduction for clean-fuel
 burning vehicles ................................... 70 75 85 80 65 45 15 290 15 15 20 20 15 10 5 70
 20 Exclusion from income of conservation
-subsidies provided by public utilities ... –5 –5 –5 –5 0 0 0 –10 90 85 85 85 85 85 85 425
+subsidies provided by public utilities ... -5 -5 -5 -5 0 0 0 -10 90 85 85 85 85 85 85 425
 Natural resources and environment:
 21 Expensing of exploration and development
 costs, nonfuel minerals .............. 10 10 15 15 15 15 15 75 5 5 5 5 5 5 5 25
@@ -121,7 +121,7 @@ from small business corporation
 stock sale ......................................... ............ ............ ............ ............ ............ ............ ............ .............. 35 35 40 40 40 40 40 200
 56 Accelerated depreciation of buildings
 other than rental housing (normal
-tax method) ...................................... 1,195 655 230 15 –260 –625 –905 –1,545 465 55 –665 –770 –855 –1,070 –1,240 –4,600
+tax method) ...................................... 1,195 655 230 15 -260 -625 -905 -1,545 465 55 -665 -770 -855 -1,070 -1,240 -4,600
 57 Accelerated depreciation of machinery
 and equipment (normal tax method) 21,100 22,085 26,970 27,265 27,965 29,825 30,465 142,490 5,345 5,655 5,860 6,080 6,300 6,565 6,865 31,670
 58 Expensing of certain small investments
@@ -143,12 +143,12 @@ Community and regional development:
 structures (other than historic) ............ 15 15 15 15 15 15 15 75 10 10 15 15 15 15 15 75
 66 Exclusion of interest for airport, dock,
 and similar bonds ................................. 185 185 185 190 190 195 195 955 545 550 555 560 565 570 575 2,825
-67 Exemption of certain mutuals’ and cooperatives’
+67 Exemption of certain mutuals- and cooperatives-
 income ............................... 60 60 60 65 65 65 70 325 ............ ............ ............ ............ .............. .............. .............. ..............
 68 Empowerment zones and enterprise
 communities ......................................... 150 205 220 185 130 110 90 735 180 240 280 280 200 190 170 1,120
 69 Expensing of environmental remediation
-costs ..................................................... 95 125 145 50 –25 –30 –25 115 20 25 30 10 –5 –5 –5 25
+costs ..................................................... 95 125 145 50 -25 -30 -25 115 20 25 30 10 -5 -5 -5 25
 Education, training, employment, and social services:
 Education:
 70 Exclusion of scholarship and fellowship
@@ -202,7 +202,7 @@ medical insurance premiums and
 medical care ......................................... ............ ............ ............ ............ ............ ............ ............ .............. 69,610 75,095 80,570 86,175 90,655 95,960 102,725 456,085
 96 Self-employed medical insurance premiums
 ................................................... ............ ............ ............ ............ ............ ............ ............ .............. 935 1,250 1,380 1,545 2,070 2,905 3,210 11,110
-97 Workers’ compensation insurance premiums
+97 Workers- compensation insurance premiums
 ................................................... ............ ............ ............ ............ ............ ............ ............ .............. 4,420 4,585 4,555 4,935 5,120 5,315 5,515 25,440
 98 Medical Savings Accounts ................... ............ ............ ............ ............ ............ ............ ............ .............. 20 30 30 30 30 30 25 145
 99 Deductibility of medical expenses ........... ............ ............ ............ ............ ............ ............ ............ .............. 3,695 3,910 4,160 4,440 4,720 5,005 5,305 23,630
@@ -215,7 +215,7 @@ bonds ..................................... 305 310 310 315 320 320 325 1,590 90
 Income security:
 104 Exclusion of railroad retirement system
 benefits ................................................. ............ ............ ............ ............ ............ ............ ............ .............. 395 405 410 415 420 430 430 2,105
-105 Exclusion of workers’ compensation benefits
+105 Exclusion of workers- compensation benefits
 ....................................................... ............ ............ ............ ............ ............ ............ ............ .............. 5,185 5,330 5,785 6,040 6,310 6,575 6,865 31,575
 106 Exclusion of public assistance benefits
 (normal tax method) ............................. ............ ............ ............ ............ ............ ............ ............ .............. 345 360 375 390 405 420 435 2,025
@@ -273,7 +273,7 @@ homes .............................................. ............ ............ .
 Nonbusiness State and local taxes
 other than on owner-occupied
 homes .............................................. ............ ............ ............ ............ ............ ............ ............ .............. 37,740 40,240 42,390 44,735 47,610 50,530 53,480 238,745
-Exclusion of interest on State and local bonds for:
+Exclusion of interest on:
 Public purposes .................................... 5,735 5,790 5,850 5,910 5,965 6,025 6,085 29,835 17,015 17,185 17,355 17,530 17,705 17,880 18,060 88,530
 Energy facilities .................................... 30 30 30 30 30 30 30 150 85 85 85 90 90 90 90 445
 Water, sewage, and hazardous waste
@@ -285,6 +285,6 @@ Airports, docks, and similar facilities ... 185 185 185 190 190 195 195 955 545 
 Student loans ....................................... 60 65 65 65 65 65 65 325 185 185 190 190 190 195 195 960
 Private nonprofit educational facilities 150 150 150 150 155 155 155 765 440 445 450 450 455 460 465 2,280
 Hospital construction ............................ 305 310 310 315 320 320 325 1,590 905 915 925 935 945 955 965 4,725
-Veterans’ housing ................................ 10 10 10 10 10 10 10 50 30 30 30 30 30 30 30 150
+Veterans- housing ................................ 10 10 10 10 10 10 10 50 30 30 30 30 30 30 30 150
 Credit for holders of zone academy
 bonds .................................................... 5 10 20 35 50 65 70 240 ............ ............ ............ ............ .............. .............. .............. ..............

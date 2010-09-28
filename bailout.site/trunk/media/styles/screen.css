@@ -55,9 +55,18 @@ input[type='text'] { cursor: text; }
 .container h5 { font-size: 1.2em; }
 .container h6 { font-size: 1em; }
 
+
+h1 { font-size: 1.9em; }
+h2 { font-size: 1.7em; }
+h3 { font-size: 1.5em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1em; }
+
 /* LISTS */
 
 .container ul li { margin-left: .85em; }
+
 /*.container ul li:before {content: "\2022\00a0\00a0"; }  REMOVED FOR FF3 */
 .container ol { list-style-position: outside; list-style-type: decimal; }
 .container dt { font-weight: bold; }
@@ -93,6 +102,26 @@ input[type='text'] { cursor: text; }
 .container ol { margin-left: 2.35em; }
 .container ol ol, .container ul ol { margin-left: 2.5em; }
 .container form div { margin-bottom: .8em; }
+
+/* CHARTS */
+
+img.chart {  }
+img.center { margin: 0 auto; display:block; }
+
+ul.horizontal { display:inline; width: 100%; float:left; margin-left: 50px;}
+ul.horizontal li { float:left; width: 20%; }
+ul.horizontal li h6 {text-align:center;}
+ul.horizontal li img {margin-left: auto; margin-right: auto; display:block; }
+
+
+div.full {width: 100%; }
+div.charts {font-family: sans-serif;}
+div.charts h4 {text-align:center;}
+div.charts h5 {text-align:center;}
+div.charts h6 {text-align:center;}
+div.charts.left {float:left;}
+div.charts.right {float:right;}
+
 
 /* COLORS */
 

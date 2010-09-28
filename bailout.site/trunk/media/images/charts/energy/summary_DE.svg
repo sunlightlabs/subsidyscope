@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="220"
+   version="1.1"
+   width="440"
+   id="svg2"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="summary_DE.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy/summary_DE.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata75">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs73">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 110 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="440 : 110 : 1"
+       inkscape:persp3d-origin="220 : 73.333333 : 1"
+       id="perspective77" />
+    <inkscape:perspective
+       id="perspective2891"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2887"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2900"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3950"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2934"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective4120"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3794"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3870"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2911"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2939"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2971"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2971-6"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
+     id="namedview71"
+     showgrid="false"
+     inkscape:zoom="1.1330531"
+     inkscape:cx="148.59616"
+     inkscape:cy="-13.487989"
+     inkscape:window-x="1400"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <style
+     type="text/css"
+     id="style4">
+		.y-axis-path, .y-axis-path2, .y-gridline {display:none;}
+
+
+
+.x-notch, .x-notch-left, .x-notch-right { stroke: #a7a9ac; }
+
+.x-axis-path { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+
+.series-0-point { stroke: #e0d1d1; fill: #bf5004; stroke-width: 2px; }
+
+
+
+.series-1-point { stroke: #d6d9db; fill: #336699; stroke-width:2px; }
+
+
+
+.series-2-point { stroke: #eff5e6; fill: #9ca991; stroke-width: 2px; }
+
+
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+
+
+.y-axis-label { display:none;}
+
+	</style>
+  <rect
+     height="617.71954"
+     width="331.44373"
+     x="53.836842"
+     y="-84.72683"
+     id="rect6"
+     style="fill:#ffffff" />
+  <g
+     id="y_axis"
+     class="y-axis"
+     transform="translate(10,10)">
+    <path
+       style="display:none"
+       id="path17"
+       d="M 0,170 0,0"
+       class="y-axis-path" />
+    <path
+       id="path19"
+       d="M 420,170 420,0"
+       class="y-axis-path-2" />
+    <path
+       style="display:none"
+       id="path21"
+       d="M 0,0 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text23"
+       y="0"
+       x="-5"
+       class="y-axis-label">$34.3B</text>
+    <path
+       style="display:none"
+       id="path25"
+       d="m 0,28 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text27"
+       y="28"
+       x="-5"
+       class="y-axis-label">$28.6B</text>
+    <path
+       style="display:none"
+       id="path29"
+       d="m 0,56 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text31"
+       y="56"
+       x="-5"
+       class="y-axis-label">$22.9B</text>
+    <path
+       style="display:none"
+       id="path33"
+       d="m 0,84 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text35"
+       y="84"
+       x="-5"
+       class="y-axis-label">$17.2B</text>
+    <path
+       style="display:none"
+       id="path37"
+       d="m 0,112 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text39"
+       y="112"
+       x="-5"
+       class="y-axis-label">$11.4B</text>
+    <path
+       style="display:none"
+       id="path41"
+       d="m 0,140 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text43"
+       y="140"
+       x="-5"
+       class="y-axis-label">$5.7B</text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
+     x="220.02292"
+     y="141.47636"
+     id="text3964"><tspan
+       sodipodi:role="line"
+       id="tspan3966"
+       x="222.80417"
+       y="141.47636">Figure 3: Energy Sector </tspan><tspan
+       sodipodi:role="line"
+       x="220.02292"
+       y="161.47636"
+       id="tspan2897">Tax Expenditures FY2009</tspan></text>
+  <g
+     id="y_axis-4"
+     class="y-axis"
+     transform="translate(9.838615,345.10996)">
+    <path
+       style="display:none"
+       id="path17-6"
+       d="M 0,170 0,0"
+       class="y-axis-path" />
+    <path
+       id="path19-9"
+       d="M 420,170 420,0"
+       class="y-axis-path-2" />
+    <path
+       style="display:none"
+       id="path21-2"
+       d="M 0,0 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text23-2"
+       y="0"
+       x="-5"
+       class="y-axis-label">$34.3B</text>
+    <path
+       style="display:none"
+       id="path25-4"
+       d="m 0,28 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text27-7"
+       y="28"
+       x="-5"
+       class="y-axis-label">$28.6B</text>
+    <path
+       style="display:none"
+       id="path29-7"
+       d="m 0,56 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text31-5"
+       y="56"
+       x="-5"
+       class="y-axis-label">$22.9B</text>
+    <path
+       style="display:none"
+       id="path33-4"
+       d="m 0,84 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text35-8"
+       y="84"
+       x="-5"
+       class="y-axis-label">$17.2B</text>
+    <path
+       style="display:none"
+       id="path37-1"
+       d="m 0,112 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text39-2"
+       y="112"
+       x="-5"
+       class="y-axis-label">$11.4B</text>
+    <path
+       style="display:none"
+       id="path41-8"
+       d="m 0,140 420,0"
+       class="y-gridline" />
+    <text
+       style="display:none"
+       id="text43-9"
+       y="140"
+       x="-5"
+       class="y-axis-label">$5.7B</text>
+  </g>
+  <g
+     id="g2937">
+    <g
+       transform="matrix(0.75,0,0,0.75,62.338615,368.888)"
+       class="x-axis"
+       id="x_axis-4">
+      <path
+         class="x-axis-path"
+         d="m 0,170 420,0"
+         id="path10-0"
+         style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         class="x-notch-left"
+         d="M 0,170"
+         id="path12-5"
+         style="stroke:#a7a9ac" />
+      <path
+         class="x-notch-right"
+         d="M 420,170"
+         id="path14-9"
+         style="stroke:#a7a9ac" />
+    </g>
+    <path
+       class="x-notch"
+       d="m 219.83861,496.388 0,3.75"
+       id="path51-3"
+       style="stroke:#a7a9ac;stroke-width:0.75" />
+    <g
+       transform="matrix(0.75,0,0,0.75,54.753856,252.76496)"
+       id="g3802">
+      <rect
+         style="fill:#9ca991;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px"
+         id="rect53-6"
+         y="170.28526"
+         x="104.11301"
+         width="60"
+         height="154.54546"
+         class="series-0-point" />
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text55-8"
+         y="165.28526"
+         x="134.11301"
+         class="data-point-label">$31.2B</text>
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text67-5-8"
+         y="341.12787"
+         x="134.55724"
+         class="x-axis-label">Outstanding Credit</text>
+    </g>
+    <g
+       transform="matrix(0.75,0,0,0.75,32.515061,195.76496)"
+       id="g3807">
+      <text
+         id="text57-0"
+         y="315.83072"
+         x="330.11301"
+         class="value-as-label">
+        <tspan
+           id="tspan61-1"
+           y="372.83072"
+           x="330.11301">Unknown</tspan>
+      </text>
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text69-1"
+         y="415.83072"
+         x="360.11301"
+         class="x-axis-label">Subsidy</text>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
+     x="219.13548"
+     y="325.07663"
+     id="text3964-4"><tspan
+       sodipodi:role="line"
+       x="219.13548"
+       y="325.07663"
+       id="tspan2897-9">Figure 4: Energy Sector</tspan><tspan
+       sodipodi:role="line"
+       x="219.13548"
+       y="345.07663"
+       id="tspan2961">Risk Transfers FY2009</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Andale Mono Bold"
+     x="219.77344"
+     y="-61.645287"
+     id="text3964-6"><tspan
+       sodipodi:role="line"
+       id="tspan3966-4"
+       x="222.55469"
+       y="-61.645287">Figure 1: Energy Sector </tspan><tspan
+       sodipodi:role="line"
+       x="219.77344"
+       y="-41.645287"
+       id="tspan2897-1">Direct Expenditures FY2009</tspan></text>
+  <g
+     id="g2905">
+    <g
+       transform="matrix(0.75,0,0,0.75,62.5,-83.520962)"
+       class="x-axis"
+       id="x_axis">
+      <path
+         class="x-axis-path"
+         d="m 0,170 420,0"
+         id="path10"
+         style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         class="x-notch-left"
+         d="M 0,170"
+         id="path12"
+         style="stroke:#a7a9ac" />
+      <path
+         class="x-notch-right"
+         d="M 420,170"
+         id="path14"
+         style="stroke:#a7a9ac" />
+    </g>
+    <path
+       class="x-notch"
+       d="m 220,43.979038 0,3.75"
+       id="path51"
+       style="stroke:#a7a9ac;stroke-width:0.75" />
+    <g
+       transform="matrix(0.75,0,0,0.75,54.70757,-91.020962)"
+       id="g2922">
+      <rect
+         style="fill:#bf5004;stroke:#e0d1d1;stroke-width:2px"
+         id="rect53"
+         y="113.12936"
+         x="104"
+         width="60"
+         height="66.870628"
+         class="series-0-point" />
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text55"
+         y="108.12936"
+         x="134"
+         class="data-point-label">$13.5B</text>
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text67"
+         y="195"
+         x="134"
+         class="x-axis-label">Programs Containing</text>
+    </g>
+    <g
+       transform="matrix(0.75,0,0,0.75,62.640162,-74.520962)"
+       id="g2915">
+      <text
+         id="text57"
+         y="73"
+         x="290"
+         class="value-as-label">
+        <tspan
+           id="tspan61"
+           y="130"
+           x="290">Unknown</tspan>
+      </text>
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text69"
+         y="173"
+         x="320"
+         class="x-axis-label">Subsidy</text>
+    </g>
+    <text
+       style="font-size:9px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+       id="text69-8"
+       y="66.651756"
+       x="156.03554"
+       class="x-axis-label">Subsidy</text>
+  </g>
+  <g
+     id="g2921">
+    <g
+       transform="matrix(0.75,0,0,0.75,62.054168,94.451771)"
+       class="x-axis"
+       id="x_axis-5">
+      <path
+         class="x-axis-path"
+         d="m 0,170 420,0"
+         id="path10-8"
+         style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         class="x-notch-left"
+         d="M 0,170"
+         id="path12-1"
+         style="stroke:#a7a9ac" />
+      <path
+         class="x-notch-right"
+         d="M 420,170"
+         id="path14-0"
+         style="stroke:#a7a9ac" />
+    </g>
+    <path
+       class="x-notch"
+       d="m 219.55417,221.95177 0,3.75"
+       id="path51-4"
+       style="stroke:#a7a9ac;stroke-width:0.75" />
+    <g
+       transform="matrix(0.75,0,0,0.75,-10.059848,-339.91003)"
+       id="g3922">
+      <rect
+         style="fill:#336699;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px"
+         id="rect53-8"
+         y="722.89618"
+         x="190.72943"
+         width="60"
+         height="26.252914"
+         class="series-0-point" />
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text55-5"
+         y="717.89618"
+         x="220.72943"
+         class="data-point-label">$5.3B</text>
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text63"
+         y="764.14905"
+         x="220.72943"
+         class="x-axis-label">Tax Expenditure</text>
+    </g>
+    <g
+       transform="matrix(0.75,0,0,0.75,32.372744,-339.91003)"
+       id="g3927">
+      <rect
+         style="fill:#336699;fill-opacity:1;stroke:#e0d1d1;stroke-width:2px"
+         id="rect57"
+         y="722.89618"
+         x="330.72943"
+         width="60"
+         height="26.252914"
+         class="series-0-point" />
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text59"
+         y="717.89618"
+         x="360.72943"
+         class="data-point-label">$5.3B</text>
+      <text
+         style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+         id="text65"
+         y="764.14905"
+         x="360.72943"
+         class="x-axis-label">Subsidy</text>
+    </g>
+    <text
+       style="font-size:9px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+       id="text69-7"
+       y="243.99252"
+       x="155.26215"
+       class="x-axis-label">Program</text>
+  </g>
+</svg>

@@ -1,7 +1,7 @@
 import os, re
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-from budget_functions.models import BudgetFunction 
+from budget_accounts.models import BudgetFunction 
 
 code_regex = re.compile('^Code:[\s]+([0-9]{3,3});')
 subcode_regex = re.compile('^Subcode:[\s]+([0-9]{3,3});')

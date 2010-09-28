@@ -1,0 +1,116 @@
+<?xml version="1.0" ?>
+<svg height="340" version="1.1" width="500" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.y-axis-path, .y-axis-path2, .y-gridline {display:none;}
+
+
+
+.x-notch, .x-notch-left, .x-notch-right { stroke: #a7a9ac; }
+
+.x-axis-path { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+
+.series-0-point { stroke: #e0d1d1; fill: #bf5004; stroke-width: 2px; }
+
+
+
+.series-1-point { stroke: #d6d9db; fill: #336699; stroke-width:2px; }
+
+
+
+.series-2-point { stroke: #eff5e6; fill: #9ca991; stroke-width: 2px; }
+
+
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+
+
+.y-axis-label { display:none;}
+
+	</style>
+	<rect fill="white" height="340" width="500" x="0" y="0"/>
+	<g id="grid" transform="translate(30, 30)">
+		<g class="x-axis" id="x_axis">
+			<path class="x-axis-path" d="M 0 180 L 440 180"/>
+			<path class="x-notch-left" d="M 0 180, L 0 190"/>
+			<path class="x-notch-right" d="M 440 180, L 440 190"/>
+		</g>
+		<g class="y-axis" id="y_axis">
+			<path class="y-axis-path" d="M 0 180 L 0 0"/>
+			<path class="y-axis-path-2" d="M 440 180 L 440 0"/>
+			<path class="y-gridline" d="M 0 0 L 440 0"/>
+			<text class="y-axis-label" x="-5" y="0">
+				1.8Th
+			</text>
+			<path class="y-gridline" d="M 0 30 L 440 30"/>
+			<text class="y-axis-label" x="-5" y="30">
+				1.5Th
+			</text>
+			<path class="y-gridline" d="M 0 60 L 440 60"/>
+			<text class="y-axis-label" x="-5" y="60">
+				1.2Th
+			</text>
+			<path class="y-gridline" d="M 0 90 L 440 90"/>
+			<text class="y-axis-label" x="-5" y="90">
+				902
+			</text>
+			<path class="y-gridline" d="M 0 120 L 440 120"/>
+			<text class="y-axis-label" x="-5" y="120">
+				601
+			</text>
+			<path class="y-gridline" d="M 0 150 L 440 150"/>
+			<text class="y-axis-label" x="-5" y="150">
+				300
+			</text>
+		</g>
+		<path class="x-notch" d="M 72 180 L 72 185"/>
+		<rect class="series-0-point" height="163.636363636" width="60" x="6" y="16.3636363636"/>
+		<text class="data-point-label" x="36" y="11.3636363636">
+			1.6Th
+		</text>
+		<path class="x-notch" d="M 145 180 L 145 185"/>
+		<rect class="series-0-point" height="104.767184035" width="60" x="79" y="75.2328159645"/>
+		<text class="data-point-label" x="109" y="70.2328159645">
+			1.1Th
+		</text>
+		<path class="x-notch" d="M 218 180 L 218 185"/>
+		<rect class="series-0-point" height="76.8292682927" width="60" x="152" y="103.170731707"/>
+		<text class="data-point-label" x="182" y="98.1707317073">
+			770
+		</text>
+		<path class="x-notch" d="M 291 180 L 291 185"/>
+		<rect class="series-0-point" height="56.8736141907" width="60" x="225" y="123.126385809"/>
+		<text class="data-point-label" x="255" y="118.126385809">
+			570
+		</text>
+		<path class="x-notch" d="M 364 180 L 364 185"/>
+		<rect class="series-0-point" height="42.9046563193" width="60" x="298" y="137.095343681"/>
+		<text class="data-point-label" x="328" y="132.095343681">
+			430
+		</text>
+		<rect class="series-0-point" height="33.9246119734" width="60" x="371" y="146.075388027"/>
+		<text class="data-point-label" x="401" y="141.075388027">
+			340
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 36, 190)" x="36" y="190">
+			Expensing of exploration and development, fuels
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 109, 190)" x="109" y="190">
+			Payments for specified energy property in lieu of tax credits*
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 182, 190)" x="182" y="190">
+			Temporary 50% expensing for liquid fuel refining equipment
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 255, 190)" x="255" y="190">
+			Credit for energy efficiency improvements
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 328, 190)" x="328" y="190">
+			New technology credit
+		</text>
+		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 401, 190)" x="401" y="190">
+			Excess of percentage over cost depletion, fuels
+		</text>
+	</g>
+</svg>
