@@ -5,8 +5,8 @@ from bailout.models import *
 from django.views.generic.simple import direct_to_template, redirect_to
 import bailout_pdfs
   
-urlpatterns = patterns('',
-    url(r'^$', 'tax_expenditures.views.render_tax_expenditures', name='render_tax_expenditures'),
-    url(r'^(?P<category_id>[0-9]+)/$', 'tax_expenditures.views.render_tax_expenditures', name='render_tax_expenditures_by_id'),
-    url(r'^expenditure/(?P<expenditure_id>[0-9]+)/$', 'tax_expenditures.views.render_tax_expenditure', name='render_tax_expenditure_by_id')
-)
+urlpatterns = patterns('tax_expenditures.views',
+    #url(r'^add/(?P<expenditure_id>.*)/$', 'expenditure_add', name="tax_expenditures-expenditure-add"),
+    url(r'^expenditure/(?P<expenditure_id>.*)/$', 'expenditure', name="tax_expenditures-expenditure"),
+    url(r'^category/(?P<category_id>.*)/$', 'category', name="tax_expenditures-category"),
+    url(r'^.*$', 'main', name="tax_expenditures-main"))
