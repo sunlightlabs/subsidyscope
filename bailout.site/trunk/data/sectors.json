@@ -1,1 +1,0 @@
-[{"pk": 1, "model": "sectors.sector", "fields": {"name": "Bailout"}}, {"pk": 2, "model": "sectors.sector", "fields": {"name": "Transportation"}}]
