@@ -16,7 +16,9 @@ def category(request, category_id, year=None, source=None):
     
     category = Category.objects.get(pk=category_id)
     
-    return render_to_response('tax_expenditures/category.html', {'category':category})
+    subcategories = Category.objects.filter(parent=category)
+    
+    return render_to_response('tax_expenditures/category.html', {'category':category, 'subcategories':subcategories})
     
 
 def expenditure(request, expenditure_id, year=None, source=None):
@@ -94,13 +96,22 @@ def expenditure(request, expenditure_id, year=None, source=None):
     
     return render_to_response('tax_expenditures/expenditure.html', {'expenditure':expenditure, 'treasury_expenditure_summary':treasury_expenditure_summary, 'jct_expenditure_summary':jct_expenditure_summary, 'other_expenditures':other_expenditures})
         
-#def expenditure_add(request, expenditure_id, year=None, source=None):
-#    
-#    expenditure_id = int(expenditure_id)
-#    
-#    if request.method == "POST":
-#        group = ExpenditureGroup.objects.get(pk=expenditure_id)
-#        request.POST['']
-#        group.group.add()
-#    else:
-#        return HttpResponseRedirect('/tax_expenditures/expenditure/%d/' % expenditure_id)
+def expenditure_add(request, expenditure_id, year=None, source=None):
+    
+    expenditure_id = int(expenditure_id)
+    
+    if request.method == "POST":
+        group = ExpenditureGroup.objects.get(pk=expenditure_id)
+        for item in request.POST.getlist('filterlist'):
+            other_expenditure_id  = int(item)
+            expenditure = Expenditure.objects.get(pk=other_expenditure_id)
+            
+            for old_group in expenditure.expendituregroup_set.all():
+                old_group.group.remove(expenditure)
+                if old_group.group.all().count() == 0:
+                    old_group.delete()
+            
+            group.group.add(expenditure)
+    
+    
+    return HttpResponseRedirect('/tax_expenditures/expenditure/%d/' % expenditure_id)

@@ -113,7 +113,7 @@ class ExpenditureGroup(models.Model):
         
         estimates = {}
         
-        for expenditure in self.group.all():
+        for expenditure in self.group.filter(source=Expenditure.SOURCE_JCT):
             for estimate in expenditure.estimate_set.all():
                 estimates[estimate.estimate_year] = estimate
         
@@ -125,6 +125,20 @@ class ExpenditureGroup(models.Model):
                 cube.add({'year':estimate.estimate_year, 'source':expenditure.source, 'recipient':'corporation'}, estimate.corporations_amount)
             if  estimate.individuals_amount != None:
                 cube.add({'year':estimate.estimate_year, 'source':expenditure.source, 'recipient':'individual'}, estimate.individuals_amount)
+        
+        for expenditure in self.group.filter(source=Expenditure.SOURCE_TREASURY):
+            for estimate in expenditure.estimate_set.all():
+                estimates[estimate.estimate_year] = estimate
+        
+        for year in estimates:
+            
+            estimate = estimates[year]
+            
+            if estimate.corporations_amount != None:
+                cube.add({'year':estimate.estimate_year, 'source':expenditure.source, 'recipient':'corporation'}, estimate.corporations_amount)
+            if  estimate.individuals_amount != None:
+                cube.add({'year':estimate.estimate_year, 'source':expenditure.source, 'recipient':'individual'}, estimate.individuals_amount)
+            
             
         return cube
     

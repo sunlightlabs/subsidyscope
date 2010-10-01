@@ -16,7 +16,38 @@
         
         	<h5 style="margin-top:20px;">Summary of {{ category.name }} Tax Expenditures for Individuals and Corporations ($ millions)</h5> 
         
+        
+        	{% if subcategories %}
         	<div id="subsidy-charts"> 
+				<table>
+				
+				<tbody>
+				
+					<tr class="header-row"> 
+					  <td>Category and Estimate Source</td> 
+					  <td style="text-align: right;">2008</td> 
+					  <td style="text-align: right;">2009</td> 
+					  <td style="text-align: right;">2010</td> 
+					  <td style="text-align: right;">2011</td> 
+					  <td style="text-align: right;">2012</td> 
+					  <td style="text-align: right;">2013</td> 
+					  <td style="text-align: right;">2014</td>
+					  <td style="text-align: right;">2015</td>  
+					</tr> 
+				
+				
+					{%  for subcategory in subcategories %}
+					
+						{% te_category_summary subcategory %}
+					
+					{% endfor %}
+					
+					</tbody>
+				</table>
+			</div>
+			{% endif %}
+					
+			<div id="subsidy-charts"> 
 				<table>
 				
 				<tbody>
