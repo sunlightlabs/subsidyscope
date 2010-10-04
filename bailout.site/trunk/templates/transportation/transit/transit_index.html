@@ -154,7 +154,7 @@ table.legend td { padding: 0px 15px; text-align: center; }
                     </div>
                 </div> 
             </fieldset>
-            <input type="hidden" name="page" id="page_value" value="" />
+            <input type="hidden" name="page" id="page_value" value="1" />
             <input type="hidden" name="sort" id="sort_field" value="{%if form.sort%}{{form.sort}}{% endif %}" />
             <input type="hidden" name="order" id="sort_order" value="{%if form.order%}{{form.order}}{% endif %}" />
             {% if form %} 
@@ -163,31 +163,36 @@ table.legend td { padding: 0px 15px; text-align: center; }
             <input type="submit" class="faads-search-submit" value="Search" />
             
             </form>
-            {% if results  %}
             	<div id="results" style="clear:both;">
                 {% if paginator %}
                     <div class="pagination first">
                         <span class="step-links">
-                    {% if paginator.has_previous %}
-                        <a href="#" id="first_page">&laquo;&nbsp;first</a>
-                        <a href="#" id="prev_page">&lsaquo;&nbsp;previous</a>
-                    {% else %}
+                        {% if paginator.has_previous %}
+                        <a href="#" id="first_page_bottom">&laquo;&nbsp;first</a>
+                        <a href="#" id="prev_page_bottom">&lsaquo;&nbsp;previous</a>
+                        {% else %}
                         <span class="disabled">&laquo;&nbsp;first</span>
                         <span class="disabled">&lsaquo;&nbsp;previous</span>
-                    {% endif %}
-                    <span class="current">
-                       &nbsp;Page {{paginator.number}} of {{paginator.paginator.num_pages}} &nbsp;
-                    </span>
-                    {% if paginator.has_next %}
-                        <a href="#" id="next_page">next&nbsp;&rsaquo;</a>
-                        <a href="#" id="last_page">last&nbsp;&raquo;</a>
-                    {% else %}
+                        {% endif %}
+                        <span class="current">
+                            &nbsp;Page {{paginator.number}} of {{paginator.paginator.num_pages}} &nbsp;
+                        </span>
+                        {% if paginator.has_next %}
+                        <a href="#" id="next_page_bottom">next&nbsp;&rsaquo;</a>
+                        <a href="#" id="last_page_bottom">last&nbsp;&raquo;</a>
+                        {% else %}
                         <span class="disabled">next&nbsp;&rsaquo;</span>
                         <span class="disabled">last&nbsp;&raquo;</span>
-                    {% endif %}
+                        {% endif %}
+                        </span>
+            	    </div>
+            {% else %}
+                {% if has_searched %}
+                    <span class="no-results">
+                    No Results Found
                     </span>
-                </div>
                 {% endif %}
+            {% endif %}
                 <table class="results" id="transit-search-results">
                 <tr>
                     <th {% if form.sort == "name" and form.order == "asc" %}class="headerAsc"{% endif %}{% if form.sort == "name" and form.order == "desc"%} class="headerDesc" {% endif %} id="name">Name</th>
@@ -249,7 +254,6 @@ table.legend td { padding: 0px 15px; text-align: center; }
                         </span>
                     </div>
                 
-                {% endif %}
             	</div>
             {% else %}
                 {% if has_searched %}
@@ -274,13 +278,13 @@ table.legend td { padding: 0px 15px; text-align: center; }
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
-    $("#id_text_query").bind('focus', function(){
+/*    $("#id_text_query").bind('focus', function(){
         $(this).toggleClass("active-field");
         if( $(this).val().trim() == "new york city transit" ){
             this.value = "";
         }
     });
-
+*/
     $("#mode-select-all").click(function(){
        $("#mode-select input").attr("checked", "checked");
        return false;
@@ -291,7 +295,7 @@ $(document).ready(function(){
     });
     $("#prev_page, #prev_page_bottom").click(function(e){
         e.preventDefault();
-        $("#faads-search-form").find("#page_value").val("{{paginator.previous_page_number}}").end().submit();
+        $("#faads-search-form").find("#page_value").val("{{results.previous_page_number}}").end().submit();
     });
     $("#first_page, #first_page_bottom").click(function(e){
         e.preventDefault();
@@ -299,11 +303,11 @@ $(document).ready(function(){
     });
     $("#last_page, #last_page_bottom").click(function(e){
         e.preventDefault();
-        $("#faads-search-form").find("#page_value").val({{paginator.paginator.num_pages}}).end().submit();
+        $("#faads-search-form").find("#page_value").val({{paginator.num_pages}}).end().submit();
     });
     $("#next_page, #next_page_bottom").click(function(e){
         e.preventDefault();
-        $("#faads-search-form").find("#page_value").val("{{paginator.next_page_number}}").end().submit();
+        $("#faads-search-form").find("#page_value").val("{{results.next_page_number}}").end().submit();
     });
     $('span.summary-csv').click(function(e) {
         $('#faads-search-form').attr('action', '{% url transit-csv-download %}').submit().attr('action', '');
