@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response 
 from django.http import HttpResponseRedirect
+from django.template import RequestContext
 from tax_expenditures.models import Category, ExpenditureGroup, Expenditure
 
 
@@ -7,7 +8,7 @@ def main(request, category_id=None, year=None, source=None):
     
     categories = Category.objects.filter(parent=None)
     
-    return render_to_response('tax_expenditures/main.html', {'categories':categories})
+    return render_to_response('tax_expenditures/main.html', {'categories':categories}, context_instance=RequestContext(request))
 
 
 def category(request, category_id, year=None, source=None):
