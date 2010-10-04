@@ -22,7 +22,7 @@
 #matrix table.no-matrix {font-size:1.5em; font-style: italic; color:#6D6767; text-align:center;}
 #matrix table.no-matrix td {text-align:center; }
 .container h4 {font-size:1.1em; margin-top:0; margin-bottom:5px;}
-.footnote {font-style:italic; font-size:.9em; text-align:right; display:block; }
+.footnote {font-style:italic; font-size:.9em; text-align:right; display:block;margin-top:15px; }
 .funding-type {float:left; position:relative; left: 3px; top 3px; margin: 25px 3px 3px 3px; }
 .shadow2, .shadow3, .plain {position:relative; left: -1px; top: -1px; -moz-border-radius:10px;}
 .shadow1 {background: #F1F0F1; -moz-border-radius: 10px; }
@@ -33,14 +33,14 @@
 
 </style>
 <div class="container main_container">
-    {% include "includes/transportation_nav.html" %}
+{% include "includes/transportation_nav.html" %}
+
     <span class="span-24">
         <div id="header_area"><h3>{{system.name}}</h3></div>
         <div class="content_area">
             <h5>Funding Sources Over Time</h5>
             <div class="line-chart-container">
                 <div id="fundingChart"></div>
-                <span class="footnote">*Fare data was not collected by the National Transit Database prior to 2002</span>
             </div>
             <div class="funding-type" id="fake-drop-shadow"><div class="shadow1"><div class="shadow2"><div class="shadow3"><div class="plain">    
                 <h5 class="long-header">Funding Sources by Type</h5>
@@ -57,11 +57,11 @@
                     </label>
                 </form>
                 <div class="pie-container">
-                    <h4>Operating Expenses - 2008</h4>
+                    <h4>Operating Funding - 2008</h4>
                     <div id="sourcesChart_operating"></div>
                 </div>
                 <div class="map-container">
-                    <h4>Capital Expenses - 2008</h4>
+                    <h4>Capital Funding - 2008</h4>
                     <div id="sourcesChart_capital"></div>
                 </div>
                 <!--<div class="map-container">
@@ -69,6 +69,7 @@
                     <div id="map"></div>
                 </div>-->
                 <div class="matrix">
+                    <span  class="footnote">Funding data may contain reconciliation amounts not displayed in the above pie charts.</span>
                     <h4>Funding Source Comparison - 2008</h4>
                     <span id="matrix">
                     <table>

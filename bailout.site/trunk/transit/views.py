@@ -183,21 +183,6 @@ def transitSystem(request, trs_id):
         for x in mode_operations: x['mode'] = mode_hash[x['mode']] 
 
         #Fare data for bar chart
-        fares_data = {}
-        fares_data['elements'], fares_data['bg_colour'], fares_data['x_axis'] = [{'type':'bar', "values":[]}], '#FFFFFF', {"labels":{"labels": []}}
-        fare_max = 0
-           
-        for f in system_mode:
-            fares_data['x_axis']['labels']['labels'].append(mode_hash[f.mode])
-            if f.avg_fares:  fares_data['elements'][0]["values"].append(int( f.avg_fares)) 
-
-        try:
-            maximum = chartMax(max(fares_data['elements'][0]['values']))
-
-        except ValueError:
-            maximum = 0
-        
-        fares_data["y_axis"] = {"max": int(maximum), "min": 0}
 
         mode_data = buildModePieChart(transit_system)
         
@@ -225,7 +210,6 @@ def transitSystem(request, trs_id):
                                   'year_list': year_list, 
                                   'matrix_data': funding_percent, 
                                   'mode_operations': mode_operations, 
-                                  'fares_data': dumps(fares_data), 
                                   'fund_line_data': dumps(fund_json), 
                                   'fund_pie_data_capital': dumps(fund_source_capital_json), 
                                   'fund_pie_data_operating': dumps(fund_source_operating_json), 
@@ -283,21 +267,15 @@ def buildMatrix(trs_id, year=None):
     fund_types = ('federal', 'state', 'local', 'other')
     same_uza = FundingStats.objects.filter(transit_system__in = TransitSystem.objects.filter(urbanized_area=transit_system.urbanized_area))
 #    same_state = FundingStats.objects.filter(transit_system__in = TransitSystem.objects.filter(state=transit_system.state))
-    operations = OperationStats.objects.all()
-    op_system = operations.filter(transit_system=transit_system)
-    op_uza = operations.filter(transit_system__in = TransitSystem.objects.filter(urbanized_area=transit_system.urbanized_area))
 
-    all = FundingStats.objects.all()
+    all_fund = FundingStats.objects.all()
 
     if year and year != "all":
         funding = funding.filter(year=year)
         same_uza = same_uza.filter(year=year)
-        all = all.filter(year=year)
-        operations = operations.filter(year=year)
-        op_system = op_system.filter(year=year)
-        op_uza = op_uza.filter(year=year)
+        all_fund = all_fund.filter(year=year)
     
-    fund_subsets = (funding, same_uza, all)
+    fund_subsets = (funding, same_uza, all_fund)
 
     for f in fund_types:
         temp_list = [f]
@@ -308,7 +286,7 @@ def buildMatrix(trs_id, year=None):
         funding_percent.append(temp_list)
     
     #if year==None or (year > 2001):
-    funding_percent.append(["fares", int(op_system.aggregate(Sum('fares'))['fares__sum']) or 'n/a', op_uza.aggregate(Sum('fares'))['fares__sum'] or 'n/a', operations.aggregate(Sum('fares'))['fares__sum'] or 'n/a'])
+    funding_percent.append(["fares", int(funding.aggregate(Sum('operating_fares'))['operating_fares__sum']) or 'n/a', same_uza.aggregate(Sum('operating_fares'))['operating_fares__sum'] or 'n/a', all_fund.aggregate(Sum('operating_fares'))['operating_fares__sum'] or 'n/a'])
     
 
     return funding_percent    
@@ -360,7 +338,7 @@ def buildSourcesPieChart(fundingObj, category=None):
     for f in fundingObj:
         
         for key in data.keys():
-            if key == 'Fares' and category != 'capital': data[key].append(float(OperationStats.objects.filter(transit_system=f.transit_system, year=f.year).aggregate(Sum('fares'))['fares__sum']))
+            if key == 'Fares' and category != 'capital': data[key].append(int(f.operating_fares))
             else: data[key].append(f.total_funding_by_type(key.lower(), category))
 
     #set up initial chart elements
@@ -393,8 +371,7 @@ def buildFundingLineChart(funding):
             if key == 'Total': data[key].append(int(f.total_funding()))
             
             elif key == 'Fares': 
-                data['Fares'].append(int(OperationStats.objects.filter(transit_system=f.transit_system,year=f.year).aggregate(Sum('fares'))['fares__sum']) or 'null')
-
+                data['Fares'].append(int(f.operating_fares) or 'null')
             else:
                 data[key].append( int(f.total_funding_by_type(key.lower()) ))
 
