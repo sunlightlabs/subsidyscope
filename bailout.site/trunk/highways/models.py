@@ -149,10 +149,8 @@ class StateFundingManager(models.Manager):
             
             
             funding[year]['state_bonds'] += record.sf1_bonds_original_for_highways if record.sf1_bonds_original_for_highways else 0
-            funding[year]['state_bonds'] += record.sf1_bonds_refunding_for_highways if record.sf1_bonds_refunding_for_highways else 0
                         
             funding[year]['local_bonds'] += record.lgf1_bonds_original_for_highways if record.lgf1_bonds_original_for_highways else 0
-            funding[year]['local_bonds'] += record.lgf1_bonds_refunding_for_highways if record.lgf1_bonds_refunding_for_highways else 0
             
                         
                         
