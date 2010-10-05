@@ -50,13 +50,15 @@ def index(request):
                                         'paginator': systems, 
                                         'num_pages':paginator.num_pages, 
                                         'form':data, 
-                                        'metrics': metrics_selected})   
+                                        'metrics': metrics_selected,
+                                        'has_searched': True })   
 
     return render_to_response('transportation/transit/transit_index.html', 
                              {'states': states, 
                               'uza': uza, 
                               'modes': mode_constants, 
-                              'has_searched': False})
+                              'has_searched': False,
+                              })
 
 def get_system_ridership_csv(request, trs_id):
     system = TransitSystem.objects.get(trs_id=trs_id)

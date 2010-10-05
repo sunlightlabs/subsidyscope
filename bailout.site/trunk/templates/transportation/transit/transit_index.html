@@ -64,7 +64,6 @@ table.legend td { padding: 0px 15px; text-align: center; }
             <!--    <fieldset id="text-query-wrapper">
                 <legend>Search by Transit System Name</legend>
                 <div id="text-query-text-wrapper"> 
-                <input id="id_text_query" value="{{form.system_name}}" name="system_name" type="text" class="name-search" {% if context.0 != "" %}value="{{context.0}}" {% endif %} />
                 </div>
             </fieldset>-->
             <fieldset id="advanced-options" {% if form %} class="collapsed" {% endif %}>
@@ -80,7 +79,7 @@ table.legend td { padding: 0px 15px; text-align: center; }
                         <select id="state-select" name="state_select">
                                 <option value=""></option>
                             {% for state in states %}
-                                <option value="{{state.abbreviation}}" {% if form.state_select == state.abbreviation%} selected {% endif %}>{{state.name}}</option>    
+                                <option value="{{state.abbreviation}}" {% if form and form.state_select == state.abbreviation%} selected {% endif %}>{{state.name}}</option>    
                             {% endfor %} 
                         </select>
                         <span style="padding-left: 60px;padding-right:60px;font-weight:bold;">&mdash; or &mdash;</span>
@@ -88,7 +87,7 @@ table.legend td { padding: 0px 15px; text-align: center; }
                         <select id="uza-select" name="uza_select">
                                 <option value=""></option>
                             {% for u in uza %}
-                                <option value="{{u.id}}" {% if form.uza_select == u.id|stringformat:"s" %} selected {% endif %}>{{u.name}}</option>
+                                <option value="{{u.id}}" {% if form and form.uza_select == u.id|stringformat:"s" %} selected {% endif %}>{{u.name}}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -114,11 +113,11 @@ table.legend td { padding: 0px 15px; text-align: center; }
                     <h4>Population Served</h4>
                     <div id="program-selector" style="padding-top:10px;">
                         <ul>
-                            <li><label for="50_100"><input id="50_100" type="radio" name="size_select" value="50_100" {% if form.size_select == '50_100' %} checked {% endif %} />50,000 - 100,000</label></li>
-                            <li><label for="100_1mil"><input id="100_1mil" type="radio" name="size_select" value="100_1mil" {% if form.size_select == "100_1mil"%} checked {% endif %}/>100,000 - 1 million</label></li>
-                            <li><label for="1_10mil"><input id="1_10mil" type="radio" name="size_select" value="1_10mil" {% if form.size_select == "1_10mil" %} checked {% endif %} />1 million - 10 million</label></li>
-                            <li><label for="10_20mil"><input id="10_20mill" type="radio" name="size_select" value="10_20mil" {% if form.size_select == "10_20mil" %} checked {% endif %} />10 million - 20 million</label></li>
-                            <li><label for="all"><input id="all" type="radio" name="size_select" value="all" {% if form.size_select == "all" or not form  %} checked  {% endif %}/>All</label></li>
+                            <li><label for="50_100"><input id="50_100" type="radio" name="size_select" value="50_100" {% if form and form.size_select == '50_100' %} checked {% endif %} />50,000 - 100,000</label></li>
+                            <li><label for="100_1mil"><input id="100_1mil" type="radio" name="size_select" value="100_1mil" {% if form and form.size_select == "100_1mil"%} checked {% endif %}/>100,000 - 1 million</label></li>
+                            <li><label for="1_10mil"><input id="1_10mil" type="radio" name="size_select" value="1_10mil" {% if form and form.size_select == "1_10mil" %} checked {% endif %} />1 million - 10 million</label></li>
+                            <li><label for="10_20mil"><input id="10_20mill" type="radio" name="size_select" value="10_20mil" {% if form and form.size_select == "10_20mil" %} checked {% endif %} />10 million - 20 million</label></li>
+                            <li><label for="all"><input id="all" type="radio" name="size_select" value="all" {% if form and form.size_select == "all" or not form  %} checked  {% endif %}/>All</label></li>
                         </ul>
                     </div>
                     <div class="clear-left"></div>
@@ -155,13 +154,14 @@ table.legend td { padding: 0px 15px; text-align: center; }
                 </div> 
             </fieldset>
             <input type="hidden" name="page" id="page_value" value="1" />
-            <input type="hidden" name="sort" id="sort_field" value="{%if form.sort%}{{form.sort}}{% endif %}" />
-            <input type="hidden" name="order" id="sort_order" value="{%if form.order%}{{form.order}}{% endif %}" />
+            <input type="hidden" name="sort" id="sort_field" value="{%if form and form.sort%}{{form.sort}}{% endif %}" />
+            <input type="hidden" name="order" id="sort_order" value="{%if form and form.order%}{{form.order}}{% endif %}" />
             {% if form %} 
                 <input id="reset-search" class="faads-search-submit" style="margin-top:25px; float:left;" type="button" value="Reset Search" />
             {% endif %}
             <input type="submit" class="faads-search-submit" value="Search" />
             
+            {% if results %}
             </form>
             	<div id="results" style="clear:both;">
                 {% if paginator %}
@@ -262,6 +262,7 @@ table.legend td { padding: 0px 15px; text-align: center; }
                     </span>
                 {% endif %}
             {% endif %}
+        {% endif %}
             <table class="legend">
                 <tr><td colspan="2"><strong>Key</strong></td></tr>
 		<tr><td>PMT</td><td>Passenger Miles Travelled</td></tr>
