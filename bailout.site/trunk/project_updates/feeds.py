@@ -3,9 +3,9 @@ from project_updates.models import ProjectUpdate
 import datetime
 
 class ProjectUpdatesFeed(Feed):
-    title = "Subsidyscope.com Updates"
+    title = "Subsidyscope.org Updates"
     link = "/updates/"
-    description = "Updates on changes and additions to subsidyscope.com."
+    description = "Updates on changes and additions to subsidyscope.org."
    
     def items(self):
         return ProjectUpdate.objects.filter(published=True).order_by('-date')[:10]
