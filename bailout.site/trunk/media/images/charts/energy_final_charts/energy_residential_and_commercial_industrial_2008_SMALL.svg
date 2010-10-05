@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<svg height="120" version="1.1" width="120" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		
+
+.pie-label-left, .pie-label-right { display: none;}
+
+
+
+
+
+.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+	</style>
+	<rect fill="white" height="120" width="120" x="0" y="0"/>
+	<text class="pie-label-right" x="116" y="23">
+		<tspan dy="0" x="116.657824283">
+			16.3% - Petroleum
+		</tspan>
+	</text>
+	<path class="slice-1" d="M 60,60  l 57,0  a57,57 0 0,0 -27.4772100863,-48.7586389854 z"/>
+	<text class="pie-label-right" x="95" y="1">
+		<tspan dy="0" x="95.4615219305">
+			0.7% - Coal
+		</tspan>
+	</text>
+	<path class="slice-2" d="M 60,60  l 29.5227899137,-48.7586389854  a57,57 0 0,0 -2.13584625435,-1.23091309297 z"/>
+	<text class="pie-label-left" x="-1" y="88">
+		<tspan dy="0" x="-1.0378347561">
+			76.3% - Natural Gas
+		</tspan>
+	</text>
+	<path class="slice-3" d="M 60,60  l 27.3869436593,-49.9895520784  a57,57 0 1,0 24.6126245078,73.3357489942 z"/>
+	<text class="pie-label-right" x="118" y="93">
+		<tspan dy="0" x="118.999568167">
+			0% -  
+		</tspan>
+	</text>
+	<path class="slice-4" d="M 60,60  l 51.9995681672,23.3461969157  a57,57 0 0,0 0.0,-0.0 z"/>
+	<text class="pie-label-right" x="122" y="71">
+		<tspan dy="0" x="122.735874379">
+			6.7% - Renewable
+		</tspan>
+	</text>
+	<path class="slice-5" d="M 60,60  l 51.9995681672,23.3461969157  a57,57 0 0,0 5.00043183284,-23.3461969157 z"/>
+</svg>

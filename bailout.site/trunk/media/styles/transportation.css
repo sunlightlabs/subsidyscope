@@ -32,3 +32,53 @@ margin:0;}
 
 img.subsidy-per-household { margin: 20px 20px 0px 25px; }
 #sources-of-error { padding-top:1em; clear: left; font-size: 0.9em; line-height: 1.15em; color: #aaa; padding-left: 15px; padding-right: 8px; text-align: justify;}
+
+#house_images { /* background image block */
+display: block;
+width: 486px;
+height: 158px;
+background: url(/media/images/transportation/transportation_landing_page_houses.png) no-repeat;
+margin-top: 0px;
+}
+#house_images a {
+text-decoration:none;
+}
+a .hide_link {
+visibility:hidden;
+}
+
+#de { /* Direct expenditures Link */
+float: left;
+position:absolute;
+width : 100px;
+height: 100px;
+margin-left: 15px;
+margin-top: 60px;
+}
+
+#te{ /* Tax expenditures Link */
+float: left;
+position:absolute;
+width : 100px;
+height: 100px;
+margin-left: 145px;
+margin-top: 60px;
+}
+
+#rt { /* Rt Link */
+float: left;
+position:absolute;
+width : 100px;
+height: 100px;
+margin-left: 265px;
+margin-top: 60px;
+}
+
+#con { /* Con Link */
+float: left;
+position:absolute;
+width : 100px;
+height: 100px;
+margin-left: 395px;
+margin-top: 60px;
+}

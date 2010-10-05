@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="350"
+   version="1.1"
+   width="500"
+   id="svg2"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="depletion_allowance.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy_final_charts/depletion_allowance.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata89">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs87">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 175 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="500 : 175 : 1"
+       inkscape:persp3d-origin="250 : 116.66667 : 1"
+       id="perspective91" />
+    <inkscape:perspective
+       id="perspective2917"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2905"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="1003"
+     id="namedview85"
+     showgrid="false"
+     inkscape:zoom="1.5273506"
+     inkscape:cx="344.73218"
+     inkscape:cy="161.40373"
+     inkscape:window-x="1400"
+     inkscape:window-y="26"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <style
+     type="text/css"
+     id="style4">
+		
+
+.x-axis-path, .y-gridline, .x-notch { fill:none; stroke: #a7a9ac; stroke-width:1; }
+
+
+
+.y-gridline { stroke-width: 1; }
+
+.y-axis-path, .y-axis-path2, .x-notch-left, .x-notch-right { display: none;}
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:normal; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+.y-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-anchor:end;}
+
+
+
+.series-1-line { fill: none; stroke: #bf5004; stroke-width:2; }
+
+
+
+.series-2-line { fill: none; stroke: #336699; stroke-width: 2;}
+
+	</style>
+  <rect
+     height="340.00281"
+     width="511"
+     x="-11"
+     y="9.9971962"
+     id="rect6"
+     style="fill:#ffffff" />
+  <g
+     id="x_axis"
+     class="x-axis"
+     transform="translate(40,40)">
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path10"
+       d="m 0,255 420,0"
+       class="x-axis-path" />
+    <path
+       style="display:none"
+       id="path12"
+       d="M 0,255"
+       class="x-notch-left" />
+    <path
+       style="display:none"
+       id="path14"
+       d="M 420,255"
+       class="x-notch-right" />
+  </g>
+  <g
+     id="y_axis"
+     class="y-axis"
+     transform="translate(40,40)">
+    <path
+       style="display:none"
+       id="path17"
+       d="M 0,255 0,0"
+       class="y-axis-path" />
+    <path
+       id="path19"
+       d="M 420,255 420,0"
+       class="y-axis-path-2" />
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path21"
+       d="M 0,0 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text23"
+       y="0"
+       x="-5"
+       class="y-axis-label">$1,452</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path25"
+       d="m 0,42 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text27"
+       y="42"
+       x="-5"
+       class="y-axis-label">$1,210</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path29"
+       d="m 0,84 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text31"
+       y="84"
+       x="-5"
+       class="y-axis-label">$968</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path33"
+       d="m 0,126 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text35"
+       y="126"
+       x="-5"
+       class="y-axis-label">$726</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path37"
+       d="m 0,168 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text39"
+       y="168"
+       x="-5"
+       class="y-axis-label">$484</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path41"
+       d="m 0,210 420,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text43"
+       y="210"
+       x="-5"
+       class="y-axis-label">$242</text>
+  </g>
+  <g
+     id="g45"
+     transform="translate(40,40)">
+    <path
+       style="fill:none;stroke:#bf5004;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+       d="M 301 235.28926 L 301 235.28926 L 322 187.8719 L 342 177.33471 L 363 129.91735 L 383 96.549587 L 404 91.280992 L 425 86.012397 "
+       id="path2915"
+       transform="translate(-40,-40)" />
+  </g>
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text49"
+     y="312"
+     x="95"
+     class="x-axis-label">1999</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path51"
+     d="m 95.588235,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text53"
+     y="312"
+     x="136.17647"
+     class="x-axis-label">2001</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path55"
+     d="m 136.76471,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text57"
+     y="312"
+     x="177.35294"
+     class="x-axis-label">2003</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path59"
+     d="m 177.94118,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text61"
+     y="312"
+     x="218.52942"
+     class="x-axis-label">2005</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path63"
+     d="m 219.11765,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text65"
+     y="312"
+     x="259.70587"
+     class="x-axis-label">2007</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path67"
+     d="m 260.29412,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text69"
+     y="312"
+     x="300.88235"
+     class="x-axis-label">2009</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path71"
+     d="M 301.00763,39.907407 301.47059,300"
+     class="x-notch"
+     sodipodi:nodetypes="cc" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text73"
+     y="312"
+     x="342.05884"
+     class="x-axis-label">2011</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path75"
+     d="m 342.64706,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text77"
+     y="312"
+     x="383.23529"
+     class="x-axis-label">2013</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path79"
+     d="m 383.82353,295 0,5"
+     class="x-notch" />
+  <text
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text81"
+     y="312"
+     x="424.41177"
+     class="x-axis-label">2015</text>
+  <path
+     style="fill:none;stroke:#a7a9ac;stroke-width:1"
+     id="path83"
+     d="m 425,295 0,5"
+     class="x-notch" />
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+     x="240"
+     y="-20.5"
+     id="text2897"><tspan
+       sodipodi:role="line"
+       x="240"
+       y="19.5"
+       id="tspan2911" /></text>
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:bold;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:Bitstream Charter Bold"
+     x="342"
+     y="3"
+     id="text2903"><tspan
+       sodipodi:role="line"
+       id="tspan2907" /></text>
+  <text
+     class="x-axis-label"
+     x="239.99896"
+     y="333.52231"
+     id="text57-6"
+     style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     inkscape:export-xdpi="90"
+     inkscape:export-ydpi="90">Fiscal Year</text>
+  <path
+     style="fill:none;stroke:#bf5004;stroke-width:2"
+     d="M 75.106297 250.81169 L 95.106297 248.17739 L 116.1063 235.00591 L 136.1063 250.81169 L 157.1063 187.58855 L 177.1063 182.31996 L 198.1063 62.898475 L 219.1063 191.10095 L 239.1063 161.24558 L 260.1063 155.97698 L 280.1063 133.14641 L 301.1063 235.00591 L 301.20268 234.78828 "
+     id="path47-5" />
+</svg>

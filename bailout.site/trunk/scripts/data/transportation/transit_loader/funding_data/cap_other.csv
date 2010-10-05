@@ -1,0 +1,780 @@
+Last_Report_Year,TRS_ID,System_Name,City,State,UZA_Name,UZA,UZA_Area_SQ_Miles,UZA_Population,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008
+2008,0001,King County Department of Transportation - Metro Transit Division,Seattle,WA,"Seattle, WA",14,954,"2,712,205",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$37,066,434",$0,$0,"$12,975,731","$10,230,196"
+2008,0002,Spokane Transit Authority,Spokane,WA,"Spokane, WA-ID",93,143,"334,858",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,293,101","$1,743,329","$2,965,903",$0,$0
+2008,0003,Pierce County Transportation Benefit Area Authority,Tacoma,WA,"Seattle, WA",14,954,"2,712,205",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$758,500",$0,$0,$0,$0
+2008,0005,Everett Transit,Everett,WA,"Seattle, WA",14,954,"2,712,205",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$604,254",$0,$0,$0,$0,$0,$0
+2008,0006,Yakima Transit,Yakima,WA,"Yakima, WA",235,50,"112,816",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$71,579","$37,984",$0,"$45,103","$26,546",$0,"$54,568"
+2008,0007,Lane Transit District,Eugene,OR,"Eugene, OR",136,68,"224,049",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,150",$0,$0,$0
+2008,0008,Tri-County Metropolitan Transportation District of Oregon,Portland,OR,"Portland, OR-WA",23,474,"1,583,138",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,0011,Valley Regional Transit,Meridian,ID,"Boise City, ID",116,109,"272,625",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$17,678",$0,$0,$0,$0,$0,$0
+2008,0012,Municipality of Anchorage - Public Transportation Department,Anchorage,AK,"Anchorage, AK",135,79,"225,744",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1992,0015,Snohomish County Transportation Authority,Lynnwood,WA,"Seattle, WA",18,588,"1,744,086",$0,,,,,,,,,,,,,,,,,
+2008,0016,Community Urban Bus Service,Longview,WA,"Longview, WA-OR",378,27,"60,443",$0,$0,$0,$0,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$21,300","$19,188",$0
+2008,0018,Ben Franklin Transit,Richland,WA,"Kennewick-Richland, WA",188,85,"153,851",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$52,704",$0,,$0,$0,$0,$0
+2008,0019,Intercity Transit,Olympia,WA,"Olympia-Lacey, WA",195,92,"143,826",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,0020,Kitsap Transit,Bremerton,WA,"Bremerton, WA",169,118,"178,369",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$32,968",$0,$0,$0,$0,$0,$0
+2008,0021,Whatcom Transportation Authority,Bellingham,WA,"Bellingham, WA",301,35,"84,324",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$108,181","$1,453,826",$0,$0,$0,$0,$0
+2008,0022,City of Pocatello - Pocatello Regional Transit,Pocatello,ID,"Pocatello, ID",370,30,"62,498",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,0023,City of Seattle - Seattle Center Monorail Transit,Seattle,WA,"Seattle, WA",14,954,"2,712,205",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$123,104",$0,$0,$0,$0,$0,$0
+2008,0024,Clark County Public Transportation Benefit Area Authority,Vancouver,WA,"Portland, OR-WA",23,474,"1,583,138",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,0025,Salem Area Mass Transit District,Salem,OR,"Salem, OR",145,69,"207,229",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$39,920",$0
+2008,0028,Pierce County Ferry Operations,University Place,WA,"Seattle, WA",14,954,"2,712,205",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$21,523",$0,$0,$0,"$80,599",$0,$0
+2008,0029,Snohomish County Public Transportation Benefit Area Corporation,Everett,WA,"Seattle, WA",14,954,"2,712,205",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$574,206","$489,961","$652,977","$2,821,155","$8,508,728","$2,494,704"
+2006,0033,Senior Services of Snohomish County,Mukilteo,WA,"Seattle, WA",14,954,"2,712,205",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$90,752",,
+2008,0034,Rogue Valley Transportation District,Medford,OR,"Medford, OR",210,59,"128,780",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,0035,Washington State Ferries,Seattle,WA,"Seattle, WA",14,954,"2,712,205",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$54,916"
+1991,0036,"ATE Management & Service Company, Inc.",Mukilteo,WA,"Seattle, WA",18,588,"1,744,086",,,,,,,,,,,,,,,,,,
+1998,0038,Community and Rural Transportation ,Idaho Falls,ID,"Idaho Falls, ID",362,21,"56,356",,,$0,$0,$0,$0,$0,$0,,,,,,,,,,
+2008,0040,Central Puget Sound Regional Transit Authority,Seattle,WA,"Seattle, WA",14,954,"2,712,205",,,,,,,,,$0,$0,$0,$0,$0,$0,"$26,683,049","$37,338,363","$25,071,096","$64,707"
+2008,0041,Alaska Railroad Corporation,Anchorage,AK,"Anchorage, AK",135,79,"225,744",,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,"$582,005"
+2008,0042,Targhee Regional Public Transit Authority,Idaho Falls,ID,"Idaho Falls, ID",351,31,"66,973",,,,,,,,,,$0,$0,$0,,,,$0,,
+2008,0043,Link Transit,Wenatchee,WA,"Wenatchee, WA",411,27,"55,425",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2008,0044,Skagit Transit,Burlington,WA,"Mount Vernon, WA",440,32,"51,174",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2008,0045,Fairbanks North Star Borough Transit,Fairbanks,AK,"Fairbanks, AK",434,43,"51,926",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2008,0046,South Metro Area Regional Transit,Wilsonville,OR,"Portland, OR-WA",23,474,"1,583,138",,,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0
+2008,0049,"VPSI, Anchorage",Anchorage,AK,"Anchorage, AK",135,79,"225,744",,,,,,,,,,,,,,,,$0,$0,$0
+2008,0050,"City of Bend, Public Works Department",Bend,OR,"Bend, OR",401,36,"57,525",,,,,,,,,,,,,,,,,"$14,525",$0
+2008,1001,Rhode Island Public Transit Authority,Providence,RI,"Providence, RI-MA",34,504,"1,174,548",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1002,Manchester Transit Authority,Manchester,NH,"Manchester, NH",196,71,"143,549",$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,"$7,566","$19,752","-$2,727","$177,255","$5,188","$10,434","$4,031"
+2008,1003,Massachusetts Bay Transportation Authority,Boston,MA,"Boston, MA-NH-RI",7,"1,736","4,032,484",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$4,694,054","$2,627,070","$2,839,882","$9,461,205","$4,248,299"
+2008,1004, Brockton Area Transit Authority,Brockton,MA,"Boston, MA-NH-RI",7,"1,736","4,032,484",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1005,Lowell Regional Transit Authority,Lowell,MA,"Boston, MA-NH-RI",7,"1,736","4,032,484",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1006,Southeastern Regional Transit Authority,New Bedford,MA,"New Bedford, MA",193,63,"146,730",$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1007,Berkshire Regional Transit Authority,Pittsfield,MA,"Pittsfield, MA",430,34,"52,772",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,$0,$0,"$31,303",$0,$0,$0,$0
+2008,1008,Pioneer Valley Transit Authority,Springfield,MA,"Springfield, MA-CT",59,309,"573,610",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1013,Merrimack Valley Regional Transit Authority,Haverhill,MA,"Boston, MA-NH-RI",7,"1,736","4,032,484",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1014,Worcester Regional Transit Authority,Worcester,MA,"Worcester, MA-CT",74,250,"429,882",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$2,466",$0,$0,$0,$0,$0
+2008,1015,Lewiston-Auburn Transit Committee,Auburn,ME,"Lewiston, ME",447,21,"50,567",$0,$0,,,,$0,,,,,,,,,,,,$0
+2008,1016,Greater Portland Transit District,Portland,ME,"Portland, ME",160,124,"188,080",$0,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$23,000",$0,$0
+2008,1017,Greater Hartford Transit District,Hartford,CT,"Hartford, CT",45,469,"851,535",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1040,Southeast Area Transit,Preston,CT,"Norwich-New London, CT",174,123,"173,160",,$0,,,,,,,$0,,$0,$0,$0,$0,$0,$0,$0,$0
+1997,1041,Westport Transit District C/O Norwalk Transit District,Norwalk,CT,"Norwalk, CT",209,49,"108,888",,$0,$0,$0,,,,,,,,,,,,,,
+2008,1042,Valley Transit District,Derby,CT,"Bridgeport-Stamford, CT-NY",41,465,"888,890",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$953,000",,,$0,$0
+2008,1045,"Dattco, Inc.",New Britain,CT,"Hartford, CT",45,469,"851,535",$0,$0,$0,,,,,,,,,,,,,,,
+2008,1047,"New Britain Transportation Company, Inc.",Berlin,CT,"Hartford, CT",45,469,"851,535",,,,$0,,,$0,$0,$0,$0,$0,$0,,$0,,$0,,$0
+2008,1048,Connecticut Transit - Hartford Division,Hartford,CT,"Hartford, CT",45,469,"851,535",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1049,The Greater New Haven Transit District,Hamden,CT,"New Haven, CT",69,285,"531,314",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1050,Greater Bridgeport Transit Authority,Bridgeport,CT,"Bridgeport-Stamford, CT-NY",41,465,"888,890",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1051,Housatonic Area Regional Transit,Danbury,CT,"Danbury, CT-NY",186,124,"154,455",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$34,391",$0,"$27,619","$37,069","$12,287","$19,770"
+2006,1052,"New Britain Transportation Company, Inc.",Berlin,CT,"Hartford, CT",45,469,"851,535",,,,$0,,$0,$0,$0,$0,$0,$0,$0,,$0,,$0,,
+2008,1053,Cape Ann Transportation Authority,Gloucester,MA,"Boston, MA-NH-RI",7,"1,736","4,032,484",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1055,Connecticut Transit - New Haven Division,Hartford,CT,"New Haven, CT",69,285,"531,314",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1056,Connecticut Transit - Stamford Division,Hartford,CT,"Bridgeport-Stamford, CT-NY",41,465,"888,890",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1057,Norwalk Transit District,Norwalk,CT,"Bridgeport-Stamford, CT-NY",41,465,"888,890",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1061,Montachusett Regional Transit Authority,Fitchburg,MA,"Leominster-Fitchburg, MA",234,63,"112,943",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1063,Middletown Transit District,Middletown,CT,"Hartford, CT",45,469,"851,535",$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1064,Greater Attleboro-Taunton Regional Transit Authority,Taunton,MA,"Providence, RI-MA",34,504,"1,174,548",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1066,Chittenden County Transportation Authority,Burlington,VT,"Burlington, VT",251,62,"105,365",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1069,"The Regional Transportation Program, Inc.",Portland,ME,"Portland, ME",160,124,"188,080",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$2,003","$141,467",$0,"$24,109","$6,163","$7,712","$23,805"
+2008,1086,Cooperative Alliance for Seacoast Transportation,Dover,NH,"Dover-Rochester, NH-ME",306,64,"80,456",$0,,$0,$0,$0,$0,$0,,,,,,"$4,661","$22,053","$7,475",$0,$0,$0
+2008,1087,Nashua Transit System,Nashua,NH,"Nashua, NH-MA",153,138,"197,155",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1088,Casco Bay Island Transit District,Portland,ME,"Portland, ME",160,124,"188,080",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$101,739","$20,510"
+2001,1089,Transit Express ,Springfield,MA,"Springfield, MA-CT",57,302,"532,747",,,,,,,$0,$0,$0,$0,$0,,,,,,,
+2008,1095,"Northeast Transportation Company, Inc.",Waterbury,CT,"Waterbury, CT",159,98,"189,026",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1096,City of Bangor - BAT Community Connector,Bangor,ME,"Bangor, ME",385,39,"58,983",$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$4,776"
+1993,1097,"Eastern Transportation Services, Inc.",Bangor,ME,"Bangor, ME",328,71,"61,402",$0,$0,$0,,,,,,,,,,,,,,,
+2007,1098,"Western Maine Transportation Services, Inc.",Auburn,ME,"Lewiston, ME",447,21,"50,567",$0,$0,$0,$0,$0,,,$0,$0,$0,$0,"$66,456","$41,762","$11,555","$107,240","$23,583","$44,215",
+1991,1100,National Railroad Passenger Corporation,Boston,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+1995,1101,Kenneth Hudson Inc. dba Hudson Bus Lines,Lewiston,ME,"Lewiston--Auburn, ME",292,84,"71,598",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+2008,1102,Connecticut Department of Transportation,Newington,CT,"Hartford, CT",45,469,"851,535",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2004,1103,City of Stamford Dial-A-Ride,Stamford,CT,"Bridgeport-Stamford, CT-NY",41,465,"888,890",,$0,$0,$0,,,,,,,,,,,,,,
+2000,1104,Greater Waterbury Transit District ,Waterbury,CT,"Waterbury, CT",144,73,"175,067",$0,$0,,$0,,,$0,$0,$0,$0,,,,,,,,
+2008,1105,Cape Cod Regional Transit Authority,Hyannis,MA,"Barnstable Town, MA",128,286,"243,667",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,1107,Milford Transit District,Milford,CT,"Bridgeport-Stamford, CT-NY",41,465,"888,890",,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$79,609",$0,$0,$0,$0
+2008,1108,Greater Hartford Ridesharing Corporation - The Rideshare Company,Windsor,CT,"Hartford, CT",45,469,"851,535",,,,,,,,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0
+2002,1109,"Comsis Mobility Services, Inc., dba: Intelitran",Providence,RI,"Providence, RI-MA",34,504,"1,174,548",,,,,,,,,,$0,$0,$0,,,,,,
+2008,1110,"2Plus Partners in Transportation, Inc",Rocky Hill,CT,"Bridgeport-Stamford, CT-NY",41,465,"888,890",,,,,,,,,,,,,,,,,$0,$0
+2008,1115,Northern New England Passenger Rail Authority,Portland,ME,"Portland, ME",160,124,"188,080",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,1116,Bonanza,Providence,RI,"Providence, RI-MA",34,504,"1,174,548",,,,,,,,,,,,,,,"$44,910",$0,"$21,122","$102,107"
+2008,1117,Plymouth & Brockton Street Railway Company,Plymouth,MA,"Boston, MA-NH-RI",7,"1,736","4,032,484",,,,,,,,,,,,,,,,,,$0
+2008,1118,MetroWest Regional Transit Authority,Framingham,MA,"Boston, MA-NH-RI",7,"1,736","4,032,484",,,,,,,,,,,,,,,,,,$0
+1991,1902,Brush Hill Transportation Company ,Boston,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+1991,1905,Hudson Bus Lines ,Medford,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+1991,1906,Plymouth & Brockton Street Railway Company,Plymouth,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+1991,1907,"A Yankee Line, Inc. ",Boston,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+1991,1908,American Eagle Motor Coach ,Fairhaven,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+1991,1910,"H & L Bloom, Inc. ",Taunton,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+1991,1913,"Big W Transit, Inc. ",Ashland,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+1991,1917,"Michaud Bus Lines, Inc. ",Salem,MA,"Boston, MA",10,891,"2,775,370",,,,,,,,,,,,,,,,,,
+2008,2002,Capital District Transportation Authority,Albany,NY,"Albany, NY",62,284,"558,947",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2003,Broome County Department of Public Transportation,Vestal,NY,"Binghamton, NY-PA",182,76,"158,884",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2004,Niagara Frontier Transportation Authority,Buffalo,NY,"Buffalo, NY",38,367,"976,703",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$2,074,771","$1,791,269",$0,$0,$0,$0,$0
+2008,2005,Chemung County Transit System,Elmira,NY,"Elmira, NY",350,35,"67,159",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2006,City of Long Beach,Long Beach,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,$0,$0,$0
+2008,2007,"Metropolitan Suburban Bus Authority, dba: MTA Long Island Bus",Garden City,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2008,MTA New York City Transit,New York,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2009,City of Poughkeepsie,Poughkeepsie,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",,$0,$0,$0,,,,,,,,$0,$0,$0,$0,$0,$0,
+2008,2010,Dutchess County Division of Mass Transportation,Poughkeepsie,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2005,2015,City of Rome VIP Transit,Rome,NY,"Utica, NY",233,55,"113,409",$0,,$0,,,,,,,,,,,,,,,
+2008,2018,"CNY Centro, Inc. ",Syracuse,NY,"Syracuse, NY",81,180,"402,267",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2004,2021,Utica Transit Authority,Utica,NY,"Utica, NY",233,55,"113,409",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,
+1993,2038,"Green Bus Lines, Inc. ",Jamaica,NY,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",$0,$0,$0,,,,,,,,,,,,,,,
+1993,2039,"Jamaica Buses, Inc. ",Jamaica,NY,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",$0,$0,,,,,,,,,,,,,,,,
+2005,2040,"New York Bus Tours, Inc., dba: New York Bus Service",Bronx,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,
+1993,2046,Triboro Coach Corporation ,Jackson Heights,NY,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",$0,,$0,,,,,,,,,,,,,,,
+2008,2071,Huntington Area Rapid Transit,Huntington Station,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2072,Suffolk County Department of Public Works - Transportation Division,Yaphank,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1993,2073,"Command Bus Company, Inc. ",Brooklyn,NY,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",$0,$0,$0,,,,,,,,,,,,,,,
+2008,2075,Port Authority Transit Corporation,Lindenwold,NJ,"Philadelphia, PA-NJ-DE-MD",4,"1,800","5,149,079",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2076,Westchester County Bee-Line System,Mount Vernon,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2078,"Metro-North Commuter Railroad Company, dba: MTA Metro-North Railroad",New York,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2004,2079,"Liberty Lines Transit, Inc.",Yonkers,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,
+2008,2080,New Jersey Transit Corporation,Newark,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2082,New York City Department of Transportation,New York,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$2,114,372","$941,273",$0,$0,$0,"$855,357"
+2008,2084,Transport of Rockland,Pomona,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2085,Clarkstown Mini-Trans,Nanuet,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2086,Transportation Resources Intra-County for Physically Handicapped and Senior Citizens,Pomona,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2089,Village of Spring Valley Bus,Spring Valley,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,,,,$0,,,,,,$0,$0,,$0,$0,$0,$0,$0
+2008,2096,Putnam County Transit,Carmel,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2098,Port Authority Trans-Hudson Corporation,Jersey City,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2099,"Staten Island Rapid Transit Operating Authority, dba: MTA Staten Island Railway",Staten Island,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2100,MTA Long Island Rail Road,Jamaica,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2113,"Regional Transit Service, Inc. and Lift Line, Inc.",Rochester,NY,"Rochester, NY",53,295,"694,396",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2116,"Centro of Cayuga, Inc.",Syracuse,NY,"Syracuse, NY",81,180,"402,267",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2004,2117,"Liberty Lines Express, Inc.",Yonkers,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,
+1992,2118,Onondaga County ,Syracuse,NY,"Syracuse, NY",74,134,"388,918",$0,,,,,,,,,,,,,,,,,
+2008,2119,County of Oneida,Utica,NY,"Utica, NY",233,55,"113,409",$0,,,,,,,,,,,,,,,,,
+2008,2120,Greater Glens Falls Transit System,Queensbury,NY,"Glens Falls, NY",400,35,"57,627",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2122,"Academy Lines, Inc.",Hoboken,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2126,"Hudson Transit Lines, Inc.",Mahwah,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2128,Suburban Transit Corporation,New Brunswick,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1993,2129,"Rockland Coaches, Inc. ",Newark,NJ,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",,$0,$0,,,,,,,,,,,,,,,
+2008,2132,New Jersey Transit Corporation-45,Newark,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2135,Monsey New Square Trails Corporation,Spring Valley,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2005,2136,Queens Surface Corporation,Flushing,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,
+2008,2137,Monroe Bus Corporation,Brooklyn,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",,,,,,,,,,,,,,"$46,012","$34,034","$13,944","$81,296","$114,433"
+2008,2145,Tompkins Consolidated Area Transit,Ithaca,NY,"Ithaca, NY",421,30,"53,528",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$43,582"
+1993,2146,"Designated Recipient Services, Inc. ",Syracuse,NY,"Syracuse, NY",74,134,"388,918",,,,,,,,,,,,,,,,,,
+2006,2147,GTJC,Lynbrook,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,
+2008,2148,Newburgh Beacon Bus Corporation,New Windsor,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",,,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0
+2008,2149,"Rockland Coaches, Inc.",Westwood,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,$0,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0
+2002,2154,New York Waterway,Weehawken,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,,,,$0,,,,,,
+2007,2155,Cumberland County Office on Aging,Bridgeton,NJ,"Vineland, NJ",290,62,"88,724",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,
+1996,2156,"Buffalo Motor Bus, Ltd. ",Buffalo,NY,"Buffalo--Niagara Falls, NY",34,286,"954,332",,,,,,$0,,,,,,,,,,,,
+2008,2158,Tioga County,Owego,NY,"Binghamton, NY-PA",182,76,"158,884",,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2159,"Atlantic Paratrans of NYC, Inc.",Staten Island,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2160,"Community Transit, Inc. ",Paramus,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2161,DeCamp Bus Lines,Montclair,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2003,2162,Lafeyette-Greenville IBOA,Jersey City,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,,,,,
+2008,2163,"Lakeland Bus Lines, Inc.",Dover,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2004,2164,Leisure Line,Paramus,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,,,,
+2008,2165,"Olympia Trails Bus Company, Inc.",Elizabeth,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2166,"Orange-Newark-Elizabeth, Inc.",Elizabeth,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2002,2167,South Orange Avenue IBOA ,Newark,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,,,,,,
+2008,2168,Trans-Hudson Express,Elizabeth,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2169,"Trans-Bridge Lines, Inc. ",Bethlehem,PA,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2001,2170,"Vanpool of New Jersey, Inc. ",Newark,NJ,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",,,,,,,,,$0,$0,$0,,,,,,,
+2008,2171,"Private One of New York, LLC, dba: New York Airport Service",Brooklyn,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2172,"Centro of Oswego, Inc.",Syracuse,NY,"Syracuse, NY",81,180,"402,267",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2006,2173,"American Transit, Inc.",Yonkers,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,,
+2008,2175,Private Transportation Corporation,Brooklyn,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0
+2008,2177,"Adirondack Transit Lines, Inc,",Hurley,NY,"Kingston, NY",424,34,"53,458",,,,,,,,,,,,"$251,998","$45,080","$22,349","$105,373",$0,"$168,766","$1,462,113"
+2008,2178,Ulster County Area Transit,Kingston,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",,,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0
+2008,2179,"Hendrick Hudson Bus Lines, Inc.",Newburgh,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",,,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0
+2006,2180,Atlantic Express,Staten Island,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,,,,,$0,$0,$0,$0,,
+2008,2181,Roosevelt Island Operating Corporation of the State of New York,Roosevelt,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,,,,,"$89,919","$129,282",,,,$0
+2008,2182,Town of Highlands Dial-A-Bus,Highland Falls,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2008,2183,Town of Monroe Dial-A-Bus,Monroe,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2008,2185,"Centro of Oneida, Inc.",Syracruse,NY,"Utica, NY",233,55,"113,409",,,,,,,,,,,,,,,,$0,$0,$0
+2008,2187,Village of Kiryas Joel,Monroe,NY,"Poughkeepsie-Newburgh, NY",89,265,"351,982",,,,,,,,,,,,,,,,$0,$0,$0
+2008,2188,MTA Bus Company,New York,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,,,,,,,$0,$0,"$4,221,652","$9,395,840"
+2008,2189,"BillyBey Ferry Company, LLC",New York,NY,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,,,,,,,,,$0,$0
+2008,2190,Port Imperial Ferry Corporation dba NY Waterway,Weehawken,NJ,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,,,,,,,,,$0,$0
+1995,2909,"Upstate Transit, Inc. ",Saratoga Springs,NY,"Albany--Schenectady--Troy, NY",59,209,"509,106",,,,$0,$0,,,,,,,,,,,,,
+1991,2914,"Empire Trailways, Inc. ",Rochester,NY,"Rochester, NY",48,220,"619,653",,,,,,,,,,,,,,,,,,
+1991,2916,"Yankee Trails, Inc. ",Rensselaer,NY,"Albany--Schenectady--Troy, NY",59,209,"509,106",,,,,,,,,,,,,,,,,,
+1999,2918,"Carey Transportation, Inc. ",New Haven,CT,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",,,$0,$0,$0,$0,$0,$0,$0,,,,,,,,,
+1991,2919,"Erin Tours, Inc. ",Brooklyn,NY,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",,,,,,,,,,,,,,,,,,
+1994,2920,"Metro Apple Express, Inc. ",Brooklyn,NY,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",,,$0,$0,,,,,,,,,,,,,,
+1995,2922,"Niagara Scenic Bus Lines, Inc. ",Hamburg,NY,"Buffalo--Niagara Falls, NY",34,286,"954,332",,,,,,,,,,,,,,,,,,
+1993,2923,Rockland Coaches Inc. ,Bergenfield,NJ,"New York, NY--Northeastern NJ",1,"2,967","16,044,012",,,,,,,,,,,,,,,,,,
+2008,3001,Kanawha Valley Regional Transportation Authority,Charleston,WV,"Charleston, WV",166,113,"182,991",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3002,The Tri-State Transit Authority,Huntington,WV,"Huntington, WV-KY-OH",171,107,"177,550",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3003,Mid-Ohio Valley Transit Authority,Parkersburg,WV,"Parkersburg, WV-OH",297,50,"85,605",$0,$0,$0,$0,,,,,,$0,$0,$0,$0,,,,,
+1999,3004,Peninsula Transportation District Commission,Hampton,VA,"Norfolk--Virginia Beach--Newport News, VA",24,664,"1,323,098",$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,,,
+1999,3005,Tidewater Transportation District Commission,Norfolk,VA,"Norfolk--Virginia Beach--Newport News, VA",24,664,"1,323,098",$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,,,
+2008,3006,Greater Richmond Transit Company,Richmond,VA,"Richmond, VA",46,437,"818,836",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3007,Greater Roanoke Transit Company,Roanoke,VA,"Roanoke, VA",152,112,"197,442",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3008,Greater Lynchburg Transit Company,Lynchburg,VA,"Lynchburg, VA",261,75,"98,714",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3009,Petersburg Area Transit,Petersburg,VA,"Richmond, VA",46,437,"818,836",$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3010,Lehigh and Northampton Transportation Authority,Allentown,PA,"Allentown-Bethlehem, PA-NJ",58,290,"576,408",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3011,Altoona Metro Transit,Altoona,PA,"Altoona, PA",304,38,"82,520",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3012,Cambria County Transit Authority,Johnstown,PA,"Johnstown, PA",319,43,"76,113",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3013,Erie Metropolitan Transit Authority,Erie,PA,"Erie, PA",156,79,"194,804",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,994",$0
+2008,3014,Capital Area Transit,Harrisburg,PA,"Harrisburg, PA",87,208,"362,782",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3015,Luzerne County Transportation Authority,Kingston,PA,"Scranton, PA",84,159,"385,237",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3018,Red Rose Transit Authority,Lancaster,PA,"Lancaster, PA",97,199,"323,554",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3019,Southeastern Pennsylvania Transportation Authority,Philadelphia,PA,"Philadelphia, PA-NJ-DE-MD",4,"1,800","5,149,079",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3022,Port Authority of Allegheny County,Pittsburgh,PA,"Pittsburgh, PA",22,852,"1,753,136",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$8,268,309","$35,246,384",$0
+2008,3023,Beaver County Transit Authority,Rochester,PA,"Pittsburgh, PA",22,852,"1,753,136",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3024,Berks Area Reading Transportation Authority,Reading,PA,"Reading, PA",130,101,"240,264",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3025,County of Lackawanna Transit System,Scranton,PA,"Scranton, PA",84,159,"385,237",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3026,Williamsport Bureau of Transportation,Williamsport,PA,"Williamsport, PA",386,27,"58,693",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3027,York County Transportation Authority,York,PA,"York, PA",158,119,"192,903",$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,"$32,986",$0,$0,$0,"$3,902",$699
+2008,3030,Washington Metropolitan Area Transit Authority,Washington,DC,"Washington, DC-VA-MD",8,"1,157","3,933,920",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1995,3031,Delaware Administration for Regional Transit,Dover,DE,"Wilmington, DE--NJ--MD--PA",68,188,"449,616",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+1995,3032,Delaware Administration for Specialized Transportation,Dover,DE,"Dover, DE",392,38,"50,787",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+2008,3034,Maryland Transit Administration,Baltimore,MD,"Baltimore, MD",18,683,"2,076,354",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3035,Ohio Valley Regional Transportation Authority,Wheeling,WV,"Wheeling, WV-OH",294,54,"87,613",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3036,Charlottesville Transit Service,Charlottesville,VA,"Charlottesville, VA",305,37,"81,449",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3040,Annapolis Department of Transportation,Annapolis,MD,"Baltimore, MD",18,683,"2,076,354",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3041,Allegany County Transit,Cumberland,MD,"Cumberland, MD--WV",453,47,"52,115",$0,$0,$0,,,,,,,,,,,,,$0,$0,$0
+2008,3042,Washington County Transit,Hagerstown,MD,"Hagerstown, MD-WV-PA",221,77,"120,326",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1996,3043,The Columbia Transit System ,Columbia,MD,"Baltimore, MD",17,593,"1,889,873",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+2008,3044,Westmoreland County Transit Authority,Greensburg,PA,"Pittsburgh, PA",22,852,"1,753,136",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3045,"JAUNT, Inc.",Charlottesville,VA,"Charlottesville, VA",305,37,"81,449",$0,$0,$0,$0,$0,,,,,,,,,,,,,"$9,844"
+1992,3046,Maryland State Railroad Administration,BWI Airport,MD,"Baltimore, MD",17,593,"1,889,873",$0,$0,,,,,,,,,,,,,,,,
+1995,3047,Delaware Transit Corporation ,Doverngton,DE,"Wilmington, DE--NJ--MD--PA",68,188,"449,616",$0,,$0,$0,$0,,,,,,,,,,,,,
+2008,3048,Howard Transit,Laurel,MD,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2007,3050,"G G and C Bus Company, Inc.",Washington,PA,"Pittsburgh, PA",22,852,"1,753,136",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,
+2008,3051,Ride-On Montgomery County Transit,Rockville,MD,"Washington, DC-VA-MD",8,"1,157","3,933,920",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$9,986,990",$0,"$7,417,080","$2,868,339",$0,$0,$0
+2008,3054,Centre Area Transportation Authority,State College,PA,"State College, PA",334,21,"71,301",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3055,Shenango Valley Shuttle Service,Hermitage,PA,"Youngstown, OH-PA",80,228,"417,437",,,,,,,,,,,,,$0,$0,$0,$0,$0,$0
+2008,3057,Pennsylvania Department of Transportation,Harrisburg,PA,"Philadelphia, PA-NJ-DE-MD",4,"1,800","5,149,079",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3058,City of Fairfax CUE Bus,Fairfax,VA,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,,,,,,$0,$0,$0,$0,$0,"$10,000",$0,$0,$0,$0,$0
+2008,3061,Mid Mon Valley Transit Authority,Charleroi,PA,"Monessen, PA",405,37,"56,508",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$506,777",$0,$0,$0,$0,$0,$0
+1992,3064,Clarksville Transit System ,Clarksville,TN,"Clarksville, TN-KY",230,87,"97,581",,$0,,,,,,,,,,,,,,,,
+2007,3067,Access Transportation Systems,Pittsburgh,PA,"Pittsburgh, PA",22,852,"1,753,136",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,
+2008,3068,Fairfax Connector Bus System,Fairfax,VA,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3069,City of Danville Mass Transit System,Danville,VA,"Danville, VA",443,33,"50,902",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3070,Potomac and Rappahannock Transportation Commission,Woodbridge,VA,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3071,City of Alexandria /Martz Group,Alexandria,VA,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3072,Transit Services of Frederick County,Frederick,MD,"Frederick, MD",224,79,"119,144",,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3073,Virginia Railway Express,Alexandria,VA,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3074,Harford Transit,Abingdon,MD,"Aberdeen-Havre de Grace-Bel Air, MD",173,102,"174,598",,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3075,Delaware Transit Corporation,Dover,DE,"Philadelphia, PA-NJ-DE-MD",4,"1,800","5,149,079",,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3076,Williamsburg Area Transport,Williamsburg,VA,"Virginia Beach, VA",27,527,"1,394,439",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,3078,Southwestern Pennsylvania Commission,Pittsburgh,PA,"Pittsburgh, PA",22,852,"1,753,136",,,,,,,,,,$0,$0,$0,"$22,287","$25,740","$20,432","$15,450","$1,917",$64
+2008,3079,Fredericksburg Regional Transit,Fredericksburg,VA,"Fredericksburg, VA",264,65,"97,102",,,,,,,,,,,,,$0,$0,$0,$0,$0,$0
+2006,3080,Arlington Transit - Arlington County,Arlington,VA,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,,,,,,$0,,,,,,$0,,$0,,
+2008,3081,Loudoun County Commuter Bus Service - Office of Transportation Services,Leesburg,VA,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$478,190",$0
+2001,3082,"Atlantic Paratrans of PA, Inc. ",Philadelphia,PA,"Philadelphia, PA--NJ",4,"1,164","4,222,211",,,,,,,,$0,$0,$0,$0,,,,,,,
+2008,3083,"Transportation District Commission of Hampton Roads, dba: Hampton Roads Transit",Hampton,VA,"Virginia Beach, VA",27,527,"1,394,439",,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2003,3084,University of Pittsburgh,Pittsburgh,PA,"Pittsburgh, PA",22,852,"1,753,136",,,,,,,,,$0,$0,$0,$0,$0,,,,,
+2008,3085,Prince George's County Transit,Largo,MD,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,,,,,,,,,,,"$1,553,224","$129,612","$33,800","$8,268","$95,000",$0
+2008,3087,Fayette Area Coordinated Transportation,Lemont Furnace,PA,"Uniontown-Connellsville, PA",389,45,"58,442",,,,,,,,,,,,,$0,,$0,"$31,701",$0,$0
+2008,3088,"County Commissioners of Charles County, MD",Port Tobacco,MD,"St. Charles, MD",324,46,"74,765",,,,,,,,,,,,,,"$8,500",$0,$0,$0,$0
+2008,3089,Monongalia County Urban Transit,Morgantown,WV,"Morgantown, WV",408,34,"55,997",,,,,,,,,,,,,,,$0,$0,$0,"$50,760"
+2008,3091,Blacksburg Transit,Blacksburg,VA,"Blacksburg, VA",402,26,"57,236",,,,,,,,,,,,,,,$0,"$156,196","$115,493",$0
+2008,3092,Carroll County Planning Department,Westminster,MD,"Westminster, MD",361,53,"65,034",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,3094,City of Harrisonburg Department of Public Transportation,Harrisonburg,VA,"Harrisonburg, VA",431,27,"52,647",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,3095,County of Lebanon Transit Authority,Lebanon,PA,"Lebanon, PA",366,30,"63,681",,,,,,,,,,,,,,,,$0,$0,$0
+2008,3096,The Tri--County Council for the Lower Eastern Shore,Snow Hill,MD,"Salisbury, MD-DE",383,43,"59,426",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,3101,City of Washington,Washington,PA,"Pittsburgh, PA",22,852,"1,753,136",,,,,,,,,,,,,,,,,,$0
+2008,3102,"Martz Trailways, Poconos",Wilkes Barre,PA,"New York-Newark, NY-NJ-CT",1,"3,353","17,799,861",,,,,,,,,,,,,,,,,,$0
+2008,3103,"Martz Group, National Coach Works of Virginia",Fredericksburg,VA,"Washington, DC-VA-MD",8,"1,157","3,933,920",,,,,,,,,,,,,,,,,,$0
+2008,4001,Chattanooga Area Regional Transportation Authority,Chattanooga,TN,"Chattanooga, TN-GA",90,290,"343,509",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4002,Knoxville Area Transit,Knoxville,TN,"Knoxville, TN",78,339,"419,830",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4003,Memphis Area Transit Authority,Memphis,TN,"Memphis, TN-MS-AR",39,400,"972,091",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4004,Metropolitan Transit Authority,Nashville,TN,"Nashville-Davidson, TN",48,431,"749,935",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$111,171","$56,728","$83,331","$67,583","$17,323","$6,680,004"
+2008,4005,Asheville Transit System,Asheville,NC,"Asheville, NC",137,207,"221,570",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$31,886",$0,$0
+2008,4006,Cape Fear Public Transportation Authority,Wilmington,NC,"Wilmington, NC",179,119,"161,149",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4007,Capital Area Transit,Raleigh,NC,"Raleigh, NC",66,320,"541,527",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4008,Charlotte Area Transit System,Charlotte,NC,"Charlotte, NC-SC",47,435,"758,927",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$7,102,954","$1,704,834","$85,861,178","$4,308,508",$0,$0,$0
+2008,4009,Fayetteville Area System of Transit,Fayetteville,NC,"Fayetteville, NC",114,167,"276,368",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4010,Gastonia Transit,Gastonia,NC,"Gastonia, NC",199,119,"141,407",$0,$0,$0,$0,,,,,,,,,,,,,,
+2008,4011,High Point Transit,High Point,NC,"High Point, NC",205,94,"132,844",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4012,Winston-Salem Transit Authority - Trans-Aid of Forsyth County,Winston-Salem,NC,"Winston-Salem, NC",106,251,"299,290",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1992,4013,Greensboro Agency Transportation Express,Greensboro,NC,"Greensboro, NC",127,92,"194,508",$0,$0,,,,,,,,,,,,,,,,
+2008,4014,Coast Transit Authority,Gulfport,MS,"Gulfport-Biloxi, MS",147,135,"205,754",$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4015,City of Jackson Transit System ,Jackson,MS,"Jackson, MS",108,161,"292,637",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4016,Ashland Bus System,Ashland,KY,"Huntington, WV-KY-OH",171,107,"177,550",,$0,,,,,,,,,,,,,,,,
+2008,4017,Lexington Transit Authority,Lexington,KY,"Lexington-Fayette, KY",126,70,"250,994",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4018,Transit Authority of River City,Louisville,KY,"Louisville, KY-IN",44,391,"863,582",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4019,Transit Authority of Northern Kentucky,Fort Wright,KY,"Cincinnati, OH-KY-IN",26,672,"1,503,262",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4020,Owensboro Transit System,Owensboro,KY,"Owensboro, KY",348,39,"67,665",$0,$0,$0,$0,,,,,,,,,,,,,,
+2008,4021,Albany Transit System,Albany,GA,"Albany, GA",271,66,"95,450",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4022,Metropolitan Atlanta Rapid Transit Authority,Atlanta,GA,"Atlanta, GA",11,"1,963","3,499,840",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$304,374",$0,$0,$0,$0,$0,$0
+2008,4023,Augusta Richmond County Transit Department,Augusta,GA,"Augusta-Richmond County, GA-SC",92,232,"335,630",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$21,500",$0,$0,$0,$0
+2008,4024,Metra Transit System,Columbus,GA,"Columbus, GA-AL",129,136,"242,324",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$21,618","$26,526","$119,438","$220,668"
+2008,4025,Chatham Area Transit Authority,Savannah,GA,"Savannah, GA",144,102,"208,886",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$33,101","$147,127","$85,442","$55,054","$57,870","$66,058",$0
+2008,4026,Manatee County Area Transit,Bradenton,FL,"Sarasota-Bradenton, FL",61,270,"559,229",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4027,Pinellas Suncoast Transit Authority,St. Petersburg,FL,"Tampa-St. Petersburg, FL",19,802,"2,062,339",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4028,Lee County Transit,Fort Myers,FL,"Cape Coral, FL",94,192,"329,757",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$34,853","$24,649","$28,876",$0,$0,"$268,529"
+2008,4029,Broward County Transportation Department,Pompano Beach,FL,"Miami, FL",5,"1,116","4,919,036",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$6,782",$0,$0,$0,$0,$0,$0
+2008,4030,Gainesville Regional Transit System,Gainesville,FL,"Gainesville, FL",180,77,"159,508",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4031,Lakeland Area Mass Transit District ,Lakeland,FL,"Lakeland, FL",151,121,"199,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4032,"County of Volusia, dba: VOTRAN",South Daytona,FL,"Daytona Beach-Port Orange, FL",124,114,"255,353",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4034,Miami-Dade Transit,Miami,FL,"Miami, FL",5,"1,116","4,919,036",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4035,Central Florida Regional Transportation Authority,Orlando,FL,"Orlando, FL",35,453,"1,157,431",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4036,City of Tallahassee,Tallahassee,FL,"Tallahassee, FL",148,114,"204,260",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4037,"Board of County Commissioners, Palm Beach County, PalmTran, Inc.",West Palm Beach,FL,"Miami, FL",5,"1,116","4,919,036",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4038,Escambia County Area Transit,Pensacola,FL,"Pensacola, FL-AL",96,219,"323,783",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4040,Jacksonville Transportation Authority,Jacksonville,FL,"Jacksonville, FL",43,411,"882,295",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4041,Hillsborough Area Regional Transit Authority,Tampa,FL,"Tampa-St. Petersburg, FL",19,802,"2,062,339",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$78,061",$0,$0,$0,$0,"$132,162","$122,675"
+2008,4042,Birmingham-Jefferson County Transit Authority,Birmingham,AL,"Birmingham, AL",55,392,"663,615",$0,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$17,000",$0
+2008,4043,The Wave Transit System,Mobile,AL,"Mobile, AL",98,211,"317,605",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4044,Montgomery Area Transit System,Montgomery,AL,"Montgomery, AL",154,99,"196,892",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$19,014",$0,$0,$0,$0
+2008,4045,Tuscaloosa County Parking and Transit Authority,Tuscaloosa,AL,"Tuscaloosa, AL",228,76,"116,888",$0,$0,$0,$0,$0,$0,$0,$0,,$0,$0,,$0,$0,$0,$0,"$3,801","$36,071"
+2008,4046,Sarasota County Area Transit,Sarasota,FL,"Sarasota-Bradenton, FL",61,270,"559,229",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4047,Athens Transit System,Athens,GA,"Athens-Clarke County, GA",247,80,"106,482",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4049,Gadsden Transportation Services - City of Gadsden,Gadsden,AL,"Gadsden, AL",373,60,"61,709",$0,$0,$0,,,,$0,,,,,,,,,,,
+1996,4050,Smyrna Transit System ,New Smyrna Beach,FL,"Daytona Beach, FL",116,128,"221,341",$0,$0,$0,$0,$0,$0,,,,,,,,,,,,
+2008,4051,Chapel Hill Transit,Chapel Hill,NC,"Durham, NC",109,157,"287,796",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$843,306",$0,$0,$0
+2008,4053,Greenville Transit Authority,Greenville,SC,"Greenville, SC",103,227,"302,194",$0,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4054,Johnson City Transit System,Johnson City,TN,"Johnson City, TN",254,91,"102,456",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4056,Pee Dee Regional Transportation Authority,Florence,SC,"Florence, SC",349,63,"67,314",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$31,717","$177,390","$175,596","$15,895",$0,$0,$0
+2008,4057,Jackson Transit Authority,Jackson,TN,"Jackson, TN",358,39,"65,086",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4058,City of Rome Transit Department,Rome,GA,"Rome, GA",391,41,"58,287",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4060,Hub City Transit,Hattiesburg,MS,"Hattiesburg, MS",376,39,"61,465",$0,,,,,,,,,,,,,,,,,
+1996,4061,South Carolina Electric & Gas Company-Charleston,Columbia,SC,"Charleston, SC",73,251,"393,956",$0,$0,$0,$0,$0,$0,,,,,,,,,,,,
+1992,4062,Central Midlands Regional Planning Council,Columbia,SC,"Columbia, SC",80,199,"328,349",$0,$0,,,,,,,,,,,,,,,,
+2008,4063,Space Coast Area Transit,Cocoa,FL,"Palm Bay-Melbourne, FL",83,220,"393,289",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4064,East Alabama Regional Planning and Development Commission,Anniston,AL,"Anniston, AL",320,78,"75,840",$0,$0,,,,,,,,,,,,,,,,
+1995,4066,"Community Action Agency of North Central Alabama, Inc.",Montgomery,AL,"Decatur, AL",321,70,"63,541",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+1992,4067,Human Resource Development Corp. Southeast Alabama Transit System,Montgomery,AL,"Dothan, AL",341,93,"58,925",$0,$0,,,,,,,,,,,,,,,,
+2008,4068,Northwest Alabama Council of Local Governments,Muscle Shoals,AL,"Florence, AL",335,52,"71,299",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$38,711",$0,$0,$0,"$301,116",$0,"$124,128"
+2002,4069,South Carolina Electric & Gas Company-Columbia,Columbia,SC,"Columbia, SC",77,269,"420,537",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,
+2007,4070,Puerto Rico Ports Authority,San Juan,PR,"San Juan, PR",500,892,"2,216,616",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$5,226,923",$0,$0,$0,$0,$0,
+2008,4071,"City of Huntsville, Alabama - Public Transportation Division",Huntsville,AL,"Huntsville, AL",141,157,"213,253",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$28,656",$0,$0
+2008,4073, Lee-Russell Council of Governments,Opelika,AL,"Auburn, AL",381,40,"60,137",$0,$0,,,,,,$0,,$0,$0,$0,$0,$0,"$1,499","$23,895","$6,938",$0
+2008,4074,Pasco County Public Transportation,Port Richey,FL,"Tampa-St. Petersburg, FL",19,802,"2,062,339",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1994,4075,Comprehensive Paratransit Services ,Miami,FL,"Miami--Hialeah, FL",16,353,"1,914,660",$0,$0,$0,$0,,,,,,,,,,,,,,
+2008,4077,South Florida Regional Transportation Authority,Pompano Beach,FL,"Miami, FL",5,"1,116","4,919,036",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$7,524,415","$10,361,496",$0
+2008,4078,Cobb County Department of Transportation Authority,Marietta,GA,"Atlanta, GA",11,"1,963","3,499,840",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4080,Kingsport Area Transit System,Kingsport,TN,"Kingsport, TN-VA",269,98,"95,766",$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,
+2008,4082,Douglas County Rideshare,Douglasville,GA,"Atlanta, GA",11,"1,963","3,499,840",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$38,667","$36,000","$29,545","$38,529",$0,"$32,446"
+2005,4083,Aiken County Public Transit System,Aiken,SC,"Augusta-Richmond County, GA-SC",92,232,"335,630",$0,$0,$0,$0,$0,,$0,,$0,,,,,,,,,
+1999,4084,"Okaloosa County Coordinated Transportation, Inc.",Fort Walton Beach,FL,"Fort Walton Beach, FL",205,72,"112,522",$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,,,
+2008,4085,Bay County Council On Aging Bay Coordinated Transportation,Panama City,FL,"Panama City, FL",207,102,"132,419",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4086,Metropolitan Bus Authority,San Juan,PR,"San Juan, PR",500,892,"2,216,616",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$2,254,741","$3,606",$0,$0,$0,$0
+2008,4087,Durham Area Transit Authority,Durham,NC,"Durham, NC",109,157,"287,796",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4088,Spartanburg County Transportation Services,Spartanburg,SC,"Spartanburg, SC",194,137,"145,058",$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4089,Phenix City Express,Opelika,AL,"Columbus, GA-AL",129,136,"242,324",,,$0,$0,,,,,,,,,,,,,,
+2008,4090,Piedmont Wagon Transit System,Hickory,NC,"Hickory, NC",162,211,"187,808",$0,$0,$0,$0,,,,,,,,,,,,,,
+1993,4091,Gaston County Central Transportatio ,Gastonia,NC,"Gastonia, NC",202,90,"113,637",$0,$0,$0,,,,,,,,,,,,,,,
+2008,4092,Clarksville Transit System,Clarksville,TN,"Clarksville, TN-KY",219,79,"121,775",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4093,Greensboro Transit Authority,Greensboro,NC,"Greensboro, NC",121,135,"267,884",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4094,Puerto Rico Highway and Transportation Authority,San Juan,PR,"San Juan, PR",500,892,"2,216,616",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4097,"Council on Aging of St. Lucie, Inc.",Fort Pierce,FL,"Port St. Lucie, FL",117,169,"270,774",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$4,427","$1,060"
+1993,4098,"Red Top Transportation, Inc. ",Miami,FL,"Miami--Hialeah, FL",16,353,"1,914,660",,$0,$0,,,,,,,,,,,,,,,
+2004,4099,Autauga County Commission,Prattville,AL,"Montgomery, AL",154,99,"196,892",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,
+2008,4100,Santee Wateree Regional Transportation Authority,Sumter,SC,"Sumter, SC",364,45,"64,320",,,$0,$0,$0,,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4101,Spartanburg Transit System,Spartanburg,SC,"Spartanburg, SC",194,137,"145,058",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4102,Waccamaw Regional Transportation Authority,Conway,SC,"Myrtle Beach, SC",217,101,"122,984",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$123,961","$101,099","$39,835","$19,771","$197,233"
+2008,4103,Wiregrass Transit Authority,Dothan,AL,"Dothan, AL",377,53,"60,792",,,,$0,,,,,,$0,$0,$0,$0,$0,$0,$0,"$19,066",$0
+2008,4104,"Senior Resource Association, Inc.",Vero Beach,FL,"Vero Beach-Sebastian, FL",220,81,"120,962",,,,,$0,$0,$0,$0,$0,$0,$0,"$37,893",$0,"$25,002",,$0,"$16,778",$500
+2008,4105,Department of Transportation and Public Works,San Juan,PR,"San Juan, PR",500,892,"2,216,616",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2001,4106,Comsis Mobility Services ,Miami,FL,"Miami--Hialeah, FL",16,353,"1,914,660",,,,$0,$0,$0,$0,$0,$0,,$0,,,,,,,
+2008,4108,Research Triangle Regional Public Transportation Authority,Research Triangle Park,NC,"Durham, NC",109,157,"287,796",,,,,$0,$0,$0,$0,$0,$0,$0,"$376,654",$0,$0,$0,$0,$0,"$650,000"
+1995,4109,"B & L Services, Inc. ",Fort Lauderdale,FL,"Fort Lauderdale--Hollywood--Pompano Beach, FL",26,327,"1,238,134",,,,,$0,,,,,,,,,,,,,
+2008,4110,Charleston Area Regional Transportation Authority,Charleston,SC,"Charleston-North Charleston, SC",75,231,"423,410",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$27,370",$0,"$53,519",$0
+2008,4111,Morgan County Area Transportation System,Decatur,AL,"Decatur, AL",433,28,"52,315",,,,,,,$0,,,,,,$0,,$0,$0,$0,$0
+2008,4113,"Council on Aging of Martin County, Inc.",Stuart,FL,"Port St. Lucie, FL",117,169,"270,774",,,,,,,$0,$0,$0,$0,$0,$0,$0,"$7,220",$0,"$33,875","$29,348",$0
+2008,4120,"City of Ocala, Florida",Ocala,FL,"Ocala, FL",246,89,"106,542",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,
+2008,4127,Polk County Transit Services Division - Polk County Board of County Commissioners,Bartow,FL,"Lakeland, FL",151,121,"199,487",,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4128,Okaloosa County Board of County Commissioners,Fort Walton Beach,FL,"Fort Walton Beach, FL",191,97,"152,741",,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,4129,Charlotte County Transit Division,Punta Gorda,FL,"North Port-Punta Gorda, FL",218,89,"122,421",,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,"$19,261"
+2008,4130,Macon-Bibb County Transit Authority,Macon,GA,"Macon, GA",203,81,"135,170",,,,,,,,,,,,$0,$0,$0,$0,"$5,708","$65,956","$235,685"
+2008,4131,Davidson County Transportation,Lexington,NC,"High Point, NC",205,94,"132,844",,,,,,,,,,,,$0,,,,,,
+2008,4132,Goldsboro-Wayne Transportation Authority,Goldsboro,NC,"Goldsboro, NC",396,44,"57,915",,,,,,,,,,,$0,,,,,,,
+2008,4133,Guildford County Transportation,Greensboro,NC,"Greensboro, NC",121,135,"267,884",,,,,,,,,,,,,,,$0,$0,$0,$0
+2006,4134,"Advanced Transportation Solutions, LLC",Miami,FL,"Miami, FL",5,"1,116","4,919,036",,,,,,,,,,,$0,$0,$0,$0,$0,$0,,
+2008,4135,Georgia Regional Transportation Authority,Atlanta,GA,"Atlanta, GA",11,"1,963","3,499,840",,,,,,,,,,,,$0,$0,$0,"$78,213",$0,$0,$0
+2008,4138,Gwinnett County Board of Commissioners,Lawrenceville,GA,"Atlanta, GA",11,"1,963","3,499,840",,,,,,,,,,,,"$118,473",$0,$0,$0,$0,$0,$0
+2008,4140,Collier Area Transit,Naples,FL,"Bonita Springs-Naples, FL",138,150,"221,251",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,4141,Central Midlands Regional Transit Authority,Columbia,SC,"Columbia, SC",77,269,"420,537",,,,,,,,,,,,,"$166,281","$178,660",$0,$0,$0,$0
+2007,4142,City of Canton Transit,Canton,GA,"Atlanta, GA",11,"1,963","3,499,840",,,,,,,,,,,,,$0,$0,$0,$0,$0,
+2008,4143,Town of Cary,Cary,NC,"Raleigh, NC",66,320,"541,527",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2008,4146,Hernando County Board of County Commissioners,Brooksville,FL,"Brooksville, FL",255,84,"102,193",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,4147,NC State University Transportation Department,Raleigh,NC,"Raleigh, NC",66,320,"541,527",,,,,,,,,,,,,,,"$60,907","$79,597","$21,638",$0
+2008,4148,"Tri-County Community Council, Inc.",Bonifay,FL,"Panama City, FL",207,102,"132,419",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2008,4152,"Miami Lakes - VPSI, Inc.",Miami Lakes,FL,"Miami, FL",5,"1,116","4,919,036",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,4153,"Marietta - VPSI, Inc.",Marietta,GA,"Atlanta, GA",11,"1,963","3,499,840",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,4155,"St Johns County, Florida,  Board of County Commissioners",St. Augustine,FL,"St. Augustine, FL",422,35,"53,519",,,,,,,,,,,,,,,,,"$100,000",$0
+2008,4157,Clayton County Board of Commissioners,Jonesboro,GA,"Atlanta, GA",11,"1,963","3,499,840",,,,,,,,,,,,,,,,,$0,$0
+2008,4158,Lake County Board of County Commissioners,Tavares,FL,"Leesburg-Eustis, FL",263,71,"97,497",,,,,,,,,,,,,,,,,"$186,921",$0
+2008,4159,Regional Transportation Authority,Nashville,TN,"Nashville-Davidson, TN",48,431,"749,935",,,,,,,,,,,,,,,,,$0,$0
+2008,4161,Cherokee County Board of Commissioners,Canton,GA,"Atlanta, GA",11,"1,963","3,499,840",,,,,,,,,,,,,,,,,$0,
+2008,4169,Regional Planning Commission of Greater Birmingham,Birmingham,AL,"Birmingham, AL",55,392,"663,615",,,,,,,,,,,,,,,,,,$0
+2008,4171,Knoxville-Knox County Community Action Committee,Knoxville,TN,"Knoxville, TN",78,339,"419,830",,,,,,,,,,,,,,,,,,$0
+2008,4173,Piedmont Authority for Regional Transportation,Greensboro,NC,"Greensboro, NC",121,135,"267,884",,,,,,,,,,,,,,,,,,$0
+2008,4175,Maritime Transportation Authority of Puerto Rico,Fajardo,PR,"San Juan, PR",500,892,"2,216,616",,,,,,,,,,,,,,,,,,$0
+2008,4177,Buckhead Community Improvement District,Atlanta,GA,"Atlanta, GA",11,"1,963","3,499,840",,,,,,,,,,,,,,,,,,$0
+2008,4179,Broward County Community Bus Service,Pompano Beach,FL,"Miami, FL",5,"1,116","4,919,036",,,,,,,,,,,,,,,,,,$0
+2008,5001,City of Appleton - Valley Transit,Appleton,WI,"Appleton, WI",163,73,"187,683",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5002,Green Bay Metro,Green Bay,WI,"Green Bay, WI",164,82,"187,316",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5003,Kenosha Transit,Kenosha,WI,"Kenosha, WI",241,42,"110,942",$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5004,LaCrosse Municipal Transit Utility,LaCrosse,WI,"La Crosse, WI-MN",285,40,"89,966",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,698","$1,126",$0,$0,$0,$0
+2008,5005,Metro Transit System,Madison,WI,"Madison, WI",95,114,"329,533",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$743,846",$0,$0,$0,$0,$0,$0
+2008,5006,Belle Urban System - Racine,Racine,WI,"Racine, WI",209,46,"129,545",$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5008,Milwaukee County Transit System,Milwaukee,WI,"Milwaukee, WI",32,487,"1,308,913",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5009,Oshkosh Transit System,Oshkosh,WI,"Oshkosh, WI",336,27,"71,070",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5010,Metro Regional Transit Authority,Akron,OH,"Akron, OH",60,308,"570,215",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5011,Stark Area Regional Transit Authority,Canton,OH,"Canton, OH",122,143,"266,595",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$477,856","$174,638","$148,486",$0,$0
+2008,5012,Southwest Ohio Regional Transit Authority,Cincinnati,OH,"Cincinnati, OH-KY-IN",26,672,"1,503,262",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5015,The Greater Cleveland Regional Transit Authority,Cleveland,OH,"Cleveland, OH",21,647,"1,786,647",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5016,Central Ohio Transit Authority,Columbus,OH,"Columbus, OH",36,398,"1,133,193",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5017,Greater Dayton Regional Transit Authority,Dayton,OH,"Dayton, OH",52,324,"703,444",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$2,428,637"
+1995,5018,Hamilton City Lines ,Hamilton,OH,"Hamilton, OH",193,53,"118,315",$0,$0,$0,,,,,,,,,,,,,,,
+2008,5019,City of Middletown - Middletown Transit System,Middletown,OH,"Middletown, OH",273,48,"94,355",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5020,Springfield City Area Transit,Springfield,OH,"Springfield, OH",286,44,"89,684",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5021,Portage Area Regional Transportation Authority,Kent,OH,"Akron, OH",60,308,"570,215",,,,,,$0,,$0,$0,$0,$0,$0,$0,$0,$0,"$91,856","$63,552","$29,458"
+2008,5022,Toledo Area Regional Transit Authority,Toledo,OH,"Toledo, OH-MI",71,202,"503,008",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5024,Western Reserve Transit Authority,Youngstown,OH,"Youngstown, OH-PA",80,228,"417,437",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5025,Duluth Transit Authority,Duluth,MN,"Duluth, MN-WI",225,66,"118,265",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5026,City of Moorhead Transit,Moorhead,MN,"Fargo, ND-MN",197,46,"142,477",$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,838",$0,$0,
+2008,5027,Metro Transit,Minneapolis,MN,"Minneapolis-St. Paul, MN",16,894,"2,388,593",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5028,St. Cloud Metropolitan Transit Commission,St. Cloud,MN,"St. Cloud, MN",280,39,"91,305",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$68,315","$407,360",$0,$0,$0,$0,$0
+2008,5029,Bay Metropolitan Transit Authority,Bay City,MI,"Bay City, MI",326,40,"74,048",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5030,Battle Creek Transit,Battle Creek,MI,"Battle Creek, MI",313,51,"79,135",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$6,955","$43,173",$0,$0
+2008,5031,Suburban Mobility Authority for Regional Transportation,Detroit,MI,"Detroit, MI",9,"1,262","3,903,377",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$6,222","$13,854"
+2008,5032,Mass Transportation Authority,Flint,MI,"Flint, MI",86,231,"365,096",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5033,Interurban Transit Partnership,Grand Rapids,MI,"Grand Rapids, MI",67,257,"539,080",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5034,City of Jackson Transportation Authority,Jackson,MI,"Jackson, MI",292,52,"88,050",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5035,Kalamazoo Metro Transit System,Kalamazoo,MI,"Kalamazoo, MI",161,108,"187,961",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5036,Capital Area Transportation Authority,Lansing,MI,"Lansing, MI",104,137,"300,032",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$21,258","$10,666","$87,058","$207,037","$11,044","$23,442","$14,649"
+2008,5037,Muskegon Area Transit System,Muskegon Heights,MI,"Muskegon, MI",185,100,"154,729",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5038,Niles Dial-A-Ride,Niles,MI,"South Bend, IN-MI",113,156,"276,498",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,
+2008,5039,Saginaw Transit Authority Regional Service,Saginaw,MI,"Saginaw, MI",200,74,"140,985",$0,$0,$0,$0,,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5040,Ann Arbor Transportation Authority,Ann Arbor,MI,"Ann Arbor, MI",112,129,"283,904",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5041,City of Anderson Transportation System,Anderson,IN,"Anderson, IN",265,63,"97,038",$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0
+2008,5042,East Chicago Transit,East Chicago,IN,"Chicago, IL-IN",3,"2,123","8,307,904",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,$0,$0,$0
+2008,5043,Metropolitan Evansville Transit System,Evansville,IN,"Evansville, IN-KY",142,106,"211,989",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$136,503"
+2008,5044,Fort Wayne Public Transportation Corporation,Fort Wayne,IN,"Fort Wayne, IN",110,135,"287,759",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5045,Gary Public Transportation Corporation,Gary,IN,"Chicago, IL-IN",3,"2,123","8,307,904",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$126,430",$0,$0,$0,$0
+2008,5047,Bloomington-Normal Public Transit System,Bloomington,IL,"Bloomington-Normal, IL",237,37,"112,415",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5048,Northwest Indiana Community Action Corporation,Crown Point,IN,"Chicago, IL-IN",3,"2,123","8,307,904",,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,"$26,736",$0,$0,$0
+2000,5049,"Tradewinds Rehabilitation Center, Inc.",Gary,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",$0,$0,$0,$0,$0,,,$0,$0,$0,,,,,,,,
+2008,5050,Indianapolis and Marion County Public Transportation,Indianapolis,IN,"Indianapolis, IN",33,553,"1,218,919",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5051,Greater Lafayette Public Transportation Corporation,Lafayette,IN,"Lafayette, IN",212,55,"125,738",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5052,South Bend Public Transportation Corporation,South Bend,IN,"South Bend, IN-MI",113,156,"276,498",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$152,591",$0,$0,$0,$0,$0,$0
+2008,5053,Terre Haute Transit Utility,Terre Haute,IN,"Terre Haute, IN",312,43,"79,376",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$11,010","$17,395","$12,000","$15,370","$12,000","$12,000","$15,190"
+2008,5054,Muncie Indiana Transit System,Muncie,IN,"Muncie, IN",283,43,"90,673",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$54,101",$0,$0
+2000,5055,City of Loves Park Transit System ,Loves Park,IL,"Rockford, IL",123,91,"207,826",$0,$0,$0,$0,,,$0,$0,$0,$0,,,,,,,,
+2008,5056,Greater Peoria Mass Transit District,Peoria,IL,"Peoria, IL",127,123,"247,172",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5057,Rock Island County Metropolitan Mass Transit District,Moline ,IL,"Davenport, IA-IL",118,124,"270,626",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$92,175","$53,687","$232,712","$71,753",$0,$0,"$144,729"
+2008,5058,Rockford Mass Transit District,Rockford,IL,"Rockford, IL",119,139,"270,414",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5059,Springfield Mass Transit District,Springfield,IL,"Springfield, IL",189,87,"153,516",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$14,651",$0
+2008,5060,Champaign-Urbana Mass Transit District,Urbana,IL,"Champaign, IL",215,41,"123,938",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$2,139,614","$1,550,945","$559,476","$238,226","$1,071,730","$320,292","$602,875"
+2008,5061,Decatur Public Transit System,Decatur,IL,"Decatur, IL",266,50,"96,454",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$18,108",$0,$0,$0,$0,$0
+2008,5065,Pekin Municipal Bus Service,Pekin,IL,"Peoria, IL",127,123,"247,172",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,
+2008,5066,Chicago Transit Authority,Chicago,IL,"Chicago, IL-IN",3,"2,123","8,307,904",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1991,5074,Highland Park Transit ,Highland Park,IL,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,,,,,,,,,,,,,,,,
+2008,5088,Sheboygan Transit System,Sheboygan,WI,"Sheboygan, WI",344,26,"68,600",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5090,Richland County Transit,Mansfield,OH,"Mansfield, OH",310,51,"79,698",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$768,$237
+2008,5091,Wausau Area Transit System,Wausau,WI,"Wausau, WI",345,37,"68,221",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5092,City of Rochester Public Transportation,Rochester,MN,"Rochester, MN",281,40,"91,271",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5093,Allen County Regional Transit Authority,Lima,OH,"Lima, OH",325,46,"74,071",$0,$0,$0,$0,,,,,,,,,,,,,,
+2002,5094,Waukesha County Transit System,Waukesha,WI,"Milwaukee, WI",32,487,"1,308,913",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,
+2008,5095,Lorain County Transit,Elyria,OH,"Lorain-Elyria, OH",157,88,"193,586",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5096,City of Waukesha Transit Commission,Waukesha,WI,"Milwaukee, WI",32,487,"1,308,913",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2004,5097,Campus Bus Service,Kent,OH,"Akron, OH",60,308,"570,215",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,
+2008,5099,Eau Claire Transit,Eau Claire,WI,"Eau Claire, WI",279,57,"91,393",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5102,Hammond Transit System,Hammond,IN,"Chicago, IL-IN",3,"2,123","8,307,904",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5103,North Township of Lake County Dial-A-Ride,Hammond,IN,"Chicago, IL-IN",3,"2,123","8,307,904",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0
+2008,5104,Northern Indiana Commuter Transportation District,Chesterton,IN,"Chicago, IL-IN",3,"2,123","8,307,904",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1997,5105,Portage Township Transportation ,Portage,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",$0,$0,$0,$0,,$0,,,,,,,,,,,,
+2008,5107,Henderson Area Rapid Transit,Henderson,KY,"Evansville, IN-KY",142,106,"211,989",$0,,,,,,,,,,,,,,,,,
+2008,5108,Janesville Transit System,Janesville,WI,"Janesville, WI",355,29,"66,034",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5109,City of Beloit Transit System,Beloit,WI,"Beloit, WI-IL",406,28,"56,462",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5110,Bloomington Public Transportation Corporation,Bloomington,IN,"Bloomington, IN",276,43,"92,456",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$420,920","$67,392","$351,429","$261,798","$302,592","$765,477"
+1999,5112,Milwaukee County Paratransit System ,Milwaukee,WI,"Milwaukee, WI",27,512,"1,226,293",$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,,,
+2008,5113,Pace - Suburban Bus Division,Arlington Heights,IL,"Chicago, IL-IN",3,"2,123","8,307,904",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,174,256","$670,308","$580,954","$577,889","$512,406","$672,336","$2,889,496"
+1993,5115,Goshen Transit System ,South Bend,IN,"Elkhart--Goshen, IN",228,52,"98,787",$0,$0,$0,,,,,,,,,,,,,,,
+2008,5117,Laketran,Grand River,OH,"Cleveland, OH",21,647,"1,786,647",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5118,Northeast Illinois Regional Commuter Railroad Corporation,Chicago,IL,"Chicago, IL-IN",3,"2,123","8,307,904",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$9,022,562","$9,056,102","$9,075,310","$9,391,752",$0,$0,"$10,000,000"
+2008,5119,City of Detroit Department of Transportation,Detroit,MI,"Detroit, MI",9,"1,262","3,903,377",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$233,972",$0,$0,$0,"$345,183",$0,$0
+1994,5121,Chicago & Northwestern Transportation Company,Chicago,IL,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,$0,$0,$0,,,,,,,,,,,,,,
+1994,5122,Burlington Northern Railroad Company,Chicago,IL,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,$0,$0,$0,,,,,,,,,,,,,,
+1993,5124,Heart City Rider Program ,South Bend,IN,"Elkhart--Goshen, IN",228,52,"98,787",$0,$0,$0,,,,,,,,,,,,,,,
+1995,5126,Lake County Association for the Retarded,Gary,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+1995,5127,Southlake Center for Mental Health ,Merrillville,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+1994,5128,"Gary Neighborhood Services, Inc. ",Gary,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,$0,$0,,,,,,,,,,,,,,,
+1994,5129,Hammond Yellow Coach Lines ,Hammond,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,$0,$0,,,,,,,,,,,,,,
+2008,5131,"Opportunity Enterprises, Inc.",Valparaiso,IN,"Chicago, IL-IN",3,"2,123","8,307,904",$0,$0,$0,$0,$0,,,$0,$0,$0,$0,"$47,787",$0,$0,"$255,294","$18,226","$29,013",$0
+2008,5132,Twin Cities Area Transportation Authority,Benton Harbor,MI,"Benton Harbor-St. Joseph, MI",372,45,"61,745",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5133,Chippewa Falls General Public Shared-Ride Taxi System,Chippewa Falls,WI,"Eau Claire, WI",279,57,"91,393",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1997,5134,"Cook-Dupage Transportation Company, Inc.",Chicago,IL,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,,$0,$0,$0,$0,,,,,,,,,,,
+1999,5135,City of Kankakee TaxiVan Program,Kankakee,IL,"Kankakee, IL",337,24,"59,695",,,$0,$0,$0,,,,,,,,,,,,,
+1997,5136,Northwestern IndianaRegional Planning Commission,Portage,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,,,,$0,$0,,,,,,,,,,,
+2008,5138,City of Newark Transit Operations,Newark,OH,"Newark, OH",339,35,"70,001",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1995,5139,Tri-City Community Mental Health Center,East Chicago,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,$0,$0,$0,,,,,,,,,,,,,
+2008,5141,Detroit Transportation Corporation,Detroit,MI,"Detroit, MI",9,"1,262","3,903,377",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$180,093",$0,$0
+2008,5142,Steel Valley Regional Transit Authority,Steubenville,OH,"Weirton, WV-Steubenville, OH-PA",327,51,"73,710",,$0,$0,$0,,$0,,,,,,,,,,,,
+2008,5143,Brunswick Transit Alternative,Brunswick,OH,"Cleveland, OH",21,647,"1,786,647",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1991,5144,"Gary Community Mental Health Center, Inc.",Gary,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,,,,,,,,,,,,,,,,
+2008,5145,City of Kokomo,Kokomo,IN,"Kokomo, IN",365,35,"63,739",,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5146,Madison County Transit District,Granite City,IL,"St. Louis, MO-IL",17,829,"2,077,662",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2007,5147,City of Holland Macatawa Area Express,Holland,MI,"Holland, MI",278,48,"91,921",,,,$0,$0,,,$0,$0,$0,$0,"$6,343","$40,712",$0,$0,$0,$0,
+2008,5148,Blue Water Area Transportation Commission,Port Huron,MI,"Port Huron, MI",295,56,"86,486",,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5149,Michiana Area Council of Governments,South Bend,IN,"Elkhart, IN-MI",208,78,"131,226",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$118,391",$0,$0,$0,$0,$0
+1995,5150,"Vancom Transportation, Inc. ",Oakbrook Terrace,IL,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,,$0,,,,,,,,,,,,,,
+1995,5151,"In-Pact, Inc. ",Crown Point,IN,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,,,$0,,,,,,,,,,,,,
+2001,5153,"Laidlaw Transit Services, Inc. Area Office",Schaumburg,IL,"Chicago, IL--Northwestern IN",3,"1,585","6,792,087",,,,,,,,,$0,$0,$0,,,,,,,
+2008,5154,Metropolitan Council,St. Paul,MN,"Minneapolis-St. Paul, MN",16,894,"2,388,593",,,,,,,,,$0,$0,$0,$0,$0,"$28,926","$669,661",$0,$0,$0
+2008,5155,Metro Mobility,St. Paul,MN,"Minneapolis-St. Paul, MN",16,894,"2,388,593",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5157,Butler County Regional Transit Authority,Hamilton,OH,"Cincinnati, OH-KY-IN",26,672,"1,503,262",,,,,,,,,,,$0,$0,$0,$0,$0,$0,"$30,000",$0
+2008,5158,University of Michigan Parking and Transportation Services,Ann Arbor,MI,"Ann Arbor, MI",112,129,"283,904",,,,,,,,,,$0,$0,"$137,238","$45,343",$0,$0,$0,$0,$0
+2008,5159,River Valley Metro Mass Transit District,Bourbonnais,IL,"Kankakee, IL",359,28,"65,073",,,,,,,,,,$0,,,,,,$0,$0,$0
+2008,5160,Washington County Transit,West Bend,WI,"Milwaukee, WI",32,487,"1,308,913",,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5161,Ozaukee County Transit Services,Port Washington,WI,"Milwaukee, WI",32,487,"1,308,913",,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,5163,Licking County Transit Board,Newark,OH,"Newark, OH",339,35,"70,001",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,5164,Sandusky Transit System,Sandusky,OH,"Sandusky, OH",446,29,"50,693",,,,,,,,,,,,,$0,$0,$0,$0,$0,$0
+2008,5165,Greene County Transit Board,Xenia,OH,"Dayton, OH",52,324,"703,444",,,,,,,,,,,,$0,"$30,921","$28,474","$16,868","$34,861","$66,752","$210,681"
+2008,5166,Clermont Transportation Connection,Batavia,OH,"Cincinnati, OH-KY-IN",26,672,"1,503,262",,,,,,,,,,,,$0,"$17,536",$0,"$22,317",$0,"$55,854","$82,564"
+2008,5167,"South Lake County Community Services, Inc.",Crown Point,IN,"Chicago, IL-IN",3,"2,123","8,307,904",,,,,,,,,,,,,,,,$0,$0,$0
+2008,5168,Clinton Area Transit System,St. Johns,MI,"Lansing, MI",104,137,"300,032",,,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0
+2008,5169,Miami County Public Transit,Troy,OH,"Dayton, OH",52,324,"703,444",,,,,,,,,,,,$0,,"$7,647",$0,$0,$0,$0
+2008,5171,Fond du Lac Area Transit,Fond du Lac,WI,"Fond du Lac, WI",452,20,"50,058",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2006,5172,Eaton County Transportation Authority,Charlotte,MI,"Lansing, MI",104,137,"300,032",,,,,,,,,,,,,,,$0,,,
+2008,5174,City of Danville/Danville Mass Transit,Danville,IL,"Danville, IL",426,31,"53,223",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,5175,Niles Trumbull Transit,Niles,OH,"Youngstown, OH-PA",80,228,"417,437",,,,,,,,,,,,,,,,,,$0
+2008,5176,City of DeKalb,DeKalb,IL,"DeKalb, IL",409,18,"55,805",,,,,,,,,,,,,,,,$0,$0,$0
+2008,5179,"Porter County Agency and Community Services, Inc.",Valparaiso,IN,"Chicago, IL-IN",3,"2,123","8,307,904",,,,,,,,,,,,,,,,,$0,$0
+2008,5180,Livingston Essential Transportation Service,Howell,MI,"South Lyon-Howell-Brighton, MI",249,95,"106,139",,,,,,,,,,,,,,,,,$0,$0
+2008,5181,City of Grand Haven Harbor Transit,Grand Haven,MI,"Muskegon, MI",185,100,"154,729",,,,,,,,,,,,,,,,,$0,$0
+2008,5182,"Pace-Suburban Bus Division, ADA Paratransit Services",Arlington Heights,IL,"Chicago, IL-IN",3,"2,123","8,307,904",,,,,,,,,,,,,,,,,$0,$0
+2008,5184,Macatawa Area Express Transportation Authority,Holland,MI,"Holland, MI",278,48,"91,921",,,,,,,,,,,,,,,,,,$0
+2008,6001,Amarillo City Transit,Amarillo,TX,"Amarillo, TX",167,74,"179,312",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6006,Mass Transit Department - City of El Paso,El Paso,TX,"El Paso, TX-NM",54,219,"674,801",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$3,975",$0,$0,$0,$0,$0,$0
+2008,6007,Fort Worth Transportation Authority,Fort Worth,TX,"Dallas-Fort Worth-Arlington, TX",6,"1,407","4,145,659",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6008,"Metropolitan Transit Authority of Harris County, Texas",Houston,TX,"Houston, TX",10,"1,295","3,822,509",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,118,312",$0,$0,"$1,261,099","$2,065,119","$976,189","$550,203"
+2008,6009,"Laredo Transit Management, Inc.",Laredo,TX,"Laredo, TX",172,43,"175,586",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6010,"City Transit Management Company, Inc.",Lubbock,TX,"Lubbock, TX",149,75,"202,225",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$188,510",$0,$0,$0,$0,$0,$0
+2008,6011,VIA Metropolitan Transit,San Antonio,TX,"San Antonio, TX",30,408,"1,327,554",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$58,020",$0,$0,$0,$0,$0
+2008,6012,"Waco Transit System, Inc.",Waco,TX,"Waco, TX",190,70,"153,198",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$73,265",$0,$0,$0
+2008,6013,Port Arthur Transit,Port Arthur,TX,"Port Arthur, TX",230,46,"114,656",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6014,City of Brownsville - Brownsville Urban System,Brownsville,TX,"Brownsville, TX",178,57,"165,776",$0,$0,$0,$0,$0,$0,$0,$0,$0,,$0,$0,"$47,041","$5,289",$0,$0,"$6,900","$79,635"
+2008,6015,Island Transit,Galveston,TX,"Galveston, TX",413,12,"54,770",$0,$0,$0,$0,$0,$0,$0,$0,,,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6016,Beaumont Municipal Transit System,Beaumont,TX,"Beaumont, TX",201,81,"139,304",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6017,Central Oklahoma Transportation and Parking Authority,Oklahoma City,OK,"Oklahoma City, OK",49,322,"747,003",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$14,369",$0
+2008,6018,Metropolitan Tulsa Transit Authority,Tulsa,OK,"Tulsa, OK",63,261,"558,329",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$614,625"
+2008,6019,ABQ Ride,Albuquerque,NM,"Albuquerque, NM",57,224,"598,191",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6020,Crescent City Connection Division - Louisiana Department of Transportation,New Orleans,LA,"New Orleans, LA",37,198,"1,009,283",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1998,6021,"Louisiana Transit Company, Inc. ",Harahan,LA,"New Orleans, LA",33,270,"1,040,226",$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,,,,
+2008,6022,Capital Area Transit System,Baton Rouge,LA,"Baton Rouge, LA",72,281,"479,019",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$8,689",$0,$0
+2008,6023,Lake Charles Transit System,Lake Charles,LA,"Lake Charles, LA",204,92,"132,977",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+2008,6024,Shreveport Area Transit System,Shreveport,LA,"Shreveport, LA",115,155,"275,213",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6025,City of Alexandria,Alexandria,LA,"Alexandria, LA",314,58,"78,504",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6026,City of Monroe Transit System,Monroe,LA,"Monroe, LA",232,78,"113,818",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1998,6029,Westside Transit Lines ,Gretna,LA,"New Orleans, LA",33,270,"1,040,226",$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,,,,
+2008,6032,New Orleans Regional Transit Authority,New Orleans,LA,"New Orleans, LA",37,198,"1,009,283",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,$0,$0,$0
+2008,6033,Central Arkansas Transit Authority,North Little Rock,AR,"Little Rock, AR",88,206,"360,331",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6034,Pine Bluff Transit,Pine Bluff,AR,"Pine Bluff, AR",387,35,"58,584",$0,$0,$0,$0,,,,$0,,,,,,,,,,
+2008,6035,Wichita Falls Transit System,Wichita Falls,TX,"Wichita Falls, TX",258,52,"99,396",$0,$0,$0,$0,,,,,,,,,,,,,,
+2006,6037,City of San Angelo,San Angelo,TX,"San Angelo, TX",293,46,"87,969",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$66,648","$4,584","$61,726","$17,769","$47,200",,
+2008,6038,Lafayette Transit System,Lafayette,LA,"Lafayette, LA",170,125,"178,079",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6040,Abilene Transit System,Abilene,TX,"Abilene, TX",245,48,"107,041",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6041,Handitran Special Transit Division - City of Arlington,Arlington,TX,"Dallas-Fort Worth-Arlington, TX",6,"1,407","4,145,659",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1995,6045,City of Santa Fe - Social Services Transportation Program,Santa Fe,NM,"Santa Fe, NM",323,41,"63,023",$0,$0,$0,$0,$0,,,,,,,,,,,,,
+2008,6048,Capital Metropolitan Transportation Authority,Austin,TX,"Austin, TX",40,318,"901,920",$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6049,Las Cruces Area Transit,Las Cruces,NM,"Las Cruces, NM",253,64,"104,186",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$5,755",$0,$0,$0,$0,$0,$0
+2008,6051,Corpus Christi Regional Transportation Authority,Corpus Christi,TX,"Corpus Christi, TX",107,110,"293,925",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2006,6053,Texoma Council of Governments Transportation Department,Sherman,TX,"Sherman, TX",407,32,"56,168",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,
+2008,6056,Dallas Area Rapid Transit,Dallas,TX,"Dallas-Fort Worth-Arlington, TX",6,"1,407","4,145,659",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2002,6057,"First Transit, Inc.",Garland,TX,"Dallas-Fort Worth-Arlington, TX",6,"1,407","4,145,659",,$0,$0,$0,$0,$0,$0,$0,$0,$0,,$0,,,,,,
+2008,6059,Brazos Transit District,Bryan,TX,"College Station-Bryan, TX",206,49,"132,500",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6062,"University of Arkansas, Fayetteville",Fayetteville,AR,"Fayetteville-Springdale, AR",175,109,"172,585",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$59,908",$0,$0,$0,$0,"$178,943"
+2008,6068,City of Grand Prairie Transportation Services Department,Grand Prairie,TX,"Dallas-Fort Worth-Arlington, TX",6,"1,407","4,145,659",,,$0,,,,$0,$0,$0,$0,$0,"$1,205","$1,086",$0,$0,$0,$0,$0
+2008,6070,City of Mesquite,Mesquite,TX,"Dallas-Fort Worth-Arlington, TX",6,"1,407","4,145,659",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6072,Ozark Regional Transit,Springdale,AR,"Fayetteville-Springdale, AR",175,109,"172,585",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$9,000",$0,"$116,603","$17,885","$16,136","$16,382"
+2005,6074,Lewisville Dial-A-Ride,Lewisville,TX,"Denton-Lewisville, TX",105,122,"299,823",,,,,,,,,,,,,$0,$0,$0,,,
+2000,6075,City of Temple ,Temple,TX,"Temple, TX",344,54,"58,710",,,,$0,,,$0,$0,,,,,,,,,,
+2005,6076,City of Denton Public Transportation Department,Denton,TX,"Denton-Lewisville, TX",105,122,"299,823",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,
+2008,6077,Santa Fe Trails - City of Santa Fe,Santa Fe,NM,"Santa Fe, NM",307,45,"80,337",,,,$0,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,"$32,391",$0
+2008,6080,Terrebonne Parish Consolidated Government,Houma,LA,"Houma, LA",211,77,"125,929",,,,,,,$0,$0,$0,$0,$0,$216,$0,,,,,
+2008,6081,Longview Transit,Longview,TX,"Longview, TX",315,51,"78,070",,,,,,$0,$0,,,,,,,,,,,
+2008,6082,The Gulf Coast Center,Texas City,TX,"Texas City, TX",267,59,"96,417",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1998,6083,"VPSI, Inc. ",Austin,TX,"Austin, TX",54,273,"562,008",,,,,,,$0,$0,,,,,,,,,,
+2008,6084,"Dallas - VPSI, Inc.",Arlington,TX,"Dallas-Fort Worth-Arlington, TX",6,"1,407","4,145,659",,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2004,6085,"Houston - VPSI, Inc.",Houston,TX,"Houston, TX",10,"1,295","3,822,509",,,,,,,,,$0,$0,$0,$0,$0,,,,,
+2008,6086,Fort Smith Transit,Fort Smith,AR,"Fort Smith, AR-OK",248,55,"106,470",,,,,,,,,,,,"$4,294","$12,462",$0,$0,$0,$0,$0
+2003,6087,"First Transit, Inc.",Houston,TX,"Houston, TX",10,"1,295","3,822,509",,,,,,,$0,$0,$0,$0,$0,$0,$0,,,,,
+2008,6088,Jefferson Parish Department of Transit Administration,Gretna,LA,"New Orleans, LA",37,198,"1,009,283",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,6090,Lower Rio Grande Valley Development Council,McAllen,TX,"McAllen, TX",70,314,"523,144",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,"$17,852","$236,513","$38,153"
+2008,6091,Hill Country Transit District,San Saba,TX,"Killeen, TX",177,64,"167,976",,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0
+2006,6092,ATC / Vancom,Dallas,TX,"Dallas-Fort Worth-Arlington, TX",6,"1,407","4,145,659",,,,,,,,,,,$0,$0,$0,$0,$0,$0,,
+2008,6094,The Lawton Area Transit System,Lawton,OK,"Lawton, OK",287,55,"89,556",,,,,,,,,,,,,,$0,$0,$0,$0,$0
+2008,6095,Golden Crescent Regional Planning Commission,Victoria,TX,"Victoria, TX",375,51,"61,529",,,,,,,,,,,,,,"$10,523","$1,652",$0,"$3,214","$4,200"
+2008,6096,Cleveland Area Rapid Transit, Norman,OK,"Norman, OK",296,30,"86,478",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,6097,Midland-Odessa Urban Transit District,Odessa,TX,"Odessa, TX",240,53,"111,395",,,,,,,,,,,,,,$0,$0,"$41,442","$15,429","$18,810"
+2008,6099,City of McAllen - McAllen Express Transit,McAllen,TX,"McAllen, TX",70,314,"523,144",,,,,,,,,,,,,,,,$0,,
+2008,6101,Denton County Transportation Authority,Lewisville,TX,"Denton-Lewisville, TX",105,122,"299,823",,,,,,,,,,,,,,,,$0,$0,$0
+2008,6102,Concho Valley Transit District,San Angelo,TX,"San Angelo, TX",293,46,"87,969",,,,,,,,,,,,,,,,,$0,$0
+2008,6103,Fort Bend County Public Transportation,Sugar Land,TX,"Houston, TX",10,"1,295","3,822,509",,,,,,,,,,,,,,,,,$0,$0
+2008,6107,"Texoma Area Paratransit System, Inc",Sherman,TX,"Sherman, TX",407,32,"56,168",,,,,,,,,,,,,,,,,$0,$0
+2008,7001,StarTran,Lincoln,NE,"Lincoln, NE",134,78,"226,582",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7002,Transit Authority of Omaha,Omaha,NE,"Omaha, NE-IA",56,226,"626,623",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$38,960",$0,$0,$0,$0,$0,$0
+2008,7003,City Utilities of Springfield ,Springfield,MO,"Springfield, MO",140,114,"215,004",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7005,Kansas City Area Transportation Authority,Kansas City,MO,"Kansas City, MO-KS",29,584,"1,361,744",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7006,Bi-State Development Agency,St. Louis,MO,"St. Louis, MO-IL",17,829,"2,077,662",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7007,Bettendorf Transit System,Bettendorf,IA,"Davenport, IA-IL",118,124,"270,626",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7008,Cedar Rapids Transit,Cedar Rapids,IA,"Cedar Rapids, IA",184,59,"155,334",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7009,Davenport Public Transit,Davenport,IA,"Davenport, IA-IL",118,124,"270,626",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7010,Des Moines Area Regional Transit Authority,Des Moines,IA,"Des Moines, IA",85,140,"370,505",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7011,City of Dubuque,Dubuque,IA,"Dubuque, IA-IL",357,30,"65,251",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7012,Sioux City Transit System,Sioux City,IA,"Sioux City, IA-NE-SD",250,53,"106,119",$0,$0,$0,$0,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,"$8,100",$0,$0
+2008,7013,Metropolitan Transit Authority of Black Hawk County,Waterloo,IA,"Waterloo, IA",244,53,"108,298",$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,"$2,766",$0,"$5,089",$0,$0,$0
+2008,7014,Topeka Metropolitan Transit Authority,Topeka,KS,"Topeka, KS",198,70,"142,411",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$13,992","$9,285","$17,286","$70,481",$0,$0
+2008,7015,Wichita Transit,Wichita,KS,"Wichita, KS",76,179,"422,301",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7016,Columbia Transit,Columbia,MO,"Columbia, MO",260,52,"98,779",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$20,555",$0,$0,"$91,156","$212,236",$0,$0
+2008,7018,Iowa City Transit,Iowa City,IA,"Iowa City, IA",298,36,"85,247",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$240,889","$181,731",$0
+2008,7019,University of Iowa,Iowa City,IA,"Iowa City, IA",298,36,"85,247",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7030,Coralville Transit System,Coralville,IA,"Iowa City, IA",298,36,"85,247",$0,$0,$0,$0,,,,,,,,,,,$0,$0,"$19,890","$47,513"
+2008,7032,St. Joseph Transit,St. Joseph,MO,"St. Joseph, MO-KS",317,39,"77,231",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7033,City of Lawrence - Lawrence Transit System,Lawrence,KS,"Lawrence, KS",311,23,"79,647",,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0
+2008,7035,"Johnson County Kansas, aka: Johnson County Transit",Olathe,KS,"Kansas City, MO-KS",29,584,"1,361,744",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2007,7036,Missouri State University,Springfield,MO,"Springfield, MO",140,114,"215,004",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,
+2008,7041,Ames Transit Agency,Ames,IA,"Ames, IA",444,16,"50,726",,,,,,,,,,,,"$46,409","$15,000","$23,574","$8,401","$84,947","$68,498","$59,044"
+2008,7043,City of Jefferson,Jefferson City,MO,"Jefferson City, MO",419,38,"53,714",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,7044,Parking & Transit Department,Lawrence,KS,"Lawrence, KS",311,23,"79,647",,,,,,,,,,,,,,,,,$0,$0
+2008,7045,Johnson County SEATS,Coralville,IA,"Iowa City, IA",298,36,"85,247",,,,,,,,,,,,,,,,,,$0
+2008,8001,Utah Transit Authority,Salt Lake City,UT,"Salt Lake City, UT",42,231,"887,650",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8002,Su Tran LLC dba: Sioux Falls Transit,Sioux Falls,SD,"Sioux Falls, SD",214,46,"124,269",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8003,Fargo Metropolitan Area Transit,Fargo,ND,"Fargo, ND-MN",197,46,"142,477",$0,$0,$0,$0,$0,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8004,Billings Metropolitan Transit,Billings,MT,"Billings, MT",257,46,"100,317",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8005,Mountain Metropolitan Transit,Colorado Springs,CO,"Colorado Springs, CO",73,197,"466,122",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8006,Denver Regional Transportation District,Denver,CO,"Denver-Aurora, CO",20,499,"1,984,889",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8007,Pueblo Transit System,Pueblo,CO,"Pueblo, CO",216,54,"123,351",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8008,Cities Area Transit,Grand Forks,ND,"Grand Forks, ND-MN",404,17,"56,573",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$66,034",$0,$0,$0,$0,$0
+2008,8009,Missoula Urban Transportation District,Missoula,MT,"Missoula, MT",343,36,"69,491",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$504,157",$0,$0
+2008,8010,City of Greeley - Transit Services,Greeley,CO,"Greeley, CO",275,34,"93,879",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8011,Transfort ,Fort Collins,CO,"Fort Collins, CO",146,84,"206,757",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8012,Great Falls Transit District,Great Falls,MT,"Great Falls, MT",363,29,"64,387",$0,,,$0,$0,$0,$0,$0,,$0,$0,$0,$0,$0,$0,"$28,081",$0,$0
+2008,8013,City of Casper,Casper,WY,"Casper, WY",397,26,"57,719",$0,$0,$0,$0,$0,$0,,,,,,,,,$0,$0,$0,$0
+2008,8014,Rapid Transit System,Rapid City,SD,"Rapid City, SD",352,30,"66,780",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,8016,Mesa County,Grand Junction,CO,"Grand Junction, CO",277,56,"92,362",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,617",$0,$0,$0,$0
+2008,8019,Bis-Man Transit Board,Bismarck,ND,"Bismarck, ND",322,34,"74,991",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$92,720",$0,$0,"$81,367",$0
+2008,8020,The City of Cheyenne Transit Program,Cheyenne,WY,"Cheyenne, WY",346,34,"68,202",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$10,000",$0,"$36,338",$0,$0
+2007,8021,"City of Logan, dba: The Logan Transit District",Logan,UT,"Logan, UT",318,38,"76,187",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,
+1999,8022,"Laidlaw Transit Services, Inc Transit Services, Inc.",Commerce City,CO,"Denver, CO",22,459,"1,517,977",,,,,,,$0,$0,$0,,,,,,,,,
+2000,8023,"Atlantic Paratrans of Colorado, Inc. (APCO)",Staten Island,NY,"Denver, CO",22,459,"1,517,977",,,,,,,,,,$0,,,,,,,,
+2001,8024,Special Transportation for Boulder County Inc.,Boulder,CO,"Denver, CO",22,459,"1,517,977",,,,,,,,,,$0,$0,,,,,,,
+2008,8025,City of Loveland Transit,Loveland,CO,"Fort Collins, CO",146,84,"206,757",,,,,,,,,,,,,"$65,173",$0,$0,$0,$0,$0
+2008,8028,Cache Valley Transit District,Logan,UT,"Logan, UT",318,38,"76,187",,,,,,,,,,,,,,,,,$0,$0
+2008,9001,Regional Transportation Commission of Washoe County,Reno,NV,"Reno, NV",101,119,"303,689",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9002,City and County of Honolulu Department of Transportation Services,Honolulu,HI,"Honolulu, HI",51,154,"718,182",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9003,San Francisco Bay Area Rapid Transit District,Oakland,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$12,311,200",$0,$0,$0,$0,$0,"$309,069"
+2008,9004,Golden Empire Transit District,Bakersfield,CA,"Bakersfield, CA",82,110,"396,125",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9006,Santa Cruz Metropolitan Transit District,Santa Cruz,CA,"Santa Cruz, CA",183,55,"157,348",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9007,Modesto Area Express,Modesto,CA,"Modesto, CA",100,86,"310,945",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"-$204,702",$0,$0,$0,$0
+2008,9008,Santa Monica's Big Blue Bus,Santa Monica,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9009,San Mateo County Transit District,San Carlos,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$17,970,805",$0,$0,$0,$0,$0,$0
+2008,9010,Torrance Transit System,Torrance,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9012,San Joaquin Regional Transit District,Stockton,CA,"Stockton, CA",99,74,"313,392",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9013,Santa Clara Valley Transportation Authority,San Jose,CA,"San Jose, CA",24,260,"1,538,312",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$112,195,335",$0,$0,$0,$0,$0,"$12,117,795"
+2008,9014,Alameda-Contra Costa Transit District,Oakland,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$7,709,437",$0,$0,$0,$0,$0,$0
+2008,9015,San Francisco Municipal Railway,San Francisco,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9016,"Golden Gate Bridge, Highway and Transportation District",San Francisco,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$2,322,710","$607,090","$5,771,702","$1,407,444",$0,$0,$0
+2008,9017,City of Santa Rosa,Santa Rosa,CA,"Santa Rosa, CA",111,102,"285,408",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$313,$0,$0,$0,$0,$0
+2008,9019,Sacramento Regional Transit District,Sacramento,CA,"Sacramento, CA",28,369,"1,393,498",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$673,005",$0,$0,$0,$0,$0
+2008,9020,Santa Barbara Metropolitan Transit District,Santa Barbara,CA,"Santa Barbara, CA",155,60,"196,263",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1993,9021,Los Angeles County Metropolitan Transportation Authority (LACMTA),Los Angeles,CA,"Los Angeles, CA",2,"1,966","11,402,946",$0,$0,$0,,,,,,,,,,,,,,,
+2008,9022,Norwalk Transit System,Norwalk,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9023,Long Beach Transit,Long Beach,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2005,9024,City of La Mirada Transit,La Mirada,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,
+2008,9026,San Diego Metropolitan Transit System,San Diego,CA,"San Diego, CA",15,782,"2,674,436",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9027,Fresno Area Express,Fresno,CA,"Fresno, CA",64,139,"554,923",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9028,City of Vallejo Transportation Program,Vallejo,CA,"Vallejo, CA",181,34,"158,967",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$5,833","$3,924",$0
+2008,9029,Omnitrans,San Bernardino,CA,"Riverside-San Bernardino, CA",25,439,"1,506,816",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$936,"$521,868","$791,024","$683,335"
+2008,9030,North County Transit District,Oceanside,CA,"San Diego, CA",15,782,"2,674,436",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$1,188,366","$234,446",$0,$0,$0,"-$708,006"
+2008,9031,Riverside Transit Agency,Riverside,CA,"Riverside-San Bernardino, CA",25,439,"1,506,816",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9032,City of Phoenix Public Transit Department dba Valley Metro,Phoenix,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$4,991","$1,753,927","$10,202,739","$683,105","$2,581,918","$708,661"
+2008,9033,City of Tucson,Tucson   ,AZ,"Tucson, AZ",50,291,"720,425",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$272,$0,$0,$0,$0,$0,$0
+2008,9034,City of Glendale Transit,Glendale,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$145,257"
+2008,9035,Gold Coast Transit,Oxnard,CA,"Oxnard, CA",91,76,"337,591",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9036,Orange County Transportation Authority,Orange,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$30,022,369","$596,933","$7,053,293","$9,807,621","$4,292,725","$790,919","$37,825,240"
+2008,9039,Culver City Municipal Bus Lines,Culver City,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9041,Montebello Bus Lines,Montebello,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9042,City of Gardena Transportation Department,Gardena,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$283,985","$1,243,932",$0,$0,$692,$0,$0
+2008,9043,City of Commerce Municipal Buslines,Commerce,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9044,City of Arcadia Transit,Arcadia,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9045,Regional Transportation Commission of Southern Nevada,Las Vegas,NV,"Las Vegas, NV",31,286,"1,314,357",$0,$0,$0,,,,,,,,$0,"$3,499,615",$0,$0,$0,"$1,042,939",$0,$0
+2008,9050,Simi Valley Transit,Simi Valley,CA,"Simi Valley, CA",238,27,"112,345",$0,$0,$0,$0,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9052,City of Corona,Corona,CA,"Riverside-San Bernardino, CA",25,439,"1,506,816",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2006,9054,"San Diego Trolley, Inc.",San Diego,CA,"San Diego, CA",15,782,"2,674,436",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$9,784,442",$0,$0,$0,"$774,736",,
+1996,9055,Monterey County Rides ,Salinas,CA,"Salinas, CA",188,35,"122,225",$0,$0,$0,$0,$0,$0,,,,,,,,,,,,
+1994,9056,Economic Opportunity Board of Clark County,Las Vegas,NV,"Las Vegas, NV",45,231,"697,348",,$0,$0,$0,,,,,,,,,,,,,,
+2008,9061,Yuba-Sutter Transit Authority,Marysville,CA,"Yuba City, CA",262,35,"97,645",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9062,Monterey-Salinas Transit,Monterey,CA,"Seaside-Monterey-Marina, CA",213,41,"125,503",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1991,9063,Redondo Beach Dial-A-Ride ,Redondo Beach,CA,"Los Angeles, CA",2,"1,966","11,402,946",,,,,,,,,,,,,,,,,,
+1993,9077,Los Angeles County Transportation Commission / MTA,Los Angeles,CA,"Los Angeles, CA",2,"1,966","11,402,946",$0,$0,$0,,,,,,,,,,,,,,,
+2008,9078,Central Contra Costa Transit Authority,Concord,CA,"Concord, CA",65,176,"552,624",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9079,SunLine Transit Agency,Thousand Palms,CA,"Indio-Cathedral City-Palm Springs, CA",125,99,"254,856",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9086,City of Riverside Special Transportation,Riverside,CA,"Riverside-San Bernardino, CA",25,439,"1,506,816",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$25,123",$0,$0,$0,$0
+2008,9087,Santa Maria Area Transit,Santa Maria,CA,"Santa Maria, CA",222,36,"120,297",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$3,000",$0,$0,"$1,640",$150,"$13,300"
+2008,9088,Napa County Transportation Planning Agency,Napa,CA,"Napa, CA",309,24,"79,867",$0,$0,$0,$0,$0,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$75,617"
+2008,9089,Sonoma County Transit,Santa Rosa,CA,"Santa Rosa, CA",111,102,"285,408",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$13,277",$0,$0,"$148,241",$0,$0
+2008,9090,Yolo County Transportation District,Woodland,CA,"Sacramento, CA",28,369,"1,393,498",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$140,954","$79,035","$2,459,808","$160,637","$96,263","$89,732","$766,813"
+2008,9091,City of Visalia - Visalia City Coach,Visalia,CA,"Visalia, CA",223,40,"120,044",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9092,City of Fairfield - Fairfield and Suisun Transit,Fairfield,CA,"Fairfield, CA",236,26,"112,446",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9093,Redding Area Bus Authority,Redding,CA,"Redding, CA",252,71,"105,267",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9095,San Diego Association of Governments,San Diego,CA,"San Diego, CA",15,782,"2,674,436",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9119,Laguna Beach Municipal Transit,Laguna Beach,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",$0,$0,$0,$0,$0,$0,$0,$0,$0,,,$0,$0,$0,$0,$0,$0,$0
+2008,9121,Antelope Valley Transit Authority,Lancaster,CA,"Lancaster-Palmdale, CA",123,90,"263,532",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1993,9124,"Phoenix Transit System Division of ATC/Vancom, Inc.",Phoenix,AZ,"Phoenix, AZ",14,741,"2,006,239",,$0,,,,,,,,,,,,,,,,
+1992,9126,California Dept of Transportation San Diegan Commuter Rail,Sacramento,CA,"Los Angeles, CA",2,"1,966","11,402,946",$0,$0,,,,,,,,,,,,,,,,
+2005,9127,Chico Area Transit System City of Chico,Chico,CA,"Chico, CA",289,35,"89,221",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,
+2004,9129,City of Mesa,Mesa,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,
+2008,9131,City of Scottsdale - Scottsdale Trolley,Scottsdale,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,$0
+2008,9132,Maricopa County Special Transportation Services,Phoenix,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1991,9133,"Robert's Hawaii Leasing, Inc. dba The Handi-Van",Honolulu,HI,"Honolulu, HI",46,139,"632,603",$0,,,,,,,,,,,,,,,,,
+2008,9134,Peninsula Corridor Joint Powers Board,San Carlos,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$127,644","$13,707"
+2008,9135,"Sun Cities Area Transit System, Inc.",Sun City,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$32,000",$0,$0,,
+2008,9136,"Regional Public Transportation Authority, dba: Valley Metro",Phoenix,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9137,Surprise Dial-A-Ride Transit System,Surprise,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",$0,$0,$0,$0,$0,,,$0,$0,$0,$0,"$94,477",$0,$0,$0,$0,$0,$0
+2008,9140,Peoria Transit,Peoria,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$18,893",$0,$0,$0,$0,$0,$0
+2008,9142,Unitrans - City of Davis/ASUCD,Davis,CA,"Davis, CA",356,14,"66,022",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$45,000","$103,375","$52,000","$62,000","$62,000","$44,780",$0
+1993,9143,City of Merced Transit System ,Merced,CA,"Merced, CA",318,20,"64,742",$0,$0,$0,,,,,,,,,,,,,,,
+2008,9144,Livermore / Amador Valley Transit Authority,Livermore,CA,"Concord, CA",65,176,"552,624",$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+1993,9145,"Aloha-State Tour & Transportation Co., Ltd. dba The Handi-Van",Honolulu,HI,"Honolulu, HI",46,139,"632,603",$0,$0,$0,,,,,,,,,,,,,,,
+2008,9146,Foothill Transit,West Covina,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9147,City of Los Angeles Department of Transportation,Los Angeles,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9148,Victor Valley Transit Authority,Hesperia,CA,"Victorville-Hesperia-Apple Valley, CA",150,124,"200,436",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$26,559"
+2008,9149,City of Lompoc - Lompoc Transit,Lompoc,CA,"Lompoc, CA",410,60,"55,667",,,$0,$0,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$6,743",$0
+2008,9150,City of Alameda Ferry Services,Alameda,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9151,Southern California Regional Rail Authority,Los Angeles,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$704,795","$736,601","$878,561","$961,835","$1,025,313",$0
+2000,9152,ATC/VanCom ,North Las Vegas,NV,"Las Vegas, NV",45,231,"697,348",,,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,,
+1997,9153,"Mayflower Contract Services, Inc. A Division of Laidlaw Transit Srvs.",Honolulu,HI,"Honolulu, HI",46,139,"632,603",,,$0,$0,$0,$0,$0,,,,,,,,,,,
+2008,9154,Los Angeles County Metropolitan Transportation Authority,Los Angeles,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9155,City of Vacaville,Vacaville,CA,"Vacaville, CA",284,25,"90,264",,,,$0,,,,,,,,,,,,,,
+2008,9156,City of San Luis Obispo,San Luis Obispo,CA,"San Luis Obispo, CA",423,15,"53,498",,,,$0,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9157,Access Services Incorporated,Los Angeles,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2001,9158,"Laidlaw Transit Services, Inc. ",Sherman Oaks,CA,"Los Angeles, CA",2,"1,966","11,402,946",,,,$0,$0,$0,$0,$0,$0,$0,$0,,,,,,,
+2008,9159,Western Contra Costa Transit Authority,Pinole,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2001,9160,"Outreach & Escort, Inc. dba OUTREACH",San Jose,CA,"San Jose, CA",23,338,"1,435,019",,,,,,$0,$0,$0,$0,$0,$0,,,,,,,
+2008,9161,City of Union City Transit Division,Union City,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9162,Eastern Contra Costa Transit Authority,Antioch,CA,"Antioch, CA",139,60,"217,591",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9163,Camarillo Area Transit,Camarillo,CA,"Camarillo, CA",368,21,"62,798",,,,,,$0,,,,,,,,,,,,
+2008,9164,Ventura Intercity Service Transit Authority,Ventura,CA,"Oxnard, CA",91,76,"337,591",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9165,Thousand Oaks Transit,Thousand Oaks,CA,"Thousand Oaks, CA",143,86,"210,990",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9166,LACMTA - Small Operators,Los Angeles,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",,,,,,,,$0,$0,$0,$0,$0,$0,"$49,898",$0,$0,$0,$0
+2008,9168,Roseville Transit,Roseville,CA,"Sacramento, CA",28,369,"1,393,498",,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$27,199",$0
+2008,9169,"Phoenix - VPSI, Inc.",Glendale,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2006,9170,ATC / Vancom,Oakland,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,,
+2008,9171,Santa Clarita Transit,Santa Clarita,CA,"Santa Clarita, CA",176,54,"170,481",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9172,City of Tempe Transportation Planning and Transit Division - dba Valley Metro,Tempe,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9173,Merced County Transit,Merced,CA,"Merced, CA",243,36,"110,483",,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2008,9174,City of Benicia,Benicia,CA,"Vallejo, CA",181,34,"158,967",,,,,,,,,,,,,,,,$0,$0,$0
+2008,9175,City of Lodi - Transit Division,Lodi,CA,"Lodi, CA",303,24,"83,735",,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,"$68,000"
+2008,9176,"Honolulu - VPSI, Inc.",Honolulu,HI,"Honolulu, HI",51,154,"718,182",,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2004,9177,Town of Guadalupe,Guadalupe,AZ,"Phoenix-Mesa, AZ",13,799,"2,907,049",,,,,,,,$0,$0,$0,,,,,,,,
+2001,9178,Laidlaw Transit Services Inc. ,El Monte,CA,"Los Angeles, CA",2,"1,966","11,402,946",,,,,,,,$0,$0,$0,$0,,,,,,,
+2001,9179,"First Transit, Inc. ",West Covina,CA,"Los Angeles, CA",2,"1,966","11,402,946",,,,,,,,$0,$0,$0,$0,,,,,,,
+2007,9180,Coconino County Transportation Services,Flagstaff,AZ,"Flagstaff, AZ",403,32,"57,050",,,,,,,,,,,,$0,"$25,635",$0,$0,$0,$0,
+2008,9182,Altamont Commuter Express,Stockton,CA,"Stockton, CA",99,74,"313,392",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,$0,$0
+2006,9185,MTS Contract Services,San Diego,CA,"San Diego, CA",15,782,"2,674,436",,,,,,,,,$0,$0,$0,$0,$0,$0,$0,$0,,
+2007,9186,San Francisco Paratransit,San Francisco,CA,"San Francisco-Oakland, CA",12,527,"3,228,605",,,,,,,,,,,$0,$0,$0,$0,$0,$0,$0,
+2000,9187,"San Gabriel Transit, Inc. ",Rosemead,CA,"Los Angeles, CA",2,"1,966","11,402,946",,,,,,,,,,$0,,,,,,,,
+2002,9188,County of San Diego Transit System,San Diego,CA,"San Diego, CA",15,782,"2,674,436",,,,,,,,,,,$0,$0,,,,,,
+2006,9189,National City Transit,National City,CA,"San Diego, CA",15,782,"2,674,436",,,,,,,,,,,$0,$0,$0,$0,$0,$0,,
+2001,9190,"Laidlaw Transit Services, Inc. ",San Jose,CA,"San Jose, CA",23,338,"1,435,019",,,,,,,,,,,$0,,,,,,,
+2008,9192,Yuma Metropolitan Planning Organization,Yuma,AZ,"Yuma, AZ-CA",272,38,"94,950",,,,,,,,,,,,,"$95,765","$112,986","$124,282",$0,$0,$0
+2008,9193,Chula Vista Transit,Chula Vista,CA,"San Diego, CA",15,782,"2,674,436",,,,,,,,,,,,,$0,$0,$0,$0,$0,$0
+2008,9196,Placer County Department of Public Works,Auburn,CA,"Sacramento, CA",28,369,"1,393,498",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,9197,City of Tracy,Tracy,CA,"Tracy, CA",384,13,"59,020",,,,,,,,,,,,,,,$0,,,
+2008,9198,City of Porterville,Porterville,CA,"Porterville, CA",380,21,"60,261",,,,,,,,,,,,,,,$0,$0,$0,$0
+2008,9200,Kings County Area Public Transit Agency,Hanford,CA,"Hanford, CA",341,25,"69,639",,,,,,,,,,,,,,,,$0,"$875,184","$1,012,692"
+2008,9201,City of Turlock,Turlock,CA,"Turlock, CA",342,19,"69,507",,,,,,,,,,,,,,,,"$74,804",$0,$0
+2008,9204,Las Vegas Monorail Company,Las Vegas,NV,"Las Vegas, NV",31,286,"1,314,357",,,,,,,,,,,,,,,,"$30,257,694",$0,
+2008,9205,City of Elk Grove,Elk Grove,CA,"Sacramento, CA",28,369,"1,393,498",,,,,,,,,,,,,,,,$0,$0,$0
+2008,9206,San Luis Obispo Regional Transit Authority,San Luis Obispo,CA,"San Luis Obispo, CA",423,15,"53,498",,,,,,,,,,,,,,,,,$0,$0
+2008,9208,Butte County Association of Governments,Chico,CA,"Chico, CA",289,35,"89,221",,,,,,,,,,,,,,,,$0,$0,$0
+2008,9211,Anaheim Transportation Network,Anaheim,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",,,,,,,,,,,,,,,,,$0,$0
+2008,9212,Imperial Valley Transit,El Centro,CA,"El Centro, CA",428,17,"52,954",,,,,,,,,,,,,,,,,$0,$0
+2008,9213,City of Petaluma,Petaluma,CA,"Petaluma, CA",382,18,"59,958",,,,,,,,,,,,,,,,,$0,$0
+2008,9214,City of Redondo Beach - Beach Cities Transit,Redondo Beach,CA,"Los Angeles-Long Beach-Santa Ana, CA",2,"1,668","11,789,487",,,,,,,,,,,,,,,,,,$0
+2008,9216,County of Sacramento Municipal Services Agency Department of Transportation,Sacramento,CA,"Lodi, CA",303,24,"83,735",,,,,,,,,,,,,,,,,,$0
+2008,9218,Riverside County Transportation Commission,Riverside,CA,"Riverside-San Bernardino, CA",25,439,"1,506,816",,,,,,,,,,,,,,,,,,$0
+2008,9219,Northern Arizona Intergovernmental Public Transportation Authority,Flagstaff,AZ,"Flagstaff, AZ",403,32,"57,050",,,,,,,,,,,,,,,,,,$0

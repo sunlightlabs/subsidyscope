@@ -5,14 +5,17 @@ from django.core.urlresolvers import reverse
 from django.template import RequestContext, loader, Template, Context
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.db.models import Avg, Sum
+from django.db.models.query import QuerySet
 from django.db import connection 
 from transit.models import *
 from geo.models import *
 from simplejson import * 
 from math import *
+import csv
 from django import forms
 from copy import deepcopy
 from django.db.models import Q
+from haystack.query import SearchQuerySet
 
 metrics_selected = ['cap_expense', 'op_expense', 'PMT', 'UPT', 'recovery_ratio', 'op_expense_pmt', 'cap_expense_pmt', 'op_expense_upt', 'cap_expense_upt'] 
 
@@ -21,18 +24,89 @@ mode_hash = {'AG':'Automated Guideway', 'AR': 'Alaska Railroad', 'MB':'Bus', 'CC
 #view functions
 
 def index(request):
+
+    states = State.objects.all()
+    uza = UrbanizedArea.objects.all().order_by('name')
+    systems, data, name, modes, size, metrics, sort, order = get_search_results(request)
+    if systems:
+        paginator = Paginator(systems, 20)
+        try:
+            page = int(request.POST.get('page', '1'))
+
+        except ValueError:
+            page = 1
+
+        try:
+            systems = paginator.page(page)
+        except (EmptyPage, InvalidPage):
+            systems = paginator.page(paginator.num_pages)
+        
+        if len(systems.object_list) > 0: 
+            return render_to_response('transportation/transit/transit_index.html', 
+                                        {'states': states, 
+                                        'uza': uza, 
+                                        'results': systems, 
+                                        'modes': mode_constants ,
+                                        'paginator': systems, 
+                                        'num_pages':paginator.num_pages, 
+                                        'form':data, 
+                                        'metrics': metrics_selected})   
+
+    return render_to_response('transportation/transit/transit_index.html', 
+                             {'states': states, 
+                              'uza': uza, 
+                              'modes': mode_constants, 
+                              'has_searched': False})
+
+def get_system_ridership_csv(request, trs_id):
+    system = TransitSystem.objects.get(trs_id=trs_id)
+    operations = OperationStats.objects.filter(transit_system=system).order_by('mode')
+    response = HttpResponse(mimetype="text/csv")
+    response['Content-Disposition'] = 'attachment; filename=%s_ridership_stats.csv' % system.name.replace(' ', '_')
+    writer = csv.writer(response)
+    writer.writerow([  'mode', 'year', 'passenger miles travelled', 'unlinked passenger trips', 'vehicle revenue miles', 'vehicle revenue hours', 'directional route miles', 'fares', 'operating expense'])
+    for o in operations:
+        writer.writerow((o.get_mode_display(), o.year, o.passenger_miles_traveled, o.unlinked_passenger_trips, o.vehicle_revenue_miles, o.vehicle_revenue_hours, o.directional_route_miles, o.fares, o.operating_expense ))
+
+    response.close()
+    return response
+
+def get_csv_from_search(request):
+
+    systems, data, name, modes, size, metrics, sort, order = get_search_results(request)
+    response = HttpResponse(mimetype="text/csv")
+    response['Content-Disposition'] = 'attachment; filename=transit_search_results.csv'
+    writer = csv.writer(response)
+    #headers
+    writer.writerow([   "System Name", "Mode", "City", "State", "Urbanized Area",
+                        "Avg Capital Expenses", "Avg Operating Expenses", "Passenger Miles Travelled (PMT)",
+                        "Unlinked Passenger Trips (UPT)", "Recovery Ratio", "Operating Expense per PMT", 
+                        "Capital Expense per PMT", "Operating Expense per UPT", "Capital Expense per UPT"
+                    ])
+    #write the data out
+    for sys in systems:
+        writer.writerow([   sys.name, sys.mode, sys.city, sys.state.name, 
+                            sys.urbanized_area.name, sys.avg_capital_expenses,
+                            sys.avg_operating_expenses, sys.total_PMT, sys.total_UPT,
+                            sys.recovery_ratio, sys.avg_operating_PMT, sys.avg_capital_PMT,
+                            sys.avg_operating_UPT, sys.avg_capital_UPT
+                       ])
+
+    response.close()
+    return response
+
+    
+    
+        
+def get_search_results(request):
+
     states = State.objects.all()
     uza = UrbanizedArea.objects.all().order_by('name')
     systems = TransitSystemMode.objects.all()
     operations = OperationStats.objects.filter(transit_system=systems[0])
-    has_searched = False
 
-    tester = None
-     
-    tester = "test"
     if request.method =="POST":
         form = TransitQuery(request.POST) 
-        has_searched = True
         if form.is_valid():
             data = form.cleaned_data
             name = data['system_name']
@@ -45,7 +119,10 @@ def index(request):
             order = data["order"]
 
             if name:
-                systems = systems.filter(Q(name__icontains=name) | Q(common_name__icontains=name))
+                #added a more sophisticated solr search query on the free text field
+                systems = systems.filter(transit_system__in=[x.pk for x in SearchQuerySet().models(TransitSystem).filter(content=name)] )
+                
+                #systems = systems.filter(Q(name__icontains=name) | Q(common_name__icontains=name))
             if modes:
                 systems = systems.filter(mode__in=modes)
             if size:
@@ -79,39 +156,12 @@ def index(request):
             
             else:
                 systems = systems.order_by('name')
-            paginator = Paginator(systems, 20)
-            try:
-                page = int(request.POST.get('page', '1'))
 
-            except ValueError:
-                page = 1
+            return [ systems, data, name, modes, size, metrics, sort, order ]
 
-            try:
-                systems = paginator.page(page)
-            except (EmptyPage, InvalidPage):
-                systems = paginator.page(paginator.num_pages)
-            
-            if len(systems.object_list) > 0: 
-                return render_to_response('transportation/transit/transit_index.html', 
-                                         {'states': states, 
-                                          'uza': uza, 
-                                          'results': systems, 
-                                          'modes': mode_constants ,
-                                          'paginator': systems, 
-                                          'num_pages':paginator.num_pages, 
-                                          'form':data, 
-                                          'metrics': metrics_selected})   
-
+    return [None, None, None, None, None, None, None, None]
             #else: tester = "no objects returned" 
                  
-    return render_to_response('transportation/transit/transit_index.html', 
-                             {'states': states, 
-                              'uza': uza, 
-                              'modes': mode_constants, 
-                              'by_mode':tester,
-                              'has_searched': has_searched})
-
-
 def transitSystem(request, trs_id):
     
     try:
@@ -133,21 +183,6 @@ def transitSystem(request, trs_id):
         for x in mode_operations: x['mode'] = mode_hash[x['mode']] 
 
         #Fare data for bar chart
-        fares_data = {}
-        fares_data['elements'], fares_data['bg_colour'], fares_data['x_axis'] = [{'type':'bar', "values":[]}], '#FFFFFF', {"labels":{"labels": []}}
-        fare_max = 0
-           
-        for f in system_mode:
-            fares_data['x_axis']['labels']['labels'].append(mode_hash[f.mode])
-            if f.avg_fares:  fares_data['elements'][0]["values"].append(int( f.avg_fares)) 
-
-        try:
-            maximum = chartMax(max(fares_data['elements'][0]['values']))
-
-        except ValueError:
-            maximum = 0
-        
-        fares_data["y_axis"] = {"max": int(maximum), "min": 0}
 
         mode_data = buildModePieChart(transit_system)
         
@@ -175,7 +210,6 @@ def transitSystem(request, trs_id):
                                   'year_list': year_list, 
                                   'matrix_data': funding_percent, 
                                   'mode_operations': mode_operations, 
-                                  'fares_data': dumps(fares_data), 
                                   'fund_line_data': dumps(fund_json), 
                                   'fund_pie_data_capital': dumps(fund_source_capital_json), 
                                   'fund_pie_data_operating': dumps(fund_source_operating_json), 
@@ -233,21 +267,15 @@ def buildMatrix(trs_id, year=None):
     fund_types = ('federal', 'state', 'local', 'other')
     same_uza = FundingStats.objects.filter(transit_system__in = TransitSystem.objects.filter(urbanized_area=transit_system.urbanized_area))
 #    same_state = FundingStats.objects.filter(transit_system__in = TransitSystem.objects.filter(state=transit_system.state))
-    operations = OperationStats.objects.all()
-    op_system = operations.filter(transit_system=transit_system)
-    op_uza = operations.filter(transit_system__in = TransitSystem.objects.filter(urbanized_area=transit_system.urbanized_area))
 
-    all = FundingStats.objects.all()
+    all_fund = FundingStats.objects.all()
 
     if year and year != "all":
         funding = funding.filter(year=year)
         same_uza = same_uza.filter(year=year)
-        all = all.filter(year=year)
-        operations = operations.filter(year=year)
-        op_system = op_system.filter(year=year)
-        op_uza = op_uza.filter(year=year)
+        all_fund = all_fund.filter(year=year)
     
-    fund_subsets = (funding, same_uza, all)
+    fund_subsets = (funding, same_uza, all_fund)
 
     for f in fund_types:
         temp_list = [f]
@@ -258,7 +286,7 @@ def buildMatrix(trs_id, year=None):
         funding_percent.append(temp_list)
     
     #if year==None or (year > 2001):
-    funding_percent.append(["fares", int(op_system.aggregate(Sum('fares'))['fares__sum']) or 'n/a', op_uza.aggregate(Sum('fares'))['fares__sum'] or 'n/a', operations.aggregate(Sum('fares'))['fares__sum'] or 'n/a'])
+    funding_percent.append(["fares", int(funding.aggregate(Sum('operating_fares'))['operating_fares__sum']) or 'n/a', same_uza.aggregate(Sum('operating_fares'))['operating_fares__sum'] or 'n/a', all_fund.aggregate(Sum('operating_fares'))['operating_fares__sum'] or 'n/a'])
     
 
     return funding_percent    
@@ -310,7 +338,7 @@ def buildSourcesPieChart(fundingObj, category=None):
     for f in fundingObj:
         
         for key in data.keys():
-            if key == 'Fares' and category != 'capital': data[key].append(float(OperationStats.objects.filter(transit_system=f.transit_system, year=f.year).aggregate(Sum('fares'))['fares__sum']))
+            if key == 'Fares' and category != 'capital': data[key].append(int(f.operating_fares))
             else: data[key].append(f.total_funding_by_type(key.lower(), category))
 
     #set up initial chart elements
@@ -340,13 +368,12 @@ def buildFundingLineChart(funding):
     for f in funding:
 
         for key in data.keys():
-            if key == 'Total': data[key].append(f.total_funding())
+            if key == 'Total': data[key].append(int(f.total_funding()))
             
             elif key == 'Fares': 
-                data['Fares'].append(float(OperationStats.objects.filter(transit_system=f.transit_system,year=f.year).aggregate(Sum('fares'))['fares__sum']) or 'null')
-
+                data['Fares'].append(int(f.operating_fares) or 'null')
             else:
-                data[key].append( f.total_funding_by_type(key.lower()) )
+                data[key].append( int(f.total_funding_by_type(key.lower()) ))
 
         fund_labels.append(str(f.year))
     

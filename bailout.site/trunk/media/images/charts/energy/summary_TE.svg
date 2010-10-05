@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<svg height="220" version="1.1" width="440" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.y-axis-path, .y-axis-path2, .y-gridline {display:none;}
+
+
+
+.x-notch, .x-notch-left, .x-notch-right { stroke: #a7a9ac; }
+
+.x-axis-path { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+
+.series-0-point { stroke: #e0d1d1; fill: #336699; stroke-width: 2px; }
+
+
+
+.series-1-point { stroke: #d6d9db; fill: #336699; stroke-width:2px; }
+
+
+
+.series-2-point { stroke: #eff5e6; fill: #9ca991; stroke-width: 2px; }
+
+
+
+
+
+.value-as-label { font-size: 11px; font-family: sans-serif; fill: #58596b;}
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+
+
+.y-axis-label { display:none;}
+
+	</style>
+	<rect fill="white" height="220" width="440" x="0" y="0"/>
+	<g id="grid" transform="translate(10, 10)">
+		<g class="x-axis" id="x_axis">
+			<path class="x-axis-path" d="M 0 170 L 420 170"/>
+			<path class="x-notch-left" d="M 0 170, L 0 180"/>
+			<path class="x-notch-right" d="M 420 170, L 420 180"/>
+		</g>
+		<g class="y-axis" id="y_axis">
+			<path class="y-axis-path" d="M 0 170 L 0 0"/>
+			<path class="y-axis-path-2" d="M 420 170 L 420 0"/>
+			<path class="y-gridline" d="M 0 0 L 420 0"/>
+			<text class="y-axis-label" x="-5" y="0">
+				$34.3B
+			</text>
+			<path class="y-gridline" d="M 0 28 L 420 28"/>
+			<text class="y-axis-label" x="-5" y="28">
+				$28.6B
+			</text>
+			<path class="y-gridline" d="M 0 56 L 420 56"/>
+			<text class="y-axis-label" x="-5" y="56">
+				$22.9B
+			</text>
+			<path class="y-gridline" d="M 0 84 L 420 84"/>
+			<text class="y-axis-label" x="-5" y="84">
+				$17.2B
+			</text>
+			<path class="y-gridline" d="M 0 112 L 420 112"/>
+			<text class="y-axis-label" x="-5" y="112">
+				$11.4B
+			</text>
+			<path class="y-gridline" d="M 0 140 L 420 140"/>
+			<text class="y-axis-label" x="-5" y="140">
+				$5.7B
+			</text>
+		</g>
+		<path class="x-notch" d="M 140 170 L 140 175"/>
+		<rect class="series-0-point" height="154.545454545" width="60" x="40" y="15.4545454545"/>
+		<text class="data-point-label" x="70" y="10.4545454545">
+			$31.2B
+		</text>
+		<path class="x-notch" d="M 280 170 L 280 175"/>
+		<rect class="series-0-point" height="26.2529137529" width="60" x="180" y="143.747086247"/>
+		<text class="data-point-label" x="210" y="138.747086247">
+			$5.3B
+		</text>
+		<rect class="series-0-point" height="26.2529137529" width="60" x="320" y="143.747086247"/>
+		<text class="data-point-label" x="350" y="138.747086247">
+			$5.3B
+		</text>
+		<text class="x-axis-label" x="70" y="185">
+			scale
+		</text>
+		<text class="x-axis-label" x="210" y="185">
+			Tax Expenditures
+		</text>
+		<text class="x-axis-label" x="350" y="185">
+			Tax Expenditures
+(subsidy)
+		</text>
+	</g>
+</svg>

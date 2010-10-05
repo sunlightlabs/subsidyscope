@@ -90,7 +90,7 @@ INSTALLED_APPS = (
     'mediasync',
     'spammer',
     'helpers',
-    'haystack',
+    # 'haystack',
     'csv_generator',
     'etl',
     'geo',
@@ -109,6 +109,7 @@ INSTALLED_APPS = (
     'faads',
     'fpds',
     'budget_accounts',
+    'energy',
     'transportation',
     'nonprofits',
     'tagging',
@@ -141,6 +142,8 @@ MEDIASYNC = {
     'AWS_PREFIX': 'subsidyscope',
     'SERVE_REMOTE': False
 }
+
+
 
 # send welcome email -- not used
 def send_welcome_email(recipient):

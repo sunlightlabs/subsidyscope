@@ -1,5 +1,5 @@
 from django.db import models
-
+from decimal import Decimal 
 
 """
 Example:
@@ -26,23 +26,35 @@ class InflationIndex(models.Model):
     start_year = models.IntegerField()
     end_year = models.IntegerField()
     
-    
-    def getConversionTable(self, target_year, conversion_start_year=-1, conversion_end_year=-1):
+    def getConversionTable(self, target_year, conversion_start_year=-1, conversion_end_year=-1, default_future_inflation=Decimal('0.03')):
         
         if conversion_start_year == -1:
             conversion_start_year = self.start_year
+        
         if conversion_end_year == -1:
             conversion_end_year = self.end_year
         
         target = IndexDataPoint.objects.get(index=self, year=target_year)
             
         index_data = IndexDataPoint.objects.filter(index=self, year__gte=conversion_start_year, year__lte=conversion_end_year)
-
+        
         conversation_table = {}
-
+        
+        index = {}
+        
         for item in index_data:
         
+            index[item.year] = item.value 
+        
             conversation_table[item.year] = target.value / item.value 
+        
+        if conversion_end_year > self.end_year:
+            
+            previous_index = index[self.end_year]
+            
+            for year in range(self.end_year + 1, conversion_end_year + 1):
+                previous_index = previous_index + (previous_index * default_future_inflation)
+                conversation_table[year] = target.value / previous_index
             
         return conversation_table 
     

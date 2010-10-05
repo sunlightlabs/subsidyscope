@@ -1,12 +1,109 @@
 import re
-
+from datetime import datetime
+import csv
 
 from django.db import models
 from sectors.models import Sector, Subsector
 from budget_accounts.models import BudgetAccount
+from django.utils.encoding import smart_unicode
+import helpers.unicode as un
 
 
 class ProgramDescriptionManager(models.Manager):
+    
+    FIELD_MAPPINGS = [
+        'program_title',
+        'program_number',
+        'popular_name',
+        'federal_agency',
+        'authorization',
+        'objectives',
+        'types_of_assistance',
+        'uses_and_use_restrictions',
+        'applicant_eligibility',
+        'beneficiary_eligibility',
+        'credentials_documentation',
+        'preapplication_coordination',
+        'application_procedure',    
+        'award_procedure',
+        'deadlines',
+        'range_of_approval_disapproval_time',
+        'appeals',
+        'renewals',
+        'formula_and_matching_requirements',
+        'length_and_time_phasing_of_assistance',
+        'reports',
+        'audits',
+        'records',
+        'account_identification',
+        'obligations',
+        'range_and_average_of_financial_assistance',
+        'program_accomplishments',
+        'regulations_guidelines_and_literature',
+        'regional_or_local_office',
+        'headquarters_office',
+        'web_site_address',
+        'related_programs',
+        'examples_of_funded_projects',
+        'criteria_for_selecting_proposals',
+        'published_date',
+        'parent_shortname',
+        'url',
+        'recovery'
+        'load_date'
+    ]
+
+    def import_programs(self, file):
+        date = datetime.today()
+        new_program_count = 0
+        f = open(file, 'rU')
+        this_version = int(file[-9:-4]) #pull the date off of the programs csv file
+
+
+        reader = csv.reader(f)
+        reader.next() # skip headers
+        while True:
+            try:
+                row = reader.next()
+            except:
+                break
+
+            if not row:
+                break
+            
+            if len(row) == 0 or len(row) < 10:
+                continue 
+
+            program_number = row[1].strip()
+            matching_programs = ProgramDescription.objects.filter(program_number=program_number)
+           
+            if len(matching_programs)==0:
+                matching_program = ProgramDescription()
+                new_program_count += 1
+                print "new program: %s" % (program_number)
+                
+            else:
+                matching_program = matching_programs[0]
+    
+        
+            for (i,s) in enumerate(self.FIELD_MAPPINGS):
+                
+                try:
+                    prepared_string = smart_unicode(un.kill_gremlins(row[i]))
+                    setattr(matching_program, s, prepared_string)
+                    if i == 1:
+                        #we have the program vitals, save so we can use as foreign key for other attributes
+                        matching_program.save()
+                    
+                except Exception, e:
+                    continue
+
+            matching_program.save()
+        f.close()
+
+        print "Run complete. \n%s new programs were added" % new_program_count
+        
+    
 
     def parseBudgetAccounts(self):
         
@@ -14,6 +111,9 @@ class ProgramDescriptionManager(models.Manager):
         haystack.sites.site.unregister(ProgramDescription)
         
         for program in self.all():
+            if program.program_number == '10.001':
+                print '10.001'
+                
             program.parseBudgetAccounts()
      
 
@@ -99,6 +199,7 @@ class ProgramDescription(models.Model):
                 account = BudgetAccount.objects.createBudgetAccount(account_number.strip('.').strip())
                 self.budget_accounts.add(account)
                 self.save()
+                account = None
         
 
     def short_description(self):

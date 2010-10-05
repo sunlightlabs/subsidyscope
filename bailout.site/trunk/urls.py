@@ -28,7 +28,7 @@ class SubsidyContactForm(ContactForm):
     attrs_dict = { 'class': 'required' }    
     from_email = "bounce@sunlightfoundation.com"
     recipient_list = ['kwebb@sunlightfoundation.com', 'tlee@sunlightfoundation.com', 'subsidyscope@pewtrusts.org']
-    subject = "[SubsidyScope.com] Contact form submission"
+    subject = "[SubsidyScope.org] Contact form submission"
     
     name = forms.CharField(max_length=100,
                 widget=forms.TextInput(attrs=attrs_dict),
@@ -58,6 +58,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^projects/transportation/', remove_projects_redirect, name="transportation-old"),
     url(r'^projects/', redirect_to_index, name="projects"),
 
+    url(r'^energy/', include('energy.urls')),
     url(r'^transportation/', include('transportation.urls')),
     url(r'^nonprofits/', include('nonprofits.urls')),    
     url(r'^bailout/', include('bailout.urls')),
@@ -71,6 +72,12 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^sent/', 'direct_to_template', {'template': 'contact_form/contact_form_sent.html'}, name="contact_sent"),  
     url(r'^feeds/(?P<url>.*)/$', django.contrib.syndication.views.feed, {'feed_dict': feeds}, name="feed_project_updates"),  
     url(r'^data/about-faads/', direct_to_template, { 'template': 'generic.html'}, name='about-faads'),
+
+    url(r'^grants/', direct_to_template, {'template': 'generic.html'}, name='grants'),
+    url(r'^contracts/', direct_to_template, {'template': 'generic.html'}, name='contracts'),
+    url(r'^tax-subsidies/', direct_to_template, {'template': 'generic.html'}, name='tax-subsidies'),
+    url(r'^loans/', direct_to_template, {'template': 'generic.html'}, name='loans'),
+
     url(r'^data/', 'direct_to_template', {'template': 'misc/data.html'}, name='datasets'),
     url(r'^rss/', 'direct_to_template', {'template': 'misc/rss.html'}, name='about_rss'),
     url(r'^staff/', 'direct_to_template', {'template': 'misc/staff.html'}, name='staff'),
@@ -83,6 +90,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^framing-paper/html/$', direct_to_template, {'template': 'generic.html'}, name='framing-paper-html'),
     url(r'^framing-paper/$', redirect_to, {'url':'/media/pdf/Subsidyscope%%20Framing%%20Paper.pdf'}, name="framing-paper"),
     url(r'^screencast/$', direct_to_template, { 'template': 'generic.html'}, name='screencast'),
+    url(r'^charttemplate/$', direct_to_template, {'template': 'charts/chart_template.html'}),
 )
 
 urlpatterns += patterns('',

@@ -27,6 +27,7 @@ for year_idx in range(28,60):
     print year
 
     account_totals = {}
+    account_names = {}
     
     for line in lines[1:]:
         
@@ -36,13 +37,16 @@ for year_idx in range(28,60):
             agency_code = int(line_parts[6])
             account_code = int(line_parts[4][0:4])
             
+            
             if not account_totals.has_key(agency_code):
                 account_totals[agency_code] = {}
+                account_names[agency_code] = {}
             
             if not account_totals[agency_code].has_key(account_code):
                 account_totals[agency_code][account_code] = 0
                 
             account_totals[agency_code][account_code] += (int(line_parts[year_idx]) * 1000)
+            account_names[agency_code][account_code] = line_parts[8]
             
         except:
             pass
@@ -56,7 +60,9 @@ for year_idx in range(28,60):
                 if account_objects.has_key(agency_code) and account_objects[agency_code].has_key(account_code):
                     account = account_objects[agency_code][account_code]
                 else:
-                    account = TreasuryAccount.objects.createTreasuryAccount(agency_code, account_code)
+                    account_name = account_names[agency_code][account_code]
+                    
+                    account = TreasuryAccount.objects.createTreasuryAccount(agency_code, account_code, account_name)
                     if not account_objects.has_key(agency_code):
                         account_objects[agency_code] = {}
                     account_objects[agency_code][account_code] = account

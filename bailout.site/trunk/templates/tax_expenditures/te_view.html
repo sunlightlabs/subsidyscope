@@ -3,59 +3,5 @@
 {% load te_tags %}
 {% block content %}
 
-<div class="container main_container">
-    {% include "includes/transportation_nav.html" %}
-    <div class="span-24">
-        <div id="header_area">
-            <h3>Tax Expenditures</h3>
-        </div>
-        <div class="content_area">
-            
-            <script type="text/javascript">
-            	function selectTopLevelCategory()
-            	{
-            		category_id = $("#top_level_categories").val();
-            	
-            		$("#category_select").attr("action", "/tax_expenditures/" + category_id + "/");
-            		$("#category_select").submit();
-            		
-            	}
-            </script>
-            
-            Category: <select id="top_level_categories" onchange="selectTopLevelCategory();">
-		            {% for category in top_level_categories %}
-		            		<option value="{{ category.id }}" {% ifequal category.id selected_category.id %}selected="selected"{% endifequal %}>{{ category.name }}</option>
-		            {% endfor %}
-                </select>
-            
-            <form id="category_select"> 
-	            
-            </form>
-            
-            <h4>{{ selected_category.name }}</h4>
-            
-            <ul>
-            	
-            	{% for category in subcategories %}	
-          			{% render_te_category category %}
-          		{% endfor %}
-          		
-       		</ul>
-       		
-       		{% if expenditures %}
-            
-            <ul>
-            	{% for expenditure in expenditures %}
-		
-					<li style="margin-bottom: 5px;"><a href="/tax_expenditures/expenditure/{{ expenditure.id }}/">{{ expenditure.name }}</a>{% if expenditure.jct_estimate %} (JCT){% endif %}{% if expenditure.omb_estimate %} (Treasury){% endif %}</li>
-					
-				{% endfor %}
-            </ul>
-            
-            {% endif %}
-            
-            
-        </div>
-</div>
 
 {% endblock %}

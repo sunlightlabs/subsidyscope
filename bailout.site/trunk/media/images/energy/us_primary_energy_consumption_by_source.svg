@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="450"
+   version="1.1"
+   width="600"
+   id="svg2"
+   inkscape:version="0.47pre4 r22446"
+   sodipodi:docname="us_primary_energy_consumption_by_source.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/energy_final_charts/US_primary_energy_consumption_by_source_2008.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <metadata
+     id="metadata42">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs40">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 225 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="600 : 225 : 1"
+       inkscape:persp3d-origin="300 : 150 : 1"
+       id="perspective44" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1059"
+     id="namedview38"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="300"
+     inkscape:cy="243.45763"
+     inkscape:window-x="1400"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <style
+     type="text/css"
+     id="style4">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+  <rect
+     height="642"
+     width="600"
+     x="0"
+     y="-29"
+     id="rect6"
+     style="fill:#ffffff" />
+  <text
+     class="pie-label-right"
+     x="362"
+     y="41"
+     id="text8">
+    <tspan
+       dy="0"
+       x="362.458099221"
+       id="tspan10">
+			37% - Petroleum
+		</tspan>
+  </text>
+  <path
+     class="slice-1"
+     d="M 280,225  l 190,0  a190,190 0 0,0 -320.063950126,-138.50403921 z"
+     id="path12" />
+  <text
+     class="pie-label-left"
+     x="83"
+     y="198"
+     id="text14">
+    <tspan
+       dy="0"
+       x="83.8432267254"
+       id="tspan16">
+			23% - Coal
+		</tspan>
+  </text>
+  <path
+     class="slice-2"
+     d="M 280,225  l -130.063950126,-138.50403921  a190,190 0 0,0 -23.6492788048,250.183237146 z"
+     id="path18" />
+  <text
+     class="pie-label-left"
+     x="237"
+     y="421"
+     id="text20">
+    <tspan
+       dy="0"
+       x="237.397550229"
+       id="tspan22">
+			24% - Natural Gas
+		</tspan>
+  </text>
+  <path
+     class="slice-3"
+     d="M 280,225  l -153.713228931,111.679197936  a190,190 0 0,0 255.520319977,48.7431079098 z"
+     id="path24" />
+  <text
+     class="pie-label-right"
+     x="429"
+     y="360"
+     id="text26">
+    <tspan
+       dy="0"
+       x="429.52110323"
+       id="tspan28">
+			9% - Nuclear
+		</tspan>
+  </text>
+  <path
+     class="slice-4"
+     d="M 280,225  l 101.807091046,160.422305845  a190,190 0 0,0 70.1100489225,-79.524240448 z"
+     id="path30" />
+  <text
+     class="pie-label-right"
+     x="472"
+     y="276"
+     id="text32">
+    <tspan
+       dy="0"
+       x="472.42419"
+       id="tspan34">7% - Renewable</tspan>
+  </text>
+  <path
+     class="slice-5"
+     d="M 280,225  l 171.917139969,80.8980653974  a190,190 0 0,0 18.0828600315,-80.8980653974 z"
+     id="path36" />
+  <text
+     xml:space="preserve"
+     style="font-size:16px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:sans;-inkscape-font-specification:sans"
+     x="66"
+     y="6"
+     id="text2850"><tspan
+       sodipodi:role="line"
+       id="tspan2852"
+       x="66"
+       y="6"
+       style="font-weight:bold;-inkscape-font-specification:Bitstream Charter Bold">U.S. Primary Energy Consumption by Source, 2008</tspan></text>
+</svg>

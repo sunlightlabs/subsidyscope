@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<svg height="120" version="1.1" width="120" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+	<rect fill="white" height="120" width="120" x="0" y="0"/>
+	<text class="pie-label-right" x="123" y="58">
+		<tspan dy="0" x="123.962276103">
+			1.2%
+		</tspan>
+	</text>
+	<path class="slice-1" d="M 60,60  l 57,0  a57,57 0 0,0 -0.15084565479,-4.14411030674 z"/>
+	<text class="pie-label-left" x="53" y="-6">
+		<tspan dy="0" x="53.3678743016">
+			51.4%
+		</tspan>
+	</text>
+	<path class="slice-2" d="M 60,60  l 56.8491543452,-4.14411030674  a57,57 0 1,0 -113.116866463,13.2515014264 z"/>
+	<text class="pie-label-left" x="9" y="106">
+		<tspan dy="0" x="9.28081071746">
+			17.1%
+		</tspan>
+	</text>
+	<path class="slice-3" d="M 60,60  l -56.267712118,9.10739111967  a57,57 0 0,0 37.3672319363,44.6678062198 z"/>
+	<text class="pie-label-right" x="78" y="123">
+		<tspan dy="0" x="78.2780376595">
+			21.1%
+		</tspan>
+	</text>
+	<path class="slice-4" d="M 60,60  l -18.9004801817,53.7751973395  a57,57 0 0,0 66.5806375158,-22.54055957 z"/>
+	<text class="pie-label-right" x="121" y="86">
+		<tspan dy="0" x="121.620366934">
+			9.2%
+		</tspan>
+	</text>
+	<path class="slice-5" d="M 60,60  l 47.6801573342,31.2346377695  a57,57 0 0,0 9.31984266584,-31.2346377695 z"/>
+</svg>

@@ -119,7 +119,7 @@ SECTORS = { 'sector': 'home',
                           'name': 'Transportation',
                           'url_name':'transportation-index',
                           'children': [{'sector': 'transportation-index',
-                                        'name': 'Overview',
+                                        'name': 'Summary',
                                         'url_name': 'transportation-overview',
                                         'children': [{'sector': 'transportation-overview',
                                                       'name': 'Aviation',
@@ -148,7 +148,7 @@ SECTORS = { 'sector': 'home',
                                                     }]
                                         },
                                         {'sector': 'transportation-index',
-                                         'name': 'Direct Expenditures',
+                                         'name': 'Grants and Contracts',
                                          'url_name': 'transportation-direct-expenditures',
                                          'children': [{ 'sector': 'transportation-direct-expenditures',
                                                         'name': 'Direct Expenditures Program Directory (CFDA)',
@@ -172,6 +172,13 @@ SECTORS = { 'sector': 'home',
                                                                        'name': 'Grant Search',
                                                                        'url_name': 'aip-index',
                                                                        'children': []
+                                                                     }, 
+                                                                     {'sector':'aip-story', 
+                                                                        'name': 'Airport Detail', 
+                                                                        'url_name': 'aip.views.portdata',
+                                                                        'url_pattern': '.*/transportation/aip/airports/.*', 
+                                                                        'children': [], 
+                                                                        'hide': True
                                                                      }]
                                                       },
                                                       {'sector': 'transportation-direct-expenditures',
@@ -195,7 +202,7 @@ SECTORS = { 'sector': 'home',
                                                       }]
                                         },
                                         {'sector': 'transportation-index',
-                                         'name': 'Tax Expenditures',
+                                         'name': 'Tax Subsidies',
                                          'url_name': 'transportation-tax-expenditures',
                                          'children': [{ 'sector': 'transportation-tax-expenditures',
                                                         'name': 'Employer-paid Transportation Benefits',
@@ -219,7 +226,7 @@ SECTORS = { 'sector': 'home',
                                                       }]
                                         },
                                         {'sector': 'transportation-index',
-                                         'name': 'Risk Transfers',
+                                         'name': 'Loans and Loan Guarantees',
                                          'url_name': 'transportation-risk-transfers',
                                          'children': [{'sector': 'transportation-risk-transfers',
                                                        'name': 'Export/Import Bank',
@@ -227,17 +234,18 @@ SECTORS = { 'sector': 'home',
                                                        'children': []
                                                       }]
                                         },
-                                        {'sector': 'transportation-index',
-                                         'name': 'Contracts',
-                                         'url_name': 'transportation-contracts',
-                                         'children':[]
-                                        }]
+                                       # {'sector': 'transportation-index',
+                                       #  'name': 'Contracts',
+                                       #  'url_name': 'transportation-contracts',
+                                       #  'children':[]
+                                       #}
+                                        ]
                          },
                         { 'sector': 'nonprofits-index',
                           'name': 'Nonprofits',
                           'url_name': 'nonprofits-index',
                           'children':[{'sector': 'nonprofits-index',
-                                       'name': 'Overview',
+                                       'name': 'Summary',
                                        'url_name': 'nonprofits-overview',
                                        'children': [{'sector': 'nonprofits-overview',
                                                       'name': 'Structure of Nonprofit Sector in the U.S.',
@@ -307,5 +315,54 @@ SECTORS = { 'sector': 'home',
                                       }
                           
                                     ]
-                        }]
-                }
+                        },
+                        { 'sector': 'energy-index',
+                           'name': 'Energy',
+                           'url_name': 'energy-index',
+                           'children': [{'sector': 'energy-index',
+                                          'name': 'Summary',
+                                          'url_name': 'energy-overview',
+                                          'children':[{'sector': 'energy-overview',
+                                                       'name': 'Structure of the U.S. Energy Sector',
+                                                       'url_name': 'energy-overview-structure',
+                                                       'children':[]
+                                                       },
+                                                       {'sector': 'energy-overview',
+                                                       'name': 'Limitations of Energy Sector Data',
+                                                       'url_name': 'energy-overview-data-limitations',
+                                                       'children':[]
+                                                       }]
+                                        },
+                                        {'sector': 'energy-index',
+                                          'name': 'Grants and Contracts',
+                                          'url_name': 'energy-direct-expenditures',
+                                          'children':[{'sector': 'energy-direct-expenditures',
+                                                       'name': 'Search Grants',
+                                                       'url_name': 'energy-faads-search',
+                                                       'children':[]
+                                                       },
+                                                       {'sector': 'energy-direct-expenditures',
+                                                       'name': 'Search Contracts',
+                                                       'url_name': 'energy-fpds-search',
+                                                       'children':[]
+                                                       }]
+                                        },
+                                        {'sector': 'energy-index',
+                                          'name': 'Tax Subsidies',
+                                          'url_name': 'energy-tax-expenditures',
+                                          'children':[]
+                                        },
+                                        {'sector': 'energy-index',
+                                          'name': 'Loans & Loan Guarantees',
+                                          'url_name': 'energy-risk-transfers',
+                                          'children':[]
+                                        },
+                                        {'sector': 'energy-index',
+                                          'name': 'Regulations',
+                                          'url_name': 'energy-regulations',
+                                          'children':[]
+                                        }
+                                    ]
+                        }
+                ]
+            }

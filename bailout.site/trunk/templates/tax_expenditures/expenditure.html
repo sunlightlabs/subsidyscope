@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% load media %}
+{% load te_tags %}
+{% load humanize %}
+
+
+{% block content %}
+
+{% js "scripts/filterlist.js" %}
+
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>Tax Expenditures</h3>
+        </div>
+        <div class="content_area">
+        
+        	<h5 style="margin-top:20px;">{{ expenditure.name }} ($ millions)</h5> 
+        	{% if treasury_expenditure_summary|length %}	
+        	<strong>Treasury Estimates</strong>
+        	<div id="subsidy-charts"> 
+				<table>
+				
+				<tbody>
+					
+					<tr class="header-row">
+						<td style="border-bottom: none; border-right: 1px solid #A5A5A5;"></td>
+						<td style="border-bottom: none;" colspan="16">Estimate Year</td> 
+					</tr>
+				
+					<tr class="header-row"> 
+					  <td width="100" style="border-top: none;  border-right: 1px solid #A5A5A5;">Report Year</td> 
+					  <td style="border-top: none; text-align: right;">2000</td>
+					  <td style="border-top: none; text-align: right;">2001</td> 
+					  <td style="border-top: none; text-align: right;">2002</td> 
+					  <td style="border-top: none; text-align: right;">2003</td> 
+					  <td style="border-top: none; text-align: right;">2004</td> 
+					  <td style="border-top: none; text-align: right;">2005</td> 
+					  <td style="border-top: none; text-align: right;">2006</td>
+					  <td style="border-top: none; text-align: right;">2007</td>
+					  <td style="border-top: none; text-align: right;">2008</td>  
+					  <td style="border-top: none; text-align: right;">2009</td> 
+					  <td style="border-top: none; text-align: right;">2010</td> 
+					  <td style="border-top: none; text-align: right;">2011</td> 
+					  <td style="border-top: none; text-align: right;">2012</td> 
+					  <td style="border-top: none; text-align: right;">2013</td> 
+					  <td style="border-top: none; text-align: right;">2014</td>
+					  <td style="border-top: none; text-align: right;">2015</td>  
+					</tr>
+					
+					{% for expenditure_report in treasury_expenditure_summary %}
+					
+						<tr>
+							<td width="100"><strong>{{ expenditure_report.analysis_year }}</strong></td>
+							{% for estimate in expenditure_report.estimates %}
+								
+								{% if estimate %}<td {% if estimate.latest %}style="text-align: right; background-color: #A5A5c5;"{% else %}style="text-align: right; background-color: #E5E5f5;"{% endif %}>${{ estimate.value|floatformat:0|intcomma }}</td>{% else %}<td></td>{% endif %}
+								
+							{% endfor %}
+						</tr>
+					
+					{% endfor %}
+				
+				</tbody>
+				</table>
+			{% endif %}
+			{% if jct_expenditure_summary|length %}	
+        	<strong>Joint Committee on Taxation Estimates</strong>
+        	<div id="subsidy-charts"> 
+				<table>
+				
+				<tbody>
+				
+					<tr class="header-row">
+						<td style="border-bottom: none;"></td>
+						<td style="border-bottom: none;" colspan="16">Estimate Year</td> 
+					</tr>
+				
+					<tr class="header-row"> 
+					  <td width="100" style="border-top: none;">Report Year</td> 
+					  <td style="border-top: none; text-align: right;">2000</td>
+					  <td style="border-top: none; text-align: right;">2001</td> 
+					  <td style="border-top: none; text-align: right;">2002</td> 
+					  <td style="border-top: none; text-align: right;">2003</td> 
+					  <td style="border-top: none; text-align: right;">2004</td> 
+					  <td style="border-top: none; text-align: right;">2005</td> 
+					  <td style="border-top: none; text-align: right;">2006</td>
+					  <td style="border-top: none; text-align: right;">2007</td>
+					  <td style="border-top: none; text-align: right;">2008</td>  
+					  <td style="border-top: none; text-align: right;">2009</td> 
+					  <td style="border-top: none; text-align: right;">2010</td> 
+					  <td style="border-top: none; text-align: right;">2011</td> 
+					  <td style="border-top: none; text-align: right;">2012</td> 
+					  <td style="border-top: none; text-align: right;">2013</td> 
+					  <td style="border-top: none; text-align: right;">2014</td>
+					  <td style="border-top: none; text-align: right;">2015</td>  
+					</tr>
+					
+					{% for expenditure_report in jct_expenditure_summary %}
+					
+						<tr>
+							<td width="100"><strong>{{ expenditure_report.analysis_year }}</strong></td>
+							{% for estimate in expenditure_report.estimates %}
+								
+								{% if estimate %}<td {% if estimate.latest %}style="text-align: right; background-color: #A5A5c5;"{% else %}style="text-align: right; background-color: #E5E5f5;"{% endif %}>${{ estimate.value|floatformat:0|intcomma }}</td>{% else %}<td></td>{% endif %}
+								
+							{% endfor %}
+						</tr>
+					
+					{% endfor %}
+				
+				</tbody>
+				</table>
+			{% endif %}
+			
+		
+			<p>&nbsp;</p>
+			<b>Add Items</b><br/>		
+			Filter: <input id="filter" onchange="addfilter.set($('#filter').val());"/><br/>
+				
+			<form name="filterform" action="/tax_expenditures/add/{{expenditure.id}}/" method="POST">
+		
+				<select name="filterlist" MULTIPLE SIZE="20">
+					{% for other_expenditure in other_expenditures %}
+					<option value="{{other_expenditure.id}}">{{ other_expenditure.name }} ({{other_expenditure.get_source_display}} -- {{other_expenditure.analysis_year}})</option>
+					{% endfor %}
+				</select>
+				<br/>
+				<input type="submit" value="add"/>
+			</form>
+			
+			
+			
+			<SCRIPT TYPE="text/javascript">
+			<!--
+			var addfilter = new filterlist(document.filterform.filterlist);
+			//-->
+			</SCRIPT>
+			
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

@@ -6,11 +6,19 @@ import settings
 register = Library()
 
 @register.simple_tag
+def carousel_entries_all():
+    
+    return carousel_entries(False)
+
+
+@register.simple_tag
 def carousel_entries(sector_id):
     
     entries = CarouselEntry.objects.filter(published=True).order_by('weight')
+    
     if sector_id:
         entries = entries.filter(sector=sector_id)
+        
     num_entries = entries.count()
     out = ""
     i = 0
@@ -19,7 +27,7 @@ def carousel_entries(sector_id):
         if c.date is not None:
             date_string = "<strong>%s&nbsp;&ndash;&nbsp;</strong>" % c.date.strftime('%m/%d/%y')
         out += '<div id="tab-%d" class="carousel-tab"><img src="%s" width="415"><h2><a href="%s">%s</a></h2><p class="feature_content">%s%s</p>' % (i, c.image.url, c.link, c.title, date_string, c.text)
-        out += '<ul class="feature_nav tabNavigation feature_circle">'
+        out += '<ul class="feature_nav tabNavigation feature_circle" style="position: absolute; bottom: 0px; right: 0px;">'
 
         if num_entries>1:
             for tab_i in range(0, num_entries):
