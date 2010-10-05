@@ -1,5 +1,7 @@
 from django.db import models
 
+from inflation.models import InflationIndex
+
 from geo.models import State 
 
 class NationalFunding(models.Model):
@@ -17,7 +19,6 @@ class NationalFunding(models.Model):
                      (LEVEL_LOCAL, 'Local'))
     
     level_of_government = models.IntegerField("Level of Government", choices=LEVEL_CHOICES)
-    
     
     net_collections = models.DecimalField("Net user collections", max_digits=15, decimal_places=2, null=True)
     less_nonhighway_purposes = models.DecimalField("Less non-highway purposes", max_digits=15, decimal_places=2, null=True)
@@ -103,7 +104,13 @@ class StateFundingManager(models.Manager):
          
          
     
-    def getFundingBySource(self, state_id):
+    def getFundingBySource(self, state_id, cci_target_year=None):
+        
+        if cci_target_year:
+            
+            cci = InflationIndex.objects.get(name='CCI')
+    
+            cci_table = cci.getConversionTable(cci_target_year, 1995, 2007)
         
         funding = {}
          
@@ -142,10 +149,8 @@ class StateFundingManager(models.Manager):
             
             
             funding[year]['state_bonds'] += record.sf1_bonds_original_for_highways if record.sf1_bonds_original_for_highways else 0
-            funding[year]['state_bonds'] += record.sf1_bonds_refunding_for_highways if record.sf1_bonds_refunding_for_highways else 0
                         
             funding[year]['local_bonds'] += record.lgf1_bonds_original_for_highways if record.lgf1_bonds_original_for_highways else 0
-            funding[year]['local_bonds'] += record.lgf1_bonds_refunding_for_highways if record.lgf1_bonds_refunding_for_highways else 0
             
                         
                         
@@ -154,7 +159,18 @@ class StateFundingManager(models.Manager):
             funding[year]['federal'] += record.lgf1_fhwa_funds_for_highways if record.lgf1_fhwa_funds_for_highways else 0
             funding[year]['federal'] += record.lgf1_other_federal_funds_for_highways if record.lgf1_other_federal_funds_for_highways else 0
             
-            
+            if cci_target_year:
+                
+                funding[year]['state_user'] = funding[year]['state_user'] * cci_table[year]
+                funding[year]['state_non_user'] = funding[year]['state_non_user'] * cci_table[year]
+                funding[year]['state_bonds'] = funding[year]['state_bonds'] * cci_table[year]
+                
+                funding[year]['local_user'] = funding[year]['local_user'] * cci_table[year]
+                funding[year]['local_non_user'] = funding[year]['local_non_user'] * cci_table[year]
+                funding[year]['local_bonds'] = funding[year]['local_bonds'] * cci_table[year]
+                
+                funding[year]['federal'] = funding[year]['federal'] * cci_table[year]
+                
     
             funding[year]['state_user'] = int(funding[year]['state_user'])
             funding[year]['state_non_user'] = int(funding[year]['state_non_user'])
@@ -246,6 +262,8 @@ class StateFunding(models.Model):
     ldf_local_toll_revenue_for_mass_transit = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     ldf_local_toll_revenue_for_general = models.DecimalField(max_digits=15, decimal_places=2, null=True)
 
+    class Meta:
+        ordering = ('year',)
 
 class StateRoadJurisdictionManager(models.Manager):
     

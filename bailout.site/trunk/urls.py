@@ -28,7 +28,7 @@ class SubsidyContactForm(ContactForm):
     attrs_dict = { 'class': 'required' }    
     from_email = "bounce@sunlightfoundation.com"
     recipient_list = ['kwebb@sunlightfoundation.com', 'tlee@sunlightfoundation.com', 'subsidyscope@pewtrusts.org']
-    subject = "[SubsidyScope.com] Contact form submission"
+    subject = "[SubsidyScope.org] Contact form submission"
     
     name = forms.CharField(max_length=100,
                 widget=forms.TextInput(attrs=attrs_dict),

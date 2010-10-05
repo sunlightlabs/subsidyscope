@@ -11,7 +11,7 @@ from helpers.helpers import JSONHttpResponse
 
 def get_state_highway_funding_table(request, state_id):
 
-    data = StateFunding.objects.getFundingBySource(state_id)
+    data = StateFunding.objects.getFundingBySource(state_id, 2007)
     
     return JSONHttpResponse(data)
 
@@ -26,11 +26,7 @@ def get_state_highway_miles_table(request, state_id):
 
 def get_state_highway_funding_chart(request, state_id):
     
-    data = StateFunding.objects.getFundingBySource(state_id)
-    
-    cci = InflationIndex.objects.get(name='CCI')
-    
-    cci_table = cci.getConversionTable(2007, 1995, 2007)
+    data = StateFunding.objects.getFundingBySource(state_id, 2007)
 
     values = []
     years = []
@@ -41,16 +37,16 @@ def get_state_highway_funding_chart(request, state_id):
         year_values = []
     
         # user 
-        year_values.append(int((data[year]['state_user'] + data[year]['local_user']) * cci_table[year]))
+        year_values.append(int(data[year]['state_user'] + data[year]['local_user']))
         
         # non-user
-        year_values.append(int((data[year]['state_non_user'] + data[year]['local_non_user']) * cci_table[year]))
+        year_values.append(int(data[year]['state_non_user'] + data[year]['local_non_user']))
     
         # bonds 
-        year_values.append(int((data[year]['state_bonds'] + data[year]['local_bonds']) * cci_table[year]))
+        year_values.append(int(data[year]['state_bonds'] + data[year]['local_bonds']))
         
         # federal 
-        year_values.append(int(data[year]['federal'] * cci_table[year]))
+        year_values.append(int(data[year]['federal']))
         
         
         values.append(year_values)
