@@ -236,7 +236,7 @@ class FundingStats(models.Model):
         total = 0
         if type == 'capital': funding = [self.capital_federal, self.capital_state, self.capital_local, self.capital_other]
         elif type == 'operating': funding = [self.operating_federal, self.operating_state, self.operating_local, self.operating_other, self.operating_reconciliation]
-        else: funding = [self.capital_federal, self.capital_state, self.capital_local, self.capital_other, self.operating_federal, self.operating_state, self.operating_local, self.operating_other, self.operating_reconciliation]
+        else: funding = [self.capital_federal, self.capital_state, self.capital_local, self.capital_other, self.operating_federal, self.operating_state, self.operating_local, self.operating_other, self.operating_reconciliation, self.operating_fares]
 
         for f in funding:
             if f:
