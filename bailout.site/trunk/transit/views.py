@@ -372,8 +372,11 @@ def buildFundingLineChart(funding):
         for key in data.keys():
             if key == 'Total': data[key].append(int(f.total_funding()))
             
-            elif key == 'Fares': 
-                data['Fares'].append(int(f.operating_fares) or 'null')
+            elif key == 'Fares':
+                if f.operating_fares: 
+                    data['Fares'].append(int(f.operating_fares))
+                else:
+                    data['Fares'].append('null')
             else:
                 data[key].append( int(f.total_funding_by_type(key.lower()) ))
 
