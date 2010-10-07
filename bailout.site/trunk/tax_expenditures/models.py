@@ -111,7 +111,7 @@ class ExpenditureGroup(models.Model):
         try:
             expenditure = self.group.filter(source=Expenditure.SOURCE_TREASURY).exclude(description='').order_by('-analysis_year')[0]
         
-            return '<strong>Description from %d Analytical Perspectives:</strong> %s'  % (expenditure.analysis_year, expenditure.description)
+            return '<strong>Description from the %d Analytical Perspectives:</strong> %s'  % (expenditure.analysis_year, expenditure.description)
             
         except:
             return ''
