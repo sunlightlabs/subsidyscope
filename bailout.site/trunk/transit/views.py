@@ -340,7 +340,7 @@ def buildSourcesPieChart(fundingObj, category=None):
     for f in fundingObj:
         
         for key in data.keys():
-            if key == 'Fares' and category != 'capital': data[key].append(int(f.operating_fares))
+            if key == 'Fares' and category != 'capital' and f.operating_fares: data[key].append(int(f.operating_fares))
             else: data[key].append(f.total_funding_by_type(key.lower(), category))
 
     #set up initial chart elements
