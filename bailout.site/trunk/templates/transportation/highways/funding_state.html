@@ -24,7 +24,7 @@
 						
 						$("select#state_select").change(function()
 						{
-							loadData();
+							loadData(true);
 						});
 						
 						$("select#year_select").change(function()
@@ -32,19 +32,23 @@
 							selectYear();
 						});
 						
+						loadData(false)
 						
-						loadData();
 					});
 					
-					function loadData()
+					function loadData(load_swf_data)
 					{
 						var state_id = $("select#state_select").val();
 						
-						var chart = findSWF('spendingchart');
 						
-						if(chart)
-							chart.reload('/transportation/highways/funding/state/chart/' + state_id + '/');
-						
+						if (load_swf_data)
+						{
+							var chart = findSWF('spendingchart');
+							
+							if(chart)
+								chart.reload('/transportation/highways/funding/state/chart/' + state_id + '/');
+							
+						}
 						
 						$.getJSON('/transportation/highways/funding/state/fundingtable/' + state_id + '/', function(d)
 						{
@@ -232,7 +236,7 @@
 					{
 						if (navigator.appName.indexOf("Microsoft")!= -1) 
 						{
-							return window["ie_" + movieName];
+							return window[movieName];
 						} 
 						else 
 						{
