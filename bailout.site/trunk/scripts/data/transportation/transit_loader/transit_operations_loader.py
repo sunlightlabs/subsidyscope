@@ -54,13 +54,15 @@ def get_system(trs_id, name, city, state, uza_id, uza_name, pop, area):
                 system.state = None
             system.save()
          
-        system_list[system.id] = system
+        system_list[system.trs_id] = system
          
         return system   
     
 
 def parse_operation_line(line, operation_type):
     
+    global operation_stats_list
+
     try:
         
         trs_id = int(line[1]) 
@@ -82,39 +84,54 @@ def parse_operation_line(line, operation_type):
     system = get_system(trs_id, trs_name, trs_city, trs_state, uza_id, uza_name, pop, area)
 
     
-    if not operation_stats_list.has_key(system.id):
-        operation_stats_list[system.id] = {}
+    if not operation_stats_list.has_key(system.trs_id):
+        operation_stats_list[system.trs_id] = {}
 
 
     i = 11 
-    
-    
-    for year in range(1991, 2009):
-        
-        if not operation_stats_list[system.id].has_key(year):
-            operation_stats_list[system.id][year] = {}
-            
-        if not operation_stats_list[system.id][year].has_key(mode):
-            operation_stats_list[system.id][year][mode] = {}
-            
-        if not operation_stats_list[system.id][year][mode].has_key(operation_type):
-            operation_stats_list[system.id][year][mode][operation_type] = 0
-            
-        try:
-            if operation_type in ['operating_expense', 'capital_expense', 'fares']:
-                operation_stats_list[system.id][year][mode][operation_type] += cpi.convertValue(int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', '')), CURRENT_YEAR, year)
+    r1 = 1991
+    r2 = 2009
+    if operation_type=="capital_expense": 
+        i = 10
+        r1 = 1992
+   
+    for year in range(r1, r2):
 
-            operation_stats_list[system.id][year][mode][operation_type] += int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', ''))
+        if not operation_stats_list[system.trs_id].has_key(year):
+            operation_stats_list[system.trs_id][year] = {}
+           
+        if not operation_stats_list[system.trs_id][year].has_key(mode):
+            operation_stats_list[system.trs_id][year][mode] = {}
             
-        except:
-            pass
-            # how to handle nulls?
+        if not operation_stats_list[system.trs_id][year][mode].has_key(operation_type):
+            operation_stats_list[system.trs_id][year][mode][operation_type] = 0
+        
+        if line[i]:
+            if operation_type in ['operating_expense', 'capital_expense', 'fares']:
+                
+                temp_cpi = cpi.convertValue(int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', '')), CURRENT_YEAR, year)
+#                if trs_id==40 and operation_type=="capital_expense" and mode=="MB":
+#                    print "cpi is  %s " % temp_cpi
+                operation_stats_list[system.trs_id][year][mode][operation_type] += temp_cpi
+                
+#                if trs_id==40 and operation_type=="capital_expense" and mode=="MB":
+#                    print "after cpi and assignment: %s" % operation_stats_list[system.trs_id][year][mode][operation_type]
+#                    print system.id
+
+            else:
+                operation_stats_list[system.trs_id][year][mode][operation_type] += int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', ''))
+        # how to handle nulls?
             #operation_stats_list[system.id][year][mode][operation_type] = None
             
             
         i += 1
         
-        
+#    if trs_id == 40 and operation_type=="capital_expense" and mode=="MB": 
+ #       print "trying to verify at end of fn"
+#        try:
+#            print "dict test end of fn: %s" % operation_stats_list[40][2008]['MB']['capital_expense']
+#        except KeyError, e:
+ #           print "key error %s" % e 
 
 
 reader = csv.reader(open('operations_data/op_expense.csv'))
@@ -135,16 +152,20 @@ for line in reader:
     
     parse_operation_line(line, 'capital_expense')
    
- 
+#try:
+ #   print "dict test: %s" % operation_stats_list[40][2008]['MB']['capital_expense']
+#except KeyError, e:
+ #   print "key error %s" % e 
+   
     
-reader = csv.reader(open('operations_data/op_fares.csv'))
+#reader = csv.reader(open('operations_data/op_fares.csv'))
 
-reader.next()
+#reader.next()
 
-for line in reader:
+#for line in reader:
     
-    parse_operation_line(line, 'fares')
-    
+#    parse_operation_line(line, 'fares')
+#putting fares on funding object   
     
 
 reader = csv.reader(open('operations_data/op_drm.csv'))
@@ -156,7 +177,12 @@ for line in reader:
     parse_operation_line(line, 'directional_route_miles')
     
     
+#try:
+ #   print "dict test drm: %s" % operation_stats_list[40][2008]['MB']['directional_route_miles']
+#except KeyError, e:
+ #   print "key error %s" % e 
     
+
 reader = csv.reader(open('operations_data/op_vrh.csv'))
 
 reader.next()
@@ -164,8 +190,9 @@ reader.next()
 for line in reader:
     
     parse_operation_line(line, 'vehicle_revenue_hours')
-    
-    
+
+
+
     
 reader = csv.reader(open('operations_data/op_vrm.csv'))
 
@@ -175,7 +202,7 @@ for line in reader:
     
     parse_operation_line(line, 'vehicle_revenue_miles')
     
-    
+ 
 reader = csv.reader(open('operations_data/op_pmt.csv'))
 
 reader.next()
@@ -194,22 +221,28 @@ for line in reader:
     parse_operation_line(line, 'unlinked_passenger_trips')
 
 
+
 for system_id in operation_stats_list:
     
     system = system_list[system_id]
-    
+     
+   # if system_id == 40: 
+    #    print system.name
+     #   print operation_stats_list[system_id]
+        
+
     for year in operation_stats_list[system_id]:
         
         for mode in operation_stats_list[system_id][year]:
-        
+
             stats = OperationStats.objects.create(transit_system=system, year=year, mode=mode)
-            
+                 
             if operation_stats_list[system_id][year][mode].has_key('operating_expense'):
                 stats.operating_expense = operation_stats_list[system_id][year][mode]['operating_expense']
                 
             if operation_stats_list[system_id][year][mode].has_key('capital_expense'):
                 stats.capital_expense = operation_stats_list[system_id][year][mode]['capital_expense']
-                
+             
             if operation_stats_list[system_id][year][mode].has_key('fares'):
                 stats.fares = operation_stats_list[system_id][year][mode]['fares']
                 
