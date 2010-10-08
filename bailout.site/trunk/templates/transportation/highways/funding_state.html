@@ -43,10 +43,7 @@
 						
 						if (load_swf_data)
 						{
-							var chart = findSWF('spendingchart');
-							
-							if(chart)
-								chart.reload('/transportation/highways/funding/state/chart/' + state_id + '/');
+							$('#spendingchart')[0].reload('/transportation/highways/funding/state/chart/' + state_id + '/');
 							
 						}
 						
