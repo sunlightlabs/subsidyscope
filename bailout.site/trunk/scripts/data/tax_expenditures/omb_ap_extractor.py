@@ -322,7 +322,7 @@ def process_file2011(filename, analysis_year, estimate_years):
                 for estimate_year in estimate_years:
                     
                     corporations_amount = figure_parts[i] 
-                    individuals_amount = figure_parts[i + 9]
+                    individuals_amount = figure_parts[i + 8]
                     
                     Estimate.objects.create(expenditure=expenditure, 
                                             estimate_year=estimate_year, 

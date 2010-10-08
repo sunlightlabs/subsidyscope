@@ -18,9 +18,12 @@
         </div>
         <div class="content_area">
         
-        	<h5 style="margin-top:20px;">{{ expenditure.name }} ($ millions)</h5> 
+        	<h5 style="margin-top:20px;">{{ expenditure.name }}</h5> 
+        	
+        	{{ expenditure.get_description|safe  }}
+        	
         	{% if treasury_expenditure_summary|length %}	
-        	<strong>Treasury Estimates</strong>
+        	<strong>Treasury Estimates ($ millions)</strong>
         	<div id="subsidy-charts"> 
 				<table>
 				
@@ -68,7 +71,7 @@
 				</table>
 			{% endif %}
 			{% if jct_expenditure_summary|length %}	
-        	<strong>Joint Committee on Taxation Estimates</strong>
+        	<strong>Joint Committee on Taxation Estimates ($ millions)</strong>
         	<div id="subsidy-charts"> 
 				<table>
 				
