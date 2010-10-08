@@ -60,7 +60,7 @@ def get_state_highway_funding_chart(request, state_id):
     json= {"elements":[]}
     
         
-    json["elements"].append({"type": "bar_stack", "tip":"", "values": values, "colours": ["#336699","#9CA991","#669EB3","#BF5004"], "keys": 
+    json["elements"].append({"type": "bar_stack", "tip":"$#val#", "values": values, "colours": ["#336699","#9CA991","#669EB3","#BF5004"], "keys": 
                     [{"colour": "#336699","text": "User Revenue","font-size": 13},
                     {"colour": "#9CA991","text": "Non-user Revenue","font-size": 13},
                     {"colour": "#669EB3","text": "Bonds","font-size": 13},
@@ -84,11 +84,9 @@ def get_state_highway_funding_chart(request, state_id):
         
     json["y_axis"] = {"colour": "#909090", "min": 0, "max": maximum}
     json["x_legend"] = {"text": "Fiscal Year", "style": "{font-size:12px;}"}
-    json["y_legend"] = {"text": "US Dollars (2007)", "style": "{font-size: 13px; margin-right:7px;}"}
-    
-    
-    
-
+    json["y_legend"] = {"text": "US dollars (2007)", "style": "{font-size: 12px; margin-right:7px;}"}
+    json["tooltip"] = {"mouse": 2}
+        
     
     return JSONHttpResponse(json)
 
