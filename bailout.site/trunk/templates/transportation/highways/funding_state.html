@@ -9,11 +9,11 @@
     {% include "includes/transportation_nav.html" %}
     <div class="span-24">
         <div id="header_area">
-            <h3>Highway Funding Sources by State</h3>
+            <h3>{% morsel_page_title %}</h3>
         </div>
         <div class="content_area">
            
-           	<p><a href="/transportation/highways/funding/state/overview/">Click here</a> to read more about Subsidyscope's analysis of state highway funding.</p>
+           	{% morsel text1 %}
            
 			<div id="subsidy-charts">
 				<script type="text/javascript">
@@ -425,7 +425,7 @@
 						
 						<tr class="odd">
 						
-						  <td class="program">Federal Funding<a href="#footnote-1">*</a></td>
+						  <td class="program">Federal Funding<a href="#footnote-5">5</a></td>
 						  
 						  <td id="source_fed_d"></td>
 						  <td id="source_fed_p"></td>
@@ -509,14 +509,7 @@
 			
 			</div>
 			
-			<cite>Source: Subsidyscope analysis of data from the <a href="http://www.fhwa.dot.gov/policy/ohpi/hss/hsspubs.cfm">Federal Highway Administration’s (FHWA) Highway Statistics Publications</a>. See Tables Tables SF-1, LGF-1,  HM-10 and HM-15. All dollar estimates are adjusted to 2007 dollars using the <a href="http://enr.construction.com/economics/current_costs/">ENR Construction Cost Index</a>. Users of this data should be aware that FHWA’s summary tables may be created using data that is calculated at different times. In addition, some tables are updated by FHWA in the years after their release. For these reasons, summary tables may not always reflect the estimates available in other tables on the FHWA web site.</cite>
-			<br/>
-			<br/>
-			<ol class="footnotes">
-
- 					*<a name="footnote-1"></a>Estimates of federal highway funding include federal receipts transferred to state and local governments. They may not include federal receipts drawn from or placed in reserves, or federal receipts and disbursements for highways that are not attributable to a single state. For more information about federal highway funding, see Table FA-5 compiled yearly by the FHWA.
-			
-			</ol>
+			{% morsel text2 %}
 			
 				
 
