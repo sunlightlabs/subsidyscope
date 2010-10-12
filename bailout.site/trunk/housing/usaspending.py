@@ -7,7 +7,7 @@ def _get_sector():
     """ returns the energy sector codes """
     sector = None
     try:
-        sector = Sector.objects.filter(name__icontains='energy')[0]
+        sector = Sector.objects.filter(name__icontains='housing')[0]
     except Exception, e:
         raise e
         
