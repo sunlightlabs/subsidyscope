@@ -68,13 +68,12 @@ class ExpenditureGroupManager(models.Manager):
         
         for expenditure in Expenditure.objects.all():
             
-            group, created = self.get_or_create(match_name=expenditure.match_name)
+            group, created = self.get_or_create(match_name=expenditure.match_name, category=expenditure.category)
             
             if created:
                 for category in expenditure.budget_function_category.all():
                     group.budget_function_category.add(category)
                 
-                group.category = expenditure.category    
                 group.name = expenditure.name
                 group.type = ExpenditureGroup.TYPE_NAME
                 group.save()
@@ -86,7 +85,7 @@ class ExpenditureGroup(models.Model):
     
     TYPE_NAME = 1
     TYPE_MANUAL = 2
-    
+  
     TYPE_CHOICES = (
         (TYPE_NAME, 'Name'),
         (TYPE_MANUAL, 'Manual')
