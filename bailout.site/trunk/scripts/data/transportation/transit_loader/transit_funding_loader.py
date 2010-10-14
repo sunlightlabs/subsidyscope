@@ -55,13 +55,15 @@ def get_system(trs_id, name, city, state, uza_id, uza_name, pop, area):
                 system.state = None
             system.save()
          
-        system_list[system.id] = system
+        system_list[system.trs_id]= system
          
         return system   
     
     
     
 def parse_funding_line(line, funding_type):
+    
+    global funding_stats_list
     
     try:
         trs_id = int(line[1]) 
@@ -78,21 +80,20 @@ def parse_funding_line(line, funding_type):
         
     system = get_system(trs_id, trs_name, trs_city, trs_state, uza_id, uza_name, pop, area)
     
-    if not funding_stats_list.has_key(system.id):
-        funding_stats_list[system.id] = {}
+    if not funding_stats_list.has_key(system.trs_id):
+        funding_stats_list[system.trs_id] = {}
     
     
     i = 9 
-    
     for year in range(1991, 2009):
         
-        if not funding_stats_list[system.id].has_key(year):
-            funding_stats_list[system.id][year] = {}
+        if not funding_stats_list[system.trs_id].has_key(year):
+            funding_stats_list[system.trs_id][year] = {}
             
         try:
-            funding_stats_list[system.id][year][funding_type] = cpi.convertValue(int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', '')), CURRENT_YEAR, year)
+            funding_stats_list[system.trs_id][year][funding_type] = cpi.convertValue(int(line[i].replace('(', '').replace(')', '').replace(',', '').replace('$', '')), CURRENT_YEAR, year)
         except:
-            funding_stats_list[system.id][year][funding_type] = None
+            funding_stats_list[system.trs_id][year][funding_type] = None
         
         i += 1
     

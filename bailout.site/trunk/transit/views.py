@@ -50,13 +50,15 @@ def index(request):
                                         'paginator': systems, 
                                         'num_pages':paginator.num_pages, 
                                         'form':data, 
-                                        'metrics': metrics_selected})   
+                                        'metrics': metrics_selected,
+                                        'has_searched': True })   
 
     return render_to_response('transportation/transit/transit_index.html', 
                              {'states': states, 
                               'uza': uza, 
                               'modes': mode_constants, 
-                              'has_searched': False})
+                              'has_searched': False,
+                              })
 
 def get_system_ridership_csv(request, trs_id):
     system = TransitSystem.objects.get(trs_id=trs_id)
@@ -338,7 +340,7 @@ def buildSourcesPieChart(fundingObj, category=None):
     for f in fundingObj:
         
         for key in data.keys():
-            if key == 'Fares' and category != 'capital': data[key].append(int(f.operating_fares))
+            if key == 'Fares' and category != 'capital' and f.operating_fares: data[key].append(int(f.operating_fares))
             else: data[key].append(f.total_funding_by_type(key.lower(), category))
 
     #set up initial chart elements
@@ -370,8 +372,11 @@ def buildFundingLineChart(funding):
         for key in data.keys():
             if key == 'Total': data[key].append(int(f.total_funding()))
             
-            elif key == 'Fares': 
-                data['Fares'].append(int(f.operating_fares) or 'null')
+            elif key == 'Fares':
+                if f.operating_fares: 
+                    data['Fares'].append(int(f.operating_fares))
+                else:
+                    data['Fares'].append('null')
             else:
                 data[key].append( int(f.total_funding_by_type(key.lower()) ))
 

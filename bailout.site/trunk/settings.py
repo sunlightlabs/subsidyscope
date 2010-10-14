@@ -116,7 +116,7 @@ INSTALLED_APPS = (
     'aip',
     'news_briefs',
     'cfda',
-    'transit',
+    #'transit',
     'inflation',
     'navigation',
 )

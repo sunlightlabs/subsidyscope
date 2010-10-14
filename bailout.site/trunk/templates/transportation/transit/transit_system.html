@@ -41,6 +41,7 @@
             <h5>Funding Sources Over Time</h5>
             <div class="line-chart-container">
                 <div id="fundingChart"></div>
+                <span  class="footnote">Funding data may contain reconciliation amounts not displayed in the above line chart.</span>
             </div>
             <div class="funding-type" id="fake-drop-shadow"><div class="shadow1"><div class="shadow2"><div class="shadow3"><div class="plain">    
                 <h5 class="long-header">Funding Sources by Type</h5>
@@ -183,7 +184,7 @@
                 swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "sourcesChart_capital", "450", "305", "9.0.0", "expressInstall.swf", {"get-data": "piechart_capital"});
                 //swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "fareChart", "350", "305", "9.0.0", "expressInstall.swf", {"get-data":"farechart"});
 
-                $("#year-select").change(function(e){
+                $("#year-select select").change(function(e){
                    //reload pie charts
                    $("#sourcesChart_operating")[0].reload("/transportation/transit/system/{{system.trs_id}}/operating/"+ e.target.value + "/");
                    $("#sourcesChart_operating").siblings("h4").text("Operating Expenses - "+e.target.value)
