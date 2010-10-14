@@ -13,6 +13,8 @@
         </div>
         <div class="content_area">
            
+           	{% morsel text1 %}
+           
 			<div id="subsidy-charts">
 				<script type="text/javascript">
 				
@@ -24,7 +26,7 @@
 						
 						$("select#state_select").change(function()
 						{
-							loadData();
+							loadData(true);
 						});
 						
 						$("select#year_select").change(function()
@@ -32,19 +34,20 @@
 							selectYear();
 						});
 						
+						loadData(false)
 						
-						loadData();
 					});
 					
-					function loadData()
+					function loadData(load_swf_data)
 					{
 						var state_id = $("select#state_select").val();
 						
-						var chart = findSWF('spendingchart');
 						
-						if(chart)
-							chart.reload('/transportation/highways/funding/state/chart/' + state_id + '/');
-						
+						if (load_swf_data)
+						{
+							$('#spendingchart')[0].reload('/transportation/highways/funding/state/chart/' + state_id + '/');
+							
+						}
 						
 						$.getJSON('/transportation/highways/funding/state/fundingtable/' + state_id + '/', function(d)
 						{
@@ -232,7 +235,7 @@
 					{
 						if (navigator.appName.indexOf("Microsoft")!= -1) 
 						{
-							return window["ie_" + movieName];
+							return window[movieName];
 						} 
 						else 
 						{
@@ -241,8 +244,6 @@
 					}
 				
 				</script>
-				
-				<h5 style="margin-top:20px;">Highway Funding Sources by State</h5>
 				
 				<div style="margin-bottom: 10px;">
 				
@@ -327,10 +328,10 @@
 					<tbody>
 						<tr class="header-row">
 						
-						  <td>Funding Source</td>
+						  <td style="text-align: left;">Funding Source</td>
 						  
-						  <td><span id="fiscal_year"></span> Funding (2007 dollars)</td>
-						  <td>Share of State's Total Highway Funding (%)</td>
+						  <td style="text-align: right;"><span id="fiscal_year"></span> Funding (2007 dollars)</td>
+						  <td style="text-align: right;">Share of State's Total Highway Funding (%)</td>
 			
 						 </tr>
 						 
@@ -347,8 +348,8 @@
 						
 						  <td class="subprogram">User Revenues</td>
 						
-						  <td id="source_s_user_d"></td>
-						  <td id="source_s_user_p"></td>
+						  <td id="source_s_user_d" style="text-align: right;"></td>
+						  <td id="source_s_user_p" style="text-align: right;"></td>
 						
 						</tr>
 						
@@ -356,8 +357,8 @@
 						
 						  <td class="subprogram">Non-user Revenues</td>
 						  
-						  <td id="source_s_nonuser_d"></td>
-						  <td id="source_s_nonuser_p"></td>
+						  <td id="source_s_nonuser_d" style="text-align: right;"></td>
+						  <td id="source_s_nonuser_p" style="text-align: right;"></td>
 						  
 						</tr>
 						
@@ -365,16 +366,16 @@
 						
 						  <td class="subprogram">Bonds</td>
 						  
-						  <td id="source_s_bonds_d"></td>
-						  <td id="source_s_bonds_p"></td>
+						  <td id="source_s_bonds_d" style="text-align: right;"></td>
+						  <td id="source_s_bonds_p" style="text-align: right;"></td>
 						  
 						</tr>
 						
 						<tr class="subtotal"> 
 		 					<td class="subprogram">State Subtotal</td>
 		 					
-		 					<td id="source_s_subtotal_d"></td>
-		 					<td id="source_s_subtotal_p"></td>
+		 					<td id="source_s_subtotal_d" style="text-align: right;"></td>
+		 					<td id="source_s_subtotal_p" style="text-align: right;"></td>
 		 				</tr> 
 						
 						
@@ -391,16 +392,16 @@
 						
 						  <td class="subprogram">User Revenues</td>
 						
-						  <td id="source_l_user_d"></td>
-						  <td id="source_l_user_p"></td>
+						  <td id="source_l_user_d" style="text-align: right;"></td>
+						  <td id="source_l_user_p" style="text-align: right;"></td>
 						
 						</tr>
 						
 						<tr class="even">
 						  <td class="subprogram">Non-user Revenues</td>
 						  
-						  <td id="source_l_nonuser_d"></td>
-						  <td id="source_l_nonuser_p"></td>
+						  <td id="source_l_nonuser_d" style="text-align: right;"></td>
+						  <td id="source_l_nonuser_p" style="text-align: right;"></td>
 						  
 						</tr>
 						
@@ -408,8 +409,8 @@
 						
 						  <td class="subprogram">Bonds</td>
 						  
-						  <td id="source_l_bonds_d"></td>
-						  <td id="source_l_bonds_p"></td>
+						  <td id="source_l_bonds_d" style="text-align: right;"></td>
+						  <td id="source_l_bonds_p" style="text-align: right;"></td>
 						  
 						</tr>
 						
@@ -417,17 +418,17 @@
 						
 		 					<td class="subprogram">Local Subtotal</td>
 		 					
-		 					<td id="source_l_subtotal_d"></td>
-		 					<td id="source_l_subtotal_p"></td>
+		 					<td id="source_l_subtotal_d" style="text-align: right;"></td>
+		 					<td id="source_l_subtotal_p" style="text-align: right;"></td>
 		 				</tr> 
 						
 						
 						<tr class="odd">
 						
-						  <td class="program">Federal Funding<a href="#footnote-1" class="footnote">1</a></td>
+						  <td class="program">Federal Funding<a href="#footnote-5" class="footnote">5</a></td>
 						  
-						  <td id="source_fed_d"></td>
-						  <td id="source_fed_p"></td>
+						  <td id="source_fed_d" style="text-align: right;"></td>
+						  <td id="source_fed_p" style="text-align: right;"></td>
 						  
 						</tr>
 						
@@ -435,8 +436,8 @@
 						
 		 					<td class="program">Total</td>
 		 					
-		 					<td id="source_total_d"></td>
-		 					<td id="source_total_p"></td>
+		 					<td id="source_total_d" style="text-align: right;"></td>
+		 					<td id="source_total_p" style="text-align: right;"></td>
 		 				</tr> 
 		 				
 					</tbody>
@@ -451,53 +452,53 @@
 					<tbody>
 						<tr class="header-row">
 						
-						  <td>Jurisdiction</td>
+						  <td style="text-align: left;">Jurisdiction</td>
 						  
-						  <td>State's Public Road Length (Miles)</td>
-						  <td>Share of State's Total Public Road Length (%)</td>
+						  <td style="text-align: right;">State's Public Road Length (Miles)</td>
+						  <td style="text-align: right;">Share of State's Total Public Road Length (%)</td>
 			
 						</tr>
 						
 						<tr>
 							<td class="program">State</td>
-							<td id="mile_state_d"></td>
-							<td id="mile_state_p"></td>						
+							<td id="mile_state_d" style="text-align: right;"></td>
+							<td id="mile_state_p" style="text-align: right;"></td>						
 						</tr>
 						
 						<tr>
 							<td class="program">County</td>
-							<td id="mile_county_d"></td>
-							<td id="mile_county_p"></td>						
+							<td id="mile_county_d" style="text-align: right;"></td>
+							<td id="mile_county_p" style="text-align: right;"></td>						
 						</tr>
 						
 						<tr>
 							<td class="program">City</td>
-							<td id="mile_city_d"></td>
-							<td id="mile_city_p"></td>						
+							<td id="mile_city_d" style="text-align: right;"></td>
+							<td id="mile_city_p" style="text-align: right;"></td>						
 						</tr>
 						
 						<tr>
 							<td class="program">Federal</td>
-							<td id="mile_federal_d"></td>
-							<td id="mile_federal_p"></td>						
+							<td id="mile_federal_d" style="text-align: right;"></td>
+							<td id="mile_federal_p" style="text-align: right;"></td>						
 						</tr>
 						
 						<tr>
 							<td class="program">Other</td>
-							<td id="mile_other_d"></td>
-							<td id="mile_other_p"></td>						
+							<td id="mile_other_d" style="text-align: right;"></td>
+							<td id="mile_other_p" style="text-align: right;"></td>						
 						</tr>
 						
 						<tr class="total">
 							<td class="program">Total (All Jurisdictions)</td>
-							<td id="mile_total_d"></td>
-							<td id="mile_total_p"></td>						
+							<td id="mile_total_d" style="text-align: right;"></td>
+							<td id="mile_total_p" style="text-align: right;"></td>						
 						</tr>
 						
 						<tr class="">
 							<td class="program">Federal-aid Eligible</td>
-							<td id="mile_federal_aid_d"></td>
-							<td id="mile_federal_aid_p"></td>						
+							<td id="mile_federal_aid_d" style="text-align: right;"></td>
+							<td id="mile_federal_aid_p" style="text-align: right;"></td>						
 						</tr>
 						
 						
@@ -508,15 +509,7 @@
 			
 			</div>
 			
-			<cite>Source: Subsidyscope analysis of data from the <a href="http://www.fhwa.dot.gov/policy/ohpi/hss/hsspubs.cfm">Federal Highway Administration’s (FHWA) Highway Statistics Publications</a>. See Tables Tables SF-1, LGF-1,  HM-10 and HM-15. All dollar estimates are adjusted to 2007 dollars using the <a href="http://enr.construction.com/economics/current_costs/">ENR Construction Cost Index</a>.</cite>
-			<br/>
-			<br/>
-			<ol class="footnotes">
-
- 					<li><a name="footnote-1"></a>Estimates of federal highway funding include federal receipts transferred to state and local governments. They may not include federal receipts drawn from or placed in reserves, or federal receipts and disbursements for highways that are not attributable to a single state. For more information about federal highway funding, see Table FA-5 compiled yearly by the Federal Highway Administration.</li>
-			
-				<li><a name="footnote-1"></a>Users of this data should be aware that FHWA’s summary tables may be created using data that is calculated at different times. In addition, some tables are updated by FHWA in the years after their release. For these reasons, summary tables may not always reflect the estimates available in other tables on the FHWA web site.</li>
-			</ol>
+			{% morsel text2 %}
 			
 				
 
