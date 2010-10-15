@@ -66,7 +66,7 @@ function reloadPage()
         	
         {% if treasury_expenditures %}
         
-        	<strong>Treasury Expenditure Estimates ($ millions)</strong><br/>
+        	<strong>Treasury Tax Expenditure Estimates ($ millions)</strong><br/>
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
@@ -101,7 +101,7 @@ function reloadPage()
         
         {% if jct_expenditures %}
         
-        	<strong>JCT Expenditure Estimates ($ millions)</strong><br/>
+        	<strong>JCT Tax Expenditure Estimates ($ millions)</strong><br/>
         	<div id="subsidy-charts" style="margin-bottom: 35px;"> 
 				<table>
 				
@@ -134,14 +134,14 @@ function reloadPage()
         	
         
         {% if subgroups%}
-        	<strong>Expenditures within {{ group.name }} ($ millions)</strong><br/>
+        	<strong>Tax Expenditures within {{ group.name }} ($ millions)</strong><br/>
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
 				<tbody>
 				
 					<tr class="header-row"> 
-					  <td>Expenditure</td>
+					  <td></td>
 					  {% for year in te_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
 					 
 					</tr>

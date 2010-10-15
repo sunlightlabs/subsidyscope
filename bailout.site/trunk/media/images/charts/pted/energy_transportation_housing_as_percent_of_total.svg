@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<svg height="450" version="1.1" width="600" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.slice-10 { fill: #385a2a; stroke: #d6d9db; stroke-width:2;}
+
+.slice-9 { fill: #66903d; stroke: #d6d9db; stroke-width:2;}
+
+.slice-8 { fill: #c1d69f; stroke: #d6d9db; stroke-width:2;}
+
+.slice-7 { fill: #79bcab; stroke: #d6d9db; stroke-width:2;}
+
+.slice-6 { fill: #c2e0d5; stroke: #d6d9db; stroke-width:2;}
+
+.slice-5 { fill: #e9ece3; stroke: #d6d9db; stroke-width:2; }
+
+.slice-4 { fill: #bad9e0; stroke: #d6d9db; stroke-width:2;}
+
+.slice-3 { fill: #669eb3; stroke: #d6d9db; stroke-width:2;}
+
+.slice-2 { fill: #2b5b8e; stroke: #d6d9db; stroke-width:2;}
+
+.slice-1{ fill: #072744; stroke: #d6d9db; stroke-width:2;}
+
+
+
+.pie-label-right {font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:start;}
+
+.pie-label-left {font-family:sans-serif; font-size: 12px; font-weight: bold; fill: #58595b; text-anchor:end;}
+
+
+
+
+
+
+
+	</style>
+	<rect fill="white" height="450" width="600" x="0" y="0"/>
+	<text class="pie-label-left" x="118" y="105">
+		<tspan dy="0" x="118.5608027">
+			80.2% - All Other Tax Expenditures
+		</tspan>
+	</text>
+	<path class="slice-1" d="M 280,225  l 190,0  a190,190 0 1,0 -128.931940394,179.918570737 z"/>
+	<text class="pie-label-right" x="351" y="413">
+		<tspan dy="0" x="351.067668551">
+			0.5% - Energy
+		</tspan>
+	</text>
+	<path class="slice-2" d="M 280,225  l 61.0680596057,179.918570737  a190,190 0 0,0 5.9813070969,-2.14235628515 z"/>
+	<text class="pie-label-right" x="441" y="344">
+		<tspan dy="0" x="441.979723434">
+			18.9% - Housing
+		</tspan>
+	</text>
+	<path class="slice-3" d="M 280,225  l 67.0493667026,177.776214452  a190,190 0 0,0 122.897549604,-173.285225055 z"/>
+	<text class="pie-label-right" x="476" y="227">
+		<tspan dy="0" x="476.986728613">
+			0.4% - Transportation
+		</tspan>
+	</text>
+	<path class="slice-4" d="M 280,225  l 189.946916306,4.49098939691  a190,190 0 0,0 0.0530836937939,-4.49098939691 z"/>
+</svg>
