@@ -7,7 +7,7 @@ from datetime import date
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 from decimal import Decimal
-from tax_expenditures.models import Category, Expenditure, Estimate
+from te_importer.models import Category, Expenditure, Estimate
 
 categories = {}
 
@@ -72,7 +72,7 @@ def assign_budget_functions(expenditure, category):
 
 
 def process_file(year):
-    
+
     print year
     file = open ('data/omb_ap/spec%d.txt' % (year), 'r')
     

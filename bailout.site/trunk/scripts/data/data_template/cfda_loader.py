@@ -26,7 +26,7 @@ for cfda_number in cfda_numbers:
         program.sectors.add(sector)
         
         print '%s: %s' % (program.program_number, program.program_title)
-        
+                
     except:
         print '*Unable to locate CFDA %s' % cfda_number
         

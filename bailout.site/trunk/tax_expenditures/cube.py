@@ -189,6 +189,8 @@ class Cube:
 
     def add(self, atttributes, data):
         
+
+        
         id = len(self.data)
         
         self.data.append(data)
@@ -225,7 +227,8 @@ class Cube:
         
         for id in dataset:
             
-            slice.append(self.data[id])
+            if self.data[id] != None:
+                slice.append(self.data[id])
             
         return slice 
             
