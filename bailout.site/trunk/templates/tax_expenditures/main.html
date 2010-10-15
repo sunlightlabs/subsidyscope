@@ -35,7 +35,9 @@ function reloadPage()
         
         	<form id="loaderForm" action="" method="GET"></form>
         	
-        	<div style="float: right;"><strong>Display estimates for: </strong><select id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select></div>
+        	<div style="float: right; text-align: right;">
+        	<a href="{% url tax_expenditures-csv %}">Download data as CSV file</a><br/>
+        	<strong>Display estimates for: </strong><select id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select></div>
         
         
         	<h5 style="margin-top:20px;">Summary of Tax Expenditures ($ millions)</h5> 
