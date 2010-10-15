@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load media %}
+{% load morsel_tags %}
+{% load te_tags %}
+
+{% block content %}
+
+<script>
+function reloadPage()
+{
+	if($('#displayEstimate').val() == '1') 
+		$("#loaderForm").attr("action", '{% url tax_expenditures-main 1 %}');
+	else if($('#displayEstimate').val() == '2') 
+		$("#loaderForm").attr("action", '{% url tax_expenditures-main 2 %}');
+	else if($('#displayEstimate').val() == '3') 
+		$("#loaderForm").attr("action", '{% url tax_expenditures-main 3 %}');
+		
+	$("#loaderForm").submit();
+}
+
+
+</script>
+
+
+<div class="container main_container">
+    {% include "includes/transportation_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>Pew's Tax Expenditure Database</h3>
+        </div>
+        <div class="content_area">
+        
+        	{% morsel text1 %}
+       
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
