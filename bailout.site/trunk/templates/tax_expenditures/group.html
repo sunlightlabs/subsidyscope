@@ -40,7 +40,7 @@ function reloadPage()
         	
         	<form id="loaderForm" action="" method="GET"></form>
         	
-        	<div style="float: right;"><strong>Display estimates for: </strong><select id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><select><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option><select></select></div>
+        	<div style="float: right;"><strong>Display estimates for: </strong><select id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select></div>
         
         	
         	<strong>Total ($ millions)</strong><br/>
@@ -55,10 +55,8 @@ function reloadPage()
 					 
 					</tr>
 					
-						
-						{% te_group_summary group source estimate %}
-						
-				
+					{% te_group_summary group source estimate %}
+
 				</tbody>
 				</table>
 			</div>
@@ -86,6 +84,13 @@ function reloadPage()
 				
 				</tbody>
 				</table>
+				
+				<div style="margin-bottom: 50px;">
+					<div style="float: right;">
+						<div style="width: 150px; display:inline; float: left;"></div><div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddd; display: inline; float: left; margin-right: 10px;"></div><div>Old estimate</div></div>
+						<div style="width: 200px; display:inline; float: right;"><div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddf; display: inline; float: left; margin-right: 10px;"></div><div>Estimate included in total</div></div>
+					</div>
+				</div>
 			</div>
         
         {% endif %}
@@ -114,7 +119,12 @@ function reloadPage()
 				
 				</tbody>
 				</table>
-				
+				<div>
+					<div style="float: right;">
+						<div style="width: 150px; display:inline; float: left;"></div><div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddd; display: inline; float: left; margin-right: 10px;"></div><div>Old estimate</div></div>
+						<div style="width: 200px; display:inline; float: right;"><div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddf; display: inline; float: left; margin-right: 10px;"></div><div>Estimate included in total</div></div>
+					</div>
+				</div>
 			</div>
         
         {% endif %}
@@ -143,6 +153,7 @@ function reloadPage()
 				
 				</tbody>
 				</table>
+				
 			</div>
 		{% endif %}
 		
