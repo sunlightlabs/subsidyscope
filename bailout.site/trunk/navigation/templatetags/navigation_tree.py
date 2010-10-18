@@ -205,7 +205,7 @@ SECTORS = { 'sector': 'home',
                                                                       'children': []
                                                                     },
                                                                     { 'sector': 'transportation-direct-expenditures',
-                                                                      'name': 'Funding Sources by State',
+                                                                      'name': 'Highway Funding Data by Source and Type',
                                                                       'url_name': 'transportation-highway-funding-state',
                                                                       'children': []
                                                                     }]
