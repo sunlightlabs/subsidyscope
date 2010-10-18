@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<svg height="340" version="1.1" width="500" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+<svg height="200" version="1.1" width="400" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
 	<style type="text/css">
 		.y-axis-path, .y-axis-path2, .y-gridline {display:none;}
 
@@ -30,74 +30,70 @@
 .y-axis-label { display:none;}
 
 	</style>
-	<rect fill="white" height="340" width="500" x="0" y="0"/>
+	<rect fill="white" height="200" width="400" x="0" y="0"/>
 	<g id="grid" transform="translate(30, 30)">
 		<g class="x-axis" id="x_axis">
-			<path class="x-axis-path" d="M 0 180 L 440 180"/>
-			<path class="x-notch-left" d="M 0 180, L 0 190"/>
-			<path class="x-notch-right" d="M 440 180, L 440 190"/>
+			<path class="x-axis-path" d="M 0 90 L 340 90"/>
+			<path class="x-notch-left" d="M 0 90, L 0 100"/>
+			<path class="x-notch-right" d="M 340 90, L 340 100"/>
 		</g>
 		<g class="y-axis" id="y_axis">
-			<path class="y-axis-path" d="M 0 180 L 0 0"/>
-			<path class="y-axis-path-2" d="M 440 180 L 440 0"/>
-			<path class="y-gridline" d="M 0 0 L 440 0"/>
-			<text class="y-axis-label" x="-5" y="0">
-				206.4Th
-			</text>
-			<path class="y-gridline" d="M 0 30 L 440 30"/>
-			<text class="y-axis-label" x="-5" y="30">
-				172.0Th
-			</text>
-			<path class="y-gridline" d="M 0 60 L 440 60"/>
-			<text class="y-axis-label" x="-5" y="60">
-				137.6Th
-			</text>
-			<path class="y-gridline" d="M 0 90 L 440 90"/>
+			<path class="y-axis-path" d="M 0 90 L 0 0"/>
+			<path class="y-axis-path-2" d="M 340 90 L 340 0"/>
+			<path class="y-gridline" d="M 0 90 L 340 90"/>
 			<text class="y-axis-label" x="-5" y="90">
-				103.2Th
+				 0
 			</text>
-			<path class="y-gridline" d="M 0 120 L 440 120"/>
-			<text class="y-axis-label" x="-5" y="120">
-				68.8Th
+			<path class="y-gridline" d="M 0 68 L 340 68"/>
+			<text class="y-axis-label" x="-5" y="68">
+				50
 			</text>
-			<path class="y-gridline" d="M 0 150 L 440 150"/>
-			<text class="y-axis-label" x="-5" y="150">
-				34.4Th
+			<path class="y-gridline" d="M 0 46 L 340 46"/>
+			<text class="y-axis-label" x="-5" y="46">
+				100
+			</text>
+			<path class="y-gridline" d="M 0 24 L 340 24"/>
+			<text class="y-axis-label" x="-5" y="24">
+				150
+			</text>
+			<path class="y-gridline" d="M 0 2 L 340 2"/>
+			<text class="y-axis-label" x="-5" y="2">
+				200
 			</text>
 		</g>
-		<rect class="series-0-point" height="5.61617022926" width="60" x="13" y="174.383829771"/>
-		<text class="data-point-label" x="43" y="169.383829771">
-			6.4Th
+		<rect class="series-0-point" height="2.898" width="30" x="26" y="87.102"/>
+		<text class="data-point-label" x="41" y="82.102">
+			 6
 		</text>
-		<rect class="series-0-point" height="163.636363636" width="60" x="159" y="16.3636363636"/>
-		<text class="data-point-label" x="189" y="11.3636363636">
-			187.6Th
+		<rect class="series-0-point" height="84.438" width="30" x="139" y="5.562"/>
+		<text class="data-point-label" x="154" y="0.562">
+			187
 		</text>
-		<rect class="series-0-point" height="3.21796089223" width="60" x="305" y="176.782039108"/>
-		<text class="data-point-label" x="335" y="171.782039108">
-			3.7Th
+		<rect class="series-0-point" height="1.6605" width="30" x="252" y="88.3395"/>
+		<text class="data-point-label" x="267" y="83.3395">
+			 3
 		</text>
-		<path class="x-notch" d="M 146 180 L 146 185"/>
-		<rect class="series-1-point" height="41.1096684173" width="60" x="73" y="138.890331583"/>
-		<text class="data-point-label" x="103" y="133.890331583">
-			47.1Th
+		<path class="x-notch" d="M 112 90 L 112 95"/>
+		<rect class="series-1-point" height="21.213" width="30" x="56" y="68.787"/>
+		<text class="data-point-label" x="71" y="63.787">
+			47
 		</text>
-		<path class="x-notch" d="M 292 180 L 292 185"/>
-		<rect class="series-1-point" height="140.334489642" width="60" x="219" y="39.6655103583"/>
-		<text class="data-point-label" x="249" y="34.6655103583">
-			160.9Th
+		<path class="x-notch" d="M 225 90 L 225 95"/>
+		<rect class="series-1-point" height="72.414" width="30" x="169" y="17.586"/>
+		<text class="data-point-label" x="184" y="12.586">
+			160
 		</text>
-		<rect class="series-1-point" height="8.26728164183" width="60" x="365" y="171.732718358"/>
-		<text class="data-point-label" x="395" y="166.732718358">
-			9.5Th
+		<rect class="series-1-point" height="4.266" width="30" x="282" y="85.734"/>
+		<text class="data-point-label" x="297" y="80.734">
+			 9
 		</text>
-		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 73, 190)" x="73" y="190">
+		<text class="x-axis-label" x="56" y="100">
 			Energy
 		</text>
-		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 219, 190)" x="219" y="190">
+		<text class="x-axis-label" x="169" y="100">
 			Housing
 		</text>
-		<text class="x-axis-label" style="text-anchor: end;" transform="rotate(-35, 365, 190)" x="365" y="190">
+		<text class="x-axis-label" x="282" y="100">
 			Transportation
 		</text>
 	</g>
