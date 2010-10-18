@@ -1,0 +1,158 @@
+<?xml version="1.0" ?>
+<svg height="350" version="1.1" width="650" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+	<style type="text/css">
+		.y-axis-path, .y-axis-path2, .y-gridline {display:none;}
+
+
+
+.x-notch, .x-notch-left, .x-notch-right { stroke: #a7a9ac; }
+
+.x-axis-path { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+
+.series-0-point { stroke: #e0d1d1; fill: #bf5004; stroke-width: 2px; }
+
+
+
+.series-1-point { stroke: #d6d9db; fill: #336699; stroke-width:2px; }
+
+
+
+.series-2-point { stroke: #eff5e6; fill: #9ca991; stroke-width: 2px; }
+
+
+
+
+
+.x-axis-label, .data-point-label {font-size: 10px; font-weight:bold; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+.data-point-label {font-size: 12px; }
+
+.y-axis-label { display:none;}
+
+	</style>
+	<rect fill="white" height="350" width="650" x="0" y="0"/>
+	<g id="grid" transform="translate(35, 30)">
+		<g class="x-axis" id="x_axis">
+			<path class="x-axis-path" d="M 0 230 L 580 230"/>
+			<path class="x-notch-left" d="M 0 230, L 0 240"/>
+			<path class="x-notch-right" d="M 580 230, L 580 240"/>
+		</g>
+		<g class="y-axis" id="y_axis">
+			<path class="y-axis-path" d="M 0 230 L 0 0"/>
+			<path class="y-axis-path-2" d="M 580 230 L 580 0"/>
+			<path class="y-gridline" d="M 0 230 L 580 230"/>
+			<text class="y-axis-label" x="-5" y="230">
+				$ 0B
+			</text>
+			<path class="y-gridline" d="M 0 198 L 580 198"/>
+			<text class="y-axis-label" x="-5" y="198">
+				$10B
+			</text>
+			<path class="y-gridline" d="M 0 166 L 580 166"/>
+			<text class="y-axis-label" x="-5" y="166">
+				$20B
+			</text>
+			<path class="y-gridline" d="M 0 134 L 580 134"/>
+			<text class="y-axis-label" x="-5" y="134">
+				$30B
+			</text>
+			<path class="y-gridline" d="M 0 102 L 580 102"/>
+			<text class="y-axis-label" x="-5" y="102">
+				$40B
+			</text>
+			<path class="y-gridline" d="M 0 70 L 580 70"/>
+			<text class="y-axis-label" x="-5" y="70">
+				$50B
+			</text>
+			<path class="y-gridline" d="M 0 38 L 580 38"/>
+			<text class="y-axis-label" x="-5" y="38">
+				$60B
+			</text>
+			<path class="y-gridline" d="M 0 6 L 580 6"/>
+			<text class="y-axis-label" x="-5" y="6">
+				$70B
+			</text>
+		</g>
+		<path class="x-notch" d="M 116 230 L 116 235"/>
+		<rect class="series-0-point" height="201.907142857" width="60" x="28" y="28.0928571429"/>
+		<text class="data-point-label" x="58" y="23.0928571429">
+			$61B
+		</text>
+		<path class="x-notch" d="M 232 230 L 232 235"/>
+		<rect class="series-0-point" height="65.4842857143" width="60" x="144" y="164.515714286"/>
+		<text class="data-point-label" x="174" y="159.515714286">
+			$19B
+		</text>
+		<path class="x-notch" d="M 348 230 L 348 235"/>
+		<rect class="series-0-point" height="97.6842857143" width="60" x="260" y="132.315714286"/>
+		<text class="data-point-label" x="290" y="127.315714286">
+			$29B
+		</text>
+		<path class="x-notch" d="M 464 230 L 464 235"/>
+		<rect class="series-0-point" height="80.7957142857" width="60" x="376" y="149.204285714"/>
+		<text class="data-point-label" x="406" y="144.204285714">
+			$24B
+		</text>
+		<rect class="series-0-point" height="31.97" width="60" x="492" y="198.03"/>
+		<text class="data-point-label" x="522" y="193.03">
+			$ 9B
+		</text>
+		<text class="x-axis-label" x="58" y="250">
+			Deductibility of
+		</text>
+		<text class="x-axis-label" x="58" y="263">
+			 mortgage interest 
+		</text>
+		<text class="x-axis-label" x="58" y="276">
+			on owner-occupied
+		</text>
+		<text class="x-axis-label" x="58" y="289">
+			 homes
+		</text>
+		<text class="x-axis-label" x="174" y="250">
+			Deductibility of 
+		</text>
+		<text class="x-axis-label" x="174" y="263">
+			State and local
+		</text>
+		<text class="x-axis-label" x="174" y="276">
+			 property tax on 
+		</text>
+		<text class="x-axis-label" x="174" y="289">
+			owner-occupied 
+		</text>
+		<text class="x-axis-label" x="174" y="302">
+			homes
+		</text>
+		<text class="x-axis-label" x="290" y="250">
+			Capital gains
+		</text>
+		<text class="x-axis-label" x="290" y="263">
+			 exclusion on
+		</text>
+		<text class="x-axis-label" x="290" y="276">
+			 home sales
+		</text>
+		<text class="x-axis-label" x="406" y="250">
+			Exclusion of
+		</text>
+		<text class="x-axis-label" x="406" y="263">
+			 net imputed
+		</text>
+		<text class="x-axis-label" x="406" y="276">
+			 rental income on 
+		</text>
+		<text class="x-axis-label" x="406" y="289">
+			owner-occupied 
+		</text>
+		<text class="x-axis-label" x="406" y="302">
+			homes
+		</text>
+		<text class="x-axis-label" x="522" y="250">
+			Credit for
+		</text>
+		<text class="x-axis-label" x="522" y="263">
+			 home buyer
+		</text>
+	</g>
+</svg>

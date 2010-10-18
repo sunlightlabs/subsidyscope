@@ -1,30 +1,108 @@
 from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 from cube import Cube
-        
 
-class Category(models.Model):
+TE_CURRENT_YEAR = 2011
+TE_YEARS = range(2000,2016)
+         
+    
+class Group(models.Model):
     
     parent = models.ForeignKey('self', null=True)
     
     name = models.TextField()
-
-    budget_function = models.BooleanField(default=False)
-
-    def aggregate(self):
     
-        total = Cube()
-
-        for expenditure_group in self.budget_function_category_group_set.all():
-            total += expenditure_group.aggregate()
+    description = models.TextField()
+    
+    notes = models.TextField()
+    
+    def calc_summary(self):
+        
+        self.groupsummary_set.all().delete()
+        
+        cube = Cube()
+        
+        for group in Group.objects.filter(parent=self):
+            cube += group.calc_summary()
             
-        return total
-
+        
+        for expenditure in self.expenditure_set.all():            
+            
+            if expenditure.analysis_year < TE_CURRENT_YEAR:
+                
+                try:
+                    estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=expenditure.analysis_year-2)
+                    
+                    cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, estimate.corporations_amount)
+                    cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, estimate.individuals_amount)
+                    
+                except ObjectDoesNotExist:
+                    pass
+                     
+            elif expenditure.analysis_year == TE_CURRENT_YEAR:
+                
+                for year in range(TE_CURRENT_YEAR-2, TE_CURRENT_YEAR + 5):
+                    
+                    try:
+                        estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=year)
+                        
+                        cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, estimate.corporations_amount)
+                        cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, estimate.individuals_amount)
+                    
+                        
+                    except ObjectDoesNotExist:
+                        pass 
+        
+        for estimate_year in TE_YEARS:
+            
+            if cube.dimensions.has_key('estimate_year') and cube.dimensions['estimate_year'].values.has_key(estimate_year):
+            
+                results_corp = cube.query(attributes={'estimate_year':estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, groups=['source'])
+                results_indv = cube.query(attributes={'estimate_year':estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, groups=['source'])
+                results_comb = cube.query(attributes={'estimate_year':estimate_year}, groups=['source'])
+            
+                if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_JCT):
+                    summary_corp = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_CORPORATIONS)
+                    summary_corp.amount = results_corp.values[Expenditure.SOURCE_JCT].get_data(aggregator=sum)
+                    summary_corp.save()
+                   
+                    summary_indv = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_INDIVIDUALS)
+                    summary_indv.amount = results_indv.values[Expenditure.SOURCE_JCT].get_data(aggregator=sum)
+                    summary_indv.save()
+                   
+                    summary_comb = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_COMBINED)
+                    summary_comb.amount = results_comb.values[Expenditure.SOURCE_JCT].get_data(aggregator=sum)
+                    summary_comb.save()
+                
+                
+                if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_TREASURY):
+                    summary_corp = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_CORPORATIONS)
+                    summary_corp.amount = results_corp.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=sum)
+                    summary_corp.save()
+                    
+                    summary_indv = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_INDIVIDUALS)
+                    summary_indv.amount = results_indv.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=sum)
+                    summary_indv.save()
+                    
+                    summary_comb = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_COMBINED)
+                    summary_comb.amount = results_comb.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=sum)
+                    summary_comb.save()
+        
+        return cube
+        
     def __unicode__(self):
         return self.name
+    
+    class Meta:
+        
+        ordering = ('name',)
+        
+        
 
-    
-class Expenditure(models.Model):
-    
+class GroupSummary(models.Model):
+
+    group = models.ForeignKey(Group)
+
     SOURCE_JCT = 1
     SOURCE_TREASURY = 2
     
@@ -35,15 +113,44 @@ class Expenditure(models.Model):
     
     source = models.IntegerField(choices=SOURCE_CHOICES)
     
-    category = models.ForeignKey(Category)
+    ESTIMATE_CORPORATIONS = 1
+    ESTIMATE_INDIVIDUALS = 2
+    ESTIMATE_COMBINED = 3
     
-    budget_function_category = models.ManyToManyField(Category, related_name='budget_function_category_expenditure_set')
+    ESTIMATE_CHOICES = (
+        (ESTIMATE_CORPORATIONS, 'Corporations'),
+        (ESTIMATE_INDIVIDUALS, 'Individuals'),
+        (ESTIMATE_COMBINED, 'Corporations & Individuals')
+    )
+    
+    estimate = models.IntegerField(choices=ESTIMATE_CHOICES)
+    
+    estimate_year = models.IntegerField()
+    
+    amount = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+
+    class Meta:
+        
+        ordering = ('estimate_year',)
+
+
+class Expenditure(models.Model):
+    
+    SOURCE_JCT = 1
+    SOURCE_TREASURY = 2
+    
+    SOURCE_CHOICES = (
+        (SOURCE_JCT, 'JCT'),
+        (SOURCE_TREASURY, 'Treasury')
+    )
+    
+    group = models.ForeignKey(Group)
+    
+    source = models.IntegerField(choices=SOURCE_CHOICES)
     
     item_number = models.IntegerField(null=True)
     
     name = models.TextField()
-    
-    match_name = models.TextField()
     
     analysis_year = models.IntegerField()
     
@@ -59,104 +166,6 @@ class Expenditure(models.Model):
         
         ordering = ('analysis_year',)
 
-# from tax_expenditures.models import *
-# ExpenditureGroup.objects.group_expenditures()
- 
-class ExpenditureGroupManager(models.Manager):
-    
-    def group_expenditures(self):
-        
-        for expenditure in Expenditure.objects.all():
-            
-            group, created = self.get_or_create(match_name=expenditure.match_name)
-            
-            if created:
-                for category in expenditure.budget_function_category.all():
-                    group.budget_function_category.add(category)
-                
-                group.category = expenditure.category    
-                group.name = expenditure.name
-                group.type = ExpenditureGroup.TYPE_NAME
-                group.save()
-            
-            group.group.add(expenditure)
-            
-    
-class ExpenditureGroup(models.Model):
-    
-    TYPE_NAME = 1
-    TYPE_MANUAL = 2
-    
-    TYPE_CHOICES = (
-        (TYPE_NAME, 'Name'),
-        (TYPE_MANUAL, 'Manual')
-    )
-    
-    type = models.IntegerField(choices=TYPE_CHOICES, null=True)
-    
-    category = models.ForeignKey(Category, null=True)
-    
-    budget_function_category = models.ManyToManyField(Category, related_name='budget_function_category_group_set')
-    
-    name = models.TextField()
-    
-    match_name = models.TextField()
-    
-    group = models.ManyToManyField(Expenditure)
-    
-    objects = ExpenditureGroupManager()
-    
-    def get_description(self):
-        
-        try:
-            expenditure = self.group.filter(source=Expenditure.SOURCE_TREASURY).exclude(description='').order_by('-analysis_year')[0]
-        
-            return '<strong>Description from the %d Analytical Perspectives:</strong> %s'  % (expenditure.analysis_year, expenditure.description)
-            
-        except:
-            return ''
-                
-    
-    
-    def aggregate(self):
-        
-        cube = Cube()
-        
-        estimates = {}
-        
-        for expenditure in self.group.filter(source=Expenditure.SOURCE_JCT):
-            for estimate in expenditure.estimate_set.all():
-                estimates[estimate.estimate_year] = estimate
-        
-        for year in estimates:
-            
-            estimate = estimates[year]
-            
-            if estimate.corporations_amount != None:
-                cube.add({'year':estimate.estimate_year, 'source':expenditure.source, 'recipient':'corporation'}, estimate.corporations_amount)
-            if  estimate.individuals_amount != None:
-                cube.add({'year':estimate.estimate_year, 'source':expenditure.source, 'recipient':'individual'}, estimate.individuals_amount)
-        
-        for expenditure in self.group.filter(source=Expenditure.SOURCE_TREASURY):
-            for estimate in expenditure.estimate_set.all():
-                estimates[estimate.estimate_year] = estimate
-        
-        for year in estimates:
-            
-            estimate = estimates[year]
-            
-            if estimate.corporations_amount != None:
-                cube.add({'year':estimate.estimate_year, 'source':expenditure.source, 'recipient':'corporation'}, estimate.corporations_amount)
-            if  estimate.individuals_amount != None:
-                cube.add({'year':estimate.estimate_year, 'source':expenditure.source, 'recipient':'individual'}, estimate.individuals_amount)
-            
-            
-        return cube
-    
-        
-    def __unicode__(self):
-        return self.name
-    
     
 class Estimate(models.Model):
     
@@ -169,9 +178,12 @@ class Estimate(models.Model):
     corporations_amount = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     individuals_amount = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     
+    NOTE_POSITIVE = 1
+    NOTE_NEGATIVE = 2
+    
     NOTE_CHOICES = (
-        (1, 'Positive tax expenditure of less than $50 million.'),
-        (2, 'Negative tax expenditure of less than $50 million.')
+        (NOTE_POSITIVE, 'Positive tax expenditure of less than $50 million.'),
+        (NOTE_NEGATIVE, 'Negative tax expenditure of less than $50 million.')
     )
     
     corporations_notes = models.IntegerField(choices=NOTE_CHOICES, null=True)

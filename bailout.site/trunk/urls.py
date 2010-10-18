@@ -58,6 +58,7 @@ urlpatterns += patterns('django.views.generic.simple',
     url(r'^projects/transportation/', remove_projects_redirect, name="transportation-old"),
     url(r'^projects/', redirect_to_index, name="projects"),
 
+    url(r'^housing/', include('housing.urls')),
     url(r'^energy/', include('energy.urls')),
     url(r'^transportation/', include('transportation.urls')),
     url(r'^nonprofits/', include('nonprofits.urls')),    

@@ -198,7 +198,17 @@ SECTORS = { 'sector': 'home',
                                                       {'sector': 'transportation-direct-expenditures',
                                                        'name': 'Highway Funding Analysis',
                                                        'url_name': 'transportation-highway-funding',
-                                                       'children': []
+                                                       'children': [
+                                                                    { 'sector': 'transportation-direct-expenditures',
+                                                                      'name': 'User Fees',
+                                                                      'url_name': 'transportation-highway-funding',
+                                                                      'children': []
+                                                                    },
+                                                                    { 'sector': 'transportation-direct-expenditures',
+                                                                      'name': 'Highway Funding Data by Source and Type',
+                                                                      'url_name': 'transportation-highway-funding-state',
+                                                                      'children': []
+                                                                    }]
                                                       }]
                                         },
                                         {'sector': 'transportation-index',

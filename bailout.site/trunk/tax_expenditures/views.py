@@ -1,118 +1,121 @@
+import csv, re
+from django.http import HttpResponse
 from django.shortcuts import render_to_response 
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from tax_expenditures.models import Category, ExpenditureGroup, Expenditure
+from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, TE_YEARS
 
 
-def main(request, category_id=None, year=None, source=None):
+def main(request, estimate=GroupSummary.ESTIMATE_COMBINED):
     
-    categories = Category.objects.filter(parent=None)
+    groups = Group.objects.filter(parent=None)
     
-    return render_to_response('tax_expenditures/main.html', {'categories':categories}, context_instance=RequestContext(request))
+    estimate = int(estimate)
+    
+    return render_to_response('tax_expenditures/main.html', {'groups':groups, 'source':None, 'estimate':estimate, 'te_years':TE_YEARS}, context_instance=RequestContext(request))
 
 
-def category(request, category_id, year=None, source=None):
+def group(request, group_id, estimate):
     
-    category_id = int(category_id)
+    group_id = int(group_id)
     
-    category = Category.objects.get(pk=category_id)
+    estimate = int(estimate)
     
-    subcategories = Category.objects.filter(parent=category)
+    group = Group.objects.get(pk=group_id)
     
-    return render_to_response('tax_expenditures/category.html', {'category':category, 'subcategories':subcategories})
+    jct_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_JCT)
+    treasury_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_TREASURY)
+    
+    subgroups = Group.objects.filter(parent=group)
+    
+    return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'jct_expenditures':jct_expenditures, 'treasury_expenditures':treasury_expenditures, 'source':None, 'estimate':estimate, 'te_years':TE_YEARS})
     
 
-def expenditure(request, expenditure_id, year=None, source=None):
+def te_csv(request, group_id=None):
     
-    expenditure_id = int(expenditure_id)
+    try:
+        parent = Group.objects.get(pk=int(group_id))
+        file_name = re.sub('[ ]', '_', re.sub('^a-zA-Z ', '', parent.name))[:30] + '.csv'
+    except:
+        parent = None
+        file_name = 'tax_expenditures.csv'
     
-    expenditure = ExpenditureGroup.objects.get(pk=expenditure_id)
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment; filename=%s' % (file_name)
+
+    writer = csv.writer(response)
     
-    treasury_expenditure_summary = []
+    writer.writerow(['Indent','Category','Source','Report','2000 (Corp)','2001 (Corp)','2002 (Corp)','2003 (Corp)','2004 (Corp)','2005 (Corp)','2006 (Corp)','2007 (Corp)','2008 (Corp)','2009 (Corp)','2010 (Corp)','2011 (Corp)','2012 (Corp)','2013 (Corp)','2014 (Corp)','2015 (Corp)','2000 (Indv)','2001 (Indv)','2002 (Indv)','2003 (Indv)','2004 (Indv)','2005 (Indv)','2006 (Indv)','2007 (Indv)','2008 (Indv)','2009 (Indv)','2010 (Indv)','2011 (Indv)','2012 (Indv)','2013 (Indv)','2014 (Indv)','2015 (Indv)'])
     
-    for expenditure_report in expenditure.group.filter(source=Expenditure.SOURCE_TREASURY):
+    
+    if parent:
         
-        estimates = {}
+        recurse_category(parent, writer, '')
+    
+    else:
+        for parent in Group.objects.filter(parent=None):
+            recurse_category(parent, writer, '')
+    
+    return response
+
+def recurse_category(parent, writer, indent):
+    
+    indent += '*'
+
+    writer.writerow([indent, parent.name])
         
-        for estimate in expenditure_report.estimate_set.all():
+    for expenditure in parent.expenditure_set.order_by('source', 'analysis_year'):
+        
+        row = []
+        row.append(indent + '*')
+        row.append(expenditure.name)
+        row.append(expenditure.get_source_display())
+        row.append(expenditure.analysis_year)
+        
+        corp_estimates = {}
+        indv_estimates = {}
+        
+        footnotes = {}
+        
+        for estimate in expenditure.estimate_set.all():
             
-            estimates[estimate.estimate_year] = 0
-             
-            if estimate.corporations_amount:
-                estimates[estimate.estimate_year] += estimate.corporations_amount  
-            if estimate.individuals_amount:
-                estimates[estimate.estimate_year] += estimate.individuals_amount
-        
-        report = {}
-        report['analysis_year'] = expenditure_report.analysis_year
-        report['estimates'] = []
-        
-        i = 0
-        for year in range(2000,2016):
-            if estimates.has_key(year):
-                if len(treasury_expenditure_summary) and treasury_expenditure_summary[-1]['estimates'][i] != None:
-                    treasury_expenditure_summary[-1]['estimates'][i]['latest'] = False
-                report['estimates'].append({'value':estimates[year],'latest':True})
+            if estimate.corporations_notes == Estimate.NOTE_POSITIVE:
+                corp_estimates[estimate.estimate_year] = '<+'
+            elif estimate.corporations_notes == Estimate.NOTE_NEGATIVE:
+                corp_estimates[estimate.estimate_year] = '<-'
             else:
-                report['estimates'].append(None)
+                corp_estimates[estimate.estimate_year] = estimate.corporations_amount
+            
+            if estimate.individuals_notes == Estimate.NOTE_POSITIVE:
+                indv_estimates[estimate.estimate_year] = '<+'
+            elif estimate.individuals_notes == Estimate.NOTE_NEGATIVE:
+                indv_estimates[estimate.estimate_year] = '<-'
+            else:
+                indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                 
-            i += 1
-        
-        treasury_expenditure_summary.append(report)
-        
-        
-    jct_expenditure_summary = []
-    
-    for expenditure_report in expenditure.group.filter(source=Expenditure.SOURCE_JCT):
-        
-        estimates = {}
-        
-        for estimate in expenditure_report.estimate_set.all():
-            
-            estimates[estimate.estimate_year] = 0
-             
-            if estimate.corporations_amount:
-                estimates[estimate.estimate_year] += estimate.corporations_amount  
-            if estimate.individuals_amount:
-                estimates[estimate.estimate_year] += estimate.individuals_amount
-        
-        report = {}
-        report['analysis_year'] = expenditure_report.analysis_year
-        report['estimates'] = []
-        
-        i = 0
-        for year in range(2000,2016):
-            if estimates.has_key(year):
-                if len(jct_expenditure_summary) and jct_expenditure_summary[-1]['estimates'][i] != None:
-                    jct_expenditure_summary[-1]['estimates'][i]['latest'] = False
-                report['estimates'].append({'value':estimates[year],'latest':True})
+        for year in TE_YEARS:
+            if corp_estimates.has_key(year):
+                row.append(corp_estimates[year])
             else:
-                report['estimates'].append(None)
-            i += 1
+                row.append('')
+                
+        for year in TE_YEARS:                
+            if indv_estimates.has_key(year):
+                row.append(indv_estimates[year])
+            else:
+                row.append('')    
         
-        jct_expenditure_summary.append(report)
-    
-    other_expenditures = Expenditure.objects.filter(category=expenditure.category).order_by('name', 'analysis_year')
-     
-    
-    return render_to_response('tax_expenditures/expenditure.html', {'expenditure':expenditure, 'treasury_expenditure_summary':treasury_expenditure_summary, 'jct_expenditure_summary':jct_expenditure_summary, 'other_expenditures':other_expenditures})
+        for year in TE_YEARS:
+            if footnotes.has_key(year):
+                row.append(footnotes[year])
+            else:
+                row.append('')
         
-def expenditure_add(request, expenditure_id, year=None, source=None):
-    
-    expenditure_id = int(expenditure_id)
-    
-    if request.method == "POST":
-        group = ExpenditureGroup.objects.get(pk=expenditure_id)
-        for item in request.POST.getlist('filterlist'):
-            other_expenditure_id  = int(item)
-            expenditure = Expenditure.objects.get(pk=other_expenditure_id)
+        writer.writerow(row)                  
             
-            for old_group in expenditure.expendituregroup_set.all():
-                old_group.group.remove(expenditure)
-                if old_group.group.all().count() == 0:
-                    old_group.delete()
             
-            group.group.add(expenditure)
-    
-    
-    return HttpResponseRedirect('/tax_expenditures/expenditure/%d/' % expenditure_id)
+    for subgroup in Group.objects.filter(parent=parent):
+        
+        recurse_category(subgroup, writer, indent)
+                    
+

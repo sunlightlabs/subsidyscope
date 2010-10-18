@@ -6,7 +6,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 indent_regex = re.compile('^-.*')
 
-from tax_expenditures.models import Category
+from te_importer.models import Category
 
 file = open ('data/omb_ap/omb_categories_2000.txt', 'r')
 
