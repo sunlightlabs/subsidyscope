@@ -201,7 +201,7 @@ SECTORS = { 'sector': 'home',
                                                        'children': [
                                                                     { 'sector': 'transportation-direct-expenditures',
                                                                       'name': 'User Fees',
-                                                                      'url_name': 'transportation-highway-funding-state',
+                                                                      'url_name': 'transportation-highway-funding',
                                                                       'children': []
                                                                     },
                                                                     { 'sector': 'transportation-direct-expenditures',
