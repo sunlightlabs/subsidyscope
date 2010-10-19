@@ -31,13 +31,8 @@ function reloadPage()
         </div>
         <div class="content_area">
         
-        	<div style="float: right;">
-				<a href="/tax_expenditures/">Summary</a> | <a href="/tax_expenditures/">Methodology</a>
-			</div>
-        
         	{% te_breadcrumb group estimate %}
-        
-        	<br clear="all"/>        	
+             	
         	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
         
         	{{ group.description|safe}}
