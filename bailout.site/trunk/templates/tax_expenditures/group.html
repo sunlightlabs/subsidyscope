@@ -149,7 +149,10 @@ function reloadPage()
 				
 					{% for subgroup in subgroups %}
 						
-						<tr style="border-top: solid 1px #ccc;"><td colspan="17" style="text-align: left;"><strong><a href="{% url tax_expenditures-group subgroup.id estimate %}">{{ subgroup.name }}</a></strong></td></tr>
+						<tr style="border-top: solid 1px #ccc;"><td><span style="position: absolute;"><strong><a href="{% url tax_expenditures-group subgroup.name estimate %}">{{ subgroup.name }}</a></strong></span></td>
+						
+						 {% for year in te_years %}<td style="background-color: {% cycle '#eee' '#fff' %};">&nbsp;</td>{% endfor %}
+						</tr>
 						
 						{% te_group_summary subgroup source estimate %}
 						
