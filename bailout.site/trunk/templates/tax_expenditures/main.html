@@ -29,6 +29,9 @@ function reloadPage()
             <h3>{% morsel_page_title %}</h3>
         </div>
         <div class="content_area">
+        	
+			{% te_breadcrumb 0 0 %}	
+        
         
         	{% morsel text1 %}
         
@@ -44,7 +47,7 @@ function reloadPage()
         		<strong>Display estimates for: </strong><select id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
         	</div>
         	
-        	<h5 style="margin-top:20px;">Summary of Tax Expenditures ($ millions)</h5> 
+        	<h5 style="margin-top:20px;">Summary of Tax Expenditures ($ millions) <a href="#footnote-1" class="footnote">1</a></h5> 
         	
         
         	<div id="subsidy-charts"> 
@@ -68,6 +71,14 @@ function reloadPage()
 				</tbody>
 				</table>
 			</div>
+			
+			
+		<ol class="footnotes">
+			<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any any single one is changed or repealed.</li>
+		</ol>
+		
+			
+			
 		</div>
 	</div>
 </div>

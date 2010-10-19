@@ -34,12 +34,15 @@ class TEBreadcrumb(Node):
             estimate = int(estimate_type)
 
         list = []
-        list.append(group)
-        while group.parent:
-            group = group.parent
-            list.append(group)
         
-        list.reverse()
+        if group:
+        
+            list.append(group)
+            while group.parent:
+                group = group.parent
+                list.append(group)
+            
+            list.reverse()
 
         return render_to_string('tax_expenditures/te_breadcrumb.html', {'list':list, 'estimate_type':estimate_type})
 
