@@ -378,6 +378,27 @@ SECTORS = { 'sector': 'home',
                                           'children':[]
                                         }
                                     ]
+                        },
+                        
+                        { 'sector': 'tax_expenditures',
+                           'name': 'Tax Expenditures',
+                           'url_name': 'tax_expenditures-summary',
+                           'children': [{'sector': 'tax_expenditures',
+                                          'name': 'Summary',
+                                          'url_name': 'tax_expenditures-summary',
+                                          'children':[]
+                                        },
+                                        {'sector': 'tax_expenditures',
+                                          'name': 'Methodology',
+                                          'url_name': 'tax_expenditures-methodology',
+                                          'children':[]
+                                        },
+                                        {'sector': 'tax_expenditures',
+                                          'name': 'Database',
+                                          'url_name': 'tax_expenditures-main',
+                                          'children':[]
+                                        }
+                                    ]
                         }
                 ]
             }
