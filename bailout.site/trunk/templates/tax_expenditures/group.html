@@ -34,7 +34,7 @@ function reloadPage()
         	{% te_breadcrumb group estimate%}
         
         	
-        	<h5 style="margin-top:20px;">{{ group.name }} Tax Expenditures</h5> 
+        	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
         
         	{{ group.description|safe}}
         	
@@ -149,10 +149,7 @@ function reloadPage()
 				
 					{% for subgroup in subgroups %}
 						
-						<tr style="border-top: solid 1px #ccc;"><td><span style="position: absolute;"><strong><a href="{% url tax_expenditures-group subgroup.name estimate %}">{{ subgroup.name }}</a></strong></span></td>
-						
-						 {% for year in te_years %}<td style="background-color: {% cycle '#eee' '#fff' %};">&nbsp;</td>{% endfor %}
-						</tr>
+						<tr style="border-top: solid 1px #ccc;"><td  style="text-align: left;">&nbsp;<span style="position: absolute; width: 100%"><strong><a href="{% url tax_expenditures-group subgroup.id estimate %}">{{ subgroup.name }}</a></strong></span></td>{% for year in te_years %}<td style="background-color: {% cycle '#eee' '#fff' %};"></td>{% endfor %}</tr>
 						
 						{% te_group_summary subgroup source estimate %}
 						
