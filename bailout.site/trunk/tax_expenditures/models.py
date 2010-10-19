@@ -31,7 +31,7 @@ class Group(models.Model):
             if expenditure.analysis_year < TE_CURRENT_YEAR:
                 
                 try:
-                    estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=expenditure.analysis_year-1)
+                    estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=expenditure.analysis_year-2)
                     
                     cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, estimate.corporations_amount)
                     cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, estimate.individuals_amount)
@@ -41,7 +41,7 @@ class Group(models.Model):
                      
             elif expenditure.analysis_year == TE_CURRENT_YEAR:
                 
-                for year in range(TE_CURRENT_YEAR-1, TE_CURRENT_YEAR + 5):
+                for year in range(TE_CURRENT_YEAR-2, TE_CURRENT_YEAR + 5):
                     
                     try:
                         estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=year)

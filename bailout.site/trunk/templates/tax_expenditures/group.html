@@ -59,7 +59,7 @@ function reloadPage()
 					 
 					</tr>
 					
-					{% te_group_summary group source estimate %}
+					{% te_group_summary group source estimate te_years %}
 
 				</tbody>
 				</table>
@@ -151,7 +151,7 @@ function reloadPage()
 						
 						<tr style="border-top: solid 1px #ccc;"><td  style="text-align: left;">&nbsp;<span style="position: absolute; width: 100%"><strong><a href="{% url tax_expenditures-group subgroup.id estimate %}">{{ subgroup.name }}</a></strong></span></td>{% for year in te_years %}<td style="background-color: {% cycle '#eee' '#fff' %};"></td>{% endfor %}</tr>
 						
-						{% te_group_summary subgroup source estimate %}
+						{% te_group_summary subgroup source estimate te_years %}
 						
 					{% endfor %}
 				
