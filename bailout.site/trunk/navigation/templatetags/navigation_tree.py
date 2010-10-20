@@ -397,7 +397,15 @@ SECTORS = { 'sector': 'home',
                                           'name': 'Database',
                                           'url_name': 'tax_expenditures-main',
                                           'children':[]
-                                        }
+                                        },
+                                        {'sector': 'tax_expenditures-main',
+                                                          'name': 'Group',
+                                                          'url_name': 'tax_expenditures-group',
+                                                          'children':[],
+                                                          'hide':True
+                                            
+                                                        }
+                                      
                                     ]
                         }
                 ]
