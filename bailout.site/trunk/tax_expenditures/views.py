@@ -28,7 +28,7 @@ def group(request, group_id, estimate):
     
     subgroups = Group.objects.filter(parent=group)
     
-    return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'jct_expenditures':jct_expenditures, 'treasury_expenditures':treasury_expenditures, 'source':None, 'estimate':estimate, 'te_years':TE_YEARS, 'num_years':len(TE_YEARS)})
+    return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'jct_expenditures':jct_expenditures, 'treasury_expenditures':treasury_expenditures, 'source':None, 'estimate':estimate, 'te_years':TE_YEARS, 'num_years':len(TE_YEARS)}, context_instance=RequestContext(request))
     
 
 def te_csv(request, group_id=None):
