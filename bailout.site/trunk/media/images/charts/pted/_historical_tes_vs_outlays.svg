@@ -24,7 +24,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -116,8 +116,8 @@
 	</style>
   <rect
      height="246.72897"
-     width="314.01868"
-     x="-14.018692"
+     width="317.98376"
+     x="-17.983776"
      y="0"
      id="rect6"
      style="fill:#ffffff" />
@@ -266,7 +266,7 @@
          x="-5"
          y="66"
          id="text35-3"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1000</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1,000</text>
       <path
          class="y-gridline"
          d="m 0,33 260,0"
@@ -277,7 +277,7 @@
          x="-5"
          y="33"
          id="text39-7"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1200</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1,200</text>
       <path
          class="y-gridline"
          d="M 0,0 260,0"
@@ -288,7 +288,7 @@
          x="-5"
          y="0"
          id="text43-9"
-         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1400</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1,400</text>
     </g>
     <g
        id="g45-6">
