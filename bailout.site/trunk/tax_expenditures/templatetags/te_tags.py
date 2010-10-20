@@ -102,10 +102,10 @@ class TEEpenditureDetailNode(Node):
         for year in TE_YEARS:
             if data_dict.has_key(year) and data_dict[year]:
                 if expenditure.analysis_year == 2011:
-                    color = '#ddf'
+                    color = '#aaf'
                 else:
                     if year == expenditure.analysis_year - 2:
-                        color = '#ddf'
+                        color = '#aaf'
                     else:
                         color = '#ddd'
                 if note_dict.has_key(year) and note_dict[year]:
@@ -116,10 +116,10 @@ class TEEpenditureDetailNode(Node):
                 
             elif note_dict.has_key(year) and note_dict[year]:
                 if expenditure.analysis_year == 2011:
-                    color = '#ddf'
+                    color = '#aaf'
                 else:
                     if year == expenditure.analysis_year - 2:
-                        color = '#ddf'
+                        color = '#aaf'
                     else:
                         color = '#ddd'
             
