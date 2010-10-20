@@ -233,7 +233,7 @@
          x="-5"
          y="165"
          id="text23-4"
-         style="font-size:10;text-anchor:end;fill:#a7a9ac;font-family:helvetica">400</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">400</text>
       <path
          class="y-gridline"
          d="m 0,132 260,0"
@@ -244,7 +244,7 @@
          x="-5"
          y="132"
          id="text27-4"
-         style="font-size:10;text-anchor:end;fill:#a7a9ac;font-family:helvetica">600</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">600</text>
       <path
          class="y-gridline"
          d="m 0,99 260,0"
@@ -255,7 +255,7 @@
          x="-5"
          y="99"
          id="text31-7"
-         style="font-size:10;text-anchor:end;fill:#a7a9ac;font-family:helvetica">800</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">800</text>
       <path
          class="y-gridline"
          d="m 0,66 260,0"
@@ -266,7 +266,7 @@
          x="-5"
          y="66"
          id="text35-3"
-         style="font-size:10;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1000</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1000</text>
       <path
          class="y-gridline"
          d="m 0,33 260,0"
@@ -277,7 +277,7 @@
          x="-5"
          y="33"
          id="text39-7"
-         style="font-size:10;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1200</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1200</text>
       <path
          class="y-gridline"
          d="M 0,0 260,0"
@@ -288,7 +288,7 @@
          x="-5"
          y="0"
          id="text43-9"
-         style="font-size:10;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1400</text>
+         style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">1400</text>
     </g>
     <g
        id="g45-6">
@@ -308,7 +308,7 @@
        x="10"
        y="180"
        id="text51-7"
-       style="font-size:10;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">1982</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">1982</text>
     <path
        class="x-notch"
        d="m 32.222222,165 0,5"
@@ -319,7 +319,7 @@
        x="54.444443"
        y="180"
        id="text55"
-       style="font-size:10;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">1987</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">1987</text>
     <path
        class="x-notch"
        d="m 76.666667,165 0,5"
@@ -330,7 +330,7 @@
        x="98.888885"
        y="180"
        id="text59-7"
-       style="font-size:10;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">1992</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">1992</text>
     <path
        class="x-notch"
        d="m 121.11111,165 0,5"
@@ -341,7 +341,7 @@
        x="143.33333"
        y="180"
        id="text63"
-       style="font-size:10;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">1997</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">1997</text>
     <path
        class="x-notch"
        d="m 165.55556,165 0,5"
@@ -352,7 +352,7 @@
        x="187.77777"
        y="180"
        id="text67-8"
-       style="font-size:10;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2002</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2002</text>
     <path
        class="x-notch"
        d="m 210,165 0,5"
@@ -363,7 +363,7 @@
        x="232.22223"
        y="180"
        id="text71"
-       style="font-size:10;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2007</text>
+       style="font-size:12px;font-weight:normal;text-anchor:middle;fill:#58595b;font-family:sans-serif">2007</text>
     <path
        class="x-notch"
        d="m 254.44444,165 0,5"
