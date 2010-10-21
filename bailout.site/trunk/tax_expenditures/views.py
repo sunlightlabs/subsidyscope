@@ -80,16 +80,16 @@ def recurse_category(parent, writer, indent):
         for estimate in expenditure.estimate_set.all():
             
             if estimate.corporations_notes == Estimate.NOTE_POSITIVE:
-                corp_estimates[estimate.estimate_year] = '<+'
+                corp_estimates[estimate.estimate_year] = '<50'
             elif estimate.corporations_notes == Estimate.NOTE_NEGATIVE:
-                corp_estimates[estimate.estimate_year] = '<-'
+                corp_estimates[estimate.estimate_year] = '>-50'
             else:
                 corp_estimates[estimate.estimate_year] = estimate.corporations_amount
             
             if estimate.individuals_notes == Estimate.NOTE_POSITIVE:
-                indv_estimates[estimate.estimate_year] = '<+'
+                indv_estimates[estimate.estimate_year] = '<50'
             elif estimate.individuals_notes == Estimate.NOTE_NEGATIVE:
-                indv_estimates[estimate.estimate_year] = '<-'
+                indv_estimates[estimate.estimate_year] = '>-50'
             else:
                 indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                 

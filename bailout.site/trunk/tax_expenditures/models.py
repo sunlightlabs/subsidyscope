@@ -5,6 +5,24 @@ from cube import Cube
 TE_CURRENT_YEAR = 2011
 TE_YEARS = range(2000,2016)
          
+def smart_sum(values):
+    
+    notes = False
+    total = None
+    
+    for value in values:
+        
+        if not value == None and not value['amount'] == None:
+            if total == None:
+                total = 0
+            
+            total += value['amount'] 
+        
+        if not value == None and value['notes']:
+            notes = True
+             
+    return {'amount':total, 'notes':notes}
+    
     
 class Group(models.Model):
     
@@ -33,8 +51,8 @@ class Group(models.Model):
                 try:
                     estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=expenditure.analysis_year-2)
                     
-                    cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, estimate.corporations_amount)
-                    cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, estimate.individuals_amount)
+                    cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, {'amount':estimate.corporations_amount, 'notes':estimate.corporations_notes})
+                    cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, {'amount':estimate.individuals_amount, 'notes':estimate.individuals_notes})
                     
                 except ObjectDoesNotExist:
                     pass
@@ -46,8 +64,8 @@ class Group(models.Model):
                     try:
                         estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=year)
                         
-                        cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, estimate.corporations_amount)
-                        cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, estimate.individuals_amount)
+                        cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, {'amount':estimate.corporations_amount, 'notes':estimate.corporations_notes})
+                        cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, {'amount':estimate.individuals_amount, 'notes':estimate.individuals_notes})
                     
                         
                     except ObjectDoesNotExist:
@@ -63,29 +81,41 @@ class Group(models.Model):
             
                 if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_JCT):
                     summary_corp = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_CORPORATIONS)
-                    summary_corp.amount = results_corp.values[Expenditure.SOURCE_JCT].get_data(aggregator=sum)
+                    result = results_corp.values[Expenditure.SOURCE_JCT].get_data(aggregator=smart_sum)
+                    summary_corp.amount = result['amount']
+                    summary_corp.notes = result['notes']
                     summary_corp.save()
                    
                     summary_indv = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_INDIVIDUALS)
-                    summary_indv.amount = results_indv.values[Expenditure.SOURCE_JCT].get_data(aggregator=sum)
+                    result = results_indv.values[Expenditure.SOURCE_JCT].get_data(aggregator=smart_sum)
+                    summary_indv.amount = result['amount']
+                    summary_indv.notes = result['notes']
                     summary_indv.save()
                    
                     summary_comb = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_COMBINED)
-                    summary_comb.amount = results_comb.values[Expenditure.SOURCE_JCT].get_data(aggregator=sum)
+                    result = results_comb.values[Expenditure.SOURCE_JCT].get_data(aggregator=smart_sum)
+                    summary_comb.amount = result['amount']
+                    summary_comb.notes = result['notes']
                     summary_comb.save()
                 
                 
                 if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_TREASURY):
                     summary_corp = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_CORPORATIONS)
-                    summary_corp.amount = results_corp.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=sum)
+                    result = results_corp.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=smart_sum)
+                    summary_corp.amount = result['amount']
+                    summary_corp.notes = result['notes']
                     summary_corp.save()
                     
                     summary_indv = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_INDIVIDUALS)
-                    summary_indv.amount = results_indv.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=sum)
+                    result = results_indv.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=smart_sum)
+                    summary_indv.amount = result['amount']
+                    summary_indv.notes = result['notes']
                     summary_indv.save()
                     
                     summary_comb = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_COMBINED)
-                    summary_comb.amount = results_comb.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=sum)
+                    result = results_comb.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=smart_sum)
+                    summary_comb.amount = result['amount']
+                    summary_comb.notes = result['notes']
                     summary_comb.save()
         
         return cube
@@ -125,6 +155,16 @@ class GroupSummary(models.Model):
     
     estimate = models.IntegerField(choices=ESTIMATE_CHOICES)
     
+    NOTE_POSITIVE = 1
+    NOTE_NEGATIVE = 2
+    
+    NOTE_CHOICES = (
+        (NOTE_POSITIVE, 'Positive tax expenditure of less than $50 million.'),
+        (NOTE_NEGATIVE, 'Negative tax expenditure of less than $50 million.')
+    )
+    
+    notes = models.IntegerField(choices=NOTE_CHOICES, null=True)
+        
     estimate_year = models.IntegerField()
     
     amount = models.DecimalField(max_digits=15, decimal_places=2, null=True)

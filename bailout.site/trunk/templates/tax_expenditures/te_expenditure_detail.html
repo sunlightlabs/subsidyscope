@@ -6,11 +6,11 @@
 <td><em>{{ report_year }}</em></td>
 
 {% for item in data %}
-	{% if item %}
+	{% ifnotequal item None %}
 		<td style="background-color: {{ item.color }}; text-align: right;">{{ item.value|floatformat:0|intcomma }}{% if item.note %}*{% endif %}</td>
 	{% else %}
 	 	<td></td>
-	{% endif %}
+	{% endifnotequal %}
 {% endfor %}
 
 </tr>

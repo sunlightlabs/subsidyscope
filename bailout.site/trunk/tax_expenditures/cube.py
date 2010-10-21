@@ -120,11 +120,8 @@ class Result:
     
         if aggregator:
             
-            if data:
-                return aggregator(data)
-            else:
-                return None
-            
+            return aggregator(data)
+        
         else:
             
             return data
