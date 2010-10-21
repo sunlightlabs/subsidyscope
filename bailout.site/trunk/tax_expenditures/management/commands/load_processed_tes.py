@@ -7,7 +7,6 @@ from django.core.management.base import BaseCommand, make_option
 from decimal import Decimal
 
 from tax_expenditures.models import Group, Expenditure, Estimate
-from te_importer.models import Expenditure as ImporterExpenditure
 
 years = range(2000, 2016)
 
@@ -104,12 +103,8 @@ def process_expenditure(group, row):
         
     elif row[2] == 'Treasury':
         source = Expenditure.SOURCE_TREASURY
-    
-        try:
-            importer_expenditure = ImporterExpenditure.objects.get(pk=int(row[1]))
-            item_number = importer_expenditure.item_number
-        except:
-            item_number = None
+        
+        item_number = int(row[1])
 
     name = row[36]
     
@@ -130,9 +125,9 @@ def process_expenditure(group, row):
         indv_amount = None
         indv_notes = None
         
-        if corp_raw == '<+':
+        if corp_raw == '<50':
             corp_notes = Estimate.NOTE_POSITIVE
-        elif corp_raw == '<-':
+        elif corp_raw == '>-50':
             corp_notes = Estimate.NOTE_NEGATIVE
         else:
             try:
@@ -140,9 +135,9 @@ def process_expenditure(group, row):
             except:
                 corp_amount = None
         
-        if indv_raw == '<+':
+        if indv_raw == '<50':
             indv_notes = Estimate.NOTE_POSITIVE
-        elif corp_raw == '<-':
+        elif corp_raw == '>-50':
             indv_notes = Estimate.NOTE_NEGATIVE
         else:
             try:

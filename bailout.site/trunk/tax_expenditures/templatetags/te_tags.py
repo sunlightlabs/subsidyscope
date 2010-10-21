@@ -70,6 +70,9 @@ class TEEpenditureDetailNode(Node):
         
         report_year = expenditure.analysis_year
         
+        if report_year == 2011:
+            print '2011' 
+        
         data = []
         
         data_dict = {}
@@ -81,7 +84,7 @@ class TEEpenditureDetailNode(Node):
             note_dict[year] = []
     
         for estimate in expenditure.estimate_set.all():
-            if estimate.corporations_amount and (estimate_type == GroupSummary.ESTIMATE_COMBINED or estimate_type == GroupSummary.ESTIMATE_CORPORATIONS): 
+            if not estimate.corporations_amount == None and (estimate_type == GroupSummary.ESTIMATE_COMBINED or estimate_type == GroupSummary.ESTIMATE_CORPORATIONS): 
                 
                 if data_dict[estimate.estimate_year] == None:
                     data_dict[estimate.estimate_year] = 0
@@ -90,7 +93,7 @@ class TEEpenditureDetailNode(Node):
             if estimate.corporations_notes and (estimate_type == GroupSummary.ESTIMATE_COMBINED or estimate_type == GroupSummary.ESTIMATE_CORPORATIONS):
                 note_dict[estimate.estimate_year].append(estimate.corporations_notes)
                 
-            if estimate.individuals_amount and (estimate_type == GroupSummary.ESTIMATE_COMBINED or estimate_type == GroupSummary.ESTIMATE_INDIVIDUALS):
+            if not estimate.individuals_amount == None and (estimate_type == GroupSummary.ESTIMATE_COMBINED or estimate_type == GroupSummary.ESTIMATE_INDIVIDUALS):
                 if data_dict[estimate.estimate_year] == None:
                     data_dict[estimate.estimate_year] = 0 
                 data_dict[estimate.estimate_year] += estimate.individuals_amount
@@ -100,7 +103,7 @@ class TEEpenditureDetailNode(Node):
             
         data = []
         for year in TE_YEARS:
-            if data_dict.has_key(year) and data_dict[year]:
+            if data_dict.has_key(year) and not data_dict[year] == None:
                 if expenditure.analysis_year == 2011:
                     color = '#aaf'
                 else:
@@ -165,7 +168,7 @@ class TEGroupSummaryNode(Node):
             jct_summary_dict = {}
         
             for summary in group.groupsummary_set.filter(source=GroupSummary.SOURCE_JCT, estimate=estimate):
-                jct_summary_dict[summary.estimate_year] = summary.amount
+                jct_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
                 
             jct_summary = []
             for year in years:
@@ -181,7 +184,7 @@ class TEGroupSummaryNode(Node):
             treasury_summary_dict = {}
           
             for summary in group.groupsummary_set.filter(source=GroupSummary.SOURCE_TREASURY, estimate=estimate):
-                treasury_summary_dict[summary.estimate_year] = summary.amount
+                treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
             
             treasury_summary = []
             for year in years:
