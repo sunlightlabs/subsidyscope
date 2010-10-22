@@ -11,7 +11,7 @@ def main(request, estimate=GroupSummary.ESTIMATE_COMBINED):
     groups = Group.objects.filter(parent=None)
     
     estimate = int(estimate)
-    years = range(2006,2014)
+    years = range(2000,2014)
     return render_to_response('tax_expenditures/main.html', {'groups':groups, 'source':None, 'estimate':estimate, 'te_years':years, 'num_years':len(years)}, context_instance=RequestContext(request))
 
 
@@ -23,12 +23,13 @@ def group(request, group_id, estimate):
     
     group = Group.objects.get(pk=group_id)
     
-    jct_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_JCT)
-    treasury_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_TREASURY)
+    #jct_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_JCT)
+    #treasury_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_TREASURY)
     
     subgroups = Group.objects.filter(parent=group)
-    
-    return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'jct_expenditures':jct_expenditures, 'treasury_expenditures':treasury_expenditures, 'source':None, 'estimate':estimate, 'te_years':TE_YEARS, 'num_years':len(TE_YEARS)}, context_instance=RequestContext(request))
+    estimate_years = range(2000, 2014)
+    report_years = range(2000, 2012)
+    return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'source':None, 'estimate':estimate, 'report_years':report_years, 'estimate_years':estimate_years}, context_instance=RequestContext(request))
     
 
 def te_csv(request, group_id=None):
