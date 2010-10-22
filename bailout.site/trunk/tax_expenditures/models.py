@@ -9,6 +9,8 @@ def smart_sum(values):
     
     notes = False
     total = None
+    groups = []
+    expenditures = {}
     
     for value in values:
         
@@ -20,9 +22,56 @@ def smart_sum(values):
         
         if not value == None and value['notes']:
             notes = True
-             
-    return {'amount':total, 'notes':notes}
     
+        if not value == None and value['group']:
+            groups.append(value['group'])
+            
+        if not value == None and value['expenditure']:
+            expenditures[value['expenditure']] = True  
+    
+    if len(expenditures) == 1:
+        expenditure, val = expenditures.popitem()
+    else:
+        expenditure = None
+            
+    return {'amount':total, 'notes':notes, 'groups':groups, 'expenditure':expenditure}
+
+
+def create_detail_report_object(results, group, analysis_year, source):
+    
+    detail_report = GroupDetailReport.objects.create(group=group, source=source, analysis_year=analysis_year)
+    
+    result = results.values[source].get_data(aggregator=smart_sum)
+    
+    for group_source in result['groups']:
+        if group != group_source:
+            detail_report.group_source.add(group)
+        
+    detail_report.expenditure_source = result['expenditure']
+    
+    detail_report.save()
+
+def create_detail_object(results, group, estimate_year, analysis_year, source, estimate):
+    
+    detail = GroupDetail.objects.create(group=group, source=source, estimate_year=estimate_year, analysis_year=analysis_year, estimate=estimate)
+    
+    result = results.values[source].get_data(aggregator=smart_sum)
+        
+    detail.amount = result['amount']
+    detail.notes = result['notes']
+    
+    detail.save()
+    
+def create_summary_object(results, group, estimate_year, source, estimate):
+    
+    summary = GroupSummary.objects.create(group=group, source=source, estimate_year=estimate_year, estimate=estimate)
+    
+    result = results.values[source].get_data(aggregator=smart_sum)
+    
+    summary.amount = result['amount']
+    summary.notes = result['notes']
+    summary.save()
+ 
     
 class Group(models.Model):
     
@@ -33,6 +82,55 @@ class Group(models.Model):
     description = models.TextField()
     
     notes = models.TextField()
+    
+    def calc_detail(self):
+        
+        self.groupdetail_set.all().delete()
+        
+        cube = Cube()
+        
+        for group in Group.objects.filter(parent=self):
+            cube += group.calc_detail()
+        
+        for expenditure in self.expenditure_set.all():
+            for estimate in expenditure.estimate_set.all():
+                cube.add({'source':expenditure.source, 'analysis_year':expenditure.analysis_year, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, {'amount':estimate.corporations_amount, 'notes':estimate.corporations_notes, 'group':self, 'expenditure':expenditure})
+                cube.add({'source':expenditure.source, 'analysis_year':expenditure.analysis_year, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, {'amount':estimate.individuals_amount, 'notes':estimate.individuals_notes, 'group':self, 'expenditure':expenditure})
+                
+        for analysis_year in TE_YEARS:
+            
+            if cube.dimensions.has_key('analysis_year') and cube.dimensions['analysis_year'].values.has_key(analysis_year):
+                
+                results_sources = cube.query(attributes={'analysis_year':analysis_year}, groups=['source'])
+                
+                if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_JCT):
+                    create_detail_report_object(results_sources, self, analysis_year, Expenditure.SOURCE_JCT)
+                    
+                if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_TREASURY):
+                    create_detail_report_object(results_sources, self, analysis_year, Expenditure.SOURCE_TREASURY)
+            
+            for estimate_year in TE_YEARS:
+            
+                if cube.dimensions.has_key('estimate_year') and cube.dimensions['estimate_year'].values.has_key(estimate_year) and cube.dimensions.has_key('analysis_year') and cube.dimensions['analysis_year'].values.has_key(analysis_year):
+                    
+                    results_corp = cube.query(attributes={'analysis_year':analysis_year, 'estimate_year':estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, groups=['source'])
+                    results_indv = cube.query(attributes={'analysis_year':analysis_year, 'estimate_year':estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, groups=['source'])
+                    results_comb = cube.query(attributes={'analysis_year':analysis_year, 'estimate_year':estimate_year}, groups=['source'])
+                
+                    if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_JCT):
+                        
+                        create_detail_object(results_corp, self, estimate_year, analysis_year, Expenditure.SOURCE_JCT, GroupSummary.ESTIMATE_CORPORATIONS)
+                        create_detail_object(results_indv, self, estimate_year, analysis_year, Expenditure.SOURCE_JCT, GroupSummary.ESTIMATE_INDIVIDUALS)
+                        create_detail_object(results_comb, self, estimate_year, analysis_year, Expenditure.SOURCE_JCT, GroupSummary.ESTIMATE_COMBINED)
+                        
+                    if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_TREASURY):
+                        
+                        create_detail_object(results_corp, self, estimate_year, analysis_year, Expenditure.SOURCE_TREASURY, GroupSummary.ESTIMATE_CORPORATIONS)
+                        create_detail_object(results_indv, self, estimate_year, analysis_year, Expenditure.SOURCE_TREASURY, GroupSummary.ESTIMATE_INDIVIDUALS)
+                        create_detail_object(results_comb, self, estimate_year, analysis_year, Expenditure.SOURCE_TREASURY, GroupSummary.ESTIMATE_COMBINED)
+                                  
+        return cube
+    
     
     def calc_summary(self):
         
@@ -51,8 +149,8 @@ class Group(models.Model):
                 try:
                     estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=expenditure.analysis_year-2)
                     
-                    cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, {'amount':estimate.corporations_amount, 'notes':estimate.corporations_notes})
-                    cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, {'amount':estimate.individuals_amount, 'notes':estimate.individuals_notes})
+                    cube.add({'source':expenditure.source, 'analysis_year':expenditure.analysis_year, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, {'amount':estimate.corporations_amount, 'notes':estimate.corporations_notes})
+                    cube.add({'source':expenditure.source, 'analysis_year':expenditure.analysis_year, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, {'amount':estimate.individuals_amount, 'notes':estimate.individuals_notes})
                     
                 except ObjectDoesNotExist:
                     pass
@@ -64,8 +162,8 @@ class Group(models.Model):
                     try:
                         estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=year)
                         
-                        cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, {'amount':estimate.corporations_amount, 'notes':estimate.corporations_notes})
-                        cube.add({'source':expenditure.source, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, {'amount':estimate.individuals_amount, 'notes':estimate.individuals_notes})
+                        cube.add({'source':expenditure.source, 'analysis_year':expenditure.analysis_year, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_CORPORATIONS}, {'amount':estimate.corporations_amount, 'notes':estimate.corporations_notes})
+                        cube.add({'source':expenditure.source, 'analysis_year':expenditure.analysis_year, 'estimate_year':estimate.estimate_year, 'estimate':GroupSummary.ESTIMATE_INDIVIDUALS}, {'amount':estimate.individuals_amount, 'notes':estimate.individuals_notes})
                     
                         
                     except ObjectDoesNotExist:
@@ -80,43 +178,17 @@ class Group(models.Model):
                 results_comb = cube.query(attributes={'estimate_year':estimate_year}, groups=['source'])
             
                 if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_JCT):
-                    summary_corp = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_CORPORATIONS)
-                    result = results_corp.values[Expenditure.SOURCE_JCT].get_data(aggregator=smart_sum)
-                    summary_corp.amount = result['amount']
-                    summary_corp.notes = result['notes']
-                    summary_corp.save()
-                   
-                    summary_indv = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_INDIVIDUALS)
-                    result = results_indv.values[Expenditure.SOURCE_JCT].get_data(aggregator=smart_sum)
-                    summary_indv.amount = result['amount']
-                    summary_indv.notes = result['notes']
-                    summary_indv.save()
-                   
-                    summary_comb = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_JCT, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_COMBINED)
-                    result = results_comb.values[Expenditure.SOURCE_JCT].get_data(aggregator=smart_sum)
-                    summary_comb.amount = result['amount']
-                    summary_comb.notes = result['notes']
-                    summary_comb.save()
-                
-                
+                    
+                    create_summary_object(results_corp, self, estimate_year, Expenditure.SOURCE_JCT, GroupSummary.ESTIMATE_CORPORATIONS)
+                    create_summary_object(results_indv, self, estimate_year, Expenditure.SOURCE_JCT, GroupSummary.ESTIMATE_INDIVIDUALS)
+                    create_summary_object(results_comb, self, estimate_year, Expenditure.SOURCE_JCT, GroupSummary.ESTIMATE_COMBINED)
+                    
                 if cube.dimensions.has_key('source') and cube.dimensions['source'].values.has_key(Expenditure.SOURCE_TREASURY):
-                    summary_corp = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_CORPORATIONS)
-                    result = results_corp.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=smart_sum)
-                    summary_corp.amount = result['amount']
-                    summary_corp.notes = result['notes']
-                    summary_corp.save()
                     
-                    summary_indv = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_INDIVIDUALS)
-                    result = results_indv.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=smart_sum)
-                    summary_indv.amount = result['amount']
-                    summary_indv.notes = result['notes']
-                    summary_indv.save()
+                    create_summary_object(results_corp, self, estimate_year, Expenditure.SOURCE_TREASURY, GroupSummary.ESTIMATE_CORPORATIONS)
+                    create_summary_object(results_indv, self, estimate_year, Expenditure.SOURCE_TREASURY, GroupSummary.ESTIMATE_INDIVIDUALS)
+                    create_summary_object(results_comb, self, estimate_year, Expenditure.SOURCE_TREASURY, GroupSummary.ESTIMATE_COMBINED)
                     
-                    summary_comb = GroupSummary.objects.create(group=self, source=Expenditure.SOURCE_TREASURY, estimate_year=estimate_year, estimate=GroupSummary.ESTIMATE_COMBINED)
-                    result = results_comb.values[Expenditure.SOURCE_TREASURY].get_data(aggregator=smart_sum)
-                    summary_comb.amount = result['amount']
-                    summary_comb.notes = result['notes']
-                    summary_comb.save()
         
         return cube
         
@@ -174,6 +246,8 @@ class GroupSummary(models.Model):
         ordering = ('estimate_year',)
 
 
+
+
 class Expenditure(models.Model):
     
     SOURCE_JCT = 1
@@ -206,7 +280,81 @@ class Expenditure(models.Model):
         
         ordering = ('analysis_year',)
 
+
+class GroupDetailReport(models.Model):
+
+    group = models.ForeignKey(Group)
+
+    SOURCE_JCT = 1
+    SOURCE_TREASURY = 2
     
+    SOURCE_CHOICES = (
+        (SOURCE_JCT, 'JCT'),
+        (SOURCE_TREASURY, 'Treasury')
+    )
+    
+    source = models.IntegerField(choices=SOURCE_CHOICES)
+
+    
+    group_source = models.ManyToManyField(Group, related_name='group_source_set')
+    expenditure_source = models.ForeignKey(Expenditure, null=True)
+    
+    analysis_year = models.IntegerField()
+   
+    class Meta:
+        
+        ordering = ('analysis_year',)
+
+
+
+class GroupDetail(models.Model):
+
+    group = models.ForeignKey(Group)
+
+    SOURCE_JCT = 1
+    SOURCE_TREASURY = 2
+    
+    SOURCE_CHOICES = (
+        (SOURCE_JCT, 'JCT'),
+        (SOURCE_TREASURY, 'Treasury')
+    )
+    
+    source = models.IntegerField(choices=SOURCE_CHOICES)
+    
+    ESTIMATE_CORPORATIONS = 1
+    ESTIMATE_INDIVIDUALS = 2
+    ESTIMATE_COMBINED = 3
+    
+    ESTIMATE_CHOICES = (
+        (ESTIMATE_CORPORATIONS, 'Corporations'),
+        (ESTIMATE_INDIVIDUALS, 'Individuals'),
+        (ESTIMATE_COMBINED, 'Corporations & Individuals')
+    )
+    
+    estimate = models.IntegerField(choices=ESTIMATE_CHOICES)
+    
+    NOTE_POSITIVE = 1
+    NOTE_NEGATIVE = 2
+    
+    NOTE_CHOICES = (
+        (NOTE_POSITIVE, 'Positive tax expenditure of less than $50 million.'),
+        (NOTE_NEGATIVE, 'Negative tax expenditure of less than $50 million.')
+    )
+    
+    notes = models.IntegerField(choices=NOTE_CHOICES, null=True)
+        
+    estimate_year = models.IntegerField()
+    analysis_year = models.IntegerField()
+    
+    amount = models.DecimalField(max_digits=15, decimal_places=2, null=True)
+
+    class Meta:
+        
+        ordering = ('estimate_year',)
+        
+
+
+
 class Estimate(models.Model):
     
     expenditure = models.ForeignKey(Expenditure)

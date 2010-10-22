@@ -60,7 +60,7 @@ function reloadPage()
 					</tr>
 					{% for group in groups %}
 						
-						<tr style="border-top: solid 1px #ccc;"><td  style="text-align: left;">&nbsp;<span style="position: absolute; width: 100%"><strong><a href="{% url tax_expenditures-group group.id estimate %}">{{ group.name }}</a></strong></span></td>{% for year in te_years %}<td style="background-color: {% cycle '#eee' '#fff' %};"></td>{% endfor %}</tr>
+						<tr style="border-top: solid 1px #ccc;"><td  style="text-align: left;" colspan="8"><strong><a href="{% url tax_expenditures-group group.id estimate %}">{{ group.name }}</a></strong></td></tr>
 						
 						{% te_group_summary group source estimate te_years %}
 						
@@ -70,7 +70,14 @@ function reloadPage()
 				</table>
 			</div>
 			
-			
+		<cite>
+		* Contains estimates between -$50 million and $50 million, rounded to zero in total.
+		</cite>
+		
+		<br/>
+		<br/>
+		
+		
 		<ol class="footnotes">
 			<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any single one is changed or repealed.</li>
 		</ol>

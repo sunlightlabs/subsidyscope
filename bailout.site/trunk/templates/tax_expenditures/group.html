@@ -50,86 +50,21 @@ function reloadPage()
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>				
 				<tbody>
-					<tr class="header-row"> 
+					<tr class="header-row" style="border-right: 1px solid #999; border-left: 1px solid #999;"> 
 					  <td></td>
-					  {% for year in te_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
+					  {% for year in estimate_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
 					 
 					</tr>
 					
-					{% te_group_summary group source estimate te_years %}
+					{% te_group_summary group source estimate estimate_years %}
 
 				</tbody>
 				</table>
 			</div>
+        
+        {% te_expenditure_detail group report_years estimate_years estimate 'Treasury' %}      
         	
-        {% if treasury_expenditures %}
-        
-        	<strong>Treasury Tax Expenditure Estimates ($ millions)</strong><br/>
-        	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
-				<table>
-				
-				<tbody>
-				
-					<tr class="header-row"> 
-					  <td></td>
-					  {% for year in te_years %}<td  style="text-align: right;">{{year}}</td>{% endfor %}
-					 
-					</tr>
-					
-					<tr><td style="text-align: left;"><strong>Report Year</strong></td></tr>
-					{% for expenditure in treasury_expenditures %}
-						
-						{% te_expenditure_detail expenditure estimate %}
-						
-					{% endfor %}
-				
-				</tbody>
-				</table>
-				
-				<div style="margin-bottom: 50px;">
-					<div style="float: right;">
-						<div style="width: 150px; display:inline; float: left;"></div><div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddd; display: inline; float: left; margin-right: 10px;"></div><div>Old estimate</div></div>
-						<div style="width: 200px; display:inline; float: right;"><div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #aaf; display: inline; float: left; margin-right: 10px;"></div><div>Estimate included in total</div></div>
-					</div>
-				</div>
-			
-        
-        {% endif %}
-        
-        
-        {% if jct_expenditures %}
-        
-        	<strong>JCT Tax Expenditure Estimates ($ millions)</strong><br/>
-        	<div id="subsidy-charts" style="margin-bottom: 35px;"> 
-				<table>
-				
-				<tbody>
-				
-					<tr class="header-row"> 
-					  <td></td>
-					  {% for year in te_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
-					 
-					</tr>
-					
-					<tr><td style="text-align: left;"><strong>Report Year</strong></td></tr>
-					{% for expenditure in jct_expenditures %}
-						
-						{% te_expenditure_detail expenditure estimate %}
-						
-					{% endfor %}
-				
-				</tbody>
-				</table>
-				<div>
-					* Contains estimates between -$50 million and $50 million.
-					<div style="float: right;">
-						<div style="width: 150px; display:inline; float: left;"></div><div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddd; display: inline; float: left; margin-right: 10px;"></div><div>Old estimate</div></div>
-						<div style="width: 200px; display:inline; float: right;"><div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #aaf; display: inline; float: left; margin-right: 10px;"></div><div>Estimate included in total</div></div>
-					</div>
-				</div>
-        
-        {% endif %}
-        	
+        {% te_expenditure_detail group report_years estimate_years estimate 'JCT' %}      	
         
         {% if subgroups%}
         	<strong>{{ group.name }} Tax Expenditures ($ millions)</strong><br/>
@@ -138,17 +73,17 @@ function reloadPage()
 				
 				<tbody>
 				
-					<tr class="header-row"> 
+					<tr class="header-row"  style="border-right: 1px solid #999; border-left: 1px solid #999;"> 
 					  <td></td>
-					  {% for year in te_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
+					  {% for year in estimate_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
 					 
 					</tr>
 				
 					{% for subgroup in subgroups %}
 						
-						<tr style="border-top: solid 1px #ccc;"><td  style="text-align: left;" colspan="16">&nbsp;<span style="position: absolute; width: 100%"><strong><a href="{% url tax_expenditures-group subgroup.id estimate %}">{{ subgroup.name }}</a></strong></span></td></tr>
+						<tr style="border-right: 1px solid #999; border-left: 1px solid #999; border-top: solid 1px #999; border-bottom: solid 1px #ccc;"><td  style="text-align: left;" colspan="15">&nbsp;<span style="position: absolute; width: 100%"><strong><a href="{% url tax_expenditures-group subgroup.id estimate %}">{{ subgroup.name }}</a></strong></span></td></tr>
 						
-						{% te_group_summary subgroup source estimate te_years %}
+						{% te_group_summary subgroup source estimate estimate_years %}
 						
 					{% endfor %}
 				
@@ -158,6 +93,12 @@ function reloadPage()
 			</div>
 		{% endif %}
 		
+		<cite>
+		* Contains estimates between -$50 million and $50 million, rounded to zero in total.
+		</cite>
+		
+		<br/>
+		<br/>
 
 		<cite>
 		Notes: Report years, presented along the vertical axis (varying down the rows) correspond to the year of the budget of document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document.
