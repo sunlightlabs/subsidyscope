@@ -53,14 +53,14 @@ function reloadPage()
 				
 				<tbody>
 				
-					<tr class="header-row"> 
+					<tr class="header-row" style="border-right: 1px solid #999; border-left: 1px solid #999;"> 
 					  <td></td>
 					  {% for year in te_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
 					 
 					</tr>
 					{% for group in groups %}
 						
-						<tr style="border-top: solid 1px #ccc;"><td  style="text-align: left;" colspan="8"><strong><a href="{% url tax_expenditures-group group.id estimate %}">{{ group.name }}</a></strong></td></tr>
+						<tr style="border-bottom: solid 1px #ccc; border-top: solid 1px #999; border-right: 1px solid #999; border-left: 1px solid #999;"><td  style="text-align: left;" colspan="15"><strong><a href="{% url tax_expenditures-group group.id estimate %}">{{ group.name }}</a></strong></td></tr>
 						
 						{% te_group_summary group source estimate te_years %}
 						
