@@ -80,10 +80,11 @@ function toggleLine(line_id)
 				</tbody>
 				</table>
 			</div>
-        
-        {% te_expenditure_detail group report_years estimate_years estimate 'Treasury' %}      
-        	
-        {% te_expenditure_detail group report_years estimate_years estimate 'JCT' %}      	
+        {% if group.parent %}
+	        {% te_expenditure_detail group report_years estimate_years estimate 'Treasury' %}      
+	        	
+	        {% te_expenditure_detail group report_years estimate_years estimate 'JCT' %}    
+	    {% endif %}  	
         
         {% if subgroups%}
         	<strong>{{ group.name }} Tax Expenditures ($ millions)</strong><br/>
