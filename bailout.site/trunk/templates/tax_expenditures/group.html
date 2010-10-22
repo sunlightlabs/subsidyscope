@@ -21,6 +21,25 @@ function reloadPage()
 }
 
 
+function toggleLine(line_id)
+{
+	var source_elem = $('#' + line_id + '_source')[0];
+
+	if(source_elem && source_elem.style.display == 'none')
+	     $('#' + line_id + '_source').show();
+	else
+	     $('#' + line_id + '_source').hide();     
+	     
+	     
+	var footnote_elem = $('#' + line_id + '_footnotes')[0];
+
+	if(footnote_elem && footnote_elem.style.display == 'none')
+	     $('#' + line_id + '_footnotes').show();
+	else
+	     $('#' + line_id + '_footnotes').hide();                       
+
+}
+
 </script>
 
 <div class="container main_container">

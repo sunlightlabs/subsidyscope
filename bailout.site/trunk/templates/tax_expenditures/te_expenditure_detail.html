@@ -23,7 +23,7 @@
 			
 			<tr style="border-top: 1px solid  #ccc; border-left: 1px solid #ccc;">
 	
-				<td style="border-right: 1px solid #ccc;"><em><a href="#" onclick="$('#{{ line.id  }}_source').toggle();$('#{{ line.id  }}_footnotes').toggle();return false;">{{ line.report_year }}</a></em></td>
+				<td style="border-right: 1px solid #ccc;"><em><a href="#" onclick="toggleLine('{{ line.id }}');return false;">{{ line.report_year }}</a></em></td>
 					
 					{% for item in line.data %}
 						{% ifnotequal item None %}
@@ -39,7 +39,7 @@
 					<td style="text-align: right;"><strong>Source:</strong></td><td colspan="14" style="text-align: left;">{{ line.source }}</td>
 				</tr>
 				{% if line.footnotes %}
-					<tr id="{{ line.id }}_footnotes" style="display: none; border-left: 1px solid #ccc;  border-right: 1px solid #ccc;">
+					<tr id="{{ line.id }}_footnotes" style="display: none;  border-left: 1px solid #ccc;  border-right: 1px solid #ccc;">
 							<td style="text-align: right;"><strong>Footnotes:</strong></td><td colspan="14" style="text-align: left;">{{ line.footnotes }}</td>
 						
 						
