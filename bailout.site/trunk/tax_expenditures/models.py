@@ -5,7 +5,7 @@ from cube import Cube
 TE_CURRENT_YEAR = 2011
 TE_YEARS = range(2000,2016)
          
-def smart_sum(values):
+def te_sum(values):
     
     notes = False
     total = None
@@ -41,7 +41,7 @@ def create_detail_report_object(results, group, analysis_year, source):
     
     detail_report = GroupDetailReport.objects.create(group=group, source=source, analysis_year=analysis_year)
     
-    result = results.values[source].get_data(aggregator=smart_sum)
+    result = results.values[source].get_data(aggregator=te_sum)
     
     for group_source in result['groups']:
         if group != group_source:
@@ -55,7 +55,7 @@ def create_detail_object(results, group, estimate_year, analysis_year, source, e
     
     detail = GroupDetail.objects.create(group=group, source=source, estimate_year=estimate_year, analysis_year=analysis_year, estimate=estimate)
     
-    result = results.values[source].get_data(aggregator=smart_sum)
+    result = results.values[source].get_data(aggregator=te_sum)
         
     detail.amount = result['amount']
     detail.notes = result['notes']
@@ -66,7 +66,7 @@ def create_summary_object(results, group, estimate_year, source, estimate):
     
     summary = GroupSummary.objects.create(group=group, source=source, estimate_year=estimate_year, estimate=estimate)
     
-    result = results.values[source].get_data(aggregator=smart_sum)
+    result = results.values[source].get_data(aggregator=te_sum)
     
     summary.amount = result['amount']
     summary.notes = result['notes']
