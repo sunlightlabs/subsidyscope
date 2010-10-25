@@ -1,0 +1,36 @@
+Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),2004 (Corp),2005 (Corp),2006 (Corp),2007 (Corp),2008 (Corp),2009 (Corp),2010 (Corp),2011 (Corp),2012 (Corp),2013 (Corp),2014 (Corp),2015 (Corp),2000 (Indv),2001 (Indv),2002 (Indv),2003 (Indv),2004 (Indv),2005 (Indv),2006 (Indv),2007 (Indv),2008 (Indv),2009 (Indv),2010 (Indv),2011 (Indv),2012 (Indv),2013 (Indv),2014 (Indv),2015 (Indv),Expenditure Name
+,Veterans' Benefits and Services
+#,Exclusion of veterans' disability compensation
+#+,2042,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,2100.00,2200.00,2300.00,2400.00,2400.00,,,,,,,,,,,,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,
+#+,2183,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,2200.00,2300.00,2400.00,2400.00,2500.00,,,,,,,,,,,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,
+#+,2341,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,3400.00,3500.00,3500.00,3600.00,3600.00,,,,,,,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,
+#+,2514,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,3600.00,3800.00,3900.00,4000.00,4000.00,,,,,,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,
+#+,2687,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,3100.00,3300.00,3500.00,3600.00,3800.00,,,,,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,
+#+,2918,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,3600.00,3700.00,3800.00,4100.00,4200.00,,,,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,
+#+,3167,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,4100.00,4200.00,4300.00,4200.00,4200.00,,,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,
+#,Exclusion of veterans' pensions
+#+,2043,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,
+#+,2184,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,
+#+,2342,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,
+#+,2515,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,
+#+,2688,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,
+#+,2919,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,
+#+,3168,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,
+#,Exclusion of veterans' readjustment benefits
+#+,2044,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,Exclusion of veterans' readjustment benefits,,,,,,,,,,,,,,,,
+#+,2343,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,200.00,200.00,200.00,200.00,300.00,,,,,,,Exclusion of veterans' readjustment benefits,,,,,,,,,,,,,,,,
+#+,2516,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,200.00,300.00,300.00,300.00,300.00,,,,,,Exclusion of veterans' readjustment benefits,,,,,,,,,,,,,,,,
+#+,2689,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,300.00,300.00,400.00,400.00,400.00,,,,,Exclusion of veterans' readjustment benefits,,,,,,,,,,,,,,,,
+#+,2920,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,400.00,500.00,800.00,1000.00,1200.00,,,,Exclusion of veterans' readjustment benefits,,,,,,,,,,,,,,,,
+#+,3169,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,400.00,800.00,1000.00,1300.00,1200.00,,,Exclusion of veterans' readjustment benefits,,,,,,,,,,,,,,,,
+#,Exclusion of interest on State and local government bonds for veterans' housing
+#+,2045,JCT,2002,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,Exclusion of interest on State and local government bonds for veterans' housing,,,,,,,,,,,,,,,,
+#+,2186,JCT,2003,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,Exclusion of interest on State and local government bonds for veterans' housing,,,,,,,,,,,,,,,,
+#+,2344,JCT,2007,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,Exclusion of interest on State and local government bonds for veterans' housing,,,,,,,,,,,,,,,,
+#,Exclusion and veterans' readjustment benefits
+#+,2185,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,Exclusion and veterans' readjustment benefits,,,,,,,,,,,,,,,,
+#,Exclusion of interest on State and local government qualified private activity bonds for veterans' housing
+#+,2517,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Exclusion of interest on State and local government qualified private activity bonds for veterans' housing,,,,,,,,,,,,,,,,
+#+,2690,JCT,2009,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,Exclusion of interest on State and local government qualified private activity bonds for veterans' housing,,,,,,,,,,,,,,,,
+#+,2921,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,Exclusion of interest on State and local government qualified private activity bonds for veterans' housing,,,,,,,,,,,,,,,,
+#+,3170,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,Exclusion of interest on State and local government qualified private activity bonds for veterans' housing,,,,,,,,,,,,,,,,

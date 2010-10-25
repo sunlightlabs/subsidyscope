@@ -1,0 +1,545 @@
+Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),2004 (Corp),2005 (Corp),2006 (Corp),2007 (Corp),2008 (Corp),2009 (Corp),2010 (Corp),2011 (Corp),2012 (Corp),2013 (Corp),2014 (Corp),2015 (Corp),2000 (Indv),2001 (Indv),2002 (Indv),2003 (Indv),2004 (Indv),2005 (Indv),2006 (Indv),2007 (Indv),2008 (Indv),2009 (Indv),2010 (Indv),2011 (Indv),2012 (Indv),2013 (Indv),2014 (Indv),2015 (Indv),Expenditure Name
+,Energy
+#,"Expensing of exploration and development costs, fuels"
+#+,9,Treasury,2000,-10.00,-15.00,0.00,25.00,30.00,,,,,,,,,,,,0.00,0.00,0.00,5.00,10.00,,,,,,,,,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,140,Treasury,2001,-15.00,-30.00,-10.00,15.00,15.00,15.00,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,272,Treasury,2002,20.00,60.00,60.00,80.00,90.00,90.00,80.00,,,,,,,,,,0.00,10.00,10.00,20.00,20.00,20.00,20.00,,,,,,,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,404,Treasury,2003,,40.00,50.00,60.00,70.00,70.00,80.00,80.00,,,,,,,,,,10.00,10.00,10.00,20.00,20.00,20.00,20.00,,,,,,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,540,Treasury,2004,,,130.00,150.00,130.00,70.00,50.00,40.00,30.00,,,,,,,,,,20.00,20.00,20.00,10.00,10.00,0.00,0.00,,,,,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,677,Treasury,2005,,,,180.00,240.00,150.00,70.00,60.00,50.00,30.00,,,,,,,,,,30.00,30.00,20.00,10.00,10.00,10.00,10.00,,,,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,814,Treasury,2006,,,,,230.00,350.00,320.00,240.00,210.00,160.00,120.00,,,,,,,,,,30.00,50.00,50.00,40.00,30.00,30.00,20.00,,,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,960,Treasury,2007,,,,,,340.00,590.00,760.00,720.00,560.00,430.00,330.00,,,,,,,,,,50.00,90.00,110.00,110.00,90.00,70.00,50.00,,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,1123,Treasury,2008,,,,,,,590.00,750.00,730.00,620.00,520.00,390.00,270.00,,,,,,,,,,90.00,110.00,110.00,90.00,80.00,60.00,40.00,,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,1283,Treasury,2009,,,,,,,,460.00,440.00,400.00,340.00,270.00,210.00,130.00,,,,,,,,,,70.00,70.00,60.00,50.00,40.00,30.00,20.00,,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,1444,Treasury,2010,,,,,,,,,1380.00,2070.00,1990.00,1540.00,1320.00,1050.00,780.00,,,,,,,,,,270.00,410.00,400.00,310.00,260.00,210.00,160.00,,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#+,1609,Treasury,2011,,,,,,,,,,1370.00,1710.00,990.00,770.00,760.00,570.00,290.00,,,,,,,,,,270.00,330.00,190.00,150.00,140.00,110.00,50.00,"Expensing of exploration and development costs, fuels",,,,,,,,,,,,,,,,
+#,"Excess of percentage over cost depletion, fuels"
+#+,10,Treasury,2000,210.00,215.00,220.00,225.00,235.00,,,,,,,,,,,,55.00,55.00,55.00,55.00,55.00,,,,,,,,,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,141,Treasury,2001,225.00,230.00,230.00,235.00,240.00,240.00,,,,,,,,,,,50.00,50.00,50.00,50.00,50.00,50.00,,,,,,,,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,273,Treasury,2002,290.00,290.00,290.00,290.00,290.00,300.00,300.00,,,,,,,,,,50.00,50.00,50.00,50.00,50.00,50.00,50.00,,,,,,,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,405,Treasury,2003,,220.00,230.00,240.00,250.00,260.00,270.00,280.00,,,,,,,,,,30.00,30.00,30.00,40.00,40.00,40.00,40.00,,,,,,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,541,Treasury,2004,,,510.00,550.00,530.00,500.00,510.00,530.00,540.00,,,,,,,,,,100.00,120.00,120.00,110.00,110.00,110.00,110.00,,,,,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,678,Treasury,2005,,,,530.00,510.00,480.00,490.00,510.00,510.00,510.00,,,,,,,,,,110.00,110.00,100.00,100.00,100.00,100.00,100.00,,,,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,815,Treasury,2006,,,,,1210.00,1180.00,1240.00,1310.00,1350.00,1390.00,1430.00,,,,,,,,,,110.00,100.00,110.00,110.00,120.00,120.00,120.00,,,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,961,Treasury,2007,,,,,,530.00,600.00,620.00,600.00,580.00,560.00,560.00,,,,,,,,,,60.00,70.00,70.00,60.00,60.00,60.00,60.00,,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,1124,Treasury,2008,,,,,,,680.00,710.00,710.00,710.00,700.00,680.00,670.00,,,,,,,,,,80.00,80.00,80.00,80.00,80.00,80.00,70.00,,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,1284,Treasury,2009,,,,,,,,710.00,820.00,860.00,820.00,790.00,770.00,760.00,,,,,,,,,,80.00,90.00,90.00,90.00,90.00,80.00,80.00,,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,1445,Treasury,2010,,,,,,,,,830.00,1230.00,1220.00,1240.00,1250.00,1260.00,1270.00,,,,,,,,,,90.00,130.00,130.00,130.00,130.00,130.00,130.00,,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#+,1610,Treasury,2011,,,,,,,,,,310.00,560.00,610.00,860.00,1030.00,1060.00,1090.00,,,,,,,,,,30.00,50.00,60.00,80.00,100.00,100.00,100.00,"Excess of percentage over cost depletion, fuels",,,,,,,,,,,,,,,,
+#,Alternative fuel production credit
+#+,11,Treasury,2000,720.00,680.00,640.00,420.00,120.00,,,,,,,,,,,,40.00,40.00,35.00,15.00,5.00,,,,,,,,,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,142,Treasury,2001,915.00,860.00,805.00,125.00,125.00,125.00,,,,,,,,,,,45.00,45.00,40.00,0.00,0.00,0.00,,,,,,,,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,274,Treasury,2002,930.00,880.00,820.00,520.00,120.00,120.00,120.00,,,,,,,,,,40.00,40.00,40.00,20.00,10.00,10.00,10.00,,,,,,,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,406,Treasury,2003,,860.00,810.00,390.00,120.00,120.00,120.00,120.00,,,,,,,,,,40.00,40.00,20.00,10.00,10.00,10.00,10.00,,,,,,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,542,Treasury,2004,,,1500.00,900.00,500.00,500.00,500.00,500.00,200.00,,,,,,,,,,60.00,40.00,20.00,20.00,20.00,20.00,10.00,,,,,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,679,Treasury,2005,,,,1230.00,850.00,850.00,850.00,850.00,340.00,0.00,,,,,,,,,,50.00,40.00,40.00,40.00,40.00,10.00,0.00,,,,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,816,Treasury,2006,,,,,1000.00,1000.00,1000.00,1000.00,400.00,0.00,0.00,,,,,,,,,,40.00,40.00,40.00,40.00,20.00,0.00,0.00,,,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,962,Treasury,2007,,,,,,2220.00,2290.00,2360.00,950.00,0.00,0.00,0.00,,,,,,,,,,100.00,100.00,100.00,40.00,0.00,0.00,0.00,,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,1125,Treasury,2008,,,,,,,2860.00,2270.00,750.00,10.00,10.00,0.00,0.00,,,,,,,,,,120.00,100.00,30.00,0.00,0.00,0.00,0.00,,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,1285,Treasury,2009,,,,,,,,2800.00,1260.00,70.00,80.00,10.00,10.00,0.00,,,,,,,,,,120.00,50.00,0.00,0.00,0.00,0.00,0.00,,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,1446,Treasury,2010,,,,,,,,,570.00,70.00,80.00,10.00,10.00,0.00,0.00,,,,,,,,,,20.00,0.00,0.00,0.00,0.00,0.00,0.00,,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#+,1611,Treasury,2011,,,,,,,,,,60.00,50.00,20.00,10.00,0.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,Alternative fuel production credit,,,,,,,,,,,,,,,,
+#,Exception from passive loss limitation for working interests in oil and gas properties
+#+,12,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,35.00,35.00,40.00,40.00,40.00,,,,,,,,,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,143,Treasury,2001,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,25.00,25.00,25.00,25.00,25.00,25.00,,,,,,,,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,275,Treasury,2002,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,407,Treasury,2003,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,543,Treasury,2004,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,680,Treasury,2005,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,817,Treasury,2006,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,963,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,40.00,40.00,40.00,40.00,40.00,40.00,40.00,,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,1126,Treasury,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,30.00,30.00,30.00,30.00,30.00,30.00,30.00,,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,1286,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,30.00,20.00,20.00,20.00,30.00,30.00,30.00,,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,1447,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#+,1612,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,Exception from passive loss limitation for working interests in oil and gas properties,,,,,,,,,,,,,,,,
+#,Capital gains treatment of royalties on coal
+#+,13,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,65.00,70.00,70.00,75.00,80.00,,,,,,,,,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,144,Treasury,2001,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,65.00,70.00,70.00,75.00,80.00,85.00,,,,,,,,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,276,Treasury,2002,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,70.00,70.00,80.00,80.00,80.00,90.00,90.00,,,,,,,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,408,Treasury,2003,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,100.00,100.00,110.00,120.00,120.00,130.00,140.00,,,,,,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,544,Treasury,2004,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,100.00,110.00,110.00,120.00,120.00,130.00,140.00,,,,,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,681,Treasury,2005,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,100.00,110.00,120.00,120.00,130.00,130.00,140.00,,,,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,818,Treasury,2006,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,70.00,70.00,80.00,80.00,100.00,70.00,60.00,,,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,964,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,90.00,90.00,90.00,100.00,70.00,60.00,80.00,,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,1127,Treasury,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,160.00,170.00,170.00,170.00,190.00,180.00,130.00,,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,1287,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,180.00,190.00,190.00,200.00,190.00,140.00,150.00,,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,1448,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,110.00,110.00,140.00,110.00,110.00,130.00,140.00,,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#+,1613,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,70.00,60.00,60.00,60.00,70.00,80.00,100.00,Capital gains treatment of royalties on coal,,,,,,,,,,,,,,,,
+#,Exclusion of interest on energy facility bonds
+#+,14,Treasury,2000,30.00,30.00,30.00,30.00,30.00,,,,,,,,,,,,80.00,85.00,85.00,85.00,85.00,,,,,,,,,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,145,Treasury,2001,30.00,30.00,30.00,30.00,30.00,30.00,,,,,,,,,,,85.00,85.00,90.00,90.00,90.00,90.00,,,,,,,,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,277,Treasury,2002,20.00,20.00,20.00,20.00,30.00,40.00,40.00,,,,,,,,,,70.00,70.00,70.00,80.00,80.00,90.00,100.00,,,,,,,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,409,Treasury,2003,,20.00,20.00,20.00,30.00,30.00,30.00,30.00,,,,,,,,,,70.00,70.00,80.00,90.00,100.00,110.00,120.00,,,,,,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,545,Treasury,2004,,,30.00,30.00,30.00,30.00,30.00,30.00,30.00,,,,,,,,,,80.00,90.00,100.00,110.00,110.00,120.00,130.00,,,,,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,682,Treasury,2005,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,70.00,80.00,90.00,90.00,100.00,110.00,110.00,,,,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,819,Treasury,2006,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,80.00,80.00,90.00,90.00,100.00,100.00,110.00,,,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,965,Treasury,2007,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,60.00,70.00,70.00,80.00,80.00,90.00,90.00,,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,1128,Treasury,2008,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,30.00,30.00,40.00,40.00,40.00,40.00,40.00,,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,1288,Treasury,2009,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,1449,Treasury,2010,,,,,,,,,0.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,10.00,10.00,10.00,20.00,20.00,20.00,20.00,,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#+,1614,Treasury,2011,,,,,,,,,,0.00,0.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,10.00,10.00,20.00,20.00,20.00,20.00,20.00,Exclusion of interest on energy facility bonds,,,,,,,,,,,,,,,,
+#,Enhanced oil recovery credit
+#+,15,Treasury,2000,170.00,195.00,225.00,260.00,300.00,,,,,,,,,,,,10.00,15.00,15.00,15.00,20.00,,,,,,,,,,,,Enhanced oil recovery credit,,,,,,,,,,,,,,,,
+#+,146,Treasury,2001,235.00,270.00,310.00,355.00,410.00,470.00,,,,,,,,,,,25.00,25.00,30.00,35.00,40.00,45.00,,,,,,,,,,,Enhanced oil recovery credit,,,,,,,,,,,,,,,,
+#+,278,Treasury,2002,280.00,340.00,400.00,480.00,580.00,700.00,830.00,,,,,,,,,,30.00,30.00,40.00,50.00,50.00,70.00,80.00,,,,,,,,,,Enhanced oil recovery credit,,,,,,,,,,,,,,,,
+#+,410,Treasury,2003,,280.00,330.00,400.00,480.00,580.00,690.00,830.00,,,,,,,,,,30.00,30.00,40.00,50.00,60.00,70.00,80.00,,,,,,,,,Enhanced oil recovery credit,,,,,,,,,,,,,,,,
+#+,546,Treasury,2004,,,300.00,310.00,320.00,330.00,330.00,340.00,350.00,,,,,,,,,,30.00,30.00,30.00,30.00,30.00,30.00,40.00,,,,,,,,Enhanced oil recovery credit,,,,,,,,,,,,,,,,
+#+,683,Treasury,2005,,,,360.00,360.00,370.00,380.00,390.00,400.00,410.00,,,,,,,,,,40.00,40.00,40.00,40.00,40.00,40.00,40.00,,,,,,,Enhanced oil recovery credit,,,,,,,,,,,,,,,,
+#+,820,Treasury,2006,,,,,300.00,310.00,310.00,320.00,330.00,340.00,350.00,,,,,,,,,,30.00,30.00,30.00,30.00,30.00,30.00,40.00,,,,,,Enhanced oil recovery credit,,,,,,,,,,,,,,,,
+#+,966,Treasury,2007,,,,,,270.00,0.00,0.00,0.00,0.00,0.00,20.00,,,,,,,,,,30.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Enhanced oil recovery credit,,,,,,,,,,,,,,,,
+#,New technology credit
+#+,16,Treasury,2000,35.00,40.00,40.00,35.00,35.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,147,Treasury,2001,50.00,60.00,70.00,70.00,70.00,65.00,,,,,,,,,,,10.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,279,Treasury,2002,40.00,60.00,70.00,90.00,90.00,90.00,90.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,411,Treasury,2003,,60.00,80.00,100.00,100.00,100.00,90.00,90.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,547,Treasury,2004,,,100.00,180.00,250.00,270.00,270.00,270.00,270.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,684,Treasury,2005,,,,280.00,350.00,370.00,370.00,370.00,370.00,370.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,821,Treasury,2006,,,,,330.00,470.00,620.00,700.00,800.00,820.00,690.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,967,Treasury,2007,,,,,,220.00,470.00,640.00,750.00,800.00,810.00,810.00,,,,,,,,,,20.00,40.00,50.00,50.00,50.00,50.00,50.00,,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,1129,Treasury,2008,,,,,,,470.00,640.00,900.00,1060.00,1090.00,1090.00,1090.00,,,,,,,,,,40.00,50.00,60.00,60.00,60.00,60.00,60.00,,,,New technology credit,,,,,,,,,,,,,,,,
+#+,1289,Treasury,2009,,,,,,,,380.00,730.00,910.00,940.00,920.00,910.00,880.00,,,,,,,,,,30.00,70.00,90.00,90.00,90.00,90.00,90.00,,,New technology credit,,,,,,,,,,,,,,,,
+#,Alcohol fuel credits
+#+,17,Treasury,2000,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,,5.00,5.00,5.00,5.00,5.00,,,,,,,,,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,148,Treasury,2001,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,5.00,5.00,5.00,5.00,5.00,5.00,,,,,,,,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,280,Treasury,2002,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,412,Treasury,2003,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,548,Treasury,2004,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,685,Treasury,2005,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,822,Treasury,2006,,,,,20.00,20.00,20.00,20.00,30.00,30.00,30.00,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,968,Treasury,2007,,,,,,30.00,30.00,30.00,40.00,40.00,50.00,20.00,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,1130,Treasury,2008,,,,,,,40.00,40.00,50.00,50.00,60.00,20.00,0.00,,,,,,,,,,10.00,10.00,10.00,20.00,20.00,10.00,0.00,,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,1290,Treasury,2009,,,,,,,,30.00,30.00,40.00,40.00,20.00,0.00,0.00,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,0.00,0.00,,,Alcohol fuel credits,,,,,,,,,,,,,,,,
+#+,1452,Treasury,2010,,,,,,,,,40.00,50.00,70.00,160.00,320.00,160.00,0.00,,,,,,,,,,10.00,10.00,20.00,30.00,70.00,70.00,0.00,,Alcohol fuel credits ,,,,,,,,,,,,,,,,
+#+,1617,Treasury,2011,,,,,,,,,,40.00,1190.00,8850.00,10900.00,6640.00,3590.00,2020.00,,,,,,,,,,10.00,10.00,20.00,40.00,50.00,20.00,10.00,Alcohol fuel credits   ,,,,,,,,,,,,,,,,
+#,Tax credit and deduction for clean-fuel burning vehicles
+#+,18,Treasury,2000,75.00,80.00,75.00,60.00,50.00,,,,,,,,,,,,15.00,15.00,15.00,15.00,10.00,,,,,,,,,,,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,149,Treasury,2001,75.00,85.00,80.00,65.00,45.00,15.00,,,,,,,,,,,15.00,20.00,20.00,15.00,10.00,5.00,,,,,,,,,,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,281,Treasury,2002,50.00,50.00,40.00,20.00,0.00,-30.00,-40.00,,,,,,,,,,10.00,10.00,10.00,10.00,0.00,0.00,-10.00,,,,,,,,,,Tax credit and deduction for cleanfuel burning vehicles,,,,,,,,,,,,,,,,
+#+,413,Treasury,2003,,30.00,30.00,20.00,0.00,-20.00,-40.00,-40.00,,,,,,,,,,20.00,20.00,30.00,20.00,10.00,-10.00,-10.00,,,,,,,,,Tax credit and deduction for cleanfuel burning vehicles,,,,,,,,,,,,,,,,
+#+,549,Treasury,2004,,,50.00,60.00,40.00,20.00,-10.00,-60.00,-60.00,,,,,,,,,,20.00,30.00,30.00,20.00,0.00,-10.00,-10.00,,,,,,,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,686,Treasury,2005,,,,50.00,40.00,10.00,-20.00,-60.00,-50.00,-60.00,,,,,,,,,,20.00,20.00,0.00,0.00,-10.00,-10.00,-10.00,,,,,,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,823,Treasury,2006,,,,,20.00,30.00,40.00,20.00,-10.00,-20.00,-10.00,,,,,,,,,,50.00,40.00,10.00,-40.00,-60.00,-60.00,-50.00,,,,,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,969,Treasury,2007,,,,,,50.00,30.00,-10.00,-10.00,-20.00,-30.00,-30.00,,,,,,,,,,20.00,60.00,210.00,150.00,160.00,10.00,-10.00,,,,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,1131,Treasury,2008,,,,,,,40.00,30.00,0.00,-30.00,-30.00,-40.00,-50.00,,,,,,,,,,70.00,230.00,150.00,160.00,10.00,-10.00,-10.00,,,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,1292,Treasury,2009,,,,,,,,30.00,0.00,-30.00,-30.00,-40.00,-50.00,-40.00,,,,,,,,,,230.00,150.00,160.00,10.00,-10.00,-10.00,-10.00,,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,1454,Treasury,2010,,,,,,,,,60.00,30.00,50.00,10.00,-20.00,10.00,40.00,,,,,,,,,,110.00,60.00,30.00,30.00,30.00,50.00,60.00,,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#+,1619,Treasury,2011,,,,,,,,,,80.00,180.00,220.00,120.00,160.00,210.00,340.00,,,,,,,,,,50.00,60.00,40.00,10.00,10.00,20.00,50.00,Tax credit and deduction for clean-fuel burning vehicles,,,,,,,,,,,,,,,,
+#,Exclusion from income of conservation subsidies provided by public utilities
+#+,19,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,80.00,75.00,75.00,75.00,80.00,,,,,,,,,,,,Exclusion from income of conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,150,Treasury,2001,-5.00,-5.00,-5.00,0.00,0.00,0.00,,,,,,,,,,,85.00,85.00,85.00,85.00,85.00,85.00,,,,,,,,,,,Exclusion from income of conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,282,Treasury,2002,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,90.00,80.00,80.00,80.00,90.00,90.00,90.00,,,,,,,,,,Exclusion from income of conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,414,Treasury,2003,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,70.00,70.00,70.00,70.00,70.00,70.00,60.00,,,,,,,,,Exclusion from income of conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,550,Treasury,2004,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,80.00,80.00,80.00,80.00,80.00,80.00,80.00,,,,,,,,Exclusion from income of conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,687,Treasury,2005,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,80.00,80.00,80.00,80.00,80.00,80.00,80.00,,,,,,,Exclusion from income of conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#,Tax credit for enhanced oil recovery costs
+#+,1788,JCT,2001,<+,<+,<+,<+,,,,,,,,,,,,,<+,<+,<+,<+,,,,,,,,,,,,,Tax credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,
+#+,1925,JCT,2002,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,Tax credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,
+#+,2064,JCT,2003,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,Tax credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,
+#+,2207,JCT,2007,,,,,,200.00,300.00,300.00,300.00,400.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,Tax credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,
+#+,2537,JCT,2009,,,,,,,,100.00,<+,<+,<+,<+,,,,,,,,,,,,100.00,<+,<+,<+,<+,,,,,Tax credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,
+#,Tax credit for production of non-conventional fuels
+#+,1789,JCT,2001,1000.00,1000.00,1000.00,800.00,,,,,,,,,,,,,300.00,300.00,300.00,200.00,,,,,,,,,,,,,Tax credit for production of non-conventional fuels,,,,,,,,,,,,,,,,
+#+,1926,JCT,2002,1100.00,1100.00,1200.00,1200.00,1200.00,,,,,,,,,,,,200.00,300.00,300.00,300.00,300.00,,,,,,,,,,,,Tax credit for production of non-conventional fuels,,,,,,,,,,,,,,,,
+#+,2065,JCT,2003,,1200.00,1300.00,800.00,500.00,500.00,,,,,,,,,,,,300.00,300.00,200.00,100.00,100.00,,,,,,,,,,,Tax credit for production of non-conventional fuels,,,,,,,,,,,,,,,,
+#+,2208,JCT,2007,,,,,,1000.00,1100.00,1300.00,500.00,100.00,,,,,,,,,,,,200.00,300.00,300.00,100.00,<+,,,,,,,Tax credit for production of non-conventional fuels,,,,,,,,,,,,,,,,
+#+,2364,JCT,2008,,,,,,,2700.00,3200.00,1200.00,<+,<+,,,,,,,,,,,,1000.00,1000.00,200.00,<+,<+,,,,,,Tax credit for production of non-conventional fuels,,,,,,,,,,,,,,,,
+#,Tax credits for alcohol fuels ()
+#+,1790,JCT,2001,<+,<+,<+,<+,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,Tax credits for alcohol fuels (),,,,,,,,,,,,,,,,
+#+,1927,JCT,2002,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,Tax credits for alcohol fuels (),,,,,,,,,,,,,,,,
+#+,2066,JCT,2003,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,Tax credits for alcohol fuels ,,,,,,,,,,,,,,,,
+#+,2539,JCT,2009,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Tax credits for alcohol fuels (),,,,,,,,,,,,,,,,
+#,Exclusion of interest on State and local government industrial development bonds for energy production facilities
+#+,1791,JCT,2001,<+,<+,<+,<+,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,Exclusion of interest on State and local government industrial development bonds for energy production facilities,,,,,,,,,,,,,,,,
+#+,1928,JCT,2002,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,Exclusion of interest on State and local government industrial development bonds for energy production facilities,,,,,,,,,,,,,,,,
+#+,2067,JCT,2003,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,Exclusion of interest on State and local government industrial development bonds for energy production facilities,,,,,,,,,,,,,,,,
+#,Exclusion of energy conservation subsidies provided by public utilities
+#+,1792,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,<+,<+,<+,<+,,,,,,,,,,,,,Exclusion of energy conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,1929,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,Exclusion of energy conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,2068,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,Exclusion of energy conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,2212,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,Exclusion of energy conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,2368,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Exclusion of energy conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,2542,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,Exclusion of energy conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,2827,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Exclusion of energy conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#+,2947,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Exclusion of energy conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#,Tax credit for investments in solar and geothermal energy facilities
+#+,1793,JCT,2001,<+,<+,<+,<+,,,,,,,,,,,,,<+,<+,<+,<+,,,,,,,,,,,,,Tax credit for investments in solar and geothermal energy facilities,,,,,,,,,,,,,,,,
+#+,1930,JCT,2002,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,Tax credit for investments in solar and geothermal energy facilities,,,,,,,,,,,,,,,,
+#+,2069,JCT,2003,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,Tax credit for investments in solar and geothermal energy facilities,,,,,,,,,,,,,,,,
+#+,2213,JCT,2007,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,Tax credit for investments in solar and geothermal energy facilities,,,,,,,,,,,,,,,,
+#,Tax credit for electricity production from wind and biomass
+#+,1794,JCT,2001,<+,<+,<+,<+,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,Tax credit for electricity production from wind and biomass,,,,,,,,,,,,,,,,
+#,"Tax credit for electricity production from wind, biomass, and poultry waste"
+#+,1931,JCT,2002,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,"Tax credit for electricity production from wind, biomass, and poultry waste",,,,,,,,,,,,,,,,
+#+,2070,JCT,2003,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,"Tax credit for electricity production from wind, biomass, and poultry waste",,,,,,,,,,,,,,,,
+#,Exclusion of conservation subsidies provided by public utilities
+#+,824,Treasury,2006,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,100.00,100.00,100.00,100.00,90.00,90.00,90.00,,,,,,Exclusion of conservation subsidies provided by public utilities,,,,,,,,,,,,,,,,
+#,Exclusion of utility conservation subsidies
+#+,970,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,80.00,80.00,80.00,80.00,80.00,70.00,70.00,,,,,Exclusion of utility conservation subsidies,,,,,,,,,,,,,,,,
+#+,1132,Treasury,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,110.00,110.00,110.00,110.00,110.00,110.00,100.00,,,,Exclusion of utility conservation subsidies,,,,,,,,,,,,,,,,
+#+,1293,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,120.00,120.00,120.00,110.00,110.00,110.00,110.00,,,Exclusion of utility conservation subsidies,,,,,,,,,,,,,,,,
+#+,1455,Treasury,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,120.00,120.00,110.00,110.00,110.00,110.00,110.00,,Exclusion of utility conservation subsidies,,,,,,,,,,,,,,,,
+#+,1620,Treasury,2011,,,,,,,,,,10.00,10.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,130.00,130.00,130.00,120.00,120.00,120.00,120.00,Exclusion of utility conservation subsidies,,,,,,,,,,,,,,,,
+#,Credit for holding clean renewable energy bonds
+#+,971,Treasury,2007,,,,,,0.00,0.00,10.00,30.00,40.00,50.00,50.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Credit for holding clean renewable energy bonds,,,,,,,,,,,,,,,,
+#+,1133,Treasury,2008,,,,,,,10.00,30.00,40.00,50.00,50.00,50.00,50.00,,,,,,,,,,10.00,30.00,40.00,50.00,50.00,50.00,50.00,,,,Credit for holding clean renewable energy bonds,,,,,,,,,,,,,,,,
+#+,1294,Treasury,2009,,,,,,,,10.00,10.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,10.00,30.00,50.00,50.00,50.00,50.00,50.00,,,Credit for holding clean renewable energy bonds,,,,,,,,,,,,,,,,
+#+,1456,Treasury,2010,,,,,,,,,10.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,30.00,50.00,50.00,50.00,50.00,50.00,50.00,,Credit for holding clean renewable energy bonds,,,,,,,,,,,,,,,,
+#+,1621,Treasury,2011,,,,,,,,,,20.00,20.00,30.00,30.00,40.00,40.00,40.00,,,,,,,,,,50.00,60.00,70.00,90.00,100.00,100.00,100.00,Credit for holding clean renewable energy bonds,,,,,,,,,,,,,,,,
+#,Deferral of gain from dispositions of transmission property to implement FERC restructuring policy
+#+,972,Treasury,2007,,,,,,490.00,620.00,530.00,230.00,-100.00,-360.00,-510.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Deferral of gain from dispositions of transmission property to implement FERC restructuring policy,,,,,,,,,,,,,,,,
+#+,1134,Treasury,2008,,,,,,,620.00,530.00,230.00,-100.00,-360.00,-510.00,-540.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,Deferral of gain from dispositions of transmission property to implement FERC restructuring policy,,,,,,,,,,,,,,,,
+#+,1295,Treasury,2009,,,,,,,,610.00,250.00,-60.00,-290.00,-490.00,-590.00,-570.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,Deferral of gain from dispositions of transmission property to implement FERC restructuring policy,,,,,,,,,,,,,,,,
+#+,1457,Treasury,2010,,,,,,,,,-30.00,-50.00,-120.00,-320.00,-400.00,-480.00,-490.00,,,,,,,,,,,,,,,,,,Deferral of gain from dispositions of transmission property toimplement FERC restructuring policy,,,,,,,,,,,,,,,,
+#+,1622,Treasury,2011,,,,,,,,,,-10.00,-150.00,-400.00,-460.00,-490.00,-500.00,-470.00,,,,,,,,,,,,,,,,,Deferral of gain from dispositions of transmission property to implement FERC restructuring policy,,,,,,,,,,,,,,,,
+#,Credit for production from advanced nuclear power facilities
+#+,973,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Credit for production from advanced nuclear power facilities,,,,,,,,,,,,,,,,
+#,Credit for investment in clean coal facilities
+#+,974,Treasury,2007,,,,,,0.00,50.00,50.00,100.00,150.00,200.00,280.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Credit for investment in clean coal facilities,,,,,,,,,,,,,,,,
+#+,1135,Treasury,2008,,,,,,,0.00,30.00,50.00,80.00,130.00,180.00,250.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,Credit for investment in clean coal facilities,,,,,,,,,,,,,,,,
+#+,1296,Treasury,2009,,,,,,,,30.00,50.00,80.00,130.00,180.00,245.00,290.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,Credit for investment in clean coal facilities,,,,,,,,,,,,,,,,
+#+,1458,Treasury,2010,,,,,,,,,30.00,200.00,290.00,260.00,240.00,230.00,210.00,,,,,,,,,,,,,,,,,,Credit for investment in clean coal facilities,,,,,,,,,,,,,,,,
+#+,1623,Treasury,2011,,,,,,,,,,180.00,290.00,480.00,550.00,440.00,360.00,250.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,Credit for investment in clean coal facilities,,,,,,,,,,,,,,,,
+#,Temporary 50% expensing for equipment used in the refining of liquid fuels
+#+,975,Treasury,2007,,,,,,0.00,10.00,30.00,120.00,240.00,260.00,180.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Temporary 50% expensing for equipment used in the refining of liquid fuels,,,,,,,,,,,,,,,,
+#+,1136,Treasury,2008,,,,,,,10.00,30.00,120.00,240.00,260.00,180.00,-50.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,Temporary 50% expensing for equipment used in the refining of liquid fuels,,,,,,,,,,,,,,,,
+#+,1297,Treasury,2009,,,,,,,,30.00,120.00,240.00,260.00,180.00,-50.00,-160.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,Temporary 50% expensing for equipment used in the refining of liquid fuels,,,,,,,,,,,,,,,,
+#+,1459,Treasury,2010,,,,,,,,,350.00,750.00,890.00,900.00,800.00,700.00,630.00,,,,,,,,,,,,,,,,,,Temporary 50% expensing for equipment used in the refining of liquid fuels,,,,,,,,,,,,,,,,
+#+,1624,Treasury,2011,,,,,,,,,,770.00,1140.00,930.00,760.00,630.00,-300.00,-790.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,Temporary 50% expensing for equipment used in the refining of liquid fuels,,,,,,,,,,,,,,,,
+#,Pass through low sulfur diesel expensing to cooperative owners
+#+,976,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,40.00,0.00,-10.00,0.00,-10.00,0.00,-10.00,,,,,Pass through low sulfur diesel expensing to cooperative owners,,,,,,,,,,,,,,,,
+#,Natural gas distribution pipelines treated as 15-year property
+#+,977,Treasury,2007,,,,,,0.00,20.00,50.00,90.00,120.00,150.00,150.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Natural gas distribution pipelines treated as 15-year property,,,,,,,,,,,,,,,,
+#+,1137,Treasury,2008,,,,,,,20.00,50.00,90.00,120.00,150.00,150.00,120.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,Natural gas distribution pipelines treated as 15-year property,,,,,,,,,,,,,,,,
+#+,1298,Treasury,2009,,,,,,,,60.00,80.00,90.00,110.00,120.00,110.00,100.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,Natural gas distribution pipelines treated as 15-year property,,,,,,,,,,,,,,,,
+#+,1460,Treasury,2010,,,,,,,,,80.00,90.00,110.00,120.00,110.00,100.00,90.00,,,,,,,,,,,,,,,,,,Natural gas distribution pipelines treated as 15-year property,,,,,,,,,,,,,,,,
+#+,1625,Treasury,2011,,,,,,,,,,80.00,110.00,120.00,110.00,90.00,80.00,80.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,Natural gas distribution pipelines treated as 15-year property,,,,,,,,,,,,,,,,
+#,Amortize all geological and geophysical expenditures over
+#+,978,Treasury,2007,,,,,,0.00,30.00,120.00,140.00,110.00,80.00,50.00,,,,,,,,,,0.00,10.00,30.00,40.00,30.00,20.00,10.00,,,,,Amortize all geological and geophysical expenditures over,,,,,,,,,,,,,,,,
+#+,1138,Treasury,2008,,,,,,,10.00,50.00,70.00,60.00,30.00,10.00,10.00,,,,,,,,,,0.00,10.00,20.00,10.00,10.00,0.00,0.00,,,,Amortize all geological and geophysical expenditures over,,,,,,,,,,,,,,,,
+#+,1299,Treasury,2009,,,,,,,,40.00,30.00,20.00,10.00,10.00,10.00,10.00,,,,,,,,,,10.00,10.00,10.00,0.00,0.00,0.00,0.00,,,Amortize all geological and geophysical expenditures over,,,,,,,,,,,,,,,,
+#,Allowance of deduction for certain energy efficient commercial building property
+#+,979,Treasury,2007,,,,,,0.00,60.00,150.00,110.00,20.00,-10.00,-10.00,,,,,,,,,,0.00,20.00,40.00,30.00,10.00,0.00,0.00,,,,,Allowance of deduction for certain energy efficient commercial building property,,,,,,,,,,,,,,,,
+#+,1139,Treasury,2008,,,,,,,60.00,140.00,130.00,70.00,20.00,-10.00,-10.00,,,,,,,,,,20.00,50.00,40.00,20.00,10.00,0.00,0.00,,,,Allowance of deduction for certain energy efficient commercial building property,,,,,,,,,,,,,,,,
+#+,1300,Treasury,2009,,,,,,,,140.00,130.00,70.00,20.00,0.00,0.00,0.00,,,,,,,,,,50.00,40.00,20.00,10.00,0.00,0.00,0.00,,,Allowance of deduction for certain energy efficient commercial building property,,,,,,,,,,,,,,,,
+#+,1462,Treasury,2010,,,,,,,,,130.00,150.00,160.00,130.00,130.00,10.00,40.00,,,,,,,,,,40.00,50.00,50.00,60.00,70.00,10.00,20.00,,Allowance of deduction for certain energy efficient commercial building property,,,,,,,,,,,,,,,,
+#+,1627,Treasury,2011,,,,,,,,,,50.00,60.00,70.00,70.00,100.00,60.00,10.00,,,,,,,,,,10.00,20.00,20.00,20.00,30.00,20.00,0.00,Allowance of deduction for certain energy efficient commercial building property,,,,,,,,,,,,,,,,
+#,Credit for construction of new energy efficient homes
+#+,980,Treasury,2007,,,,,,0.00,10.00,20.00,10.00,10.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Credit for construction of new energy efficient homes,,,,,,,,,,,,,,,,
+#+,1140,Treasury,2008,,,,,,,10.00,20.00,20.00,20.00,10.00,0.00,0.00,,,,,,,,,,0.00,0.00,10.00,0.00,0.00,0.00,0.00,,,,Credit for construction of new energy efficient homes,,,,,,,,,,,,,,,,
+#+,1301,Treasury,2009,,,,,,,,20.00,20.00,20.00,10.00,0.00,0.00,0.00,,,,,,,,,,0.00,10.00,0.00,0.00,0.00,0.00,0.00,,,Credit for construction of new energy efficient homes,,,,,,,,,,,,,,,,
+#+,1463,Treasury,2010,,,,,,,,,20.00,20.00,10.00,0.00,0.00,0.00,0.00,,,,,,,,,,10.00,0.00,0.00,0.00,0.00,0.00,0.00,,Credit for construction of new energy efficient homes,,,,,,,,,,,,,,,,
+#+,1628,Treasury,2011,,,,,,,,,,10.00,10.00,10.00,10.00,0.00,0.00,0.00,,,,,,,,,,20.00,10.00,10.00,10.00,0.00,0.00,0.00,Credit for construction of new energy efficient homes,,,,,,,,,,,,,,,,
+#,Credit for energy efficiency improvements to existing homes
+#+,2824,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,800.00,300.00,1000.00,0.00,0.00,,,,Credit for energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#+,2944,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,300.00,1700.00,1200.00,0.00,0.00,,,Credit for energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#+,981,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,220.00,380.00,150.00,0.00,0.00,0.00,,,,,Credit for energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#+,1141,Treasury,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,230.00,380.00,150.00,0.00,0.00,0.00,0.00,,,,Credit for energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#+,1302,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,380.00,150.00,0.00,0.00,0.00,0.00,0.00,,,Credit for energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#+,1464,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,230.00,380.00,150.00,0.00,0.00,0.00,0.00,,Credit for energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#+,1629,Treasury,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,570.00,1950.00,1460.00,0.00,0.00,0.00,0.00,Credit for energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#,Credit for energy efficient appliances
+#+,982,Treasury,2007,,,,,,0.00,120.00,80.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,Credit for energy efficient appliances,,,,,,,,,,,,,,,,
+#+,1142,Treasury,2008,,,,,,,120.00,80.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,Credit for energy efficient appliances,,,,,,,,,,,,,,,,
+#+,1303,Treasury,2009,,,,,,,,80.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,Credit for energy efficient appliances,,,,,,,,,,,,,,,,
+#+,1465,Treasury,2010,,,,,,,,,120.00,130.00,130.00,50.00,0.00,0.00,0.00,,,,,,,,,,,,,,,,,,Credit for energy efficient appliances,,,,,,,,,,,,,,,,
+#+,1630,Treasury,2011,,,,,,,,,,130.00,130.00,50.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,Credit for energy efficient appliances,,,,,,,,,,,,,,,,
+#,30% credit for residential purchases/installations of solar and fuel cells
+#+,983,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,10.00,10.00,10.00,0.00,0.00,0.00,,,,,30% credit for residential purchases/installations of solar and fuel cells,,,,,,,,,,,,,,,,
+#+,1143,Treasury,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,10.00,10.00,10.00,0.00,0.00,0.00,0.00,,,,30% credit for residential purchases/installations of solar and fuel cells,,,,,,,,,,,,,,,,
+#+,1304,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,10.00,10.00,10.00,0.00,0.00,0.00,0.00,,,30% credit for residential purchases/installations of solar and fuel cells,,,,,,,,,,,,,,,,
+#,Credit for business installation of qualified fuel cells and stationary microturbine power plants
+#+,984,Treasury,2007,,,,,,0.00,60.00,100.00,40.00,-10.00,-10.00,-10.00,,,,,,,,,,0.00,20.00,30.00,10.00,0.00,0.00,0.00,,,,,Credit for business installation of qualified fuel cells and stationary microturbine power plants,,,,,,,,,,,,,,,,
+#+,1144,Treasury,2008,,,,,,,60.00,70.00,100.00,40.00,-10.00,-10.00,-10.00,,,,,,,,,,20.00,20.00,30.00,10.00,0.00,0.00,0.00,,,,Credit for business installation of qualified fuel cells and stationary microturbine power plants,,,,,,,,,,,,,,,,
+#+,1305,Treasury,2009,,,,,,,,20.00,30.00,10.00,0.00,0.00,0.00,0.00,,,,,,,,,,60.00,100.00,40.00,-10.00,-10.00,-10.00,-10.00,,,Credit for business installation of qualified fuel cells and stationary microturbine power plants,,,,,,,,,,,,,,,,
+#,Alternative Fuel and Fuel Mixture tax credit
+#+,985,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,150.00,170.00,0.00,0.00,0.00,0.00,0.00,,,,,Alternative Fuel and Fuel Mixture tax credit,,,,,,,,,,,,,,,,
+#,Incentives for small refiners to comply with EPA sulfur regulations
+#+,2206,JCT,2007,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,Incentives for small refiners to comply with EPA sulfur regulations,,,,,,,,,,,,,,,,
+#,Tax credit for alcohol fuel blenders 
+#+,2209,JCT,2007,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,Tax credit for alcohol fuel blenders ,,,,,,,,,,,,,,,,
+#,Tax credit for biodiesel blenders 
+#+,2210,JCT,2007,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,Tax credit for biodiesel blenders ,,,,,,,,,,,,,,,,
+#,Exclusion of interest on State and local government bonds for energy production facilities
+#+,2211,JCT,2007,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,200.00,,,,,,,Exclusion of interest on State and local government bonds for energy production facilities,,,,,,,,,,,,,,,,
+#,Tax credit for electricity production from renewable resources
+#+,2214,JCT,2007,,,,,,200.00,200.00,300.00,400.00,400.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,Tax credit for electricity production from renewable resources,,,,,,,,,,,,,,,,
+#+,2370,JCT,2008,,,,,,,2000.00,3700.00,5500.00,6000.00,5800.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,Tax credit for electricity production from renewable resources,,,,,,,,,,,,,,,,
+#,Deferral of gain from the disposition of electric transmission property to implement Federal Energy Regulatory Commission restructuring policy
+#+,2215,JCT,2007,,,,,,2700.00,2100.00,-200.00,-1000.00,-1000.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,Deferral of gain from the disposition of electric transmission property to implement Federal Energy Regulatory Commission restructuring policy,,,,,,,,,,,,,,,,
+#+,2371,JCT,2008,,,,,,,600.00,500.00,<-,-300.00,-300.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,Deferral of gain from the disposition of electric transmission property to implement Federal Energy Regulatory Commission restructuring policy,,,,,,,,,,,,,,,,
+#,Partial expensing for advanced mine safety equipment
+#+,1145,Treasury,2008,,,,,,,0.00,10.00,20.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,Partial expensing for advanced mine safety equipment,,,,,,,,,,,,,,,,
+#+,1306,Treasury,2009,,,,,,,,10.00,20.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,Partial expensing for advanced mine safety equipment,,,,,,,,,,,,,,,,
+#+,1467,Treasury,2010,,,,,,,,,20.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,,,,,Partial expensing for advanced mine safety equipment,,,,,,,,,,,,,,,,
+#,Tax credit and deduction for small refiners with capital costs associated with EPA sulfur regulation compliance
+#+,2363,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,Tax credit and deduction for small refiners with capital costs associated with EPA sulfur regulation compliance,,,,,,,,,,,,,,,,
+#+,2536,JCT,2009,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Tax credit and deduction for small refiners with capital costs associated with EPA sulfur regulation compliance,,,,,,,,,,,,,,,,
+#,Tax credit for alcohol fuels 
+#+,2365,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,Tax credit for alcohol fuels ,,,,,,,,,,,,,,,,
+#,Tax credit for biodiesel fuels 
+#+,2366,JCT,2008,,,,,,,<+,100.00,100.00,<+,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,Tax credit for biodiesel fuels ,,,,,,,,,,,,,,,,
+#,Exclusion of interest on State and local government qualified private activity bonds for energy production facilities
+#+,2367,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,Exclusion of interest on State and local government qualified private activity bonds for energy production facilities,,,,,,,,,,,,,,,,
+#+,2541,JCT,2009,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,Exclusion of interest on State and local government qualified private activity bonds for energy production facilities,,,,,,,,,,,,,,,,
+#,Energy credit (Section 48)
+#+,2369,JCT,2008,,,,,,,<+,100.00,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Energy credit (Section 48),,,,,,,,,,,,,,,,
+#+,2543,JCT,2009,,,,,,,,100.00,100.00,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,Energy credit (Section 48),,,,,,,,,,,,,,,,
+#,Tax credit for holders of clean renewable energy bonds
+#+,2372,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Tax credit for holders of clean renewable energy bonds,,,,,,,,,,,,,,,,
+#+,2545,JCT,2009,,,,,,,,<+,<+,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,Tax credit for holders of clean renewable energy bonds,,,,,,,,,,,,,,,,
+#,Tax credits for investments in clean coal power generation facilities
+#+,2373,JCT,2008,,,,,,,<+,100.00,100.00,200.00,200.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,Tax credits for investments in clean coal power generation facilities,,,,,,,,,,,,,,,,
+#+,2546,JCT,2009,,,,,,,,100.00,100.00,200.00,200.00,300.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Tax credits for investments in clean coal power generation facilities,,,,,,,,,,,,,,,,
+#,Expensing of the cost of property used in the refining of liquid fuels
+#+,2374,JCT,2008,,,,,,,<+,<+,100.00,200.00,300.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,Expensing of the cost of property used in the refining of liquid fuels,,,,,,,,,,,,,,,,
+#+,2547,JCT,2009,,,,,,,,<-,200.00,500.00,700.00,600.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Expensing of the cost of property used in the refining of liquid fuels,,,,,,,,,,,,,,,,
+#,Amortization of geological and geophysical costs associated with oil and gas exploration
+#+,2375,JCT,2008,,,,,,,<-,100.00,200.00,200.00,100.00,,,,,,,,,,,,<-,<+,100.00,100.00,<+,,,,,,Amortization of geological and geophysical costs associated with oil and gas exploration,,,,,,,,,,,,,,,,
+#,Deduction for expenditures on energy-efficient commercial building property
+#+,2376,JCT,2008,,,,,,,<+,100.00,<+,<-,<-,,,,,,,,,,,,<+,100.00,<+,<-,<-,,,,,,Deduction for expenditures on energy-efficient commercial building property,,,,,,,,,,,,,,,,
+#+,2549,JCT,2009,,,,,,,,<+,100.00,<+,<-,<-,,,,,,,,,,,,<+,100.00,<+,<-,<-,,,,,Deduction for expenditures on energy-efficient commercial building property,,,,,,,,,,,,,,,,
+#,Tax credit for the purchase of qualified energy efficiency improvements to existing homes
+#+,2377,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,300.00,200.00,0.00,0.00,,,,,,Tax credit for the purchase of qualified energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#+,2550,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,300.00,200.00,0.00,0.00,0.00,,,,,Tax credit for the purchase of qualified energy efficiency improvements to existing homes,,,,,,,,,,,,,,,,
+#,Tax credit for the production of energy-efficient appliances
+#+,2378,JCT,2008,,,,,,,100.00,100.00,0.00,0.00,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,Tax credit for the production of energy-efficient appliances,,,,,,,,,,,,,,,,
+#+,2551,JCT,2009,,,,,,,,100.00,<+,0.00,0.00,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Tax credit for the production of energy-efficient appliances,,,,,,,,,,,,,,,,
+#,Tax credits for alternative technology vehicles
+#+,2379,JCT,2008,,,,,,,100.00,100.00,<+,<+,<+,,,,,,,,,,,,200.00,200.00,100.00,100.00,<+,,,,,,Tax credits for alternative technology vehicles,,,,,,,,,,,,,,,,
+#+,2552,JCT,2009,,,,,,,,100.00,<+,<+,<+,<+,,,,,,,,,,,,200.00,200.00,200.00,100.00,<+,,,,,Tax credits for alternative technology vehicles,,,,,,,,,,,,,,,,
+#,Tax credit for clean-fuel vehicle refueling property
+#+,2380,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Tax credit for clean-fuel vehicle refueling property,,,,,,,,,,,,,,,,
+#+,2553,JCT,2009,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,Tax credit for clean-fuel vehicle refueling property,,,,,,,,,,,,,,,,
+#,Five-year carryback period for certain net operating losses of electric utility companies
+#+,2381,JCT,2008,,,,,,,100.00,<+,<+,<-,<-,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,Five-year carryback period for certain net operating losses of electric utility companies,,,,,,,,,,,,,,,,
+#,Bio-Diesel and small agri-biodiesel producer tax credits
+#+,1291,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,180.00,200.00,30.00,20.00,10.00,10.00,10.00,,,Bio-Diesel and small agri-biodiesel producer tax credits,,,,,,,,,,,,,,,,
+#+,1453,Treasury,2010,,,,,,,,,30.00,20.00,20.00,0.00,0.00,0.00,0.00,,,,,,,,,,10.00,10.00,0.00,0.00,0.00,0.00,0.00,,Bio-Diesel and small agri-biodiesel producer tax credits ,,,,,,,,,,,,,,,,
+#+,1618,Treasury,2011,,,,,,,,,,20.00,10.00,10.00,0.00,0.00,0.00,0.00,,,,,,,,,,10.00,0.00,0.00,0.00,0.00,0.00,0.00,Bio-Diesel and small agri-biodiesel producer tax credits   ,,,,,,,,,,,,,,,,
+#,Tax credit for producing fuels from a non-conventional source
+#+,2538,JCT,2009,,,,,,,,3700.00,1400.00,<+,<+,<+,,,,,,,,,,,,800.00,300.00,<+,<+,<+,,,,,Tax credit for producing fuels from a non-conventional source,,,,,,,,,,,,,,,,
+#,Tax credits for biodiesel fuels ()
+#+,2540,JCT,2009,,,,,,,,100.00,100.00,<+,0.00,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Tax credits for biodiesel fuels (),,,,,,,,,,,,,,,,
+#,Tax credits for electricity production from renewable resources
+#+,2544,JCT,2009,,,,,,,,1000.00,1500.00,1800.00,1600.00,1400.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,Tax credits for electricity production from renewable resources,,,,,,,,,,,,,,,,
+#,Amortization of geological and geophysical expenditures associated with oil and gas exploration
+#+,2548,JCT,2009,,,,,,,,100.00,200.00,200.00,200.00,100.00,,,,,,,,,,,,<+,100.00,100.00,100.00,<+,,,,,Amortization of geological and geophysical expenditures associated with oil and gas exploration,,,,,,,,,,,,,,,,
+#+,2981,JCT,2011,,,,,,,,,,<+,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Amortization of geological and geophysical expenditures associated with oil and gas exploration,,,,,,,,,,,,,,,,
+#,Energy production credit
+#+,1450,Treasury,2010,,,,,,,,,840.00,1030.00,1070.00,1070.00,1050.00,1040.00,1020.00,,,,,,,,,,80.00,100.00,110.00,110.00,100.00,100.00,100.00,,Energy production credit,,,,,,,,,,,,,,,,
+#+,1615,Treasury,2011,,,,,,,,,,380.00,770.00,1010.00,1230.00,1300.00,1290.00,1260.00,,,,,,,,,,50.00,110.00,150.00,200.00,230.00,240.00,240.00,Energy production credit ,,,,,,,,,,,,,,,,
+#,Energy investment credit
+#+,1451,Treasury,2010,,,,,,,,,30.00,30.00,30.00,30.00,30.00,30.00,30.00,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,Energy investment credit,,,,,,,,,,,,,,,,
+#+,1616,Treasury,2011,,,,,,,,,,230.00,430.00,480.00,540.00,350.00,330.00,400.00,,,,,,,,,,40.00,100.00,120.00,140.00,70.00,40.00,50.00,Energy investment credit ,,,,,,,,,,,,,,,,
+#,Amortize all geological and geophysical expenditures over 2 years
+#+,1461,Treasury,2010,,,,,,,,,20.00,70.00,100.00,100.00,70.00,50.00,30.00,,,,,,,,,,0.00,20.00,30.00,20.00,20.00,10.00,10.00,,Amortize all geological and geophysical expenditures over 2 years,,,,,,,,,,,,,,,,
+#+,1626,Treasury,2011,,,,,,,,,,30.00,120.00,190.00,190.00,150.00,110.00,70.00,,,,,,,,,,10.00,30.00,50.00,50.00,40.00,30.00,20.00,Amortize all geological and geophysical expenditures over 2 years,,,,,,,,,,,,,,,,
+#,Credit for residential energy efficient property
+#+,1466,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,20.00,30.00,20.00,0.00,0.00,0.00,0.00,,Credit for residential energy efficient property,,,,,,,,,,,,,,,,
+#+,1631,Treasury,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,110.00,180.00,180.00,180.00,190.00,190.00,190.00,Credit for residential energy efficient property,,,,,,,,,,,,,,,,
+#,Qualified energy conservation bonds
+#+,1468,Treasury,2010,,,,,,,,,0.00,0.00,0.00,10.00,10.00,10.00,10.00,,,,,,,,,,0.00,0.00,10.00,20.00,30.00,30.00,30.00,,Qualified energy conservation bonds,,,,,,,,,,,,,,,,
+#+,1632,Treasury,2011,,,,,,,,,,0.00,0.00,10.00,20.00,30.00,30.00,30.00,,,,,,,,,,0.00,10.00,30.00,60.00,80.00,90.00,90.00,Qualified energy conservation bonds,,,,,,,,,,,,,,,,
+#,Credits for alternative technology vehicles
+#+,2825,JCT,2010,,,,,,,,,100.00,<+,<+,<+,<+,,,,,,,,,,,,200.00,200.00,200.00,<+,<+,,,,Credits for alternative technology vehicles,,,,,,,,,,,,,,,,
+#+,2945,JCT,2011,,,,,,,,,,100.00,200.00,100.00,<+,<+,,,,,,,,,,,,400.00,500.00,200.00,<+,<+,,,Credits for alternative technology vehicles,,,,,,,,,,,,,,,,
+#,Credit for holders of clean renewable energy bonds
+#+,2826,JCT,2010,,,,,,,,,<+,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Credit for holders of clean renewable energy bonds,,,,,,,,,,,,,,,,
+#+,2946,JCT,2011,,,,,,,,,,<+,100.00,100.00,100.00,200.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Credit for holders of clean renewable energy bonds,,,,,,,,,,,,,,,,
+#,Credit for holder of qualified energy conservation bonds
+#+,2828,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Credit for holder of qualified energy conservation bonds,,,,,,,,,,,,,,,,
+#+,2948,JCT,2011,,,,,,,,,,<+,<+,<+,<+,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Credit for holder of qualified energy conservation bonds,,,,,,,,,,,,,,,,
+#,Credits for investments in clean coal facilities
+#+,2964,JCT,2011,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Credits for investments in clean coal facilities,,,,,,,,,,,,,,,,
+#,Credit for the production of energy-efficient appliances
+#+,2967,JCT,2011,,,,,,,,,,100.00,200.00,100.00,0.00,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Credit for the production of energy-efficient appliances,,,,,,,,,,,,,,,,
+#,Credit for clean-fuel vehicle refueling property
+#+,2970,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Credit for clean-fuel vehicle refueling property,,,,,,,,,,,,,,,,
+#,Residential energy efficient property credit
+#+,2971,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,200.00,200.00,200.00,200.00,,,Residential energy efficient property credit,,,,,,,,,,,,,,,,
+#,New energy efficient home credit
+#+,2972,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,New energy efficient home credit,,,,,,,,,,,,,,,,
+#,Credit for certain alternative motor vehicles that do not meet existing criteria of a qualified plug-in electric drive motor vehicle
+#+,2973,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Credit for certain alternative motor vehicles that do not meet existing criteria of a qualified plug-in electric drive motor vehicle,,,,,,,,,,,,,,,,
+#,Provide credit for investment in advanced energy property
+#+,2974,JCT,2011,,,,,,,,,,100.00,200.00,200.00,300.00,300.00,,,,,,,,,,,,<+,100.00,100.00,100.00,100.00,,,Provide credit for investment in advanced energy property,,,,,,,,,,,,,,,,
+#,Amortization of air pollution control facilities
+#+,2982,JCT,2011,,,,,,,,,,100.00,100.00,200.00,200.00,200.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Amortization of air pollution control facilities,,,,,,,,,,,,,,,,
+#,Election to expense 50 percent of qualified property used to refine liquid fuels
+#+,2988,JCT,2011,,,,,,,,,,500.00,700.00,800.00,700.00,600.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Election to expense 50 percent of qualified property used to refine liquid fuels,,,,,,,,,,,,,,,,
+#,Exceptions for publicly traded partnership with qualified income derived from certain energy-related activities
+#+,2989,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,400.00,500.00,600.00,600.00,700.00,,,Exceptions for publicly traded partnership with qualified income derived from certain energy-related activities,,,,,,,,,,,,,,,,
+#,Expensing of exploration and development costs
+##,Oil and gas
+##+,1784,JCT,2001,400.00,400.00,500.00,500.00,,,,,,,,,,,,,<+,<+,<+,<+,,,,,,,,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,1921,JCT,2002,400.00,500.00,500.00,500.00,500.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2060,JCT,2003,,600.00,600.00,600.00,400.00,300.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2202,JCT,2007,,,,,,500.00,400.00,400.00,500.00,500.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2359,JCT,2008,,,,,,,1100.00,1600.00,1200.00,800.00,600.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2532,JCT,2009,,,,,,,,1100.00,800.00,600.00,500.00,500.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2977,JCT,2011,,,,,,,,,,300.00,400.00,400.00,700.00,800.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Oil and gas,,,,,,,,,,,,,,,,
+##,Other fuels
+##+,1785,JCT,2001,<+,<+,<+,<+,,,,,,,,,,,,,<+,<+,<+,<+,,,,,,,,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,1922,JCT,2002,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2061,JCT,2003,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2203,JCT,2007,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2360,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2533,JCT,2009,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2978,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Other fuels,,,,,,,,,,,,,,,,
+#,Excess of percentage over cost depletion
+##,Oil and gas
+##+,1786,JCT,2001,400.00,400.00,400.00,400.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,1923,JCT,2002,500.00,500.00,500.00,500.00,500.00,,,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2062,JCT,2003,,300.00,300.00,300.00,300.00,400.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2204,JCT,2007,,,,,,500.00,500.00,500.00,600.00,600.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2361,JCT,2008,,,,,,,1000.00,1000.00,900.00,900.00,900.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2534,JCT,2009,,,,,,,,1100.00,1200.00,1200.00,1200.00,1200.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,Oil and gas,,,,,,,,,,,,,,,,
+##+,2979,JCT,2011,,,,,,,,,,1300.00,1200.00,1300.00,1300.00,1400.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Oil and gas,,,,,,,,,,,,,,,,
+##,Other fuels
+##+,1787,JCT,2001,200.00,200.00,200.00,200.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,1924,JCT,2002,200.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2063,JCT,2003,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2205,JCT,2007,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2362,JCT,2008,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2535,JCT,2009,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,,Other fuels,,,,,,,,,,,,,,,,
+##+,2980,JCT,2011,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Other fuels,,,,,,,,,,,,,,,,
+#,Energy related credits
+##,Credit for enhanced oil recovery costs
+##+,2704,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,
+##+,2949,JCT,2011,,,,,,,,,,<+,100.00,<+,<+,<+,,,,,,,,,,,,<+,100.00,<+,<+,<+,,,Credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,
+##,Credit for producing fuels from a non-conventional source
+##+,2705,JCT,2010,,,,,,,,,100.00,100.00,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Credit for producing fuels from a non-conventional source,,,,,,,,,,,,,,,,
+##+,2950,JCT,2011,,,,,,,,,,100.00,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Credit for producing fuels from a non-conventional source,,,,,,,,,,,,,,,,
+##,Credits for alcohol fuels 
+##+,2706,JCT,2010,,,,,,,,,100.00,100.00,100.00,<+,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Credits for alcohol fuels ,,,,,,,,,,,,,,,,
+##+,2951,JCT,2011,,,,,,,,,,6500.00,10100.00,10400.00,11000.00,3900.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Credits for alcohol fuels ,,,,,,,,,,,,,,,,
+##,Credits for investments in clean coal facilities
+##+,2719,JCT,2010,,,,,,,,,200.00,200.00,200.00,100.00,100.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Credits for investments in clean coal facilities,,,,,,,,,,,,,,,,
+##,Credit for the production of energy-efficient appliances
+##+,2722,JCT,2010,,,,,,,,,100.00,100.00,100.00,<+,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Credit for the production of energy-efficient appliances,,,,,,,,,,,,,,,,
+##,Credit for clean-fuel vehicle refueling property
+##+,2725,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Credit for clean-fuel vehicle refueling property,,,,,,,,,,,,,,,,
+##,Residential energy efficient property credit
+##+,2726,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,0.00,0.00,0.00,,,,Residential energy efficient property credit,,,,,,,,,,,,,,,,
+##,New energy efficient home credit
+##+,2727,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,New energy efficient home credit,,,,,,,,,,,,,,,,
+##,Energy credit (section 48)
+###,Solar
+###+,2707,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Solar,,,,,,,,,,,,,,,,
+###,Geothermal
+###+,2708,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Geothermal,,,,,,,,,,,,,,,,
+###,Fuel cells
+###+,2709,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Fuel cells,,,,,,,,,,,,,,,,
+###,Microturbines
+###+,2710,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Microturbines,,,,,,,,,,,,,,,,
+##,Credits for electricity production from renewable resources (section 45)
+###,Wind
+###+,2711,JCT,2010,,,,,,,,,600.00,800.00,900.00,900.00,900.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Wind,,,,,,,,,,,,,,,,
+###,Closed-loop biomass
+###+,2712,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Closed-loop biomass,,,,,,,,,,,,,,,,
+###,Geothermal
+###+,2713,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Geothermal,,,,,,,,,,,,,,,,
+###,Qualified hydropower
+###+,2714,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Qualified hydropower,,,,,,,,,,,,,,,,
+###,Solar (limited to facilities placed in service before 1/1/06)
+###+,2715,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Solar (limited to facilities placed in service before 1/1/06),,,,,,,,,,,,,,,,
+###,Small irrigation power
+###+,2716,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Small irrigation power,,,,,,,,,,,,,,,,
+###,Municipal solid waste
+###+,2717,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Municipal solid waste,,,,,,,,,,,,,,,,
+###,Open-loop biomass
+###+,2718,JCT,2010,,,,,,,,,300.00,400.00,300.00,200.00,200.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Open-loop biomass,,,,,,,,,,,,,,,,
+##,Coal production credits
+###,Refined coal
+###+,2720,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Refined coal,,,,,,,,,,,,,,,,
+###,Indian coal
+###+,2721,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Indian coal,,,,,,,,,,,,,,,,
+##,Credits for alternative technology vehicles
+###,Hybrid vehicles
+###+,2723,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,200.00,200.00,200.00,100.00,<+,,,,Hybrid vehicles,,,,,,,,,,,,,,,,
+###,Other alternative fuel vehicles
+###+,2724,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Other alternative fuel vehicles,,,,,,,,,,,,,,,,
+#,Energy-related exclusions from income
+##,Exclusion of interest on State and local government qualified private activity bonds for energy production facilities
+##+,2728,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,Exclusion of interest on State and local government qualified private activity bonds for energy production facilities,,,,,,,,,,,,,,,,
+##+,2975,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,Exclusion of interest on State and local government qualified private activity bonds for energy production facilities,,,,,,,,,,,,,,,,
+#,Energy-related deductions
+##,Deduction for expenditures on energy-efficient commercial building property
+##+,2729,JCT,2010,,,,,,,,,<+,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Deduction for expenditures on energy-efficient commercial building property,,,,,,,,,,,,,,,,
+##+,2976,JCT,2011,,,,,,,,,,<+,100.00,100.00,100.00,100.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,Deduction for expenditures on energy-efficient commercial building property,,,,,,,,,,,,,,,,
+##,Eight-year inclusion from sale of electric transmission assets to independent utilities
+##+,2730,JCT,2010,,,,,,,,,300.00,200.00,<+,-100.00,-100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Eight-year inclusion from sale of electric transmission assets to independent utilities,,,,,,,,,,,,,,,,
+##,Amortization of geological and geophysical expenditures associated with oil and gas exploration
+##+,2735,JCT,2010,,,,,,,,,100.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,<+,100.00,100.00,100.00,100.00,,,,Amortization of geological and geophysical expenditures associated with oil and gas exploration,,,,,,,,,,,,,,,,
+##,Amortization of air pollution control facilities
+##+,2736,JCT,2010,,,,,,,,,100.00,100.00,100.00,200.00,200.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Amortization of air pollution control facilities,,,,,,,,,,,,,,,,
+##,Election to expense 50 percent of qualified property used to refine liquid fuels
+##+,2741,JCT,2010,,,,,,,,,400.00,1100.00,900.00,800.00,600.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Election to expense 50 percent of qualified property used to refine liquid fuels,,,,,,,,,,,,,,,,
+##,Exceptions for publicly traded partnership with qualified income derived from certain energy-related activities
+##+,2742,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,400.00,400.00,500.00,600.00,600.00,,,,Exceptions for publicly traded partnership with qualified income derived from certain energy-related activities,,,,,,,,,,,,,,,,
+##,Expensing of exploration and development costs
+###,Oil and gas
+###+,2731,JCT,2010,,,,,,,,,2100.00,3000.00,1700.00,400.00,400.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Oil and gas,,,,,,,,,,,,,,,,
+###,Other fuels
+###+,2732,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Other fuels,,,,,,,,,,,,,,,,
+##,Excess of percentage over cost depletion
+###,Oil and gas
+###+,2733,JCT,2010,,,,,,,,,1300.00,1400.00,1400.00,1400.00,1400.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Oil and gas,,,,,,,,,,,,,,,,
+###,Other fuels
+###+,2734,JCT,2010,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,Other fuels,,,,,,,,,,,,,,,,
+##,Depreciation recovery periods for energy specific items
+###,"Five-year MACRS for certain energy property (solar, wind, etc)"
+###+,2737,JCT,2010,,,,,,,,,200.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,"Five-year MACRS for certain energy property (solar, wind, etc)",,,,,,,,,,,,,,,,
+###,10-year MACRS for smart electric distribution property
+###+,2738,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,<+,<+,<+,<+,,,,10-year MACRS for smart electric distribution property,,,,,,,,,,,,,,,,
+###,15-year MACRS for certain electric transmission property
+###+,2739,JCT,2010,,,,,,,,,<+,100.00,100.00,200.00,200.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,15-year MACRS for certain electric transmission property,,,,,,,,,,,,,,,,
+###,15-year MACRS for natural gas distribution line
+###+,2740,JCT,2010,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,,15-year MACRS for natural gas distribution line,,,,,,,,,,,,,,,,
+#,Energy credit (section 48)
+##,Solar
+##+,2952,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Solar,,,,,,,,,,,,,,,,
+##,Geothermal
+##+,2953,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Geothermal,,,,,,,,,,,,,,,,
+##,Fuel cells
+##+,2954,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Fuel cells,,,,,,,,,,,,,,,,
+##,Microturbines
+##+,2955,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Microturbines,,,,,,,,,,,,,,,,
+#,Credits for electricity production from renewable resources (section 45)
+##,Wind
+##+,2956,JCT,2011,,,,,,,,,,700.00,900.00,1100.00,1400.00,1500.00,,,,,,,,,,,,<+,<+,100.00,100.00,100.00,,,Wind,,,,,,,,,,,,,,,,
+##,Closed-loop biomass
+##+,2957,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Closed-loop biomass,,,,,,,,,,,,,,,,
+##,Geothermal
+##+,2958,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Geothermal,,,,,,,,,,,,,,,,
+##,Qualified hydropower
+##+,2959,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Qualified hydropower,,,,,,,,,,,,,,,,
+##,Solar (limited to facilities placed in service before 1/1/06)
+##+,2960,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Solar (limited to facilities placed in service before 1/1/06),,,,,,,,,,,,,,,,
+##,Small irrigation power
+##+,2961,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Small irrigation power,,,,,,,,,,,,,,,,
+##,Municipal solid waste
+##+,2962,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Municipal solid waste,,,,,,,,,,,,,,,,
+##,Open-loop biomass
+##+,2963,JCT,2011,,,,,,,,,,600.00,400.00,300.00,200.00,200.00,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Open-loop biomass,,,,,,,,,,,,,,,,
+#,Coal production credits
+##,Refined coal
+##+,2965,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Refined coal,,,,,,,,,,,,,,,,
+##,Indian coal
+##+,2966,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Indian coal,,,,,,,,,,,,,,,,
+#,Credits for alternative technology vehicles
+##,Hybrid vehicles
+##+,2968,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,200.00,200.00,100.00,100.00,<+,,,Hybrid vehicles,,,,,,,,,,,,,,,,
+##,Other alternative fuel vehicles
+##+,2969,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,Other alternative fuel vehicles,,,,,,,,,,,,,,,,
+#,Depreciation recovery periods for energy specific items
+##,"Five-year MACRS for certain energy property (solar, wind, etc)"
+##+,2983,JCT,2011,,,,,,,,,,300.00,300.00,200.00,100.00,<+,,,,,,,,,,,,<+,<+,<+,<+,<+,,,"Five-year MACRS for certain energy property (solar, wind, etc)",,,,,,,,,,,,,,,,
+##,Seven-year MACRS for natural gas gathering line
+##+,2984,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Seven-year MACRS for natural gas gathering line,,,,,,,,,,,,,,,,
+##,10-year MACRS for smart electric distribution property
+##+,2985,JCT,2011,,,,,,,,,,<+,<+,100.00,100.00,100.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,10-year MACRS for smart electric distribution property,,,,,,,,,,,,,,,,
+##,15-year MACRS for certain electric transmission property
+##+,2986,JCT,2011,,,,,,,,,,100.00,100.00,100.00,200.00,200.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,15-year MACRS for certain electric transmission property,,,,,,,,,,,,,,,,
+##,15-year MACRS for natural gas distribution line
+##+,2987,JCT,2011,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,15-year MACRS for natural gas distribution line,,,,,,,,,,,,,,,,

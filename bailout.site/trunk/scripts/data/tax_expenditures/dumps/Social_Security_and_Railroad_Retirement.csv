@@ -1,0 +1,11 @@
+Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),2004 (Corp),2005 (Corp),2006 (Corp),2007 (Corp),2008 (Corp),2009 (Corp),2010 (Corp),2011 (Corp),2012 (Corp),2013 (Corp),2014 (Corp),2015 (Corp),2000 (Indv),2001 (Indv),2002 (Indv),2003 (Indv),2004 (Indv),2005 (Indv),2006 (Indv),2007 (Indv),2008 (Indv),2009 (Indv),2010 (Indv),2011 (Indv),2012 (Indv),2013 (Indv),2014 (Indv),2015 (Indv),Expenditure Name
+,Social Security and Railroad Retirement
+#,Exclusion of untaxed social security and railroad retirement benefits
+#+,2041,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,24400.00,25400.00,26400.00,27400.00,28300.00,,,,,,,,,,,,Exclusion of untaxed social security and railroad retirement benefits,,,,,,,,,,,,,,,,
+#+,2182,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,24900.00,25600.00,26600.00,27600.00,28400.00,,,,,,,,,,,Exclusion of untaxed social security and railroad retirement benefits,,,,,,,,,,,,,,,,
+#+,2513,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,23100.00,24100.00,24800.00,25900.00,27200.00,,,,,,Exclusion of untaxed social security and railroad retirement benefits,,,,,,,,,,,,,,,,
+#+,2686,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,22400.00,23100.00,24000.00,25000.00,30600.00,,,,,Exclusion of untaxed social security and railroad retirement benefits,,,,,,,,,,,,,,,,
+#+,2917,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,24200.00,25700.00,27800.00,34100.00,35300.00,,,,Exclusion of untaxed social security and railroad retirement benefits,,,,,,,,,,,,,,,,
+#+,3166,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,24000.00,25800.00,32400.00,35300.00,36800.00,,,Exclusion of untaxed social security and railroad retirement benefits,,,,,,,,,,,,,,,,
+#,Exclusion of certain social security and railroad retirement benefits
+#+,2340,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,22300.00,22300.00,22800.00,23500.00,24400.00,,,,,,,Exclusion of certain social security and railroad retirement benefits,,,,,,,,,,,,,,,,
