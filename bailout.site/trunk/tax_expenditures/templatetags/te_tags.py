@@ -234,5 +234,70 @@ class TEGroupSummaryNode(Node):
         
         return render_to_string('tax_expenditures/te_group_summary.html', {'group':group, 'jct_summary':jct_summary, 'treasury_summary':treasury_summary})
     
+
+@register.tag
+def te_group_summary_alt(parser, token):
+    
+    tag, group, source, estimate, years = token.split_contents()
+    
+    return TEGroupSummaryAltNode(group, source, estimate, years)
     
     
+class TEGroupSummaryAltNode(Node):
+    
+    def __init__(self, category, source, estimate, years):
+        self.group_token = Variable(category)
+        self.source_token = Variable(source)
+        self.estimate_token = Variable(estimate)
+        self.years_token = Variable(years)
+    
+    def render(self, context):
+        
+        group = self.group_token.resolve(context)
+        
+        years = self.years_token.resolve(context)
+        
+        source = self.source_token.resolve(context)
+        if source:
+            source = int(source)
+        
+        estimate = int(self.estimate_token.resolve(context))
+        if estimate:
+            estimate = int(estimate)
+        
+        
+        jct_summary_dict = {}
+        
+        if not source or source == GroupSummary.SOURCE_JCT:
+        
+            for summary in group.groupsummary_set.filter(source=GroupSummary.SOURCE_JCT, estimate=estimate):
+                jct_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
+            
+            
+        treasury_summary_dict = {}
+        
+        if not source or source == GroupSummary.SOURCE_TREASURY:
+          
+            for summary in group.groupsummary_set.filter(source=GroupSummary.SOURCE_TREASURY, estimate=estimate):
+                treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
+            
+            
+        summary = []
+        for year in years:
+            estimate = {}
+            
+            if jct_summary_dict.has_key(year):
+                estimate['jct'] = jct_summary_dict[year]
+            else:
+                estimate['jct'] = None
+                
+                
+            if treasury_summary_dict.has_key(year):
+                estimate['treasury'] = treasury_summary_dict[year]
+            else:
+                estimate['treasury'] = None
+                
+            summary.append(estimate)
+
+        
+        return render_to_string('tax_expenditures/te_group_summary_alt.html', {'group':group, 'summary':summary})
