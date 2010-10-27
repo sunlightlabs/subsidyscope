@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% load media %}
+{% load morsel_tags %}
+{% load te_tags %}
+
+{% block content %}
+
+
+<script>
+function reloadPage()
+{
+	if($('#displayEstimate').val() == '1') 
+		$("#loaderForm").attr("action", '{% url tax_expenditures-group group.id 1 %}');
+	else if($('#displayEstimate').val() == '2') 
+		$("#loaderForm").attr("action", '{% url tax_expenditures-group group.id 2 %}');
+	else if($('#displayEstimate').val() == '3') 
+		$("#loaderForm").attr("action", '{% url tax_expenditures-group group.id 3 %}');
+		
+	$("#loaderForm").submit();
+}
+
+
+function toggleLine(line_id)
+{
+	var source_elem = $('#' + line_id + '_source')[0];
+
+	if(source_elem && source_elem.style.display == 'none')
+	     $('#' + line_id + '_source').show();
+	else
+	     $('#' + line_id + '_source').hide();     
+	     
+	     
+	var footnote_elem = $('#' + line_id + '_footnotes')[0];
+
+	if(footnote_elem && footnote_elem.style.display == 'none')
+	     $('#' + line_id + '_footnotes').show();
+	else
+	     $('#' + line_id + '_footnotes').hide();                       
+
+}
+
+</script>
+
+<div class="container main_container">
+    {% include "includes/pted_group_nav.html" %}
+    <div class="span-24">
+        <div id="header_area">
+            <h3>Pew's Tax Expenditure Database</h3>
+        </div>
+        <div class="content_area">
+             	
+        	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
+        
+        	{{ group.description|safe }}
+        	
+        	<form id="loaderForm" action="" method="GET"></form>
+        	
+        	<div style="float: right; text-align: right;">
+        		<a href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
+        	</div>
+        	<br clear="all"/>
+        	<div style="float: right; text-align: right;">
+        		<strong>Display estimates for: </strong><select id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
+        	</div>
+        
+        	
+        	<strong>Summary ($ millions)<a href="#footnote-1" class="footnote">1</a></strong><br/>
+        	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
+				<table>				
+				<tbody>
+				
+					<tr class="header-row"  style="border-right: 1px solid #999; border-left: 1px solid #999;"> 
+					  {% for year in estimate_years %}<td  colspan="2">{{year}}</td>{% endfor %}
+					 
+					</tr>
+					
+					<tr  style="border-right: 1px solid #999; border-left: 1px solid #999; border-bottom: 1px solid #999;"> 
+					  {% for year in estimate_years %}<td style="border-left: 1px solid #ccc;" >Treasury</td><td  style="border-right: 1px solid #ccc;">JCT</td>{% endfor %}
+					 
+					</tr>
+					
+					{% te_group_summary_alt group source estimate estimate_years %}
+
+				</tbody>
+				</table>
+			</div>
+        {% if group.parent %}
+	        {% te_expenditure_detail group report_years estimate_years estimate 'Treasury' %}      
+	        	
+	        {% te_expenditure_detail group report_years estimate_years estimate 'JCT' %}    
+	    {% endif %}  	
+        
+        {% if subgroups%}
+        	<strong>{{ group.name }} Tax Expenditures ($ millions)</strong><br/>
+        	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
+				<table>
+				
+				<tbody>
+				
+					<tr class="header-row"  style="border-right: 1px solid #999; border-left: 1px solid #999;"> 
+					  {% for year in estimate_years %}<td   colspan="2">{{year}}</td>{% endfor %}
+					 
+					</tr>
+					
+					<tr  style="border-right: 1px solid #999; border-left: 1px solid #999; border-bottom: 1px solid #999;"> 
+					  {% for year in estimate_years %}<td style="border-left: 1px solid #ccc;" >Treasury</td><td  style="border-right: 1px solid #ccc;">JCT</td>{% endfor %}
+					 
+					</tr>
+				
+					{% for subgroup in subgroups %}
+						
+						<tr style="border-right: 1px solid #999; border-left: 1px solid #999; border-top: solid 1px #999; border-bottom: solid 1px #ccc;"><td  style="text-align: left;" colspan="15">&nbsp;<span style="position: absolute; width: 100%"><strong><a href="{% url tax_expenditures-group_alt subgroup.id estimate %}">{{ subgroup.name }}</a></strong></span></td></tr>
+						
+						{% te_group_summary_alt subgroup source estimate estimate_years %}
+						
+					{% endfor %}
+				
+				</tbody>
+				</table>
+				
+			</div>
+		{% endif %}
+		
+		<cite>
+		* Contains estimates between -$50 million and $50 million, rounded to zero in total.
+		</cite>
+		
+		<br/>
+		<br/>
+
+		<cite>
+		Notes: Report years, presented along the vertical axis (varying down the rows) correspond to the year of the budget of document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document.
+		</cite>
+		
+		<br/>
+		<br/>
+		
+		<cite>
+		Descriptions of tax expenditures are from OMB, <i><u>Analytical Perspectives.</u></i> OMB. Budget of the U.S. Government, Fiscal Year 2011. pp. 224-240.
+		</cite>
+		
+		<br/>
+		<br/>
+		
+		<ol class="footnotes">
+			<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any single one is changed or repealed.</li>
+		</ol>
+		
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

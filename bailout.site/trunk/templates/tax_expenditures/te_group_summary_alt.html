@@ -1,0 +1,17 @@
+{% load humanize %}
+
+{% if summary %}
+<tr style="border-right: 1px solid #999; border-left: 1px solid #999;">
+	{% for value in summary %}
+	
+	<td style="text-align: right; border-left: 1px solid #ccc; background-color: {% cycle '#eee' '#fff' %};">{% ifequal value.treasury.amount None %}{% if value.treasury.notes %}{% else %}-{% endif %}{% else %}{{ value.treasury.amount|floatformat:0|intcomma }}{% endifequal %}{% if value.treasury.notes %}*{% endif %}</td>
+	<td style="text-align: right; border-left: 1px solid #ccc; background-color: {% cycle '#eee' '#fff' %};">{% ifequal value.jct.amount None %}{% if value.jct.notes %}{% else %}-{% endif %}{% else %}{{ value.jct.amount|floatformat:0|intcomma }}{% endifequal %}{% if value.jct.notes %}*{% endif %}</td>
+	
+	
+	
+	{% endfor %}
+	
+</tr>
+{% endif %}
+
+
