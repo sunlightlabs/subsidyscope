@@ -23,9 +23,6 @@ def group(request, group_id, estimate):
     
     group = Group.objects.get(pk=group_id)
     
-    #jct_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_JCT)
-    #treasury_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_TREASURY)
-    
     subgroups = Group.objects.filter(parent=group)
     estimate_years = range(2000, 2014)
     report_years = range(2000, 2012)
@@ -39,9 +36,6 @@ def group_alt(request, group_id, estimate):
     estimate = int(estimate)
     
     group = Group.objects.get(pk=group_id)
-    
-    #jct_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_JCT)
-    #treasury_expenditures = Expenditure.objects.filter(group=group, source=Expenditure.SOURCE_TREASURY)
     
     subgroups = Group.objects.filter(parent=group)
     estimate_years = range(2007, 2014)

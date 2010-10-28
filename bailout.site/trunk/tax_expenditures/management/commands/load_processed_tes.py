@@ -79,6 +79,9 @@ def process_group(parent, data, indent):
         if row[0] == indent:
             print row[1]
             group = Group.objects.create(name=row[1], parent=parent)
+            group.description = row[36]
+            group.notes = row[37]
+            group.save()
         
         elif row[0] == indent + '+':
             process_expenditure(group, row)
