@@ -12,7 +12,10 @@
    width="500"
    id="svg2"
    inkscape:version="0.47 r22583"
-   sodipodi:docname="_housing_direct_expenditures_billions.svg">
+   sodipodi:docname="_housing_direct_expenditures_billions.svg"
+   inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/housing/_housing_direct_expenditures_billions_alt3.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <metadata
      id="metadata91">
     <rdf:RDF>
@@ -62,9 +65,9 @@
      inkscape:window-height="1009"
      id="namedview87"
      showgrid="false"
-     inkscape:zoom="1.3485714"
-     inkscape:cx="248.1671"
-     inkscape:cy="133.17492"
+     inkscape:zoom="1.3902611"
+     inkscape:cx="658.18684"
+     inkscape:cy="99.538952"
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
@@ -306,4 +309,8 @@
      y="328.41476"
      x="238.14685"
      class="x-axis-label">Fiscal Year</text>
+  <path
+     style="fill:none;stroke:#bf5004;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:2,2;stroke-dashoffset:0"
+     d="m 295.62792,114.0731 33.08731,180.54162 29.49086,-146.01574"
+     id="path3705" />
 </svg>
