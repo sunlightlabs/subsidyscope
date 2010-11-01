@@ -11,8 +11,8 @@ MAX_COLUMNS = 14
 def get_year_choices(columns, year):
     
     year_choices = []
-    years = len(TE_YEARS) % columns + 1
-    
+    years = len(TE_YEARS) - columns + 1;
+        
     previous_year = False
     next_year = False
     
@@ -77,18 +77,31 @@ def group(request, group_id):
     return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'source':None, 'estimate':estimate, 'report_years':report_years, 'estimate_years':estimate_years,  'year':year, 'year_choices':year_choices, 'previous_year':previous_year, 'next_year':next_year}, context_instance=RequestContext(request))
 
 
-def group_alt(request, group_id, estimate):
+def group_alt(request, group_id):
     
     group_id = int(group_id)
     
-    estimate = int(estimate)
+    if request.GET.has_key('estimate'):
+        estimate = int(request.GET['estimate'])
+    else:
+        estimate = GroupSummary.ESTIMATE_COMBINED
     
     group = Group.objects.get(pk=group_id)
     
     subgroups = Group.objects.filter(parent=group)
-    estimate_years = range(2007, 2014)
+    
+    if request.GET.has_key('year'):
+        year = int(request.GET['year'])
+    else:
+        year = 2000
+        
+    year_choices, previous_year, next_year = get_year_choices(7, year)
+        
+    estimate_years = range(year, year + 7)
+    
     report_years = range(2000, 2012)
-    return render_to_response('tax_expenditures/group_alt.html', {'group':group, 'subgroups':subgroups, 'source':None, 'estimate':estimate, 'report_years':report_years, 'estimate_years':estimate_years}, context_instance=RequestContext(request))
+    
+    return render_to_response('tax_expenditures/group_alt.html', {'group':group, 'subgroups':subgroups, 'source':None, 'estimate':estimate, 'report_years':report_years, 'estimate_years':estimate_years,  'year':year, 'year_choices':year_choices, 'previous_year':previous_year, 'next_year':next_year}, context_instance=RequestContext(request))
     
 
 
