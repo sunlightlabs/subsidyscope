@@ -9,7 +9,7 @@
 {% if forloop.last %}
 &raquo; {{ item.name }}
 {% else %}
-&raquo; <a href="{% url tax_expenditures-group item.id estimate_type %}">{{ item.name }}</a>
+&raquo; <a href="{% url tax_expenditures-group item.id %}?estimate={{ estimate_type }}{% if year %}&year={{ year }}{% endif %}">{{ item.name }}</a>
 {% endif %}
 {% endfor %}
 

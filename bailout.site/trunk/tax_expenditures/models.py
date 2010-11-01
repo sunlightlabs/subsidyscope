@@ -23,10 +23,10 @@ def te_sum(values):
         if not value == None and value['notes']:
             notes = True
     
-        if not value == None and value['group']:
+        if not value == None and value.has_key('group') and value['group']:
             groups.append(value['group'])
             
-        if not value == None and value['expenditure']:
+        if not value == None and value.has_key('expenditure') and value['expenditure']:
             expenditures[value['expenditure']] = True  
     
     if len(expenditures) == 1:

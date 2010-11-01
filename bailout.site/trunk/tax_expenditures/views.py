@@ -5,28 +5,76 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, TE_YEARS
 
+MAX_COLUMNS = 14
 
-def main(request, estimate=GroupSummary.ESTIMATE_COMBINED):
+
+def get_year_choices(columns, year):
+    
+    year_choices = []
+    years = len(TE_YEARS) % columns + 1
+    
+    previous_year = False
+    next_year = False
+    
+    for i in range(0, years):
+        
+        first_year = TE_YEARS[0] + i
+        
+        year_choices.append({'value':first_year,'label':'%d-%d' % (first_year, first_year + columns - 1)})
+        
+        if not i == 0 and year == first_year:
+            previous_year = first_year - 1
+            
+        if not i == years - 1 and year == first_year:
+            next_year = first_year + 1
+            
+    return year_choices, previous_year, next_year
+
+def main(request):
     
     groups = Group.objects.filter(parent=None)
     
-    estimate = int(estimate)
-    years = range(2000,2014)
-    return render_to_response('tax_expenditures/main.html', {'groups':groups, 'source':None, 'estimate':estimate, 'te_years':years, 'num_years':len(years)}, context_instance=RequestContext(request))
+    if request.GET.has_key('estimate'):
+        estimate = int(request.GET['estimate'])
+    else:
+        estimate = GroupSummary.ESTIMATE_COMBINED
+        
+    if request.GET.has_key('year'):
+        year = int(request.GET['year'])
+    else:
+        year = 2000
+        
+    year_choices, previous_year, next_year = get_year_choices(MAX_COLUMNS, year)
+        
+    estimate_years = range(year , year + MAX_COLUMNS)
+    return render_to_response('tax_expenditures/main.html', {'groups':groups, 'source':None, 'estimate':estimate, 'estimate_years':estimate_years, 'num_years':len(estimate_years), 'year':year, 'year_choices':year_choices, 'previous_year':previous_year, 'next_year':next_year}, context_instance=RequestContext(request))
 
 
-def group(request, group_id, estimate):
+def group(request, group_id):
     
     group_id = int(group_id)
     
-    estimate = int(estimate)
+    if request.GET.has_key('estimate'):
+        estimate = int(request.GET['estimate'])
+    else:
+        estimate = GroupSummary.ESTIMATE_COMBINED
     
     group = Group.objects.get(pk=group_id)
     
     subgroups = Group.objects.filter(parent=group)
-    estimate_years = range(2000, 2014)
+    
+    if request.GET.has_key('year'):
+        year = int(request.GET['year'])
+    else:
+        year = 2000
+        
+    year_choices, previous_year, next_year = get_year_choices(MAX_COLUMNS, year)
+        
+    estimate_years = range(year, year + MAX_COLUMNS)
+    
     report_years = range(2000, 2012)
-    return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'source':None, 'estimate':estimate, 'report_years':report_years, 'estimate_years':estimate_years}, context_instance=RequestContext(request))
+    
+    return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'source':None, 'estimate':estimate, 'report_years':report_years, 'estimate_years':estimate_years,  'year':year, 'year_choices':year_choices, 'previous_year':previous_year, 'next_year':next_year}, context_instance=RequestContext(request))
 
 
 def group_alt(request, group_id, estimate):
