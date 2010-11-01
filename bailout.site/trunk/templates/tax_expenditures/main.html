@@ -9,14 +9,14 @@
 <script>
 function reloadPage()
 {
-	if($('#displayEstimate').val() == '1') 
-		$("#loaderForm").attr("action", '{% url tax_expenditures-main 1 %}');
-	else if($('#displayEstimate').val() == '2') 
-		$("#loaderForm").attr("action", '{% url tax_expenditures-main 2 %}');
-	else if($('#displayEstimate').val() == '3') 
-		$("#loaderForm").attr("action", '{% url tax_expenditures-main 3 %}');
-		
-	$("#loaderForm").submit();
+	$("#filterForm").submit();
+}
+
+function changeYear(year)
+{
+	$("#displayYear").val(year)
+	$("#filterForm").submit();
+	return false;
 }
 
 </script>
@@ -33,7 +33,6 @@ function reloadPage()
         
         	{% morsel text1 %}
         
-        	<form id="loaderForm" action="" method="GET"></form>
         	
         	
         	
@@ -42,8 +41,14 @@ function reloadPage()
         	</div>
         	<br clear="all"/>
         	<div style="float: right; text-align: right;">
-        		<strong>Display estimates for: </strong><select id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
-        	</div>
+        	
+	        	<form id="filterForm" action="{% url tax_expenditures-main %}" method="GET">
+	        		<strong>Display estimates for: </strong><select name="estimate" id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
+	        		<strong>Show years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
+	        	</form>
+	        	</div>
+        	
+        	
         	
         	<h5 style="margin-top:20px;">Summary of Tax Expenditures ($ millions) <a href="#footnote-1" class="footnote">1</a></h5> 
         	
@@ -51,24 +56,25 @@ function reloadPage()
         	<div id="subsidy-charts"> 
 				<table>
 				
-				<tbody>
+				<tbody style="border-right: 1px solid #999; border-left: 1px solid #999;">
 				
-					<tr class="header-row" style="border-right: 1px solid #999; border-left: 1px solid #999;"> 
-					  <td></td>
-					  {% for year in te_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
+					<tr class="header-row" > 
+					  <td style="border-left: 1px solid #999;">&nbsp;</td>
+					  {% for year in estimate_years %}<td style="text-align: right; {% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{% if forloop.first  %}{% if previous_year %}<a href="#" onclick="changeYear({{ previous_year }}); return false;"><img style="vertical-align: top;" src="/media/images/scroll_left.png"/></a>&nbsp;{% endif %}{% endif %}{{year}}{% if forloop.last  %}{% if next_year %}<a href="#" onclick="changeYear({{ next_year }}); return false;"><img style="vertical-align: top;" src="/media/images/scroll_right.png"/></a>{% endif %}{% endif %}</td>{% endfor %}
 					 
 					</tr>
 					{% for group in groups %}
 						
-						<tr style="border-bottom: solid 1px #ccc; border-top: solid 1px #999; border-right: 1px solid #999; border-left: 1px solid #999;"><td  style="text-align: left;" colspan="15"><strong><a href="{% url tax_expenditures-group group.id estimate %}">{{ group.name }}</a></strong></td></tr>
+						<tr><td style="border-bottom: solid 1px #ccc; border-top: solid 1px #999; text-align: left;" colspan="15"><strong><a href="{% url tax_expenditures-group group.id %}?estimate={{ estimate }}">{{ group.name }}</a></strong></td></tr>
 						
-						{% te_group_summary group source estimate te_years %}
+						{% te_group_summary group source estimate estimate_years %}
 						
 					{% endfor %}
 				
 				</tbody>
 				</table>
 			</div>
+			
 			
 		<cite>
 		* Contains estimates between -$50 million and $50 million, rounded to zero in total.
@@ -81,8 +87,7 @@ function reloadPage()
 		<ol class="footnotes">
 			<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any single one is changed or repealed.</li>
 		</ol>
-		
-			
+		</div>
 			
 		</div>
 	</div>

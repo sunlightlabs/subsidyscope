@@ -43,22 +43,24 @@ TREASURY_SOURCES[2011] = 'OMB. "Analytical Perspectives, Budget of the U.S. Gove
 @register.tag
 def te_breadcrumb(parser, token):
     
-    tag, group, estimate_type = token.split_contents()
+    tag, group, estimate_type, year = token.split_contents()
 
-    return TEBreadcrumb(group, estimate_type)
+    return TEBreadcrumb(group, estimate_type, year)
 
 class TEBreadcrumb(Node):
     
-    def __init__(self, group, estimate_type):
+    def __init__(self, group, estimate_type, year):
         
         self.group_token = Variable(group)
         self.estimate_type_token = Variable(estimate_type)
+        self.year_token = Variable(year)
     
     def render(self, context):
         
         group = self.group_token.resolve(context)
         
         estimate_type = int(self.estimate_type_token.resolve(context))
+        year = int(self.year_token.resolve(context))
         if estimate_type:
             estimate = int(estimate_type)
 
@@ -73,7 +75,7 @@ class TEBreadcrumb(Node):
             
             list.reverse()
 
-        return render_to_string('tax_expenditures/te_breadcrumb.html', {'list':list, 'estimate_type':estimate_type})
+        return render_to_string('tax_expenditures/te_breadcrumb.html', {'list':list, 'estimate_type':estimate_type, 'year':year})
 
 @register.tag
 def te_expenditure_detail(parser, token):
@@ -160,7 +162,7 @@ class TEEpenditureDetailNode(Node):
                     source_string = '%s from %s' % (report.expenditure_source.name, source_string)
                     footnotes = report.expenditure_source.notes
                 else:
-                    source_string = '%s Sum of %s tax expenditures listed below.' % (source_string, source)    
+                    source_string = '%s Sum of %s tax expenditures listed above.' % (source_string, source)    
             
                 lines.append({'report_year':report_year, 'id':id, 'data':data, 'source':source_string, 'footnotes':footnotes})
         

@@ -9,37 +9,37 @@
 <div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 	<table>
 	
-	<tbody>
+	<tbody  style="border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
 	
-		<tr class="header-row"  style="border-right: 1px solid #ccc; border-left: 1px solid #ccc;"> 
+		<tr class="header-row" > 
 		  <td></td>
 		  {% for year in estimate_years %}<td  style="text-align: right;">{{year}}</td>{% endfor %}
 		 
 		</tr>
 		
-		<tr style="border-right: 1px solid #ccc; border-left: 1px solid #ccc;"><td style=" border-right: 1px solid #ccc; width: 100px;"><strong>Report Year</strong></td><td colspan="14"></td></tr>
+		<tr><td style="border-right: 1px solid #ccc; width: 100px;"><strong>Report Year</strong></td><td colspan="14"></td></tr>
 		
 		{% for line in lines %}
 			
-			<tr style="border-top: 1px solid  #ccc; border-left: 1px solid #ccc;">
+			<tr>
 	
-				<td style="border-right: 1px solid #ccc;"><em><a href="#" onclick="toggleLine('{{ line.id }}');return false;">{{ line.report_year }}</a></em></td>
+				<td style="border-right: 1px solid #ccc; border-top: 1px solid  #ccc;"><em>{{ line.report_year }}{% if line.footnotes %}&dagger;{% endif %} <a href="#" onclick="toggleLine('{{ line.id }}');return false;"><img id="{{ line.id }}_toggle" src="/media/images/collapse_plus.png"/></a></em></td>
 					
 					{% for item in line.data %}
 						{% ifnotequal item None %}
-							<td style="background-color: {{ item.color }}; text-align: right; border-right: 1px solid #ccc;">{{ item.value|floatformat:0|intcomma }}{% if item.notes %}*{% endif %}</td>
+							<td style="background-color: {{ item.color }}; text-align: right; border-right: 1px solid #ccc; border-top: 1px solid  #ccc;">{{ item.value|floatformat:0|intcomma }}{% if item.notes %}*{% endif %}</td>
 						{% else %}
-						 	<td style="border-right: 1px solid #ccc;"></td>
+						 	<td style="border-right: 1px solid #ccc; border-top: 1px solid  #ccc;"></td>
 						{% endifnotequal %}
 					{% endfor %}
 				
 				</tr>
 				
-				<tr id="{{ line.id }}_source" style="display: none; border-top: 1px solid  #eee;  border-left: 1px solid #ccc;  border-right: 1px solid #ccc;">
-					<td style="text-align: right;"><strong>Source:</strong></td><td colspan="14" style="text-align: left;">{{ line.source }}</td>
+				<tr id="{{ line.id }}_source" style="display: none;">
+					<td style="text-align: right;  border-top: 1px solid  #eee;"><strong>Source:</strong></td><td colspan="14" style="text-align: left;  border-top: 1px solid  #eee;">{{ line.source }}</td>
 				</tr>
 				{% if line.footnotes %}
-					<tr id="{{ line.id }}_footnotes" style="display: none;  border-left: 1px solid #ccc;  border-right: 1px solid #ccc;">
+					<tr id="{{ line.id }}_footnotes" style="display: none;">
 							<td style="text-align: right;"><strong>Footnotes:</strong></td><td colspan="14" style="text-align: left;">{{ line.footnotes }}</td>
 						
 						
@@ -56,11 +56,11 @@
 			<div style="float: right;">
 				<div style="width: 150px; display:inline; float: left;"></div>
 				<div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddd; display: inline; float: left; margin-right: 10px;"></div>
-				<div>Old estimate</div>
+				<div>Previous estimate</div>
 			</div>
-			<div style="width: 200px; display:inline; float: right;">
+			<div style="width: 350px; display:inline; float: right;">
 				<div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #aaf; display: inline; float: left; margin-right: 10px;"></div>
-				<div>Estimate included in total</div>
+				<div>Latest estimate, included in summary totals at top of page</div>
 			</div>
 		</div>
 </div>
