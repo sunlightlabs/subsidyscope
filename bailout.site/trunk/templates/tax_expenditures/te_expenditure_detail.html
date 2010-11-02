@@ -6,7 +6,7 @@
 
 
 <strong>Summary of {{ source }} Tax Expenditure Estimates by Report Year ($ millions)</strong><br/>
-Click <img src="/media/images/collapse_plus.png"/>for source information and footnotes from original report.
+Click the plus for source information and footnotes from original report.
 <div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 	<table>
 	
@@ -24,7 +24,7 @@ Click <img src="/media/images/collapse_plus.png"/>for source information and foo
 			
 			<tr>
 	
-				<td style="border-right: 1px solid #ccc; border-top: 1px solid  #ccc;"><em>{{ line.report_year }}{% if line.footnotes %}&dagger;{% endif %} <a href="#" onclick="toggleLine('{{ line.id }}');return false;"><img id="{{ line.id }}_toggle" src="/media/images/collapse_plus.png"/></a></em></td>
+				<td style="border-right: 1px solid #ccc; border-top: 1px solid  #ccc;"><em>{{ line.report_year }}{% if line.footnotes %}&dagger;{% endif %} <a href="#" onclick="toggleLine('{{ line.id }}');return false;"><img style="vertical-align: top; margin-left: 5px;" id="{{ line.id }}_toggle" src="/media/images/plus_blk.png"/></a></em></td>
 					
 					{% for item in line.data %}
 						{% ifnotequal item None %}
