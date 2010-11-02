@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, TE_YEARS
 
-MAX_COLUMNS = 14
+MAX_COLUMNS = 11
 
 
 def get_year_choices(columns, year):
@@ -42,7 +42,7 @@ def main(request):
     if request.GET.has_key('year'):
         year = int(request.GET['year'])
     else:
-        year = 2000
+        year = 2001
         
     year_choices, previous_year, next_year = get_year_choices(MAX_COLUMNS, year)
         
@@ -66,7 +66,7 @@ def group(request, group_id):
     if request.GET.has_key('year'):
         year = int(request.GET['year'])
     else:
-        year = 2000
+        year = 2001
         
     year_choices, previous_year, next_year = get_year_choices(MAX_COLUMNS, year)
         
