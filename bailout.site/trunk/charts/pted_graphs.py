@@ -1,11 +1,11 @@
 from charty import Column, Line, Pie
 
-treasury_jct_comparison = Column(400, 200, [[('Housing', 185210),
-                    ('Energy', 5220),
-                    ('Transportation', 3690)],
-				    [('Housing', 153600),
-                    ('Energy', 12900), 
-                    ('Transportation', 4500)]], "barchart.css", x_label_padding=15, x_label_height=50,  x_padding=10)
+treasury_jct_comparison = Column(400, 300, [[('Housing', 185),
+                    ('Energy', 5),
+                    ('Transportation', 4)],
+				    [('Housing', 154),
+                    ('Energy', 13), 
+                    ('Transportation', 5)]], "barchart.css", x_label_padding=15, x_label_height=50,  x_padding=10)
 
 treasury_jct_comparison.max_x_point_width = 10
 treasury_jct_comparison.output("../media/images/charts/pted/treasury_jct_comparison.svg")

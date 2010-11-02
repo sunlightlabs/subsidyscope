@@ -12,7 +12,7 @@
    width="400"
    id="svg2"
    inkscape:version="0.47 r22583"
-   sodipodi:docname="treasury_jct_comparison.svg"
+   sodipodi:docname="_treasury_jct_comparison.svg"
    inkscape:export-filename="/home/kpwebb/workspace/subsidyscope_main/bailout.site/trunk/media/images/charts/pted/treasury_jct_comparison.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -39,6 +39,13 @@
        id="perspective81" />
     <inkscape:perspective
        id="perspective4055"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2942"
        inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
        inkscape:vp_z="1 : 0.5 : 1"
        inkscape:vp_y="0 : 1000 : 0"
@@ -107,215 +114,6 @@
      inkscape:export-xdpi="90"
      inkscape:export-ydpi="90" />
   <g
-     id="grid"
-     transform="translate(30, 30)">
-    <g
-       class="x-axis"
-       id="x_axis">
-      <path
-         class="x-axis-path"
-         d="M 0 90 L 340 90"
-         id="path10" />
-      <path
-         class="x-notch-left"
-         d="M 0 90, L 0 100"
-         id="path12" />
-      <path
-         class="x-notch-right"
-         d="M 340 90, L 340 100"
-         id="path14" />
-    </g>
-    <g
-       class="y-axis"
-       id="y_axis">
-      <path
-         class="y-axis-path"
-         d="M 0 90 L 0 0"
-         id="path17" />
-      <path
-         class="y-axis-path-2"
-         d="M 340 90 L 340 0"
-         id="path19" />
-      <path
-         class="y-gridline"
-         d="M 0 90 L 340 90"
-         id="path21" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="90"
-         id="text23">
-				 0
-			</text>
-      <path
-         class="y-gridline"
-         d="M 0 68 L 340 68"
-         id="path25" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="68"
-         id="text27">
-				50
-			</text>
-      <path
-         class="y-gridline"
-         d="M 0 46 L 340 46"
-         id="path29" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="46"
-         id="text31">
-				100
-			</text>
-      <path
-         class="y-gridline"
-         d="M 0 24 L 340 24"
-         id="path33" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="24"
-         id="text35">
-				150
-			</text>
-      <path
-         class="y-gridline"
-         d="M 0 2 L 340 2"
-         id="path37" />
-      <text
-         class="y-axis-label"
-         x="-5"
-         y="2"
-         id="text39">
-				200
-			</text>
-    </g>
-    <rect
-       class="series-0-point"
-       height="2.898"
-       width="30"
-       x="26"
-       y="87.102"
-       id="rect41" />
-    <text
-       class="data-point-label"
-       x="41"
-       y="82.102"
-       id="text43"
-       style="font-size:10">
-			 6
-		</text>
-    <rect
-       class="series-0-point"
-       height="84.438"
-       width="30"
-       x="139"
-       y="5.562"
-       id="rect45" />
-    <text
-       class="data-point-label"
-       x="154"
-       y="0.562"
-       id="text47"
-       style="font-size:10">
-			187
-		</text>
-    <rect
-       class="series-0-point"
-       height="1.6605"
-       width="30"
-       x="252"
-       y="88.3395"
-       id="rect49" />
-    <text
-       class="data-point-label"
-       x="267"
-       y="83.3395"
-       id="text51"
-       style="font-size:10">
-			 3
-		</text>
-    <path
-       class="x-notch"
-       d="M 112 90 L 112 95"
-       id="path53" />
-    <rect
-       class="series-1-point"
-       height="21.213"
-       width="30"
-       x="56"
-       y="68.787"
-       id="rect55" />
-    <text
-       class="data-point-label"
-       x="71"
-       y="63.787"
-       id="text57"
-       style="font-size:10">
-			47
-		</text>
-    <path
-       class="x-notch"
-       d="M 225 90 L 225 95"
-       id="path59" />
-    <rect
-       class="series-1-point"
-       height="72.414"
-       width="30"
-       x="169"
-       y="17.586"
-       id="rect61" />
-    <text
-       class="data-point-label"
-       x="184"
-       y="12.586"
-       id="text63"
-       style="font-size:10">
-			160
-		</text>
-    <rect
-       class="series-1-point"
-       height="4.266"
-       width="30"
-       x="282"
-       y="85.734"
-       id="rect65" />
-    <text
-       class="data-point-label"
-       x="297"
-       y="80.734"
-       id="text67"
-       style="font-size:10">
-			 9
-		</text>
-    <text
-       class="x-axis-label"
-       x="56"
-       y="100"
-       id="text69"
-       style="font-size:10">
-			Energy
-		</text>
-    <text
-       class="x-axis-label"
-       x="169"
-       y="100"
-       id="text71"
-       style="font-size:10">
-			Housing
-		</text>
-    <text
-       class="x-axis-label"
-       x="282"
-       y="100"
-       id="text73"
-       style="font-size:10">
-			Transportation
-		</text>
-  </g>
-  <g
      id="g2946"
      transform="translate(215,-137)">
     <g
@@ -364,5 +162,208 @@
            y="244.33031"
            id="tspan2934">Treasury</tspan></text>
     </g>
+  </g>
+  <g
+     id="grid-0"
+     transform="translate(44,24.83045)">
+    <g
+       class="x-axis"
+       id="x_axis-8">
+      <path
+         class="x-axis-path"
+         d="m 0,90 320,0"
+         id="path10-8"
+         style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         class="x-notch-left"
+         d="M 0,90"
+         id="path12-5"
+         style="stroke:#a7a9ac" />
+      <path
+         class="x-notch-right"
+         d="M 320,90"
+         id="path14-0"
+         style="stroke:#a7a9ac" />
+    </g>
+    <g
+       class="y-axis"
+       id="y_axis-9">
+      <path
+         class="y-axis-path"
+         d="M 0,90 0,0"
+         id="path17-6"
+         style="display:none" />
+      <path
+         class="y-axis-path-2"
+         d="M 320,90 320,0"
+         id="path19-3" />
+      <path
+         class="y-gridline"
+         d="m 0,90 320,0"
+         id="path21-8"
+         style="display:none" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="90"
+         id="text23-5"
+         style="display:none">0</text>
+      <path
+         class="y-gridline"
+         d="m 0,68 320,0"
+         id="path25-6"
+         style="display:none" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="68"
+         id="text27-1"
+         style="display:none">50</text>
+      <path
+         class="y-gridline"
+         d="m 0,46 320,0"
+         id="path29-1"
+         style="display:none" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="46"
+         id="text31-5"
+         style="display:none">100</text>
+      <path
+         class="y-gridline"
+         d="m 0,24 320,0"
+         id="path33-9"
+         style="display:none" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="24"
+         id="text35-8"
+         style="display:none">150</text>
+      <path
+         class="y-gridline"
+         d="M 0,2 320,2"
+         id="path37-4"
+         style="display:none" />
+      <text
+         class="y-axis-label"
+         x="-5"
+         y="2"
+         id="text39-8"
+         style="display:none">200</text>
+    </g>
+    <rect
+       class="series-0-point"
+       height="83.344498"
+       width="30"
+       x="23"
+       y="6.6554999"
+       id="rect41-1"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:2px" />
+    <text
+       class="data-point-label"
+       x="38"
+       y="1.6555001"
+       id="text43-0"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">185</text>
+    <rect
+       class="series-0-point"
+       height="2.349"
+       width="30"
+       x="129"
+       y="87.651001"
+       id="rect45-3"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:2px" />
+    <text
+       class="data-point-label"
+       x="144"
+       y="82.651001"
+       id="text47-0"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">5</text>
+    <rect
+       class="series-0-point"
+       height="1.6605"
+       width="30"
+       x="235"
+       y="88.3395"
+       id="rect49-4"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:2px" />
+    <text
+       class="data-point-label"
+       x="250"
+       y="83.3395"
+       id="text51-4"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">3</text>
+    <path
+       class="x-notch"
+       d="m 106,90 0,5"
+       id="path53-4"
+       style="stroke:#a7a9ac" />
+    <rect
+       class="series-1-point"
+       height="69.120003"
+       width="30"
+       x="53"
+       y="20.879999"
+       id="rect55-4"
+       style="fill:#336699;stroke:#d6d9db;stroke-width:2px" />
+    <text
+       class="data-point-label"
+       x="68"
+       y="15.88"
+       id="text57-7"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">153</text>
+    <path
+       class="x-notch"
+       d="m 212,90 0,5"
+       id="path59-6"
+       style="stroke:#a7a9ac" />
+    <rect
+       class="series-1-point"
+       height="5.8049998"
+       width="30"
+       x="159"
+       y="84.195"
+       id="rect61-3"
+       style="fill:#336699;stroke:#d6d9db;stroke-width:2px" />
+    <text
+       class="data-point-label"
+       x="174"
+       y="79.195"
+       id="text63-1"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">12</text>
+    <rect
+       class="series-1-point"
+       height="2.0250001"
+       width="30"
+       x="265"
+       y="87.974998"
+       id="rect65-7"
+       style="fill:#336699;stroke:#d6d9db;stroke-width:2px" />
+    <text
+       class="data-point-label"
+       x="280"
+       y="82.974998"
+       id="text67-5"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">4</text>
+    <text
+       class="x-axis-label"
+       x="53"
+       y="105"
+       id="text69-9"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Housing</text>
+    <text
+       class="x-axis-label"
+       x="159"
+       y="105"
+       id="text71-6"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Energy</text>
+    <text
+       class="x-axis-label"
+       x="265"
+       y="105"
+       id="text73-2"
+       style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif">Transportation</text>
   </g>
 </svg>
