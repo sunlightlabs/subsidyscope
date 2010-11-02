@@ -225,12 +225,16 @@ class TEGroupSummaryNode(Node):
                 treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
             
             treasury_summary = []
+            no_data = True
             for year in years:
                 if treasury_summary_dict.has_key(year):
                     treasury_summary.append(treasury_summary_dict[year])
+                    no_data = False
                 else:
                     treasury_summary.append(None)
             
+            if no_data:
+                treasury_summary = None
         else:
             treasury_summary = None
         

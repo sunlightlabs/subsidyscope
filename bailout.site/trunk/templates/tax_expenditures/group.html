@@ -93,7 +93,7 @@ function toggleLine(line_id)
 			</div>  	
         
         {% if subgroups%}
-        	<strong>Tax Expenditures within {{ group.name }} ($ millions)</strong><br/>
+        	<strong>{% if group.parent %}JCT {% endif %}Tax Expenditures within {{ group.name }} ($ millions)</strong><br/>
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
