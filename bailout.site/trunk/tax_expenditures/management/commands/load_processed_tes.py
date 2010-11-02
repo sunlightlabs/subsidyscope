@@ -56,7 +56,7 @@ def process_file(data):
     row = data.pop()
     
     if row[0] == '':
-        group = Group.objects.create(name=row[1])
+        group = Group.objects.create(name=row[1], description = row[36])
         
         process_group(group, data, '')
     else:
@@ -110,10 +110,11 @@ def process_expenditure(group, row):
         item_number = int(row[1])
 
     name = row[36]
+    notes = row[37]
     
     analysis_year = int(row[3])
     
-    expenditure = Expenditure.objects.create(group=group, name=name, item_number=item_number, source=source, analysis_year=analysis_year)
+    expenditure = Expenditure.objects.create(group=group, name=name, notes=notes, item_number=item_number, source=source, analysis_year=analysis_year)
     
     i = 0 
     
