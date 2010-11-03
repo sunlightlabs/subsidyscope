@@ -126,18 +126,22 @@ function toggleLine(line_id)
 	    {% endif %}
 		
 		
-		<div style="margin-bottom: 50px; float: right;">
+		
+		
+		{% if  group.parent %}
+		
 			<div style="width: 350px; display:inline; float: right; ">
 				<div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #aaf; display: inline; float: left; margin-right: 10px;"></div>
 				<div>Latest estimate, included in summary totals at top of page</div>
 			</div>
-			
-			<div style="width: 150px; margin-top: 25px;">
+			<br clear="all"/>
+			<div style="width: 350px; float: right; margin-top: 10px;">
 				<div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddd; display: inline; float: left; margin-right: 10px;"></div>
 				<div>Previous estimate</div>
 			</div>
-			
-		</div>
+		
+		
+		{% endif %}
 		
 		<cite>
 		* Contains estimates between -$50 million and $50 million that are rounded to zero in the totals.
