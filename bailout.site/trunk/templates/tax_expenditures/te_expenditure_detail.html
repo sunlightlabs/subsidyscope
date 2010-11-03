@@ -24,7 +24,7 @@ Click the plus for source information and footnotes from original report.
 			
 			<tr>
 	
-				<td style="border-right: 1px solid #ccc; border-top: 1px solid  #ccc;"><em>{{ line.report_year }}{% if line.footnotes %}&dagger;{% endif %} <a href="#" onclick="toggleLine('{{ line.id }}');return false;"><img style="vertical-align: top; margin-left: 5px;" id="{{ line.id }}_toggle" src="/media/images/plus_blk.png"/></a></em></td>
+				<td style="border-right: 1px solid #ccc; border-top: 1px solid  #ccc;"><em>{{ line.report_year }} <a href="#" onclick="toggleLine('{{ line.id }}');return false;"><img style="vertical-align: top; margin-left: 5px;" id="{{ line.id }}_toggle" src="/media/images/plus_blk.png"/></a></em></td>
 					
 					{% for item in line.data %}
 						{% ifnotequal item None %}
@@ -53,15 +53,4 @@ Click the plus for source information and footnotes from original report.
 		</tbody>
 		</table>
 		
-		<div style="margin-bottom: 50px;">
-			<div style="float: right;">
-				<div style="width: 150px; display:inline; float: left;"></div>
-				<div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddd; display: inline; float: left; margin-right: 10px;"></div>
-				<div>Previous estimate</div>
-			</div>
-			<div style="width: 350px; display:inline; float: right;">
-				<div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #aaf; display: inline; float: left; margin-right: 10px;"></div>
-				<div>Latest estimate, included in summary totals at top of page</div>
-			</div>
-		</div>
 </div>

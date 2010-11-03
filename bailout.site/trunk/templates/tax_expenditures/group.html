@@ -125,22 +125,38 @@ function toggleLine(line_id)
 	        {% te_expenditure_detail group report_years estimate_years estimate 'JCT' %}    
 	    {% endif %}
 		
-		<cite>
-		* Contains estimates between -$50 million and $50 million, rounded to zero in total.
-		</cite>
 		
-		<br/>
+		<div style="margin-bottom: 50px; float: right;">
+			<div style="width: 350px; display:inline; float: right; ">
+				<div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #aaf; display: inline; float: left; margin-right: 10px;"></div>
+				<div>Latest estimate, included in summary totals at top of page</div>
+			</div>
+			
+			<div style="width: 150px; margin-top: 25px;">
+				<div style="border: solid 1px #ccc; width: 20px; height: 20px; background-color: #ddd; display: inline; float: left; margin-right: 10px;"></div>
+				<div>Previous estimate</div>
+			</div>
+			
+		</div>
 		
 		<cite>
-		&dagger; Contains footnote from source document, click plus for additional information.
+		* Contains estimates between -$50 million and $50 million that are rounded to zero in the totals.
 		</cite>
+	
 		
 		<br/>
 		<br/>
 
+	
+		{% if not group.parent %}
 		<cite>
-		Notes: Report years, presented along the vertical axis (varying down the rows) correspond to the year of the budget of document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document.
+			Notes: Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is the most recent estimate made for that year. All estimates are reported in nominal dollars by fiscal year. Click on specific tax expenditures for more information and data.
 		</cite>
+		{% else %}
+		<cite>
+			Notes: Report years, presented along the vertical axis (varying down the rows) correspond to the year of the budget of document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. All estimates are reported in nominal dollars by fiscal year.
+		</cite>
+		{% endif %}
 		
 		<br/>
 		<br/>
