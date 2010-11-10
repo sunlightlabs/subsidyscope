@@ -1,4 +1,4 @@
-from charty import * 
+from charts.charty import * 
 
 #top_housing_TE = Column(650, 350, [[("Deductibility of\n mortgage interest \non owner-occupied\n homes", 61450000000), ("Deductibility of \nState and local\n property tax on \nowner-occupied \nhomes", 19930000000), ("Capital gains\n exclusion on\n home sales", 29730000000), ("Exclusion of\n net imputed\n rental income on \nowner-occupied \nhomes", 24590000000), ("Credit for\n home buyer", 9730000000) ]], "barchart_housing.css", x_label_padding=20, x_padding=5, x_label_height=60, units=True, currency=True)
 #top_housing_TE.output("../../media/images/charts/housing/top_housing_TE.svg")
@@ -35,28 +35,51 @@ from charty import *
 #                                 ('',  4.6)]], '../piechart.css')  # ('Imports', 112)
 #struct1.output('../../media/images/charts/housing/structure_figure1.svg')
 
-test = Column(500, 340, [[('testA', 1640), 
-                    ('testB', 1050),
-                    ('testC', 770)],
-                    [('testA', 1050), 
-                    ('testB', 123),
-                    ('testC', 770)],
-                    [('testA', 1050), 
-                    ('testB', 123),
-                    ('testC', 770)]], "../barchart.css", label_rotate=-35, x_label_padding=10, x_label_height=100)
-test.output("../../media/images/charts/housing/test.svg")
+test = StackedColumn(700, 340, [[('severe', 5732), 
+                                ('some', 1778),
+                                ('none', 1733)],
+                                
+                                [('severe', 1711), 
+                                ('some', 3375),
+                                ('none', 1611)],
+                                
+                                [('severe', 703), 
+                                ('some', 3095),
+                                ('none', 3853)],
+                                
+                                [('severe', 253), 
+                                ('some', 1077),
+                                ('none', 4187)],
+                                
+                                [('severe', 165), 
+                                ('some', 690),
+                                ('none', 5090)],
+                                
+                                
+                                
+                                [('severe', 3667), 
+                                ('some', 1185),
+                                ('none', 1339)],
+                                
+                                [('severe', 2136), 
+                                ('some', 2264),
+                                ('none', 3230)],
+                                
+                                [('severe', 1991), 
+                                ('some', 3370),
+                                ('none', 6851)],
+                                
+                                [('severe', 1101), 
+                                ('some', 3312),
+                                ('none', 8783)],
+                                
+                                [('severe', 1057), 
+                                ('some', 4175),
+                                ('none', 31204)]
+                                
+                                
+                                ], "./stacked_barchart.css", gridlines=10)
+test.output("./test.svg")
 
 
 
-#top_housing_TE = Column(600, 350, [[("Deductibility of\n mortgage interest \non owner-occupied\n homes", 79400000000), ("Deductibility of \nState and local\n property tax on \nowner-occupied \nhomes", 29010000000), ("Exclusion of\n net imputed\n rental income on \nowner-occupied \nhomes", 27040000000), ("Capital gains\n exclusion on\n home sales", 24000000000), ("Credit for\n home buyer",10000000000 ) ]], "barchart_housing.css", x_label_padding=20, x_padding=5, padding=20, x_label_height=80, units=False, currency=True)
-#top_housing_TE.output("../../media/images/charts/housing/top_housing_TE.svg")
-
-grants = Column(500, 250, [[('Programs Containing Subsidy', 58781363031), ('Subsidy', 'Subsidy Cost Unknown')]], "barchart_grants.css", units=True, currency=True, use_zero_minimum=True )
-grants.output("../../media/images/charts/housing/grants.svg")
-
-contracts = Line(500, 250, [[(2000, 381234796), (2001, 73589876), (2002, 153773357), (2003, 378937334), (2004, 243981896), (2005, 782114440), (2006, 576079508), (2007, 373125797), (2008, 374693948), (2009, 287651498)]], "../linechart.css", use_zero_minimum=True, x_padding=20, label_intervals=2)
-contracts.output("../../media/images/charts/housing/contracts.svg")
-
-
-tax_expend = Column(500, 250, [[('Programs Containing Subsidy', 185230000000), ('Subsidy', 185230000000)]], "barchart_te.css", units=True, currency=True, use_zero_minimum=True )
-tax_expend.output("../../media/images/charts/housing/tax_expenditures.svg")

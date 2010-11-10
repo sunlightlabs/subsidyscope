@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="340"
+   version="1.1"
+   width="700"
+   id="svg2"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="test.svg">
+  <metadata
+     id="metadata181">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs179">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 170 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="700 : 170 : 1"
+       inkscape:persp3d-origin="350 : 113.33333 : 1"
+       id="perspective183" />
+    <inkscape:perspective
+       id="perspective3082"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3104"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3104-1"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3104-7"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3104-0"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3197"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective3238"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     id="namedview177"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="360.71849"
+     inkscape:cy="144.24978"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <style
+     type="text/css"
+     id="style4">
+		
+
+
+
+.x-axis-path { fill:none; stroke: #a7a9ac; stroke-width:1; stroke-linecap:butt; stroke-linejoin: miter; stroke-miterlimit:4; stroke-dasharray:none; stroke-opacity:1 }
+
+.series-0-point { stroke: #e0d1d1; fill: #bf5004; stroke-width: 1px; }
+
+.series-1-point { stroke: #d6d9db; fill: #336699; stroke-width: 1px; }
+
+.series-2-point { stroke: #eff5e6; fill: #33a991; stroke-width: 1px; }
+
+
+
+
+
+.x-axis-label, .data-point-label {font-size: 12px; font-weight:bold; font-family: sans-serif; fill: #58595b; text-anchor:middle;}
+
+
+
+.x-axis-path, .y-gridline, .x-notch { fill:none; stroke: #a7a9ac; stroke-width:1; }
+
+.y-axis-path, .y-axis-path2, .x-notch-left, .x-notch-right { display: none;}
+
+.y-axis-label {font-size: 12px; font-family: helvetica; fill: #a7a9ac; text-anchor:end;}
+
+	</style>
+  <rect
+     height="341"
+     width="752.54236"
+     x="-19"
+     y="-1"
+     id="rect6"
+     style="fill:#ffffff" />
+  <g
+     id="x_axis"
+     class="x-axis"
+     transform="translate(30,30)">
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path10"
+       d="m 0,265 640,0"
+       class="x-axis-path" />
+    <path
+       style="display:none"
+       id="path12"
+       d="M 0,265"
+       class="x-notch-left" />
+    <path
+       style="display:none"
+       id="path14"
+       d="M 640,265"
+       class="x-notch-right" />
+  </g>
+  <g
+     id="y_axis"
+     class="y-axis"
+     transform="matrix(1.0821696,0,0,1,31.480973,30)">
+    <path
+       style="display:none"
+       id="path17"
+       d="M 0,265 0,0"
+       class="y-axis-path" />
+    <path
+       id="path19"
+       d="M 640,265 640,0"
+       class="y-axis-path-2" />
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path21"
+       d="m 0,265 640,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text23"
+       y="265"
+       x="-5"
+       class="y-axis-label">0</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path25"
+       d="m 0,232 640,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text27"
+       y="232"
+       x="-5"
+       class="y-axis-label">5</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path29"
+       d="m 0,199 640,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text31"
+       y="199"
+       x="-5"
+       class="y-axis-label">10</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path33"
+       d="m 0,166 640,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text35"
+       y="166"
+       x="-5"
+       class="y-axis-label">15</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path37"
+       d="m 0,133 640,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text39"
+       y="133"
+       x="-5"
+       class="y-axis-label">20</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path41"
+       d="m 0,100 640,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text43"
+       y="100"
+       x="-5"
+       class="y-axis-label">25</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path45"
+       d="m 0,67 640,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text47"
+       y="67"
+       x="-5"
+       class="y-axis-label">30</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path49"
+       d="m 0,34 640,0"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text51"
+       y="34"
+       x="-5"
+       class="y-axis-label">35</text>
+    <path
+       style="fill:none;stroke:#a7a9ac;stroke-width:1"
+       id="path53"
+       d="M 0,1 640,1"
+       class="y-gridline" />
+    <text
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica"
+       id="text55"
+       y="1"
+       x="-5"
+       class="y-axis-label">40</text>
+  </g>
+  <rect
+     style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px"
+     id="rect57"
+     y="257.02551"
+     x="50"
+     width="40"
+     height="37.974499"
+     class="series-0-point" />
+  <text
+     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text59"
+     y="252.0255"
+     x="70"
+     class="data-point-label">5</text>
+  <rect
+     style="fill:#336699;stroke:#d6d9db;stroke-width:1px"
+     id="rect61"
+     y="245.24625"
+     x="50"
+     width="40"
+     height="11.77925"
+     class="series-1-point" />
+  <rect
+     style="fill:#33a991;stroke:#eff5e6;stroke-width:1px"
+     id="rect65"
+     y="233.76512"
+     x="50"
+     width="40"
+     height="11.481125"
+     class="series-2-point" />
+  <rect
+     style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px"
+     id="rect69"
+     y="283.66461"
+     x="110"
+     width="40"
+     height="11.335375"
+     class="series-0-point" />
+  <text
+     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text71"
+     y="278.66461"
+     x="130"
+     class="data-point-label">1</text>
+  <rect
+     style="fill:#336699;stroke:#d6d9db;stroke-width:1px"
+     id="rect73"
+     y="261.30524"
+     x="110"
+     width="40"
+     height="22.359375"
+     class="series-1-point" />
+  <rect
+     style="fill:#33a991;stroke:#eff5e6;stroke-width:1px"
+     id="rect77"
+     y="250.63239"
+     x="110"
+     width="40"
+     height="10.672875"
+     class="series-2-point" />
+  <rect
+     style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px"
+     id="rect81"
+     y="290.34262"
+     x="170"
+     width="40"
+     height="4.6573749"
+     class="series-0-point" />
+  <text
+     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text83"
+     y="285.34262"
+     x="190"
+     class="data-point-label">0</text>
+  <rect
+     style="fill:#336699;stroke:#d6d9db;stroke-width:1px"
+     id="rect85"
+     y="269.83826"
+     x="170"
+     width="40"
+     height="20.504375"
+     class="series-1-point" />
+  <text
+     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text87"
+     y="264.83826"
+     x="190"
+     class="data-point-label">3</text>
+  <rect
+     style="fill:#33a991;stroke:#eff5e6;stroke-width:1px"
+     id="rect89"
+     y="244.31212"
+     x="170"
+     width="40"
+     height="25.526125"
+     class="series-2-point" />
+  <rect
+     style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px"
+     id="rect93"
+     y="293.32388"
+     x="230"
+     width="40"
+     height="1.676125"
+     class="series-0-point" />
+  <text
+     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text95"
+     y="288.32388"
+     x="250"
+     class="data-point-label">0</text>
+  <rect
+     style="fill:#336699;stroke:#d6d9db;stroke-width:1px"
+     id="rect97"
+     y="286.18875"
+     x="230"
+     width="40"
+     height="7.1351252"
+     class="series-1-point" />
+  <text
+     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text99"
+     y="281.18875"
+     x="250"
+     class="data-point-label">1</text>
+  <rect
+     style="fill:#33a991;stroke:#eff5e6;stroke-width:1px"
+     id="rect101"
+     y="258.44989"
+     x="230"
+     width="40"
+     height="27.738874"
+     class="series-2-point" />
+  <rect
+     style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px"
+     id="rect105"
+     y="293.90686"
+     x="290"
+     width="40"
+     height="1.093125"
+     class="series-0-point" />
+  <text
+     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text107"
+     y="288.90686"
+     x="310"
+     class="data-point-label">0</text>
+  <rect
+     style="fill:#336699;stroke:#d6d9db;stroke-width:1px"
+     id="rect109"
+     y="289.33563"
+     x="290"
+     width="40"
+     height="4.57125"
+     class="series-1-point" />
+  <text
+     style="font-size:12px;font-weight:bold;text-anchor:middle;fill:#58595b;font-family:sans-serif"
+     id="text111"
+     y="284.33563"
+     x="310"
+     class="data-point-label">0</text>
+  <rect
+     style="fill:#33a991;stroke:#eff5e6;stroke-width:1px"
+     id="rect113"
+     y="255.61438"
+     x="290"
+     width="40"
+     height="33.721249"
+     class="series-2-point" />
+  <g
+     id="g3147"
+     transform="translate(62,0)">
+    <rect
+       class="series-0-point"
+       height="24.293875"
+       width="40"
+       x="350"
+       y="270.70612"
+       id="rect117"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px" />
+    <rect
+       class="series-1-point"
+       height="7.850625"
+       width="40"
+       x="350"
+       y="262.8555"
+       id="rect121"
+       style="fill:#336699;stroke:#d6d9db;stroke-width:1px" />
+    <rect
+       class="series-2-point"
+       height="8.8708754"
+       width="40"
+       x="350"
+       y="253.98462"
+       id="rect125"
+       style="fill:#33a991;stroke:#eff5e6;stroke-width:1px" />
+    <rect
+       class="series-0-point"
+       height="14.151"
+       width="40"
+       x="410"
+       y="280.849"
+       id="rect129"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px" />
+    <rect
+       class="series-1-point"
+       height="14.999"
+       width="40"
+       x="410"
+       y="265.85001"
+       id="rect133"
+       style="fill:#336699;stroke:#d6d9db;stroke-width:1px" />
+    <rect
+       class="series-2-point"
+       height="21.39875"
+       width="40"
+       x="410"
+       y="244.45125"
+       id="rect137"
+       style="fill:#33a991;stroke:#eff5e6;stroke-width:1px" />
+    <rect
+       class="series-0-point"
+       height="13.190375"
+       width="40"
+       x="470"
+       y="281.80963"
+       id="rect141"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px" />
+    <rect
+       class="series-1-point"
+       height="22.32625"
+       width="40"
+       x="470"
+       y="259.48337"
+       id="rect145"
+       style="fill:#336699;stroke:#d6d9db;stroke-width:1px" />
+    <rect
+       class="series-2-point"
+       height="45.387875"
+       width="40"
+       x="470"
+       y="214.0955"
+       id="rect149"
+       style="fill:#33a991;stroke:#eff5e6;stroke-width:1px" />
+    <rect
+       class="series-0-point"
+       height="7.2941251"
+       width="40"
+       x="530"
+       y="287.70587"
+       id="rect153"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px" />
+    <rect
+       class="series-1-point"
+       height="21.941999"
+       width="40"
+       x="530"
+       y="265.76385"
+       id="rect157"
+       style="fill:#336699;stroke:#d6d9db;stroke-width:1px" />
+    <rect
+       class="series-2-point"
+       height="58.187374"
+       width="40"
+       x="530"
+       y="207.57651"
+       id="rect161"
+       style="fill:#33a991;stroke:#eff5e6;stroke-width:1px" />
+    <rect
+       class="series-0-point"
+       height="7.002625"
+       width="40"
+       x="590"
+       y="287.99738"
+       id="rect165"
+       style="fill:#bf5004;stroke:#e0d1d1;stroke-width:1px" />
+    <rect
+       class="series-1-point"
+       height="27.659374"
+       width="40"
+       x="590"
+       y="260.33801"
+       id="rect169"
+       style="fill:#336699;stroke:#d6d9db;stroke-width:1px" />
+    <rect
+       class="series-2-point"
+       height="206.7265"
+       width="40"
+       x="590"
+       y="53.6115"
+       id="rect173"
+       style="fill:#33a991;stroke:#eff5e6;stroke-width:1px" />
+  </g>
+  <g
+     id="g3164">
+    <text
+       class="y-axis-label"
+       x="86.767159"
+       y="311.70078"
+       id="text55-6"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">0-30%</text>
+    <text
+       class="y-axis-label"
+       x="149.87204"
+       y="311.70078"
+       id="text55-6-9"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">30-50%</text>
+    <text
+       class="y-axis-label"
+       x="209.55307"
+       y="311.70078"
+       id="text55-6-2"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">50-80%</text>
+    <text
+       class="y-axis-label"
+       x="272.57993"
+       y="311.70078"
+       id="text55-6-90"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">80-120%</text>
+    <text
+       class="y-axis-label"
+       x="327.02127"
+       y="311.70078"
+       id="text55-6-4"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">&gt;120%</text>
+  </g>
+  <g
+     transform="translate(363.60162,-2.9396569e-5)"
+     id="g3164-3">
+    <text
+       class="y-axis-label"
+       x="86.767159"
+       y="311.70078"
+       id="text55-6-7"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">0-30%</text>
+    <text
+       class="y-axis-label"
+       x="149.87204"
+       y="311.70078"
+       id="text55-6-9-1"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">30-50%</text>
+    <text
+       class="y-axis-label"
+       x="209.55307"
+       y="311.70078"
+       id="text55-6-2-2"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">50-80%</text>
+    <text
+       class="y-axis-label"
+       x="272.57993"
+       y="311.70078"
+       id="text55-6-90-2"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">80-120%</text>
+    <text
+       class="y-axis-label"
+       x="327.02127"
+       y="311.70078"
+       id="text55-6-4-0"
+       style="font-size:12px;text-anchor:end;fill:#a7a9ac;font-family:helvetica">&gt;120%</text>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+     x="144.94067"
+     y="17.686436"
+     id="text3226"><tspan
+       sodipodi:role="line"
+       id="tspan3228"
+       x="144.94067"
+       y="17.686436">Renters</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:14px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+     x="532.07074"
+     y="19.647972"
+     id="text3226-8"><tspan
+       sodipodi:role="line"
+       id="tspan3228-5"
+       x="532.07074"
+       y="19.647972">Homeowners</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:10px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+     x="180.58475"
+     y="332.47458"
+     id="text3255"><tspan
+       sodipodi:role="line"
+       id="tspan3257"
+       x="180.58475"
+       y="332.47458"
+       style="font-size:12px">Household Income as % of HUD-Adjusted Area Median Family Income</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:12px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+     x="-228.00488"
+     y="-1.4599609"
+     id="text3259"
+     transform="matrix(0,-1,1,0,0,0)"><tspan
+       sodipodi:role="line"
+       id="tspan3261"
+       x="-228.00488"
+       y="-1.4599609"># households (millions)</tspan></text>
+</svg>
