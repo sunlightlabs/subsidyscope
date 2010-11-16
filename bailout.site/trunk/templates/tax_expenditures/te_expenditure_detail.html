@@ -14,11 +14,11 @@ Click the plus for source information and footnotes from original report.
 	
 		<tr class="header-row" > 
 		  <td></td>
-		  {% for year in estimate_years %}<td  style="text-align: right;">{{year}}</td>{% endfor %}
+		  {% for year in estimate_years %}<td  style="text-align: right; {% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{{year}}</td>{% endfor %}
 		 
 		</tr>
 		
-		<tr><td style="border-right: 1px solid #ccc; width: 100px;"><strong>Report Year</strong></td><td colspan="14"></td></tr>
+		<tr><td style="border-right: 1px solid #ccc; border-left: 1px solid #ccc; width: 100px; "><strong>Report Year</strong></td><td style="border-right: 1px solid #ccc; " colspan="14"></td></tr>
 		
 		{% for line in lines %}
 			
@@ -37,11 +37,11 @@ Click the plus for source information and footnotes from original report.
 				</tr>
 				
 				<tr id="{{ line.id }}_source" style="display: none;">
-					<td style="text-align: right;  border-top: 1px solid  #eee;"><strong>Source:</strong></td><td colspan="14" style="text-align: left;  border-top: 1px solid  #eee;">{{ line.source }}</td>
+					<td style="text-align: right;  border-top: 1px solid  #eee;"><strong>Source:</strong></td><td colspan="14" style="text-align: left;  border-top: 1px solid  #eee; border-right: 1px solid #ccc; ">{{ line.source }}</td>
 				</tr>
 				{% if line.footnotes %}
 					<tr id="{{ line.id }}_footnotes" style="display: none;">
-							<td style="text-align: right;"><strong>Footnotes:</strong></td><td colspan="14" style="text-align: left;">{{ line.footnotes }}</td>
+							<td style="text-align: right;"><strong>Footnotes:</strong></td><td colspan="14" style="text-align: left; border-right: 1px solid #ccc; ">{{ line.footnotes }}</td>
 						
 						
 					</tr>

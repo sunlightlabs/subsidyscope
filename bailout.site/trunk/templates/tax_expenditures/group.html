@@ -62,6 +62,7 @@ function toggleLine(line_id)
         	
         	
         	
+        	
         	<div style="float: right; text-align: right;">
         		<a href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
         	</div>
@@ -166,7 +167,9 @@ function toggleLine(line_id)
 		<br/>
 		
 		<cite>
-		Descriptions of tax expenditures are from OMB, <i><u>Analytical Perspectives.</u></i> OMB. Budget of the U.S. Government, Fiscal Year 2011. pp. 224-240.
+		{% if group.notes %}
+        		{{ group.notes|safe }}
+        	{% endif %}
 		</cite>
 		
 		<br/>
