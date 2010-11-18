@@ -2,7 +2,7 @@
 
 {% if treasury_summary %}
 	<tr>
-		<td style="text-align: right; padding-right: 15px; border-right: 1px solid #ccc;  border-left: 1px solid #999;"><em>Treasury</em></td>
+		<td style="text-align: right; padding-right: 15px; border-right: 1px solid #ccc;  border-left: 1px solid #999; width: 90px;"><em>Treasury</em></td>
 		{% for value in treasury_summary %}<td style="text-align: right; border-left: 1px solid #ccc; background-color: {% cycle '#eee' '#fff' %};{% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{% ifequal value.amount None %}{% if value.notes %}{% else %}-{% endif %}{% else %}{{ value.amount|floatformat:0|intcomma }}{% endifequal %}{% if value.notes %}*{% endif %}</td>{% endfor %}
 	</tr>
 {% endif %}
@@ -10,7 +10,7 @@
 
 {% if jct_summary %}
 <tr>
-	<td style="text-align: right; padding-right: 15px; border-right: 1px solid #ccc;  border-left: 1px solid #999;"><em>JCT</em></td>
+	<td style="text-align: right; padding-right: 15px; border-right: 1px solid #ccc;  border-left: 1px solid #999; width: 90px;"><em>JCT</em></td>
 	{% for value in jct_summary %}<td style="text-align: right; border-left: 1px solid #ccc; background-color: {% cycle '#eee' '#fff' %};{% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{% ifequal value.amount None %}{% if value.notes %}{% else %}-{% endif %}{% else %}{{ value.amount|floatformat:0|intcomma }}{% endifequal %}{% if value.notes %}*{% endif %}</td>{% endfor %}
 </tr>
 {% endif %}
