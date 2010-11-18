@@ -40,6 +40,46 @@ TREASURY_SOURCES[2009] = 'OMB. "Analytical Perspectives, Budget of the U.S. Gove
 TREASURY_SOURCES[2010] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2010."'
 TREASURY_SOURCES[2011] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2011."'
 
+
+@register.tag
+def te_previous_year(parser, token):
+    
+    tag, previous_year = token.split_contents()
+
+    return TEYearButton(previous_year, TEYearButton.DIRECTION_PREVIOUS)
+
+@register.tag
+def te_next_year(parser, token):
+    
+    tag, next_year = token.split_contents()
+
+    return TEYearButton(next_year, TEYearButton.DIRECTION_NEXT)
+
+
+class TEYearButton(Node):
+    
+    DIRECTION_PREVIOUS = 1
+    DIRECTION_NEXT = 2
+    
+    def __init__(self, year, direction):
+        
+        self.direction = direction
+        self.year_token = Variable(year)
+
+    def render(self, context):
+        
+        year = self.year_token.resolve(context)
+    
+        if year:
+            
+            if self.direction == self.DIRECTION_PREVIOUS:
+                return  '<a href="#" onclick="changeYear(%d); return false;" class="left_arrow"></a>&nbsp;' % (year)
+            else:
+                return  '&nbsp;<a href="#" onclick="changeYear(%d); return false;" class="right_arrow"></a>' % (year) 
+        
+        else:
+            return ''
+
 @register.tag
 def te_breadcrumb(parser, token):
     
@@ -80,19 +120,21 @@ class TEBreadcrumb(Node):
 @register.tag
 def te_expenditure_detail(parser, token):
     
-    tag, group, report_years, estimate_years, estimate_type, source = token.split_contents()
+    tag, group, report_years, estimate_years, estimate_type, source, previous_year, next_year = token.split_contents()
     
-    return TEEpenditureDetailNode(group, report_years, estimate_years, estimate_type, source)
+    return TEEpenditureDetailNode(group, report_years, estimate_years, estimate_type, source, previous_year, next_year)
 
 class TEEpenditureDetailNode(Node):
     
-    def __init__(self, group, report_years, estimate_years, estimate_type, source):
+    def __init__(self, group, report_years, estimate_years, estimate_type, source, previous_year, next_year):
         
         self.group_token = Variable(group)
         self.report_years_token = Variable(report_years)
         self.estimate_years_token = Variable(estimate_years)
         self.estimate_type_token = Variable(estimate_type)
         self.source_token = Variable(source)
+        self.previous_year_type_token = Variable(previous_year)
+        self.next_year_token = Variable(next_year)
     
     def render(self, context):
         
@@ -100,6 +142,9 @@ class TEEpenditureDetailNode(Node):
         
         report_years = self.report_years_token.resolve(context)
         estimate_years = self.estimate_years_token.resolve(context)
+        
+        previous_year = self.previous_year_type_token.resolve(context)
+        next_year = self.next_year_token.resolve(context)
        
         estimate_type = int(self.estimate_type_token.resolve(context))
         if estimate_type:
@@ -113,8 +158,6 @@ class TEEpenditureDetailNode(Node):
             source_id =  Expenditure.SOURCE_TREASURY
         else:
             raise Exception('invalid source')
-            
-        
         
         lines = []
         
@@ -167,7 +210,7 @@ class TEEpenditureDetailNode(Node):
                 lines.append({'report_year':report_year, 'id':id, 'data':data, 'source':source_string, 'footnotes':footnotes})
         
         if len(lines):
-            return render_to_string('tax_expenditures/te_expenditure_detail.html', {'lines':lines, 'estimate_years':estimate_years, 'source':source})
+            return render_to_string('tax_expenditures/te_expenditure_detail.html', {'lines':lines, 'estimate_years':estimate_years, 'source':source, 'previous_year':previous_year, 'next_year':next_year})
         else:
             return ''
 
