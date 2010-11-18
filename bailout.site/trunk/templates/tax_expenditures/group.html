@@ -61,10 +61,7 @@ function toggleLine(line_id)
         	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
         
         	{{ group.description|safe }}
-        	
-        	
-        	
-        	
+        	        	
         	<div style="float: right; text-align: right;">
         		<a href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
         	</div>
@@ -145,7 +142,7 @@ function toggleLine(line_id)
 		{% endif %}
 		
 		<cite>
-		* Contains estimates between -$50 million and $50 million that are rounded to zero in the totals.
+		* Contains tax expenditures estimated to be between -$50 million and $50 million. When aggregated, the sum of these estimates are unknown and thus are rounded to zero. For more information, see the methodology.
 		</cite>
 	
 		
