@@ -27,12 +27,14 @@ function toggleLine(line_id)
 	if(source_elem && source_elem.style.display == 'none')
 	{
 	     $('#' + line_id + '_source').show();
-	     $('#' + line_id + '_toggle').attr('src', '/media/images/minus_blk.png');
+	     $('#' + line_id + '_toggle').removeClass('plus');
+	     $('#' + line_id + '_toggle').addClass('minus');
 	}
 	else
 	{
 	     $('#' + line_id + '_source').hide();
-	     $('#' + line_id + '_toggle').attr('src', '/media/images/plus_blk.png');
+	     $('#' + line_id + '_toggle').removeClass('minus');
+	     $('#' + line_id + '_toggle').addClass('plus');
 	}     
 	     
 	     
@@ -83,8 +85,7 @@ function toggleLine(line_id)
 				<tbody style="border-right: 1px solid #999;">
 					<tr class="header-row"> 
 					  <td style="border-left: 1px solid #999;">&nbsp;</td>
-					  {% for year in estimate_years %}<td style="text-align: right; {% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{% if forloop.first  %}{% if previous_year %}<a href="#" onclick="changeYear({{ previous_year }}); return false;"><img style="vertical-align: top;" src="/media/images/left_arrow_blk.png"/></a>&nbsp;{% endif %}{% endif %}{{year}}{% if forloop.last  %}{% if next_year %}&nbsp;<a href="#" onclick="changeYear({{ next_year }}); return false;"><img style="vertical-align: top;" src="/media/images/right_arrow_blk.png"/></a>{% endif %}{% endif %}</td>{% endfor %}
-					 
+					  {% for year in estimate_years %}<td style="width: 67px; text-align: right; {% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}</td>{% endfor %}
 					</tr>
 					
 					{% te_group_summary group source estimate estimate_years %}
@@ -102,7 +103,7 @@ function toggleLine(line_id)
 				
 					<tr class="header-row"> 
 					  <td style="border-left: 1px solid #999;">&nbsp;</td>
-					  {% for year in estimate_years %}<td style="text-align: right;{% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{{year}}</td>{% endfor %}
+					  {% for year in estimate_years %}<td style="width: 67px; text-align: right;{% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}</td>{% endfor %}
 					 
 					</tr>
 				
@@ -120,15 +121,14 @@ function toggleLine(line_id)
 			</div>
 		{% endif %}
 		
+		
 		{% if group.parent %}
-	        {% te_expenditure_detail group report_years estimate_years estimate 'Treasury' %}      
+	        {% te_expenditure_detail group report_years estimate_years estimate 'Treasury' previous_year next_year %}      
 	        	
-	        {% te_expenditure_detail group report_years estimate_years estimate 'JCT' %}    
+	        {% te_expenditure_detail group report_years estimate_years estimate 'JCT' previous_year next_year %}    
 	    {% endif %}
 		
-		
-		
-		
+	
 		{% if  group.parent %}
 		
 			<div style="width: 350px; display:inline; float: right; ">
