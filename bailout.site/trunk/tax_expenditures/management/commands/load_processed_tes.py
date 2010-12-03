@@ -56,7 +56,7 @@ def process_file(data):
     row = data.pop()
     
     if row[0] == '':
-        group = Group.objects.create(name=row[1], description = row[36])
+        group = Group.objects.create(name=row[1], description=row[36], notes=row[37])
         
         process_group(group, data, '')
     else:
