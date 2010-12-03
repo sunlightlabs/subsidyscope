@@ -62,5 +62,5 @@ contracts.output("../../media/images/charts/housing/contracts.svg")
 tax_expend = Column(500, 250, [[('Programs Containing Subsidy', 185230000000), ('Subsidy', 185230000000)]], "barchart_te.css", units=True, currency=True, use_zero_minimum=True )
 tax_expend.output("../../media/images/charts/housing/tax_expenditures.svg")
 
-housing_activities = StackedColumn(500, 300, [[('Grant Expenditures', 109111767), ('Tax Expenditures', 170740000000)], [('Grant Expenditures', 43130045891), ('Tax Expenditures', 14490000000)], [('Grant Expenditures', 15542205373), ('Tax Expenditures', 0)]], "../stacked_barchart.css", units=True, currency=True, use_zero_minimum=True, x_padding=30, padding=5)
+housing_activities = StackedColumn(500, 300, [[('Grant Expenditures', 386603767), ('Tax Expenditures', 170740000000)], [('Grant Expenditures', 43130045891), ('Tax Expenditures', 14490000000)], [('Grant Expenditures', 15542205373), ('Tax Expenditures', 0)]], "../stacked_barchart.css", units=True, currency=True, use_zero_minimum=True, x_padding=30, padding=5)
 housing_activities.output("../../media/images/charts/housing/activities_supported_by_housing_spending.svg")
