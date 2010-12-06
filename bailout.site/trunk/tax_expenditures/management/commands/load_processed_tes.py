@@ -4,11 +4,14 @@ import os, csv
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 from django.core.management.base import BaseCommand, make_option
+from django.db import connection, transaction
 from decimal import Decimal
 
 from tax_expenditures.models import Group, Expenditure, Estimate
 
 years = range(2000, 2016)
+
+te_tables = ['tax_expenditures_expenditure', 'tax_expenditures_group', 'tax_expenditures_groupdetail', 'tax_expenditures_groupdetailreport', 'tax_expenditures_groupdetailreport_group_source', 'tax_expenditures_groupsummary']
 
 class Command(BaseCommand):
     help = "Loads processed TE data files from specified path"
@@ -25,7 +28,16 @@ class Command(BaseCommand):
             
             Group.objects.all().delete()
             Expenditure.objects.all().delete()
-            Estimate.objects.all().delete()            
+            Estimate.objects.all().delete() 
+            
+            cursor = connection.cursor()
+        
+            # Data modifying operation - commit required
+            for table in te_tables:
+                cursor.execute("ALTER TABLE %s auto_increment=1;" % table)
+                transaction.commit_unless_managed()
+
+                       
         
             print 'Loading processed TE data...'
         
