@@ -8,45 +8,46 @@
 
 
 <script>
-function reloadPage()
-{
-	$("#loaderForm").submit();
-}
 
-function changeYear(year)
-{
-	$("#displayYear").val(year)
-	$("#loaderForm").submit();
-	return false;
-}
-
-function toggleLine(line_id)
-{
-	var source_elem = $('#' + line_id + '_source')[0];
-
-	if(source_elem && source_elem.style.display == 'none')
+	function reloadPage()
 	{
-	     $('#' + line_id + '_source').show();
-	     $('#' + line_id + '_toggle').removeClass('plus');
-	     $('#' + line_id + '_toggle').addClass('minus');
+		$("#loaderForm").submit();
 	}
-	else
+	
+	function changeYear(year)
 	{
-	     $('#' + line_id + '_source').hide();
-	     $('#' + line_id + '_toggle').removeClass('minus');
-	     $('#' + line_id + '_toggle').addClass('plus');
-	}     
-	     
-	     
-	var footnote_elem = $('#' + line_id + '_footnotes')[0];
-
-	if(footnote_elem && footnote_elem.style.display == 'none')
-	     $('#' + line_id + '_footnotes').show();
-	else
-	     $('#' + line_id + '_footnotes').hide();                       
-
-	return false;
-}
+		$("#displayYear").val(year)
+		$("#loaderForm").submit();
+		return false;
+	}
+	
+	function toggleLine(line_id)
+	{
+		var source_elem = $('#' + line_id + '_source')[0];
+	
+		if(source_elem && source_elem.style.display == 'none')
+		{
+		     $('#' + line_id + '_source').show();
+		     $('#' + line_id + '_toggle').removeClass('plus');
+		     $('#' + line_id + '_toggle').addClass('minus');
+		}
+		else
+		{
+		     $('#' + line_id + '_source').hide();
+		     $('#' + line_id + '_toggle').removeClass('minus');
+		     $('#' + line_id + '_toggle').addClass('plus');
+		}     
+		     
+		     
+		var footnote_elem = $('#' + line_id + '_footnotes')[0];
+	
+		if(footnote_elem && footnote_elem.style.display == 'none')
+		     $('#' + line_id + '_footnotes').show();
+		else
+		     $('#' + line_id + '_footnotes').hide();                       
+	
+		return false;
+	}
 
 </script>
 
@@ -93,6 +94,7 @@ function toggleLine(line_id)
         
         {% if subgroups%}
         	<strong>{% if group.parent %}JCT {% endif %}Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
+        		{% if group.parent %}Multiple JCT line items correspond with this Treasury line item.  The JCT estimates have been aggregated below to create an accurate comparison.{% endif %}
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
@@ -179,5 +181,6 @@ function toggleLine(line_id)
 		</div>
 	</div>
 </div>
+
 
 {% endblock content %}

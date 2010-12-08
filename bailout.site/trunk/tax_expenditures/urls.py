@@ -9,7 +9,6 @@ urlpatterns = patterns('tax_expenditures.views',
     url(r'^csv/(?P<group_id>.*)/$', 'te_csv', name="tax_expenditures-csv"),
     url(r'^csv/$', 'te_csv', name="tax_expenditures-csv"),
     url(r'^db/group/(?P<group_id>.*)/$', 'group', name="tax_expenditures-group"),
-    url(r'^db/group_alt/(?P<group_id>.*)/$', 'group_alt', name="tax_expenditures-group_alt"),
     url(r'^db/$', 'main', name="tax_expenditures-main"),
     url(r'^methodology/$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-methodology"),
     url(r'^$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-summary"))
