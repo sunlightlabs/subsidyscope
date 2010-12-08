@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, TE_YEARS
 
+
 MAX_COLUMNS = 11
 
 
