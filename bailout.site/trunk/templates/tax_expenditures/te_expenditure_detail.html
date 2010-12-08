@@ -5,7 +5,7 @@
 
 <strong>Summary of {{ source }} Tax Expenditure Estimates by Report Year ($ millions)</strong><br/>
 Click the plus for source information and footnotes from original report.
-<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
+<div id="subsidy-charts"  style="margin-bottom: {% ifequal source 'JCT' %}15{% else %}35{% endifequal %}px;"> 
 	<table>
 	
 	<tbody  style="border-right: 1px solid #ccc; border-left: 1px solid #ccc;">
