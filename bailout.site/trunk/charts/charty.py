@@ -2,7 +2,7 @@
 import xml.etree.ElementTree as ET
 from xml.dom.minidom import parseString
 import math
-from utils.nice import nice_ticks_seq
+from charts.utils.nice import nice_ticks_seq
 
 CURRENCY = [( 10**3, 'Th'), (10**6, 'M'), (10**9, 'B'), (10**12, 'Tr')]
 
