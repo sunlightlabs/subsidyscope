@@ -164,10 +164,10 @@ class Estimate(models.Model):
     estimate_year = models.IntegerField()
 
     notes = models.TextField()
-    
+
     corporations_amount = models.DecimalField(max_digits=15, decimal_places=2, null=True)
     individuals_amount = models.DecimalField(max_digits=15, decimal_places=2, null=True)
-    
+        
     NOTE_CHOICES = (
         (1, 'Positive tax expenditure of less than $50 million.'),
         (2, 'Negative tax expenditure of less than $50 million.')
@@ -183,3 +183,5 @@ class Estimate(models.Model):
     class Meta:
         
         ordering = ('estimate_year',)    
+        
+        
