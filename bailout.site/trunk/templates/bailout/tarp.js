@@ -19,7 +19,7 @@ function TARP_init()
     /* initial tarp viz */
 	
 	
-	swfobject.embedSWF('{% media_url %}/scripts/tarp-1.1.swf', 'tarp', {{ visualization_settings.width }}, {{ visualization_settings.height }}, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {
+	swfobject.embedSWF('{% media_url %}/scripts/tarp-1.1.swf', 'tarpVis', {{ visualization_settings.width }}, {{ visualization_settings.height }}, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {
        	       width: {{ visualization_settings.width }},
        	       height: {{ visualization_settings.height }},
        	       bar_width: {{ visualization_settings.bar_width }},
