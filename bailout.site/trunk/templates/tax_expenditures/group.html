@@ -72,12 +72,12 @@
         	<form id="loaderForm" action="{% url tax_expenditures-group group.id %}" method="GET" style="margin-bottom: 5px;">
         		<strong>Display estimates for: </strong><select name="estimate" id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
         		
-        		<strong>Show years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
+        		<strong>Show fiscal years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
         	</form>
         	</div>
         
         	
-        	<strong>Summary ($ millions)<a href="#footnote-1" class="footnote">1</a></strong><br/>
+        	<strong>Summary by Fiscal Year ($ millions)<a href="#footnote-1" class="footnote">1</a></strong><br/>
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>				
 				<tbody style="border-right: 1px solid #999;">
@@ -93,10 +93,9 @@
 			</div>  	
         
         {% if subgroups%}
-        	<strong>{% if group.parent %}JCT {% endif %}Tax Expenditures within {{ group.name }} ($ millions)</strong><br/>
-       		{% if group.parent %}Multiple JCT line items correspond with this Treasury line item.  The JCT estimates have been aggregated below to create an accurate comparison.{% endif %}
- 
-		<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
+        	<strong>{% if group.parent %}JCT {% endif %}Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
+        		{% if group.parent %}Multiple JCT line items correspond with this Treasury line item.  These JCT estimates have been aggregated below to create an accurate comparison.{% endif %}
+        	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
 				<tbody style="border-right: 1px solid #999; border-left: 1px solid #999;">
@@ -182,5 +181,6 @@
 		</div>
 	</div>
 </div>
+
 
 {% endblock content %}

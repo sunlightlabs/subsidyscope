@@ -44,12 +44,11 @@ function changeYear(year)
         	
 	        	<form id="filterForm" action="{% url tax_expenditures-main %}" method="GET">
 	        		<strong>Display estimates for: </strong><select name="estimate" id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
-	        		<strong>Show years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
+	        		<strong>Show fiscal years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
 	        	</form>
 	        	</div>
         	
         	
-     
         	<strong>Summary of Tax Expenditures by Fiscal Year ($ millions) <a href="#footnote-1" class="footnote">1</a></strong> 
         	
         
