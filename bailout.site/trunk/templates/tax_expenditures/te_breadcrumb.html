@@ -1,4 +1,5 @@
-<a href="{% url tax_expenditures-main  estimate_type %}">Database Home</a>
+<a href="{% url tax_expenditures-main %}">Database Home</a>
+
 {% for item in list %}
 {% if forloop.last %}
 &raquo; {{ item.name }}

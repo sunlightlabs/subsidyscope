@@ -34,12 +34,15 @@ class TEBreadcrumb(Node):
             estimate = int(estimate_type)
 
         list = []
-        list.append(group)
-        while group.parent:
-            group = group.parent
-            list.append(group)
         
-        list.reverse()
+        if group:
+        
+            list.append(group)
+            while group.parent:
+                group = group.parent
+                list.append(group)
+            
+            list.reverse()
 
         return render_to_string('tax_expenditures/te_breadcrumb.html', {'list':list, 'estimate_type':estimate_type})
 
@@ -131,21 +134,24 @@ class TEEpenditureDetailNode(Node):
 @register.tag
 def te_group_summary(parser, token):
     
-    tag, group, source, estimate = token.split_contents()
+    tag, group, source, estimate, years = token.split_contents()
     
-    return TEGroupSummaryNode(group, source, estimate)
+    return TEGroupSummaryNode(group, source, estimate, years)
     
     
 class TEGroupSummaryNode(Node):
     
-    def __init__(self, category, source, estimate):
+    def __init__(self, category, source, estimate, years):
         self.group_token = Variable(category)
         self.source_token = Variable(source)
         self.estimate_token = Variable(estimate)
+        self.years_token = Variable(years)
     
     def render(self, context):
         
         group = self.group_token.resolve(context)
+        
+        years = self.years_token.resolve(context)
         
         source = self.source_token.resolve(context)
         if source:
@@ -162,7 +168,7 @@ class TEGroupSummaryNode(Node):
                 jct_summary_dict[summary.estimate_year] = summary.amount
                 
             jct_summary = []
-            for year in TE_YEARS:
+            for year in years:
                 if jct_summary_dict.has_key(year):
                     jct_summary.append(jct_summary_dict[year])
                 else:
@@ -178,7 +184,7 @@ class TEGroupSummaryNode(Node):
                 treasury_summary_dict[summary.estimate_year] = summary.amount
             
             treasury_summary = []
-            for year in TE_YEARS:
+            for year in years:
                 if treasury_summary_dict.has_key(year):
                     treasury_summary.append(treasury_summary_dict[year])
                 else:

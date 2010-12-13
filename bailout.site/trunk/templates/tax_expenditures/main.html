@@ -19,7 +19,6 @@ function reloadPage()
 	$("#loaderForm").submit();
 }
 
-
 </script>
 
 
@@ -27,9 +26,10 @@ function reloadPage()
     {% include "includes/transportation_nav.html" %}
     <div class="span-24">
         <div id="header_area">
-            <h3>Pew's Tax Expenditure Database</h3>
+            <h3>{% morsel_page_title %}</h3>
         </div>
         <div class="content_area">
+        
         
         	{% morsel text1 %}
         
@@ -45,7 +45,7 @@ function reloadPage()
         		<strong>Display estimates for: </strong><select id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
         	</div>
         	
-        	<h5 style="margin-top:20px;">Summary of Tax Expenditures ($ millions)</h5> 
+        	<h5 style="margin-top:20px;">Summary of Tax Expenditures ($ millions) <a href="#footnote-1" class="footnote">1</a></h5> 
         	
         
         	<div id="subsidy-charts"> 
@@ -54,22 +54,29 @@ function reloadPage()
 				<tbody>
 				
 					<tr class="header-row"> 
-					  <td>Expenditure</td>
+					  <td></td>
 					  {% for year in te_years %}<td style="text-align: right;">{{year}}</td>{% endfor %}
 					 
 					</tr>
-				
 					{% for group in groups %}
 						
-						<tr style="border-top: solid 1px #ccc;"><td colspan="17" style="text-align: left;"><strong><a href="{% url tax_expenditures-group group.id estimate %}">{{ group.name }}</a></strong></td></tr>
+						<tr style="border-top: solid 1px #ccc;"><td  style="text-align: left;">&nbsp;<span style="position: absolute; width: 100%"><strong><a href="{% url tax_expenditures-group group.id estimate %}">{{ group.name }}</a></strong></span></td>{% for year in te_years %}<td style="background-color: {% cycle '#eee' '#fff' %};"></td>{% endfor %}</tr>
 						
-						{% te_group_summary group source estimate %}
+						{% te_group_summary group source estimate te_years %}
 						
 					{% endfor %}
 				
 				</tbody>
 				</table>
 			</div>
+			
+			
+		<ol class="footnotes">
+			<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any any single one is changed or repealed.</li>
+		</ol>
+		
+			
+			
 		</div>
 	</div>
 </div>

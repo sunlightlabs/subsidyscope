@@ -123,7 +123,7 @@ class Result:
             if data:
                 return aggregator(data)
             else:
-                return 0
+                return None
             
         else:
             

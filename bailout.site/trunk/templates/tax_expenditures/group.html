@@ -31,10 +31,9 @@ function reloadPage()
         </div>
         <div class="content_area">
         
-        	{% te_breadcrumb group estimate%}
-        
-        	
-        	<h5 style="margin-top:20px;">{{ group.name }} Tax Expenditures</h5> 
+        	{% te_breadcrumb group estimate %}
+             	
+        	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
         
         	{{ group.description|safe}}
         	
@@ -49,7 +48,7 @@ function reloadPage()
         	</div>
         
         	
-        	<strong>Total ($ millions)</strong><br/>
+        	<strong>Summary ($ millions)<a href="#footnote-1" class="footnote">1</a></strong><br/>
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>				
 				<tbody>
@@ -59,7 +58,7 @@ function reloadPage()
 					 
 					</tr>
 					
-					{% te_group_summary group source estimate %}
+					{% te_group_summary group source estimate te_years %}
 
 				</tbody>
 				</table>
@@ -135,7 +134,7 @@ function reloadPage()
         	
         
         {% if subgroups%}
-        	<strong>Tax Expenditures within {{ group.name }} ($ millions)</strong><br/>
+        	<strong>{{ group.name }} Tax Expenditures ($ millions)</strong><br/>
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
@@ -149,9 +148,9 @@ function reloadPage()
 				
 					{% for subgroup in subgroups %}
 						
-						<tr style="border-top: solid 1px #ccc;"><td colspan="17" style="text-align: left;"><strong><a href="{% url tax_expenditures-group subgroup.id estimate %}">{{ subgroup.name }}</a></strong></td></tr>
+						<tr style="border-top: solid 1px #ccc;"><td  style="text-align: left;" colspan="16">&nbsp;<span style="position: absolute; width: 100%"><strong><a href="{% url tax_expenditures-group subgroup.id estimate %}">{{ subgroup.name }}</a></strong></span></td></tr>
 						
-						{% te_group_summary subgroup source estimate %}
+						{% te_group_summary subgroup source estimate te_years %}
 						
 					{% endfor %}
 				
@@ -160,6 +159,25 @@ function reloadPage()
 				
 			</div>
 		{% endif %}
+		
+
+		<cite>
+		Notes: Report years, presented along the vertical axis (varying down the rows) correspond to the year of the budget of document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document.
+		</cite>
+		
+		<br/>
+		<br/>
+		
+		<cite>
+		Descriptions of tax expenditures are from OMB, <i><u>Analytical Perspecitives.</u></i> OMB. Budget of the U.S. Governement, Fiscal Year 2011. pp. 224-240.
+		</cite>
+		
+		<br/>
+		<br/>
+		
+		<ol class="footnotes">
+			<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any any single one is changed or repealed.</li>
+		</ol>
 		
 		</div>
 	</div>
