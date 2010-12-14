@@ -130,7 +130,7 @@ class RecordIndex(indexes.SearchIndex):
             return None
         
             
-    def obligation_date(self, object):
+    def prepare_obligation_date(self, object):
         try:
             if object.effective_date.year > 1900:
                 return object.effective_date
