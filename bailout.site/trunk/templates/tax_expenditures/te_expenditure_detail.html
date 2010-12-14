@@ -42,7 +42,7 @@ Click the plus for source information and footnotes from original report.
 					
 					{% if line.footnotes %}
 						<tr id="{{ line.id }}_footnotes" style="display: none;">
-								<td style="text-align: right; border-left: 1px solid #ccc;"><strong>Footnotes:</strong></td><td colspan="14" style="text-align: left; border-right: 1px solid #ccc; ">{{ line.footnotes }}</td>
+								<td style="text-align: right; border-left: 1px solid #ccc;"><strong>Footnotes:</strong></td><td colspan="14" style="text-align: left; border-right: 1px solid #ccc; ">{{ line.footnotes|safe }}</td>
 						</tr>
 					{% endif %}
 					
