@@ -19,7 +19,7 @@ class FPDSRecordIndex(indexes.SearchIndex):
 
     # chrono
     fiscal_year = indexes.IntegerField(model_attr='fiscal_year', null=True) 
-    obligation_date = indexes.DateField(model_attr='effective_date', null=True) # aka effective date
+    obligation_date = indexes.DateField(model_attr='signed_date', null=True) # aka effective date
     
     # dollars
     obligated_amount = indexes.FloatField(model_attr='obligated_amount', null=True)
@@ -137,8 +137,8 @@ class FPDSRecordIndex(indexes.SearchIndex):
             
     def prepare_obligation_date(self, object):
         try:
-            if object.effective_date.year > 1900:
-                return object.effective_date
+            if object.signed_date.year > 1900:
+                return object.signed_date
             else:
                 return None
         except:
