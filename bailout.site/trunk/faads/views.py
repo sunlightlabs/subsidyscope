@@ -539,7 +539,7 @@ def summary_statistics_csv(request, sector_name=None, first_column_label='', dat
     return Http404()
     
 
-def summary_statistics(request, sector_name=None):
+def state_summary_statistics(request, sector_name=None):
     # need to translate the state_id back to FIPS codes for the map and normalize by population 
     # grabbing a complete list of state objects and building a table for translation    
     
@@ -553,13 +553,32 @@ def summary_statistics(request, sector_name=None):
             year_range = faads_search_query.get_year_range()
 
             state_data, state_totals = _get_state_summary_data(results, year_range)                        
-            program_data, program_totals = _get_program_summary_data(results, year_range)
+            
                 
-            return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'program_data':program_data, 'program_totals':program_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+            return render_to_response('faads/search/state_summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
     return Http404()
     
+
+def program_summary_statistics(request, sector_name=None):
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation    
     
+    
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+            
+            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+                                      
+            results = faads_search_query.get_summary_statistics()
+            year_range = faads_search_query.get_year_range()
+                        
+            program_data, program_totals = _get_program_summary_data(results, year_range)
+                
+            return render_to_response('faads/search/program_summary_table.html', {'program_data':program_data, 'program_totals':program_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+
+    return Http404()
+
     
 def map_data_table(request, sector_name=None):
     # need to translate the state_id back to FIPS codes for the map and normalize by population 
