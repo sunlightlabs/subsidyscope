@@ -154,9 +154,9 @@ var sortOrder = '{{ sort_order }}';
 			      <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
           		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
           			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#fpds-result-table">Results</a></li>
-          			<li class="ui-state-default ui-corner-top"><a href="#fpds-result-graph">By Year</a></li>
+          			<li class="ui-state-default ui-corner-top"><a href="#fpds-result-graph">Summary</a></li>
           			<li class="ui-state-default ui-corner-top"><a href="#fpds-result-map">By Location</a></li>
-          			<li class="ui-state-default ui-corner-top"><a href="#fpds-result-summary">Summary</a></li>                
+            
           		</ul>
           		
           		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="fpds-result-table">
@@ -226,6 +226,8 @@ var sortOrder = '{{ sort_order }}';
                 
                 {% js "scripts/json2.js" %}
                 
+                <div id="summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
+                
                 <script type="text/javascript" charset="utf-8">
                    
                    	var chartLoaded = false; 
@@ -235,9 +237,15 @@ var sortOrder = '{{ sort_order }}';
                     		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '{% url fpds-search-by-year %}', 'data-query':'{{ query|safe }}'});
                     		
                     	chartLoaded = true;
+                    	
+                    	$.get('{% url fpds-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
+	                     $('#summary-container').html(data);
+	                   });
                     }
                     
                 </script>
+                
+                
               </div>
               
               <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="fpds-result-map">
@@ -250,14 +258,14 @@ var sortOrder = '{{ sort_order }}';
       					function loadMapFlash()
       					{
       						if(!mapLoaded)
-              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url fpds-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
-  	              			
-              		mapLoaded = true;
-              		
-              		$.get('{% url fpds-search-map-table %}', { 'q': '{{ query|safe }}' }, function(data){
-		                     $('#map-summary-container').html(data);
-		                   });
-      	        }	    	              	
+		              			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url fpds-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+		  	              			
+		              		mapLoaded = true;
+		              		
+		              		$.get('{% url fpds-search-map-table %}', { 'q': '{{ query|safe }}' }, function(data){
+				                     $('#map-summary-container').html(data);
+				                   });
+		      	        }	    	              	
   					</script>
 
             <div style="text-align: center">      
@@ -288,18 +296,7 @@ var sortOrder = '{{ sort_order }}';
               </div>
 
 
-              <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="fpds-result-summary">
-                 <div id="summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
-                 
-                 <script type="text/javascript" charset="utf-8">
-	                 function loadSummary()
-	                 {
-	                   $.get('{% url fpds-search-summary %}', { 'q': '{{ query|safe }}' }, function(data){
-	                     $('#summary-container').html(data);
-	                   });
-	                 }
-                 </script>                 
-              </div>
+     
 
 
             </div>
