@@ -93,40 +93,52 @@ def te_csv(request, group_id=None):
 
     writer = csv.writer(response)
     
-    writer.writerow(['Indent','Category','Source','Report','2000 (Corp)','2001 (Corp)','2002 (Corp)','2003 (Corp)','2004 (Corp)','2005 (Corp)','2006 (Corp)','2007 (Corp)','2008 (Corp)','2009 (Corp)','2010 (Corp)','2011 (Corp)','2012 (Corp)','2013 (Corp)','2014 (Corp)','2015 (Corp)','2000 (Indv)','2001 (Indv)','2002 (Indv)','2003 (Indv)','2004 (Indv)','2005 (Indv)','2006 (Indv)','2007 (Indv)','2008 (Indv)','2009 (Indv)','2010 (Indv)','2011 (Indv)','2012 (Indv)','2013 (Indv)','2014 (Indv)','2015 (Indv)'])
     
+    writer.writerow(['Indent', 'Budget Function', 'Category', 'Title as Appears in Budget', 'Source','Report', 'Footnotes', '2000 Total','2001 Total','2002 Total','2003 Total','2004 Total','2005 Total','2006 Total','2007 Total','2008 Total','2009 Total','2010 Total','2011 Total','2012 Total','2013 Total','2014 Total','2015 Total','2000 Corp','2001 Corp','2002 Corp','2003 Corp','2004 Corp','2005 Corp','2006 Corp','2007 Corp','2008 Corp','2009 Corp','2010 Corp','2011 Corp','2012 Corp','2013 Corp','2014 Corp','2015 Corp','2000 Indv','2001 Indv','2002 Indv','2003 Indv','2004 Indv','2005 Indv','2006 Indv','2007 Indv','2008 Indv','2009 Indv','2010 Indv','2011 Indv','2012 Indv','2013 Indv','2014 Indv','2015 Indv'])
     
     if parent:
         
-        recurse_category(parent, writer, '')
+        top_level_group = parent
+        
+        while not top_level_group.parent == None:
+            top_level_group = parent.parent
+            
+        budget_function = top_level_group.name
+            
+        recurse_category(parent, writer, '', budget_function)
     
     else:
         for parent in Group.objects.filter(parent=None):
-            recurse_category(parent, writer, '')
+            budget_function = parent.name
+            recurse_category(parent, writer, '', budget_function)
     
     return response
 
 
-def recurse_category(parent, writer, indent):
+def recurse_category(parent, writer, indent, budget_function):
     
-    indent += '*'
 
-    writer.writerow([indent, parent.name])
+    #writer.writerow([indent, budget_function, parent.name])
         
     for expenditure in parent.expenditure_set.order_by('source', 'analysis_year'):
         
         row = []
-        row.append(indent + '*')
+        row.append(indent)
+        row.append(budget_function)
+        row.append(parent.name)
         row.append(expenditure.name)
         row.append(expenditure.get_source_display())
         row.append(expenditure.analysis_year)
+        row.append(expenditure.notes)
         
         corp_estimates = {}
         indv_estimates = {}
+        total_estimates = {}
         
-        footnotes = {}
         
         for estimate in expenditure.estimate_set.all():
+            
+            total_estimates[estimate.estimate_year] = 0
             
             if estimate.corporations_notes == Estimate.NOTE_POSITIVE:
                 corp_estimates[estimate.estimate_year] = '<50'
@@ -134,6 +146,9 @@ def recurse_category(parent, writer, indent):
                 corp_estimates[estimate.estimate_year] = '>-50'
             else:
                 corp_estimates[estimate.estimate_year] = estimate.corporations_amount
+                
+                if estimate.corporations_amount:
+                    total_estimates[estimate.estimate_year] += estimate.corporations_amount
             
             if estimate.individuals_notes == Estimate.NOTE_POSITIVE:
                 indv_estimates[estimate.estimate_year] = '<50'
@@ -142,6 +157,16 @@ def recurse_category(parent, writer, indent):
             else:
                 indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                 
+                if estimate.individuals_amount:
+                    total_estimates[estimate.estimate_year] += estimate.individuals_amount
+        
+        
+        for year in TE_YEARS:
+            if total_estimates.has_key(year):
+                row.append(total_estimates[year])
+            else:
+                row.append('')
+            
         for year in TE_YEARS:
             if corp_estimates.has_key(year):
                 row.append(corp_estimates[year])
@@ -154,17 +179,12 @@ def recurse_category(parent, writer, indent):
             else:
                 row.append('')    
         
-        for year in TE_YEARS:
-            if footnotes.has_key(year):
-                row.append(footnotes[year])
-            else:
-                row.append('')
-        
         writer.writerow(row)                  
             
-            
+    indent += '*'
+    
     for subgroup in Group.objects.filter(parent=parent):
         
-        recurse_category(subgroup, writer, indent)
+        recurse_category(subgroup, writer, indent, budget_function)
                     
 
