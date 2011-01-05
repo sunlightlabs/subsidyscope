@@ -319,7 +319,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #,Tax credit for producing fuels from a non-conventional source
 #+,2538,JCT,2009,,,,,,,,3700.00,1400.00,<+,<+,<+,,,,,,,,,,,,800.00,300.00,<+,<+,<+,,,,,Tax credit for producing fuels from a non-conventional source,,,,,,,,,,,,,,,,
 #,Tax credits for biodiesel fuels ()
-#+,2540,JCT,2009,,,,,,,,100.00,100.00,1000.00,0.00,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Tax credits for biodiesel fuels (),,,,,,,,,,,,,,,,
+#+,2540,JCT,2009,,,,,,,,100.00,100.00,<+,0.00,0.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Tax credits for biodiesel fuels (),,,,,,,,,,,,,,,,
 #,Tax credits for electricity production from renewable resources
 #+,2544,JCT,2009,,,,,,,,1000.00,1500.00,1800.00,1600.00,1400.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,Tax credits for electricity production from renewable resources,,,,,,,,,,,,,,,,
 #,Amortization of geological and geophysical expenditures associated with oil and gas exploration

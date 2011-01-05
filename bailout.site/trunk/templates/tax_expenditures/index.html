@@ -10,11 +10,11 @@
 function reloadPage()
 {
 	if($('#displayEstimate').val() == '1') 
-		$("#loaderForm").attr("action", '{% url tax_expenditures-main 1 %}');
+		$("#loaderForm").attr("action", '{% url tax_expenditures-main %}');
 	else if($('#displayEstimate').val() == '2') 
-		$("#loaderForm").attr("action", '{% url tax_expenditures-main 2 %}');
+		$("#loaderForm").attr("action", '{% url tax_expenditures-main %}');
 	else if($('#displayEstimate').val() == '3') 
-		$("#loaderForm").attr("action", '{% url tax_expenditures-main 3 %}');
+		$("#loaderForm").attr("action", '{% url tax_expenditures-main %}');
 		
 	$("#loaderForm").submit();
 }

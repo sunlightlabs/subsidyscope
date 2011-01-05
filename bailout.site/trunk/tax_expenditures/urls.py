@@ -8,8 +8,8 @@ import bailout_pdfs
 urlpatterns = patterns('tax_expenditures.views',
     url(r'^csv/(?P<group_id>.*)/$', 'te_csv', name="tax_expenditures-csv"),
     url(r'^csv/$', 'te_csv', name="tax_expenditures-csv"),
-    url(r'^group/(?P<group_id>.*)/(?P<estimate>[1-3])/$', 'group', name="tax_expenditures-group"),
-    url(r'^(?P<estimate>[1-3])/$', 'main', name="tax_expenditures-main"),
+    url(r'^db/group/(?P<group_id>.*)/$', 'group', name="tax_expenditures-group"),
+    url(r'^db/$', 'main', name="tax_expenditures-main"),
     url(r'^methodology/$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-methodology"),
-    url(r'^summary/$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-summary"),
-    url(r'^.*$', 'main', name="tax_expenditures-main"))
+    url(r'^$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-summary"))
+    

@@ -286,7 +286,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 ##+,3021,JCT,2011,,,,,,,,,,200.00,300.00,300.00,300.00,300.00,,,,,,,,,,,,600.00,600.00,700.00,700.00,700.00,,,Exclusion of interest on State and local government qualified private activity bonds for rental housing,,,,,,,,,,,,,,,,
 ##,"Tax credit for rehabilitation of structures, other than historic structures"
 ##+,2412,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,"Tax credit for rehabilitation of structures, other than historic structures",,,,,,,,,,,,,,,,
-##+,2585,JCT,2009,,,,,,,,1000.00,1000.00,1000.00,1000.00,1000.00,,,,,,,,,,,,100.00,100.00,100.00,200.00,200.00,,,,,"Tax credit for rehabilitation of structures, other than historic structures",,,,,,,,,,,,,,,,
+##+,2585,JCT,2009,,,,,,,,<+,<+,<+,1000.00,1000.00,,,,,,,,,,,,100.00,100.00,100.00,200.00,200.00,,,,,"Tax credit for rehabilitation of structures, other than historic structures",,,,,,,,,,,,,,,,
 ##,Additional exemption for housing provided to individuals displaced by Hurricane Katrina
 ##+,2413,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,<+,0.00,0.00,0.00,,,,,,Additional exemption for housing provided to individuals displaced by Hurricane Katrina,,,,,,,,,,,,,,,,
 ##,Tax credit for Gulf Opportunity Zone employers providing in-kind lodging for employees and income exclusion for the employees
@@ -301,7 +301,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 ##,Tax credit for low-incoming housing
 ##+,2583,JCT,2009,,,,,,,,4400.00,4600.00,4900.00,5300.00,5700.00,,,,,,,,,,,,700.00,700.00,700.00,800.00,800.00,,,,,Tax credit for low-incoming housing,,,,,,,,,,,,,,,,
 ##,Deduction for premiums for qualified mortgage insurance
-##+,2587,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,1000.00,100.00,1000.00,1000.00,1000.00,,,,,Deduction for premiums for qualified mortgage insurance,,,,,,,,,,,,,,,,
+##+,2587,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,100.00,<+,<+,<+,,,,,Deduction for premiums for qualified mortgage insurance,,,,,,,,,,,,,,,,
 ##+,2834,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,100.00,200.00,200.00,0.00,,,,Deduction for premiums for qualified mortgage insurance,,,,,,,,,,,,,,,,
 ##+,3015,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,200.00,200.00,0.00,0.00,,,Deduction for premiums for qualified mortgage insurance,,,,,,,,,,,,,,,,
 ##,Credit for first-time homebuyer
@@ -643,7 +643,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 ##+,2110,JCT,2003,,<+,<+,<+,<+,<+,,,,,,,,,,,,400.00,400.00,400.00,400.00,400.00,,,,,,,,,,,Amortization of business startup costs,,,,,,,,,,,,,,,,
 ##+,2253,JCT,2007,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,600.00,600.00,600.00,600.00,700.00,,,,,,,Amortization of business startup costs,,,,,,,,,,,,,,,,
 ##+,2423,JCT,2008,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,700.00,700.00,800.00,800.00,900.00,,,,,,Amortization of business startup costs,,,,,,,,,,,,,,,,
-##+,2596,JCT,2009,,,,,,,,1000.00,1000.00,1000.00,1000.00,1000.00,,,,,,,,,,,,700.00,800.00,800.00,900.00,900.00,,,,,Amortization of business startup costs,,,,,,,,,,,,,,,,
+##+,2596,JCT,2009,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,700.00,800.00,800.00,900.00,900.00,,,,,Amortization of business startup costs,,,,,,,,,,,,,,,,
 ##+,2784,JCT,2010,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,800.00,900.00,900.00,1000.00,1000.00,,,,Amortization of business startup costs,,,,,,,,,,,,,,,,
 ##+,3033,JCT,2011,,,,,,,,,,<+,<+,<+,<+,<+,,,,,,,,,,,,900.00,900.00,1000.00,1000.00,1100.00,,,Amortization of business startup costs,,,,,,,,,,,,,,,,
 ##,"Reduced rates on first $10,000,000 of corporate taxable income"

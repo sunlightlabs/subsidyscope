@@ -4,12 +4,14 @@ import os, csv
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 from django.core.management.base import BaseCommand, make_option
+from django.db import connection, transaction
 from decimal import Decimal
 
 from tax_expenditures.models import Group, Expenditure, Estimate
-from te_importer.models import Expenditure as ImporterExpenditure
 
 years = range(2000, 2016)
+
+te_tables = ['tax_expenditures_expenditure', 'tax_expenditures_group', 'tax_expenditures_groupdetail', 'tax_expenditures_groupdetailreport', 'tax_expenditures_groupdetailreport_group_source', 'tax_expenditures_groupsummary']
 
 class Command(BaseCommand):
     help = "Loads processed TE data files from specified path"
@@ -26,7 +28,16 @@ class Command(BaseCommand):
             
             Group.objects.all().delete()
             Expenditure.objects.all().delete()
-            Estimate.objects.all().delete()            
+            Estimate.objects.all().delete() 
+            
+            cursor = connection.cursor()
+        
+            # Data modifying operation - commit required
+            for table in te_tables:
+                cursor.execute("ALTER TABLE %s auto_increment=1;" % table)
+                transaction.commit_unless_managed()
+
+                       
         
             print 'Loading processed TE data...'
         
@@ -57,7 +68,7 @@ def process_file(data):
     row = data.pop()
     
     if row[0] == '':
-        group = Group.objects.create(name=row[1])
+        group = Group.objects.create(name=row[1], description=row[36], notes=row[37])
         
         process_group(group, data, '')
     else:
@@ -80,6 +91,9 @@ def process_group(parent, data, indent):
         if row[0] == indent:
             print row[1]
             group = Group.objects.create(name=row[1], parent=parent)
+            group.description = row[36]
+            group.notes = row[37]
+            group.save()
         
         elif row[0] == indent + '+':
             process_expenditure(group, row)
@@ -104,18 +118,15 @@ def process_expenditure(group, row):
         
     elif row[2] == 'Treasury':
         source = Expenditure.SOURCE_TREASURY
-    
-        try:
-            importer_expenditure = ImporterExpenditure.objects.get(pk=int(row[1]))
-            item_number = importer_expenditure.item_number
-        except:
-            item_number = None
+        
+        item_number = int(row[1])
 
     name = row[36]
+    notes = row[37]
     
     analysis_year = int(row[3])
     
-    expenditure = Expenditure.objects.create(group=group, name=name, item_number=item_number, source=source, analysis_year=analysis_year)
+    expenditure = Expenditure.objects.create(group=group, name=name, notes=notes, item_number=item_number, source=source, analysis_year=analysis_year)
     
     i = 0 
     
@@ -130,9 +141,9 @@ def process_expenditure(group, row):
         indv_amount = None
         indv_notes = None
         
-        if corp_raw == '<+':
+        if corp_raw == '<50':
             corp_notes = Estimate.NOTE_POSITIVE
-        elif corp_raw == '<-':
+        elif corp_raw == '>-50':
             corp_notes = Estimate.NOTE_NEGATIVE
         else:
             try:
@@ -140,9 +151,9 @@ def process_expenditure(group, row):
             except:
                 corp_amount = None
         
-        if indv_raw == '<+':
+        if indv_raw == '<50':
             indv_notes = Estimate.NOTE_POSITIVE
-        elif corp_raw == '<-':
+        elif corp_raw == '>-50':
             indv_notes = Estimate.NOTE_NEGATIVE
         else:
             try:

@@ -7,7 +7,7 @@ from datetime import date
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 from decimal import Decimal
-from tax_expenditures.models import Category, Expenditure, Estimate
+from te_importer.models import Category, Expenditure, Estimate
 
 years = range(2000, 2016)
 

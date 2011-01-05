@@ -364,7 +364,67 @@ hr.space {background:#fff;color:#fff;}
   float:none;
 }
 
+
+
+
 /* Standard Buttons */
+
+a.plus {
+	margin-top: 1px;
+	display: block; 
+	float: right;  
+	width: 16px; 
+	height: 16px;
+	padding:0; 
+	background: url('/media/images/plus.png') no-repeat 0 0;
+}
+
+a.minus {
+	margin-top: 1px;
+	display: block; 
+	float: right;  
+	width: 16px; 
+	height: 16px;
+	padding:0; 
+	background: url('/media/images/minus.png') no-repeat 0 0;
+}
+
+a.left_arrow {
+	margin-top: 1px;
+	display: block; 
+	float: left;  
+	width: 16px; 
+	height: 16px;
+	padding:0;
+	background: url('/media/images/left_arrow.png') no-repeat 0 0;
+}
+
+a.right_arrow {
+	margin-top: 1px;
+	display: block; 
+	float: right;  
+	width: 16px; 
+	height: 16px;
+	padding:0;
+	background: url('/media/images/right_arrow.png') no-repeat 0 0;
+}
+
+a.plus:hover {
+	background-position: 0 -16px;
+}
+
+a.minus:hover {
+	background-position: 0 -16px;
+}
+
+a.left_arrow:hover {
+	background-position: 0 -16px;
+}
+
+a.right_arrow:hover {
+	background-position: 0 -16px;
+}
+
 button:hover, a.button:hover{
   background-color:#dff4ff;
   border:1px solid #c2e1ef;
