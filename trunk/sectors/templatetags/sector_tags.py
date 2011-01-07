@@ -3,7 +3,7 @@ from django.template import Library, Node
 from django.template.loader import get_template, get_template_from_string, find_template_source
 import settings
 import re
-from mediasync.templatetags.media import css
+from mediasync.templatetags.media import CssTagNode 
 
 register = Library()
 
@@ -14,17 +14,20 @@ def active(request, pattern):
         return 'active'
     return ''
 
-class SectorCssNode(Node):
-    def __init__(self):
-        pass
+class SectorCssNode(CssTagNode):
+    def __init__(self, *args, **kwargs):
+        #super(SectorCssNode, self).__init__(*args, **kwargs)
+	pass
 
     def render(self, context):
         re_slashes = re.compile(r'(^\/|\/$)')
         path = getattr(context.get('request',{}), 'META', {}).get('PATH_INFO', '')
         url_parts = re_slashes.sub('', path).split('/')
         if len(url_parts) and len(url_parts[0].strip())>0:
-            return css("styles/%s.css" % url_parts[0].lower())
-        return ''
+            self.media_type = ''	   
+	    self.path = "styles/%s.css" % url_parts[0].lower()
+            return super(SectorCssNode, self).render(context)
+	return ''
         
 @register.tag
 def sector_css(parser, token):
