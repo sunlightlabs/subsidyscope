@@ -6,7 +6,7 @@ django-haystack==1.0.1-final
 #django-mediasync==2.0.0
 -e git://github.com/sunlightlabs/django-mediasync.git#egg=mediasync
 django-tagging==0.3.1
-pysolr==2.0.9
+-e git://github.com/toastdriven/pysolr.git#egg=pysolr
 python-memcached==1.45
 simplejson==2.1.1
 wsgiref==0.1.2
