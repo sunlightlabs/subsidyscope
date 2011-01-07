@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     #'transit',
     'inflation',
     'navigation',
+    'gunicorn',
 )
 
 #try:
