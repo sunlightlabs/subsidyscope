@@ -155,7 +155,7 @@ class Institution(models.Model):
     state = models.CharField("State", max_length=2, blank=True)
 
     stock_symbol = models.CharField("Stock Symbol", max_length=10, blank=True)  
-    logo = models.ImageField("Logo", upload_to=Institution_get_upload_path, storage=Institution_FileSystemStorage, blank=True)    
+    logo = models.CharField("Logo", blank=True, max_length=100)    
 
     crp_lobbying_total = models.DecimalField("Total Contributions and Lobbying", max_digits=15, decimal_places=2, blank=True, null=True)
 

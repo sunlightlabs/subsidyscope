@@ -34,7 +34,7 @@ class ProjectUpdate(models.Model):
     
     title = models.CharField('Title', max_length=100)
     link = models.CharField("Link", max_length=200, blank=True, default='')
-    image = models.ImageField('Image', upload_to=_get_image_upload_path, blank=True, null=True)
+    image = models.CharField('Image', blank=True, max_length=100)
     date = models.DateField('Date')
     text = models.TextField('Text', default='')
     extended_text = models.TextField('Extended Text', default='', blank=True)
