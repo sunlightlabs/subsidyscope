@@ -121,21 +121,11 @@ class ProgramDescriptionManager(models.Manager):
         admins = []
         for ad in settings.ADMINS:
             admins.append(ad[1])
-
-        send_mail( "New CFDA Programs", mail_text, 'bounce@sunlightfoundation.com', admins, fail_silently=False)
-
-
+        
+        if new_programs:
+            send_mail( "New CFDA Programs", mail_text, 'bounce@sunlightfoundation.com', admins, fail_silently=False)
         print "Run complete. \n%s new programs were added" % new_program_count
         
-#    def match_ob_type_with_assistance(self, program, text):
- #       global ob_assist_list
-  #      for re in ob_assist_list:
-   #         if re[0].findall(text):
-   #             program = get_or_set_attr(program, "assistance_types", [])
-   #             for at in program["assistance_types"]:
-   #                 if at in re[1]:
-    #                    return at
-
     def match_assistance(self, text):
         for type_tuple in ProgramObligation.ASSISTANCE_TYPE_CHOICES:
             if text == type_tuple[1].lower() or type_tuple[2].findall(text):
@@ -164,14 +154,7 @@ class ProgramDescriptionManager(models.Manager):
                 curr_type = curr_type.lower()
                 assist_code = self.match_assistance(curr_type)
                 if not assist_code:
-                    print " can't match code"
-                    print curr_type
-                    #if re_exclude.findall(curr_type):
-                    print "skipping"
-                    
                     continue
-
-                    #assist_code = self.match_ob_type_with_assistance(program, curr_type) # try and match with an assistance type already defined for this program
                 if assist_code: 
 
                     ob_type = assist_code
