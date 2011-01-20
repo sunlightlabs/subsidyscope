@@ -124,6 +124,9 @@ class ProgramDescriptionManager(models.Manager):
         
         if new_programs:
             send_mail( "New CFDA Programs", mail_text, 'bounce@sunlightfoundation.com', admins, fail_silently=False)
+        else:
+            send_mail("No New CFDA Programs - Cron ran successfully", "", 'bounce@sunlightfoundation.com', admins, fail_silently=False)
+
         print "Run complete. \n%s new programs were added" % new_program_count
         
     def match_assistance(self, text):
