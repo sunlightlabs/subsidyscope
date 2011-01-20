@@ -1,4 +1,6 @@
 *.pyc
+*.swp
+*.swo
 .DS_Store
 local_settings.py
 solr*

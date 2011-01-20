@@ -7,8 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 
 
 ADMINS = (
-    ('Kevin Webb', 'kwebb@sunlightfoundation.com'),
-    ('Kaitlin Lee','klee@sunlightfoundation.com')
+    ('Kaitlin Lee','klee@sunlightfoundation.com'),
 )
 
 
@@ -90,6 +89,7 @@ INSTALLED_APPS = (
     'mediasync',
     'spammer',
     'helpers',
+    'agency',
     # 'haystack',
     'csv_generator',
     'etl',
@@ -120,6 +120,7 @@ INSTALLED_APPS = (
     'inflation',
     'navigation',
     'gunicorn',
+    'contractcodes',
 )
 
 #try:
