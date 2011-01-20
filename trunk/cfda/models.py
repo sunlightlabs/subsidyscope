@@ -1,13 +1,18 @@
 import re
 from datetime import datetime
 import csv
-
+from django.core.mail import send_mail
 from django.db import models
+from agency.models import Agency
 from sectors.models import Sector, Subsector
 from budget_accounts.models import BudgetAccount
 from django.utils.encoding import smart_unicode
 import helpers.unicode as un
+import settings
 
+re_funding = re.compile('FY ([0-1][0,1,6-9]{1,1})( est. | est | )[\$]([0-9,]+)')
+re_funding_type = re.compile('\((.*?)\)')
+re_exclude = re.compile('[sS]alaries')
 
 class ProgramDescriptionManager(models.Manager):
     
@@ -53,11 +58,12 @@ class ProgramDescriptionManager(models.Manager):
         'load_date'
     ]
 
-    def import_programs(self, file):
+    def import_programs(self, file_name):
         date = datetime.today()
         new_program_count = 0
-        f = open(file, 'rU')
-        this_version = int(file[-9:-4]) #pull the date off of the programs csv file
+        new_programs = []
+        f = open(file_name, 'rU')
+        this_version = int(file_name[-9:-4]) #pull the date off of the programs csv file
 
 
         reader = csv.reader(f)
@@ -75,35 +81,120 @@ class ProgramDescriptionManager(models.Manager):
                 continue 
 
             program_number = row[1].strip()
+            program_title = row[0].strip()
             matching_programs = ProgramDescription.objects.filter(program_number=program_number)
            
             if len(matching_programs)==0:
                 matching_program = ProgramDescription()
                 new_program_count += 1
+                new_programs.append("%s - %s" % (program_number, program_title) )
                 print "new program: %s" % (program_number)
                 
             else:
                 matching_program = matching_programs[0]
-    
+   
+            matching_program.agency = Agency.objects.get(cfda_code=program_number[:2])
         
             for (i,s) in enumerate(self.FIELD_MAPPINGS):
                 
-                try:
-                    prepared_string = smart_unicode(un.kill_gremlins(row[i]))
-                    setattr(matching_program, s, prepared_string)
-                    if i == 1:
-                        #we have the program vitals, save so we can use as foreign key for other attributes
-                        matching_program.save()
-                    
-                except Exception, e:
-                    continue
-
+               # try:
+                prepared_string = smart_unicode(un.kill_gremlins(row[i]), errors='ignore')
+                setattr(matching_program, s, prepared_string)
+                if i == 1:
+                    #we have the program vitals, save so we can use as foreign key for other attributes
+                    matching_program.save()
+                if i == 24:
+                    #print "parsing Obligation"
+                    self.parseObligations(prepared_string, matching_program, this_version)
+                                        
+               # except Exception, e:
+               #     print e
+                #    continue
+            
             matching_program.save()
         f.close()
+        
+        mail_text = "CFDA programs added on %s\n" % datetime.now()
+        for n in new_programs:
+            mail_text += "%s\n" % n
+
+        admins = []
+        for ad in settings.ADMINS:
+            admins.append(ad[1])
+
+        send_mail( "New CFDA Programs", mail_text, 'bounce@sunlightfoundation.com', admins, fail_silently=False)
+
 
         print "Run complete. \n%s new programs were added" % new_program_count
         
-    
+#    def match_ob_type_with_assistance(self, program, text):
+ #       global ob_assist_list
+  #      for re in ob_assist_list:
+   #         if re[0].findall(text):
+   #             program = get_or_set_attr(program, "assistance_types", [])
+   #             for at in program["assistance_types"]:
+   #                 if at in re[1]:
+    #                    return at
+
+    def match_assistance(self, text):
+        for type_tuple in ProgramObligation.ASSISTANCE_TYPE_CHOICES:
+            if text == type_tuple[1].lower() or type_tuple[2].findall(text):
+                return type_tuple[0]
+
+    def parseObligations(self, ob_str, program, version):
+        matches = re_funding.findall(ob_str)
+        type_matches = re_funding_type.findall(ob_str)
+        ob_type = ''
+        curr_type = ''
+        assist_code = ''
+        curr_year = 2006
+        type_iter = iter(type_matches)
+        default_type = None
+        for pair in matches:
+            year = int('20' + pair[0])
+            if year < curr_year:  #if the year sequence has started over, move to the next type
+                try:
+                    curr_type = type_iter.next()
+                except StopIteration:
+                    pass      #no more types
+            curr_year = year
+            obligation = int(pair[2].replace(",", ""))
+
+            if curr_type:
+                curr_type = curr_type.lower()
+                assist_code = self.match_assistance(curr_type)
+                if not assist_code:
+                    print " can't match code"
+                    print curr_type
+                    #if re_exclude.findall(curr_type):
+                    print "skipping"
+                    
+                    continue
+
+                    #assist_code = self.match_ob_type_with_assistance(program, curr_type) # try and match with an assistance type already defined for this program
+                if assist_code: 
+
+                    ob_type = assist_code
+                    default_type = assist_code
+           # if not assist_code:                
+            #    try:
+             #       if default_type:
+              #          ob_type = default_type #default it to first assistance type defined for program
+               #     else: 
+                #        ob_type = 1
+                #except Exception:
+                 #   ob_type = 1  # grants is always our default
+            
+            #check if this obligation exists
+                    try:
+                        obligation_obj = ProgramObligation.objects.get(fiscal_year=year, amount=obligation, assistance_type=ob_type, program=program)
+                    except:
+                        obligation_obj = ProgramObligation(fiscal_year=year, amount=obligation, assistance_type=ob_type, program=program)
+
+                    if program.cfda_edition and program.cfda_edition < version:
+                        obligation_obj.amount = obligation
+                    obligation_obj.save()
+        
 
     def parseBudgetAccounts(self):
         
@@ -139,6 +230,7 @@ class ProgramDescription(models.Model):
     program_title = models.CharField("Program title", max_length=255)
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
+    agency = models.ForeignKey('agency.Agency', blank=True, null=True)
     program_note = models.TextField("Program note", default="", blank=True)
     federal_agency = models.TextField("Federal agency", blank=True, default="")
     major_agency = models.TextField("Major agency",blank=True,default="")
@@ -209,7 +301,46 @@ class ProgramDescription(models.Model):
         else:
             return self.objectives[:200] + '...'
 
-        
+class ProgramAssistanceTypess(models.Model):
+    def __unicode__(self):
+        return self.name
+
+    code = models.CharField("Assistance code", max_length=1, blank=False)
+    name = models.CharField("Name", max_length=255, blank=False)
+
+   
+class ProgramObligation(models.Model):
+
+    program = models.ForeignKey(ProgramDescription, blank=False, null=False )
+    fiscal_year = models.IntegerField("Fiscal Year", blank=False, null=False )
+    amount = models.FloatField("Obligation", blank=False, null=False )
+    assistance_type = models.IntegerField("Assistance Type", max_length=1, blank=True, null=True)
+
+    ASSISTANCE_TYPE_CHOICES = (
+        (1, "Formula Grants", re.compile('formula.*grants')),
+        (2, "Project Grants", re.compile('project.*grants|loans\/grants|grants')),
+        (3, "Direct Payments for Specified Use", re.compile('direct.*payments.*specified')),
+        (4, "Direct Payments with Unrestricted Use", re.compile('direct.*payments.*unrestricted|payments')),
+        (5, "Direct Loans", re.compile('direct.*loans')),
+        (6, "Guaranteed/Insured Loans", re.compile('guaran.*loan|loan.*guaran')),
+        (7, "Insurance", re.compile('[iI]insur|[iI]ndemniti')),
+        (8, "Sale, Exchange, or Donation of Property and Goods", re.compile('sale.*exchange')),
+        (9, "Use of Property, Facilities, and Equipment", re.compile('property.*facilit')),
+        (10, "Provision of Specialized Services", re.compile('specialized.*')),
+        (11, "Advisory Services and Counseling", re.compile('advis.*counsel')),
+        (12, "Dissemination of Technical Information", re.compile('dissem.*tech|information')),
+        (13, "Training", re.compile('training')),
+        (14, "Investigation of Complaints", re.compile('investigation')),
+        (15, "Federal Employment", re.compile('employment')),
+        (16, "Cooperative Agreements", re.compile('coop.*agree')),
+    )
+
+
+
+
+
+
+#Below are somewhat deprecated
 
 class ProgramBudgetEstimateDescription(models.Model):
     
