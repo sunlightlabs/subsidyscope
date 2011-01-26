@@ -1,5 +1,7 @@
 from django.db import models
 from django.conf import settings
+from agency.models import Agency
+from contractcodes.models import NAICS, PSC
 
 class Sector(models.Model):
 
@@ -9,6 +11,7 @@ class Sector(models.Model):
         verbose_name = 'Sector'
 
     name = models.CharField("Name", max_length=40)
+    related_agencies = models.ManyToManyField(Agency, blank=True, null=True)
     
     def image_url_small(self):        
         return settings.MEDIA_URL + 'images/sector_icons/' + str(self.id) + '_sm.png'

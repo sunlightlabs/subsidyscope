@@ -3,8 +3,8 @@ from sectors.models import Sector, Subsector
 import MySQLdb
 import sys
 from geo.models import *
-
-
+import csv
+from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
 
 class ExtentCompetedMapper(object):
     # (code, title, description, considered subsidy?)
@@ -30,6 +30,42 @@ class ExtentCompetedMapper(object):
     def assign_index(self, code):
         return self._lookup.get(code, 0)
 
+class NAICSCodeManager(models.Manager):
+
+    def load_naics(self, infile=None):
+        if not infile:
+            f = csv.reader(open("data/naics/naics_codes.csv"))
+        else:
+            f = csv.reader(open(infile))
+
+        f.next() #header line
+        for l in f:
+            code = l[1]
+            desc = l[2]
+
+            try:
+                code = int(code)
+            except:
+                continue #not a valid code
+            
+            try:
+                n = NAICSCode.objects.get(code=code)
+
+            except ObjectDoesNotExist as e:
+                n = NAICSCode(code=code, name=desc)
+
+            if len(str(code)) > 2:
+                parent_code = int(str(code)[:2])
+                try:
+                    n.parent_code = NAICSCode.objects.get(code=parent_code)
+                
+                except ObjectDoesNotExist:
+                    pc = NAICSCode(code=parent_code)
+                    pc.save()
+                    n.parent_code = pc
+            n.name = desc
+            n.save()
+
 
 class NAICSCode(models.Model):
     def __unicode__(self):
@@ -41,14 +77,37 @@ class NAICSCode(models.Model):
     class Meta:
         verbose_name = 'NAICS Code'
         
-    code = models.IntegerField("Numeric Code", max_length=6, blank=False)
+    code = models.IntegerField("Numeric Code", primary_key=True, max_length=6, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=True, default='')
 
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
 
     parent_code = models.ForeignKey('NAICSCode', blank=True, null=True)
+    objects = NAICSCodeManager()
 
+class ProductOrServiceCodeManager(models.Manager):
+
+    def load_psc(self, infile=None):
+        if not infile:
+            f = csv.reader(open("data/psc/psc_codes.csv"))
+        else:
+            f = csv.reader(open(infile))
+
+        f.next() #header line
+        for l in f:
+            code = l[0]
+            desc = l[1]
+            try:
+                code = int(code)
+            except:
+                continue #not a valid code
+            try:
+                p = ProductOrServiceCode.objects.get(code=code, name=desc)
+
+            except ObjectDoesNotExist:
+                p = ProductOrServiceCode(code=code, name=desc)
+                p.save()
 
 class ProductOrServiceCode(models.Model):
     def __unicode__(self):
@@ -60,12 +119,13 @@ class ProductOrServiceCode(models.Model):
     class Meta:
         verbose_name = 'PSC Code'
 
-    code = models.CharField("Numeric Code", max_length=5, blank=False)
+    code = models.CharField("Numeric Code", max_length=5, primary_key=True, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=True, default='')    
 
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
 
+    objects = ProductOrServiceCodeManager()
 
 
 class CodeMatcher(object):
