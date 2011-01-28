@@ -9,7 +9,11 @@ from decimal import Decimal
 
 from tax_expenditures.models import Group, Expenditure, Estimate
 
-years = range(2000, 2016)
+years = range(2000, 2017)
+
+year_fields = len(years) * 2
+name_field = year_fields + 5
+notes_field = year_fields + 6
 
 te_tables = ['tax_expenditures_expenditure', 'tax_expenditures_group', 'tax_expenditures_groupdetail', 'tax_expenditures_groupdetailreport', 'tax_expenditures_groupdetailreport_group_source', 'tax_expenditures_groupsummary']
 
@@ -91,8 +95,8 @@ def process_group(parent, data, indent):
         if row[0] == indent:
             print row[1]
             group = Group.objects.create(name=row[1], parent=parent)
-            group.description = row[36]
-            group.notes = row[37]
+            group.description = row[name_field]
+            group.notes = row[notes_field]
             group.save()
         
         elif row[0] == indent + '+':
@@ -120,9 +124,10 @@ def process_expenditure(group, row):
         source = Expenditure.SOURCE_TREASURY
         
         item_number = int(row[1])
-
-    name = row[36]
-    notes = row[37]
+    
+    
+    name = row[name_field] # 36
+    notes = row[notes_field] # 37
     
     analysis_year = int(row[3])
     
@@ -133,7 +138,7 @@ def process_expenditure(group, row):
     for year in years:
 
         corp_raw = row[4 + i]
-        indv_raw = row[20 + i]
+        indv_raw = row[year_fields + 4 + i]
         
         corp_amount = None
         corp_notes = None

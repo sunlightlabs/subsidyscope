@@ -1,0 +1,36 @@
+Loading the PTED Database:
+
+
+1) Load the raw Analytical Perspecitives and JCT data into te_importer database (found in scripts/data/tax_expenditures/data).
+  
+ a) Ensure that both te_importer and tax_expenditures apps are loaded in Django project. 
+
+
+ b) Truncate (or create via syncdb) all te_importer_* db tables via:
+    
+    ./manage.py truncate_te_importer_db
+
+ c) Load the AP categories from text file via management command (populates table te_importer_categories): 
+
+    ./manage.py load_ap_categories --path scripts/data/tax_expenditures/data/omb_ap/omb_categories_2000.txt
+ 
+ d) Load the AP TE data from annual files (adding new years require updating the loader script):
+
+    ./manage.py load_ap_tes  --path scripts/data/tax_expenditures/data/omb_ap/
+ 
+ e) Load the JCT TE data from annual files (adding new years require updating the loader script):
+
+    ./manage.py load_jct_tes  --path scripts/data/tax_expenditures/data/jct/
+
+ f) Group loaded tax expenditures (crude merge of AP and JCT categories):
+
+   ./manage.py group_raw_tes
+
+ g) Load TE descriptions (data from 2011 AP PDF):
+ 
+   ./manage.py load_ap_descriptions --source_year 2011 --path scripts/data/tax_expenditures/data/omb_ap/spec2011_descriptions.txt 
+
+ f) Load TE footnotes (data from AP data):
+ 
+   ./manage.py load_ap_footnotes --path scripts/data/tax_expenditures/data/omb_ap/ap_footnotes.txt 
+

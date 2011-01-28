@@ -103,6 +103,7 @@ INSTALLED_APPS = (
     'fed_h41',
     'sectors',
     'tax_expenditures',
+    'te_importer',
     'django_helpers',
     'glossary',
     'carousel',
@@ -120,7 +121,7 @@ INSTALLED_APPS = (
     #'transit',
     'inflation',
     'navigation',
-    'gunicorn',
+    #'gunicorn',
 )
 
 #try:

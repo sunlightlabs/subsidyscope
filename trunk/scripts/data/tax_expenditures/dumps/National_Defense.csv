@@ -1,43 +1,268 @@
-Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),2004 (Corp),2005 (Corp),2006 (Corp),2007 (Corp),2008 (Corp),2009 (Corp),2010 (Corp),2011 (Corp),2012 (Corp),2013 (Corp),2014 (Corp),2015 (Corp),2000 (Indv),2001 (Indv),2002 (Indv),2003 (Indv),2004 (Indv),2005 (Indv),2006 (Indv),2007 (Indv),2008 (Indv),2009 (Indv),2010 (Indv),2011 (Indv),2012 (Indv),2013 (Indv),2014 (Indv),2015 (Indv),Expenditure Name
+Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),2004 (Corp),2005 (Corp),2006 (Corp),2007 (Corp),2008 (Corp),2009 (Corp),2010 (Corp),2011 (Corp),2012 (Corp),2013 (Corp),2014 (Corp),2015 (Corp),2016 (Corp),2000 (Indv),2001 (Indv),2002 (Indv),2003 (Indv),2004 (Indv),2005 (Indv),2006 (Indv),2007 (Indv),2008 (Indv),2009 (Indv),2010 (Indv),2011 (Indv),2012 (Indv),2013 (Indv),2014 (Indv),2015 (Indv),2016 (Indv),Expenditure Name,Expenditure Footnotes
 ,National Defense
-#,Exclusion of benefits and allowances to armed forces personnel
-#+,1774,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,2000.00,2000.00,2100.00,2100.00,,,,,,,,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,
-#+,1911,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,2000.00,1900.00,2000.00,2000.00,2000.00,,,,,,,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,
-#+,2050,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,1900.00,2000.00,2000.00,2000.00,2000.00,,,,,,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,
-#+,2191,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,2900.00,2900.00,3000.00,3100.00,3100.00,,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,
-#+,2349,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,2800.00,2800.00,2900.00,3000.00,3000.00,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,
-#+,2522,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,3000.00,3200.00,3300.00,3400.00,3900.00,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,
-#+,2817,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,3600.00,3900.00,4100.00,4400.00,4500.00,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,2925,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,3900.00,4000.00,4300.00,4500.00,4600.00,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,1,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,2140.00,2160.00,2180.00,2200.00,2220.00,,,,,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,131,Treasury,2001,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,2140.00,2160.00,2180.00,2200.00,2220.00,2240.00,,,,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,395,Treasury,2003,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,2160.00,2190.00,2210.00,2240.00,2260.00,2290.00,2310.00,,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,531,Treasury,2004,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,2190.00,2210.00,2240.00,2260.00,2290.00,2310.00,2330.00,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,668,Treasury,2005,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,2210.00,2240.00,2260.00,2290.00,2310.00,2330.00,2350.00,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,805,Treasury,2006,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,2460.00,2490.00,2520.00,2540.00,2560.00,2590.00,2620.00,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,951,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,2990.00,3020.00,3050.00,3070.00,3110.00,3140.00,3170.00,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,1114,Treasury,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,3100.00,3220.00,3350.00,3480.00,3620.00,3780.00,3930.00,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,1275,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,3220.00,3350.00,3480.00,3620.00,3780.00,3930.00,4090.00,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#+,1436,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,11190.00,11710.00,10210.00,10550.00,10900.00,11270.00,11660.00,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,
-#+,1601,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,11930.00,12570.00,11530.00,11570.00,11920.00,12370.00,12860.00,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,
-#,Exclusion of military disability benefits
-#+,1775,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,
-#+,1912,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,
-#+,2051,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,
-#+,2523,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,
-#+,2818,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,
-#+,2926,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,
-#,"Exclusion of benefits, allowances, and certain pays to armed forces personnel"
-#+,262,Treasury,2002,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,2140.00,2160.00,2190.00,2210.00,2240.00,2260.00,2290.00,,,,,,,,,,"Exclusion of benefits, allowances, and certain pays to armed forces personnel",,,,,,,,,,,,,,,,
-#,Exclusion of military disablity benefits
-#+,2192,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,Exclusion of military disablity benefits,,,,,,,,,,,,,,,,
-#+,2350,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,Exclusion of military disablity benefits,,,,,,,,,,,,,,,,
-#,Deduction for overnight-travel expenses of National Guard and Reserve Members
-#+,2193,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,Deduction for overnight-travel expenses of National Guard and Reserve Members,,,,,,,,,,,,,,,,
-#+,2351,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,Deduction for overnight-travel expenses of National Guard and Reserve Members,,,,,,,,,,,,,,,,
-#+,2524,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,<+,<+,<+,100.00,,,,,Deduction for overnight-travel expenses of National Guard and Reserve Members,,,,,,,,,,,,,,,,
-#+,2819,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,<+,100.00,100.00,100.00,100.00,,,,Deduction for overnight-travel expenses of national guard and reserve members,,,,,,,,,,,,,,,,
-#+,2927,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,Deduction for overnight-travel expenses of national guard and reserve members,,,,,,,,,,,,,,,,
-#,Exclusion of combat pay
-#+,2820,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,1400.00,1300.00,1100.00,900.00,900.00,,,,Exclusion of combat pay,,,,,,,,,,,,,,,,
-#+,2928,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,1100.00,900.00,800.00,800.00,800.00,,,Exclusion of combat pay,,,,,,,,,,,,,,,,
+#,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Benefits and allowances to Armed Forces personnel.&mdash;Under the baseline tax system, all compensation, including dedicated payments and in-kind benefits, should be included in taxable income because they represent accretions to wealth that do not materially differ from cash wages. As an example, a rental voucher of $100 is (approximately) equal in value to $100 of cash income. In contrast to this treatment, certain housing and meals, in addition to other benefits provided military personnel, either in cash or in kind, as well as certain amounts of pay related to combat service, are excluded from income subject to tax International Affairs. </p>"
+#+,,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,2000.00,1900.00,2000.00,2000.00,2000.00,,,,,,,,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,,
+#+,,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,1900.00,2000.00,2000.00,2000.00,2000.00,,,,,,,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,,
+#+,,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,2900.00,2900.00,3000.00,3100.00,3100.00,,,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,,
+#+,,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,2800.00,2800.00,2900.00,3000.00,3000.00,,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,,
+#+,,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,3000.00,3200.00,3300.00,3400.00,3900.00,,,,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,,
+#+,,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,3600.00,3900.00,4100.00,4400.00,4500.00,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,3600.00,3900.00,4100.00,4400.00,4500.00,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,3900.00,4000.00,4300.00,4500.00,4600.00,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,,JCT,2012,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,4300.00,4700.00,4900.00,5100.00,5700.00,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,2140.00,2160.00,2180.00,2200.00,2220.00,,,,,,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2001,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,2140.00,2160.00,2180.00,2200.00,2220.00,2240.00,,,,,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2003,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,2160.00,2190.00,2210.00,2240.00,2260.00,2290.00,2310.00,,,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2004,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,2190.00,2210.00,2240.00,2260.00,2290.00,2310.00,2330.00,,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2005,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,2210.00,2240.00,2260.00,2290.00,2310.00,2330.00,2350.00,,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2006,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,2460.00,2490.00,2520.00,2540.00,2560.00,2590.00,2620.00,,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2007,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,2990.00,3020.00,3050.00,3070.00,3110.00,3140.00,3170.00,,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,3100.00,3220.00,3350.00,3480.00,3620.00,3780.00,3930.00,,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,3220.00,3350.00,3480.00,3620.00,3780.00,3930.00,4090.00,,,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,,11190.00,11710.00,10210.00,10550.00,10900.00,11270.00,11660.00,,,Exclusion of benefits and allowances to Armed Forces personnel,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,11930.00,12570.00,11530.00,11570.00,11920.00,12370.00,12860.00,,Exclusion of benefits and allowances to armed forces personnel,,,,,,,,,,,,,,,,,
+#,"Exclusion of benefits, allowances, and certain pays to armed forces personnel",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,1,Treasury,2002,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,2140.00,2160.00,2190.00,2210.00,2240.00,2260.00,2290.00,,,,,,,,,,,"Exclusion of benefits, allowances, and certain pays to armed forces personnel",,,,,,,,,,,,,,,,,
+#,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,
+#+,,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,
+#+,,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,
+#+,,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,
+#+,,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,
+#+,,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,
+#+,,JCT,2012,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,200.00,200.00,200.00,200.00,200.00,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,
+#,Exclusion of military disablity benefits,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,Exclusion of military disablity benefits,,,,,,,,,,,,,,,,,
+#+,,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,Exclusion of military disablity benefits,,,,,,,,,,,,,,,,,
+#,Deduction for overnight-travel expenses of National Guard and Reserve Members,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,Deduction for overnight-travel expenses of National Guard and Reserve Members,,,,,,,,,,,,,,,,,
+#+,,JCT,2008,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,Deduction for overnight-travel expenses of National Guard and Reserve Members,,,,,,,,,,,,,,,,,
+#+,,JCT,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,<50,<50,<50,<50,100.00,,,,,,Deduction for overnight-travel expenses of National Guard and Reserve Members,,,,,,,,,,,,,,,,,
+#+,,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,<50,100.00,100.00,100.00,100.00,,,,,Deduction for overnight-travel expenses of national guard and reserve members,,,,,,,,,,,,,,,,,
+#+,,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,<50,100.00,100.00,100.00,100.00,,,,,Deduction for overnight-travel expenses of national guard and reserve members,,,,,,,,,,,,,,,,,
+#+,,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,Deduction for overnight-travel expenses of national guard and reserve members,,,,,,,,,,,,,,,,,
+#+,,JCT,2012,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,Deduction for overnight-travel expenses of national guard and reserve members,,,,,,,,,,,,,,,,,
+#,Exclusion of combat pay,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,1400.00,1300.00,1100.00,900.00,900.00,,,,,Exclusion of combat pay,,,,,,,,,,,,,,,,,
+#+,,JCT,2010,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,1400.00,1300.00,1100.00,900.00,900.00,,,,,Exclusion of combat pay,,,,,,,,,,,,,,,,,
+#+,,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,1100.00,900.00,800.00,800.00,800.00,,,,Exclusion of combat pay,,,,,,,,,,,,,,,,,
+#+,,JCT,2012,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,1200.00,1000.00,900.00,900.00,1000.00,,,Exclusion of combat pay,,,,,,,,,,,,,,,,,
+#,Exclusion of benefits and allowances to Armed Forces personnel
+##,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,Exclusion of military disability benefits,,,,,,,,,,,,,,,,,
+#,International Affairs
+##,Exclusion of income earned abroad by US citizens
+###,Exclusion of certain allowances for Federal employees abroad
+####,Exclusion of income of foreign sales corporations (FSCs)
+#####,Deferral of active income of controlled foreign corporations
+######,Inventory property sales source rule exception,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+######+,,JCT,2001,4000.00,4100.00,4200.00,4300.00,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Inventory property sales source rule exception,,,,,,,,,,,,,,,,,
+#####,Footnotes at end of table
+######,Deferral of certain active financing income,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+######+,,JCT,2001,300.00,0.00,0.00,0.00,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Deferral of certain active financing income,,,,,,,,,,,,,,,,,
+#####,"General Science, Space, and Technology"
+######,Tax credit for qualified research expenditures,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+######+,,JCT,2001,900.00,500.00,300.00,100.00,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Tax credit for qualified research expenditures,,,,,,,,,,,,,,,,,
+######,Energy
+#######,Tax credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#######+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Tax credit for enhanced oil recovery costs,,,,,,,,,,,,,,,,,
+#######,Expensing of exploration and development costs
+########,Oil and gas,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+########+,,JCT,2001,400.00,400.00,500.00,500.00,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Oil and gas,,,,,,,,,,,,,,,,,
+########,Other fuels,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+########+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Other fuels,,,,,,,,,,,,,,,,,
+#######,Excess of percentage over cost depletion
+########,Oil and gas,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+########+,,JCT,2001,400.00,400.00,400.00,400.00,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,Oil and gas,,,,,,,,,,,,,,,,,
+########,Other fuels,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+########+,,JCT,2001,200.00,200.00,200.00,200.00,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,Other fuels,,,,,,,,,,,,,,,,,
+#######,Tax credit for production of non-conventional fuels
+########,Tax credits for alcohol fuels (),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+########+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Tax credits for alcohol fuels (),,,,,,,,,,,,,,,,,
+########,Exclusion of interest on State and local government industrial development bonds for energy production facilities
+#########,Exclusion of energy conservation subsidies provided by public utilities
+##########,Tax credit for investments in solar and geothermal energy facilities
+###########,Natural Resources and Environment
+############,"Expensing of exploration and development costs, nonfuel minerals"
+#############,"Excess of percentage over cost depletion, nonfuel minerals"
+##############,Expensing of multiperiod timber-growing costs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############+,,JCT,2001,100.00,200.00,200.00,200.00,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Expensing of multiperiod timber-growing costs,,,,,,,,,,,,,,,,,
+##############,"Exclusion of interest on State and local government sewage, water, and hazardous waste facilities bonds"
+###############,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###############+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,
+###############,Agriculture
+################,Expensing of soil and water conservation expenditures
+#################,Expensing of fertilizer and soil conditioner costs
+##################,Expensing of the costs of raising dairy and breeding cattle
+###################,Exclusion of cost-sharing payments,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Exclusion of cost-sharing payments,,,,,,,,,,,,,,,,,
+###################,Exclusion of cancellation of indebtedness income of farmers
+####################,Cash accounting for agriculture,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+####################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,500.00,600.00,600.00,600.00,,,,,,,,,,,,,,Cash accounting for agriculture,,,,,,,,,,,,,,,,,
+####################,Income averaging for farmers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+####################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Income averaging for farmers,,,,,,,,,,,,,,,,,
+####################,Commerce and Housing
+#####################,Financial institutions
+######################,Exemption of credit union income,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+######################+,,JCT,2001,900.00,1000.00,1000.00,1100.00,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Exemption of credit union income,,,,,,,,,,,,,,,,,
+#####################,Insurance companies
+######################,Exclusion of investment income on life insurance and annuity contracts
+#######################,Small life insurance company taxable income adjustment
+########################,Special treatment of life insurance company reserves
+#########################,Footnotes at end of table
+##########################,Housing
+###########################,Deduction for mortgage interest on owner-occupied residences
+############################,Deduction for property taxes on owner-occupied residences
+#############################,Exclusion of capital gains on sales of principal residences
+##############################,Exclusion of interest on State and local government bonds for owner-occupied housing
+###############################,Exclusion of interest on State and local government bonds for rental housing
+################################,Depreciation of rental housing in excess of alternative depreciation system
+#################################,Tax credit for low-income housing,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#################################+,,JCT,2001,1400.00,1500.00,1700.00,1900.00,,,,,,,,,,,,,,2600.00,2800.00,3100.00,3400.00,,,,,,,,,,,,,,Tax credit for low-income housing,,,,,,,,,,,,,,,,,
+#################################,Tax credit for first-time homebuyers in the District of Columbia
+##################################,Other business and commerce
+###################################,Reduced rates of tax on long-term capital gains,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,32000.00,33800.00,34900.00,36100.00,,,,,,,,,,,,,,Reduced rates of tax on long-term capital gains,,,,,,,,,,,,,,,,,
+###################################,Exclusion of capital gains at death,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,20700.00,22200.00,23900.00,25200.00,,,,,,,,,,,,,,Exclusion of capital gains at death,,,,,,,,,,,,,,,,,
+###################################,Carryover basis of capital gains on gifts,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,2100.00,2300.00,2500.00,2700.00,,,,,,,,,,,,,,Carryover basis of capital gains on gifts,,,,,,,,,,,,,,,,,
+###################################,Deferral of gain on non-dealer installment sales
+####################################,Deferral of gain on like-kind exchanges,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+####################################+,,JCT,2001,400.00,400.00,400.00,400.00,,,,,,,,,,,,,,300.00,300.00,300.00,300.00,,,,,,,,,,,,,,Deferral of gain on like-kind exchanges,,,,,,,,,,,,,,,,,
+####################################,Deferral of gain on involuntary conversions resulting from Presidentially-declared disasters
+#####################################,Depreciation of buildings other than rental housing in excess of alternative depreciation system
+######################################,Depreciation of equipment in excess of alternative depreciation system
+#######################################,Expensing of depreciable business property,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#######################################+,,JCT,2001,500.00,700.00,700.00,500.00,,,,,,,,,,,,,,200.00,300.00,400.00,200.00,,,,,,,,,,,,,,Expensing of depreciable business property,,,,,,,,,,,,,,,,,
+#######################################,Amortization of business startup costs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#######################################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,300.00,300.00,300.00,300.00,,,,,,,,,,,,,,Amortization of business startup costs,,,,,,,,,,,,,,,,,
+#######################################,"Reduced rates on first $10,000,000 of corporate taxable income"
+########################################,Permanent exemption from imputed interest rules,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+########################################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,200.00,200.00,200.00,200.00,,,,,,,,,,,,,,Permanent exemption from imputed interest rules,,,,,,,,,,,,,,,,,
+########################################,Expensing of magazine circulation expenditures,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+########################################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Expensing of magazine circulation expenditures,,,,,,,,,,,,,,,,,
+########################################,"Special rules for magazine, paperback book, and record returns"
+#########################################,Completed contract rules,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#########################################+,,JCT,2001,200.00,200.00,200.00,200.00,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Completed contract rules,,,,,,,,,,,,,,,,,
+#########################################,"Cash accounting, other than agriculture",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#########################################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,"Cash accounting, other than agriculture",,,,,,,,,,,,,,,,,
+#########################################,Exclusion of interest on State and local government small-issue industrial development bonds
+##########################################,Exception from net operating loss limitations for corporations in bankruptcy proceedings
+###########################################,Tax credit for employer-paid FICA taxes on tips,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###########################################+,,JCT,2001,200.00,200.00,200.00,200.00,,,,,,,,,,,,,,200.00,300.00,300.00,300.00,,,,,,,,,,,,,,Tax credit for employer-paid FICA taxes on tips,,,,,,,,,,,,,,,,,
+#########################################,Footnotes at end of table
+##########################################,Transportation
+###########################################,Deferral of tax on capital construction funds of shipping companies
+############################################,Exclusion of employer-paid transportation benefits
+#############################################,Community and Regional Development
+##############################################,Empowerment zone tax incentives,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################+,,JCT,2001,200.00,200.00,200.00,200.00,,,,,,,,,,,,,,100.00,200.00,100.00,100.00,,,,,,,,,,,,,,Empowerment zone tax incentives,,,,,,,,,,,,,,,,,
+##############################################,District of Columbia tax incentives,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################+,,JCT,2001,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,District of Columbia tax incentives,,,,,,,,,,,,,,,,,
+##############################################,Indian reservation tax incentives,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################+,,JCT,2001,100.00,100.00,100.00,<50,,,,,,,,,,,,,,100.00,100.00,<50,<50,,,,,,,,,,,,,,Indian reservation tax incentives,,,,,,,,,,,,,,,,,
+##############################################,Expensing of redevelopment costs in certain environmentally contaminated areas (``Brownfields'')
+###############################################,"Tax credit for rehabilitation of structures, other than historic structures"
+################################################,"Education, Training, Employment, and Social Services"
+#################################################,Education and training
+##################################################,Tax credits for tuition for post-secondary education
+###################################################,Deduction for interest on student loans,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,200.00,200.00,300.00,300.00,,,,,,,,,,,,,,Deduction for interest on student loans,,,,,,,,,,,,,,,,,
+###################################################,Exclusion of earnings of trust accounts for higher education (``education IRAs'')
+####################################################,Exclusion of interest on educational savings bonds
+#####################################################,Deferral of tax on earnings of qualified State tuition programs
+######################################################,Exclusion of scholarship and fellowship income,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+######################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,1000.00,1000.00,1100.00,1200.00,,,,,,,,,,,,,,Exclusion of scholarship and fellowship income,,,,,,,,,,,,,,,,,
+######################################################,Exclusion of employer-provided education assistance benefits
+#######################################################,Parental personal exemption for students age 19 to 23
+########################################################,Exclusion of interest on State and local government student loan bonds
+#########################################################,Exclusion of interest on State and local government bonds for private nonprofit educational facilities
+##########################################################,Tax credit for holders of qualified education bonds
+###########################################################,Employment
+############################################################,Exclusion of employee meals and lodging (other than military)
+#############################################################,Exclusion of benefits provided under cafeteria plans ()
+##############################################################,Exclusion of housing allowances for ministers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,400.00,400.00,400.00,400.00,,,,,,,,,,,,,,Exclusion of housing allowances for ministers,,,,,,,,,,,,,,,,,
+##############################################################,Exclusion of miscellaneous fringe benefits,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,6500.00,6900.00,7300.00,7800.00,,,,,,,,,,,,,,Exclusion of miscellaneous fringe benefits,,,,,,,,,,,,,,,,,
+##############################################################,Exclusion of employee awards,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,Exclusion of employee awards,,,,,,,,,,,,,,,,,
+##############################################################,Exclusion of income earned by voluntary employees' beneficiary associations
+###############################################################,Special tax provisions for employee stock ownership plans (ESOPs)
+################################################################,Work opportunity tax credit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+################################################################+,,JCT,2001,200.00,100.00,<50,<50,,,,,,,,,,,,,,<50,<50,<50,0.00,,,,,,,,,,,,,,Work opportunity tax credit,,,,,,,,,,,,,,,,,
+################################################################,Welfare-to-work tax credit,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+################################################################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,0.00,0.00,,,,,,,,,,,,,,Welfare-to-work tax credit,,,,,,,,,,,,,,,,,
+##############################################################,Footnotes at end of table
+###############################################################,Social services
+################################################################,Tax credit for children under age 17 (),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,20000.00,20000.00,19800.00,19500.00,,,,,,,,,,,,,,Tax credit for children under age 17 (),,,,,,,,,,,,,,,,,
+################################################################,Tax credit for child and dependent care expenses
+#################################################################,Exclusion of employer-provided child care (),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,400.00,500.00,500.00,600.00,,,,,,,,,,,,,,Exclusion of employer-provided child care (),,,,,,,,,,,,,,,,,
+#################################################################,Exclusion of certain foster care payments,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Exclusion of certain foster care payments,,,,,,,,,,,,,,,,,
+#################################################################,Adoption credit and employee adoption benefits exclusion
+##################################################################,"Deduction for charitable contributions, other than for education and health"
+###################################################################,Tax credit for disabled access expenditures,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###################################################################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,Tax credit for disabled access expenditures,,,,,,,,,,,,,,,,,
+#################################################################,Health
+##################################################################,"Exclusion of employer contributions for health care, health insurance premiums, and long-term care insurance premiums ()"
+###################################################################,"Exclusion of medical care and CHAMPUS/TRICARE medical insurance for military dependents, retirees, and retiree dependents"
+####################################################################,Deduction for health insurance premiums and long-term care insurance premiums by the self-employed
+#####################################################################,Deducation for medical expenses and long-term care expenses
+######################################################################,Exclusion of workers' compensation benefits (medical benefits)
+#######################################################################,Medical savings accounts,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#######################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Medical savings accounts,,,,,,,,,,,,,,,,,
+#######################################################################,Exclusion of interest on State and local government bonds for private nonprofit hospital facilities
+########################################################################,Deduction for charitable contributions to health organizations
+#########################################################################,Tax credit for orphan drug research,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#########################################################################+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Tax credit for orphan drug research,,,,,,,,,,,,,,,,,
+########################################################################,Medicare
+#########################################################################,Exclusion of untaxed medicare benefits
+##########################################################################,Hospital insurance,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##########################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,15200.00,15900.00,16800.00,17800.00,,,,,,,,,,,,,,Hospital insurance,,,,,,,,,,,,,,,,,
+##########################################################################,Supplementary medical insurance,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##########################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,8000.00,9100.00,10400.00,11800.00,,,,,,,,,,,,,,Supplementary medical insurance,,,,,,,,,,,,,,,,,
+########################################################################,Income Security
+#########################################################################,Exclusion of workers' compensation benefits (disability and survivors payments)
+##########################################################################,Exclusion of special benefits for disabled coal miners
+###########################################################################,Exclusion of cash public assistance benefits,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+###########################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,500.00,500.00,500.00,500.00,,,,,,,,,,,,,,Exclusion of cash public assistance benefits,,,,,,,,,,,,,,,,,
+###########################################################################,Net exclusion of pension contributions and earnings
+############################################################################,Employer plans,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,78300.00,78200.00,78100.00,78400.00,,,,,,,,,,,,,,Employer plans,,,,,,,,,,,,,,,,,
+############################################################################,Individual retirement plans,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,12400.00,13100.00,14200.00,15500.00,,,,,,,,,,,,,,Individual retirement plans,,,,,,,,,,,,,,,,,
+############################################################################,Keogh plans,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,5100.00,5200.00,5400.00,5700.00,,,,,,,,,,,,,,Keogh plans,,,,,,,,,,,,,,,,,
+###########################################################################,Exclusion of other employee benefits
+############################################################################,Premiums on group term life insurance,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,2000.00,2100.00,2200.00,2300.00,,,,,,,,,,,,,,Premiums on group term life insurance,,,,,,,,,,,,,,,,,
+############################################################################,Premiums on accident and disability insurance,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,200.00,200.00,200.00,200.00,,,,,,,,,,,,,,Premiums on accident and disability insurance,,,,,,,,,,,,,,,,,
+###########################################################################,Additional standard deduction for the blind and the elderly
+############################################################################,Tax credit for the elderly and disabled,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Tax credit for the elderly and disabled,,,,,,,,,,,,,,,,,
+############################################################################,Deduction for casualty and theft losses,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,300.00,300.00,300.00,400.00,,,,,,,,,,,,,,Deduction for casualty and theft losses,,,,,,,,,,,,,,,,,
+############################################################################,Earned income credit (EIC) (),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,4300.00,4500.00,4600.00,4700.00,,,,,,,,,,,,,,Earned income credit (EIC) (),,,,,,,,,,,,,,,,,
+###########################################################################,Footnotes at end of table
+############################################################################,Social Security and Railroad Retirement
+#############################################################################,Veterans' Benefits and Services
+##############################################################################,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,2100.00,2200.00,2200.00,2300.00,,,,,,,,,,,,,,Exclusion of veterans' disability compensation,,,,,,,,,,,,,,,,,
+##############################################################################,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,Exclusion of veterans' pensions,,,,,,,,,,,,,,,,,
+##############################################################################,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+##############################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,
+##############################################################################,General Purpose Fiscal Assistance
+###############################################################################,Exclusion of interest on public purpose State and local government debt
+################################################################################,Deduction of nonbusiness State and local government income and personal property taxes
+#################################################################################,Tax credit for Puerto Rico and possession income,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#################################################################################+,,JCT,2001,3800.00,4000.00,3600.00,3200.00,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Tax credit for Puerto Rico and possession income,,,,,,,,,,,,,,,,,
+################################################################################,Interest
+#################################################################################,Deferral of interest on savings bonds,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#################################################################################+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,1200.00,1200.00,1200.00,1200.00,,,,,,,,,,,,,,Deferral of interest on savings bonds,,,,,,,,,,,,,,,,,

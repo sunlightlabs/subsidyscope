@@ -1,10 +1,25 @@
 #!/usr/bin/env python
-import os
-import re
-import csv
-import urllib
-from datetime import date
+
+import os, re, csv
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+
+from django.core.management.base import BaseCommand, make_option
+
+class Command(BaseCommand):
+    
+    help = "Loads processed TE data files from specified path"
+    
+    option_list = BaseCommand.option_list + (
+        make_option("-p", "--path", dest="path", default=None),
+    )
+
+    def handle(self, *args, **options):
+        
+        if options['path'] is not None:   
+            dump_data(options['path'])
+        else:
+            pass
+
 
 from decimal import Decimal
 from te_importer.models import Category, Expenditure, Estimate
@@ -23,13 +38,19 @@ def recurse_category(category, csvfile, indent):
         row.append(indent)
         row.append(group.name)
         
+        for field in range(0, 2 + (len(years) * 2)):
+            row.append('')
+            
+        row.append(group.description)
+        
+        
         csvfile.writerow(row)
         
         for expenditure in group.group.order_by('source', 'analysis_year'):
             
             row = []
             row.append(indent + '+')
-            row.append(expenditure.id)
+            row.append(expenditure.item_number)
             row.append(expenditure.get_source_display())
             row.append(expenditure.analysis_year)
             
@@ -84,18 +105,25 @@ def recurse_category(category, csvfile, indent):
         recurse_category(subcategory, csvfile, indent)
                 
 
-for budget_function in Category.objects.filter(parent=None):
+def dump_data(path):
     
-    file_name = re.sub('[^a-zA-Z]', '_', re.sub(',', '', budget_function.name))
+    for budget_function in Category.objects.filter(parent=None):
+        
+        file_name = re.sub('[^a-zA-Z]', '_', re.sub(',', '', budget_function.name))
+        
+        csvfile = csv.writer(open(os.path.join(path, '%s.csv' % (file_name)), 'wb'))
     
-    csvfile = csv.writer(open('dumps/%s.csv' % (file_name), 'wb'))
-
-    print file_name
-    
-    csvfile.writerow(['Indent','Category','Source','Report','2000 (Corp)','2001 (Corp)','2002 (Corp)','2003 (Corp)','2004 (Corp)','2005 (Corp)','2006 (Corp)','2007 (Corp)','2008 (Corp)','2009 (Corp)','2010 (Corp)','2011 (Corp)','2012 (Corp)','2013 (Corp)','2014 (Corp)','2015 (Corp)','2000 (Indv)','2001 (Indv)','2002 (Indv)','2003 (Indv)','2004 (Indv)','2005 (Indv)','2006 (Indv)','2007 (Indv)','2008 (Indv)','2009 (Indv)','2010 (Indv)','2011 (Indv)','2012 (Indv)','2013 (Indv)','2014 (Indv)','2015 (Indv)','Expenditure Name'])
-    
-    recurse_category(budget_function, csvfile, '')
-    
-    
-    
-    
+        print file_name
+        
+        corp_years = []
+        indv_years = []
+        
+        for year in years:
+            corp_years.append('%d (Corp)' % year)
+            indv_years.append('%d (Indv)' % year)
+            
+        csvfile.writerow(['Indent','Category','Source','Report'] + corp_years + indv_years + ['Expenditure Name'] + ['Expenditure Footnotes'])
+        
+        recurse_category(budget_function, csvfile, '')
+ 
+        
