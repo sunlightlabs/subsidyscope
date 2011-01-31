@@ -204,6 +204,13 @@ class CFDATag(models.Model):
     search_default_enabled = models.BooleanField("Enabled for searches by default?")
 
 
+class ProgramFunctionalIndex(models.Model):
+    
+    code = models.CharField("Functional Index Code", max_length=2, blank=False)
+    name = models.CharField("Name", max_length=255, blank=False)
+    
+
+
 class ProgramDescription(models.Model):
 
     def __unicode__(self):
@@ -263,6 +270,8 @@ class ProgramDescription(models.Model):
     budget_accounts = models.ManyToManyField(BudgetAccount, blank=True, null=True)
     primary_tag = models.ForeignKey(CFDATag, blank=True, null=True, related_name='primary_tag')
     secondary_tags = models.ManyToManyField(CFDATag, blank=True, null=True, related_name='secondary_tags')
+    
+    functional_index = models.ManyToManyField(ProgramFunctionalIndex, blank=True, null=True)
 
     objects = ProgramDescriptionManager()   
     
@@ -286,6 +295,8 @@ class ProgramDescription(models.Model):
             return self.objectives
         else:
             return self.objectives[:200] + '...'
+
+
 
 class ProgramAssistanceTypess(models.Model):
     def __unicode__(self):

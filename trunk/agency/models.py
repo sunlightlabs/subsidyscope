@@ -1,21 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
-class Agency(models.Model):
-    
-    cfda_code = models.CharField("CFDA Agency code", max_length=2)
-    fips_code = models.CharField("FIPS Agency code", max_length=2)
-    name = models.CharField("Agency Name", max_length=200)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Agency'
-        ordering = ['name']
-
-
 class AgencyManager(models.Manager):
 
     def import_agencies(self):
@@ -75,3 +60,22 @@ AGENCY_MAP = {'10': ('12', 'Department of Agriculture'),
               '96': ('28', 'Social Security Administration'), 
               '97': ('70', 'Department of Homeland Security'), 
               '98': ('72', 'United States Agency for International Development') }
+
+
+
+class Agency(models.Model):
+    
+    cfda_code = models.CharField("CFDA Agency code", max_length=2)
+    fips_code = models.CharField("FIPS Agency code", max_length=2)
+    name = models.CharField("Agency Name", max_length=200)
+
+    objects = AgencyManager()
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Agency'
+        ordering = ['name']
+
+

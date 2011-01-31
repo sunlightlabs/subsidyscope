@@ -7,7 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 
 
 ADMINS = (
-    ('Kaitlin Lee','klee@sunlightfoundation.com'),
+    ('Kevin Webb','kwebb@sunlightfoundation.com'),
 )
 
 
@@ -68,7 +68,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'middleware.feedburner.FeedburnerMiddleware'
 )
 
