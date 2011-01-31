@@ -30,4 +30,4 @@ class CarouselEntry(models.Model):
     text = models.TextField('Text', default='')    
     weight = models.IntegerField("Weight", default=0, blank=False, choices=_get_weight_choices())
     published = models.BooleanField('Published?', default=False)
-    sector = models.ForeignKey(Sector)
+    sector = models.ForeignKey(Sector, blank=True, null=True)
