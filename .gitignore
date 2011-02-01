@@ -2,4 +2,5 @@
 .DS_Store
 local_settings.py
 solr*
+virt_subsidyscope
 apache-solr*
