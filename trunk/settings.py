@@ -99,7 +99,6 @@ INSTALLED_APPS = (
     'tarp_subsidy_graphics',
     'fdic_bank_failures',
     'fed_h41',
-    'sectors',
     'tax_expenditures',
     'django_helpers',
     'glossary',
@@ -120,6 +119,7 @@ INSTALLED_APPS = (
     'navigation',
     'gunicorn',
     'contractcodes',
+    'sectors'
 )
 
 #try:

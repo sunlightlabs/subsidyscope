@@ -1,0 +1,200 @@
+{% extends "subsidysort/sort_base.html" %}
+{% load subsidysort_tags %}
+
+{% block title %}{{ sector }}{% endblock %}
+
+{% block content %}
+
+<script language="javascript">
+
+var sector_id = {{ sector.id }};
+
+$(document).ready(function () { 
+    
+    var blocks = ['#all_programs','#duplicate_programs' , {% for group in bf_groups %}'#bf_group_{{ group.bf.id }}',{% endfor %}{% for group in fi_groups %}'#fi_group_{{ group.fi.id }}',{% endfor %},{% for program in included_programs %}'#ap_comments_{{ program.id }}_edit',{% endfor %}]
+    
+    $('#refresh_link').hide(); 
+    
+ 	for(block in blocks)
+ 	{
+ 		if(blocks[block] != window.location.hash)
+    		$(blocks[block]).hide();
+    }
+    
+});  
+
+function removeProgram(program_id)
+{
+	$.post('/subsidysort/sector/'+ sector_id + '/delete/' + program_id + '/', function(data){
+
+		location.reload();
+			
+	});
+}
+
+function includeProgram(program_id, span_id)
+{
+	$.post('/subsidysort/sector/'+ sector_id + '/add/' + program_id + '/', function(data){
+		
+		if(span_id)
+		{
+			$('#refresh_link').show();
+		
+			$('#' + span_id).html('<em>Program Included in {{ sector.name }}</em>')
+		}
+		else
+			location.reload();
+	
+	});
+		
+}
+
+function findProgram()
+{
+	var cfda =  $('#find_program_cfda').val();
+
+	if(cfda != '')
+	{
+		$.get('/subsidysort/sector/'+ sector_id + '/search/' + cfda + '/', function(data) {
+			
+			$('#find_program_results').html(data);
+		});
+	}
+		
+	
+}
+
+function editComment(id)
+{
+	$(id).hide();
+	$(id + '_edit').show();
+}
+
+function saveComment(program_id, id)
+{
+	var comment = $(id + '_textarea').val();
+	$(id + '_span').html(comment);
+	
+	$.post('/subsidysort/cfda/' + program_id + '/save/comment/', {comment: comment}, function(data) {
+		$(id).show();
+		$(id + '_edit').hide();
+	});
+}
+
+
+</script>
+
+&laquo; <a href="/subsidysort/">Back to Sector List</a> | <a href="">Download USASpending Summary</a> | <a href="{% url subsidysort-sector-edit sector.id %}">Edit Sector Budget Function/Functional Index</a>
+
+<p>&nbsp;</p>
+
+<p>Add program by CFDA: <input id="find_program_cfda" type="text" size="5"/> <a href="#" onclick="findProgram();">[find]</a></p>
+
+<div id="find_program_results"></div>
+
+<p><strong>Included Programs:</strong></p>
+
+<ul>
+	<li><strong>All Programs:</strong>  <a href="#all_programs" onclick="$('#all_programs').toggle()"> ({{ included_programs|length }}) [show/hide]</a> <a id="refresh_link" href="#all_programs" onclick="location.reload();"><em><strong>programs added, refresh!</strong></em></a></li>
+	<ul id="all_programs">
+	{% if included_programs %}
+	
+		{% for program in included_programs %}
+			<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }} <a href="#all_programs" onclick="removeProgram({{ program.id }});">[remove program]</a>
+				<!-- <br/> FY09 Obligations: $tbd <a href="" onclick=edit>[more]</a> -->
+				<br/>
+				<div id="ap_comments_{{ program.id }}">
+					Comments: <span id="ap_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#all_programs" onclick="editComment('#ap_comments_{{ program.id }}')">[edit]</a>
+				</div>
+				<div id="ap_comments_{{ program.id }}_edit">
+					<textarea cols="40" rows="5" id="ap_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
+					<br/>
+					<a href="#all_programs" onclick="saveComment({{ program.id }}, '#ap_comments_{{ program.id }}')">[save]</a>
+				</div>
+			</li>
+		{% endfor %}
+	{% else %}
+		<em>No programs included.</em>
+	{% endif %}	
+	</ul>
+	
+	{% if duplicate_programs %}
+	<li><strong>Duplicate Programs:</strong>  <a href="#duplicate_programs" onclick="$('#duplicate_programs').toggle()"> ({{ duplicate_programs|length }}) [show/hide]</a></li>
+	<ul id="duplicate_programs">
+		{% for program in duplicate_programs %}
+			<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }} <a href="#duplicate_programs" onclick="removeProgram({{ program.id }});">[remove program]</a>
+			{% for program_sector in program.sectors.all %}
+					{% ifnotequal program_sector sector %}
+						<br/>Also included in <a href="{% url subsidysort-sector program_sector.id %}">{{ program_sector.name }}</a>
+					{% endifnotequal %}
+				{% endfor %}
+			<br/>
+			
+			</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+</ul>
+
+<p><strong>Programs in Related Budget Functions:</strong></p>
+
+<ul>
+	{% if bf_programs %}
+		{% for group in bf_groups %}
+			<li><strong>{{ group.bf }}:</strong> <a href="#bf_group_{{ group.bf.id }}" onclick="$('#bf_group_{{ group.bf.id }}').toggle()"> ({{ group.included_count }}/{{ group.programs|length }}) [show/hide]</a></li>
+			<ul id="bf_group_{{ group.bf.id }}">
+				{% for program in group.programs %}
+					<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }}
+					{% for program_sector in program.sectors.all %}
+						{% ifnotequal program_sector sector %}
+							<br/>Included in <a href="{% url subsidysort-sector program_sector.id %}">{{ program_sector.name }}</a>
+						{% endifnotequal %}
+					{% endfor %}
+					
+					<br/>
+						{% ifinlist program included_programs %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><em>Program included in {{ sector.name }}</em></span>{% else %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><a href="#bf_group_{{ group.bf.id }}" onclick="includeProgram({{ program.id }}, 'bf_group_{{ group.bf.id }}_{{ program.id }}');">[include program]</a></span>{% endifinlist %}
+					</li>
+				{% endfor %}
+				
+				{% if not  group.programs|length %}
+					<em>No programs in budget function.</em>
+				{% endif %}
+			</ul>
+		{% endfor %}
+	{% else %}
+		<em>No programs in related budget functions.</em>
+	{% endif %}	
+</ul>
+
+<p><strong>Programs in Related Functional Index:</strong></p>
+
+<ul>
+	{% if fi_programs %}
+		{% for group in fi_groups %}
+			<li><strong>{{ group.fi }}</strong> <a href="#fi_group_{{ group.fi.id }}" onclick="$('#fi_group_{{ group.fi.id }}').toggle()">({{ group.included_count }}/{{ group.programs|length }}) [show/hide]</a></li>
+			<ul id="fi_group_{{ group.fi.id }}">
+			{% for program in group.programs %}
+				<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }}
+				{% for program_sector in program.sectors.all %}
+					{% ifnotequal program_sector sector %}
+						<br/>Included in <a href="{% url subsidysort-sector program_sector.id %}">{{ program_sector.name }}</a>
+					{% endifnotequal %}
+				{% endfor %}
+				
+				<br/>
+					{% ifinlist program included_programs %}<span id="fi_group_{{ group.fi.id }}_{{ program.id }}"><em>Program included in {{ sector.name }}</em></span>{% else %}<span id="fi_group_{{ group.fi.id }}_{{ program.id }}"><a href="#fi_group_{{ group.fi.id }}" onclick="includeProgram({{ program.id }}, 'fi_group_{{ group.fi.id }}_{{ program.id }}');">[include program]</a></span>{% endifinlist %}
+				</li>
+			{% endfor %}
+			{% if not  group.programs|length %}
+					<em>No programs in functional index.</em>
+				{% endif %}
+			</ul>
+		{% endfor %}
+	{% else %}
+		<em>No programs in related functional index.</em>
+	{% endif %}	
+</ul>
+
+
+
+{% endblock %}

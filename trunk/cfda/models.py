@@ -204,11 +204,19 @@ class CFDATag(models.Model):
     search_default_enabled = models.BooleanField("Enabled for searches by default?")
 
 
+
 class ProgramFunctionalIndex(models.Model):
     
     code = models.CharField("Functional Index Code", max_length=2, blank=False)
     name = models.CharField("Name", max_length=255, blank=False)
     
+    sectors = models.ManyToManyField(Sector)
+    
+    def __unicode__(self):
+        return '%s--%s' % (self.code, self.name)
+    
+    class Meta:
+        ordering = ['code']
 
 
 class ProgramDescription(models.Model):
@@ -272,6 +280,8 @@ class ProgramDescription(models.Model):
     secondary_tags = models.ManyToManyField(CFDATag, blank=True, null=True, related_name='secondary_tags')
     
     functional_index = models.ManyToManyField(ProgramFunctionalIndex, blank=True, null=True)
+
+    scoping_comment = models.TextField("Comments from scoping process.", blank=True,default="")
 
     objects = ProgramDescriptionManager()   
     

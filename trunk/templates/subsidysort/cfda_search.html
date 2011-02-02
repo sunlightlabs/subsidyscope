@@ -1,0 +1,17 @@
+<ul>
+<li>
+{% if program %}
+	<a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }}
+		{% for sector in program.sectors.all %}
+			<br/>Included in <a href="{% url subsidysort-sector sector.id %}">{{ sector.name }}</a>
+		{% endfor %}
+	
+	<br/>
+	{% if included %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><em>Program Included</em></span>{% else %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><a href="#all_programs" onclick="includeProgram({{ program.id }}, false);">[Include Program]</a></span>{% endif %}
+{% else %}
+	<em>No matching program was found.</em>
+{% endif%}	
+</li>
+</ul>
+
+<p>&nbsp;</p>
