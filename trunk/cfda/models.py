@@ -3,12 +3,14 @@ from datetime import datetime
 import csv
 from django.core.mail import send_mail
 from django.db import models
+from django.db.models import Sum
 from agency.models import Agency
 from sectors.models import Sector, Subsector
 from budget_accounts.models import BudgetAccount
 from django.utils.encoding import smart_unicode
 import helpers.unicode as un
 import settings
+
 
 re_funding = re.compile('FY ([0-1][0,1,6-9]{1,1})( est. | est | )[\$]([0-9,]+)')
 re_funding_type = re.compile('\((.*?)\)')
@@ -284,6 +286,17 @@ class ProgramDescription(models.Model):
     scoping_comment = models.TextField("Comments from scoping process.", blank=True,default="")
 
     objects = ProgramDescriptionManager()   
+    
+    def get_recent_grants_summary(self):
+        
+        # TODO: need to expand filter criteria
+        
+        result = self.cfdasummary_set.filter(assistance_type=4, fiscal_year__gte=2005).aggregate(Sum('federal_funding_amount'))
+        
+        if result['federal_funding_amount__sum']:
+            return '$' + str(int(result['federal_funding_amount__sum']))
+        else:
+            return '$0'
     
 
     def parseBudgetAccounts(self):

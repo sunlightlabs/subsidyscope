@@ -11,7 +11,7 @@ var sector_id = {{ sector.id }};
 
 $(document).ready(function () { 
     
-    var blocks = ['#all_programs','#duplicate_programs' , {% for group in bf_groups %}'#bf_group_{{ group.bf.id }}',{% endfor %}{% for group in fi_groups %}'#fi_group_{{ group.fi.id }}',{% endfor %},{% for program in included_programs %}'#ap_comments_{{ program.id }}_edit',{% endfor %}]
+    var blocks = ['#all_programs','#duplicate_programs' , {% for group in bf_groups %}'#bf_group_{{ group.bf.id }}',{% for program in group.programs %}'#bf_comments_{{ program.id }}_edit',{% endfor %}{% endfor %}{% for group in fi_groups %}'#fi_group_{{ group.fi.id }}',{% for program in group.programs %}'#fi_comments_{{ program.id }}_edit',{% endfor %}{% endfor %},{% for program in included_programs %}'#ap_comments_{{ program.id }}_edit',{% endfor %}]
     
     $('#refresh_link').hide(); 
     
@@ -100,16 +100,18 @@ function saveComment(program_id, id)
 	{% if included_programs %}
 	
 		{% for program in included_programs %}
+			<a name="ap_{{ program.id }}"/>
 			<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }} <a href="#all_programs" onclick="removeProgram({{ program.id }});">[remove program]</a>
 				<!-- <br/> FY09 Obligations: $tbd <a href="" onclick=edit>[more]</a> -->
 				<br/>
+				FY05-10 Grants: {{ program.get_recent_grants_summary }}
 				<div id="ap_comments_{{ program.id }}">
-					Comments: <span id="ap_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#all_programs" onclick="editComment('#ap_comments_{{ program.id }}')">[edit]</a>
+					Comments: <span id="ap_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#ap_{{ program.id }}" onclick="editComment('#ap_comments_{{ program.id }}')">[edit]</a>
 				</div>
 				<div id="ap_comments_{{ program.id }}_edit">
 					<textarea cols="40" rows="5" id="ap_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
 					<br/>
-					<a href="#all_programs" onclick="saveComment({{ program.id }}, '#ap_comments_{{ program.id }}')">[save]</a>
+					<a href="#ap_{{ program.id }}" onclick="saveComment({{ program.id }}, '#ap_comments_{{ program.id }}')">[save]</a>
 				</div>
 			</li>
 		{% endfor %}
@@ -122,6 +124,7 @@ function saveComment(program_id, id)
 	<li><strong>Duplicate Programs:</strong>  <a href="#duplicate_programs" onclick="$('#duplicate_programs').toggle()"> ({{ duplicate_programs|length }}) [show/hide]</a></li>
 	<ul id="duplicate_programs">
 		{% for program in duplicate_programs %}
+			<a name="db_{{ program.id }}"/>
 			<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }} <a href="#duplicate_programs" onclick="removeProgram({{ program.id }});">[remove program]</a>
 			{% for program_sector in program.sectors.all %}
 					{% ifnotequal program_sector sector %}
@@ -129,7 +132,15 @@ function saveComment(program_id, id)
 					{% endifnotequal %}
 				{% endfor %}
 			<br/>
-			
+			FY05-10 Grants: {{ program.get_recent_grants_summary }}
+			<div id="dp_comments_{{ program.id }}">
+					Comments: <span id="dp_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#db_{{ program.id }}" onclick="editComment('#dp_comments_{{ program.id }}')">[edit]</a>
+				</div>
+				<div id="dp_comments_{{ program.id }}_edit">
+					<textarea cols="40" rows="5" id="dp_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
+					<br/>
+					<a href="#db_{{ program.id }}" onclick="saveComment({{ program.id }}, '#dp_comments_{{ program.id }}')">[save]</a>
+				</div>
 			</li>
 		{% endfor %}
 	</ul>
@@ -144,6 +155,7 @@ function saveComment(program_id, id)
 			<li><strong>{{ group.bf }}:</strong> <a href="#bf_group_{{ group.bf.id }}" onclick="$('#bf_group_{{ group.bf.id }}').toggle()"> ({{ group.included_count }}/{{ group.programs|length }}) [show/hide]</a></li>
 			<ul id="bf_group_{{ group.bf.id }}">
 				{% for program in group.programs %}
+					<a name="bf_group_{{ group.bf.id }}_{{ program.id }"/>
 					<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }}
 					{% for program_sector in program.sectors.all %}
 						{% ifnotequal program_sector sector %}
@@ -152,6 +164,16 @@ function saveComment(program_id, id)
 					{% endfor %}
 					
 					<br/>
+					FY05-10 Grants: {{ program.get_recent_grants_summary }}
+					<div id="bf_comments_{{ program.id }}">
+					Comments: <span id="bf_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#bf_group_{{ group.bf.id }}_{{ program.id }}" onclick="editComment('#bf_comments_{{ program.id }}')">[edit]</a>
+					</div>
+					<div id="bf_comments_{{ program.id }}_edit">
+						<textarea cols="40" rows="5" id="bf_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
+						<br/>
+						<a href="#bf_group_{{ group.bf.id }}_{{ program.id }}" onclick="saveComment({{ program.id }}, '#bf_comments_{{ program.id }}')">[save]</a>
+					</div>
+					
 						{% ifinlist program included_programs %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><em>Program included in {{ sector.name }}</em></span>{% else %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><a href="#bf_group_{{ group.bf.id }}" onclick="includeProgram({{ program.id }}, 'bf_group_{{ group.bf.id }}_{{ program.id }}');">[include program]</a></span>{% endifinlist %}
 					</li>
 				{% endfor %}
@@ -182,6 +204,15 @@ function saveComment(program_id, id)
 				{% endfor %}
 				
 				<br/>
+				FY05-10 Grants: {{ program.get_recent_grants_summary }}
+				<div id="fi_comments_{{ program.id }}">
+				Comments: <span id="fi_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#fi_group_{{ group.bf.id }}" onclick="editComment('#fi_comments_{{ program.id }}')">[edit]</a>
+				</div>
+				<div id="fi_comments_{{ program.id }}_edit">
+					<textarea cols="40" rows="5" id="fi_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
+					<br/>
+					<a href="#fi_group_{{ group.fi.id }}" onclick="saveComment({{ program.id }}, '#fi_comments_{{ program.id }}')">[save]</a>
+				</div>
 					{% ifinlist program included_programs %}<span id="fi_group_{{ group.fi.id }}_{{ program.id }}"><em>Program included in {{ sector.name }}</em></span>{% else %}<span id="fi_group_{{ group.fi.id }}_{{ program.id }}"><a href="#fi_group_{{ group.fi.id }}" onclick="includeProgram({{ program.id }}, 'fi_group_{{ group.fi.id }}_{{ program.id }}');">[include program]</a></span>{% endifinlist %}
 				</li>
 			{% endfor %}

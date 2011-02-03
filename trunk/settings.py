@@ -119,7 +119,8 @@ INSTALLED_APPS = (
     'navigation',
     'gunicorn',
     'contractcodes',
-    'sectors'
+    'sectors',
+    'cfda_usaspending_summary'
 )
 
 #try:
