@@ -15,31 +15,33 @@
 		<div class="feature_leftside">
             <div id="feature_box">
 			    <div class="tabs" style="height: 400px; position:relative;">
-                    {% carousel_entries 4 %}
+			    
+                    {% carousel_entries 5 %}
+                    
                 </div>
 			</div><!-- end feature box -->
 			
 			<div class="updates_box">
 				<div class="updates_head">
-				<h2>Housing Sector Updates</h2>
+					<h2>Housing Sector Updates</h2>
                 <a title="Click here for news feed" href="{%url feed_project_updates "energy" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
-				</div>
+			</div>
 		      
-		      {% project_updates 4 %}	
+		      {% project_updates 5 %}	
             
             </div> 	<!-- ends update box-->
 		</div> <!-- ends feature left side -->		
 	</div> <!-- ends span 11 -->
 
-	<div class="span-13 last">
-		<div class="feature_rightside">
-			<div id="intro">	
+<div class="span-13 last">
+	 <div class="feature_rightside">
+		<div id="intro">	
 			<img src="/media/images/sector_icons/housing/housing_lg.png" border="0" alt="Housing Sector" class="sector_header_icon">
 			<span class="sector_header">Housing</span>
 			<p class="sector_intro_copy">{% morsel text1 %}</p>		
-			</div>
-				<div id="sector_taxonomy_box_bottom">&nbsp;</div>
 		</div>
+			<div id="sector_taxonomy_box_bottom">&nbsp;</div>
+	</div>
 </div>
 
 <div class="span-13 last graphs">
