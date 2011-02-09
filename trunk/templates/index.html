@@ -98,7 +98,7 @@ $(function () {
 		<p class="intro_copy"><strong>Subsidyscope</strong>, launched by The Pew Charitable Trusts, aims to raise public awareness about the role of federal subsidies in the economy. <a href="{% url framing-paper %}" class="intro_more">Read More »</a></p>		
 		</div>
 		
-		<div id="taxonomy" style="">
+		<div id="taxonomy" style="height: 255px;">
 			<div class="left_tax">
 				<div class="tax_item">
 					<div id="tax_icon"><a href="{% url bailout-index %}"><img src="/media/images/sector_icons/1_lg.png" border="0" alt="Financial Bailout"></a></div>	
@@ -116,10 +116,19 @@ $(function () {
 					<div id="tax_icon"><a href="{% url nonprofits-index %}"><img src="/media/images/sector_icons/nonprofits/nonprofits_lg.png" border="0" alt="Nonprofits"></a></div>	
 						<div>
 							<h3><a href="{% url nonprofits-index %}">Nonprofits</a></h3>
-              <p>Universities, Charities and other Tax-exempt Entities</p>
+              				<p>Universities, Charities and other Tax-exempt Entities</p>
 						</div>
 					</div>
-				</div>
+					
+				<div class="tax_item">
+					<div id="tax_icon"><a href="{% url housing-index %}"><img src="/media/images/sector_icons/housing/housing_lg.png" border="0" alt="Housing"></a></div>	
+						<div>
+							<h3><a href="{% url housing-index %}">Housing</a></h3>
+              				<p>Homeownership, Rental, Community Development</p>
+						</div>
+					</div>
+			
+			</div>
 			
 			<div class="right_tax">
 				<div class="tax_item">
@@ -141,7 +150,9 @@ $(function () {
 							<h3><a href="{% url energy-index %}">Energy</a></h3>
 							<p>Oil, Natural Gas, Coal,<br/>Nuclear and Renewable Energy</p>
 						</div>
-					</div>
+				</div>
+				
+				
 				
 			</div>
 		</div>				
