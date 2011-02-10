@@ -34,7 +34,9 @@ RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE', g
 def strip_clean_tags(x):
     
     if x:
-        return strip_tags(x.encode('ascii','ignore'))
+        if type(x) == unicode:
+            x = x.encode('ascii','ignore')
+        return strip_tags(x)
     else:
         return ''
     
