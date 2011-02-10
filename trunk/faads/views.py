@@ -221,12 +221,12 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
                 faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
 
         # handle assistance type
-        if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
-            assistance_filter = form.cleaned_data['assistance_type']
-            if len(form.cleaned_data['assistance_type']) > 0:
-                assistance_filter.append(u'39')
-                assistance_filter.append(u'40')
-            faads_search_query = faads_search_query.filter('assistance_type', assistance_filter)
+        # if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
+        assistance_filter = form.cleaned_data['assistance_type']
+        if len(form.cleaned_data['assistance_type']) > 0:
+            assistance_filter.append(u'39')
+            assistance_filter.append(u'40')
+        faads_search_query = faads_search_query.filter('assistance_type', assistance_filter)
 
         
         # handle recipient type
