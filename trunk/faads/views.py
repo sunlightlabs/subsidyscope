@@ -653,7 +653,7 @@ def map_data_csv(request, sector_name=None):
     
         states[state.id] = state
         
-    
+
     if request.method == 'GET':
         if request.GET.has_key('q'):
         
@@ -664,7 +664,7 @@ def map_data_csv(request, sector_name=None):
             max_state_total = 0
             max_per_capital_total = 0
             
-            per_capita_totals = {}
+            per_capita_totals = {}        
             
             for state_id in faads_results:
                 if states.has_key(state_id) and states[state_id].population and faads_results[state_id] > 0:
@@ -680,18 +680,19 @@ def map_data_csv(request, sector_name=None):
         
             results = []
             
+            response = HttpResponse(mimetype="text/csv")
+            response['Content-Disposition'] = "attachment; filename=%s-per-capita.csv" % (request.GET['q'])
+            writer = csv.writer(response)
+            
+            writer.writerow(['state', 'Total Spending', 'Per capita spending'])
+            
             for state_id in per_capita_totals:
                 if states.has_key(state_id):
-                        
-                    
-                    line = '%s,%f,%f' % (states[state_id].name, 
-                                                           faads_results[state_id], 
-                                                           per_capita_totals[state_id])
+                    writer.writerow([states[state_id].name, faads_results[state_id], per_capita_totals[state_id]])
 
-                    results.append(line)
-                
-            
-            return HttpResponse('\n'.join(results), mimetype="text/csv")
+            response.close()
+
+            return response
                 
     return Http404()
 
