@@ -69,7 +69,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     action_type_options = map(lambda x: (x.id, x.name), ActionType.objects.filter(code__in=action_type_codes).order_by('code'))
 
     re_assistance_type_tidier = re.compile(r'(\,.*$|\s\([a-z]\))', re.I)
-    assistance_type_codes = (3,4,5,6)
+    assistance_type_codes = (2,3,4,5,6)
     assistance_type_options = map(lambda x: (x.id, re_assistance_type_tidier.sub('',x.name)), AssistanceType.objects.filter(code__in=assistance_type_codes).order_by('code'))
     
     recipient_type_codes = (0,1,2,4,5,6,11,12,20,21,22,23,25)
@@ -221,6 +221,7 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
                 faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
 
         # handle assistance type
+        # commented out this test, because we need to filter items that aren't choices on the search form.
         # if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
         assistance_filter = form.cleaned_data['assistance_type']
         if len(form.cleaned_data['assistance_type']) > 0:
@@ -297,8 +298,6 @@ def search(request, sector_name=None):
             if form.is_valid():
                 redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
                 return HttpResponseRedirect(redirect_url)
-            
-        
         else:
             return HttpResponseRedirect(reverse('transportation-faads-search'))
         
