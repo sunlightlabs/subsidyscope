@@ -13,6 +13,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,41,Treasury,2009,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,100.00,100.00,100.00,110.00,110.00,110.00,110.00,,,,Expensing of certain capital outlays,,,,,,,,,,,,,,,,,
 #+,44,Treasury,2010,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,100.00,100.00,100.00,110.00,110.00,110.00,110.00,,,Expensing of certain capital outlays,,,,,,,,,,,,,,,,,
 #+,43,Treasury,2011,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,60.00,60.00,60.00,70.00,80.00,80.00,80.00,,Expensing of certain capital outlays,,,,,,,,,,,,,,,,,
+#+,43,Treasury,2012,,,,,,,,,,,0.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,70.00,70.00,90.00,100.00,120.00,120.00,130.00,Expensing of certain capital outlays,,,,,,,,,,,,,,,,,
 #,Expensing of certain multiperiod production costs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Expensing multi-period livestock and crop production costs.&mdash;The baseline tax system requires the taxpayer to capitalize costs associated with an investment over time. However, the production of livestock and crops with a production period greater than two years (e.g., establishing orchards or constructing barns) is exempt from the uniform cost capitalization rules, thereby accelerating cost recovery. </p>"
 #+,28,Treasury,2000,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,,,75.00,80.00,85.00,90.00,95.00,,,,,,,,,,,,,Expensing of certain multiperiod production costs,,,,,,,,,,,,,,,,,
 #+,29,Treasury,2001,10.00,10.00,10.00,15.00,15.00,15.00,,,,,,,,,,,,75.00,80.00,85.00,90.00,95.00,95.00,,,,,,,,,,,,Expensing of certain multiperiod production costs,,,,,,,,,,,,,,,,,
@@ -26,6 +27,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,42,Treasury,2009,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,70.00,70.00,70.00,70.00,80.00,80.00,80.00,,,,Expensing of certain multiperiod production costs,,,,,,,,,,,,,,,,,
 #+,45,Treasury,2010,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,70.00,70.00,70.00,70.00,80.00,80.00,80.00,,,Expensing of certain multiperiod production costs,,,,,,,,,,,,,,,,,
 #+,44,Treasury,2011,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,110.00,100.00,100.00,100.00,110.00,110.00,110.00,,Expensing of certain multiperiod production costs,,,,,,,,,,,,,,,,,
+#+,44,Treasury,2012,,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,130.00,140.00,140.00,160.00,170.00,170.00,170.00,Expensing of certain multiperiod production costs,,,,,,,,,,,,,,,,,
 #,Treatment of loans forgiven for solvent farmers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Loans forgiven solvent farmers.&mdash;The baseline tax system requires debtors to include the amount of loan forgiveness as income or else reduce their recoverable basis in the property related to the loan. If the amount of forgiveness exceeds the basis, the excess forgiveness is taxable. However, for bankrupt debtors, the amount of loan forgiveness reduces carryover losses, unused credits, and then basis, with the remainder of the forgiven debt excluded from taxation. </p>"
 #+,29,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,,,Treatment of loans forgiven for solvent farmers,,,,,,,,,,,,,,,,,
 #+,30,Treasury,2001,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,,Treatment of loans forgiven for solvent farmers,,,,,,,,,,,,,,,,,
@@ -39,6 +41,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,43,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,10.00,10.00,10.00,20.00,20.00,20.00,20.00,,,,Treatment of loans forgiven for solvent farmers,,,,,,,,,,,,,,,,,
 #+,46,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,,10.00,10.00,10.00,20.00,20.00,20.00,20.00,,,Treatment of loans forgiven for solvent farmers,,,,,,,,,,,,,,,,,
 #+,45,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,Treatment of loans forgiven for solvent farmers,,,,,,,,,,,,,,,,,
+#+,45,Treasury,2012,,,,,,,,,,,,,,,,,,,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,Treatment of loans forgiven for solvent farmers,,,,,,,,,,,,,,,,,
 #,Capital gains treatment of certain income,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Capital gains treatment of certain income.&mdash; For individuals in 2009, tax rates on regular income vary from 10 percent to 35 percent, depending on the taxpayer's income. The baseline tax system generally would tax all income under the regular tax rate schedule. It would not allow preferentially low tax rates to apply to certain types or sources of income. In contrast, current law allows capital gains to be taxed at a preferentially low rate that is no higher than 15 percent. Certain agricultural income, such as unharvested crops, qualify for taxation as capital gains rather than ordinary income, and so benefit from the preferentially low 15 percent maximum tax rate on capital gains. </p>"
 #+,30,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,655.00,685.00,715.00,750.00,785.00,,,,,,,,,,,,,Capital gains treatment of certain income,,,,,,,,,,,,,,,,,
 #+,31,Treasury,2001,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,665.00,695.00,725.00,760.00,795.00,830.00,,,,,,,,,,,,Capital gains treatment of certain income,,,,,,,,,,,,,,,,,
@@ -52,6 +55,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,44,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,980.00,1030.00,1030.00,1090.00,1060.00,760.00,800.00,,,,Capital gains treatment of certain income,,,,,,,,,,,,,,,,,
 #+,47,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,,1160.00,1130.00,1390.00,1190.00,1140.00,1300.00,1460.00,,,Capital gains treatment of certain income,,,,,,,,,,,,,,,,,
 #+,46,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,700.00,610.00,590.00,550.00,680.00,830.00,970.00,,Capital gains treatment of certain income,,,,,,,,,,,,,,,,,
+#+,46,Treasury,2012,,,,,,,,,,,,,,,,,,,,,,,,,,,,490.00,500.00,520.00,580.00,630.00,780.00,930.00,Capital gains treatment of certain income,,,,,,,,,,,,,,,,,
 #,Income averaging for farmers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Income averaging for farmers.&mdash;The baseline tax system generally taxes all earned income each year at the rate determined by the income tax. However, taxpayers may average their taxable income from farming and fishing over the previous three years. </p>"
 #+,,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,Income averaging for farmers,,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,Income averaging for farmers,,,,,,,,,,,,,,,,,
@@ -67,6 +71,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,45,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,80.00,80.00,80.00,80.00,80.00,80.00,80.00,,,,Income averaging for farmers,,,,,,,,,,,,,,,,,
 #+,48,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,,80.00,80.00,80.00,80.00,80.00,80.00,80.00,,,Income averaging for farmers,,,,,,,,,,,,,,,,,
 #+,47,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,90.00,90.00,90.00,90.00,90.00,90.00,100.00,,Income averaging for farmers,,,,,,,,,,,,,,,,,
+#+,47,Treasury,2012,,,,,,,,,,,,,,,,,,,,,,,,,,,,90.00,90.00,90.00,90.00,90.00,100.00,100.00,Income averaging for farmers,,,,,,,,,,,,,,,,,
 #,Deferral of gain on sale of farm refiners,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Deferral of gain on sales of farm refiners.&mdash; The baseline tax system generally subjects capital gains to taxes the year that they are realized. However, the Tax Code allows a taxpayer who sells stock in a farm refiner to a farmers' cooperative to defer recognition of the gain if the proceeds are re-invested in a qualified replacement property. </p>"
 #+,32,Treasury,2000,10.00,10.00,10.00,15.00,15.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,Deferral of gain on sale of farm refiners,,,,,,,,,,,,,,,,,
 #+,33,Treasury,2001,10.00,10.00,10.00,15.00,15.00,15.00,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,Deferral of gain on sale of farm refiners,,,,,,,,,,,,,,,,,
@@ -80,6 +85,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,46,Treasury,2009,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,Deferral of gain on sale of farm refiners,,,,,,,,,,,,,,,,,
 #+,49,Treasury,2010,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,,,,,,,,,,,Deferral of gain on sale of farm refiners,,,,,,,,,,,,,,,,,
 #+,48,Treasury,2011,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,,,,,,,,,,Deferral of gain on sale of farm refiners,,,,,,,,,,,,,,,,,
+#+,48,Treasury,2012,,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,,,,,,,,,,,,,,,Deferral of gain on sale of farm refiners,,,,,,,,,,,,,,,,,
 #,Expensing of soil and water conservation expenditures,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #+,,JCT,2002,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,Expensing of soil and water conservation expenditures,,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,Expensing of soil and water conservation expenditures,,,,,,,,,,,,,,,,,
@@ -155,3 +161,5 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,,JCT,2011,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,Expensing of cost-sharing payments,,,,,,,,,,,,,,,,,
 #,Five-year recovery period for certain farming business machinery or equipment,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #+,,JCT,2011,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,100.00,100.00,100.00,<50,,,,Five-year recovery period for certain farming business machinery or equipment,,,,,,,,,,,,,,,,,
+#,Expensing of reforestation expenditures,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,49,Treasury,2012,,,,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,40.00,60.00,70.00,70.00,70.00,80.00,80.00,Expensing of reforestation expenditures,,,,,,,,,,,,,,,,,

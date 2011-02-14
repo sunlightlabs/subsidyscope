@@ -7,13 +7,12 @@ from django.core.management.base import BaseCommand, make_option
 from django.db import connection, transaction
 from decimal import Decimal
 
-from tax_expenditures.models import Group, Expenditure, Estimate
+from tax_expenditures.models import Group, Expenditure, Estimate, GroupDetail, GroupDetailReport, GroupSummary
 
 years = range(2000, 2017)
-
 year_fields = len(years) * 2
-name_field = year_fields + 5
-notes_field = year_fields + 6
+name_field = year_fields + 4
+notes_field = year_fields + 5
 
 te_tables = ['tax_expenditures_expenditure', 'tax_expenditures_group', 'tax_expenditures_groupdetail', 'tax_expenditures_groupdetailreport', 'tax_expenditures_groupdetailreport_group_source', 'tax_expenditures_groupsummary']
 
@@ -32,7 +31,10 @@ class Command(BaseCommand):
             
             Group.objects.all().delete()
             Expenditure.objects.all().delete()
-            Estimate.objects.all().delete() 
+            Estimate.objects.all().delete()
+            GroupDetail.objects.all().delete()
+            GroupDetailReport.objects.all().delete()
+            GroupSummary.objects.all().delete()
             
             cursor = connection.cursor()
         
@@ -45,7 +47,10 @@ class Command(BaseCommand):
         
             print 'Loading processed TE data...'
         
-            for file in os.listdir(options['path']):
+            files = os.listdir(options['path'])
+            files.sort()
+        
+            for file in files:
                 
                 print file
                 
@@ -61,6 +66,29 @@ class Command(BaseCommand):
                 data.reverse()
                 
                 process_file(data)
+                
+                
+            
+
+            
+            print 'Generating TE summary data...'
+            
+            groups = Group.objects.filter(parent=None)
+            
+            for group in groups:
+                print 'Processing %s...' % group.name
+                group.calc_summary()
+                
+            
+            print 'Generating TE detail data...'
+            
+            groups = Group.objects.filter(parent=None)
+
+            for group in groups:
+                print 'Processing %s...' % group.name
+                group.calc_detail()
+                
+                
         else:
              
             print 'Error: --path argument required for input files.'    
@@ -91,9 +119,8 @@ def process_group(parent, data, indent):
         row = data.pop()
         
         lines_processed += 1
-        
+
         if row[0] == indent:
-            print row[1]
             group = Group.objects.create(name=row[1], parent=parent)
             group.description = row[name_field]
             group.notes = row[notes_field]
@@ -113,8 +140,7 @@ def process_group(parent, data, indent):
             
 
 def process_expenditure(group, row):
-    
-    print row[2], row[3]
+
     
     if row[2] == 'JCT':
         source = Expenditure.SOURCE_JCT
@@ -138,7 +164,7 @@ def process_expenditure(group, row):
     for year in years:
 
         corp_raw = row[4 + i]
-        indv_raw = row[year_fields + 4 + i]
+        indv_raw = row[(year_fields / 2) + 4 + i]
         
         corp_amount = None
         corp_notes = None

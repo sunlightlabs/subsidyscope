@@ -13,6 +13,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,155,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,3760.00,3870.00,3950.00,4140.00,4480.00,4850.00,5260.00,,,,Exclusion of veterans death benefits and disability compensation,,,,,,,,,,,,,,,,,
 #+,159,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,,3870.00,3950.00,4140.00,4480.00,4850.00,5260.00,5690.00,,,Exclusion of veterans death benefits and disability compensation,,,,,,,,,,,,,,,,,
 #+,166,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,3900.00,4130.00,4370.00,4630.00,4910.00,5200.00,5510.00,,Exclusion of veterans death benefits and disability compensation,,,,,,,,,,,,,,,,,
+#+,166,Treasury,2012,,,,,,,,,,,,,,,,,,,,,,,,,,,,4130.00,4510.00,5010.00,5520.00,6110.00,6750.00,7460.00,Exclusion of veterans death benefits and disability compensation,,,,,,,,,,,,,,,,,
 #,Exclusion of veterans pensions,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Veterans pension payments.&mdash;Under the baseline tax system, all compensation, including dedicated payments and in-kind benefits, should be included in taxable income because they represent accretions to wealth that do not materially differ from cash wages. Under current law, however, pension payments made by the Veterans Administration are excluded from gross income. </p>"
 #+,124,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,70.00,75.00,80.00,85.00,85.00,,,,,,,,,,,,,Exclusion of veterans pensions,,,,,,,,,,,,,,,,,
 #+,125,Treasury,2001,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,70.00,75.00,80.00,85.00,85.00,90.00,,,,,,,,,,,,Exclusion of veterans pensions,,,,,,,,,,,,,,,,,
@@ -26,6 +27,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,156,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,180.00,180.00,180.00,180.00,190.00,220.00,220.00,,,,Exclusion of veterans pensions,,,,,,,,,,,,,,,,,
 #+,160,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,,180.00,180.00,180.00,190.00,220.00,220.00,220.00,,,Exclusion of veterans pensions,,,,,,,,,,,,,,,,,
 #+,167,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,190.00,200.00,220.00,250.00,260.00,270.00,270.00,,Exclusion of veterans pensions,,,,,,,,,,,,,,,,,
+#+,167,Treasury,2012,,,,,,,,,,,,,,,,,,,,,,,,,,,,210.00,240.00,300.00,330.00,360.00,380.00,400.00,Exclusion of veterans pensions,,,,,,,,,,,,,,,,,
 #,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>G.I. Bill benefits.&mdash;Under the baseline tax system, all compensation, including dedicated payments and in-kind benefits, should be included in taxable income because they represent accretions to wealth that do not materially differ from cash wages. Under current law, however, G.I. Bill benefits paid by the Veterans Administration are excluded from gross income. </p>"
 #+,125,Treasury,2000,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,85.00,90.00,90.00,95.00,100.00,,,,,,,,,,,,,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,
 #+,126,Treasury,2001,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,85.00,90.00,90.00,95.00,100.00,105.00,,,,,,,,,,,,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,
@@ -39,6 +41,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,157,Treasury,2009,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,250.00,280.00,280.00,290.00,300.00,330.00,330.00,,,,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,
 #+,161,Treasury,2010,,,,,,,,,,,,,,,,,,,,,,,,,,280.00,280.00,290.00,300.00,330.00,330.00,340.00,,,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,
 #+,168,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,300.00,470.00,770.00,1010.00,1270.00,1570.00,1910.00,,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,
+#+,168,Treasury,2012,,,,,,,,,,,,,,,,,,,,,,,,,,,,450.00,810.00,1010.00,1200.00,1330.00,1440.00,1560.00,Exclusion of GI bill benefits,,,,,,,,,,,,,,,,,
 #,Exclusion of interest on veterans housing bonds,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Tax-exempt mortgage bonds for veterans.&mdash; The baseline tax system generally would tax all income under the regular tax rate schedule. It would not allow preferentially low (or zero) tax rates to apply to certain types or sources of income. In contrast, under current law, interest earned on general obligation bonds issued by State and local governments to finance housing for veterans is excluded from taxable income. </p>"
 #+,126,Treasury,2000,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,,,30.00,30.00,30.00,30.00,30.00,,,,,,,,,,,,,Exclusion of interest on veterans housing bonds,,,,,,,,,,,,,,,,,
 #+,127,Treasury,2001,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,,30.00,30.00,30.00,30.00,30.00,30.00,,,,,,,,,,,,Exclusion of interest on veterans housing bonds,,,,,,,,,,,,,,,,,
@@ -52,3 +55,4 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,158,Treasury,2009,,,,,,,,10.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,20.00,20.00,20.00,20.00,20.00,20.00,20.00,,,,Exclusion of interest on veterans housing bonds,,,,,,,,,,,,,,,,,
 #+,162,Treasury,2010,,,,,,,,,0.00,10.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,10.00,10.00,20.00,20.00,20.00,20.00,20.00,,,Exclusion of interest on veterans housing bonds,,,,,,,,,,,,,,,,,
 #+,169,Treasury,2011,,,,,,,,,,10.00,10.00,10.00,10.00,20.00,20.00,20.00,,,,,,,,,,,10.00,20.00,20.00,30.00,30.00,40.00,40.00,,Exclusion of interest on veterans housing bonds,,,,,,,,,,,,,,,,,
+#+,169,Treasury,2012,,,,,,,,,,,10.00,0.00,10.00,10.00,10.00,10.00,10.00,,,,,,,,,,,10.00,10.00,10.00,20.00,20.00,20.00,20.00,Exclusion of interest on veterans housing bonds,,,,,,,,,,,,,,,,,

@@ -23,6 +23,7 @@ JCT_SOURCES[2008] = 'JCT. "JCS-2-06: Estimates Of Federal Tax Expenditures For F
 JCT_SOURCES[2009] = 'JCT. "JCS-3-07: Estimates Of Federal Tax Expenditures For Fiscal Years 2007-2011."'
 JCT_SOURCES[2010] = 'JCT. "JCS-2-08: Estimates Of Federal Tax Expenditures For Fiscal Years 2008-2012."'
 JCT_SOURCES[2011] = 'JCT. "JCS-1-10: Estimates Of Federal Tax Expenditures For Fiscal Years 2009-2013."'
+JCT_SOURCES[2012] = 'JCT. "JCS-3-10: Estimates Of Federal Tax Expenditures For Fiscal Years 2010-2014."'
 
 
 TREASURY_SOURCES = {}
@@ -39,6 +40,7 @@ TREASURY_SOURCES[2008] = 'OMB. "Analytical Perspectives, Budget of the U.S. Gove
 TREASURY_SOURCES[2009] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2009."'
 TREASURY_SOURCES[2010] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2010."'
 TREASURY_SOURCES[2011] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2011."'
+TREASURY_SOURCES[2012] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2011."'
 
 
 @register.tag

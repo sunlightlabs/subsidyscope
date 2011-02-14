@@ -20,7 +20,7 @@ class Command(BaseCommand):
             print ('No --path to AP TE data specified (probably need scripts/data/tax_expenditures/data/omb_ap/).')
             exit()
         
-        for year in range(2000, 2012):
+        for year in range(2000, 2013):
             
             path = os.path.join(options['path'], 'spec%d.txt' % (year)) 
             
@@ -28,10 +28,15 @@ class Command(BaseCommand):
             
             if year < 2010:
                 process_file(path, year)
+                
             elif year == 2010:
                 process_file2010(path)
+                
             elif year == 2011:
-                process_file2011(path)
+                process_file2011(path, analysis_year=2011, estimate_years=range(2009,2016))
+                
+            elif year == 2012:
+                process_file2011(path, analysis_year=2012, estimate_years=range(2010,2017))
             else:
                 print ('Year %d not in parsable range, you will need to update the script to handle this data .' % year)
                 exit()

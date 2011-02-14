@@ -74,7 +74,7 @@ def group(request, group_id):
         
     estimate_years = range(year, year + MAX_COLUMNS)
     
-    report_years = range(2000, 2012)
+    report_years = range(2000, 2013)
     
     return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'source':None, 'estimate':estimate, 'report_years':report_years, 'estimate_years':estimate_years,  'year':year, 'year_choices':year_choices, 'previous_year':previous_year, 'next_year':next_year}, context_instance=RequestContext(request))
 

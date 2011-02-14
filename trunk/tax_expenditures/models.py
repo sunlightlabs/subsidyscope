@@ -2,7 +2,7 @@ from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
 from cube import Cube
 
-TE_CURRENT_YEAR = 2011
+TE_CURRENT_YEAR = 2012
 TE_YEARS = range(2000,2017)
          
 def te_sum(values):
