@@ -19,6 +19,16 @@ import settings
 
 RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FPDS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
 
+
+def strip_clean_tags(x):
+    
+    if x:
+        return strip_tags(unicode(x).encode('ascii','ignore'))
+    else:
+        return ''
+    
+
+
 def MakeFPDSSearchFormClass(sector=None, subsectors=[]):
 
    # subsectors
@@ -363,8 +373,9 @@ def summary_statistics_csv(request, sector_name=None, first_column_label='', dat
             response['Content-Disposition'] = "attachment; filename=%s-%s.csv" % (request.GET['q'], first_column_label.replace(" ", "_").lower())
             writer = csv.writer(response)
             writer.writerow([str(first_column_label)] + year_range)
-            for row in data:
-                writer.writerow(map(lambda x: strip_tags(x), row))
+            for row in data[0]:
+                striped_row = map(lambda x: strip_clean_tags(x), row)
+                writer.writerow(striped_row)
             response.close()
 
             return response
