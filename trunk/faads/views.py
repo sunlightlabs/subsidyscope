@@ -31,6 +31,14 @@ from django.contrib.humanize.templatetags.humanize import intcomma
 RESULTS_PER_PAGE = getattr(settings, 'HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE', getattr(settings, 'HAYSTACK_SEARCH_RESULTS_PER_PAGE', 20))
 
 
+def strip_clean_tags(x):
+    
+    if x:
+        return strip_tags(unicode(x).encode('ascii','ignore'))
+    else:
+        return ''
+    
+
 def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     
     # fill CFDA program list
@@ -61,7 +69,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     action_type_options = map(lambda x: (x.id, x.name), ActionType.objects.filter(code__in=action_type_codes).order_by('code'))
 
     re_assistance_type_tidier = re.compile(r'(\,.*$|\s\([a-z]\))', re.I)
-    assistance_type_codes = (3,4,5,6)
+    assistance_type_codes = (2,3,4,5,6)
     assistance_type_options = map(lambda x: (x.id, re_assistance_type_tidier.sub('',x.name)), AssistanceType.objects.filter(code__in=assistance_type_codes).order_by('code'))
     
     recipient_type_codes = (0,1,2,4,5,6,11,12,20,21,22,23,25)
@@ -213,12 +221,13 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
                 faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
 
         # handle assistance type
-        if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
-            assistance_filter = form.cleaned_data['assistance_type']
-            if len(form.cleaned_data['assistance_type']) > 0:
-                assistance_filter.append(u'39')
-                assistance_filter.append(u'40')
-            faads_search_query = faads_search_query.filter('assistance_type', assistance_filter)
+        # commented out this test, because we need to filter items that aren't choices on the search form.
+        # if len(form.cleaned_data['assistance_type'])<len(form.fields['assistance_type'].choices):
+        assistance_filter = form.cleaned_data['assistance_type']
+        if len(form.cleaned_data['assistance_type']) > 0:
+            assistance_filter.append(u'39')
+            assistance_filter.append(u'40')
+        faads_search_query = faads_search_query.filter('assistance_type', assistance_filter)
 
         
         # handle recipient type
@@ -289,8 +298,6 @@ def search(request, sector_name=None):
             if form.is_valid():
                 redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
                 return HttpResponseRedirect(redirect_url)
-            
-        
         else:
             return HttpResponseRedirect(reverse('transportation-faads-search'))
         
@@ -530,8 +537,12 @@ def summary_statistics_csv(request, sector_name=None, first_column_label='', dat
             response['Content-Disposition'] = "attachment; filename=%s-%s.csv" % (request.GET['q'], first_column_label.replace(" ", "_").lower())
             writer = csv.writer(response)
             writer.writerow([str(first_column_label)] + year_range)
-            for row in data:
-                writer.writerow(map(lambda x: strip_tags(x), row))
+            
+            for row in data[0]:
+                striped_row = map(lambda x: strip_clean_tags(x), row)
+                writer.writerow(striped_row)
+                
+            writer.writerow(['Total'] + map(lambda x: strip_clean_tags(x), data[1]))
             response.close()
             
             return response
@@ -539,7 +550,7 @@ def summary_statistics_csv(request, sector_name=None, first_column_label='', dat
     return Http404()
     
 
-def summary_statistics(request, sector_name=None):
+def state_summary_statistics(request, sector_name=None):
     # need to translate the state_id back to FIPS codes for the map and normalize by population 
     # grabbing a complete list of state objects and building a table for translation    
     
@@ -553,13 +564,32 @@ def summary_statistics(request, sector_name=None):
             year_range = faads_search_query.get_year_range()
 
             state_data, state_totals = _get_state_summary_data(results, year_range)                        
-            program_data, program_totals = _get_program_summary_data(results, year_range)
+            
                 
-            return render_to_response('faads/search/summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'program_data':program_data, 'program_totals':program_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+            return render_to_response('faads/search/state_summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
     return Http404()
     
+
+def program_summary_statistics(request, sector_name=None):
+    # need to translate the state_id back to FIPS codes for the map and normalize by population 
+    # grabbing a complete list of state objects and building a table for translation    
     
+    
+    if request.method == 'GET':
+        if request.GET.has_key('q'):
+            
+            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+                                      
+            results = faads_search_query.get_summary_statistics()
+            year_range = faads_search_query.get_year_range()
+                        
+            program_data, program_totals = _get_program_summary_data(results, year_range)
+                
+            return render_to_response('faads/search/program_summary_table.html', {'program_data':program_data, 'program_totals':program_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
+
+    return Http404()
+
     
 def map_data_table(request, sector_name=None):
     # need to translate the state_id back to FIPS codes for the map and normalize by population 
@@ -623,7 +653,7 @@ def map_data_csv(request, sector_name=None):
     
         states[state.id] = state
         
-    
+
     if request.method == 'GET':
         if request.GET.has_key('q'):
         
@@ -634,7 +664,7 @@ def map_data_csv(request, sector_name=None):
             max_state_total = 0
             max_per_capital_total = 0
             
-            per_capita_totals = {}
+            per_capita_totals = {}        
             
             for state_id in faads_results:
                 if states.has_key(state_id) and states[state_id].population and faads_results[state_id] > 0:
@@ -650,18 +680,19 @@ def map_data_csv(request, sector_name=None):
         
             results = []
             
+            response = HttpResponse(mimetype="text/csv")
+            response['Content-Disposition'] = "attachment; filename=%s-per-capita.csv" % (request.GET['q'])
+            writer = csv.writer(response)
+            
+            writer.writerow(['state', 'Total Spending', 'Per capita spending'])
+            
             for state_id in per_capita_totals:
                 if states.has_key(state_id):
-                        
-                    
-                    line = '%s,%f,%f' % (states[state_id].name, 
-                                                           faads_results[state_id], 
-                                                           per_capita_totals[state_id])
+                    writer.writerow([states[state_id].name, faads_results[state_id], per_capita_totals[state_id]])
 
-                    results.append(line)
-                
-            
-            return HttpResponse('\n'.join(results), mimetype="text/csv")
+            response.close()
+
+            return response
                 
     return Http404()
 

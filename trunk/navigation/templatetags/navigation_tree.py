@@ -148,7 +148,7 @@ SECTORS = { 'sector': 'home',
                                                     }]
                                         },
                                         {'sector': 'transportation-index',
-                                         'name': 'Grants and Contracts',
+                                         'name': 'Grants & Contracts',
                                          'url_name': 'transportation-direct-expenditures',
                                          'children': [{ 'sector': 'transportation-direct-expenditures',
                                                         'name': 'Direct Expenditures Program Directory (CFDA)',
@@ -236,7 +236,7 @@ SECTORS = { 'sector': 'home',
                                                       }]
                                         },
                                         {'sector': 'transportation-index',
-                                         'name': 'Loans and Loan Guarantees',
+                                         'name': 'Loans & Loan Guarantees',
                                          'url_name': 'transportation-risk-transfers',
                                          'children': [{'sector': 'transportation-risk-transfers',
                                                        'name': 'Export/Import Bank',
@@ -269,7 +269,7 @@ SECTORS = { 'sector': 'home',
                                                     }]
                                        },
                                       {'sector': 'nonprofits-index',
-                                       'name': 'Grants and Contracts',
+                                       'name': 'Grants & Contracts',
                                        'url_name': 'nonprofits-direct-expenditures',
                                        'children':[{ 'sector': 'nonprofits-direct-expenditures',
                                                      'name': 'Search Grants',
@@ -331,6 +331,9 @@ SECTORS = { 'sector': 'home',
                           
                                     ]
                         },
+                        
+                       
+                        
                         { 'sector': 'energy-index',
                            'name': 'Energy',
                            'url_name': 'energy-index',
@@ -349,7 +352,7 @@ SECTORS = { 'sector': 'home',
                                                        }]
                                         },
                                         {'sector': 'energy-index',
-                                          'name': 'Grants and Contracts',
+                                          'name': 'Grants & Contracts',
                                           'url_name': 'energy-direct-expenditures',
                                           'children':[{'sector': 'energy-direct-expenditures',
                                                        'name': 'Search Grants',
@@ -379,6 +382,51 @@ SECTORS = { 'sector': 'home',
                                         }
                                     ]
                         },
+                        
+                         { 'sector': 'housing-index',
+                           'name': 'Housing',
+                           'url_name': 'housing-index',
+                           'children': [{'sector': 'housing-index',
+                                          'name': 'Summary',
+                                          'url_name': 'housing-overview',
+                                          'children':[{'sector': 'housing-overview',
+                                                       'name': 'Structure of the U.S. Housing Sector',
+                                                       'url_name': 'housing-overview-structure',
+                                                       'children':[]
+                                                       }]
+                                        },
+                                        {'sector': 'housing-index',
+                                          'name': 'Grants & Contracts',
+                                          'url_name': 'housing-direct-expenditures',
+                                          'children':[{'sector': 'housing-direct-expenditures',
+                                                       'name': 'Search Grants',
+                                                       'url_name': 'housing-faads-search',
+                                                       'children':[]
+                                                       },
+                                                       {'sector': 'housing-direct-expenditures',
+                                                       'name': 'Search Contracts',
+                                                       'url_name': 'housing-fpds-search',
+                                                       'children':[]
+                                                       }]
+                                        },
+                                        {'sector': 'housing-index',
+                                          'name': 'Tax Subsidies',
+                                          'url_name': 'housing-tax-expenditures',
+                                          'children':[]
+                                        },
+                                        {'sector': 'housing-index',
+                                          'name': 'Loans & Loan Guarantees',
+                                          'url_name': 'housing-risk-transfers',
+                                          'children':[]
+                                        },
+                                        {'sector': 'housing-index',
+                                          'name': 'Regulations',
+                                          'url_name': 'housing-regulations',
+                                          'children':[]
+                                        }
+                                    ]
+                        },
+                        
                         
                         { 'sector': 'tax_expenditures',
                            'name': 'Tax Expenditures',

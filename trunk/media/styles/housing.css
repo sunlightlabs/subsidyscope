@@ -1,0 +1,85 @@
+/* Transportation */
+
+#sector_feature_box { background-color:#000; }
+#sector_feature_box_attr { color:#e6e6e6; padding:0 5px 0 0; text-align:right;}
+
+.sector_header_icon { vertical-align:middle; padding-right:5px;}
+.sector_header { font-size:18px; font-weight:bold; font-family:Verdana; color:#536fea; text-transform:uppercase;}
+
+.sector_intro_copy { color:#333333; font-family:Georgia,"Nimbus Roman No9 L",serif;
+font-size:150%;
+font-weight:normal;
+letter-spacing:0pt;
+line-height:1.65em;
+padding:0;
+margin:0;}
+
+#sector_taxonomy_box { margin:0; padding:0 0 20px 0;}
+#sector_taxonomy_box_bottom { background-image:url(/media/images/double_lines.gif); background-position:top; background-repeat: repeat-x; clear:both; }
+#sector_taxonomy h3 { font-size:130%; font-weight:bold; margin:0; padding:0;}
+
+#sector_taxonomy_box img { padding-right:5px;}
+
+#sector_taxonomy ul {  padding:0; margin:0;}
+#sector_taxonomy li { float:left; margin:0 0 20px 0; padding:0 0 0 40px; width:110px; font-size:16px; color:#2b5b8e;}
+#sector_taxonomy a:link { color:#1a4760; text-decoration:none;}
+#sector_taxonomy a:visited { color:#435c7a; text-decoration:none;}
+#sector_taxonomy a:hover { color:#6400CD; text-decoration:none;}
+#sector_taxonomy a:active { color:#1a4760; text-decoration:none;}
+
+
+#sector_taxonomy.second-tier { margin-left: 100px;}
+
+img.subsidy-per-household { margin: 20px 20px 0px 25px; }
+#sources-of-error { padding-top:1em; clear: left; font-size: 0.9em; line-height: 1.15em; color: #aaa; padding-left: 15px; padding-right: 8px; text-align: justify;}
+
+
+#house_images { /* background image block */
+display: block;
+width: 486px;
+height: 158px;
+background: url(/media/images/charts/housing/housing_landing_page_houses.png) no-repeat;
+margin-top: 0px;
+}
+#house_images a {
+text-decoration:none;
+}
+a .hide_link {
+visibility:hidden;
+}
+
+#de { /* Direct expenditures Link */
+float: left;
+position:absolute;
+width : 100px;
+height: 100px;
+margin-left: 15px;
+margin-top: 60px;
+}
+
+#te{ /* Tax expenditures Link */
+float: left;
+position:absolute;
+width : 100px;
+height: 100px;
+margin-left: 145px;
+margin-top: 60px;
+}
+
+#rt { /* Rt Link */
+float: left;
+position:absolute;
+width : 100px;
+height: 100px;
+margin-left: 265px;
+margin-top: 60px;
+}
+
+#con { /* Con Link */
+float: left;
+position:absolute;
+width : 100px;
+height: 100px;
+margin-left: 395px;
+margin-top: 60px;
+}

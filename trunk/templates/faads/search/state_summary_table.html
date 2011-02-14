@@ -1,0 +1,31 @@
+{% load humanize %}
+
+{% if state_data %}
+
+<h4>Direct Expenditures by State</h4>
+
+<table id="summary-state-data" class="summary-data">
+  <tr>
+    <th></th>
+    {% for year in year_range %}<th{% if forloop.first %} class="first"{% endif %}{% if forloop.last %} class="last"{% endif %}>{{ year }}</th>
+    {% endfor %}
+  </tr>
+  
+  {% for row in state_data %}
+  <tr class="{% cycle "odd" "even" %}">
+    {% for cell in row %}<td{% if forloop.first %} class="first"{% endif %}{% if forloop.last %} class="last"{% endif %}>{% if cell %}{% if forloop.first %}{{ cell|safe }}{% else %}{{ cell|floatformat:"-0"|intcomma}}{% endif %}{% else %}<div class="null-value">&mdash;</div>{% endif %}</td>{% endfor %}
+  </tr>
+  {% endfor %}
+  
+ <tr class="total">
+    <td class="first"><strong>Total</strong></td>{% for cell in state_totals %}<td{% if forloop.last %} class="last"{% endif %}>{% if cell %}<strong>{{ cell|floatformat:"-0"|intcomma}}</strong>{% else %}<div class="null-value">&mdash;</div>{% endif %}</td>{% endfor %}
+  </tr>
+
+</table>
+
+<div id="summary-csv-state" class="summary-csv"><a href="{% url faads-search-summary-csv-state %}?q={{ query|safe }}">CSV Download</a></div>
+
+{% endif %}
+
+
+<div class="clear"></div>

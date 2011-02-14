@@ -2,6 +2,7 @@
 import xml.etree.ElementTree as ET
 from xml.dom.minidom import parseString
 import math
+from charts.utils.nice import nice_ticks_seq
 
 CURRENCY = [( 10**3, 'Th'), (10**6, 'M'), (10**9, 'B'), (10**12, 'Tr')]
 
@@ -436,4 +437,151 @@ class Column(GridChart):
             self.grid.append(text_item)
             label_count += 1
 
+
+            label_count += 1
+
+
+class StackedColumn(GridChart):
+    """Subclass of GridChart class, specific to an n-series column chart """
+    
+    def __init__(self, height, width, data, stylesheet=None, *args, **kwargs):
+
+        super(StackedColumn, self).__init__(height, width, data, stylesheet, **kwargs)
+
+        self.max_x_point_width = 40  #How wide should a bar chart be if there's plenty of white space -->move to bar chart only
+
+        #find the width of each point in each series
+        self.x_scale = self.set_scale()
+        
+        #width of each data point grouping over multiple series
+        self.x_group_scale = self.x_scale * self.number_of_series
+        self.setup_chart()
+
+        #Chart subclass should have this method to chart the data series
+        self.data_series()
+        
+        self.set_labels()
+        
+
+    def find_y_maximum(self):
+        """
+            Function to find the maximum x and y values of all series 
+            as well as the maximum number of points in a given series
+        """
+        sums = []
+
+        for series in self.data:
+            #Because series are incrementally numbered, we allow for a place holder to keep styles consistent
+            series_sum = 0
+            
+            if series != 'placeholder':
+                for point in series:
+                    series_sum += point[1]
+            sums.append(series_sum)
+                
+        return max(sums)
+    
+    
+    def set_scale(self):
+        
+        scale = (self.grid_width / self.number_of_series)# - self.x_padding
+        if self.max_x_point_width < scale:
+            #need to adjust white space padding
+            self.x_padding = (self.grid_width - (self.number_of_series * (self.max_x_point_width + 20)))
+            return self.max_x_point_width
+        else:
+            return scale
+
+
+    def data_series(self):
+
+        series_count = 0
+        left_offset = self.padding  
+        bottom_offset = self.padding
+    
+        for series in self.data:
+            
+            stack_offset = 0
+            
+            point_count = 0 
+            for point in series:
+                
+                point_width = self.x_scale
+                x_position = (self.x_padding / 2) + (series_count * (point_width + 20))
+
+                if isinstance(point[1], (int, long, float, complex)):
+                    point_height = self.y_scale * (point[1] - self.min_y_axis_value)
+                else:
+                    
+                    #value may be a string to display
+                    point_height = self.max_y_axis_value * self.y_scale
+                    text = ET.Element("text", x="%s" % x_position, y="%s" % (self.grid_height - (point_height/2)))
+                    words = point[1].split(' ')
+                    num_words = 0
+                    
+                    for w in words:
+                        text_span = ET.Element("tspan", x="%s" % x_position, y="%s" % (self.grid_height - ((len(words) * 14) - (num_words * 14) ) ))  
+                        text_span.text = w
+                        text.append(text_span)
+                        num_words += 1
+
+                    text.attrib['class'] = 'value-as-label'
+                    #self.grid.append(text)
+                    continue
+            
+                    
+                y_position = (self.grid_height - point_height - stack_offset)
+                
+                stack_offset += point_height
+                
+                data_point = ET.Element("rect", x="%s" % x_position, y="%s" % y_position, height="%s" % point_height, width="%s" % point_width  )
+                data_point.attrib['class'] = 'series-%s-point' % point_count
+
+                #insert the notch between data point groups
+                if series == self.data[-1] and point != series[-1]:
+                    notch_x_pos = x_position + (point_width) + (self.x_padding / 2)
+                    notch_y_pos = self.grid_height
+                    notch = ET.Element("path", d="M %s %s L %s %s" % (notch_x_pos, notch_y_pos, notch_x_pos, notch_y_pos + 5))
+                    notch.attrib['class'] = 'x-notch'
+                    #self.grid.append(notch)
+            
+                self.grid.append(data_point)
+                self.data_point_label(point[1], x_position + (point_width / 2), y_position - 5)
+
+                point_count += 1
+                    
+            series_count += 1
+
+
+    def add_label(self, label, label_count, word_count=0):
+            x_position = int((self.x_padding / 2) + (self.x_group_scale / 2) + (label_count * (self.x_group_scale + self.x_padding)))
+            y_position = self.grid_height + self.x_label_padding + (13 * word_count)
+            text_item = ET.Element("text", x="%s" % x_position, y="%s" % y_position)
+            text_item.text = "%s" % label
+            text_item.attrib['class'] = 'x-axis-label'
+            if self.label_rotate:
+                text_item.attrib['transform'] = "rotate(%s, %s, %s)" % (self.label_rotate, x_position, y_position)
+                if self.label_rotate < 1:
+                    text_item.attrib['style'] = "text-anchor: end;"
+                else:
+                    text_item.attrib['style'] = 'text-anchor: start;'
+            #self.grid.append(text_item)
+
+
+    def set_labels(self):
+        label_count = 0
+        for l in self.labels:
+            if not self.numeric_labels:
+                if len(l.split('\n')):
+                    #multiline label
+                    word_count = 0
+                    for word in l.split('\n'):
+                        self.add_label(word, label_count, word_count)
+                        word_count += 1
+                else:
+                    self.add_label(l, label_count)
+            else:
+                self.add_label(l, label_count)
+
+            label_count += 1
 

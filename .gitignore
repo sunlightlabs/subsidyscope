@@ -2,5 +2,6 @@
 .DS_Store
 local_settings.py
 solr*
-apache-solr*
 gunicorn.conf.py
+virt_subsidyscope
+apache-solr*
