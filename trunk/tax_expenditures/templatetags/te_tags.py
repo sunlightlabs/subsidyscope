@@ -163,19 +163,32 @@ class TEEpenditureDetailNode(Node):
         
         lines = []
         
+        
+        available_report_years = []
+        
+        for detail in group.groupdetail_set.filter(source=source_id, estimate=estimate):
+            if detail.amount or detail.notes: 
+                available_report_years.append(detail.analysis_year)
+            
+        
+        last_available_report = max(available_report_years)   
+           
+        
         for report_year in report_years:
             
             data_dict = {}
             
+            available_report_years = []
+            
             for detail in group.groupdetail_set.filter(source=source_id, estimate=estimate, analysis_year=report_year):
                 data_dict[detail.estimate_year] = {'amount': detail.amount, 'notes': detail.notes}
-                
+                available_report_years.append(detail.analysis_year) 
             
             data = []
             blank_line = True
             for year in estimate_years:
                 if data_dict.has_key(year) and not data_dict[year] == None:
-                    if report_year == 2011:
+                    if report_year == last_available_report:
                         color = '#aaf'
                     else:
                         if year == report_year - 2:
