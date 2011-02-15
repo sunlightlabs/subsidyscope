@@ -2,7 +2,7 @@ import os, re, sys, csv
 import MySQLdb
 from datetime import date
 
-sys.path.append('/home/Kevin Webb/docs/sunlight_workspace/subsidyscope_main/bailout.site/trunk')
+sys.path.append('/home/kaitlin/envs/subsidyscope/trunk')
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
@@ -32,7 +32,7 @@ def extract_data():
     naics_list_string = ', '.join(naics_list)
     psc_list_string = '\'' + '\', \''.join(psc_list) + '\''
     
-    sql_totals = "SELECT fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) NOT IN ('A', 'F', 'CDO') AND ((TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))) GROUP BY fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], naics_list_string, psc_list_string) 
+    sql_totals = "SELECT fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND ((TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))) GROUP BY fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], naics_list_string, psc_list_string) 
     
     conn = MySQLdb.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
     cursor = conn.cursor()
@@ -40,10 +40,10 @@ def extract_data():
     print "Querying FPDS from %s.%s" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'])
     print sql_totals
     
-    try:
-        cursor.execute(sql_totals)
-    except:
-        pass
+#    try:
+    cursor.execute(sql_totals)
+ #   except:
+  #      pass
     
     totals = {}
     
@@ -56,7 +56,7 @@ def extract_data():
         totals[row['fiscal_year']] = row['annual_amount']
     
         
-    sql_naics = "SELECT principalNAICSCode, fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) NOT IN ('A', 'F', 'CDO') AND TRIM(UPPER(principalNAICSCode)) IN (%s)  GROUP BY principalNAICSCode, fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], naics_list_string) 
+    sql_naics = "SELECT principalNAICSCode, fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND TRIM(UPPER(principalNAICSCode)) IN (%s)  GROUP BY principalNAICSCode, fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], naics_list_string) 
     
     conn = MySQLdb.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
     cursor = conn.cursor()
@@ -87,7 +87,7 @@ def extract_data():
         
     
     
-    sql_psc = "SELECT productOrServiceCode, fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) NOT IN ('A', 'F', 'CDO') AND ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))  GROUP BY productOrServiceCode, fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], psc_list_string) 
+    sql_psc = "SELECT productOrServiceCode, fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))  GROUP BY productOrServiceCode, fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], psc_list_string) 
     
     conn = MySQLdb.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
     cursor = conn.cursor()

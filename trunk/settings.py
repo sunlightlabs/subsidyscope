@@ -120,7 +120,8 @@ INSTALLED_APPS = (
     'gunicorn',
     'contractcodes',
     'sectors',
-    'cfda_usaspending_summary'
+    'cfda_usaspending_summary',
+    'subsidysort',
 )
 
 #try:

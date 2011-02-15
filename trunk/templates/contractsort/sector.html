@@ -1,0 +1,33 @@
+{% extends "contractsort/sort_base.html" %}
+{% load media %}
+{% block title %}{{sector.name}} Sector{% endblock %}
+
+
+{% block content %}
+
+{% js "scripts/jquery.form.js" %}
+{% css "styles/contractsort.css" %}
+<h4>Agencies Associated with this Sector</h4>
+<form id="agency-form" action="{% url contractsort-update-agency sector.id %}" method="POST">
+<select multiple name="agencies">
+{% for a in agencies %}
+    <option value="{{a.id}}" {% for s in selected %} {% ifequal a s %} selected {% endifequal %} {% endfor %}>
+    {{a.name}}
+    </option>
+{% endfor %}
+</select>
+
+<input type="submit" value="Update Agency Selection">
+<input type="reset" value="Reset Changes" />
+</form>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $('#agency-form').ajaxForm(function(){
+            var s = $('#agency-form').append('<div id="success">Related Agencies Updated</div>');
+            $('#success').fadeOut(5000, function() { $('#success').remove();});
+        });
+    });
+
+</script>
+{% endblock %}
