@@ -2,7 +2,7 @@ import os, re, sys, csv
 import MySQLdb
 from datetime import date
 
-sys.path.append('/home/Kevin Webb/docs/sunlight_workspace/subsidyscope_main/bailout.site/trunk')
+sys.path.append('/home/kaitlin/envs/subsidyscope/trunk')
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
@@ -10,11 +10,8 @@ import settings
 
 from sectors.models import Sector  
 
-NON_COMPETED = "TRIM(UPPER(extentCompeted)) NOT IN ('A', 'F', 'CDO') AND"
-COMPETED = "TRIM(UPPER(extentCompeted)) IN ('A', 'F', 'CDO') AND"
 
-
-def extract_data(competed_clause, file_type):
+def extract_data():
     
     sector = Sector.objects.get(pk=5)
     
@@ -35,7 +32,7 @@ def extract_data(competed_clause, file_type):
     naics_list_string = ', '.join(naics_list)
     psc_list_string = '\'' + '\', \''.join(psc_list) + '\''
     
-    sql_totals = "SELECT fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE %s ((TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))) GROUP BY fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], competed_clause, naics_list_string, psc_list_string) 
+    sql_totals = "SELECT fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND ((TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))) GROUP BY fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], naics_list_string, psc_list_string) 
     
     conn = MySQLdb.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
     cursor = conn.cursor()
@@ -43,10 +40,10 @@ def extract_data(competed_clause, file_type):
     print "Querying FPDS from %s.%s" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'])
     print sql_totals
     
-    try:
-        cursor.execute(sql_totals)
-    except:
-        pass
+#    try:
+    cursor.execute(sql_totals)
+ #   except:
+  #      pass
     
     totals = {}
     
@@ -59,7 +56,7 @@ def extract_data(competed_clause, file_type):
         totals[row['fiscal_year']] = row['annual_amount']
     
         
-    sql_naics = "SELECT principalNAICSCode, fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE %s TRIM(UPPER(principalNAICSCode)) IN (%s)  GROUP BY principalNAICSCode, fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], competed_clause, naics_list_string) 
+    sql_naics = "SELECT principalNAICSCode, fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND TRIM(UPPER(principalNAICSCode)) IN (%s)  GROUP BY principalNAICSCode, fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], naics_list_string) 
     
     conn = MySQLdb.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
     cursor = conn.cursor()
@@ -90,7 +87,7 @@ def extract_data(competed_clause, file_type):
         
     
     
-    sql_psc = "SELECT productOrServiceCode, fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE %s ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))  GROUP BY productOrServiceCode, fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], competed_clause, psc_list_string) 
+    sql_psc = "SELECT productOrServiceCode, fiscal_year, SUM(obligatedAmount) as annual_amount FROM %s WHERE TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s)))  GROUP BY productOrServiceCode, fiscal_year;" % (settings.FPDS_IMPORT_MYSQL_SETTINGS['source_table'], psc_list_string) 
     
     conn = MySQLdb.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
     cursor = conn.cursor()
@@ -207,8 +204,7 @@ def extract_data(competed_clause, file_type):
     final_data.append([])
     final_data.append([sql_psc])
         
-    output_csv = csv.writer(open('%s_fpds_%s_%s.csv' % (sector.name, file_type, date.today().strftime("%Y%m%d")), 'wb'))
+    output_csv = csv.writer(open('%s_fpds_%s.csv' % (sector.name, date.today().strftime("%Y%m%d")), 'wb'))
     output_csv.writerows(final_data)  
         
-extract_data(NON_COMPETED, 'noncompeted')
-extract_data(COMPETED, 'competed')        
+extract_data()    
