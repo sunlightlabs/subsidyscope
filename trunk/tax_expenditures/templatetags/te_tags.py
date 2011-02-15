@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.template import Template
 from django.template.loader import render_to_string
 
-from tax_expenditures.models import Expenditure, Group, GroupSummary, TE_YEARS
+from tax_expenditures.models import Expenditure, Group, GroupSummary, TE_YEARS, TE_CURRENT_YEAR
 
 register = Library()
 
@@ -166,13 +166,6 @@ class TEEpenditureDetailNode(Node):
         
         available_report_years = []
         
-        for detail in group.groupdetail_set.filter(source=source_id, estimate=estimate):
-            if detail.amount or detail.notes: 
-                available_report_years.append(detail.analysis_year)
-            
-        
-        last_available_report = max(available_report_years)   
-           
         
         for report_year in report_years:
             
@@ -188,7 +181,7 @@ class TEEpenditureDetailNode(Node):
             blank_line = True
             for year in estimate_years:
                 if data_dict.has_key(year) and not data_dict[year] == None:
-                    if report_year == last_available_report:
+                    if report_year == TE_CURRENT_YEAR:
                         color = '#aaf'
                     else:
                         if year == report_year - 2:
@@ -365,3 +358,5 @@ class TEGroupSummaryAltNode(Node):
 
         
         return render_to_string('tax_expenditures/te_group_summary_alt.html', {'group':group, 'summary':summary})
+    
+    

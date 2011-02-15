@@ -93,8 +93,8 @@
 			</div>  	
         
         {% if subgroups%}
-        	<strong>{% if group.parent %}JCT {% endif %}Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
-        		{% if group.parent %}Multiple JCT line items correspond with this Treasury line item.  These JCT estimates have been aggregated below to create an accurate comparison.{% endif %}
+        	<strong>Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
+        		{% if group.parent %}Multiple line items correspond with this group of tax expenditures.  These estimates have been aggregated below to create an accurate comparison.{% endif %}
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
