@@ -1,0 +1,78 @@
+Metadata for federal_reserve_h41.csv
+Generated on Jun 11, 2009
+
+
+File Description: Federal Reserve H41 Snapshot
+
+
+Field Descriptions:
+
+	Date
+	
+
+	Reserve Bank credit
+	
+
+	Repurchase agreements
+	
+
+	Primary credit
+	
+
+	Secondary credit
+	
+
+	Seasonal credit
+	
+
+	Other credit extensions
+	
+
+	Mortgage-backed securities
+	
+
+	Term Auction credit
+	
+
+	Primary dealer and other broker-dealer credit
+	
+
+	Asset-backed Commercial Paper Money Market Mutual Fund Liquidity Facility
+	
+
+	Credit extended to American International Group, Inc.
+	
+
+	Net portfolio holdings of Commercial Paper Funding Facility LLC
+	
+
+	Net portfolio holdings of Maiden Lane LLC
+	
+
+	Net portfolio holdings of Maiden Lane II LLC
+	
+
+	Net portfolio holdings of Maiden Lane III LLC
+	
+
+	Federal agency debt securities
+	
+
+	Term Facility
+	
+
+	Term Asset-Backed Securities Loan Facility
+	
+
+	Term Asset-Backed Securities Loan Facility
+	
+
+	Other federal reserve assets
+	
+
+	Central bank liquidity swaps
+	
+
+	U.S. Treasury securities
+	
+

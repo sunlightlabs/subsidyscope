@@ -1,0 +1,75 @@
+Metadata for tarp_transactions.csv
+Generated on Jun 11, 2009
+
+
+File Description: TARP Transactions data.
+
+
+Field Descriptions:
+
+	Date
+	TARP Transaction Date
+
+	Name
+	Recipient Institution Name
+
+	Price Paid
+	
+
+	Pricing Mechanism
+	
+
+	Description
+	
+
+	Transaction Type
+	
+
+	FDIC Number
+	
+
+	OTS Number
+	
+
+	Type of Institution
+	
+
+	Total Assets (Q4 2008)
+	
+
+	Regulator
+	
+
+	City
+	
+
+	State
+	
+
+	Stock Symbol
+	
+
+	Program
+	
+
+	Warrant Strike Price
+	
+
+	Warrant Received
+	
+
+	Stock Price (as of close 2009-06-04)
+	
+
+	In/Out of Money (as of close 2009-06-04)
+	
+
+	Subsidy Rate Estimate (percentage)
+	
+
+	Subsidy Rate Estimate Date
+	
+
+	Subsidy Rate Estimate Source
+	
+
