@@ -480,6 +480,7 @@ def map_data_csv(request, sector_name=None):
 
             per_capita_totals = {}
 
+
             for state_id in fpds_results:
                 if states.has_key(state_id) and states[state_id].population and fpds_results[state_id] > 0:
 
@@ -504,8 +505,10 @@ def map_data_csv(request, sector_name=None):
                     results.append(line)
                 
             
-            return HttpResponse('\n'.join(results), mimetype="text/csv")
-
+            resp = HttpResponse('\n'.join(results), mimetype="text/csv")
+            resp['Content-Disposition'] = "attachment; filename=%s.csv" % ('contracts-by-location')
+            return resp
+    
     return Http404()
 
 
