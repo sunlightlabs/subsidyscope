@@ -1,6 +1,7 @@
 from django.db import models
+from django.db.models import Max
 from sectors.models import Sector, Subsector
-import MySQLdb
+import pg
 import sys
 from geo.models import *
 import csv
@@ -176,6 +177,9 @@ class FPDSRecord(models.Model):
         except:
             pass#change this, stupid truncation...
     
+    unique_transaction_id = models.CharField('unique_transaction_id', max_length=255, blank=False, null=False, primary_key=True)
+    data_commons_id = models.IntegerField('data commons id', blank=False, null=False)
+
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
     sector_hash = models.IntegerField("Sector Hash", blank=True, null=True, db_index=True)
@@ -310,7 +314,6 @@ class FPDSRecord(models.Model):
     other_statutory_authority = models.TextField('otherStatutoryAuthority', blank=True, null=True)
     fiscal_year = models.IntegerField('fiscal_year', max_length=6, blank=True, null=True)
     mod_parent = models.CharField('mod_parent', max_length=100, blank=True, default='')
-    unique_transaction_id = models.IntegerField('unique_transaction_id', max_length=255, blank=True, null=True, primary_key=True)
     maj_agency_cat = models.CharField('maj_agency_cat', max_length=2, blank=True, default='')
     psc_cat = models.CharField('psc_cat', max_length=2, blank=True, default='')
     vendor_cd = models.CharField('vendor_cd', max_length=4, blank=True, default='')
@@ -338,6 +341,8 @@ class FPDSLoader(object):
 
         self.FIELD_MAPPING = {
         #   'django field name': 'FPDS field name' OR callable that returns value when passed row
+            'unique_transaction_id': 'unique_transaction_id',
+            'data_commons_id': 'id',
             'agency_id': (self.make_null_emptystring, {'field_name': 'agencyid'}),
             'piid': (self.make_null_emptystring, {'field_name': 'piid'}),
             'mod_number': (self.make_null_emptystring, {'field_name': 'modnumber'}),
@@ -467,7 +472,6 @@ class FPDSLoader(object):
             'other_statutory_authority': (self.make_null_emptystring, {'field_name': 'otherstatutoryauthority'}),
             'fiscal_year': 'fiscal_year',
             'mod_parent': (self.make_null_emptystring, {'field_name': 'mod_parent'}),
-            'unique_transaction_id': 'unique_transaction_id',
             'maj_agency_cat': (self.make_null_emptystring, {'field_name': 'maj_agency_cat'}),
             'psc_cat': (self.make_null_emptystring, {'field_name': 'psc_cat'}),
             'vendor_cd': (self.make_null_emptystring, {'field_name': 'vendor_cd'}),
@@ -490,9 +494,24 @@ class FPDSLoader(object):
         """ check for assignation of sector to each record """
         record = args[0]
         sectors_to_assign = []
-        for sector in self.sector_sql_mapping:
-            if int(record['include_in_sector_%s' % sector.id])==1:
-                sectors_to_assign.append(sector)
+        n_txt = record.get('principalnaicscode')
+        p_txt = record.get('productorservicecode')
+        print n_txt
+        if n_txt != '':
+            naics = NAICSCode.objects.filter(code=n_txt)
+            if len(naics) > 0:
+                naics = naics[0]
+                for s in self.sector_sql_mapping:
+                    if s in naics.sectors.all():
+                        sectors_to_assign.append(s)
+        elif p_txt != '':
+            psc = ProductOrServiceCode.objects.filter(code=record.get('productorservicecode'))
+            if len(psc) > 0:
+                psc = psc[0]
+                for s in self.sector_sql_mapping:
+                    if s in psc.sectors.all():
+                        sectors_to_assign.append(s)
+
         return sectors_to_assign
 
 
@@ -661,30 +680,29 @@ class FPDSLoader(object):
 
     def process_record(self, FPDS_record):
         django_record = FPDSRecord()
-
         failed_fields = []
+        print "id: %s" % FPDS_record.get('id')
         for attrname in self.FIELD_MAPPING:            
             grabber = self.FIELD_MAPPING[attrname]
             if type(grabber)==tuple and callable(grabber[0]):
                 func = grabber[0]
                 args = [FPDS_record]
                 kwargs = grabber[1]
-                (success, extracted_value) = func(FPDS_record, *args, **kwargs)
-                if success:
-                    setattr(django_record, attrname, extracted_value)
-                else:
-                    failed_fields.append("%s (%s)" % (attrname, str(extracted_value)))                    
+                if FPDS_record.get(kwargs.get('field_name')) or attrname == 'place_of_performance_state' :
+                    (success, extracted_value) = func(FPDS_record, *args, **kwargs)
+                    if success:
+                        setattr(django_record, attrname, extracted_value)
+                    else:
+                        failed_fields.append("%s (%s)" % (attrname, str(extracted_value)))                    
             else:
                 setattr(django_record, attrname, FPDS_record.get(grabber))
 
         if len(failed_fields):
-            sys.stderr.write("%d: failed to extract field(s) %s\n" % (FPDS_record['record_id'], ', '.join(failed_fields)))
+            sys.stderr.write("%s: failed to extract field(s) %s\n" % (FPDS_record['unique_transaction_id'], ', '.join(failed_fields)))
 
-
-        # TODO: figure out why the fuck you get this error:
-        # TypeError: 'ManyRelatedManager' object is not iterable        
 
         django_record.save()
+        print "saved record"
         django_record.sectors = self.assign_sectors(FPDS_record)
         django_record.save()
 
@@ -693,23 +711,16 @@ class FPDSLoader(object):
         # except Exception, e:
         #     sys.stderr.write("%d: failed to save / %s\n" % (FPDS_record['record_id'], str(e)))
 
-    def get_max_record(self, settings):
-        from django.db import connection
-        server_cursor = connection.cursor()
-        server_cursor.execute("SELECT MAX(record_id) AS max_record_id FROM fpds_fpdsrecord;")
-        row = server_cursor.fetchone()
-        max_record_id = row[0]
-        if max_record_id is None:
-            max_record_id = 0
-        return max_record_id
-
-    def get_max_server_record(self, cursor, settings):
+    def get_max_id(self):
+        return FPDSRecord.objects.aggregate(Max('data_commons_id'))['data_commons_id__max'] or 0
         
-        sql = "SELECT MAX(record_id) FROM %s" % settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'fpds_award3_sf')
-        cursor.execute(sql)
-        max_rec = cursor.fetchone()['MAX(record_id)']
-        print max_rec
-        return max_rec
+    def get_max_server_id(self, conn, settings):
+        
+        sql = "SELECT MAX(id) FROM %s" % settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'contracts_contract')
+        res = conn.query(sql)
+        d = res.dictresult()[0].get('max')
+        return d
+        
 
     def do_import(self, table_override=None):
         import imp
@@ -743,43 +754,38 @@ class FPDSLoader(object):
              
             if psc_codes or naics_codes:     
                 psc_code_string = "'%s'" % "','".join(map(lambda x: str(x.code).upper().strip(), psc_codes)) # chars -- need quotes
-                naics_code_string = "%s" % ",".join(map(lambda x: str(x.code), naics_codes)) # ints -- no quotes necessary
+                naics_code_string = "'%s'" % ",".join(map(lambda x: str(x.code), naics_codes)) # ints -- no quotes necessary
                 sql = "TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND ((TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s))))" % (naics_code_string, psc_code_string)
             
                 sql_selection_clauses.append("(%s)" % sql)
                 self.sector_sql_mapping[sector] = sql
 
         # generate SQL that will provide a field for each record delineating the sectors to which it should be assigned
-        sector_inclusion_sql = map(lambda (sector, sql): "IF((%s),1,0) AS include_in_sector_%s " % (sql, sector.id), self.sector_sql_mapping.items())
+        sector_inclusion_sql = map(lambda (sector, sql): "IF ((%s)) THEN AS include_in_sector_%s END IF " % (sql, sector.id), self.sector_sql_mapping.items())
         if len(sector_inclusion_sql):
             sector_inclusion_sql.insert(0, '')
         
-        max_record_id = self.get_max_record(settings)
-
-        conn = MySQLdb.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
-        cursor = conn.cursor()
-       
-        server_max_record_id = self.get_max_server_record(cursor, settings)
-
-
-        while max_record_id < server_max_record_id:                
-#        sql = "SELECT *%s FROM %s WHERE (%s) AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (", ".join(sector_inclusion_sql), (table_override is not None) and table_override or settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'fpds_award3_sf'), " OR ".join(sql_selection_clauses), max_record_id)
-            sql = "SELECT *%s FROM %s WHERE (%s) AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (", ".join(sector_inclusion_sql), (table_override is not None) and table_override or settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'fpds_award3_sf'), " OR ".join(sql_selection_clauses), max_record_id)
+        max_id = self.get_max_id()
+        
+        conn = pg.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], dbname=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'])
+        
+        max_server_id = self.get_max_server_id(conn, settings)
+        print max_id
+        print max_server_id
+        i = 0
+        while int(max_id) < int(max_server_id):                
+            sql = "SELECT * FROM %s WHERE (%s) AND id > %d ORDER BY id ASC LIMIT 1000" % ((table_override is not None) and table_override or settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'fpds_award3_sf'), " OR ".join(sql_selection_clauses), max_id)
             print "Executing query: %s" % sql
-            cursor.execute(sql)
-            i = 0
-            while True:
+            results = conn.query(sql).dictresult()
+            for row in results:
                 sys.stdout.write("Entering loop... ")
-                row = cursor.fetchone()
-                if row is None:
-                    break
-                else:
-                    sys.stdout.write("Processing row... ")
-                    self.process_record(row)
+                sys.stdout.write("Processing row... ")
+                self.process_record(row)
                 i = i + 1
 
                 sys.stdout.write("Finished iteration %d\n" % i)
-            max_record_id = self.get_max_record(settings)
+            max_id = self.get_max_id()
 
-        cursor.close()
         conn.close()
+
+        
