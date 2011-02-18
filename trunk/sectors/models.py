@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from agency.models import Agency
-from contractcodes.models import NAICS, PSC
 
 from helpers.helpers import ManyToManyField_NoSyncdb
 

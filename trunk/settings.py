@@ -118,7 +118,6 @@ INSTALLED_APPS = (
     'inflation',
     'navigation',
     'gunicorn',
-    'contractcodes',
     'sectors',
     'cfda_usaspending_summary',
     'subsidysort',
