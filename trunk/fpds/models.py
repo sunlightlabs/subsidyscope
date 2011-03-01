@@ -754,11 +754,13 @@ class FPDSLoader(object):
              
             if psc_codes or naics_codes:     
                 psc_code_string = "'%s'" % "','".join(map(lambda x: str(x.code).upper().strip(), psc_codes)) # chars -- need quotes
-                naics_code_string = "'%s'" % ",".join(map(lambda x: str(x.code), naics_codes)) # ints -- no quotes necessary
+                naics_code_string = "'%s'" % "','".join(map(lambda x: str(x.code), naics_codes)) # ints -- no quotes necessary
                 sql = "TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND ((TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s))))" % (naics_code_string, psc_code_string)
             
                 sql_selection_clauses.append("(%s)" % sql)
                 self.sector_sql_mapping[sector] = sql
+                print psc_code_string
+                print naics_code_string
 
         # generate SQL that will provide a field for each record delineating the sectors to which it should be assigned
         sector_inclusion_sql = map(lambda (sector, sql): "IF ((%s)) THEN AS include_in_sector_%s END IF " % (sql, sector.id), self.sector_sql_mapping.items())
