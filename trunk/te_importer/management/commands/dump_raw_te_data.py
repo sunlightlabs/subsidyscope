@@ -101,14 +101,16 @@ def recurse_category(category, csvfile, indent):
                 
                 
     for subcategory in Category.objects.filter(parent=category):
-        
+        print "Entering into Sub Category %s " % subcategory.name
         recurse_category(subcategory, csvfile, indent)
                 
 
 def dump_data(path):
     
     for budget_function in Category.objects.filter(parent=None):
-        
+       
+        print "BUDGET FUNCTION %s ================================" % budget_function.name
+         
         file_name = re.sub('[^a-zA-Z]', '_', re.sub(',', '', budget_function.name))
         
         csvfile = csv.writer(open(os.path.join(path, '%s.csv' % (file_name)), 'wb'))

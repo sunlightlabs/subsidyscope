@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ObjectDoesNotExist
 from cube import Cube
+from django.db.models import Max
 
 TE_CURRENT_YEAR = 2012
 TE_YEARS = range(2000,2017)
@@ -138,13 +139,16 @@ class Group(models.Model):
         
         cube = Cube()
         
+        current_expenditure_year = int(self.expenditure_set.aggregate(Max('analysis_year'))['analysis_year__max'] or TE_CURRENT_YEAR)
+
         for group in Group.objects.filter(parent=self):
             cube += group.calc_summary()
+        
             
         
         for expenditure in self.expenditure_set.all():            
             
-            if expenditure.analysis_year < TE_CURRENT_YEAR:
+            if expenditure.analysis_year < current_expenditure_year:
                 
                 try:
                     estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=expenditure.analysis_year-2)
@@ -155,9 +159,9 @@ class Group(models.Model):
                 except ObjectDoesNotExist:
                     pass
                      
-            elif expenditure.analysis_year == TE_CURRENT_YEAR:
+            elif expenditure.analysis_year == current_expenditure_year:
                 
-                for year in range(TE_CURRENT_YEAR-2, TE_CURRENT_YEAR + 5):
+                for year in range(current_expenditure_year-2, current_expenditure_year + 5):
                     
                     try:
                         estimate = Estimate.objects.get(expenditure=expenditure, estimate_year=year)
