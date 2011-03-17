@@ -1,6 +1,7 @@
 Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),2004 (Corp),2005 (Corp),2006 (Corp),2007 (Corp),2008 (Corp),2009 (Corp),2010 (Corp),2011 (Corp),2012 (Corp),2013 (Corp),2014 (Corp),2015 (Corp),2016 (Corp),2000 (Indv),2001 (Indv),2002 (Indv),2003 (Indv),2004 (Indv),2005 (Indv),2006 (Indv),2007 (Indv),2008 (Indv),2009 (Indv),2010 (Indv),2011 (Indv),2012 (Indv),2013 (Indv),2014 (Indv),2015 (Indv),2016 (Indv),Expenditure Name,Expenditure Footnotes
 ,Natural resources and environment
 #,"Expensing of exploration and development costs, nonfuel minerals",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Exploration and development costs.&mdash;The baseline tax system allows the taxpayer to deduct the depreciation of an asset according to the decline in its economic value over time. However, certain capital outlays associated with exploration and development of nonfuel minerals may be expensed rather than depreciated over the life of the asset. </p>"
+#+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,"Expensing of exploration and development costs, nonfuel minerals",,,,,,,,,,,,,,,,,
 #+,,JCT,2002,<50,100.00,100.00,100.00,100.00,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,"Expensing of exploration and development costs, nonfuel minerals",,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,"Expensing of exploration and development costs, nonfuel minerals",,,,,,,,,,,,,,,,,
 #+,,JCT,2007,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,"Expensing of exploration and development costs, nonfuel minerals",,,,,,,,,,,,,,,,,
@@ -23,6 +24,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,33,Treasury,2011,,,,,,,,,,50.00,90.00,90.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,,,,,,"Expensing of exploration and development costs, nonfuel minerals",,,,,,,,,,,,,,,,,
 #+,34,Treasury,2012,,,,,,,,,,,110.00,110.00,120.00,130.00,130.00,140.00,140.00,,,,,,,,,,,0.00,0.00,10.00,10.00,10.00,10.00,10.00,"Expensing of exploration and development costs, nonfuel minerals",,,,,,,,,,,,,,,,,
 #,"Excess of percentage over cost depletion, nonfuel minerals",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Percentage depletion.&mdash;The baseline tax system allows the taxpayer to deduct the decline in the economic value of an investment over time. Under current law, however, most nonfuel mineral extractors may use percentage depletion (whereby the deduction is fixed as a percentage of revenue and can exceed total costs) rather than cost depletion, with percentage depletion rates ranging from 22 percent for sulfur to 5 percent for sand and gravel. Over the life of an investment, percentage depletion deductions can exceed the cost of the investment. Consequently, percentage depletion offers more generous tax treatment than would cost depletion, which would limit deductions to an investment's cost. </p>"
+#+,,JCT,2001,200.00,200.00,200.00,200.00,,,,,,,,,,,,,,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,"Excess of percentage over cost depletion, nonfuel minerals",,,,,,,,,,,,,,,,,
 #+,,JCT,2002,200.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,"Excess of percentage over cost depletion, nonfuel minerals",,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,"Excess of percentage over cost depletion, nonfuel minerals",,,,,,,,,,,,,,,,,
 #+,,JCT,2007,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,"Excess of percentage over cost depletion, nonfuel minerals",,,,,,,,,,,,,,,,,
@@ -73,6 +75,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,36,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,70.00,60.00,60.00,60.00,70.00,80.00,100.00,,Capital gains treatment of certain timber income,,,,,,,,,,,,,,,,,
 #+,37,Treasury,2012,,,,,,,,,,,,,,,,,,,,,,,,,,,,50.00,50.00,50.00,60.00,60.00,80.00,90.00,Capital gains treatment of certain timber income,,,,,,,,,,,,,,,,,
 #,Expensing of multiperiod timber growing costs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Expensing multi-period timber growing costs.&mdash;The baseline tax system requires the taxpayer to capitalize costs associated with investment property. However, most of the production costs of growing timber may be expensed under current law rather than capitalized and deducted when the timber is sold, thereby accelerating cost recovery. </p>"
+#+,,JCT,2001,100.00,200.00,200.00,200.00,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Expensing of multiperiod timber-growing costs,,,,,,,,,,,,,,,,,
 #+,,JCT,2002,100.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,Expensing of multiperiod timber-growing costs,,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,200.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,Expensing of multiperiod timber-growing costs,,,,,,,,,,,,,,,,,
 #+,24,Treasury,2000,315.00,330.00,340.00,355.00,365.00,,,,,,,,,,,,,195.00,200.00,210.00,215.00,225.00,,,,,,,,,,,,,Expensing of multiperiod timber growing costs,,,,,,,,,,,,,,,,,
@@ -107,10 +110,12 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,38,Treasury,2011,,,,,,,,,,330.00,340.00,360.00,380.00,400.00,420.00,440.00,,,,,,,,,,,100.00,100.00,110.00,110.00,120.00,120.00,130.00,,Tax incentives for preservation of historic structures,,,,,,,,,,,,,,,,,
 #+,39,Treasury,2012,,,,,,,,,,,300.00,300.00,310.00,310.00,320.00,330.00,330.00,,,,,,,,,,,90.00,90.00,90.00,100.00,100.00,100.00,100.00,Tax incentives for preservation of historic structures,,,,,,,,,,,,,,,,,
 #,"Exclusion of interest on State and local government sewage, water, and hazardous waste facilities bonds",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2001,200.00,200.00,200.00,200.00,,,,,,,,,,,,,,500.00,500.00,500.00,500.00,,,,,,,,,,,,,,"Exclusion of interest on State and local government sewage, water, and hazardous waste facilities bonds",,,,,,,,,,,,,,,,,
 #+,,JCT,2002,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,300.00,300.00,300.00,300.00,300.00,,,,,,,,,,,,,"Exclusion of interest on State and local government sewage, water, and hazardous waste facilities bonds",,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,200.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,,400.00,400.00,400.00,400.00,400.00,,,,,,,,,,,,"Exclusion of interest on State and local government sewage, water, and hazardous waste facilities bonds",,,,,,,,,,,,,,,,,
 #+,,JCT,2007,,,,,,200.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,,500.00,500.00,600.00,600.00,600.00,,,,,,,,"Exclusion of interest on State and local government sewage, water, and hazardous waste facilities bonds",,,,,,,,,,,,,,,,,
 #,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,
 #+,,JCT,2002,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,
 #+,,JCT,2007,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,
@@ -119,11 +124,8 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,,JCT,2010,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,
 #+,,JCT,2011,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,
 #+,,JCT,2012,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,Special rules for mining reclamation reserves,,,,,,,,,,,,,,,,,
-#,Special tax rate for nuclear decommissioning reserve fund,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-#+,,JCT,2002,100.00,100.00,100.00,200.00,200.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,Special tax rate for nuclear decommissioning reserve fund,,,,,,,,,,,,,,,,,
-#+,,JCT,2003,,100.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,Special tax rate for nuclear decommissioning reserve fund,,,,,,,,,,,,,,,,,
-#+,,JCT,2007,,,,,,400.00,500.00,600.00,700.00,800.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,Special tax rate for nuclear decommissioning reserve fund,,,,,,,,,,,,,,,,,
 #,Exclusion of contributions in aid of construction for water and sewer utilities,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Exclusion of contributions in aid of construction for water and sewer utilities,,,,,,,,,,,,,,,,,
 #+,,JCT,2002,<50,<50,<50,<50,<50,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,Exclusion of contributions in aid of construction for water and sewer utilities,,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,<50,<50,<50,<50,<50,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,Exclusion of contributions in aid of construction for water and sewer utilities,,,,,,,,,,,,,,,,,
 #+,,JCT,2007,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,Exclusion of contributions in aid of construction for water and sewer utilities,,,,,,,,,,,,,,,,,
@@ -132,6 +134,10 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,,JCT,2010,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,Exclusion of contributions in aid of construction for water and sewer utilities,,,,,,,,,,,,,,,,,
 #+,,JCT,2011,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Exclusion of contributions in aid of construction for water and sewer utilities,,,,,,,,,,,,,,,,,
 #+,,JCT,2012,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Exclusion of contributions in aid of construction for water and sewer utilities,,,,,,,,,,,,,,,,,
+#,Special tax rate for nuclear decommissioning reserve fund,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2002,100.00,100.00,100.00,200.00,200.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,Special tax rate for nuclear decommissioning reserve fund,,,,,,,,,,,,,,,,,
+#+,,JCT,2003,,100.00,200.00,200.00,200.00,200.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,Special tax rate for nuclear decommissioning reserve fund,,,,,,,,,,,,,,,,,
+#+,,JCT,2007,,,,,,400.00,500.00,600.00,700.00,800.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,Special tax rate for nuclear decommissioning reserve fund,,,,,,,,,,,,,,,,,
 #,Expensing of capital costs with respect to complying with EPA sulfur regulations,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Expensing of capital costs with respect to complying with EPA sulfur regulations.&mdash;The baseline tax system allows the taxpayer to deduct the decline in the economic value of an investment over time. However, the Tax Code allows small refiners to deduct 75 percent of qualified capital costs incurred during the taxable year, thereby accelerating cost recovery relative to economic depreciation. </p>"
 #+,27,Treasury,2006,,,,,0.00,10.00,0.00,10.00,20.00,40.00,10.00,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,Expensing of capital costs with respect to complying with EPA sulfur regulations,,,,,,,,,,,,,,,,,
 #+,42,Treasury,2007,,,,,,10.00,10.00,10.00,30.00,50.00,30.00,0.00,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,Expensing of capital costs with respect to complying with EPA sulfur regulations,,,,,,,,,,,,,,,,,

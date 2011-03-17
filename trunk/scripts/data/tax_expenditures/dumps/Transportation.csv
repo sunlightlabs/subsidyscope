@@ -43,6 +43,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,84,Treasury,2011,,,,,,,,,,,,,,,,,,,,,,,,,,,540.00,560.00,530.00,560.00,600.00,640.00,670.00,,Exclusion for employer-provided transit passes,,,,,,,,,,,,,,,,,
 #+,85,Treasury,2012,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,580.00,510.00,520.00,560.00,590.00,640.00,680.00,Exclusion for employer-provided transit passes,,,,,,,,,,,,,,,,,
 #,Deferral of tax on capital construction funds of shipping companies,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2001,100.00,100.00,100.00,100.00,,,,,,,,,,,,,,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,Deferral of tax on capital construction funds of shipping companies,,,,,,,,,,,,,,,,,
 #+,,JCT,2002,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,Deferral of tax on capital construction funds of shipping companies,,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,Deferral of tax on capital construction funds of shipping companies,,,,,,,,,,,,,,,,,
 #+,,JCT,2007,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,Deferral of tax on capital construction funds of shipping companies,,,,,,,,,,,,,,,,,
@@ -52,6 +53,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,,JCT,2011,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,Deferral of tax on capital construction funds of shipping companies,,,,,,,,,,,,,,,,,
 #+,,JCT,2012,,,,,,,,,,,100.00,100.00,100.00,100.00,100.00,,,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,Deferral of tax on capital construction funds of shipping companies,,,,,,,,,,,,,,,,,
 #,Exclusion of employer-paid transportation benefits,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2001,0.00,0.00,0.00,0.00,,,,,,,,,,,,,,3600.00,3600.00,3700.00,3700.00,,,,,,,,,,,,,,Exclusion of employer-paid transportation benefits,,,,,,,,,,,,,,,,,
 #+,,JCT,2002,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,3600.00,3600.00,3700.00,3700.00,3800.00,,,,,,,,,,,,,Exclusion of employer-paid transportation benefits,,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,3600.00,3700.00,3700.00,3800.00,3800.00,,,,,,,,,,,,Exclusion of employer-paid transportation benefits,,,,,,,,,,,,,,,,,
 #+,,JCT,2007,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,4000.00,4200.00,4300.00,4400.00,4500.00,,,,,,,,Exclusion of employer-paid transportation benefits,,,,,,,,,,,,,,,,,
@@ -62,6 +64,7 @@ Indent,Category,Source,Report,2000 (Corp),2001 (Corp),2002 (Corp),2003 (Corp),20
 #+,,JCT,2011,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,3800.00,3900.00,4400.00,4600.00,4800.00,,,,Exclusion of employer-paid transportation benefits,,,,,,,,,,,,,,,,,
 #+,,JCT,2012,,,,,,,,,,,0.00,0.00,0.00,0.00,0.00,,,,,,,,,,,,,3800.00,4200.00,4400.00,4600.00,4800.00,,,Exclusion of employer-paid transportation benefits,,,,,,,,,,,,,,,,,
 #,Exclusion of interest on State and local government bonds for high-speed rail,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+#+,,JCT,2001,<50,<50,<50,<50,,,,,,,,,,,,,,<50,<50,<50,<50,,,,,,,,,,,,,,Exclusion of interest on State and local government bonds for high-speed rail,,,,,,,,,,,,,,,,,
 #+,,JCT,2002,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,,Exclusion of interest on State and local government bonds for high-speed rail,,,,,,,,,,,,,,,,,
 #+,,JCT,2003,,<50,<50,<50,<50,<50,,,,,,,,,,,,,<50,<50,<50,<50,<50,,,,,,,,,,,,Exclusion of interest on State and local government bonds for high-speed rail,,,,,,,,,,,,,,,,,
 #,Tax credit for certain expenditures for maintaining railroad tracks,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"<p>Tax credit for certain expenditures for maintaining railroad tracks.&mdash;The baseline tax system would not allow credits for particular activities, investments, or industries. However, under current law eligible taxpayers may claim a credit equal to the lesser of 50 percent of maintenance expenditures and the product of $3,500 and the number of miles of track owned or leased. </p>"

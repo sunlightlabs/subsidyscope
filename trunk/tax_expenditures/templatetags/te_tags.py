@@ -40,7 +40,7 @@ TREASURY_SOURCES[2008] = 'OMB. "Analytical Perspectives, Budget of the U.S. Gove
 TREASURY_SOURCES[2009] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2009."'
 TREASURY_SOURCES[2010] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2010."'
 TREASURY_SOURCES[2011] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2011."'
-TREASURY_SOURCES[2012] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2011."'
+TREASURY_SOURCES[2012] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2012."'
 
 
 @register.tag
