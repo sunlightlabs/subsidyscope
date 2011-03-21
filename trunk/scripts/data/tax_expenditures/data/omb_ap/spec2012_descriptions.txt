@@ -12,38 +12,36 @@ pay related to combat service, are excluded from income
 subject to tax.
 
 2. Income earned abroad.—Under the baseline tax
-system, all compensation received by U.S. citizens is
-properly included in their taxable income. It makes no
-difference whether the compensation is a result of work-
-ing abroad or whether it is labeled as a housing allow-
-ance. In contrast to this treatment, U.S. tax law allows
-U.S. citizens who live abroad, work in the private sector,
-and satisfy a foreign residency requirement to exclude up
-to $80,000 in foreign earned income from U.S. taxes. In
-addition, if these taxpayers receive a specific allowance
-for foreign housing from their employers, then they may
-also exclude the value of that allowance. If they do not re-
-ceive a specific allowance for housing expenses, they may
-deduct against their U.S. taxes that portion of such ex-
-penses that exceeds one-sixth the salary of a civil servant
-at grade GS–14, step 1 ($83,445 in 2009, which excludes
-regional pay adjustments).
+system, all compensation received by U.S. citizens is prop-
+erly included in their taxable income. It makes no dif-
+ference whether the compensation is a result of working
+abroad or whether it is labeled as a housing allowance.
+In contrast to this treatment, U.S. tax law allows U.S.
+citizens who live abroad, work in the private sector, and
+satisfy a foreign residency requirement to exclude up to
+$80,000 in foreign earned income from U.S. taxes. In addi-
+tion, if these taxpayers receive a specific allowance for for-
+eign housing from their employers, then they may also ex-
+clude the value of that allowance. If they do not receive a
+specific allowance for housing expenses, they may exclude
+from taxable income that portion of such expenses that
+exceeds one-sixth the salary of a civil servant at grade
+GS–14, step 1 ($84,697 in 2010).
 
-3. Exclusion of certain allowances for Federal
-employees abroad.—In general, all compensation re-
-ceived by U.S. citizens is properly included in their tax-
-able income. It makes no difference whether the com-
-pensation is a result of working abroad or whether it
-is labeled as an allowance for the high cost of living
-abroad. In contrast to this treatment, U.S. Federal ci-
-vilian employees and Peace Corps members who work
-outside the continental United States are allowed to
-exclude from U.S. taxable income certain special allow-
-ances they receive to compensate them for the relative-
-ly high costs associated with living overseas. The al-
-lowances supplement wage income and cover expenses
-such as rent, education, and the cost of travel to and
-from the United States.
+3. Exclusion of certain allowances for Federal em-
+ployees abroad.—In general, all compensation received
+by U.S. citizens is properly included in their taxable in-
+come. It makes no difference whether the compensation
+is a result of working abroad or whether it is labeled as an
+allowance for the high cost of living abroad. In contrast to
+this treatment, U.S. Federal civilian employees and Peace
+Corps members who work outside the continental United
+States are allowed to exclude from U.S. taxable income
+certain special allowances they receive to compensate
+them for the relatively high costs associated with living
+overseas. The allowances supplement wage income and
+cover expenses such as rent, education, and the cost of
+travel to and from the United States.
 
 4. Sales source rule exceptions.—The United States
 generally taxes the worldwide income of U.S. persons, with
@@ -79,6 +77,7 @@ It would not allow the deferral of tax or other relief tar-
 geted at particular industries or activities. In contrast,
 under current law, financial firms may defer taxes on in-
 come earned overseas in an active business.
+General Science, Space, and Technology
 
 7. Expensing R&E expenditures.—Research and
 experimentation (R&E) projects can be viewed as invest-
@@ -98,9 +97,7 @@ formly tax all returns to investments and not allow cred-
 its for particular activities, investments, or industries. In
 contrast, the Tax Code allows an R&E credit of 20 per-
 cent of qualified research expenditures in excess of a base
-amount.
-
-The base amount is generally determined by multiply-
+amount.The base amount is generally determined by multiply-
 ing a “fixed-base percentage” by the average amount of
 the company’s gross receipts for the prior four years. The
 taxpayer’s fixed base percentage generally is the ratio of
@@ -116,8 +113,9 @@ regime the taxpayer was assigned a three-tiered fixed
 base percentage that is lower than the fixed-base percent-
 age that would otherwise apply, and the credit rate was
 reduced. The rates for the alternative incremental credit
-ranged from 3 percent to 5 percent. The research credit
-expired on December 31, 2009.
+ranged from 3 percent to 5 percent. Under current law as
+of September 30, the research credit expired on December
+31, 2009.
 
 9. Exploration and development costs.—Under the
 baseline tax system, the costs of exploring and developing
@@ -125,7 +123,6 @@ oil and gas wells would be capitalized and then amortized
 (or depreciated) over an estimate of the economic life of
 the well. This insures that the net income from the well
 is measured appropriately each year.
-
 In contrast to this treatment, current law allows in-
 tangible drilling costs for successful investments in do-
 mestic oil and gas wells (such as wages, the cost of using
@@ -148,7 +145,6 @@ of developing or acquiring the asset are capitalized and
 then gradually reduced over an estimate of the asset’s
 productive life, as is appropriate for measuring net in-
 come.
-
 In contrast, the Tax Code generally allows independent
 fuel and mineral producers and royalty owners to take
 percentage depletion deductions rather than cost deple-
@@ -169,8 +165,9 @@ would seek to tax uniformly all returns from investment-
 like activities. In contrast, the Tax Code provides a credit
 of $3 per oil-equivalent barrel of production (in 2004 dol-
 lars) for coke or coke gas during a four-year period for
-qualified facilities placed in service before January 1,
-2010.
+qualified facilities. Under current law as of September 30,
+these facilities must be placed in service before January
+1, 2010.
 
 12. Oil and gas exception to passive loss limita-
 tion.—The baseline tax system accepts current law’s
@@ -184,7 +181,6 @@ which activities are passive for a given taxpayer. Losses
 are limited in an attempt to limit tax sheltering activities.
 Passive losses that are unused may be carried forward
 and applied against future passive income.
-
 In contrast to the general restrictions on passive loss-
 es, the Tax Code exempts owners of working interests in
 oil and gas properties from “passive income’’ limitations,
@@ -198,7 +194,7 @@ tradiction to the general prohibition against such deduc-
 tions.
 
 13. Capital gains treatment of royalties on coal.—
-For individuals in 2009, tax rates on regular income vary
+For individuals in 2010, tax rates on regular income vary
 from 10 percent to 35 percent, depending on the taxpay-
 er’s income. The baseline tax system generally would tax
 all income under the regular tax rate schedule. It would
@@ -278,12 +274,14 @@ ments, or industries. Instead, it generally would seek to
 tax uniformly all returns from investment-like activities.
 In contrast, the Tax Code allows a number of credits for
 certain types of vehicles and property. These are avail-
-able for alternative motor vehicles (including fuel cell,
-advanced lean burn technology, hybrid, and alternative
-fuel motor vehicles), alternative fuel vehicle refueling
-property, and plug-ins (including plug-in electric vehicles,
-plug-in electric drive motor vehicles, and plug-in conver-
-sion kits).
+able for alternative motor vehicles (including fuel cell, ad-
+vanced lean burn technology, hybrid, and alternative fuel
+motor vehicles), alternative fuel vehicle refueling proper-
+ty, and plug-ins (including plug-in electric vehicles, plug-
+in electric drive motor vehicles, and plug-in conversion
+kits). Under current law as of September 30, the credit
+expired on December 31, 2010 for non-hydrogen refueling
+stations.
 
 20. Exclusion of utility conservation subsidies.—
 The baseline tax system generally takes a comprehen-
@@ -305,7 +303,9 @@ lar activities, investments, or industries. In contrast, the
 Tax Code provides for the issuance of Clean Renewable
 Energy Bonds which entitles the bond holder to a Federal
 income tax credit in lieu of interest. The limit on the vol-
-ume issued in 2009 is $2.4 billion.
+ume issued in 2009-2010 is $2.4 billion. As of May 2010,
+issuers of such bonds may opt to receive direct payment
+with the yield becoming fully taxable.
 
 22. Deferral of gain from dispositions of transmis-
 sion property to implement FERC restructuring pol-
@@ -326,11 +326,12 @@ for industrial gasification combined cycle projects.
 
 24. Temporary 50 percent expensing for equipment
 used in the refining of liquid fuels.—The baseline tax
-system allows the taxpayer to deduct the decline in the eco-
-nomic value of an investment over time. However, the Tax
-Code provides for an accelerated recovery of the cost of cer-
-tain investments in refineries by allowing partial expensing
-of the cost, thereby giving such investments a tax advantage.
+system allows the taxpayer to deduct the decline in the
+economic value of an investment over time. However, the
+Tax Code provides for an accelerated recovery of the cost
+of certain investments in refineries by allowing partial
+expensing of the cost, thereby giving such investments a
+tax advantage.
 
 25. Natural gas distribution pipelines treated
 as 15-year property.—The baseline tax system allows
@@ -409,9 +410,19 @@ ticular activities, investments, or industries. However, the
 Tax Code provides for the issuance of energy conservation
 bonds which entitle the bond holder to a Federal income
 tax credit in lieu of interest. The limit on the volume is-
-sued in 2009 is $3.2 billion.
+sued in 2009-2010 is $3.2 billion. As of May 2010, issuers
+of such bonds may opt to receive direct payment with the
+yield becoming fully taxable.
 
-33. Exploration and development costs.—The base-
+33. Advanced Energy Property Credit.—The base-
+line tax system would not allow credits for particular
+activities, investments, or industries. However, the Tax
+Code provides a 30 percent investment credit for prop-
+erty used in a qualified advanced energy manufacturing
+project. The Treasury Department may award up to $2.3
+billion in tax credits for qualified investments.
+
+34. Exploration and development costs.—The base-
 line tax system allows the taxpayer to deduct the depre-
 ciation of an asset according to the decline in its economic
 value over time. However, certain capital outlays associ-
@@ -419,7 +430,7 @@ ated with exploration and development of nonfuel miner-
 als may be expensed rather than depreciated over the life
 of the asset.
 
-34. Percentage depletion.—The baseline tax system
+35. Percentage depletion.—The baseline tax system
 allows the taxpayer to deduct the decline in the economic
 value of an investment over time. Under current law, how-
 ever, most nonfuel mineral extractors may use percentage
@@ -433,7 +444,7 @@ centage depletion offers more generous tax treatment
 than would cost depletion, which would limit deductions
 to an investment’s cost.
 
-35. Sewage, water, solid and hazardous waste fa-
+36. Sewage, water, solid and hazardous waste fa-
 cility bonds.—The baseline tax system generally would
 tax all income under the regular tax rate schedule. It
 would not allow preferentially low (or zero) tax rates to
@@ -444,75 +455,66 @@ hazardous waste facilities to be exempt from tax. These
 bonds are generally subject to the State private-activity-
 bond annual volume cap.
 
-36. Capital gains treatment of certain timber.—
+37. Capital gains treatment of certain timber.—
 The baseline tax system generally would tax all income
 under the regular tax rate schedule. It would not allow
 preferentially low tax rates to apply to certain types or
 sources of income. However, under current law certain
 timber sales can be treated as a capital gain rather than
 ordinary income and therefore subject to the lower cap-
-ital-gains tax rate. For individuals in 2009, tax rates on
+ital-gains tax rate. For individuals in 2010, tax rates on
 regular income vary from 10 percent to 35 percent, de-
 pending on the taxpayer’s income. In contrast, current
 law allows capital gains to be taxed at a preferentially low
 rate that is no higher than 15 percent.
 
-37. Expensing multi-period timber growing
-costs.—The baseline tax system requires the taxpayer
-to capitalize costs associated with investment property.
-However, most of the production costs of growing timber
-may be expensed under current law rather than capital-
-ized and deducted when the timber is sold, thereby accel-
-erating cost recovery.
+38.Expensing multi-period timber growing 
+costs.—The baseline tax system requires the taxpayer 
+to capitalize costs associated with investment property. 
+However, most of the production costs of growing timber 
+may be expensed under current law rather than capital- 
+ized and deducted when the timber is sold, thereby accel- 
+erating cost recovery. 
 
-38. Historic preservation.—The baseline tax system
-would not allow credits for particular activities, invest-
-ments, or industries. However, expenditures to preserve
-and restore certified historic structures qualify for an in-
-vestment tax credit of 20 percent under current law for
-certified rehabilitation activities.
+39.Historic preservation.—The baseline tax system 
+would not allow credits for particular activities, invest- 
+ments, or industries. However, expenditures to preserve 
+and restore certified historic structures qualify for an in- 
+vestment tax credit of 20 percent under current law for 
+certified rehabilitation activities. 
 
-39. Expensing of capital costs with respect to com-
-plying with EPA sulfur regulations.—The baseline
-tax system allows the taxpayer to deduct the decline in
-the economic value of an investment over time. However,
-the Tax Code allows small refiners to deduct 75 percent of
-qualified capital costs incurred during the taxable year,
-thereby accelerating cost recovery relative to economic
-depreciation.
+40. Exclusion of gain or loss on sale or exchange 
+of certain brownfield sites.—In general, a tax-exempt 
+organization must pay taxes on income from activities 
+unrelated to its nonprofit status. The Tax Code, however, 
+provides a special exclusion from unrelated business tax- 
+able income of the gain or loss from the sale or exchange 
+of certain qualifying brownfield properties. 
 
-40. Exclusion of gain or loss on sale or exchange
-of certain brownfield sites.—In general, a tax-exempt
-organization must pay taxes on income from activities
-unrelated to its nonprofit status. The Tax Code, however,
-provides a special exclusion from unrelated business tax-
-able income of the gain or loss from the sale or exchange
-of certain qualifying brownfield properties.
+41. Industrial CO2 capture and sequestration tax 
+credit.—The baseline tax system would uniformly tax all 
+returns to investments and not allow credits for particu- 
+lar activities, investments, or industries. In contrast, the 
+Tax Code allows a credit of $20 per metric ton for quali- 
+fied carbon dioxide captured at a qualified facility and 
+disposed of in secure geological storage. In addition, the 
+provision allows a credit of $10 per metric ton of qualified 
+carbon dioxide that is captured at a qualified facility and 
+as a tertiary injectant in a qualified enhanced oil or natu- 
+ral gas recovery project. 
 
-41. Industrial CO2 capture and sequestration tax
-credit.—The baseline tax system would uniformly tax all
-returns to investments and not allow credits for particu-
-lar activities, investments, or industries. In contrast, the
-Tax Code allows a credit of $20 per metric ton for quali-
-fied carbon dioxide captured at a qualified facility and
-disposed of in secure geological storage. In addition, the
-provision allows a credit of $10 per metric ton of qualified
-carbon dioxide that is captured at a qualified facility and
-as a tertiary injectant in a qualified enhanced oil or natu-
-ral gas recovery project.
-
-42. Deduction for endangered species recovery ex-
-penditures.—The baseline tax system generally would
-tax all income under the regular tax rate schedule. It
-would not allow preferentially low tax rates to apply to
-certain types or sources of income. In contrast, under
-current law farmers can deduct up to 25 percent of their
-gross income for expenses incurred as a result of site and
-habitat improvement activities that will benefit endan-
-gered species on their farm land, in accordance with site
-specific management actions included in species recovery
-plans approved pursuant to the Endangered Species Act
-of 1973.
+42. Deduction for endangered species recovery ex- 
+penditures.—The baseline tax system generally would 
+tax all income under the regular tax rate schedule. It 
+would not allow preferentially low tax rates to apply to 
+certain types or sources of income. In contrast, under 
+current law farmers can deduct up to 25 percent of their 
+gross income for expenses incurred as a result of site and 
+habitat improvement activities that will benefit endan- 
+gered species on their farm land, in accordance with site 
+specific management actions included in species recovery 
+plans approved pursuant to the Endangered Species Act 
+of 1973. 
 
 43. Expensing certain capital outlays.—The base-
 line tax system requires the taxpayer to capitalize costs
@@ -520,6 +522,7 @@ associated with investment property. However, farmers
 may expense certain expenditures for feed and fertilizer
 as well as for soil and water conservation measures as
 well as other capital improvements under current law.
+
 44. Expensing multi-period livestock and crop
 production costs.—The baseline tax system requires
 the taxpayer to capitalize costs associated with an invest-
@@ -540,7 +543,7 @@ and then basis, with the remainder of the forgiven debt
 excluded from taxation.
 
 46. Capital gains treatment of certain income.—
-For individuals in 2009, tax rates on regular income vary
+For individuals in 2010, tax rates on regular income vary
 from 10 percent to 35 percent, depending on the taxpay-
 er’s income. The baseline tax system generally would tax
 all income under the regular tax rate schedule. It would
@@ -567,15 +570,22 @@ to a farmers’ cooperative to defer recognition of the gain
 if the proceeds are re-invested in a qualified replacement
 property.
 
+49. Expensing of reforestation expenditures.—The
+baseline tax system requires the taxpayer to capitalize
+costs associated with an investment over time. In con-
+trast, the Tax Code provides for the expensing of the first
+$10,000 in reforestation expenditures with 7-year amorti-
+zation of the remaining expenses.
 
-49. Credit union income exemption.—Under the
+50. Credit union income exemption.—Under the
 baseline tax system, corporations pay taxes on their prof-
 its under the regular tax rate schedule. It would not allow
 preferentially low (or zero) tax rates to apply to certain
 types or sources of income. However, in the Tax Code the
 earnings of credit unions not distributed to members as
 interest or dividends are exempt from the income tax.
-50. Deferral of income on life insurance and an-
+     
+51. Deferral of income on life insurance and an-
 nuity contracts.—Under the baseline tax system, indi-
 viduals and corporations pay taxes on their income when
 it is (actually or constructively) received or accrued, de-
@@ -589,24 +599,23 @@ distributed prior to the death of the insured is generally
 tax-deferred. Investment income earned on annuities
 benefits from tax deferral.
 
-51. Small property and casualty insurance com-
-panies.—Under the baseline tax system, corporations
-pay taxes on their profits under the regular tax rate
-schedule. It would not allow preferentially low (or zero)
-tax rates to apply to certain types or sources of income.
-Under current law, however, stock non-life insurance
-companies are generally exempt from tax if their gross
-receipts for the taxable year do not exceed $600,000 and
-more than 50 percent of such gross receipts consists of
-premiums. Mutual non-life insurance companies are
-generally tax-exempt if their annual gross receipts do
-not exceed $150,000 and more than 35 percent of gross
-receipts consist of premiums. Also, non-life insurance
-companies with no more than $1.2 million of annual net
-premiums may elect to pay tax only on their taxable in-
-vestment income.
+52. Small property and casualty insurance compa-
+nies.—Under the baseline tax system, corporations pay
+taxes on their profits under the regular tax rate schedule.
+It would not allow preferentially low (or zero) tax rates to
+apply to certain types or sources of income. Under current
+law, however, stock non-life insurance companies are gen-
+erally exempt from tax if their gross receipts for the tax-
+able year do not exceed $600,000 and more than 50 per-
+cent of such gross receipts consists of premiums. Mutual
+non-life insurance companies are generally tax-exempt if
+their annual gross receipts do not exceed $150,000 and
+more than 35 percent of gross receipts consist of premi-
+ums. Also, non-life insurance companies with no more
+than $1.2 million of annual net premiums may elect to
+pay tax only on their taxable investment income.
 
-52. Insurance companies owned by exempt orga-
+53. Insurance companies owned by exempt orga-
 nizations.—Under the baseline tax system, corpora-
 tions pay taxes on their profits under the regular tax rate
 schedule. It would not allow preferentially low (or zero)
@@ -618,7 +627,7 @@ empt organizations as fraternal societies, voluntary em-
 ployee benefit associations, and others, however, are ex-
 empt from tax.
 
-53. Small life insurance company deduction.—
+54. Small life insurance company deduction.—
 Under the baseline tax system, corporations pay taxes on
 their profits under the regular tax rate schedule. It would
 not allow preferentially low (or zero) tax rates to apply to
@@ -629,7 +638,7 @@ the first $3 million of otherwise taxable income. The de-
 duction phases out for otherwise taxable income between
 $3 million and $15 million.
 
-54. Exclusion of interest spread of financial insti-
+55. Exclusion of interest spread of financial insti-
 tutions.—The baseline tax system generally would tax
 all income under the regular tax rate schedule. It would
 not allow preferentially low (or zero) tax rates to apply to
@@ -646,7 +655,7 @@ below-market interest rates on demand deposits, which
 under competitive conditions should equal the value add-
 ed of deposit services.
 
-55. Mortgage housing bonds.—The baseline tax sys-
+56. Mortgage housing bonds.—The baseline tax sys-
 tem generally would tax all income under the regular tax
 rate schedule. It would not allow preferentially low (or
 zero) tax rates to apply to certain types or sources of in-
@@ -656,7 +665,7 @@ first-time, low-to-moderate-income buyers to be exempt.
 These bonds are generally subject to the State private-
 activity-bond annual volume cap.
 
-56. Rental housing bonds.—The baseline tax system
+57. Rental housing bonds.—The baseline tax system
 generally would tax all income under the regular tax rate
 schedule. It would not allow preferentially low (or zero)
 tax rates to apply to certain types or sources of income.
@@ -664,31 +673,39 @@ In contrast, the Tax Code allows interest earned on State
 and local government bonds used to finance multifamily
 rental housing projects to be tax-exempt.
 
-57. Interest on owner-occupied homes.—The base-
-line tax system would allow the write-off of expenses in-
-curred in earning income. It would not allow the deductibil-
-ity of expenses when income or the return on investments
-are not taxed. In contrast, the Tax Code provides that
-owner-occupants of homes may deduct mortgage interest
-on their primary and secondary residences as itemized
-nonbusiness deductions even though the value of owner-
-occupied housing services is not included in a taxpayer’s
-taxable income. In general, the mortgage interest deduc-
-tion is limited to interest on debt no greater than the
-owner’s basis in the residence, and is also limited to in-
-terest on debt of no more than $1 million. Interest on up
-to $100,000 of other debt secured by a lien on a principal
-or second residence is also deductible, irrespective of the
-purpose of borrowing, provided the debt does not exceed
-the fair market value of the residence.
+58. Interest on owner-occupied homes.—Under the
+baseline tax system, expenses incurred in earning income
+would be deductible. However, such expenses would not
+be deductible when the income or the return on an in-
+vestment is not taxed. In contrast, the Tax Code allows
+an exclusion from a taxpayer’s taxable income for the
+value of owner-occupied housing services but allows the
+owner-occupant to deduct mortgage interest paid on his
+or her primary and secondary residences as an itemized
+non-business deduction. In general, the mortgage interest
+deduction is limited to interest on debt no greater than
+the owner’s basis in the residence, and is also limited to
+interest on debt of no more than $1 million. Interest on
+up to $100,000 of other debt secured by a lien on a princi-
+pal or second residence is also deductible, irrespective of
+the purpose of borrowing, provided the total debt does not
+exceed the fair market value of the residence. As an al-
+ternative to the deduction, holders of qualified Mortgage
+Credit Certificates issued by State or Local governmental
+units or agencies may claim a tax credit of up to 20 per-
+cent of the interest expense.
 
-58. Taxes on owner-occupied homes.—The Tax Code
-allows owner-occupants of homes to deduct property taxes
-on their primary and secondary residences even though
-they are not required to report the value of owner-occu-
-pied housing services as gross income.
+59. Taxes on owner-occupied homes.—Under the
+baseline tax system, expenses incurred in earning income
+would be deductible. However, such expenses would not
+be deductible when the income or the return on an invest-
+ment is not taxed. In contrast, the Tax Code allows an
+exclusion from a taxpayer’s taxable income for the value
+of owner-occupied housing services but allows the owner-
+occupant to deduct property taxes paid on his or her pri-
+mary and secondary residences.
 
-59. Installment sales.—The baseline tax system gen-
+60. Installment sales.—The baseline tax system gen-
 erally would tax all income under the regular tax rate
 schedule. It would not allow preferentially low (or zero)
 tax rates, or deferral of tax, to apply to certain types or
@@ -705,7 +722,7 @@ eliminates the benefit of the tax deferral. The tax exemp-
 tion for nondealers with total installment obligations of
 less than $5 million is, therefore, a tax expenditure.
 
-60. Capital gains exclusion on home sales.—The
+61. Capital gains exclusion on home sales.—The
 baseline tax system would not allow deductions and ex-
 emptions to certain types of income. In contrast, under
 current law, a homeowner can exclude from tax up to
@@ -713,16 +730,21 @@ $500,000 ($250,000 for singles) of the capital gains from
 the sale of a principal residence. The exclusion may not be
 used more than once every two years.
 
-61. Imputed net rental income on owner-occupied
-housing.—The baseline tax system generally would tax
-all income under the regular tax rate schedule. It would
-not allow preferentially low (or zero) tax rates to apply to
-certain types or sources of income. Under current law, the
-implicit rental value of home ownership, net of expenses
-such as mortgage interest and depreciation, is excluded
-from income.
+62. Imputed net rental income on owner-occupied
+housing.—Under the baseline tax system, the taxable
+income of a taxpayer who is an owner-occupant would in-
+clude the implicit value of gross rental income on hous-
+ing services earned on the investment in owner-occupied
+housing and would allow a deduction for expenses, such as
+interest, depreciation, property taxes, and other costs, as-
+sociated with earning such rental income.  In contrast, the
+Tax Code allows an exclusion from taxable income for the
+implicit gross rental income on housing services, while in
+certain circumstances allows a deduction for some costs
+associated with such income, such as for mortgage inter-
+est and property taxes.
 
-62. Passive loss real estate exemption.—The base-
+63. Passive loss real estate exemption.—The base-
 line tax system accepts current law’s general rule limiting
 taxpayers’ ability to deduct losses from passive activities
 against nonpassive income (e.g., wages, interest, and divi-
@@ -734,14 +756,13 @@ for a given taxpayer. Losses are limited in an attempt to
 limit tax sheltering activities. Passive losses that are un-
 used may be carried forward and applied against future
 passive income.
-
 In contrast to the general restrictions on passive losses,
 the Tax Code exempts owners of rental real estate activi-
 ties from “passive income’’ limitations. The exemption is
 limited to $25,000 in losses and phases out for taxpayers
 with income between $100,000 and $150,000.
 
-63. Low-income housing credit.—The baseline tax
+64. Low-income housing credit.—The baseline tax
 system would uniformly tax all returns to investments
 and not allow credits for particular activities, investments,
 or industries. However, under current law taxpayers who
@@ -756,7 +777,7 @@ nated areas where project development costs are higher.
 The credit is allowed in equal amounts over 10 years and
 is generally subject to a volume cap.
 
-64. Accelerated depreciation of residential rental
+65. Accelerated depreciation of residential rental
 property.—Under an economic income tax, the costs of
 acquiring a building are capitalized and depreciated over
 time in accordance with the decline in the property’s eco-
@@ -769,23 +790,24 @@ under reference law. Under normal law, however, depre-
 ciation allowances reflect estimates of economic deprecia-
 tion.
 
-65. Discharge of mortgage indebtedness.—The
-baseline tax system generally would tax all income under
-the regular tax rate schedule. It would not allow prefer-
-entially low (or zero) tax rates to apply to certain types or
-sources of income. In contrast, the Tax Code allows an
-exclusion from the income of a taxpayer any discharge of
-indebtedness of a qualified principal residence. The pro-
-vision sunsets on December 31, 2012.
+66. Discharge of mortgage indebtedness.—Under
+the baseline tax system, all income would generally be
+taxed under the regular tax rate schedule. The baseline
+tax system would not allow preferentially low (or zero)
+tax rates to apply to certain types or sources of income.
+In contrast, the Tax Code allows an exclusion from a tax-
+payer’s taxable income for any discharge of indebtedness
+of up to $2 million from a qualified principal residence.
+The provision sunsets on December 31, 2012.
 
-66. Credit for homebuyer.—The baseline tax system
+67. Credit for homebuyer.—The baseline tax system
 would not allow credits for particular activities, invest-
 ments, or industries. Instead, it generally would seek to
 tax uniformly all returns from investment-like activities.
 In contrast, the Tax Code allows a tax credit for home
 buyers on purchases before May 1, 2010.
 
-67. Cancellation of indebtedness.—The baseline tax
+68. Cancellation of indebtedness.—The baseline tax
 system generally would tax all income under the regular
 tax rate schedule. It would not allow preferentially low
 (or zero) tax rates to apply to certain types or sources of
@@ -795,7 +817,7 @@ as current income. If the canceled debt is not reported as
 current income, however, the basis of the underlying prop-
 erty must be reduced by the amount canceled.
 
-68. Imputed interest rules.—Holders (issuers) of
+69. Imputed interest rules.—Holders (issuers) of
 debt instruments are generally required to report inter-
 est earned (paid) in the period it accrues, not when paid.
 In addition, the amount of interest accrued is determined
@@ -811,8 +833,8 @@ sales of personal residences worth more than $250,000,
 and (2) sales of farms and small businesses worth be-
 tween $250,000 and $1 million.
 
-69. Treatment of qualified dividends.—For indi-
-viduals in 2009, tax rates on regular income vary from
+70. Treatment of qualified dividends.—For indi-
+viduals in 2010, tax rates on regular income vary from
 10 percent to 35 percent, depending on the taxpayer’s in-
 come. The baseline tax system generally would tax all
 income under the regular tax rate schedule. It would
@@ -821,8 +843,8 @@ types or sources of income. In contrast, current law al-
 lows qualified dividends to be taxed at a preferentially
 low rate that is no higher than 15 percent.
 
-70. Capital gains (other than agriculture, timber,
-and coal).—For individuals in 2009, tax rates on regular
+71. Capital gains (other than agriculture, timber,
+and coal).—For individuals in 2010, tax rates on regular
 income vary from 10 percent to 35 percent, depending on
 the taxpayer’s income. The baseline tax system generally
 would tax all income under the regular tax rate schedule.
@@ -832,36 +854,38 @@ law allows capital gains on assets held for more than one
 year to be taxed at a preferentially low rate that is no
 higher than 15 percent.
 
-71. Capital gains exclusion for small business
+72. Capital gains exclusion for small business
 stock.—The baseline tax system would not allow deduc-
 tions and exemptions to certain types of income. In con-
 trast, the Tax Code provides an exclusion of 50 percent
-(from a 28 percent tax rate) for capital gains from quali-
-fied small business stock held by individuals for more
-than 5 years; 75 percent for stock issued in 2009 and
-2010. A qualified small business is a corporation whose
-gross assets do not exceed $50 million as of the date of is-
-suance of the stock.
+(from a 28 percent tax rate) for capital gains from qualified
+small business stock held by individuals for more than 5
+years; 75 percent for stock issued after February 17, 2009
+and before September 28, 2010; and 100 percent for stock
+issued after September 27, 2010 and before January 1,
+2011. A qualified small business is a corporation whose
+gross assets do not exceed $50 million as of the date of
+issuance of the stock.
 
-72. Step-up in basis of capital gains at death.—
-The baseline tax system would not allow deductions and
-exemptions to certain types of income. In contrast, capi-
-tal gains on assets held at the owner’s death are not sub-
-ject to capital gains tax under current law. The cost basis
-of the appreciated assets is adjusted to the market value
-at the owner’s date of death.
+73. Step-up in basis of capital gains at death.—
+Under the baseline tax system, unrealized capital gains
+would be taxed when assets are transferred at death or
+by gift.. In contrast, capital gains on assets held at the
+owner’s death are not subject to capital gains tax under
+current law. The cost basis of the appreciated assets is
+adjusted to the market value at the owner’s date of death.
 
-73. Carryover basis of capital gains on gifts.—The
-baseline tax system would not allow deductions and ex-
-emptions to certain types of income. In contrast, when a
-gift of appreciated asset is made under current law, the
-donor’s basis in the transferred property (the cost that
-was incurred when the transferred property was first
-acquired) carries over to the donee. The carryover of the
-donor’s basis allows a continued deferral of unrealized
-capital gains.
+74. Carryover basis of capital gains on gifts.—
+Under the baseline tax system, unrealized capital gains
+would be taxed when assets are transferred at death or by
+gift.. In contrast, when a gift of appreciated asset is made
+under current law, the donor’s basis in the transferred
+property (the cost that was incurred when the transferred
+property was first acquired) carries over to the donee. The
+carryover of the donor’s basis allows a continued deferral
+of unrealized capital gains.
 
-74. Ordinary income treatment of losses from sale
+75. Ordinary income treatment of losses from sale
 of small business corporate stock shares.—The base-
 line tax system limits to $3,000 the write-off of losses
 from capital assets, with carryover of the excess to future
@@ -870,7 +894,7 @@ in losses from the sale of small business corporate stock
 (capitalization less than $1 million) to be treated as ordi-
 nary losses and fully deducted.
 
-75. Depreciation of non-rental-housing build-
+76. Depreciation of non-rental-housing build-
 ings.—Under an economic income tax, the costs of acquir-
 ing a building are capitalized and depreciated over time
 in accordance with the decline in the property’s economic
@@ -882,20 +906,19 @@ thus do not give rise to tax expenditures under reference
 law. Under normal law, however, depreciation allowances
 reflect estimates of economic depreciation.
 
-76. Accelerated depreciation of machinery and
-equipment.—Under an economic income tax, the costs
-of acquiring machinery and equipment are capitalized
-and depreciated over time in accordance with the decline
-in the property’s economic value due to wear and tear or
-obsolescence. This insures that the net income from the
-property is measured appropriately each year. However,
-the depreciation provisions of the Tax Code are part of the
-reference law rules, and thus do not give rise to tax expen-
-ditures under reference law. Under normal law, however,
-depreciation allowances reflect estimates of economic de-
-preciation.
+77. Accelerated depreciation of machinery and
+equipment.—Under an economic income tax, the costs of
+acquiring machinery and equipment are capitalized and
+depreciated over time in accordance with the decline in the
+property’s economic value due to wear and tear or obsoles-
+cence. This insures that the net income from the property
+is measured appropriately each year. However, the depre-
+ciation provisions of the Tax Code are part of the reference
+law rules, and thus do not give rise to tax expenditures
+under reference law. Under normal law, however, deprecia-
+tion allowances reflect estimates of economic depreciation.
 
-77. Expensing of certain small investments.—
+78. Expensing of certain small investments.—
 Under the reference law baseline, the costs of acquiring
 tangible property and computer software would be de-
 preciated using the Tax Code’s depreciation provisions.
@@ -905,7 +928,7 @@ Code allows qualifying investments by small businesses
 in tangible property and certain computer software to be
 expensed rather than depreciated over time.
 
-78. Graduated corporation income tax rate sched-
+79. Graduated corporation income tax rate sched-
 ule.—Because the corporate rate schedule is part of refer-
 ence tax law, it is not considered a tax expenditure under
 the reference method. A flat corporation income tax rate
@@ -913,7 +936,7 @@ is taken as the baseline under the normal tax method;
 therefore the lower rate is considered a tax expenditure
 under this concept.
 
-79. Small issue industrial development bonds.—
+80. Small issue industrial development bonds.—
 The baseline tax system generally would tax all income
 under the regular tax rate schedule. It would not allow
 preferentially low (or zero) tax rates to apply to certain
@@ -927,7 +950,7 @@ method. The annual volume of small issue IDBs is subject
 to the unified volume cap discussed in the mortgage hous-
 ing bond section above.
 
-80. Deduction for U.S. production activities.—The
+81. Deduction for U.S. production activities.—The
 baseline tax system generally would tax all income under
 the regular tax rate schedule. It would not allow prefer-
 entially low (or zero) tax rates to apply to certain types or
@@ -935,17 +958,18 @@ sources of income. In contrast, the Tax Code allows for a
 deduction equal to a portion of taxable income attribut-
 able to domestic production.
 
-81. Special rules for certain film and TV pro-
-duction.—The baseline tax system generally would
-tax all income under the regular tax rate schedule. It
-would not allow preferentially low (or zero) tax rates
-to apply to certain types or sources of income. In con-
-trast, under current law taxpayers may deduct up to
-$15 million per production ($20 million in certain dis-
-tressed areas) in non-capital expenditures incurred
-during the year.
+82. Special rules for certain film and TV produc-
+tion.—The baseline tax system generally would tax all
+income under the regular tax rate schedule. It would
+not allow preferentially low (or zero) tax rates to apply
+to certain types or sources of income. In contrast, under
+current law taxpayers may deduct up to $15 million per
+production ($20 million in certain distressed areas) in
+non-capital expenditures incurred during the year. Under
+current law as of September 30, the provision expired on
+December 31, 2009.
 
-82. Deferral of tax on U.S. shipping companies.—
+83. Deferral of tax on U.S. shipping companies.—
 The baseline tax system generally would tax all profits
 and income under the regular tax rate schedule. It would
 not allow preferentially low (or zero) tax rates to apply to
@@ -956,43 +980,50 @@ used for shipping purposes, primarily construction, mod-
 ernization and major repairs to ships, and repayment of
 loans to finance these investments.
 
-83. Exclusion of employee parking expenses.—
+84. Exclusion of employee parking expenses.—
 Under the baseline tax system, all compensation, includ-
-ing dedicated payments and in-kind benefits, should be
-included in taxable income because they represent ac-
-cretions to wealth that do not materially differ from cash
-wages. In contrast, under current law employee parking
-expenses that are paid for by the employer or that are
-received in lieu of wages are excludable from the income
-of the employee. In 2009, the maximum amount of the
-parking exclusion is $230 (indexed) per month. The tax
-expenditure estimate does not include parking at facili-
-ties owned by the employer.
+ing dedicated payments and in-kind benefits, would be
+included in taxable income. Dedicated payments and in-
+kind benefits represent accretions to wealth that do not
+differ materially from cash wages. In contrast, the Tax
+Code allows an exclusion from taxable income for employ-
+ee parking expenses that are paid for by the employer or
+that are received by the employee in lieu of wages. In
+2010, the maximum amount of the parking exclusion is
+$230 per month. The tax expenditure estimate does not
+include any subsidy provided through employer-owned
+parking facilities.
 
-84. Exclusion of employee transit pass expenses.—
+85. Exclusion of employee transit pass expenses.—
 Under the baseline tax system, all compensation, includ-
-ing dedicated payments and in-kind benefits, should be
-included in taxable income because they represent ac-
-cretions to wealth that do not materially differ from cash
-wages. In contrast, under current law transit passes, to-
-kens, fare cards, and vanpool expenses paid for by an em-
-ployer or provided in lieu of wages to defray an employee’s
-commuting costs are excludable from the employee’s in-
-come. The recent stimulus legislation included a provision
-that equalized the transit subsidy maximum to that for
-employee parking expenses through the end of 2010. In
-2009, the maximum amount of the exclusion is $230 (in-
-dexed) per month.
+ing dedicated payments and in-kind benefits, would be
+included in taxable income. Dedicated payments and in-
+kind benefits represent accretions to wealth that do not
+differ materially from cash wages. In contrast, the Tax
+Code allows an exclusion from a taxpayer’s taxable in-
+come for passes, tokens, fare cards, and vanpool expenses
+that are paid for by an employer or that are received by
+the employee in lieu of wages to defray an employee’s com-
+muting costs. The American Recovery and Reinvestment
+Act of 2009 (“ARRA,” Pub. L. 111-5) included a provision
+that equalized the maximum exclusion amount for these
+expenses with the maximum exclusion amount for em-
+ployee parking expenses. In 2010, the maximum amount
+of the exclusion is $230 per month. Under current law as
+of September 30, this provision of the ARRA expired on
+December 31, 2010.
 
-85. Tax credit for certain expenditures for main-
+86. Tax credit for certain expenditures for main-
 taining railroad tracks.—The baseline tax system
 would not allow credits for particular activities, invest-
 ments, or industries. However, under current law eligible
 taxpayers may claim a credit equal to the lesser of 50
 percent of maintenance expenditures and the product of
 $3,500 and the number of miles of track owned or leased.
+Under current law as of September 30, the credit expired
+on December 31, 2009.
 
-86. Exclusion of interest on bonds for financing
+87. Exclusion of interest on bonds for financing
 of highway projects and rail-truck transfer facili-
 ties.—The baseline tax system generally would tax all
 income under the regular tax rate schedule. It would
@@ -1003,8 +1034,7 @@ ity to finance qualified highway or surface freight transfer
 facilities. The authority to issue these bonds expires on
 December 31, 2015.
 
-
-87. Rehabilitation of structures.—The baseline
+88. Rehabilitation of structures.—The baseline
 tax system would uniformly tax all returns to invest-
 ments and not allow credits for particular activities, in-
 vestments, or industries. However, the Tax Code allows a
@@ -1014,17 +1044,18 @@ ties and that were erected before 1936 for other than resi-
 dential purposes. The taxpayer’s recoverable basis must
 be reduced by the amount of the credit.
 
-88. Airport, dock, and similar facility bonds.—The
-baseline tax system generally would tax all income under
-the regular tax rate schedule. It would not allow prefer-
-entially low (or zero) tax rates to apply to certain types
-or sources of income. In contrast, the Tax Code allows
-interest earned on State and local bonds issued to finance
-high-speed rail facilities and Government-owned airports,
-docks, wharves, and sport and convention facilities to be
-tax-exempt. These bonds are not subject to a volume cap.
+89. Airport, dock, and similar facility bonds.—
+The baseline tax system generally would tax all income
+under the regular tax rate schedule. It would not allow
+preferentially low (or zero) tax rates to apply to certain
+types or sources of income. In contrast, the Tax Code al-
+lows interest earned on State and local bonds issued to
+finance high-speed rail facilities and Government-owned
+airports, docks, wharves, and sport and convention facili-
+ties to be tax-exempt. These bonds are not subject to a
+volume cap.
 
-89. Exemption of income of mutuals and coopera-
+90. Exemption of income of mutuals and coopera-
 tives.—Under the baseline tax system, corporations pay
 taxes on their profits under the regular tax rate schedule.
 In contrast, the Tax Code provides for the incomes of mu-
@@ -1032,20 +1063,19 @@ tual and cooperative telephone and electric companies to
 be exempt from tax if at least 85 percent of their revenues
 are derived from patron service charges.
 
-90. Empowerment zones and renewal communi-
+91. Empowerment zones and renewal communi-
 ties.—The baseline tax system generally would tax all
 income under the regular tax rate schedule. It would
 not allow preferentially low (or zero) tax rates to apply to
 certain types or sources of income, tax credits, and write-
-offs faster than economic depreciation. In contrast, un-
-der current law qualifying businesses in designated
-economically depressed areas can receive tax benefits
-such as an employer wage credit, increased expensing
-of investment in equipment, special tax-exempt financ-
-ing, accelerated depreciation, and certain capital gains
-incentives.
+offs faster than economic depreciation. In contrast, under
+current law qualifying businesses in designated economi-
+cally depressed areas can receive tax benefits such as an
+employer wage credit, increased expensing of investment
+in equipment, special tax-exempt financing, accelerated
+depreciation, and certain capital gains incentives.
 
-91. New markets tax credit.—The baseline tax sys-
+92. New markets tax credit.—The baseline tax sys-
 tem would not allow credits for particular activities, in-
 vestments, or industries. However, under current law
 taxpayers who make qualified equity investments in a
@@ -1053,9 +1083,10 @@ community development entity (CDE), which then makes
 qualified investments in low-income communities, are eli-
 gible for a tax credit received over 7 years. The total eq-
 uity investment available for the credit across all CDEs is
-$5 billion in 2009.
+$5 billion in 2009. Under current law as of September 30,
+the credit expired on December 31, 2009.
 
-92. Expensing of environmental remediation
+93. Expensing of environmental remediation
 costs.—Under the baseline tax system, the costs would
 be amortized (or depreciated) over an estimate of the eco-
 nomic life of the building. This insures that the net in-
@@ -1066,7 +1097,7 @@ pense the clean-up costs, even though the expenses will
 generally increase the value of the property significantly
 or appreciably prolong the life of the property.
 
-93. Credit to holders of Gulf and Midwest Tax
+94. Credit to holders of Gulf and Midwest Tax
 Credit Bonds.—The baseline tax system would not al-
 low credits for particular activities, investments, or indus-
 tries. Instead, under current law taxpayers that own Gulf
@@ -1074,7 +1105,7 @@ and Midwest Tax Credit bonds receive a non-refundable
 tax credit rather than interest. The credit is included in
 gross income.
 
-94. Recovery Zone Bonds.—The baseline tax system
+95. Recovery Zone Bonds.—The baseline tax system
 would not allow credits for particular activities, invest-
 ments, or industries. In addition, it would tax all income
 under the regular tax rate schedule. It would not allow
@@ -1089,7 +1120,7 @@ Recovery Zone Facility Bonds. These bonds finance cer-
 tain kinds of business development in areas of economic
 distress.
 
-95. Tribal Economic Development Bonds.—The
+96. Tribal Economic Development Bonds.—The
 baseline tax system generally would tax all income under
 the regular tax rate schedule. It would not allow prefer-
 entially low (or zero) tax rates to apply to certain types or
@@ -1098,8 +1129,7 @@ in 2009 to allow Indian tribal governments to issue tax
 exempt “tribal economic development bonds.” There is a
 national bond limitation of $2 billion.
 
-
-96. Scholarship and fellowship income.—
+97. Scholarship and fellowship income.—
 Scholarships and fellowships are excluded from taxable
 income to the extent they pay for tuition and course-relat-
 ed expenses of the grantee. Similarly, tuition reductions
@@ -1117,19 +1147,19 @@ gift-like transfers of Government funds in gross income
 (many scholarships are derived directly or indirectly from
 Government funding).
 
-97. HOPE tax credit.—The baseline tax system would
+98. HOPE tax credit.—The baseline tax system would
 not allow credits for particular activities, investments, or
 industries. Under current law, however, the non-refund-
 able HOPE tax credit allows a credit for 100 percent of an
 eligible student’s first $1,200 of tuition and fees and 50
 percent of the next $1,200 of tuition and fees. The credit
 only covers tuition and fees paid during the first two years
-of a student’s post-secondary education. In 2009, the cred-
+of a student’s post-secondary education. In 2010, the cred-
 it is phased out ratably for taxpayers with modified AGI
 between $100,000 and $120,000 ($50,000 and $60,000 for
 singles), indexed.
 
-98. Lifetime Learning tax credit.—The baseline tax
+99. Lifetime Learning tax credit.—The baseline tax
 system would not allow credits for particular activities,
 investments, or industries. Under current law, however,
 the non-refundable Lifetime Learning tax credit allows
@@ -1140,7 +1170,7 @@ fied AGI between $100,000 and $120,000 ($50,000 and
 $60,000 for singles), indexed. The credit applies to both
 undergraduate and graduate students.
 
-99. American Opportunity Tax Credit.—The base-
+100. American Opportunity Tax Credit.—The base-
 line tax system would not allow credits for particular ac-
 tivities, investments, or industries. In contrast, the Tax
 Code was modified in 2009 to provide a tax credit in 2009
@@ -1150,8 +1180,7 @@ four years of the student’s post-secondary education. The
 credit is phased out for taxpayers with modified adjusted
 gross income between $80,000 and $90,000 ($160,000 and
 $180,000 for married taxpayers filing a joint return).
-
-100. Education Individual Retirement Accounts
+101. Education Individual Retirement Accounts
 (IRA).—The baseline tax system generally would tax
 all income under the regular tax rate schedule. It would
 not allow preferentially low (or zero) tax rates to apply
@@ -1159,46 +1188,45 @@ to certain types or sources of income. Contributions to an
 education IRA are not tax-deductible. However, invest-
 ment income earned by education IRAs is not taxed when
 earned, and investment income from an education IRA is
-tax-exempt when withdrawn to pay for a student’s tuition
-and fees. The maximum contribution to an education IRA
-in 2008 is $2,000 per beneficiary. The maximum contri-
-bution is phased down ratably for taxpayers with modi-
-fied AGI between $190,000 and $220,000 ($95,000 and
-$110,000 for singles).
+tax-exempt when withdrawn to pay for a student’s educa-
+tion expenses. The maximum contribution to an educa-
+tion IRA in 2010 is $2,000 per beneficiary. The maximum
+contribution is phased down ratably for taxpayers with
+modified AGI between $190,000 and $220,000 ($95,000
+and $110,000 for singles).
 
-101. Student-loan interest.—The baseline tax system
+102. Student-loan interest.—The baseline tax system
 accepts current law’s general rule limiting taxpayers’ abil-
 ity to deduct non-business interest expenses. In contrast,
 taxpayers may claim an above-the-line deduction of up to
 $2,500 on interest paid on an education loan. Interest may
 only be deducted for the first five years in which interest
-payments are required. In 2009, the maximum deduction
+payments are required. In 2010, the maximum deduction
 is phased down ratably for taxpayers with modified AGI
-between $110,000 and $140,000 ($55,000 and $70,000 for
+between $120,000 and $150,000 ($60,000 and $75,000 for
 singles), indexed.
 
-102. Deduction for higher education expenses.—
+103. Deduction for higher education expenses.—
 The baseline tax system would not allow a deduction for
 personal expenditures. In contrast, the Tax Code provides
-a maximum annual deduction of $4,000 in 2009 for quali-
+a maximum annual deduction of $4,000 in 2010 for quali-
 fied higher education expenses for taxpayers with adjust-
 ed gross income up to $130,000 on a joint return ($65,000
 for singles). Taxpayers with adjusted gross income up to
 $160,000 on a joint return ($80,000 for singles) may de-
 duct up to $2,000.
 
-103. State prepaid tuition plans.—The baseline tax
+104. State prepaid tuition plans.—The baseline tax
 system generally would tax all income under the regular
 tax rate schedule. It would not allow preferentially low
 (or zero) tax rates to apply to certain types or sources of
 income. Some States have adopted prepaid tuition plans
 and prepaid room and board plans, which allow persons
 to pay in advance for college expenses for designated ben-
-eficiaries. Under current law, investment income is not
-taxed when earned, and is tax-exempt when withdrawn
-to pay for qualified expenses.
-
-104. Student-loan bonds.—The baseline tax system
+eficiaries. Under current law, investment income, or the
+return on prepayments, is not taxed when earned, and is
+tax-exempt when withdrawn to pay for qualified expenses.
+105. Student-loan bonds.—The baseline tax system
 generally would tax all income under the regular tax rate
 schedule. It would not allow preferentially low (or zero)
 tax rates to apply to certain types or sources of income. In
@@ -1207,7 +1235,7 @@ to finance student loans is tax-exempt under current law.
 The volume of all such private activity bonds that each
 State may issue annually is limited.
 
-105. Bonds for private nonprofit educational in-
+106. Bonds for private nonprofit educational in-
 stitutions.—The baseline tax system generally would tax
 all income under the regular tax rate schedule. It would
 not allow preferentially low (or zero) tax rates to apply to
@@ -1216,7 +1244,7 @@ rent law interest earned on State and local Government
 bonds issued to finance the construction of facilities used
 by private nonprofit educational institutions is not taxed.
 
-106. Credit for holders of zone academy bonds.—
+107. Credit for holders of zone academy bonds.—
 The baseline tax system would not allow credits for partic-
 ular activities, investments, or industries. Under current
 law, however, financial institutions that own zone acade-
@@ -1224,11 +1252,11 @@ my bonds receive a non-refundable tax credit rather than
 interest. The credit is included in gross income. Proceeds
 from zone academy bonds may only be used to renovate,
 but not construct, qualifying schools and for certain other
-school purposes. The total amount of zone academy bonds
-that may be issued is limited to $1.4 billion in 2009 and
-2010.
+school purposes. Under current law as of September 30,
+the total amount of zone academy bonds that may be is-
+sued is limited to $1.4 billion in 2009 and 2010.
 
-107. U.S. savings bonds for education.—The base-
+108. U.S. savings bonds for education.—The base-
 line tax system generally would tax all income under the
 regular tax rate schedule. It would not allow preferen-
 tially low (or zero) tax rates to apply to certain types or
@@ -1237,24 +1265,22 @@ earned on U.S. savings bonds issued after December 31,
 1989 is tax-exempt if the bonds are transferred to an edu-
 cational institution to pay for educational expenses. The
 tax exemption is phased out for taxpayers with AGI be-
-tween $100,650 and $130,650 ($67,100 and $81,100 for
-singles) in 2009.
+tween $105,100 and $135,100 ($70,100 and $85,100 for
+singles) in 2010.
 
-108. Dependent students age 19 or older.—The tax
-rate schedule, including personal exemptions and the
-standard deduction, are part of the baseline tax system.
-Additional exemptions to targeted groups are not allowed.
-In contrast, the Tax Code provides taxpayers personal ex-
-emptions for dependent children who are over the age of
-18 or under the age of 24 and who (1) reside with the tax-
-payer for over half the year (with exceptions for tempo-
-rary absences from home, such as for school attendance),
-(2) are full-time students, and (3) do not claim a personal
-exemption on their own tax returns. However, under cur-
-rent law, the dependent/student is not eligible to claim a
-personal exemption on his or her own tax return.
+109. Dependent students age 19 or older.—Under
+the baseline tax system, a personal exemption for the
+taxpayer is allowed. However, additional exemptions for
+targeted groups within a given filing status would not be
+allowed. In contrast, the Tax Code allows taxpayers to
+claim personal exemptions for dependent children who
+are over the age of 18 or under the age of 24 and who
+(1) reside with the taxpayer for over half the year (with
+exceptions for temporary absences from home, such as for
+school attendance), (2) are full-time students, and (3) do
+not claim a personal exemption on their own tax returns.
 
-109. Charitable contributions to educational in-
+110. Charitable contributions to educational in-
 stitutions.—The baseline tax system would not allow a
 deduction for personal expenditures. In contrast, the Tax
 Code provides taxpayers a deduction for contributions to
@@ -1267,7 +1293,7 @@ justed gross income; a corporation’s total charitable con-
 tributions generally may not exceed 10 percent of pre-tax
 income.
 
-110. Employer-provided educational assistance.—
+111. Employer-provided educational assistance.—
 Under the baseline tax system, all compensation, includ-
 ing dedicated payments and in-kind benefits, should be
 included in taxable income because they represent ac-
@@ -1277,7 +1303,7 @@ educational assistance is excluded from an employee’s
 gross income even though the employer’s costs for this as-
 sistance are a deductible business expense.
 
-111. Special deduction for teacher expenses.—The
+112. Special deduction for teacher expenses.—The
 baseline tax system would not allow a deduction for per-
 sonal expenditures. In contrast, under current law educa-
 tors in both public and private elementary and secondary
@@ -1285,26 +1311,29 @@ schools, who work at least 900 hours during a school year
 as a teacher, instructor, counselor, principal or aide, may
 subtract up to $250 of qualified expenses when figuring
 their adjusted gross income (AGI). This provision expired
-at end of December 31, 2008.
+on December 31, 2009.
 
-112. Discharge of student loan indebtedness.—
+113. Discharge of student loan indebtedness.—
 Under the baseline tax system, all compensation, includ-
 ing dedicated payments and in-kind benefits, should be
 included in taxable income. In contrast, the Tax Code al-
 lows certain professionals who perform in underserved
-areas, and as a consequence get their student loans dis-
-charged, not to recognize such discharge as income.
+areas or specific fields, and as a consequence have their
+student loans discharged, not to recognize such discharge
+as income.
 
-113. Qualified school construction bonds.—The
+114. Qualified school construction bonds.—The
 baseline tax system would not allow credits for particular
 activities, investments, or industries. Instead, it generally
 would seek to tax uniformly all returns from investment-
 like activities. In contrast, the Tax Code was modified in
 2009 to provide a tax credit in lieu of interest to holders of
 qualified school construction bonds. The national volume
-limit is $22 billion over 2009 and 2010.
+limit is $22 billion over 2009 and 2010. As of May 2010,
+issuers of such bonds may opt to receive direct payment
+with the yield becoming fully taxable.
 
-114. Work opportunity tax credit (WOTC).—The
+115. Work opportunity tax credit (WOTC).—The
 baseline tax system would not allow credits for particular
 activities, investments, or industries. Instead, it gener-
 ally would seek to tax uniformly all returns from invest-
@@ -1325,7 +1354,7 @@ at least 120 hours to be eligible for the credit. Employers
 must reduce their deduction for wages paid by the amount
 of the credit claimed.
 
-115. Welfare-to-work tax credit.—The baseline tax
+116. Welfare-to-work tax credit.—The baseline tax
 system would not allow credits for particular activities,
 investments, or industries. Instead, it generally would
 seek to tax uniformly all returns from investment-like ac-
@@ -1337,7 +1366,7 @@ to-work credit expired on December 31, 2006. After this
 date, long-term welfare recipients became a WOTC target
 group.
 
-116. Employer-provided child care exclusion.—
+117. Employer-provided child care exclusion.—
 Under the baseline tax system, all compensation, includ-
 ing dedicated payments and in-kind benefits, should be
 included in taxable income. In contrast, under current
@@ -1346,17 +1375,17 @@ cluded from an employee’s gross income even though the
 employer’s costs for the child care are a deductible busi-
 ness expense.
 
-117. Employer-provided child care credit.—The
+118. Employer-provided child care credit.—The
 baseline tax system would not allow credits for particu-
 lar activities, investments, or industries. Instead, current
 law provides a credit equal to 25 percent of qualified ex-
 penses for employee child care and 10 percent of quali-
 fied expenses for child care resource and referral services.
 Employer deductions for such expenses are reduced by
-the amount of the credit. The maximum total credit is lim-
-ited to $150,000 per taxable year.
+the amount of the credit. The maximum total credit is
+limited to $150,000 per taxable year.
 
-118. Assistance for adopted foster children.—
+119. Assistance for adopted foster children.—
 Under the baseline tax system, all compensation, includ-
 ing dedicated payments and in-kind benefits, should be
 included in taxable income. Taxpayers who adopt eligible
@@ -1366,13 +1395,13 @@ ied needs and a reimbursement of up to $2,000 for nonre-
 curring adoption expenses. These payments are excluded
 from gross income under current law.
 
-119. Adoption credit and exclusion.—The baseline
-tax system would not allow credits for particular activi-
-ties. Instead, taxpayers can receive a nonrefundable tax
+120. Adoption credit and exclusion.—The base-
+line tax system would not allow credits for particular ac-
+tivities. Instead, taxpayers can receive a refundable tax
 credit for qualified adoption expenses under current law.
-The maximum credit is $12,150 per child for 2009, and
+The maximum credit is $13,170 per child for 2010, and
 is phased-out ratably for taxpayers with modified AGI
-between $182,180 and $220,180. The credit amounts
+between $182,520 and $222,520. The credit amounts
 and the phase-out thresholds are indexed for inflation.
 Taxpayers may also exclude qualified adoption expenses
 from income, subject to the same maximum amounts and
@@ -1381,7 +1410,7 @@ for tax benefits under both programs; however, a taxpayer
 may use the benefits of the exclusion and the tax credit
 for different expenses.
 
-120. Employer-provided meals and lodging.—
+121. Employer-provided meals and lodging.—
 Under the baseline tax system, all compensation, includ-
 ing dedicated payments and in-kind benefits, should be
 included in taxable income. In contrast, under current law
@@ -1389,7 +1418,7 @@ employer-provided meals and lodging are excluded from
 an employee’s gross income even though the employer’s
 costs for these items are a deductible business expense.
 
-121. Child credit.—The baseline tax system would not
+122. Child credit.—The baseline tax system would not
 allow credits for particular activities or targeted at spe-
 cific groups. Under current law, however, taxpayers with
 children under age 17 can qualify for a $1,000 partially
@@ -1398,7 +1427,7 @@ to $500 in 2011 and later years. The credit is phased out
 for taxpayers at the rate of $50 per $1,000 of modified AGI
 above $110,000 ($75,000 for singles).
 
-122. Child and dependent care expenses.—The
+123. Child and dependent care expenses.—The
 baseline tax system would not allow credits for particular
 activities or targeted at specific groups. In contrast, the
 Tax Code provides married couples with child and depen-
@@ -1406,7 +1435,7 @@ dent care expenses a tax credit when one spouse works
 full time and the other works at least part time or goes to
 school. The credit may also be claimed by single parents
 and by divorced or separated parents who have custody of
-children. In 2009, expenditures up to a maximum $3,000
+children. In 2010, expenditures up to a maximum $3,000
 for one dependent and $6,000 for two or more dependents
 are eligible for the credit. The credit is equal to 35 percent
 of qualified expenditures for taxpayers with incomes of
@@ -1414,7 +1443,7 @@ $15,000. The credit is reduced to a minimum of 20 per-
 cent by one percentage point for each $2,000 of income in
 excess of $15,000.
 
-123. Disabled access expenditure credit.—The
+124. Disabled access expenditure credit.—The
 baseline tax system would not allow credits for particu-
 lar activities, investments, or industries. In contrast, the
 Tax Code provides small businesses (less than $1 million
@@ -1423,7 +1452,7 @@ a 50-percent credit for expenditures in excess of $250 to
 remove access barriers for disabled persons. The credit is
 limited to $5,000.
 
-124. Charitable contributions, other than educa-
+125. Charitable contributions, other than educa-
 tion and health.—The baseline tax system would not
 allow a deduction for personal expenditures. In contrast,
 the Tax Code provides taxpayers a deduction for contribu-
@@ -1436,7 +1465,7 @@ may not exceed 50 percent of adjusted gross income; a
 corporation’s total charitable contributions generally may
 not exceed 10 percent of pre-tax income.
 
-125. Foster care payments.—The baseline tax system
+126. Foster care payments.—The baseline tax system
 generally would tax all income under the regular tax rate
 schedule. It would not allow preferentially low (or zero)
 tax rates to apply to certain types or sources of income.
@@ -1446,14 +1475,17 @@ However, compensation received for this service is exclud-
 ed from the gross incomes of foster parents; the expenses
 they incur are nondeductible.
 
-126. Parsonage allowances.—Under the baseline
-tax system, all compensation, including dedicated pay-
-ments and in-kind benefits, should be included in taxable
-income. In contrast, the value of a clergyman’s housing
-allowance and the rental value of parsonages are not in-
-cluded in a minister’s taxable income under current law.
+127. Parsonage allowances.—Under the baseline tax
+system, all compensation, including dedicated payments
+and in-kind benefits, would be included in taxable income.
+Dedicated payments and in-kind benefits represent ac-
+cretions to wealth that do not differ materially from cash
+wages. In contrast, the Tax Code allows an exclusion from
+a clergyman’s taxable income for the value of the clergy-
+man’s housing allowance or the rental value of the clergy-
+man’s parsonage.
 
-127. Provide an employee retention credit to em-
+128. Provide an employee retention credit to em-
 ployers affected by hurricanes Katrina, Rita, Wilma,
 and Ike.—The baseline tax system would not allow cred-
 its for particular activities, investments, or industries. In
@@ -1462,23 +1494,22 @@ wages paid to eligible employees in areas affected by nat-
 ural disasters such as hurricanes Katrina, Rita, Wilma,
 and Ike.
 
-128. Exclusion for benefits provided to volunteer
-EMS and firefighters.—Under the baseline tax system,
-all compensation, including dedicated payments and in-
-kind benefits, should be included in taxable income. In
-contrast, the Tax Code provides that certain benefits re-
-ceived by volunteer EMS and firefighters excluded from
-income.
-
-129. Temporary income exclusion for employer
-provided lodging in Midwestern disaster area.—
-Under the baseline tax system, all compensation, includ-
-ing dedicated payments and in-kind benefits, should be
-included in taxable income. In contrast, under current
-law employer-provided meals and lodging in disaster ar-
-eas are excluded from an employee’s gross income even
-though the employer’s costs for these items are a deduct-
-ible business expense.
+129. Exclusion for benefits provided to volunteer
+EMS and firefighters.—Under the baseline tax sys-
+tem, all compensation, including dedicated payments and
+in-kind benefits, would be included in taxable income.
+Dedicated payments and in-kind benefits represent ac-
+cretions to wealth that do not differ materially from cash
+wages. In contrast, the Tax Code allows an exclusion from
+taxable income of certain rebates or reductions of state
+and local income and property taxes provided by states or
+localities if the taxpayer is a member of a volunteer emer-
+gency response organization. The Tax Code also allows an
+exclusion from taxable income of certain payments such
+as reimbursements for expenses or equipment allowances
+of up to $360 per year provided by states or localities on
+account of performance of services as a member of a vol-
+unteer emergency response organization.
 
 130. Making work pay tax credit.—The baseline tax
 system would not allow credits for particular activities. In
@@ -1495,20 +1526,20 @@ should be included in taxable income. In contrast, under
 current law, employer-paid health insurance premiums
 and other medical expenses (including long-term care)
 are deducted as a business expense by employers, but
-they are not included in employee gross income. The self-
-employed also may deduct part of their family health in-
-surance premiums.
+they are not included in employee gross income.
 
 132. Self-employed medical insurance premi-
 ums.—Under the baseline tax system, all compensation
 and remuneration, including dedicated payments and
 in-kind benefits, should be included in taxable income.
 In contrast, under current law self-employed taxpayers
-may deduct a percentage of their family health insurance
-premiums. Taxpayers without self-employment income
-are not eligible for the special percentage deduction. The
-deductible percentage is 60 percent in 2001, 70 percent in
-2002, and 100 percent in 2003 and thereafter.
+may deduct their family health insurance premiums.
+Taxpayers without self-employment income are not eligi-
+ble for this special deduction. The deduction is not avail-
+able for any month in which the self-employed individual
+is eligible to participate in an employer-subsidized health
+plan and the deduction may not exceed the self-employed
+individual’s earned income from self-employment.
 
 133. Medical and health savings accounts.—Under
 the baseline tax system, all compensation, including dedi-
@@ -1527,8 +1558,8 @@ Earnings from the accounts are excluded from taxable in-
 come. Distributions from the accounts used for medical
 expenses are not taxable. The rules for HSAs are general-
 ly more flexible than for Archer MSAs and the deductible
-contribution amounts are greater (in 2009, $3000 for tax-
-payers with individual coverage and $5,950 for taxpayers
+contribution amounts are greater (in 2010, $3050 for tax-
+payers with individual coverage and $6,150 for taxpayers
 with family coverage). Thus, HSAs have largely replaced
 MSAs.
 
@@ -1537,7 +1568,13 @@ tem would not allow a deduction for personal expendi-
 tures. In contrast, under current law personal expendi-
 tures for medical care (including the costs of prescription
 drugs) exceeding 7.5 percent of the taxpayer’s adjusted
-gross income are deductible.
+gross income are deductible. For tax years beginning af-
+ter 2012, only medical expenditures exceeding 10 percent
+of the taxpayer’s adjusted gross income are deductible.
+However, for the years 2013, 2014, 2015 and 2016, if ei-
+ther the taxpayer or the taxpayer’s spouse turns 65 before
+the end of the taxable year, the threshold remains at 7.5
+percent of adjusted income.
 
 135. Hospital construction bonds.—The baseline
 tax system generally would tax all income under the reg-
@@ -1547,7 +1584,52 @@ of income. In contrast, under current law interest earned
 on State and local government debt issued to finance hos-
 pital construction is excluded from income subject to tax.
 
-136. Charitable contributions to health institu-
+136. Refundable Premium Assistance Tax
+Credit.—The baseline tax system would not allow cred-
+its for particular activities or targeted at specific groups.
+In contrast, for taxable years ending after 2013, the Tax
+Code provides a premium assistance credit to any eligible
+taxpayer for any qualified health insurance purchased
+through a Health Insurance Exchange. In general, an
+eligible taxpayer is a taxpayer with annual household
+income between 100% and 400% of the federal poverty
+level for a family of the taxpayer’s size and that does not
+have access to affordable minimum essential health care
+coverage. The amount of the credit equals the lesser of (i)
+the actual premiums paid by the taxpayer for such cover-
+age or (ii) the difference between the cost of a statutorily-
+identified benchmark plan offered on the exchange and
+a required payment by the taxpayer that increases with
+income.
+
+137. Credit for employee health insurance expens-
+es of small business.—The baseline tax system would
+not allow credits for particular activities or targeted at
+specific groups. In contrast, the Tax Code provides a tax
+credit to qualified small employers that make a certain
+level of non-elective contributions towards the purchase
+of certain health insurance coverage for its employees. To
+receive a credit, an employer must have fewer than 25 full-
+time-equivalent employees whose average annual full-
+time-equivalent wages from the employer are less than
+$50,000 (indexed for taxable years after 2013). However,
+to receive a full credit, an employer must have no more
+than 10 full-time employees, and the average wage paid to
+these employees must be no more than $25,000 (indexed
+for taxable years after 2013). A qualifying employer may
+claim the credit for any taxable year beginning in 2010,
+2011, 2012, and 2013 and for up to two years for insurance
+purchased through a Health Insurance Exchange thereaf-
+ter. For taxable beginning in 2010, 2011, 2012, and 2013,
+the maximum credit is 35 percent of premiums paid by
+qualified taxable employers and 25 percent of premiums
+paid by qualified tax-exempt organizations. For taxable
+years beginning in 2014 and later years, the maximum
+tax credit will increase to 50 percent of premiums paid by
+qualified taxable employers and 35 percent of premiums
+paid by qualified tax-exempt organizations.
+
+138. Charitable contributions to health institu-
 tions.—The baseline tax system would not allow a deduc-
 tion for personal expenditures. In contrast, the Tax Code
 provides individuals and corporations a deduction for con-
@@ -1556,25 +1638,28 @@ tures resulting from the deductibility of contributions to
 other charitable institutions are listed under the educa-
 tion, training, employment, and social services function.
 
-137. Orphan drugs.—The baseline tax system would
+139. Orphan drugs.—The baseline tax system would
 not allow credits for particular activities, investments, or
 industries. In contrast, under current law drug firms can
 claim a tax credit of 50 percent of the costs for clinical
 testing required by the Food and Drug Administration for
 drugs that treat rare physical conditions or rare diseases.
 
-138. Blue Cross and Blue Shield.—The baseline tax
+140. Blue Cross and Blue Shield.—The baseline tax
 system generally would tax all profits under the regular
 tax rate schedule. It would not allow preferentially low
-(or zero) tax rates to apply to certain types or sources of
-income. In contrast, Blue Cross and Blue Shield health
-insurance providers in existence on August 16, 1986 and
-certain other nonprofit health insurers are provided ex-
-ceptions from otherwise applicable insurance company
-income tax accounting rules that substantially reduce (or
-even eliminate) their tax liabilities.
+tax rates to apply to certain types or sources of income.
+In contrast, Blue Cross and Blue Shield health insurance
+providers in existence on August 16, 1986 and certain
+other nonprofit health insurers are provided exceptions
+from otherwise applicable insurance company income tax
+accounting rules that substantially reduce their tax li-
+abilities, provided that their percentage of total premium
+revenue expended on reimbursement for clinical services
+provided to enrollees is not less than 85 percent for the
+taxable year.
 
-139. Tax credit for health insurance purchased
+141. Tax credit for health insurance purchased
 by certain displaced and retired individuals.—The
 baseline tax system would not allow credits for particu-
 lar activities, investments, or industries. In contrast, the
@@ -1582,9 +1667,11 @@ Trade Act of 2002 provides a refundable tax credit of 65
 percent for the purchase of health insurance coverage by
 individuals eligible for Trade Adjustment Assistance and
 certain Pension Benefit Guarantee Corporation pension
-recipients.
+recipients. The American Recovery and Reinvestment
+Act increased the credit to 80 percent in coverage months
+preceding January 1, 2011.
 
-140. Distributions for premiums for health and
+142. Distributions for premiums for health and
 long-term care insurance.—Under the baseline tax
 system, all compensation, including dedicated and de-
 ferred payments, should be included in taxable income.
@@ -1593,7 +1680,7 @@ tions of up to $3,000 from governmental retirement plans
 for premiums for health and long term care premiums of
 public safety officers.
 
-141. Railroad retirement benefits.—Under the base-
+143. Railroad retirement benefits.—Under the base-
 line tax system, all compensation, including dedicated and
 deferred payments, should be included in taxable income.
 In contrast, railroad retirement benefits are not gener-
@@ -1602,15 +1689,14 @@ income reaches a certain threshold under current law.
 The threshold is discussed more fully under the Social
 Security function.
 
-142. Workers’ compensation benefits.—Under the
-baseline tax system, all compensation, including dedicat-
-ed payments and in-kind benefits, should be included in
-taxable income. However, workers compensation provides
-payments to disabled workers. These benefits, although
-income to the recipients, are not subject to the income tax
-under current law.
+144. Workers’ compensation benefits.—Under the
+baseline tax system, all compensation, including dedi-
+cated payments and in-kind benefits, should be included
+in taxable income. However, workers compensation, al-
+though income to the recipients, are not subject to the in-
+come tax under current law.
 
-143. Public assistance benefits.—Under the ref-
+145. Public assistance benefits.—Under the ref-
 erence law baseline tax system, gifts and transfers are
 not treated as income to the recipients. In contrast, the
 normal tax method considers cash transfers from the
@@ -1618,7 +1704,7 @@ Government as part of the recipients’ income, and thus,
 treats the exclusion for public assistance benefits under
 current law as tax expenditure.
 
-144. Special benefits for disabled coal miners.—
+146. Special benefits for disabled coal miners.—
 Under the baseline tax system, all compensation, includ-
 ing dedicated payments and in-kind benefits, should be
 included in taxable income. However, disability payments
@@ -1626,62 +1712,65 @@ to former coal miners out of the Black Lung Trust Fund,
 although income to the recipient, are not subject to the
 income tax.
 
-145. Military disability pensions.—Under the base-
+147. Military disability pensions.—Under the base-
 line tax system, all compensation, including dedicated
 payments and in-kind benefits, should be included in
 taxable income. In contrast, most of the military pension
 income received by current disabled retired veterans is
 excluded from their income subject to tax.
 
-146. Employer-provided pension contributions
+148. Employer-provided pension contributions
 and earnings.—Under the baseline tax system, all com-
 pensation, including deferred and dedicated payments,
 should be included in taxable income. In contrast, under
 current law certain employer contributions to pension
 plans are excluded from an employee’s gross income even
 though the employer can deduct the contributions. In ad-
-dition, the tax on the investment income earned by the
-pension plans is deferred until the money is withdrawn.
+dition, the tax on the investment income earned by pen-
+sion plans is deferred until the money is withdrawn.
 
-147. 401(k) plans.—Under the baseline tax system,
+149. 401(k) plans.—Under the baseline tax system,
 all compensation, including deferred and dedicated pay-
 ments, should be included in taxable income. In contrast,
 under current law individual taxpayers can make tax-pre-
 ferred contributions to certain types of employer-provided
 401(k) plans (and 401(k)-type plans like 403(b) plans and
-the Federal Government’s Thrift Savings Plan). In 2009,
+the Federal Government’s Thrift Savings Plan). In 2010,
 an employee could exclude up to $16,500 (indexed) of
 wages from AGI under a qualified arrangement with an
 employer’s 401(k) plan. Employees age 50 or over could
 exclude up to $22,000 in contributions (indexed). The tax
-on the investment income earned by 401(k)-type plans is
-deferred until withdrawn.
+on contributions and the investment income earned by
+401(k)-type plans is deferred until withdrawn.
 
-148. Individual Retirement Accounts (IRAs).—
+150. Individual Retirement Accounts (IRAs).—
 Under the baseline tax system, all compensation, includ-
 ing deferred and dedicated payments, should be included
 in taxable income. In contrast, under current law indi-
-vidual taxpayers can take advantage of several different
-IRAs to defer or otherwise reduce the tax on the return
-to their retirement savings. These arrangements include
-deductible IRAs, nondeductible IRAs and Roth IRAs. The
-IRA contribution limit is $5,000 in 2009 (indexed thereaf-
-ter) and allows taxpayers over age 50 to make additional
-“catch-up’’ contributions of $1,000. Taxpayers can make
-a deductible IRA contribution only up to certain levels of
-AGI depending on whether they are active participants in
-employer plans. Above those AGI limits, the amount that
-may be deducted is reduced and eventually phased out.
-There is no income limit for nondeductible IRA contribu-
-tions, which still benefit from deferral of tax on earnings.
-Roth IRA contributions are not deductible, but earnings
-and withdrawals are exempt from taxation under certain
-conditions. AGI limits also apply to Roth IRA contribu-
-tions.
+vidual taxpayers can take advantage of traditional and
+Roth IRAs to defer or otherwise reduce the tax on the
+return to their retirement savings. The IRA contribu-
+tion limit is $5,000 in 2010 (indexed); taxpayers age 50
+or over are allowed to make additional “catch-up’’ contri-
+butions of $1,000. Contributions to a traditional IRA are
+generally deductible but the deduction is phased out for
+workers with incomes above certain levels who, or whose
+spouses, are active participants in an employer-provided
+retirement plan. Contributions and account earnings are
+includible in income when withdrawn from traditional
+IRAs. Individuals who make nondeductible contributions
+to a traditional IRA can still benefit from deferral of tax
+on earnings. Roth IRA contributions are not deductible,
+but earnings and withdrawals are exempt from taxation
+under certain conditions. Income limits also apply to Roth
+IRA contributions; however, taxpayers at any income lev-
+el may roll account balances from traditional IRAs into
+Roth IRAs, after paying income tax on any deduction and
+accrued income.
 
-149. Low and moderate-income savers’ credit.—
+151. Low and moderate-income savers’ credit.—
 The baseline tax system would not allow credits for par-
-ticular activities or targeted at specific group. In contrast,
+ticular activities or targeted at specific groups. In contrast,
 the Tax Code provides an additional incentive for lower-
 income taxpayers to save through a nonrefundable credit
 of up to 50 percent on IRA and other retirement contri-
@@ -1689,18 +1778,18 @@ butions of up to $2,000. This credit is in addition to any
 deduction or exclusion. The credit is completely phased
 out by $55,500 for joint filers and $27,750 for single filers.
 
-150. Keogh plans.—Under the baseline tax system,
+152. Keogh plans.—Under the baseline tax system,
 all compensation, including deferred and dedicated pay-
 ments, should be included in taxable income. In contrast,
 under current law self-employed individuals can make
 deductible contributions to their own retirement (Keogh)
 plans equal to 25 percent of their income, up to a maxi-
-mum of $49,000 in 2009. Total plan contributions are
+mum of $49,000 in 2010. Total plan contributions are
 limited to 25 percent of a firm’s total wages. The tax on
 the investment income earned by Keogh plans is deferred
 until withdrawn.
 
-151. Employer-provided life insurance benefits.—
+153. Employer-provided life insurance benefits.—
 Under the baseline tax system, all compensation, includ-
 ing deferred and dedicated payments, should be included
 in taxable income. In contrast, under current law employ-
@@ -1711,7 +1800,7 @@ only to the extent that the employer’s share of the total
 costs does not exceed the cost of $50,000 of such insur-
 ance.
 
-152. Employer-provided accident and disability
+154. Employer-provided accident and disability
 benefits.—Under the baseline tax system, all compen-
 sation, including dedicated payments and in-kind ben-
 efits, should be included in taxable income. In contrast,
@@ -1720,137 +1809,133 @@ cluded from an employee’s gross income even though the
 employer’s costs for the benefits are a deductible business
 expense.
 
-153. Employer-provided supplementary unem-
+155. Employer-provided supplementary unem-
 ployment benefits.—Under the baseline tax system, all
 compensation, including dedicated payments and in-kind
 benefits, should be included in taxable income. Employers
 may establish trusts to pay supplemental unemploy-
 ment benefits to employees separated from employment.
-Interest payments to such trusts are exempt from taxa-
-tion.
+Investment income earned by such trusts is exempt from
+taxation.
 
-154. Employer Stock Ownership Plan (ESOP) pro-
+156. Employer Stock Ownership Plan (ESOP) pro-
 visions.—ESOPs are a special type of tax-exempt em-
 ployee benefit plan. Under the baseline tax system, all
 compensation, including dedicated payments and in-kind
-benefits, should be included in taxable income. In con-
-trast, employer-paid contributions (the value of stock is-
-sued to the ESOP) are deductible by the employer as part
-of employee compensation costs. They are not included in
-the employees’ gross income for tax purposes, however,
-until they are paid out as benefits. The following special
-income tax provisions for ESOPs are intended to increase
-ownership of corporations by their employees: (1) annu-
-al employer contributions are subject to less restrictive
-limitations; (2) ESOPs may borrow to purchase employer
-stock, guaranteed by their agreement with the employer
-that the debt will be serviced by his payment (deductible
-by him) of a portion of wages (excludable by the employ-
-ees) to service the loan; (3) employees who sell appreci-
-ated company stock to the ESOP may defer any taxes due
-until they withdraw benefits; and (4) dividends paid to
-ESOP-held stock are deductible by the employer.
+benefits, should be included in taxable income. In contrast,
+employer-paid contributions (the value of stock issued to
+the ESOP) are deductible by the employer as part of em-
+ployee compensation costs. They are not included in the
+employees’ gross income for tax purposes, however, until
+they are paid out as benefits. In addition, the following
+special income tax provisions for ESOPs are intended to
+increase ownership of corporations by their employees: (1)
+annual employer contributions are subject to less restric-
+tive limitations than other qualified retirement plans; (2)
+ESOPs may borrow to purchase employer stock, guaran-
+teed by their agreement with the employer that the debt
+will be serviced by his payment (deductible by him) of a
+portion of wages (excludable by the employees) to service
+the loan; (3) employees who sell appreciated company
+stock to the ESOP may defer any taxes due until they
+withdraw benefits; and (4) dividends paid to ESOP-held
+stock are deductible by the employer.
 
-155. Additional deduction for the blind.—The tax
-rate schedule, including personal exemptions and the
-standard deduction, are part of the baseline tax system.
-Additional exemptions to targeted groups are not allowed.
-In contrast, the Tax Code provides taxpayers who are
-blind an additional $1,400 standard deduction if single,
-or $1,100 if married in 2009.
+157. Additional deduction for the blind.—Under
+the baseline tax system, the standard deduction is al-
+lowed. However, additional standard deductions for tar-
+geted groups within a given filing status would not be al-
+lowed. In contrast, the Tax Code allows taxpayers who
+are blind to claim an additional $1,400 standard deduc-
+tion if single, or $1,100 if married in 2010.
 
-156. Additional deduction for the elderly.—The
-tax rate schedule, including personal exemptions and the
-standard deduction, are part of the baseline tax system.
-Additional exemptions to targeted groups are not allowed.
-In contrast, the Tax Code provides taxpayers who are 65
-years or older an additional $1,400 standard deduction if
-single, or $1,100 if married in 2009.
+158. Additional deduction for the elderly.—Under
+the baseline tax system, the standard deduction is al-
+lowed. However, additional standard deductions for tar-
+geted groups within a given filing status would not be al-
+lowed. In contrast, the Tax Code allows taxpayers who
+are 65 years or older to claim an additional $1,400 stan-
+dard deduction if single, or $1,100 if married in 2010.
 
-157. Tax credit for the elderly and disabled.—The
-baseline tax system would not allow credits for particu-
-lar activities or targeted at specific group. Under current
-law, however, individuals who are 65 years of age or older,
-or who are permanently disabled, can take a tax credit
-equal to 15 percent of the sum of their earned and retire-
-ment income. Income is limited to no more than $5,000
-for single individuals or married couples filing a joint re-
-turn where only one spouse is 65 years of age or older, and
-up to $7,500 for joint returns where both spouses are 65
-years of age or older. These limits are reduced by one-half
-of the taxpayer’s adjusted gross income over $7,500 for
-single individuals and $10,000 for married couples filing
-a joint return.
+159. Tax credit for the elderly and disabled.—
+Under the baseline tax system, a credit targeted at a spe-
+cific group within a given filing status or for particular
+activities would not be allowed. In contrast, the Tax Code
+allows taxpayers who are 65 years of age or older, or who
+are permanently disabled, to claim a tax credit equal to
+15 percent of the sum of their earned and retirement in-
+come. The amount to which the 15 percent rate is applied
+is limited to no more than $5,000 for single individuals
+or married couples filing a joint return where only one
+spouse is 65 years of age or older, and up to $7,500 for
+joint returns where both spouses are 65 years of age or
+older. These limits are reduced by one-half of the taxpay-
+er’s adjusted gross income over $7,500 for single individu-
+als and $10,000 for married couples filing a joint return.
+160. Casualty losses.—Under the baseline tax sys-
+tem, neither the purchase of property nor insurance pre-
+miums to protect its value are deductible as costs of earn-
+ing income. Therefore, reimbursement for insured loss of
+such property is not included as a part of gross income,
+and uninsured losses are not deductible. In contrast, the
+Tax Code provides a deduction for uninsured casualty and
+theft losses of more than $100 each, to the extent that
+total losses during the year exceed 10 percent of the tax-
+payer’s adjusted gross income.
 
-158. Casualty losses.—Under the baseline tax sys-
-tem, neither the purchase of property nor insurance
-premiums to protect its value are deductible as costs of
-earning income. Therefore, reimbursement for insured
-loss of such property is not reportable as a part of gross
-income and uninsured losses not deductible. In contrast,
-the Tax Code provides a deduction for uninsured casu-
-alty and theft losses of more than $100 each, but only
-to the extent that total losses during the year exceed 10
-percent of AGI.
-
-159. Earned income tax credit (EITC).—The base-
+161. Earned income tax credit (EITC).—The base-
 line tax system would not allow credits for particular
 activities or targeted at specific group. In contrast, the
 Tax Code provides an EITC to low-income workers at
-a maximum rate of 40 percent of income. For a family
+a maximum rate of 45 percent of income. For a family
 with one qualifying child, the credit is 34 percent of the
-first $8,950 of earned income in 2009. The credit is 40
-percent of the first $12,570 of income for a family with
+first $8,970 of earned income in 2010. The credit is 40
+percent of the first $12,590 of income for a family with
 two or more qualifying children. The credit is 45 percent
-of the first $12,570 of income for a family with three or
+of the first $12,590 of income for a family with three or
 more qualifying children. Low-income workers with no
 qualifying children are eligible for a 7.65 percent credit
-on the first $5,970 of earned income. The credit is phased
+on the first $5,980 of earned income. The credit is phased
 out at income levels and rates which depend upon how
 many qualifying children are eligible and marital status.
 Earned income tax credits in excess of tax liabilities owed
 through the individual income tax system are refundable
 to individuals.
 
-160. Additional exemption for housing natural di-
-saster displaced individuals.—The tax rate schedule,
-including personal exemptions and the standard deduc-
-tion, are part of the baseline tax system. Additional ex-
-emptions to targeted groups are not allowed. In contrast,
-the Tax Code provides additional exemption to persons
-displaced by natural disasters such as hurricane Katrina.
-
-161. Exclusion of unemployment benefits.—The
+162. Exclusion of unemployment benefits.—The
 baseline tax system would not allow deductions and ex-
 emptions to certain types of income. In contrast the Tax
 Code was modified in 2009 to allow an exclusion of up
 to $2,400 of unemployment insurance benefits from gross
 income for taxable year 2009.
 
-162. Social Security benefits for retired workers.—
-Under the baseline tax system, all compensation, includ-
-ing dedicated payments and in-kind benefits, should be
-included in taxable income because they represent ac-
+163. Social Security benefits for retired work-
+ers.— Under the baseline tax system, all compensation,
+including dedicated payments and in-kind benefits, would
+be included in taxable income because they represent ac-
 cretions to wealth that do not materially differ from cash
-wages. In contrast, the Tax Code may not tax all of the
-Social Security benefits that exceed the beneficiary’s
-contributions out of taxed income. These additional re-
-tirement benefits are paid for partly by employers’ con-
-tributions that were not included in employees’ taxable
-compensation and partly by earnings on employee and
-employer contributions. Portions of benefits (reaching as
-much as 85 percent) of recipients’ Social Security and tier
-1 railroad retirement benefits are included in (phased-
-in) the income tax base, however, if the recipient’s provi-
-sional income exceeds certain base amounts. Provisional
-income is equal to adjusted gross income plus foreign or
-U.S. possession income and tax-exempt interest, and one
-half of Social Security and tier 1 railroad retirement ben-
-efits. The tax expenditure is limited to the portion of the
-benefits received by taxpayers who are below the income
-amounts at which 85 percent of the benefits are taxable.
+wages. Thus, the portion of Social Security benefits that
+is attributable to employer contributions and earnings on
+employer and employee contributions (and not attribut-
+able to employee contributions) would be subject to tax.
+In contrast, the Tax Code may not tax all of the Social
+Security benefits that exceed the beneficiary’s contribu-
+tions from previously taxed income. Actuarially, previous-
+ly taxed contributions generally do not exceed 15 percent
+of benefits, even for retirees receiving the highest levels
+of benefits. Up to 85 percent of recipients’ Social Security
+and tier 1 railroad retirement benefits are included in
+(phased into) the income tax base if the recipient’s provi-
+sional income exceeds certain base amounts. (Provisional
+income is equal to other items included in adjusted gross
+income plus foreign or U.S. possession income, tax-exempt
+interest, and one half of Social Security and tier 1 railroad
+retirement benefits.) The untaxed portion of the benefits
+received by taxpayers who are below the income amounts
+at which 85 percent of the benefits are taxable is counted
+as a tax expenditure.
 
-163. Social Security benefits for the disabled.—
+164. Social Security benefits for the disabled.—
 Under the baseline tax system, all compensation, includ-
 ing dedicated payments and in-kind benefits, should be
 included in taxable income because they represent ac-
@@ -1858,10 +1943,10 @@ cretions to wealth that do not materially differ from cash
 wages. Under current law, however, benefit payments from
 the Social Security Trust Fund for disability are fully or
 partially excluded from a beneficiary’s gross incomes. (See
-provision number 156, Social Security benefits for retired
+provision number 163, Social Security benefits for retired
 workers.)
 
-164. Social Security benefits for dependents and
+165. Social Security benefits for dependents and
 survivors.—Under the baseline tax system, all compen-
 sation, including dedicated payments and in-kind ben-
 efits, should be included in taxable income because they
@@ -1870,15 +1955,6 @@ fer from cash wages. Under current law, however, benefit
 payments from the Social Security Trust Fund for depen-
 dents and survivors are fully or partially excluded from a
 beneficiary’s gross income.
-
-165. Tax Credit for Certain Government Retirees.—
-The baseline tax system would not allow credits for par-
-ticular activities or targeted at specific group. In contrast,
-the Tax Code was modified in 2009 to provide a tax credit
-of $250 for certain government retirees who do not receive
-social security benefits. This credit is provided so as to
-equalize the treatment with social security beneficiaries
-who received $250 in stimulus payments in 2009.
 
 166. Veterans death benefits and disability com-
 pensation.—Under the baseline tax system, all compen-
@@ -1915,16 +1991,15 @@ State and local governments to finance housing for veter-
 ans is excluded from taxable income.
 
 170. Public purpose State and local bonds.—The
-baseline tax system generally would tax all income under
-the regular tax rate schedule. It would not allow prefer-
-entially low (or zero) tax rates to apply to certain types or
-sources of income. In contrast, under current law inter-
-est earned on State and local government bonds issued to
-finance public-purpose construction (e.g., schools, roads,
-sewers), equipment acquisition, and other public purpos-
-es is tax-exempt. Interest on bonds issued by Indian tribal
-governments for essential governmental purposes is also
-tax-exempt.
+baseline tax system generally would tax all income under the
+regular tax rate schedule. It would not allow preferentially
+low (or zero) tax rates to apply to certain types or sources of
+income. In contrast, under current law interest earned on
+State and local government bonds issued to finance public-
+purpose construction (e.g., schools, roads, sewers), equip-
+ment acquisition, and other public purposes is tax-exempt.
+Interest on bonds issued by Indian tribal governments for
+essential governmental purposes is also tax-exempt.
 
 171. Build America Bonds.—The baseline tax system
 would not allow credits for particular activities or target-
@@ -1934,26 +2009,18 @@ and receive a direct payment from Treasury equal to 35
 percent of interest expenses. Alternatively, State and lo-
 cal governments may issue taxable bonds and the private
 lenders receive the 35 percent credit which is included in
-taxable income. 
-
-This payment is treated as an outlay and has no direct revenue ef-
-fects. To the extent that these bonds displace traditional tax exempt
-bonds, the outlays are in part offset by revenue gains from such displace-
-ment. Following tax expenditure estimating conventions on behavioral
-effects, the reported revenue gain estimates in the Tables should be set
-to zero. Nevertheless, such estimates are provided to highlight the dy-
-namics of these new bonds in substituting for traditional bonds as well
-as reflecting on the keen public interest in this provision.
-
+taxable income.
 
 172. Deductibility of certain nonbusiness State
-and local taxes.—The baseline tax system would not al-
-low a deduction for personal expenditures. In contrast,
-the Tax Code provides taxpayers who itemize a deduction
-for State and local income taxes and property taxes (or at
-the taxpayer’s election state and local sales taxes) even
-though these taxes primarily pay for services that, if pur-
-chased directly by taxpayers, would not be deductible.
+and local taxes.—Under the baseline tax system,
+a deduction for personal consumption expenditures
+would not be allowed. In contrast, the Tax Code allows
+taxpayers who itemize their deductions to claim a de-
+duction for State and local income taxes (or, at the tax-
+payer’s election, state and local sales taxes) and prop-
+erty taxes, even though these taxes primarily pay for
+services that, if purchased directly by taxpayers, would
+not be deductible.
 
 173. U.S. savings bonds.—The baseline tax system
 would uniformly tax all returns to investments and not
@@ -1961,3 +2028,4 @@ allow an exemption or deferral for particular activities,
 investments, or industries. In contrast, taxpayers may de-
 fer paying tax on interest earned on U.S. savings bonds
 until the bonds are redeemed.
+

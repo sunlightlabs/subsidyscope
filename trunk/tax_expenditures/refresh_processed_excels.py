@@ -1,6 +1,5 @@
-
 from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, TE_YEARS
-import csv, re
+import csv, re, sys
 
 SOURCES = ('', 'JCT', 'Treasury')
 MAX_COLUMNS = 11
@@ -109,7 +108,7 @@ def recurse_category(parent, writer, indent, budget_function):
     for i in range(2,38):
         header_row.append('')
     header_row.append(parent.description.encode('ascii', 'ignore'))
-    header_row.append(parent.notes)     
+    header_row.append(parent.notes.encode('ascii', 'ignore'))     
     writer.writerow(header_row)
 
     first = True 
@@ -188,8 +187,8 @@ def recurse_category(parent, writer, indent, budget_function):
                 else:
                     row.append('')    
 
-            row.append(expenditure.name)
-            row.append(expenditure.notes)           
+            row.append(expenditure.name.encode('ascii', 'ignore'))
+            row.append(expenditure.notes.encode('ascii', 'ignore'))           
 
             writer.writerow(row)                  
                 
@@ -200,22 +199,58 @@ def recurse_category(parent, writer, indent, budget_function):
         recurse_category(subgroup, writer, indent, budget_function)
                     
 
+def data_check_definitions():
+    groups = Group.objects.exclude(parent=None)
+    selected = []
+    for g in groups:
+        exp = Expenditure.objects.filter(source=2, group=g).order_by('-analysis_year')
+        if len(exp) > 0 and exp[0].analysis_year < 2011:
+            print "%s -- %s" % (exp[0].analysis_year, g.name)
 
 
+def data_check_treasury_matches():
 
-load_footnotes('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/ap_footnotes.txt')
+    groups = Group.objects.exclude(parent=None)
+    for g in groups:
+        exp = Expenditure.objects.filter(source=2, group=g)
+        if len(exp) > 0:
+            jct_exp = Expenditure.objects.filter(source=1, group=g)
+            if len(jct_exp) == 0:
+                #There is no corresponding JCT match for this TE
+                print "MATCH: %s" % g.name
+            else:
+                #There IS a match
+                print "NO MATCH: %s" % g.name
 
-load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2011_descriptions.txt', 2011)
-load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2012_descriptions.txt', 2012)
 
-top_level_groups = Group.objects.filter(parent=None)
-for group in top_level_groups:
-    name = group.name
-    writer = csv.writer(open("%s_postprocessed.csv" % name, 'w'))
-    writer.writerow(header_summary)
-    writer.writerow(['', group.name])
-    
-    for subgroup in Group.objects.filter(parent=group):
-        recurse_category(subgroup, writer, '#', name)
+arg_options = ["load_footnotes", "load_descriptions", "postprocess_tes", "everything"]
 
+if len(sys.argv) > 1:
+    op = sys.argv[1]
+    if op == "load_footnotes" or op == 'everything':
+        load_footnotes('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/ap_footnotes.txt')
+    if op == "load_descriptions" or op == 'everything':
+        load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2011_descriptions.txt', 2011)
+        load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2012_descriptions.txt', 2012)
+    if op == "postprocess_tes" or op == 'everything':
+        top_level_groups = Group.objects.filter(parent=None)
+        for group in top_level_groups:
+            name = group.name
+            writer = csv.writer(open("postprocessed/%s_postprocessed.csv" % name, 'w'))
+            writer.writerow(header_summary)
+            writer.writerow(['', group.name])
+            
+            for subgroup in Group.objects.filter(parent=group):
+                recurse_category(subgroup, writer, '#', name)
+
+    elif op == 'data_check_definitions':
+        data_check_definitions()
+
+    elif op == 'data_check_treasury_matches':
+        data_check_treasury_matches()
+
+else:
+    print "give me an argument please, your options are:"
+    for i in arg_options:
+        print "-- %s" % i
 
