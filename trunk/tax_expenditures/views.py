@@ -94,8 +94,9 @@ def te_csv(request, group_id=None):
 
     writer = csv.writer(response)
     
-    header_summary = ['Indent', 'Budget Function', 'Subsidyscope Title', 'Title as Appears in Budget', 'Source', 'Footnotes', '2000 Total','2001 Total','2002 Total','2003 Total','2004 Total','2005 Total','2006 Total','2007 Total','2008 Total','2009 Total','2010 Total','2011 Total','2012 Total','2013 Total','2014 Total','2015 Total', '2016 Total', '2000 Corp','2001 Corp','2002 Corp','2003 Corp','2004 Corp','2005 Corp','2006 Corp','2007 Corp','2008 Corp','2009 Corp','2010 Corp','2011 Corp','2012 Corp','2013 Corp','2014 Corp','2015 Corp', '2016 Corp','2000 Indv','2001 Indv','2002 Indv','2003 Indv','2004 Indv','2005 Indv','2006 Indv','2007 Indv','2008 Indv','2009 Indv','2010 Indv','2011 Indv','2012 Indv','2013 Indv','2014 Indv','2015 Indv', '2016 Indv']
+    header_summary = ['Indent', 'Budget Function', 'Subsidyscope Title', 'Title as Appears in Budget', 'Source', '2000 Total','2001 Total','2002 Total','2003 Total','2004 Total','2005 Total','2006 Total','2007 Total','2008 Total','2009 Total','2010 Total','2011 Total','2012 Total','2013 Total','2014 Total','2015 Total', '2016 Total', '2000 Corp','2001 Corp','2002 Corp','2003 Corp','2004 Corp','2005 Corp','2006 Corp','2007 Corp','2008 Corp','2009 Corp','2010 Corp','2011 Corp','2012 Corp','2013 Corp','2014 Corp','2015 Corp', '2016 Corp','2000 Indv','2001 Indv','2002 Indv','2003 Indv','2004 Indv','2005 Indv','2006 Indv','2007 Indv','2008 Indv','2009 Indv','2010 Indv','2011 Indv','2012 Indv','2013 Indv','2014 Indv','2015 Indv', '2016 Indv', 'Footnotes']
 
+    general_footnote = "The estimates presented below are the most recent estimates made for the year indicated in Row 1. Thus, the years in Row 1 do not correspond to the budget document from which the data was taken. For the years FY2000 through FY2009, the data presented can be found in the budget document two years prior to that fiscal year. For the years FY2010 through FY2016, the data presented can be found in the FY2012 Analytical Perspectives or the Estimates of Federal Tax Expenditures For Fiscal Years 2010-2014."
     
     if parent:
          
@@ -116,13 +117,15 @@ def te_csv(request, group_id=None):
         
         else:
             #need footnote disclaimer
-            writer.writerow(("The estimates presented below are the most recent estimates made for the year indicated in Row 1. Thus, the years in Row 1 do not correspond to the budget document from which the data was taken. For the years FY2000 through FY2009, the data presented can be found in the budget document two years prior to that fiscal year. For the years FY2010 through FY2016, the data presented can be found in the FY2012 Analytical Perspectives or the Estimates of Federal Tax Expenditures For Fiscal Years 2010-2014.",))
-            writer.writerow(("\n",))
-            writer.writerow(header_summary)
+            writer.writerow((general_footnote,))
+            writer.writerow(("",))
+            writer.writerow(header_summary[:len(header_summary)-1])
             recurse_category(parent, writer, '', budget_function)
     
     else:
-        header = header_summary[4:]
+        writer.writerow((general_footnote,))
+        writer.writerow(("",))
+        header = header_summary[4:len(header_summary)-1]
         header.insert(0, 'Budget Function') 
         writer.writerow(header)
         for parent in Group.objects.filter(parent=None):
@@ -137,7 +140,6 @@ def parent_summary(group, writer):
         row = []
         row.append(group.name)
         row.append(source)
-        row.append(group.notes)
         totals = GroupSummary.objects.filter(group=group, source=SOURCES.index(source), estimate=3).order_by('estimate_year')
         indv = GroupSummary.objects.filter(group=group, source=SOURCES.index(source), estimate=2).order_by('estimate_year')
         corp = GroupSummary.objects.filter(group=group, source=SOURCES.index(source), estimate=3).order_by('estimate_year')
@@ -205,7 +207,6 @@ def line_item_csv(parent, writer, budget_function, indent='*'):
         row.append(expenditure.name)
         row.append(expenditure.get_source_display())
         row.append(expenditure.analysis_year)
-        row.append(expenditure.notes)
         
         for year in TE_YEARS:
             if total_estimates.has_key(year):
@@ -225,6 +226,7 @@ def line_item_csv(parent, writer, budget_function, indent='*'):
             else:
                 row.append('')    
         
+        row.append(expenditure.notes)
         writer.writerow(row)                  
 
 
@@ -253,7 +255,7 @@ def recurse_category(parent, writer, indent, budget_function):
                 if first:
                     row.append(expenditure.name)
                     row.append(SOURCES[source])
-                    row.append(parent.notes)
+            #        row.append(parent.notes)
                     first = False
 
                 for estimate in expenditure.estimate_set.all().order_by('estimate_year'):
