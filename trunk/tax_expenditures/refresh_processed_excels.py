@@ -1,4 +1,5 @@
 from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, TE_YEARS
+from django.db.models import Max, Min
 import csv, re, sys
 
 SOURCES = ('', 'JCT', 'Treasury')
@@ -208,19 +209,51 @@ def data_check_definitions():
             print "%s -- %s" % (exp[0].analysis_year, g.name)
 
 
-def data_check_treasury_matches():
-
+def data_check_matches(left_source, right_source, filename):
+    writer = csv.writer(open("datachecks/%s.csv" % filename, 'w'))
     groups = Group.objects.exclude(parent=None)
     for g in groups:
-        exp = Expenditure.objects.filter(source=2, group=g)
-        if len(exp) > 0:
-            jct_exp = Expenditure.objects.filter(source=1, group=g)
-            if len(jct_exp) == 0:
-                #There is no corresponding JCT match for this TE
-                print "MATCH: %s" % g.name
+        left_exp = Expenditure.objects.filter(source=left_source, group=g)
+        if left_exp.count() > 0:
+            left_min_year = left_exp.aggregate(Min('analysis_year'))['analysis_year__min']
+            left_max_year = left_exp.aggregate(Max('analysis_year'))['analysis_year__max']
+            left_title = left_exp.get(analysis_year=left_max_year).name
+            left_desc = left_exp.get(analysis_year=left_max_year).description
+            budget_function = g.parent.name
+
+            right_exp = Expenditure.objects.filter(source=right_source, group=g)
+            if right_exp.count() < 1:
+                #this won't work for treasury on the right because it's usually the parent not the child
+                child_groups = Group.objects.filter(parent=g)
+                if child_groups.count > 0:
+                    right_min_year = None
+                    right_max_year = None
+                    names = ''
+                    for cg in child_groups:
+                        names += cg.name + ', '
+                        right_exp = Expenditure.objects.filter(source=right_source, group=cg)
+                        if right_exp.count() > 0:
+                            n_min = right_exp.aggregate(Min('analysis_year'))['analysis_year__min']
+                            n_max = right_exp.aggregate(Max('analysis_year'))['analysis_year__max']
+                            if not right_min_year or n_min < right_min_year: right_min_year = n_min 
+                            if not right_max_year or n_max > right_max_year: right_max_year = n_max
+                    if right_exp.count() > 0:
+                        writer.writerow((left_title, names, "%s-%s" % (left_min_year, left_max_year), "%s-%s" % (right_min_year, right_max_year), budget_function, left_desc))
+                        print " MATCH (first): %s" % g.name
+    
             else:
+                print g.name
+                right_min_year = right_exp.aggregate(Min('analysis_year'))['analysis_year__min']
+                right_max_year = right_exp.aggregate(Max('analysis_year'))['analysis_year__max']
+                if right_exp.count > 1:
+                    for r in right_exp:
+                        names = right_exp.get(analysis_year=right_max_year).name
+
+                writer.writerow((left_title, names, "%s-%s" % (left_min_year, left_max_year), "%s-%s" % (right_min_year, right_max_year), budget_function, left_desc))
+    
+
                 #There IS a match
-                print "NO MATCH: %s" % g.name
+                print " MATCH (second): %s" % g.name
 
 
 arg_options = ["load_footnotes", "load_descriptions", "postprocess_tes", "everything"]
@@ -247,7 +280,9 @@ if len(sys.argv) > 1:
         data_check_definitions()
 
     elif op == 'data_check_treasury_matches':
-        data_check_treasury_matches()
+        data_check_matches(2, 1, "treasury_tes_with_matches")
+    elif op == 'data_check_jct_matches':
+        data_check_matches(1, 2, "jct_tes_with_matches")
 
 else:
     print "give me an argument please, your options are:"
