@@ -75,8 +75,6 @@ def load_descriptions(filename, year):
     
     save_description(year, line_id - 1, paragraphs)
         
-    
-
 
 def load_footnotes(filename):
     
@@ -88,7 +86,7 @@ def load_footnotes(filename):
         
         id = int(line_parts[0])
         year = int(line_parts[1])
-        
+         
         try:
             expenditure = Expenditure.objects.get(source=Expenditure.SOURCE_TREASURY, analysis_year=year, item_number=id)
         

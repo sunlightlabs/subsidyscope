@@ -14,6 +14,11 @@ year_fields = len(years) * 2
 name_field = year_fields + 4
 notes_field = year_fields + 5
 
+TREASURY_SOURCES = {}
+
+TREASURY_SOURCES[2011] = 'Description from <a href="http://www.gpoaccess.gov/usbudget/fy11/pdf/spec.pdf">Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2011.</a>'
+TREASURY_SOURCES[2012] = 'Description from <a href="http://www.gpoaccess.gov/usbudget/fy12/pdf/BUDGET-2012-PER.pdf">Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2012.</a>'
+
 te_tables = ['tax_expenditures_expenditure', 'tax_expenditures_group', 'tax_expenditures_groupdetail', 'tax_expenditures_groupdetailreport', 'tax_expenditures_groupdetailreport_group_source', 'tax_expenditures_groupsummary']
 
 class Command(BaseCommand):
@@ -87,8 +92,26 @@ class Command(BaseCommand):
             for group in groups:
                 print 'Processing %s...' % group.name
                 group.calc_detail()
-                
-                
+       
+            for g in Group.objects.filter(notes=''):
+                #add treasury description footnotes to groups that don't have them         
+                exp = Expenditure.objects.filter(group=g, source=2).order_by('-analysis_year')
+                if exp.count() > 0:
+                    year = exp[0].analysis_year
+                try:
+                    g.notes = TREASURY_SOURCES[year]
+                except:
+                    continue
+                g.save()
+
+            for g in Group.objects.all():
+                try:
+                    g.description = g.description.split("&mdash")[1].strip(';')
+                    g.save()
+                except:
+                    continue
+
+            
         else:
              
             print 'Error: --path argument required for input files.'    
