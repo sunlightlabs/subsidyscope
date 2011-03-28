@@ -60,7 +60,7 @@
         <div class="content_area">
              	
         	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
-        	{{ group.description|safe }}
+        	<p>{{ group.description|safe }}</p>
         	<div style="float: right; text-align: right;">
         		<a href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
         	</div>
