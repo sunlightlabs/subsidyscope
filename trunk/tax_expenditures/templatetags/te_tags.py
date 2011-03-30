@@ -5,8 +5,9 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.template import Template
 from django.template.loader import render_to_string
+import logging
 
-from tax_expenditures.models import Expenditure, Group, GroupSummary, TE_YEARS, TE_CURRENT_YEAR
+from tax_expenditures.models import Expenditure, Estimate, Group, GroupSummary, TE_YEARS, TE_CURRENT_YEAR
 
 register = Library()
 
@@ -165,12 +166,9 @@ class TEEpenditureDetailNode(Node):
         
         
         available_report_years = []
-        
-        
         for report_year in report_years:
             
             data_dict = {}
-            
             available_report_years = []
             
             for detail in group.groupdetail_set.filter(source=source_id, estimate=estimate, analysis_year=report_year):
@@ -181,23 +179,34 @@ class TEEpenditureDetailNode(Node):
             blank_line = True
             for year in estimate_years:
                 if data_dict.has_key(year) and not data_dict[year] == None:
-                    if report_year == TE_CURRENT_YEAR:
-                        color = '#aaf'
-                    else:
-                        if year == report_year - 2:
-                            color = '#aaf'
-                        else:
-                            color = '#eee'
-                    
+                    #if report_year == TE_CURRENT_YEAR:
+                    color = '#aaf'
+                    #else:
+                        #if year >= report_year - 2:
+                        # this works now, but it's mega slow. Need to srsly optimize
+                     #   ex = Expenditure.objects.filter(source=source_id, group=group, analysis_year=(report_year+1))
+                      #  if ex.count() > 0:
+                       #     es = Estimate.objects.filter(expenditure=ex[0], estimate_year=year)
+                        #    if es.count() > 0 and (es[0].corporations_amount is not None or es[0].individuals_amount is not None):
+            #                    logging.debug('report year: %s, estimate year: %s, future estimate: %s' % (report_year, year, es[0].id))
+             #                   color = "#eee"
+              #              else:
+               #                 color = "#aaf"
+                #        else:
+                 #           color = '#aaf'
+                        #else:
+                         #   color = '#eee'
+                    # now this isn't working, fix plz?
                     if not data_dict[year]['amount'] == None or data_dict[year]['notes']:
-                        data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color':color})
+                        data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color': '#aaf', 'estimate_year': year})
                         blank_line = False
                     else:
                         data.append(None)
                     
                 else:
                     data.append(None)
-                    
+
+            
             if not blank_line:
                 id = source + str(report_year)
                 report = group.groupdetailreport_set.get(source=source_id, analysis_year=report_year)
@@ -216,8 +225,25 @@ class TEEpenditureDetailNode(Node):
                     source_string = '%s Sum of %s tax expenditures listed above.' % (source_string, source)    
             
                 lines.append({'report_year':report_year, 'id':id, 'data':data, 'source':source_string, 'footnotes':footnotes})
+
         
         if len(lines):
+            #make sure only last estimate for that estimate year is highlighted
+            count = 0 
+            for l in lines:
+                for o in l['data']:
+                    if o and o.has_key('estimate_year'):
+                        this_year = o['estimate_year']
+                        if len(lines) == count+1:
+                            break
+                        next_line = lines[count+1]
+                        for next_o in next_line['data']:
+                            if next_o and  next_o.has_key('estimate_year') and next_o['estimate_year'] == this_year:
+                                o['color'] = '#eee'
+                                break
+
+                count += 1
+
             return render_to_string('tax_expenditures/te_expenditure_detail.html', {'lines':lines, 'estimate_years':estimate_years, 'source':source, 'previous_year':previous_year, 'next_year':next_year})
         else:
             return ''
