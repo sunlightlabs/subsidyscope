@@ -1,5 +1,5 @@
 from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, TE_YEARS
-from django.db.models import Max, Min
+from django.db.models import Max, Min, Q
 import csv, re, sys
 
 SOURCES = ('', 'JCT', 'Treasury')
@@ -207,51 +207,66 @@ def data_check_definitions():
             print "%s -- %s" % (exp[0].analysis_year, g.name)
 
 
-def data_check_matches(left_source, right_source, filename):
+def data_check_matches(left_source, right_source, filename, no_match_filename, left_header, right_header):
     writer = csv.writer(open("datachecks/%s.csv" % filename, 'w'))
-    groups = Group.objects.exclude(parent=None)
-    for g in groups:
-        left_exp = Expenditure.objects.filter(source=left_source, group=g)
-        if left_exp.count() > 0:
-            left_min_year = left_exp.aggregate(Min('analysis_year'))['analysis_year__min']
-            left_max_year = left_exp.aggregate(Max('analysis_year'))['analysis_year__max']
-            left_title = left_exp.get(analysis_year=left_max_year).name
-            left_desc = left_exp.get(analysis_year=left_max_year).description
-            budget_function = g.parent.name
+    no_match_writer = csv.writer(open("datachecks/%s.csv" % no_match_filename, 'w'))
+    left_total = {}
+    right_total = {}
+    writer.writerow(("%s Title" % left_header, "%s Title(s)" % right_header, "Budget Function", "%s Estimate Year Range" % left_header, "%s Estimate Year Range" % right_header, "Description"))
+    no_match_writer.writerow(("%s Title" % left_header, "Budget Function", "%s Estimate Year Range" % left_header, "Description"))
 
-            right_exp = Expenditure.objects.filter(source=right_source, group=g)
-            if right_exp.count() < 1:
-                #this won't work for treasury on the right because it's usually the parent not the child
-                child_groups = Group.objects.filter(parent=g)
-                if child_groups.count > 0:
-                    right_min_year = None
-                    right_max_year = None
+    functions = Group.objects.filter(parent=None)
+    for f in functions:
+        groups = Group.objects.filter(parent=f)
+        for g in groups:
+            left_summary = GroupSummary.objects.filter(group=g, estimate=3, source=left_source).order_by('estimate_year')
+            budget_function = f.name
+            if left_summary.count() > 0:
+                
+                left_min_year = left_summary.filter(Q(amount__isnull=False) | Q(notes=1)).aggregate(Min('estimate_year'))['estimate_year__min']
+                left_max_year = left_summary.filter(Q(amount__isnull=False) | Q(notes=1)).aggregate(Max('estimate_year'))['estimate_year__max']
+                left_title = g.name
+                left_desc = g.description
+
+                right_summary = GroupSummary.objects.filter(source=right_source, group=g, estimate=3).order_by('estimate_year')
+                if right_summary.count() > 0:
+                    right_min_year = right_summary.filter(amount__isnull=False).aggregate(Min('estimate_year'))['estimate_year__min']
+                    right_max_year = right_summary.filter(amount__isnull=False).aggregate(Max('estimate_year'))['estimate_year__max']
                     names = ''
+                    child_groups = Group.objects.filter(parent=g)
                     for cg in child_groups:
-                        names += cg.name + ', '
-                        right_exp = Expenditure.objects.filter(source=right_source, group=cg)
-                        if right_exp.count() > 0:
-                            n_min = right_exp.aggregate(Min('analysis_year'))['analysis_year__min']
-                            n_max = right_exp.aggregate(Max('analysis_year'))['analysis_year__max']
-                            if not right_min_year or n_min < right_min_year: right_min_year = n_min 
-                            if not right_max_year or n_max > right_max_year: right_max_year = n_max
-                    if right_exp.count() > 0:
-                        writer.writerow((left_title, names, "%s-%s" % (left_min_year, left_max_year), "%s-%s" % (right_min_year, right_max_year), budget_function, left_desc))
-                        print " MATCH (first): %s" % g.name
-    
-            else:
-                print g.name
-                right_min_year = right_exp.aggregate(Min('analysis_year'))['analysis_year__min']
-                right_max_year = right_exp.aggregate(Max('analysis_year'))['analysis_year__max']
-                if right_exp.count > 1:
-                    for r in right_exp:
-                        names = right_exp.get(analysis_year=right_max_year).name
+                        gs = GroupSummary.objects.filter(group=cg, source=right_source)
+                        for cs in gs: 
+                            names += cg.name + ', '
+                    writer.writerow((left_title.encode('ascii', 'ignore'), names.encode('ascii', 'ignore'), budget_function, "%s-%s" % (left_min_year, left_max_year), "%s-%s" % (right_min_year, right_max_year), left_desc.encode('ascii', 'ignore')))
 
-                writer.writerow((left_title, names, "%s-%s" % (left_min_year, left_max_year), "%s-%s" % (right_min_year, right_max_year), budget_function, left_desc))
-    
 
-                #There IS a match
-                print " MATCH (second): %s" % g.name
+                    #calculate aggregates for matched items
+                    for ls in left_summary:
+                        if ls.amount:
+                            if left_total.has_key(ls.estimate_year): 
+                                temp = left_total[ls.estimate_year] + ls.amount
+                                left_total[ls.estimate_year] = temp
+
+                            else: left_total[ls.estimate_year] = ls.amount
+
+                    for rs in right_summary:
+                        if rs.amount:
+                            if right_total.has_key(rs.estimate_year): 
+                                temp = right_total[rs.estimate_year] + rs.amount
+                                right_total[rs.estimate_year] = temp
+                            else: right_total[rs.estimate_year] = rs.amount 
+
+
+                else:
+                    no_match_writer.writerow((left_title.encode('ascii', 'ignore'), budget_function, "%s-%s" % (left_min_year, left_max_year), left_desc.encode('ascii', 'ignore')))
+
+    print left_header + " Aggregates for Matched Items"
+    for k in sorted(left_total.keys()):
+        print "%s, %d" % (k, left_total[k])
+    print right_header + "Aggregates for Matched Items"
+    for k in sorted(right_total.keys()):
+        print "%s, %d" % (k, right_total[k])
 
 
 arg_options = ["load_footnotes", "load_descriptions", "postprocess_tes", "everything"]
@@ -278,9 +293,9 @@ if len(sys.argv) > 1:
         data_check_definitions()
 
     elif op == 'data_check_treasury_matches':
-        data_check_matches(2, 1, "treasury_tes_with_matches")
+        data_check_matches(2, 1, "treasury_tes_with_matches", "treasury_tes_withOUT_matches", "Treasury", "JCT")
     elif op == 'data_check_jct_matches':
-        data_check_matches(1, 2, "jct_tes_with_matches")
+        data_check_matches(1, 2, "jct_tes_with_matches", "jct_tes_withOUT_matches", "JCT", "Treasury")
 
 else:
     print "give me an argument please, your options are:"
