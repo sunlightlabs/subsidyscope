@@ -225,14 +225,23 @@ def data_check_matches(left_source, right_source, filename, no_match_filename, l
                 
                 left_min_year = left_summary.filter(Q(amount__isnull=False) | Q(notes=1)).aggregate(Min('estimate_year'))['estimate_year__min']
                 left_max_year = left_summary.filter(Q(amount__isnull=False) | Q(notes=1)).aggregate(Max('estimate_year'))['estimate_year__max']
-                left_title = g.name
+                left_exp = Expenditure.objects.filter(source=left_source, group=g).order_by('-analysis_year')
+                if left_exp.count() > 0:
+                   left_title = left_exp[0].name
+                else:
+                    print "%s - %s - %s" % (g.id, g.name, f.name)
+                    left_title = g.name
                 left_desc = g.description
 
                 right_summary = GroupSummary.objects.filter(source=right_source, group=g, estimate=3).order_by('estimate_year')
                 if right_summary.count() > 0:
                     right_min_year = right_summary.filter(amount__isnull=False).aggregate(Min('estimate_year'))['estimate_year__min']
                     right_max_year = right_summary.filter(amount__isnull=False).aggregate(Max('estimate_year'))['estimate_year__max']
-                    names = ''
+                    right_exp = Expenditure.objects.filter(source=right_source, group=g).order_by('-analysis_year')
+                    if right_exp.count() > 0:
+                        names = right_exp[0].name
+                    else:
+                        names = ''
                     child_groups = Group.objects.filter(parent=g)
                     for cg in child_groups:
                         gs = GroupSummary.objects.filter(group=cg, source=right_source)
