@@ -1,1 +1,7 @@
 #success { margin: 15px; padding: 15px; background-color: #FDE0E0; color: #F65757; font-weight: bold; border: 2px solid #F65757; }
+
+#left { width: 60%; float:left; }
+#right {margin-left:20px; float: right; width: 35%; height: 100%; }
+#current-codes { overflow: visible; height:100%;}
+.agency-select { width: 100%;}
+

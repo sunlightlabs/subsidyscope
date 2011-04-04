@@ -1,5 +1,6 @@
 {% extends "contractsort/sort_base.html" %}
 {% load media %}
+{% load humanize %}
 {% block title %}{{sector.name}} Sector{% endblock %}
 
 
@@ -7,25 +8,62 @@
 
 {% js "scripts/jquery.form.js" %}
 {% css "styles/contractsort.css" %}
-<h4>Agencies Associated with this Sector</h4>
-<form id="agency-form" action="{% url contractsort-update-agency sector.id %}" method="POST">
-<select multiple name="agencies">
-{% for a in agencies %}
-    <option value="{{a.id}}" {% for s in selected %} {% ifequal a s %} selected {% endifequal %} {% endfor %}>
-    {{a.name}}
-    </option>
+
+<div id="left">
+    <h4>Agencies Associated with this Sector</h4>
+    <form id="agency-form" action="{% url contractsort-update-agency sector.id %}" method="POST">
+    <select multiple name="agencies" class="agency-select">
+    {% for a in agencies %}
+        <option value="{{a.id}}" {% for s in selected %} {% ifequal a s %} selected {% endifequal %} {% endfor %}>
+        {{a.name}}
+        </option>
+    {% endfor %}
+    </select>
+    <div>
+    <input type="submit" value="Update Agency Selection">
+    <input type="reset" value="Reset Changes" />
+    </div>
+    </form>
+
+    <h4>Related NAICS Codes</h4>
+    {% if naics %}
+    <table class="related-naics">
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Parent Information</th></tr></thead>
+    <tbody>
+    {% for n in naics %}
+    <tr><td>{{n.0}}</td><td>{{n.1}}</td><td style="text-align:right;">${{n.2|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{n.3}}</td></tr>
+    {% endfor %}
+    </tbody></table>
+
+    {% endif %}
+
+    <h4>Related Product or Service Codes</h4>
+    {% if psc %}
+    <table>
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th></tr></thead>
+    <tbody>
+    {% for p in psc %}
+        <tr><td>{{p.0}}</td><td>{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td></tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+</div>
+<div id="right">
+<h4> Currently Selected Codes for this Sector</h4>
+<form name="codes">
+<select multiple name="codes" id="current-codes" size="{{size}}">
+{% for sn in sector_naics %}
+<option selected value="naics-{{sn.code}}">{{sn.code}} - {{sn.name}}</option>
+{% endfor %}
+{% for sp in sector_psc %}
+<option selected value="psc-{{sp.code}}">{{sp.code}} - {{sp.name}}</option>
 {% endfor %}
 </select>
-
-<input type="submit" value="Update Agency Selection">
-<input type="reset" value="Reset Changes" />
 </form>
 
-<h4>Related NAICS Codes</h4>
 
-
-<h4>Related Product or Service Codes</h4>
-
+</div>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         $('#agency-form').ajaxForm(function(){

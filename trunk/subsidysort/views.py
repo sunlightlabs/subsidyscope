@@ -162,7 +162,10 @@ def login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login_auth(request, user)
-            return HttpResponseRedirect('/subsidysort/')
+            if request.POST.has_key('next'):
+                return HttpResponseRedirect(request.POST['next'])
+            else:
+                return HttpResponseRedirect('/subsidysort/')
         
         else:
             return render_to_response('subsidysort/login.html', {'invalid':True})

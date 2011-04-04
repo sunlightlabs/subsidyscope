@@ -6,6 +6,7 @@ import sys
 from geo.models import *
 import csv
 from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
+from agency.models import Agency
 
 class ExtentCompetedMapper(object):
     # (code, title, description, considered subsidy?)
@@ -177,15 +178,15 @@ class FPDSRecord(models.Model):
         except:
             pass#change this, stupid truncation...
     
-    unique_transaction_id = models.CharField('unique_transaction_id', max_length=255, blank=False, null=False, primary_key=True)
-    data_commons_id = models.IntegerField('data commons id', blank=False, null=False)
+    unique_transaction_id = models.CharField('unique_transaction_id', max_length=255, blank=False, null=False)
+    data_commons_id = models.IntegerField('data commons id', blank=False, null=False, primary_key=True)
 
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
     sector_hash = models.IntegerField("Sector Hash", blank=True, null=True, db_index=True)
 
     version = models.CharField('version', max_length=10, blank=True, default='')
-    agency_id = models.CharField('agencyID', max_length=4, blank=True, default='')
+    agency = models.ForeignKey(Agency, null=True, blank=True)
     piid = models.CharField('PIID', max_length=50, blank=True, default='')
     mod_number = models.CharField('modNumber', max_length=25, blank=True, default='')
     transaction_number = models.CharField('transactionNumber', max_length=6, blank=True, default='')
@@ -326,6 +327,14 @@ class FPDSRecord(models.Model):
     rec_flag = models.NullBooleanField('rec_flag', default=False, blank=True, null=True) # values: ['']
     annual_revenue = models.DecimalField('annualRevenue', max_digits=20, decimal_places=2, blank=True, null=True)
 
+    def lookup_agency(self):
+        try:
+            agency = Agency.objects.get(fips_code=int(self.maj_agency_cat))
+            self.agency = agency.id
+            self.save()
+        except:
+            pass
+
 
 
 class FPDSLoader(object):
@@ -343,7 +352,7 @@ class FPDSLoader(object):
         #   'django field name': 'FPDS field name' OR callable that returns value when passed row
             'unique_transaction_id': 'unique_transaction_id',
             'data_commons_id': 'id',
-            'agency_id': (self.make_null_emptystring, {'field_name': 'agencyid'}),
+            'agency': (self.lookup_agency, {'field_name': 'maj_agency_cat'}),
             'piid': (self.make_null_emptystring, {'field_name': 'piid'}),
             'mod_number': (self.make_null_emptystring, {'field_name': 'modnumber'}),
             'transaction_number': (self.make_null_emptystring, {'field_name': 'transactionnumber'}),
@@ -514,7 +523,15 @@ class FPDSLoader(object):
 
         return sectors_to_assign
 
-
+    def lookup_agency(self, *args, **kwargs):
+        record = args[0]
+        field_name = kwargs['field_name']
+        agency_id = record[field_name]
+        try:
+            agency = Agency.objects.get(fips_code=int(agency_id))
+            return (True, agency.id)
+        except:
+            return (False, None)
 
     def make_boolean_from_char(self, *args, **kwargs):
         """ return (success, result) """
