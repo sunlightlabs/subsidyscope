@@ -1,2 +1,8 @@
 whoosh
 do_fpds_import.sh
+.pyc
+.sql
+.json
+.zip
+.swp
+.swo

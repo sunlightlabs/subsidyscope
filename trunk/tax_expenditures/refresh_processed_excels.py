@@ -23,10 +23,13 @@ def save_description(year, id, paragraphs):
         expenditure = Expenditure.objects.get(source=Expenditure.SOURCE_TREASURY, analysis_year=year, item_number=id)
         
         print 'Loading item %d: %s' % (id, expenditure.name)
-       
+
+        # this if statement can be removed if you want the 2012 treasury definitions to override what sarah submits in the excels       
         if not expenditure.group.description or expenditure.group.description == '':
             expenditure.group.description = final_text
             expenditure.group.save()
+        
+        print "%s - %s\n" % (expenditure.item_number, expenditure.group.description)
     except:
         print "Item %d not found" % (id)
     
@@ -37,13 +40,13 @@ def load_descriptions(filename, year):
         expenditure.description = ''
         expenditure.save()
 
-    file = open (filename, 'r')
+    file_obj = open(filename, 'r')
     
     line_id = 1
     description = '' 
     paragraphs = []
     
-    for line in file.readlines():
+    for line in file_obj.readlines():
         line = unicode(line.decode("utf-8"))
         line = line.strip().replace(u'\x96', '-').replace(u'\u20ac', '-').replace(u'\u2013', '-').replace(u'\u2014', '&mdash;').replace(u'\u201c','"').replace(u'\u201d','"').replace(u'\xc2-15', '-').replace(u'\u2019', "'")
         line_regex = re.compile('^%d\. ' % (line_id))
@@ -79,7 +82,6 @@ def load_descriptions(filename, year):
         description += line
     
     save_description(year, line_id - 1, paragraphs)
-        
 
 def load_footnotes(filename):
     
@@ -290,7 +292,7 @@ if len(sys.argv) > 1:
     if op == "load_footnotes" or op == 'everything':
         load_footnotes('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/ap_footnotes.txt')
     if op == "load_descriptions" or op == 'everything':
-        load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2011_descriptions.txt', 2011)
+#        load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2011_descriptions.txt', 2011)
         load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2012_descriptions.txt', 2012)
     if op == "postprocess_tes" or op == 'everything':
         top_level_groups = Group.objects.filter(parent=None)
