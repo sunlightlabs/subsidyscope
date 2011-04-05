@@ -124,8 +124,9 @@ def process_file(data):
     row = data.pop()
     
     if row[0] == '':
-        group = Group.objects.create(name=row[1], description=row[36], notes=row[37])
-        
+        group = Group.objects.create(name=row[1], description=row[38], notes=row[39])
+        print row
+        print group.description 
         process_group(group, data, '')
     else:
         print 'First category not matching signature.'
@@ -147,6 +148,7 @@ def process_group(parent, data, indent):
         if row[0] == indent:
             group = Group.objects.create(name=row[1], parent=parent)
             group.description = row[name_field]
+#            print group.description
             group.notes = row[notes_field]
             group.save()
         

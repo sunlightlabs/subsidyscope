@@ -298,9 +298,9 @@ if len(sys.argv) > 1:
         top_level_groups = Group.objects.filter(parent=None)
         for group in top_level_groups:
             name = group.name
-            writer = csv.writer(open("postprocessed/%s_postprocessed.csv" % name, 'w'))
+            writer = csv.writer(open("postprocessed/%s_postprocessed.csv" % name, 'w'), quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
             writer.writerow(header_summary)
-            writer.writerow(['', group.name])
+            writer.writerow(['', group.name,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',group.description,group.notes])
             
             for subgroup in Group.objects.filter(parent=group):
                 recurse_category(subgroup, writer, '#', name)
