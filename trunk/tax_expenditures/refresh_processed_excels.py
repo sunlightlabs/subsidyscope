@@ -12,8 +12,12 @@ def save_description(year, id, paragraphs):
     final_text = ''
     
     for paragraph in paragraphs:
+        try:
+           paragraph = paragraph.split("&mdash")[1].strip(';')
+        except:
+           pass
         final_text += '<p>%s</p>' % (paragraph)
-    
+        
     try:
         
         expenditure = Expenditure.objects.get(source=Expenditure.SOURCE_TREASURY, analysis_year=year, item_number=id)
