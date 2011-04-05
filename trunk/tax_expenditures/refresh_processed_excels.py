@@ -23,9 +23,10 @@ def save_description(year, id, paragraphs):
         expenditure = Expenditure.objects.get(source=Expenditure.SOURCE_TREASURY, analysis_year=year, item_number=id)
         
         print 'Loading item %d: %s' % (id, expenditure.name)
-        
-        expenditure.group.description = final_text
-        expenditure.group.save()
+       
+        if not expenditure.group.description or expenditure.group.description == '':
+            expenditure.group.description = final_text
+            expenditure.group.save()
     except:
         print "Item %d not found" % (id)
     
