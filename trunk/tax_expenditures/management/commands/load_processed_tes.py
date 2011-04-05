@@ -6,6 +6,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 from django.core.management.base import BaseCommand, make_option
 from django.db import connection, transaction
 from decimal import Decimal
+from django.core import management
 
 from tax_expenditures.models import Group, Expenditure, Estimate, GroupDetail, GroupDetailReport, GroupSummary
 
@@ -33,13 +34,13 @@ class Command(BaseCommand):
         if options['path'] is not None:    
             
             print 'Truncating TE database...'
-            
-            Group.objects.all().delete()
-            Expenditure.objects.all().delete()
-            Estimate.objects.all().delete()
-            GroupDetail.objects.all().delete()
-            GroupDetailReport.objects.all().delete()
-            GroupSummary.objects.all().delete()
+            management.call_command('reset', 'tax_expenditures')            
+#            Group.objects.all().delete()
+ #           Expenditure.objects.all().delete()
+  #          Estimate.objects.all().delete()
+    #        GroupDetail.objects.all().delete()
+   #         GroupDetailReport.objects.all().delete()
+     #       GroupSummary.objects.all().delete()
             
             cursor = connection.cursor()
         
