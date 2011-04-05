@@ -28,10 +28,10 @@
     <h4>Related NAICS Codes</h4>
     {% if naics %}
     <table class="related-naics">
-    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Parent Information</th></tr></thead>
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Parent Information</th><th></th></tr></thead>
     <tbody>
     {% for n in naics %}
-    <tr><td>{{n.0}}</td><td>{{n.1}}</td><td style="text-align:right;">${{n.2|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{n.3}}</td></tr>
+    <tr><td>{{n.0}}</td><td class="name">{{n.1}}</td><td style="text-align:right;">${{n.2|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{n.3}}</td><td><a name="{{n.0}}" href="#move-right" class="naics-move-right">&raquo;</a></td></tr>
     {% endfor %}
     </tbody></table>
 
@@ -43,7 +43,7 @@
     <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th></tr></thead>
     <tbody>
     {% for p in psc %}
-        <tr><td>{{p.0}}</td><td>{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td></tr>
+        <tr><td>{{p.0}}</td><td class="name">{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td></tr>
     {% endfor %}
     </tbody>
     </table>
@@ -69,6 +69,13 @@
         $('#agency-form').ajaxForm(function(){
             var s = $('#agency-form').append('<div id="success">Related Agencies Updated</div>');
             $('#success').fadeOut(5000, function() { $('#success').remove();});
+        });
+        $('.naics-move-right').click(function(){
+            var code = $(this).attr('name');
+            console.log($(this).parent().siblings());
+            var name = $(this).parent().siblings('.name').text();
+            console.log(name);
+            $('#current-codes').append('<option val='+code+'>'+code+'-'+name+'</option>')
         });
     });
 
