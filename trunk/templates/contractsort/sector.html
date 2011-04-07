@@ -69,15 +69,14 @@
     </tbody>
     </table>
     {% endif %}
-
-    <div id="add-code">
-        <h4> Find a code: </h4>
-        <form id="code-picker" action="/contractsort/getcode" method="GET">
-        <label for="picked-code">Enter a NAICS or PSC code:</label><input name="picked-code" />
-        <input type="submit" value="Find a Code" />
-        </form>
-        <span class="result"></span>
-    </div>
+</div>
+<div id="add-code">
+    <h4> Find a code: </h4>
+    <form id="code-picker" action="/contractsort/getcode" method="GET">
+    <label for="picked-code">Enter a NAICS or PSC code:</label><input name="picked-code" />
+    <input type="submit" value="Find a Code" />
+    </form>
+    <span class="result"></span>
 </div>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
