@@ -1,0 +1,26 @@
+{% load humanize %}
+
+ <h4>Related NAICS Codes</h4>
+    {% if naics %}
+    <table class="related-naics">
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Parent Information</th><th>Already In...</th><th>Include Code</th></tr></thead>
+    <tbody>
+    {% for n in naics %}
+    <tr><td>{{n.0}}</td><td class="name">{{n.1}}</td><td style="text-align:right;">${{n.2|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{n.3}}</td><td>{{n.4}}</td><td><a name="{{n.0}}" href="#move-right" class="naics-move-right">&raquo;</a></td></tr>
+    {% endfor %}
+    </tbody></table>
+
+    {% endif %}
+
+    <h4>Related Product or Service Codes</h4>
+    {% if psc %}
+    <table>
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Already In...</th><th>Include Code</th></tr></thead>
+    <tbody>
+    {% for p in psc %}
+        <tr><td>{{p.0}}</td><td class="name">{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td><td>{{p.3}}</td><td><a name="{{p.0}}" href="#move-right" class="psc-move-right">&raquo;</a></td></tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+

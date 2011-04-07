@@ -1,9 +1,12 @@
 #success { margin: 15px; padding: 15px; background-color: #FDE0E0; color: #F65757; font-weight: bold; border: 2px solid #F65757; }
-
+#top { float:left;}
 #left { width: 60%; float:left; }
-#right {margin-left:20px; float: right; width: 35%; height: 100%; }
+#right {margin-left:20px; float: right; width: 35%; }
+#bottom { width: 100%;}
+#bottom table {width: 100%;}
 #current-codes { overflow: visible; height:100%;}
 .agency-select { width: 100%;}
 .psc-move-right, .naics-move-right { font-size: 1.5em; }
 #code-total{ margin: 15px; font-weight:bold;}
 #code-total span { color: green;}
+.dashboard #content { width: 1000px;}

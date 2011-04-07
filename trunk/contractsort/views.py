@@ -6,7 +6,7 @@ from sectors.models import Sector
 from agency.models import Agency
 from fpds.models import NAICSCode, ProductOrServiceCode, FPDSRecord
 from django.http import HttpResponse
-from django.template import Template, Context
+from django.template import Template, Context, RequestContext
 from django.db import connection
 from django.db.models import Sum
 import re
@@ -18,7 +18,8 @@ def main(request):
 
 def setcodes(request, sector):
     sector = Sector.objects.get(id=sector)
-    selected = []
+    selected_naics = []
+    selected_psc = []
     if request.GET:
         if len(request.GET.lists()[0][1]) > 0:
             current_naics = NAICSCode.objects.filter(sectors=sector)
@@ -34,16 +35,18 @@ def setcodes(request, sector):
                 nc = NAICSCode.objects.get(code=int(codes[1]))
                 # add to sector list but make sure it's not already there
                 nc.sectors.add(sector)
-                selected.append(nc)
+                selected_naics.append(nc)
             elif codes[0] == 'psc':
                 pc = ProductOrServiceCode.objects.get(code=codes[1])
                 pc.sectors.add(sector)
-                selected.append(pc)
+                selected_psc.append(pc)
         
-        selected_naics_records = FPDSRecord.objects.filter(principal_naicscode__in=selected, fiscal_year=2009)
-        selected_psc_records = FPDSRecord.objects.filter(principal_naicscode__isnull=True, product_or_service_code__in=selected, fiscal_year=2009)
-        total_selected = (selected_naics_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0) + (selected_psc_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0)
+        selected_naics_records = FPDSRecord.objects.filter(principal_naicscode__in=selected_naics, fiscal_year=2009)
+        selected_psc_records = FPDSRecord.objects.filter(principal_naicscode__isnull=True, product_or_service_code__in=selected_psc, fiscal_year=2009)
+        total_selected = (selected_naics_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0) 
+        total_selected += (selected_psc_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0)
 
+        #add commas
         total =  re.sub(r'(\d{3})(?=\d)', r'\1,', str(total_selected)[::-1])[::-1].split('.')[0]
 
         return HttpResponse(Template('{{total}}').render(Context({'total': total })))
@@ -51,12 +54,19 @@ def setcodes(request, sector):
 #@login_required
 def sector(request, sector_id):
     sector = Sector.objects.get(pk=int(sector_id))
-    sector_naics = NAICSCode.objects.filter(sectors=sector)
-    sector_psc = ProductOrServiceCode.objects.filter(sectors=sector)
     agencies = Agency.objects.all()
-    selected = sector.related_agencies.all()
+    
+    selected, naics_list, psc_list, sector_naics, sector_psc, size, total_selected = get_related_codes(sector)
+
+    return render_to_response('contractsort/sector.html', {'sector': sector, 'agencies': agencies, 'selected': selected, 'naics': naics_list, 'psc': psc_list, 'sector_naics': sector_naics, 'sector_psc': sector_psc, 'size': size, 'total': total_selected})
+
+def get_related_codes(sector):
+    
     agency_codes = []
     agency_id = []
+    selected = sector.related_agencies.all()
+    sector_naics = NAICSCode.objects.filter(sectors=sector)
+    sector_psc = ProductOrServiceCode.objects.filter(sectors=sector)
     selected_naics_records = FPDSRecord.objects.filter(principal_naicscode__in=sector_naics, fiscal_year=2009)
     selected_psc_records = FPDSRecord.objects.filter(principal_naicscode__isnull=True, product_or_service_code__in=sector_psc, fiscal_year=2009)
     total_selected = (selected_naics_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0) + (selected_psc_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0)
@@ -76,8 +86,15 @@ def sector(request, sector_id):
                 name = obj.name
                 total = n[1]
                 parent_desc = "%s - %s" % (obj.parent_code.code, obj.parent_code.name)
-                naics_list.append((code, name, total, parent_desc))
+                code_sectors = []
+                for s in obj.sectors.all():
+                    code_sectors.append(s.name)
+
+                naics_list.append((code, name, total, parent_desc, ','.join(code_sectors)))
+
             except Exception as e:
+                import logging
+                logging.debug(e)
                 pass
         
         q = "SELECT product_or_service_code_id, SUM(obligated_amount) as total from fpds_fpdsrecord where maj_agency_cat IN (%s) GROUP BY product_or_service_code_id" % ",".join(agency_codes)
@@ -90,22 +107,24 @@ def sector(request, sector_id):
                 code = p[0]
                 name = obj.name
                 total = p[1]
-                psc_list.append((code, name, total))
+                code_sectors = []
+                for s in obj.sectors.all():
+                    code_sectors.append(s.name)
+
+                psc_list.append((code, name, total, ','.join(code_sectors)))
             except Exception as e:
                 pass
     else:
         naics_list = None
         psc_list = None
 
-    size = sector_naics.count() + sector_psc.count()
-    if size < 10:
-        size = 30
+#    size = sector_naics.count() + sector_psc.count()
+    size = 20 
 #    naicscode_ids = FPDSRecord.objects.filter(agency_id__in=selected).values_list('principal_naicscode').distinct()
  #   logging.debug(naicscode_ids)
   #  naicscodes = NAICSCode.objects.filter(code__in=naicscode_ids)
 
-
-    return render_to_response('contractsort/sector.html', {'sector': sector, 'agencies': agencies, 'selected': selected, 'naics': naics_list, 'psc': psc_list, 'sector_naics': sector_naics, 'sector_psc': sector_psc, 'size': size, 'total': total_selected})
+    return (selected, naics_list, psc_list, sector_naics, sector_psc, size, total_selected)
 
 
 #@login_required
@@ -119,7 +138,13 @@ def update_agency(request, sector_id):
                 agency = Agency.objects.get(id=int(a))
                 selected.append(int(a))
                 sector.related_agencies.add(agency)
-            return HttpResponse(Template('success!: {{selected}}').render(Context({'selected':selected })))
+
+
+            #refresh code list
+            selected, naics_list, psc_list, sector_naics, sector_psc, size, total_selected = get_related_codes(sector)
+        
+            
+            return render_to_response('contractsort/get_codes.html', {'naics': naics_list, 'psc': psc_list}, context_instance=RequestContext(request))
     return HttpResponse(Template('success').render(Context({})))
 
 def login(request):
