@@ -40,10 +40,10 @@
     <h4>Related Product or Service Codes</h4>
     {% if psc %}
     <table>
-    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th></tr></thead>
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th></th></tr></thead>
     <tbody>
     {% for p in psc %}
-        <tr><td>{{p.0}}</td><td class="name">{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td></tr>
+        <tr><td>{{p.0}}</td><td class="name">{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td><td><a name="{{p.0}}" href="#move-right" class="psc-move-right">&raquo;</a></td></tr>
     {% endfor %}
     </tbody>
     </table>
@@ -51,32 +51,61 @@
 </div>
 <div id="right">
 <h4> Currently Selected Codes for this Sector</h4>
-<form name="codes">
+<form id="code-form" action="/contractsort/setcodes/{{sector.id}}" method="GET">
 <select multiple name="codes" id="current-codes" size="{{size}}">
 {% for sn in sector_naics %}
-<option selected value="naics-{{sn.code}}">{{sn.code}} - {{sn.name}}</option>
+<option selected value="naics_{{sn.code}}">{{sn.code}} - {{sn.name}}</option>
 {% endfor %}
 {% for sp in sector_psc %}
-<option selected value="psc-{{sp.code}}">{{sp.code}} - {{sp.name}}</option>
+<option selected value="psc_{{sp.code}}">{{sp.code}} - {{sp.name}}</option>
 {% endfor %}
 </select>
+<input type="submit" value="Update Code Selection">
+<input type="reset" value="Reset Changes" />
 </form>
-
+<div id="code-total">
+Total Obligations for FY 2009 using selected codes: $<span>{{total|floatformat:0|intcomma}}</span>
+</div>
 
 </div>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
+
+        $('#code-form').ajaxForm({
+                
+                success: function(response, status, xhr, $form){
+                           var f = $('#right').append('<div id="success">Selected Codes Updated</div>');
+                           $('#success').fadeOut(5000, function() { $('#success').remove();});
+                           $('#code-total span').text(response);
+
+        }});
         $('#agency-form').ajaxForm(function(){
             var s = $('#agency-form').append('<div id="success">Related Agencies Updated</div>');
             $('#success').fadeOut(5000, function() { $('#success').remove();});
         });
         $('.naics-move-right').click(function(){
             var code = $(this).attr('name');
-            console.log($(this).parent().siblings());
             var name = $(this).parent().siblings('.name').text();
-            console.log(name);
-            $('#current-codes').append('<option val='+code+'>'+code+'-'+name+'</option>')
+            var already_in = $('#current-codes option[value=naics_'+code+']');
+            if (already_in.length == 0){
+                $('#current-codes').append('<option selected value=naics_'+code+'>'+code+'-'+name+'</option>');
+                $(this).css('color','green').css('font-weight', 'bold');
+                return false;
+            }
+            return false;
         });
+        $('.psc-move-right').click(function(){
+            var code = $(this).attr('name');
+            var name = $(this).parent().siblings('.name').text();
+            var already_in = $('#current-codes option[value=psc_'+code+']');
+            if (already_in.length == 0){
+                $('#current-codes').append('<option selected value=psc_'+code+'>'+code+'-'+name+'</option>');
+                $(this).css('color','green').css('font-weight', 'bold');
+                return false;
+            }
+            return false;
+        });
+
     });
 
 </script>

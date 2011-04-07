@@ -4,4 +4,6 @@
 #right {margin-left:20px; float: right; width: 35%; height: 100%; }
 #current-codes { overflow: visible; height:100%;}
 .agency-select { width: 100%;}
-
+.psc-move-right, .naics-move-right { font-size: 1.5em; }
+#code-total{ margin: 15px; font-weight:bold;}
+#code-total span { color: green;}
