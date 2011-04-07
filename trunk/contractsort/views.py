@@ -10,6 +10,7 @@ from django.template import Template, Context, RequestContext
 from django.db import connection
 from django.db.models import Sum
 import re
+import inspect
 
 #@login_required
 def main(request):
@@ -74,7 +75,7 @@ def get_related_codes(sector):
         agency_codes.append(s.fips_code)
         agency_id.append(str(s.id))
     if agency_id:
-        q = "SELECT principal_naicscode_id, SUM(obligated_amount) as total from fpds_fpdsrecord where maj_agency_cat IN (%s) group by principal_naicscode_id" % ",".join(agency_codes)
+        q = "SELECT DISTINCT principal_naicscode_id from fpds_fpdsrecord where maj_agency_cat IN (%s)" % ",".join(agency_codes)
         curs = connection.cursor()
         curs.execute(q)
         naics = curs.fetchall()
@@ -84,7 +85,7 @@ def get_related_codes(sector):
                 obj = NAICSCode.objects.get(code=n[0])
                 code = n[0]
                 name = obj.name
-                total = n[1]
+                total = FPDSRecord.objects.filter(principal_naicscode=obj).aggregate(Sum('obligated_amount'))['obligated_amount__sum']
                 parent_desc = "%s - %s" % (obj.parent_code.code, obj.parent_code.name)
                 code_sectors = []
                 for s in obj.sectors.all():
@@ -97,7 +98,7 @@ def get_related_codes(sector):
                 logging.debug(e)
                 pass
         
-        q = "SELECT product_or_service_code_id, SUM(obligated_amount) as total from fpds_fpdsrecord where maj_agency_cat IN (%s) GROUP BY product_or_service_code_id" % ",".join(agency_codes)
+        q = "SELECT DISTINCT product_or_service_code_id from fpds_fpdsrecord where maj_agency_cat IN (%s)" % ",".join(agency_codes)
         curs.execute(q)
         psc = curs.fetchall()
         psc_list = []
@@ -106,7 +107,7 @@ def get_related_codes(sector):
                 obj = ProductOrServiceCode.objects.get(code=p[0])
                 code = p[0]
                 name = obj.name
-                total = p[1]
+                total = FPDSRecord.objects.filter(product_or_service_code=obj).aggregate(Sum('obligated_amount'))['obligated_amount__sum']
                 code_sectors = []
                 for s in obj.sectors.all():
                     code_sectors.append(s.name)
@@ -139,13 +140,50 @@ def update_agency(request, sector_id):
                 selected.append(int(a))
                 sector.related_agencies.add(agency)
 
-
             #refresh code list
             selected, naics_list, psc_list, sector_naics, sector_psc, size, total_selected = get_related_codes(sector)
-        
             
             return render_to_response('contractsort/get_codes.html', {'naics': naics_list, 'psc': psc_list}, context_instance=RequestContext(request))
     return HttpResponse(Template('success').render(Context({})))
+
+def getcode(request):
+    if request.GET:
+        code = request.GET.get('picked-code', None)
+        if code:
+            matches = []
+            try:
+                obj = NAICSCode.objects.get(code=code)
+                matches.append(obj)
+
+            except:
+                try:
+                    obj = ProductOrServiceCode.objects.get(code=code)
+                    matches.append(obj)
+                except:
+                    pass
+
+            if len(matches) > 0:
+                data = []
+                for m in matches:
+                    name = m.name
+                    if isinstance(m, NAICSCode):
+                        total = FPDSRecord.objects.filter(principal_naicscode=m).aggregate(Sum('obligated_amount'))['obligated_amount__sum']
+                        parent_desc = "%s - %s" % (obj.parent_code.code, obj.parent_code.name)
+                        code_type = 'naics'
+                    elif isinstance(m, ProductOrServiceCode):
+                        total = FPDSRecord.objects.filter(product_or_service_code=m).aggregate(Sum('obligated_amount'))['obligated_amount__sum']
+                        parent_desc = ''
+                        code_type = 'psc'
+
+                    code_sectors = []
+                    for s in obj.sectors.all():
+                        code_sectors.append(s.name)
+
+                    data.append((code, name, total, parent_desc, ','.join(code_sectors), code_type ))
+                    
+                    return render_to_response('contractsort/find_code.html', { 'data': data}, context_instance=RequestContext(request))
+            else:
+                return HttpResponse(Template('No matches were found for code: {{code}}').render(Context({'code': code })))
 
 def login(request):
     

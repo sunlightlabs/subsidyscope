@@ -1,0 +1,10 @@
+{% load humanize %}
+
+ <table class="related-naics">
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Parent Information</th><th>Already In...</th><th>Include Code</th></tr></thead>
+    <tbody>
+    {% for d in data %}
+        <tr><td>{{d.0}}</td><td class="name">{{d.1}}</td><td style="text-align:right;">${{d.2|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{d.3}}</td><td>{{d.4}}</td><td><a name="{{d.0}}" href="#move-right" class="{% ifequal d.5 'naics' %}naics-move-right{% else %}psc-move-right{% endifequal %}">&raquo;</a></td></tr>
+    {% endfor %}
+    </tbody></table>
+

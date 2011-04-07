@@ -69,9 +69,24 @@
     </tbody>
     </table>
     {% endif %}
+
+    <div id="add-code">
+        <h4> Find a code: </h4>
+        <form id="code-picker" action="/contractsort/getcode" method="GET">
+        <label for="picked-code">Enter a NAICS or PSC code:</label><input name="picked-code" />
+        <input type="submit" value="Find a Code" />
+        </form>
+        <span class="result"></span>
+    </div>
 </div>
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
+        $('#code-picker').ajaxForm({
+                success: function(response, status, xhr, $form){
+                        $("#add-code span").html(response);
+                }
+
+        });
 
         $('#code-form').ajaxForm({
                 
@@ -90,7 +105,7 @@
                             
                 }
         });
-        $('.naics-move-right').click(function(){
+        $('.naics-move-right').live( 'click', function(){
             var code = $(this).attr('name');
             var name = $(this).parent().siblings('.name').text();
             var already_in = $('#current-codes option[value=naics_'+code+']');
@@ -101,7 +116,7 @@
             }
             return false;
         });
-        $('.psc-move-right').click(function(){
+        $('.psc-move-right').live( 'click', function(){
             var code = $(this).attr('name');
             var name = $(this).parent().siblings('.name').text();
             var already_in = $('#current-codes option[value=psc_'+code+']');
