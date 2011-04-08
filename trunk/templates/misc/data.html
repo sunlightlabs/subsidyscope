@@ -25,65 +25,85 @@
 
 		<div class="non_content">
 			<div id="data-page">	
+				<div class="data-section">
+					<h4><a class="section-title" href="{% url housing-index %}">Housing</a></h4>
+			                    <ul class="datasets">
+				                    <li class="odd">
+				                            <div class="top">
+                                				<h5>CFDA/FAADS</h5>
+				                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
+                                				<div class="clear"></div>
+				                            </div>
+				                            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is a housing-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
+				                            <p class="updated">Updated periodically; last update 2/16/11</p>
+				                     </li>
+				                     <li class="even">
+                            		   	           <div class="top">
+                           					<h5>FPDS</h5>
+                             					<div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
+				                                <div class="clear"></div>
+				                        </div>
+				                        <p class="description">The data powering our contract search. An energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
+				                        <p class="updated">Updated periodically; last update 2/16/11</p>
+			                            </li>
+                    
+			                 </ul>				  
+			        </div>
 
 				<div class="data-section">
+					<h4><a class="section-title" href="{% url energy-index %}">Energy</a></h4>
+                    			<ul class="datasets">
+			                    <li class="odd">
+        	               		    <div class="top">
+		                                <h5>CFDA/FAADS</h5>
+		                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
+                		                <div class="clear"></div>
+                		            </div>
+                		            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is an energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
+                		            <p class="updated">Updated periodically; last update 9/9/2010</p>
+                		            </li>
+                       			    <li class="even">
+	                                    <div class="top">
+                	                    <h5>FPDS</h5>
+                            		    <div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
+ 	                                    <div class="clear"></div>
+            		                    </div>
+                            		    <p class="description">The data powering our contract search. An energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
+ 		                            <p class="updated">Updated periodically; last update 9/9/2010</p>
+ 		                            </li>
+                    
+                    			</ul>				  
+			  	</div>
 
-					<h4><a class="section-title" href="{% url bailout-index %}">The Bailout</a></h4>
-					<div class="section-description">Subsidyscope maintains a number of datasets related to the government's unprecedented intervention in the financial sector.</div>
-		
-      		<ul class="datasets">
-      			<li class="odd">
-      				<div class="top">
-      					<h5>TARP Transactions</h5> 
-      					<div class="downloads">(<a href="{% url tarp-csv %}">CSV</a>)</div>
-      					<div class="clear"></div>
-      				</div>
-      				<p class="description">A list of the transactions occurring under the Treasury Department's <a href="{% url tarp %}">Troubled Asset Relief Program</a>. Includes purchases, repayments and dividends, as well as asset information for affected institutions.</p>
-      			</li>
-			
-      			<li class="even">
-      				<div class="top">
-      					<h5>FDIC Bank Failures</h5>
-      					<div class="downloads">(<a href="{% url fdic_bank_failures_csv %}">CSV</a>)</div>
-      					<div class="clear"></div>
-      				</div>
-      				<p class="description">The bank failures charged to the FDIC's <a href="{% url fdic_bank_failures %}">Deposit Insurance Fund</a>. Includes bank name, location, closing date, estimated charge to the DIF and the URL of the associated IG report, if available.</p>
-      			</li>
-			
-      			<li class="odd">
-      				<div class="top">
-      					<h5>FDIC QBP Snapshot</h5>
-      					<div class="downloads">(<a href="{% url fdic_qbpsnapshot_csv %}">CSV</a>)</div>
-      					<div class="clear"></div>
-      				</div>
-      				<p class="description">Data from the FDIC's <a href="http://www2.fdic.gov/qbp/qbpSelect.asp?menuItem=QBP">Quarterly Banking Profile</a>, a summary of financial results for all FDIC-insured institutions.</p>
-      			</li>
+                <div class="data-section">
+				  <h4><a class="section-title" href="{% url nonprofits-index %}">Nonprofits</a></h4>
+                    <ul class="datasets">
+				  
+				  	<li class="even">
+                            <div class="top">
+                                <h5>CFDA/FAADS</h5>
+                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
+                                <div class="clear"></div>
+                            </div>
+                            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is a nonprofit-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
+                            <p class="updated">Updated periodically; last update 9/9/2010</p>
+                        </li>
+                        
+                         <li class="even">
+                            <div class="top">
+                                <h5>FPDS</h5>
+                                <div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
+                                <div class="clear"></div>
+                            </div>
+                            <p class="description">The data powering our contract search. A nonprofit-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
+                            <p class="updated">Updated periodically; last update 9/9/2010</p>
+                        </li>
+				 
+                    </ul>
+			  </div>
 
-      			<li class="even">
-      				<div class="top">
-      					<h5>FDIC TLGP Participation</h5>
-      					<div class="downloads">(<a href="{% url bailout_fdic_tlgp_csv %}">CSV</a>)</div>
-      					<div class="clear"></div>
-      				</div>
-      				<p class="description">The banks that have specifically declared their status within the FDIC's <a href="{% url bailout_fdic_index %}">TLGP program</a>.</p>
-      			</li>			
-			
-      			<li class="odd">
-      				<div class="top">
-      					<h5>Federal Reserve H.4.1 Snapshot</h5>
-      					<div class="downloads">(<a href="{% url h41_snapshot_csv %}">CSV</a>)</div>
-      					<div class="clear"></div>
-      				</div>
-      				<p class="description">The Federal Reserve's weekly statement of factors affecting its balances.</p>
-      			</li>
-			
-      		</ul>
-		
-		      <div style="clear:left"></div>
-		
-				</div>
-				
-				<div class="data-section">
+
+                <div class="data-section">
 				  <h4><a class="section-title" href="{% url transportation-index %}">Transportation</a></h4>
 
                     <ul class="datasets">
@@ -161,92 +181,84 @@
                     </ul>
 				  <div style="clear:left"></div>	
 			  </div>
-			  
-			  <div class="data-section">
-				  <h4><a class="section-title" href="{% url nonprofits-index %}">Nonprofits</a></h4>
-                    <ul class="datasets">
-				  
-				  	<li class="even">
-                            <div class="top">
-                                <h5>CFDA/FAADS</h5>
-                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
-                                <div class="clear"></div>
-                            </div>
-                            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is a nonprofit-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
-                            <p class="updated">Updated periodically; last update 9/9/2010</p>
-                        </li>
-                        
-                         <li class="even">
-                            <div class="top">
-                                <h5>FPDS</h5>
-                                <div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
-                                <div class="clear"></div>
-                            </div>
-                            <p class="description">The data powering our contract search. A nonprofit-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
-                            <p class="updated">Updated periodically; last update 9/9/2010</p>
-                        </li>
-				 
-                    </ul>
-			  </div>
-			  
-			  <div class="data-section">
-				  <h4><a class="section-title" href="{% url energy-index %}">Energy</a></h4>
-                    <ul class="datasets">
-                    
-                    
-                    
-                    <li class="odd">
-                            <div class="top">
-                                <h5>CFDA/FAADS</h5>
-                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
-                                <div class="clear"></div>
-                            </div>
-                            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is an energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
-                            <p class="updated">Updated periodically; last update 9/9/2010</p>
-                        </li>
-                        
-                        
-                       <li class="even">
-                            <div class="top">
-                                <h5>FPDS</h5>
-                                <div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
-                                <div class="clear"></div>
-                            </div>
-                            <p class="description">The data powering our contract search. An energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
-                            <p class="updated">Updated periodically; last update 9/9/2010</p>
-                        </li>
-                    
-                    </ul>				  
-			  </div>
+
 				<div class="data-section">
-				  <h4><a class="section-title" href="{% url housing-index %}">Housing</a></h4>
-                    <ul class="datasets">
+
+					<h4><a class="section-title" href="{% url bailout-index %}">The Bailout</a></h4>
+					<div class="section-description">Subsidyscope maintains a number of datasets related to the government's unprecedented intervention in the financial sector.</div>
+		
+      		<ul class="datasets">
+      			<li class="odd">
+      				<div class="top">
+      					<h5>TARP Transactions</h5> 
+      					<div class="downloads">(<a href="{% url tarp-csv %}">CSV</a>)</div>
+      					<div class="clear"></div>
+      				</div>
+      				<p class="description">A list of the transactions occurring under the Treasury Department's <a href="{% url tarp %}">Troubled Asset Relief Program</a>. Includes purchases, repayments and dividends, as well as asset information for affected institutions.</p>
+      			</li>
+			
+      			<li class="even">
+      				<div class="top">
+      					<h5>FDIC Bank Failures</h5>
+      					<div class="downloads">(<a href="{% url fdic_bank_failures_csv %}">CSV</a>)</div>
+      					<div class="clear"></div>
+      				</div>
+      				<p class="description">The bank failures charged to the FDIC's <a href="{% url fdic_bank_failures %}">Deposit Insurance Fund</a>. Includes bank name, location, closing date, estimated charge to the DIF and the URL of the associated IG report, if available.</p>
+      			</li>
+			
+      			<li class="odd">
+      				<div class="top">
+      					<h5>FDIC QBP Snapshot</h5>
+      					<div class="downloads">(<a href="{% url fdic_qbpsnapshot_csv %}">CSV</a>)</div>
+      					<div class="clear"></div>
+      				</div>
+      				<p class="description">Data from the FDIC's <a href="http://www2.fdic.gov/qbp/qbpSelect.asp?menuItem=QBP">Quarterly Banking Profile</a>, a summary of financial results for all FDIC-insured institutions.</p>
+      			</li>
+
+      			<li class="even">
+      				<div class="top">
+      					<h5>FDIC TLGP Participation</h5>
+      					<div class="downloads">(<a href="{% url bailout_fdic_tlgp_csv %}">CSV</a>)</div>
+      					<div class="clear"></div>
+      				</div>
+      				<p class="description">The banks that have specifically declared their status within the FDIC's <a href="{% url bailout_fdic_index %}">TLGP program</a>.</p>
+      			</li>			
+			
+      			<li class="odd">
+      				<div class="top">
+      					<h5>Federal Reserve H.4.1 Snapshot</h5>
+      					<div class="downloads">(<a href="{% url h41_snapshot_csv %}">CSV</a>)</div>
+      					<div class="clear"></div>
+      				</div>
+      				<p class="description">The Federal Reserve's weekly statement of factors affecting its balances.</p>
+      			</li>
+			
+      		</ul>
+		
+		      <div style="clear:left"></div>
+		
+				</div>
+				
+							  <div class="data-section">
+					<h4>Miscellaneous Data</h4>
+                    			<ul class="datasets">
+			                    <li class="odd">
+        	               		    <div class="top">
+		                                <h5>Depreciation Data from IRS Statistics of Income</h5>
+		                                <div class="downloads">(<a href="http://assets.subsidyscope.com/media/data/misc/depreciation_by_industry_2007.xls">Excel</a>) | (<a href="http://assets.subsidyscope.com/media/data/misc/depreciation_by_industry_2007.pdf">ODF</a>) 84KB</div>
+                		                <div class="clear"></div>
+                		            </div>
+                		            <p class="description">This data aggregates the numbers reported on IRS form 4562, grouped by NAICS code and presents the total claimed depreciation value by asset class, grouped by industry. (<a href="www.irs.gov/pub/irs-pdf/f4562.pdf">Form 4562 </a>)</p>
+                		            <p class="updated">last update: 4/13/2011</p>
+                		            </li>
                     
-                    
-                    
-                    <li class="odd">
-                            <div class="top">
-                                <h5>CFDA/FAADS</h5>
-                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
-                                <div class="clear"></div>
-                            </div>
-                            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is a housing-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
-                            <p class="updated">Updated periodically; last update 2/16/11</p>
-                        </li>
-                        
-                        
-                       <li class="even">
-                            <div class="top">
-                                <h5>FPDS</h5>
-                                <div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
-                                <div class="clear"></div>
-                            </div>
-                            <p class="description">The data powering our contract search. An energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
-                            <p class="updated">Updated periodically; last update 2/16/11</p>
-                        </li>
-                    
-                    </ul>				  
-			        </div>
+                    			</ul>				  
+			  	</div>
+
+
+			  			  
+			  
+				
 
 			    </div>
 		</div>
