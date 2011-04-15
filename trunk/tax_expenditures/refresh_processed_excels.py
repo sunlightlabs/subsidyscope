@@ -27,8 +27,10 @@ def save_description(year, id, paragraphs):
         # this if statement can be removed if you want the 2012 treasury definitions to override what sarah submits in the excels       
         if not expenditure.group.description or expenditure.group.description == '':
             expenditure.group.description = final_text
+            if final_text != '':
+                expenditure.group.notes ='Description from <a href="http://www.gpoaccess.gov/usbudget/fy12/pdf/BUDGET-2012-PER.pdf">Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2012.</a>'
             expenditure.group.save()
-        
+
         print "%s - %s\n" % (expenditure.item_number, expenditure.group.description)
     except:
         print "Item %d not found" % (id)
@@ -141,8 +143,6 @@ def recurse_category(parent, writer, indent, budget_function):
 #                first = False
 
             for estimate in expenditure.estimate_set.all().order_by('estimate_year'):
-                if estimate.corporations_amount or estimate.individuals_amount:
-                    total_estimates[estimate.estimate_year] = None
                 
                 if estimate.corporations_notes == Estimate.NOTE_POSITIVE:
                     total_estimates[estimate.estimate_year] = 0
@@ -151,26 +151,22 @@ def recurse_category(parent, writer, indent, budget_function):
                     total_estimates[estimate.estimate_year] = 0
                     corp_estimates[estimate.estimate_year] = '>-50'
                 else:
-                    if estimate.corporations_amount >= 0:
+                    if estimate.corporations_amount != None:
                         corp_estimates[estimate.estimate_year] = estimate.corporations_amount
                         total_estimates[estimate.estimate_year] = estimate.corporations_amount
                 
                 if estimate.individuals_notes == Estimate.NOTE_POSITIVE:
-                    
-                    if total_estimates.get(estimate.estimate_year) and not total_estimates[estimate.estimate_year]:
-                        total_estimates[estimate.estimate_year] = 0
-                        
                     indv_estimates[estimate.estimate_year] = '<50'
-                    
-                elif estimate.individuals_notes == Estimate.NOTE_NEGATIVE:
-                    
                     if not total_estimates[estimate.estimate_year]:
                         total_estimates[estimate.estimate_year] = 0
-                    
+
+                elif estimate.individuals_notes == Estimate.NOTE_NEGATIVE:
+                    if not total_estimates[estimate.estimate_year]:
+                        total_estimates[estimate.estimate_year] = 0
                     indv_estimates[estimate.estimate_year] = '>-50'
                     
                 else:
-                    if estimate.individuals_amount >= 0:
+                    if estimate.individuals_amount != None:
                         indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                         
 #                        if total_estimates[estimate.estimate_year]:
@@ -295,15 +291,19 @@ if len(sys.argv) > 1:
 #        load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2011_descriptions.txt', 2011)
         load_descriptions('/home/kaitlin/envs/subsidyscope/trunk/scripts/data/tax_expenditures/data/omb_ap/spec2012_descriptions.txt', 2012)
     if op == "postprocess_tes" or op == 'everything':
-        top_level_groups = Group.objects.filter(parent=None)
+        top_level_groups = Group.objects.filter(parent=None).order_by('id')
+        letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r']
+        count = 0
         for group in top_level_groups:
-            name = group.name
-            writer = csv.writer(open("postprocessed/%s_postprocessed.csv" % name, 'w'), quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+            name = group.name.replace(" ", "_").lower()
+            writer = csv.writer(open("postprocessed/%s_%s_postprocessed.csv" % (letters[count], name), 'w'), quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
             writer.writerow(header_summary)
             writer.writerow(['', group.name,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',group.description,group.notes])
             
             for subgroup in Group.objects.filter(parent=group):
                 recurse_category(subgroup, writer, '#', name)
+
+            count += 1
 
     elif op == 'data_check_definitions':
         data_check_definitions()
