@@ -330,7 +330,7 @@ class FPDSRecord(models.Model):
     def lookup_agency(self):
         try:
             agency = Agency.objects.get(fips_code=int(self.maj_agency_cat))
-            self.agency = agency.id
+            self.agency = agency
             self.save()
         except:
             pass

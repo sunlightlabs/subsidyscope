@@ -68,9 +68,9 @@ def get_related_codes(sector):
     selected = sector.related_agencies.all()
     sector_naics = NAICSCode.objects.filter(sectors=sector)
     sector_psc = ProductOrServiceCode.objects.filter(sectors=sector)
-    selected_naics_records = FPDSRecord.objects.filter(principal_naicscode__in=sector_naics, fiscal_year=2009)
-    selected_psc_records = FPDSRecord.objects.filter(principal_naicscode__isnull=True, product_or_service_code__in=sector_psc, fiscal_year=2009)
-    total_selected = (selected_naics_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0) + (selected_psc_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0)
+    selected_naics_records = FPDSRecord.objects.filter(principal_naicscode__in=sector_naics)
+    selected_psc_records = FPDSRecord.objects.filter(principal_naicscode__isnull=True, product_or_service_code__in=sector_psc)
+    total_selected = (selected_naics_records.filter(fiscal_year=2009).aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0) + (selected_psc_records.aggregate(Sum('obligated_amount'))['obligated_amount__sum'] or 0)
     for s in selected:
         agency_codes.append(s.fips_code)
         agency_id.append(str(s.id))
@@ -86,12 +86,19 @@ def get_related_codes(sector):
                 code = n[0]
                 name = obj.name
                 total = FPDSRecord.objects.filter(principal_naicscode=obj).aggregate(Sum('obligated_amount'))['obligated_amount__sum']
+                import logging 
+                logging.debug(selected)
+                total_q = "SELECT SUM(obligated_amount) from fpds_fpdsrecord where maj_agency_cat IN (%s) AND principal_naicscode_id=%d" % (",".join(agency_codes), code)
+                curs.execute(total_q)
+                agency_total = curs.fetchall()[0][0]
+                logging.debug(agency_total)
+            #   agency_total = selected_naics_records.filter(principal_naicscode=obj, agency__in=selected).aggregate(Sum('obligated_amount'))['obligated_amount__sum']
                 parent_desc = "%s - %s" % (obj.parent_code.code, obj.parent_code.name)
                 code_sectors = []
                 for s in obj.sectors.all():
                     code_sectors.append(s.name)
 
-                naics_list.append((code, name, total, parent_desc, ','.join(code_sectors)))
+                naics_list.append((code, name, total, agency_total, parent_desc, ','.join(code_sectors)))
 
             except Exception as e:
                 import logging
@@ -108,11 +115,12 @@ def get_related_codes(sector):
                 code = p[0]
                 name = obj.name
                 total = FPDSRecord.objects.filter(product_or_service_code=obj).aggregate(Sum('obligated_amount'))['obligated_amount__sum']
+                agency_total = selected_psc_records.filter(product_or_service_code=obj, agency__in=selected).aggregate(Sum('obligated_amount'))['obligated_amount__sum']
                 code_sectors = []
                 for s in obj.sectors.all():
                     code_sectors.append(s.name)
 
-                psc_list.append((code, name, total, ','.join(code_sectors)))
+                psc_list.append((code, name, total, agency_total, ','.join(code_sectors)))
             except Exception as e:
                 pass
     else:
