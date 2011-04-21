@@ -163,7 +163,7 @@ def line_item_csv(parent, writer, budget_function, indent='*'):
         total_estimates = {}
         
         for estimate in expenditure.estimate_set.all().order_by('estimate_year'):
-            if estimate.corporations_amount or estimate.individuals_amount:
+            if estimate.corporations_amount != None or estimate.individuals_amount != None:
                 total_estimates[estimate.estimate_year] = None
             
             if estimate.corporations_notes == Estimate.NOTE_POSITIVE:
@@ -173,7 +173,7 @@ def line_item_csv(parent, writer, budget_function, indent='*'):
                 total_estimates[estimate.estimate_year] = 0
                 corp_estimates[estimate.estimate_year] = '>-50'
             else:
-                if estimate.corporations_amount:
+                if estimate.corporations_amount != None:
                     corp_estimates[estimate.estimate_year] = estimate.corporations_amount
                     total_estimates[estimate.estimate_year] = estimate.corporations_amount
             
@@ -192,7 +192,7 @@ def line_item_csv(parent, writer, budget_function, indent='*'):
                 indv_estimates[estimate.estimate_year] = '>-50'
                 
             else:
-                if estimate.individuals_amount:
+                if estimate.individuals_amount != None:
                     indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                     
                     if total_estimates[estimate.estimate_year]:

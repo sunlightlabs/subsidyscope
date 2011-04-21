@@ -172,7 +172,11 @@ class TEEpenditureDetailNode(Node):
             available_report_years = []
             
             for detail in group.groupdetail_set.filter(source=source_id, estimate=estimate, analysis_year=report_year):
-                data_dict[detail.estimate_year] = {'amount': detail.amount, 'notes': detail.notes}
+                if detail.amount == 0 and detail.notes:
+                    data_dict[detail.estimate_year] = {'amount': None, 'notes': detail.notes}
+                else:
+                    data_dict[detail.estimate_year] = {'amount': detail.amount, 'notes': detail.notes}
+
                 available_report_years.append(detail.analysis_year) 
             
             data = []
@@ -283,7 +287,11 @@ class TEGroupSummaryNode(Node):
             jct_summary_dict = {}
         
             for summary in group.groupsummary_set.filter(source=GroupSummary.SOURCE_JCT, estimate=estimate):
-                jct_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
+                if summary.amount == 0 and summary.notes:
+                    jct_summary_dict[summary.estimate_year] = {'amount': None, 'notes': summary.notes}
+                else:
+                    jct_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
+
                 
             jct_summary = []
             for year in years:
@@ -299,19 +307,22 @@ class TEGroupSummaryNode(Node):
             treasury_summary_dict = {}
           
             for summary in group.groupsummary_set.filter(source=GroupSummary.SOURCE_TREASURY, estimate=estimate):
-                treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
+                if summary.amount == 0 and summary.notes:
+                    treasury_summary_dict[summary.estimate_year] = {'amount': None, 'notes': summary.notes}
+                else:
+                    treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
             
             treasury_summary = []
-            no_data = True
+           # no_data = True
             for year in years:
                 if treasury_summary_dict.has_key(year):
                     treasury_summary.append(treasury_summary_dict[year])
-                    no_data = False
+            #        no_data = False
                 else:
                     treasury_summary.append(None)
             
-            if no_data:
-                treasury_summary = None
+            #if no_data:
+             #   treasury_summary = None
         else:
             treasury_summary = None
         
