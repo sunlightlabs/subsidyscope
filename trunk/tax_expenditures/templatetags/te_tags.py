@@ -200,7 +200,7 @@ class TEEpenditureDetailNode(Node):
                  #           color = '#aaf'
                         #else:
                          #   color = '#eee'
-                    # now this isn't working, fix plz?
+
                     if not data_dict[year]['amount'] == None or data_dict[year]['notes']:
                         data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color': '#aaf', 'estimate_year': year})
                         blank_line = False
@@ -223,10 +223,11 @@ class TEEpenditureDetailNode(Node):
                 footnotes = ''
                 
                 if report.expenditure_source:
-                    source_string = '%s from %s' % (report.expenditure_source.name, source_string)
+                    source_string = 'This report year includes the following tax expenditure(s): %s, from %s' % (report.expenditure_source.name,  source_string)
                     footnotes = report.expenditure_source.notes
                 else:
-                    source_string = '%s Sum of %s tax expenditures listed above.' % (source_string, source)    
+                    sum_text = get_summed_groups(group, report_year, source_id)
+                    source_string = 'This report year includes the following tax expenditure(s): %s from %s' % (sum_text, source_string)    
             
                 lines.append({'report_year':report_year, 'id':id, 'data':data, 'source':source_string, 'footnotes':footnotes})
 
@@ -251,6 +252,17 @@ class TEEpenditureDetailNode(Node):
             return render_to_string('tax_expenditures/te_expenditure_detail.html', {'lines':lines, 'estimate_years':estimate_years, 'source':source, 'previous_year':previous_year, 'next_year':next_year})
         else:
             return ''
+
+
+def get_summed_groups(group, report_year, source):
+    groups = Group.objects.filter(parent=group)
+    text = ""
+    for g in groups:
+        exps = Expenditure.objects.filter(group=g, analysis_year=report_year, source=source)
+        if exps.count() > 0:
+            text += g.name + ', '
+    return text
+    
 
 
 @register.tag
