@@ -92,7 +92,7 @@
         
         {% if subgroups%}
         	<strong>Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
-        		{% if group.parent %}Multiple line items correspond with this group of tax expenditures.  These estimates have been aggregated below to create an accurate comparison.{% endif %}
+        		{% if group.parent %}Multiple line items correspond with this group of tax expenditures. These estimates have been aggregated below to create a more meaningful comparison.{% endif %}
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
@@ -107,7 +107,6 @@
 					{% for subgroup in subgroups %}
 						
 						<tr><td style="text-align: left; border-right: 1px solid #999; border-left: 1px solid #999; border-top: solid 1px #999; border-bottom: solid 1px #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name }}</a></td></tr>
-						
 						{% te_group_summary subgroup source estimate estimate_years %}
 						
 					{% endfor %}
