@@ -52,7 +52,7 @@
     <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Total Obligations (related agencies)</th><th>Parent Information</th><th>Already In...</th><th>Include Code</th></tr></thead>
     <tbody>
     {% for n in naics %}
-    <tr><td>{{n.0}}</td><td class="name">{{n.1}}</td><td style="text-align:right;">${{n.2|floatformat:0|intcomma}}</td><td>${{n.3|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{n.4}}</td><td>{{n.5}}</td><td><a name="{{n.0}}" href="#move-right" class="naics-move-right">&raquo;</a></td></tr>
+    <tr><td>{{n.0}}</td><td class="name">{{n.1}}</td><td style="text-align:right;">${{n.2|floatformat:0|intcomma}}</td><td>${{n.3|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{n.4}}</td><td>{{n.5}}</td><td>{% if not n.6 %}<a name="{{n.0}}" href="#move-right" class="naics-move-right">&raquo;</a>{% else %}already in{% endif%}</td></tr>
     {% endfor %}
     </tbody></table>
 
@@ -64,7 +64,7 @@
     <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Total Obligations (related agencies)</th><th>Already In...</th><th>Include Code</th></tr></thead>
     <tbody>
     {% for p in psc %}
-        <tr><td>{{p.0}}</td><td class="name">{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td><td style="text-align:right;">$${{p.3|floatformat:0|intcomma}}</td><td>{{p.3}}</td><td><a name="{{p.0}}" href="#move-right" class="psc-move-right">&raquo;</a></td></tr>
+        <tr><td>{{p.0}}</td><td class="name">{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td><td style="text-align:right;">${{p.3|floatformat:0|intcomma}}</td><td>{{p.4}}</td><td>{% if not p.5 %}<a name="{{p.0}}" href="#move-right" class="psc-move-right">&raquo;</a>{% else %}already in{% endif %}</td></tr>
     {% endfor %}
     </tbody>
     </table>
@@ -81,9 +81,17 @@
 {% js "scripts/jquery.tablesorter.js " %}
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
-        $("#related-naics-top").tablesorter(){
+
+        $("#related-psc-top").tablesorter({
             headers: {
-                        2 {sorter:'currency'},
+                        2: {sorter:'currency'},
+                        3: {sorter:'currency'}
+                    } 
+        });
+
+        $("#related-naics-top").tablesorter({
+            headers: {
+                        2: {sorter:'currency'},
                         3: {sorter:'currency'}
                     } 
         });
