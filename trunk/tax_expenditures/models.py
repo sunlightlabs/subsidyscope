@@ -139,7 +139,7 @@ class Group(models.Model):
         
         cube = Cube()
         
-        current_expenditure_year = int(self.expenditure_set.aggregate(Max('analysis_year'))['analysis_year__max'] or TE_CURRENT_YEAR)
+        current_expenditure_year = TE_CURRENT_YEAR
 
         for group in Group.objects.filter(parent=self):
             cube += group.calc_summary()

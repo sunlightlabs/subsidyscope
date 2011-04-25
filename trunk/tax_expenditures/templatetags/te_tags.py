@@ -202,8 +202,12 @@ class TEEpenditureDetailNode(Node):
                          #   color = '#eee'
 
                     if not data_dict[year]['amount'] == None or data_dict[year]['notes']:
-                        data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color': '#aaf', 'estimate_year': year})
-                        blank_line = False
+                        if report_year >= TE_CURRENT_YEAR or (report_year-year == 2):
+                            data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color': '#aaf', 'estimate_year': year})
+                            blank_line = False
+                        else:
+                            data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color': '#eee', 'estimate_year': year})
+                            blank_line = False
                     else:
                         data.append(None)
                     
@@ -233,21 +237,21 @@ class TEEpenditureDetailNode(Node):
 
         
         if len(lines):
-            #make sure only last estimate for that estimate year is highlighted
-            count = 0 
-            for l in lines:
-                for o in l['data']:
-                    if o and o.has_key('estimate_year'):
-                        this_year = o['estimate_year']
-                        if len(lines) == count+1:
-                            break
-                        next_line = lines[count+1]
-                        for next_o in next_line['data']:
-                            if next_o and  next_o.has_key('estimate_year') and next_o['estimate_year'] == this_year:
-                                o['color'] = '#eee'
-                                break
-
-                count += 1
+#            #make sure only last estimate for that estimate year is highlighted
+#            count = 0 
+#            for l in lines:
+#                for o in l['data']:
+#                    if o and o.has_key('estimate_year'):
+#                        this_year = o['estimate_year']
+#                        if len(lines) == count+1:
+#                            break
+#                        next_line = lines[count+1]
+#                        for next_o in next_line['data']:
+#                            if next_o and  next_o.has_key('estimate_year') and next_o['estimate_year'] == this_year:
+#                                o['color'] = '#eee'
+#                                break
+#
+#                count += 1
 
             return render_to_string('tax_expenditures/te_expenditure_detail.html', {'lines':lines, 'estimate_years':estimate_years, 'source':source, 'previous_year':previous_year, 'next_year':next_year})
         else:
