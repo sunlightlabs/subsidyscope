@@ -12,3 +12,4 @@
 .dashboard #content { width: 1000px;}
 #add-code { margin: 20px 0 200px 0; }
 #add-code label { margin-right: 10px;}
+#refresh { float: right; width: 200px; font-size:1.2em; }

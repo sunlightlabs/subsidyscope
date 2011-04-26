@@ -3,7 +3,7 @@
 {% load humanize %}
 {% block title %}{{sector.name}} Sector{% endblock %}
 
-
+{% block refresh %}<a href="javascript:location.reload(true)">Confirm All Changes</a>{% endblock%}
 {% block content %}
 
 {% js "scripts/jquery.form.js" %}
