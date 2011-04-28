@@ -66,7 +66,7 @@ function findProgram()
 
 function editComment(id)
 {
-	$(id).hide();
+//	$(id).hide();
 	$(id + '_edit').show();
 }
 
@@ -96,29 +96,31 @@ function saveComment(program_id, id)
 
 <ul>
 	<li><strong>All Programs:</strong>  <a href="#all_programs" onclick="$('#all_programs').toggle()"> ({{ included_programs|length }}) [show/hide]</a> <a id="refresh_link" href="#all_programs" onclick="location.reload();"><em><strong>programs added, refresh!</strong></em></a></li>
-	<ul id="all_programs">
+	<table id="all_programs">
+        <tr><th>Program Number</th><th>Program Name</th><th>Spending</th><th>Comments</th></tr>
 	{% if included_programs %}
 	
 		{% for program in included_programs %}
-			<a name="ap_{{ program.id }}"/>
-			<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }} <a href="#all_programs" onclick="removeProgram({{ program.id }});">[remove program]</a>
+            <tr>
+                <td><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a></td>
+                <td>{{ program.program_title }} <a href="#all_programs" onclick="removeProgram({{ program.id }});">[remove program]</a></td>
+                <td>
 				<!-- <br/> FY09 Obligations: $tbd <a href="" onclick=edit>[more]</a> -->
-				<br/>
-				FY05-10 Grants: {{ program.get_recent_grants_summary }}
-				<div id="ap_comments_{{ program.id }}">
-					Comments: <span id="ap_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#ap_{{ program.id }}" onclick="editComment('#ap_comments_{{ program.id }}')">[edit]</a>
-				</div>
-				<div id="ap_comments_{{ program.id }}_edit">
+				    FY05-10 Grants: {{ program.get_recent_grants_summary }}
+                </td>
+                <td id="ap_comments_{{ program.id }}" style="width:300px;">
+					<span id="ap_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#ap_{{ program.id }}" onclick="editComment('#ap_comments_{{ program.id }}')">[edit]</a>
+				<span id="ap_comments_{{ program.id }}_edit" style="display:none;" >
 					<textarea cols="40" rows="5" id="ap_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
-					<br/>
 					<a href="#ap_{{ program.id }}" onclick="saveComment({{ program.id }}, '#ap_comments_{{ program.id }}')">[save]</a>
-				</div>
-			</li>
+				</span>
+				</td>
+            </tr>
 		{% endfor %}
 	{% else %}
 		<em>No programs included.</em>
 	{% endif %}	
-	</ul>
+	</table>
 	
 	{% if duplicate_programs %}
 	<li><strong>Duplicate Programs:</strong>  <a href="#duplicate_programs" onclick="$('#duplicate_programs').toggle()"> ({{ duplicate_programs|length }}) [show/hide]</a></li>

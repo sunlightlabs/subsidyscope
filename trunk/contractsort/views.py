@@ -99,7 +99,7 @@ def get_related_codes(sector):
                 for s in obj.sectors.all():
                     code_sectors.append(s.name)
 
-                naics_list.append((code, name, total, agency_total, parent_desc, ','.join(code_sectors), is_in))
+                naics_list.append((code, name, total, agency_total, parent_desc, ' '.join(code_sectors), is_in))
 
             except Exception as e:
                 import logging
@@ -127,7 +127,7 @@ def get_related_codes(sector):
                 for s in obj.sectors.all():
                     code_sectors.append(s.name)
 
-                psc_list.append((code, name, total, agency_total, ','.join(code_sectors), is_in))
+                psc_list.append((code, name, total, agency_total, ' '.join(code_sectors), is_in))
             except Exception as e:
                 pass
     else:
