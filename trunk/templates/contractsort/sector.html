@@ -3,7 +3,6 @@
 {% load humanize %}
 {% block title %}{{sector.name}} Sector{% endblock %}
 
-{% block refresh %}<a href="javascript:location.reload(true)">Confirm All Changes</a>{% endblock%}
 {% block content %}
 
 {% js "scripts/jquery.form.js" %}
@@ -36,7 +35,7 @@
         <option selected value="psc_{{sp.code}}">{{sp.code}} - {{sp.name}}</option>
         {% endfor %}
         </select>
-        <input type="submit" value="Update Code Selection">
+        <input type="submit" value="Confirm Code Selection">
         <input type="reset" value="Reset Changes" />
         </form>
         <div id="code-total">
@@ -81,6 +80,13 @@
 {% js "scripts/jquery.tablesorter.js " %}
 <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
+        var updated_codes = false;
+
+        window.onbeforeunload = function() {
+            if (!updated_codes) {
+                return "Codes have not been updated. Your changes will be lost.";
+            } 
+        };
 
         $("#related-psc-top").tablesorter({
             headers: {
@@ -108,6 +114,7 @@
                            var f = $('#right').append('<div id="success">Selected Codes Updated</div>');
                            $('#success').fadeOut(5000, function() { $('#success').remove();});
                            $('#code-total span').text(response);
+                           updated_codes = true;
 
         }});
         $('#agency-form').ajaxForm({

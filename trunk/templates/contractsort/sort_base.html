@@ -25,7 +25,6 @@
 			<h1 id="site-name"><a href="/contractsort">ContractSort</a></h1>
         </div>
         <div id="refresh">
-        {% block refresh%} {% endblock %}
         </div>
         {% if user %}
         	<div id="user-tools">Welcome, <strong>{{ user.first_name }}</strong>. <a href="/admin/password_change/">Change password</a> / <a href="{% url contractsort-logout %}">Log out</a></div> 
