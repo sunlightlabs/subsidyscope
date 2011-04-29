@@ -165,7 +165,7 @@
             sectors = sectors.replace("{{sector}}", "");
             $(this).parent().siblings('.current-sectors').text(sectors);
             $(this).parent().text("");
-            
+            return false;            
         });
         $('.psc-remove').live('click', function(){
             var code = $(this).attr('name');
@@ -175,7 +175,7 @@
             sectors = sectors.replace("{{sector}}", "");
             $(this).parent().siblings('.current-sectors').text(sectors);
             $(this).parent().text("");
-            
+            return false;
         });
 
     });
