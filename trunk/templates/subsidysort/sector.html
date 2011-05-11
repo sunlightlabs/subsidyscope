@@ -1,6 +1,6 @@
 {% extends "subsidysort/sort_base.html" %}
 {% load subsidysort_tags %}
-
+{% load humanize %}
 {% block title %}{{ sector }}{% endblock %}
 
 {% block content %}
@@ -93,9 +93,6 @@ function saveComment(program_id, id)
 <div id="find_program_results"></div>
 
 <p><strong>Included Programs:</strong></p>
-
-<ul>
-	<li><strong>All Programs:</strong>  <a href="#all_programs" onclick="$('#all_programs').toggle()"> ({{ included_programs|length }}) [show/hide]</a> <a id="refresh_link" href="#all_programs" onclick="location.reload();"><em><strong>programs added, refresh!</strong></em></a></li>
 	<table id="all_programs">
         <tr><th>Program Number</th><th>Program Name</th><th>Spending</th><th>Comments</th></tr>
 	{% if included_programs %}
@@ -117,56 +114,32 @@ function saveComment(program_id, id)
 				</td>
             </tr>
 		{% endfor %}
-	{% else %}
-		<em>No programs included.</em>
 	{% endif %}	
 	</table>
-	
-	{% if duplicate_programs %}
-	<li><strong>Duplicate Programs:</strong>  <a href="#duplicate_programs" onclick="$('#duplicate_programs').toggle()"> ({{ duplicate_programs|length }}) [show/hide]</a></li>
-	<ul id="duplicate_programs">
-		{% for program in duplicate_programs %}
-			<a name="db_{{ program.id }}"/>
-			<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }} <a href="#duplicate_programs" onclick="removeProgram({{ program.id }});">[remove program]</a>
-			{% for program_sector in program.sectors.all %}
-					{% ifnotequal program_sector sector %}
-						<br/>Also included in <a href="{% url subsidysort-sector program_sector.id %}">{{ program_sector.name }}</a>
-					{% endifnotequal %}
-				{% endfor %}
-			<br/>
-			FY05-10 Grants: {{ program.get_recent_grants_summary }}
-			<div id="dp_comments_{{ program.id }}">
-					Comments: <span id="dp_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#db_{{ program.id }}" onclick="editComment('#dp_comments_{{ program.id }}')">[edit]</a>
-				</div>
-				<div id="dp_comments_{{ program.id }}_edit">
-					<textarea cols="40" rows="5" id="dp_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
-					<br/>
-					<a href="#db_{{ program.id }}" onclick="saveComment({{ program.id }}, '#dp_comments_{{ program.id }}')">[save]</a>
-				</div>
-			</li>
-		{% endfor %}
-	</ul>
-	{% endif %}
-</ul>
+<p><strong>Programs in Related Budget Functions and Functional Index:</strong></p>
 
-<p><strong>Programs in Related Budget Functions:</strong></p>
-
-<ul>
+<table>
+    <tr>
+    <th>CFDA #</th><th>Program Name</th><th>Grants (FY 05-10)</th><th>Budget Function or Functional Index?</th><th>In sectors</th><th>comments</th><th>Add/Remove</th>
+    </tr>
 	{% if bf_programs %}
 		{% for group in bf_groups %}
-			<li><strong>{{ group.bf }}:</strong> <a href="#bf_group_{{ group.bf.id }}" onclick="$('#bf_group_{{ group.bf.id }}').toggle()"> ({{ group.included_count }}/{{ group.programs|length }}) [show/hide]</a></li>
-			<ul id="bf_group_{{ group.bf.id }}">
-				{% for program in group.programs %}
-					<a name="bf_group_{{ group.bf.id }}_{{ program.id }"/>
-					<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }}
+			{% for program in group.programs %}
+			    <tr><td>
+					<a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a></td>
+                    <td>{{ program.program_title }}</td>
+					<td>
+                    ${{ program.get_recent_grants_summary|floatformat:0|intcomma }}
+                    </td>
+                    <td>Budget Function</td>
+                    <td>
 					{% for program_sector in program.sectors.all %}
 						{% ifnotequal program_sector sector %}
 							<br/>Included in <a href="{% url subsidysort-sector program_sector.id %}">{{ program_sector.name }}</a>
 						{% endifnotequal %}
 					{% endfor %}
-					
-					<br/>
-					FY05-10 Grants: {{ program.get_recent_grants_summary }}
+					</td>
+                    <td>
 					<div id="bf_comments_{{ program.id }}">
 					Comments: <span id="bf_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#bf_group_{{ group.bf.id }}_{{ program.id }}" onclick="editComment('#bf_comments_{{ program.id }}')">[edit]</a>
 					</div>
@@ -175,38 +148,33 @@ function saveComment(program_id, id)
 						<br/>
 						<a href="#bf_group_{{ group.bf.id }}_{{ program.id }}" onclick="saveComment({{ program.id }}, '#bf_comments_{{ program.id }}')">[save]</a>
 					</div>
-					
+					</td>
+                    <td>
 						{% ifinlist program included_programs %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><em>Program included in {{ sector.name }}</em></span>{% else %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><a href="#bf_group_{{ group.bf.id }}" onclick="includeProgram({{ program.id }}, 'bf_group_{{ group.bf.id }}_{{ program.id }}');">[include program]</a></span>{% endifinlist %}
-					</li>
+					</td>
+                    </tr>
 				{% endfor %}
-				
-				{% if not  group.programs|length %}
-					<em>No programs in budget function.</em>
-				{% endif %}
-			</ul>
 		{% endfor %}
-	{% else %}
-		<em>No programs in related budget functions.</em>
 	{% endif %}	
-</ul>
 
-<p><strong>Programs in Related Functional Index:</strong></p>
-
-<ul>
 	{% if fi_programs %}
 		{% for group in fi_groups %}
-			<li><strong>{{ group.fi }}</strong> <a href="#fi_group_{{ group.fi.id }}" onclick="$('#fi_group_{{ group.fi.id }}').toggle()">({{ group.included_count }}/{{ group.programs|length }}) [show/hide]</a></li>
-			<ul id="fi_group_{{ group.fi.id }}">
 			{% for program in group.programs %}
-				<li style="margin-bottom: 5px;"><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }}
+			    <tr><td>
+				    <a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a></td>
+                <td>{{ program.program_title }}</td>
+                <td>
+				${{ program.get_recent_grants_summary|floatformat:0|intcomma }}
+                </td>
+                <td>Functional Index</td>
+                <td>
 				{% for program_sector in program.sectors.all %}
 					{% ifnotequal program_sector sector %}
 						<br/>Included in <a href="{% url subsidysort-sector program_sector.id %}">{{ program_sector.name }}</a>
 					{% endifnotequal %}
 				{% endfor %}
-				
-				<br/>
-				FY05-10 Grants: {{ program.get_recent_grants_summary }}
+				</td>
+                <td>
 				<div id="fi_comments_{{ program.id }}">
 				Comments: <span id="fi_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#fi_group_{{ group.bf.id }}" onclick="editComment('#fi_comments_{{ program.id }}')">[edit]</a>
 				</div>
@@ -215,18 +183,15 @@ function saveComment(program_id, id)
 					<br/>
 					<a href="#fi_group_{{ group.fi.id }}" onclick="saveComment({{ program.id }}, '#fi_comments_{{ program.id }}')">[save]</a>
 				</div>
+                </td>
+                <td>
 					{% ifinlist program included_programs %}<span id="fi_group_{{ group.fi.id }}_{{ program.id }}"><em>Program included in {{ sector.name }}</em></span>{% else %}<span id="fi_group_{{ group.fi.id }}_{{ program.id }}"><a href="#fi_group_{{ group.fi.id }}" onclick="includeProgram({{ program.id }}, 'fi_group_{{ group.fi.id }}_{{ program.id }}');">[include program]</a></span>{% endifinlist %}
-				</li>
+				</td>
+                </tr>
 			{% endfor %}
-			{% if not  group.programs|length %}
-					<em>No programs in functional index.</em>
-				{% endif %}
-			</ul>
 		{% endfor %}
-	{% else %}
-		<em>No programs in related functional index.</em>
 	{% endif %}	
-</ul>
+</table>
 
 
 

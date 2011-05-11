@@ -1,6 +1,5 @@
 from django.db import models, reset_queries
 from decimal import Decimal
-from cfda.models import ProgramDescription
 from sectors.models import Sector, Subsector
 from geo.models import *
 import sys
@@ -125,7 +124,7 @@ class Record(models.Model):
     subsectors = models.ManyToManyField(Subsector, blank=True)    
     sector_hash = models.IntegerField("Sector Hash", blank=True, null=True, db_index=True)    
     
-    cfda_program = models.ForeignKey(ProgramDescription, blank=True, null=True)
+    cfda_program = models.ForeignKey('cfda.ProgramDescription', blank=True, null=True)
     sai_number = models.CharField("State Application Identifier", max_length=20, blank=True, default='')
     recipient_name = models.CharField("Recipient Name", max_length=45, blank=True, default='')
     recipient_city_code = models.CharField("Recipient City Code", max_length=5, blank=True, default='', help_text="FIPS 55-3 place code") # NORMALIZE 
@@ -206,6 +205,7 @@ class Record(models.Model):
     
         
 
+from cfda.models import ProgramDescription
 class FAADSLoader(object):
     """ handles faads import """
 

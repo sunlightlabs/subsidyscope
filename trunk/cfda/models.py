@@ -1,6 +1,6 @@
 import re
 from datetime import datetime
-import csv
+import csv, sys, os
 from django.core.mail import send_mail
 from django.db import models
 from django.db.models import Sum
@@ -10,7 +10,7 @@ from budget_accounts.models import BudgetAccount
 from django.utils.encoding import smart_unicode
 import helpers.unicode as un
 import settings
-
+from faads.models import Record
 
 re_funding = re.compile('FY ([0-1][0,1,6-9]{1,1})( est. | est | )[\$]([0-9,]+)')
 re_funding_type = re.compile('\((.*?)\)')
@@ -205,8 +205,6 @@ class CFDATag(models.Model):
     tag_name = models.CharField(max_length=255)
     search_default_enabled = models.BooleanField("Enabled for searches by default?")
 
-
-
 class ProgramFunctionalIndex(models.Model):
     
     code = models.CharField("Functional Index Code", max_length=2, blank=False)
@@ -220,6 +218,29 @@ class ProgramFunctionalIndex(models.Model):
     class Meta:
         ordering = ['code']
 
+class ProgramFunctionalIndexManager(models.Manager):
+
+    def load_functional_indices(self, path='cfda/functional_indexes/'):
+        
+        csvs = os.listdir(path)
+        for c in csvs:
+            name = c.replace('.csv', '').replace('_', ' ')
+            try:
+                fi = ProgramFunctionalIndex.objects.get(name=name)
+            except:
+                fi = ProgramFunctionalIndex(name=name, code=1)
+                fi.save()
+
+            r = csv.reader(open(path+c))
+            for line in r:
+                program_number = line[0]
+                try:
+                    prog = ProgramDescription.objects.get(program_number=program_number)
+                    if fi not in prog.functional_index.all():
+                        prog.functional_index.add(fi)
+                except Exception as e:
+                    print e
+                    pass
 
 class ProgramDescription(models.Model):
 
@@ -287,10 +308,16 @@ class ProgramDescription(models.Model):
 
     objects = ProgramDescriptionManager()   
     
-    def get_recent_grants_summary(self):
-        
+    def get_recent_grants_summary(self, summary_type='aggregate'):
+        try:
+            summary = ProgramSummary.objects.get(program=self)
+            if summary_type == 'aggregate':
+                return summary.ten_year_aggregate
+            else:
+                return summary.amount_for_2009
+        except:
+            return ""
         # TODO: need to expand filter criteria
-        
         result = self.cfdasummary_set.filter(assistance_type=4, fiscal_year__gte=2005).aggregate(Sum('federal_funding_amount'))
         
         if result['federal_funding_amount__sum']:
@@ -410,4 +437,23 @@ class ProgramBudgetAnnualEstimate(models.Model):
     
     annual_amount = models.DecimalField("Annual Amount", max_digits=15, decimal_places=2)
     
-    
+class ProgramSummary(models.Model):
+    program = models.ForeignKey('ProgramDescription', null=False, blank=False)
+    ten_year_aggregate = models.DecimalField(decimal_places=0, max_digits=21, null=True)
+    amount_for_2009 = models.DecimalField(decimal_places=0, max_digits=21, null=True)
+
+class ProgramSummaryManager(models.Manager):
+    def load_program_summary(self):
+        for program in ProgramDescription.objects.all():
+            try:
+                p_summ = ProgramSummary.objects.get(program=program)
+
+            except:
+                p_summ = ProgramSummary(program=program)
+
+            records = Record.objects.filter(cfda_program=program)
+            p_summ.amount_for_2009 = records.filter(fiscal_year=2009).aggregate(Sum('federal_funding_amount'))['federal_funding_amount__sum']
+            p_summ.ten_year_aggregate = records.aggregate(Sum('federal_funding_amount'))['federal_funding_amount__sum']
+            p_summ.save()
+
+

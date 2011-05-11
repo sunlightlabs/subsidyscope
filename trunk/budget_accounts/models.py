@@ -80,6 +80,18 @@ class BudgetAccountManager(models.Manager):
         else:
             return None
 
+    def set_budget_functions(self):
+        accs = BudgetAccount.objects.all()
+        for a in accs:
+            ap = a.account_string.split('-')
+            try:
+                bf = BudgetFunction.objects.get(code=int(ap[4]))
+                a.budget_function = bf
+                a.save()
+
+            except Exception as e:
+                import logging
+                logging.debug(e)
 
 class BudgetAccount(models.Model):
     

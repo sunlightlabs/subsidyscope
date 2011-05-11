@@ -44,15 +44,14 @@ def sector(request, sector_id):
             duplicate_programs.append(program)
     
     bf_list = sector.budget_functions.all()
-    
     bf_groups = []
     all_bf_programs = []
     
     for bf in bf_list:
         bf_programs = ProgramDescription.objects.filter(budget_accounts__budget_function=bf).distinct()
-        included_count = ProgramDescription.objects.filter(Q(budget_accounts__budget_function=bf) & Q(sectors=sector)).distinct().count()
+#        included_count = ProgramDescription.objects.filter(Q(budget_accounts__budget_function=bf) & Q(sectors=sector)).distinct().count()
         all_bf_programs += bf_programs
-        bf_groups.append({'bf':bf, 'programs':bf_programs, 'included_count':len(set(bf_programs).intersection(set(included_programs)))})
+        bf_groups.append({'bf':bf, 'programs':bf_programs})#, 'included_count':len(set(bf_programs).intersection(set(included_programs)))})
         
         
     fi_list = sector.functional_indexes.all()
@@ -63,10 +62,10 @@ def sector(request, sector_id):
     for fi in fi_list:
         program_included_count = 0
         fi_programs = ProgramDescription.objects.filter(functional_index=fi).distinct()
-        included_count = ProgramDescription.objects.filter(Q(functional_index=fi) & Q(sectors=sector)).distinct().count()
+#        included_count = ProgramDescription.objects.filter(Q(functional_index=fi) & Q(sectors=sector)).distinct().count()
         all_fi_programs += fi_programs
         
-        fi_groups.append({'fi':fi, 'programs':fi_programs, 'included_count':included_count})   
+        fi_groups.append({'fi':fi, 'programs':fi_programs})#, 'included_count':included_count})   
     
     return render_to_response('subsidysort/sector.html', {'sector':sector, 'included_programs':included_programs, 'duplicate_programs':duplicate_programs, 'bf_groups':bf_groups, 'bf_programs':all_bf_programs, 'fi_groups':fi_groups, 'fi_programs':all_fi_programs})
 
