@@ -33,39 +33,73 @@
 	});
 	</script>
 	
-	<div class="top_nav_bg">
-		<div class="container">
-			<div class="span-24 top_nav_header_height">				
+		<div class="header">
+				<a href="/">
+					<h1 id="subscope_logo">
+					Subsidyscope
+					</h1>
+				</a>
+				<div class="tools">
 				<ul id="top_nav_header">
+
 					
-					<li id="email-form-container"><span id="email-message" class="instruction">Please enter your email address.</span><form action="/mailinglist/subscribed/" method="post" id="email-subscribe"><input type="text" value="" class="text" name="email" />&nbsp;<input class="submit" type="submit" value="Subscribe" /></form></li>
+					<li id="email-form-container"><span id="email-message" class="instruction">Please enter your email address.</span><form action="/mailinglist/subscribed/" method="post" id="email-subscribe"><input type="text" value="" class="text" name="email" />&nbsp;<input class="submit" type="submit" value="Subscribe" /></form>
+					</li>
 					<li><a href="{% url email_signup_nojavascript %}" id="email-updates-toggle">Get Email Updates</a></li>
-					<li><a href="/contact/">Contact</a></li>
-					<li><a href="{% url about %}">About</a></li>					
-					<li><a href="/">Home</a></li>
-					
-				</ul>		
-			</div>
-		</div>	
-	</div>
-
-	<div class="container">	
-		<div class="span-12">
-			<div id="logo_box"><a href="/"><img src="/media/images/ss_logo.png" alt="Subsidyscope Logo" /></a></div>	
-		</div>
-
-		<div class="span-12 last">
-			<div id="search_box_header">
-				<div id="search_box">
-					<form id="search_form" action="/search/" method="GET">
-						<input id="id_query" name="query" type="text"/>
-						<input class="submit" type="submit" value="Search"/>
-					</form>
+				</ul>
+				<form id="header_search_form" action="/search/" method="GET">
+					<input id="id_query" name="query" type="text" placeholder="search site"/>
+					<input class="submit" type="submit" value="Search"/>
+				</form>
 				</div>
-			</div>
-		</div>
+	</div>
+	
+	
+	
+	<div class="global-nav">
+		<ul>
+			<li class="home">
+				<a href="#">Home</a>
 
-		<div class="span-24">
-			<div id="header_spacer">&nbsp;</div>
-		</div>		
+			</li>
+			<li class="about">
+				<a href="#">About</a>
+
+			</li>
+			<li class="subsidy_types">
+				<a href="#">Subsidy Types</a>
+
+			</li>
+			<li class="sectors active_section">
+				<a href="#">Sectors</a>
+				<ul>
+					<li>
+						<a href="#">Financial Bailout</a>
+					</li>
+					<li>
+						<a href="#">Transportation</a>
+					</li>
+					<li>
+						<a href="#">Nonprofits</a>
+					</li>
+					<li>
+						<a href="#">Energy</a>
+					</li>
+					<li>
+						<a href="#">Housing</a>
+					</li>
+					<li>
+						<a href="#">Health <span class="comingsoon">Coming soon!</span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="data">
+				<a href="#">Data</a>
+
+			</li>
+			<li class="contact">
+				<a href="#">Contact</a>
+
+			</li>
+		</ul>
 	</div>
