@@ -37,37 +37,42 @@ def sector(request, sector_id):
 
     included_programs = sector.programdescription_set.all().distinct()
     
-    duplicate_programs = []
-    
-    for program in included_programs:
-        if program.sectors.count() > 1:
-            duplicate_programs.append(program)
-    
     bf_list = sector.budget_functions.all()
-    bf_groups = []
-    all_bf_programs = []
-    
+   
+    all_programs_data = {}
+    all_programs = []
+    #each key maps to a tuple
+    #the tuple order is (budget function or functional index?, which ones?)
+     
     for bf in bf_list:
         bf_programs = ProgramDescription.objects.filter(budget_accounts__budget_function=bf).distinct()
-#        included_count = ProgramDescription.objects.filter(Q(budget_accounts__budget_function=bf) & Q(sectors=sector)).distinct().count()
-        all_bf_programs += bf_programs
-        bf_groups.append({'bf':bf, 'programs':bf_programs})#, 'included_count':len(set(bf_programs).intersection(set(included_programs)))})
-        
+        for bf_prog in bf_programs:
+            if all_programs_data.has_key(bf_prog):
+                p = all_programs_data[bf_prog]
+                p[1] = p[1] + ', ' + bf.name + '(bf)'
+            else:
+                all_programs_data[bf_prog] = ['budget function', bf.name + '(bf)']
+                all_programs.append(bf_prog)
         
     fi_list = sector.functional_indexes.all()
     
-    fi_groups = []
-    all_fi_programs = []
-    
     for fi in fi_list:
-        program_included_count = 0
         fi_programs = ProgramDescription.objects.filter(functional_index=fi).distinct()
-#        included_count = ProgramDescription.objects.filter(Q(functional_index=fi) & Q(sectors=sector)).distinct().count()
-        all_fi_programs += fi_programs
-        
-        fi_groups.append({'fi':fi, 'programs':fi_programs})#, 'included_count':included_count})   
+        for fi_prog in fi_programs:
+            if all_programs_data.has_key(fi_prog):
+                p = all_programs_data[fi_prog]
+                if p[0] == 'budget function':
+                    p[0] = 'both'
+                p[1] += ', '+ fi.name + '(fi) '
+            else:
+                all_programs_data[fi_prog] = ['functional index', fi.name + '(fi)']
+                all_programs.append(fi_prog)     
+   
+    data = []
+    for p in all_programs:
+        data.append((p, all_programs_data[p][0], all_programs_data[p][1]))
     
-    return render_to_response('subsidysort/sector.html', {'sector':sector, 'included_programs':included_programs, 'duplicate_programs':duplicate_programs, 'bf_groups':bf_groups, 'bf_programs':all_bf_programs, 'fi_groups':fi_groups, 'fi_programs':all_fi_programs})
+    return render_to_response('subsidysort/sector.html', {'sector':sector, 'included_programs':included_programs, 'all_programs': all_programs, 'all_programs_data': all_programs_data, 'data': data })
 
 #@login_required
 def sector_edit(request, sector_id):
