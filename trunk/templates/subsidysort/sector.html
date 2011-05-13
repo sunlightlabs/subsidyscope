@@ -94,10 +94,12 @@ function saveComment(program_id, id)
 <div id="find_program_results"></div>
 
 <p><strong>Included Programs:</strong></p>
+{% if included_programs %}
 	<table id="included_programs">
-        <tr><th>Program Number</th><th>Program Name</th><th>Spending</th><th>Comments</th></tr>
-	{% if included_programs %}
-	
+        <thead>
+            <tr><th>Program Number</th><th>Program Name</th><th>Spending</th><th>Comments</th></tr>
+        </thead>
+        <tbody>
 		{% for program in included_programs %}
             <tr>
                 <td><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a></td>
@@ -115,8 +117,10 @@ function saveComment(program_id, id)
 				</td>
             </tr>
 		{% endfor %}
-	{% endif %}	
 	</table>
+{% else %}
+No Programs Selected
+{% endif %}	
 <p><strong>Programs in Related Budget Functions and Functional Index:</strong></p>
 
 {% if all_programs %}
@@ -168,7 +172,7 @@ function saveComment(program_id, id)
 <script type="text/javascript" charset="utf-8">
 $("#all_programs").tablesorter({
     headers: {
-        0: {sorter: 'numeric'},
+        0: {sorter: 'currency'},
         2:{sorter:'currency'}
     }
 });
