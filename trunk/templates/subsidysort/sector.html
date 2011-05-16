@@ -23,28 +23,32 @@ $(document).ready(function () {
     }
     
 });  
-
+*/
 function removeProgram(program_id)
 {
+    var that = this;
 	$.post('/subsidysort/sector/'+ sector_id + '/delete/' + program_id + '/', function(data){
-
-		location.reload();
-			
+    console.log(that);
+    $(that).parents("td.add_or_remove").html('<span><a href="#" onclick="includeProgram('+program_id+');">[include program]</a></span>');
+//		location.reload();
+    return false;			
 	});
 }
 
-function includeProgram(program_id, span_id)
+function includeProgram(program_id)
 {
+    var that = this;
 	$.post('/subsidysort/sector/'+ sector_id + '/add/' + program_id + '/', function(data){
 		
-		if(span_id)
+//		if(span_id)
 		{
-			$('#refresh_link').show();
+	//		$('#refresh_link').show();
 		
-			$('#' + span_id).html('<em>Program Included in {{ sector.name }}</em>')
+          $(that).parents("td.add_or_remove").html('<span><em>Included <a href="#" onclick="removeProgram('+program_id+');">[remove program]</a></em></span>');
+//			$('#' + span_id).html('<em>Program Included in {{ sector.name }}</em>')
 		}
-		else
-			location.reload();
+//		else
+//			location.reload();
 	
 	});
 		
@@ -81,7 +85,7 @@ function saveComment(program_id, id)
 		$(id + '_edit').hide();
 	});
 }
-*/
+
 
 </script>
 
@@ -148,17 +152,21 @@ No Programs Selected
             {% endfor %}
             </td>
             <td>
-            <div id="bf_comments_{{ program.0.id }}">
-            Comments: <span id="bf_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#bf_group_{{ group.bf.id }}_{{ program.id }}" onclick="editComment('#bf_comments_{{ program.id }}')">[edit]</a>
+            <div id="comments_{{ program.0.id }}">
+            Comments: <span id="comments_{{ program.0.id }}_span">{{ program.0.scoping_comment }}</span> <a href="#{{ program.0.id }}" onclick="editComment('{{ program.0.id }}')">[edit]</a>
             </div>
-            <div style="display:none;" id="bf_comments_{{ program.id }}_edit">
-                <textarea cols="40" rows="5" id="bf_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
+            <div style="display:none;" id="comments_{{ program.0.id }}_edit">
+                <textarea cols="40" rows="5" id="comments_{{ program.0.id }}_textarea">{{ program.scoping_comment }}</textarea>
                 <br/>
-                <a href="#bf_group_{{ group.bf.id }}_{{ program.id }}" onclick="saveComment({{ program.id }}, '#bf_comments_{{ program.id }}')">[save]</a>
+                <a href="#{{ program.0.id }}" onclick="saveComment({{ program.0.id }}, '#comments_{{ program.0.id }}')">[save]</a>
             </div>
             </td>
-            <td>
-                {% ifinlist program included_programs %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><em>Program included in {{ sector.name }}</em></span>{% else %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><a href="#bf_group_{{ group.bf.id }}" onclick="includeProgram({{ program.id }}, 'bf_group_{{ group.bf.id }}_{{ program.id }}');">[include program]</a></span>{% endifinlist %}
+            <td class="add_or_remove">
+                {% ifinlist program.0 included_programs %}
+                    <span><em>Included <a href="#" onclick="removeProgram({{ program.0.id }});">[remove program]</a></em></span>
+                {% else %}
+                    <span><a href="#" onclick="includeProgram({{ program.0.id }});">[include program]</a></span>
+                {% endifinlist %}
             </td>
             </tr>
     {% endfor %}

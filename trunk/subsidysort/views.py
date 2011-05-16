@@ -36,7 +36,8 @@ def sector(request, sector_id):
     sector = Sector.objects.get(pk=int(sector_id))
 
     included_programs = sector.programdescription_set.all().distinct()
-    
+    import logging
+    logging.debug(included_programs) 
     bf_list = sector.budget_functions.all()
    
     all_programs_data = {}
