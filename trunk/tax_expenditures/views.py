@@ -80,6 +80,32 @@ def group(request, group_id):
     return render_to_response('tax_expenditures/group.html', {'group':group, 'subgroups':subgroups, 'source':None, 'estimate':estimate, 'report_years':report_years, 'estimate_years':estimate_years,  'year':year, 'year_choices':year_choices, 'previous_year':previous_year, 'next_year':next_year}, context_instance=RequestContext(request))
 
 
+def one_off_csv():
+    writer = csv.writer(open('post_processed_all.csv', 'w'))
+    header_summary = ['Indent', 'Budget Function', 'Subsidyscope Title', 'Title as Appears in Budget', 'Source', 'Report Year', '2000 Total','2001 Total','2002 Total','2003 Total','2004 Total','2005 Total','2006 Total','2007 Total','2008 Total','2009 Total','2010 Total','2011 Total','2012 Total','2013 Total','2014 Total','2015 Total', '2016 Total', '2000 Corp','2001 Corp','2002 Corp','2003 Corp','2004 Corp','2005 Corp','2006 Corp','2007 Corp','2008 Corp','2009 Corp','2010 Corp','2011 Corp','2012 Corp','2013 Corp','2014 Corp','2015 Corp', '2016 Corp','2000 Indv','2001 Indv','2002 Indv','2003 Indv','2004 Indv','2005 Indv','2006 Indv','2007 Indv','2008 Indv','2009 Indv','2010 Indv','2011 Indv','2012 Indv','2013 Indv','2014 Indv','2015 Indv', '2016 Indv']
+    writer.writerow(header_summary)
+    top_level_groups = Group.objects.filter(parent=None).order_by('id')
+    for gp in top_level_groups:
+        one_off_recurse_category(gp, writer, '', gp.name)
+
+
+def one_off_recurse_category(grp, writer, indent, budget_function, name_prefix=None):
+    
+    if Group.objects.filter(parent=grp).count() == 0:
+        line_item_csv(grp, writer, budget_function, indent, name_prefix)
+    else:
+        name_prefix = ''
+        if Expenditure.objects.filter(group=grp).count() > 0:
+            line_item_csv(grp, writer, budget_function, indent)
+            name_prefix = grp.name + ' - '
+
+        indent += '*'
+        
+        for subgroup in Group.objects.filter(parent=grp):
+            
+            one_off_recurse_category(subgroup, writer, indent, budget_function, name_prefix)
+
+
 def te_csv(request, group_id=None):
     
     try:
@@ -130,7 +156,7 @@ def te_csv(request, group_id=None):
         writer.writerow(header)
         for parent in Group.objects.filter(parent=None):
             budget_function = parent.name
-            parent_summary(parent, writer)
+            arent_summary(parent, writer)
 #           recurse_category(parent, writer, '', budget_function)
     
     return response
@@ -154,7 +180,7 @@ def parent_summary(group, writer):
 
 
 
-def line_item_csv(parent, writer, budget_function, indent='*'):
+def line_item_csv(parent, writer, budget_function, indent='*', name_prefix=''):
     
     for expenditure in parent.expenditure_set.all().order_by('source'):
    
@@ -203,7 +229,7 @@ def line_item_csv(parent, writer, budget_function, indent='*'):
         row = []
         row.append(indent) #no indent
         row.append(budget_function)
-        row.append(parent.name)
+        row.append(name_prefix + parent.name)
         row.append(expenditure.name)
         row.append(expenditure.get_source_display())
         row.append(expenditure.analysis_year)

@@ -169,12 +169,18 @@ def recurse_category(parent, writer, indent, budget_function):
                     if estimate.individuals_amount != None:
                         indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                         
-#                        if total_estimates[estimate.estimate_year]:
- #                           total_estimates[estimate.estimate_year] += estimate.individuals_amount
+                        if total_estimates[estimate.estimate_year]:
+                           total_estimates[estimate.estimate_year] += estimate.individuals_amount
                    
-#else:
- #                           total_estimates[estimate.estimate_year] = estimate.individuals_amount
+                        else:
+                           total_estimates[estimate.estimate_year] = estimate.individuals_amount
             
+ 
+#           for year in TE_YEARS:
+ #              if total_estimates.has_key(year):
+#                    row.append(total_estimates[year])
+ #               else:
+  #                  row.append('')
         
                 
             for year in TE_YEARS:
@@ -298,12 +304,27 @@ if len(sys.argv) > 1:
             name = group.name.replace(" ", "_").lower()
             writer = csv.writer(open("postprocessed/%s_%s_postprocessed.csv" % (letters[count], name), 'w'), quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
             writer.writerow(header_summary)
-            writer.writerow(['', group.name,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',group.description,group.notes])
+            writer.writerow(['', group.name,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',group.description.encode('ascii', 'ignore'),group.notes])
             
             for subgroup in Group.objects.filter(parent=group):
                 recurse_category(subgroup, writer, '#', name)
 
             count += 1
+    if op == "postprocess_tes_all" or op == "everything":
+        top_level_groups = Group.objects.filter(parent=None).order_by('id')
+        letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r']
+        count = 0
+        writer = csv.writer(open("postprocessed/all_postprocessed_tes.csv", 'w'), quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
+        writer.writerow(header_summary)
+        for group in top_level_groups:
+            name = group.name.replace(" ", "_").lower()
+            writer.writerow(['', group.name,'','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','','',group.description.encode('ascii', 'ignore'),group.notes])
+            
+            for subgroup in Group.objects.filter(parent=group):
+                recurse_category(subgroup, writer, '#', name)
+
+            count += 1
+
 
     elif op == 'data_check_definitions':
         data_check_definitions()

@@ -143,7 +143,6 @@ def process_group(parent, data, indent):
         if row[0] == indent:
             group = Group.objects.create(name=row[1], parent=parent)
             group.description = row[name_field]
-#            print group.description
             group.notes = row[notes_field]
             group.save()
         
