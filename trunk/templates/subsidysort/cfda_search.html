@@ -1,3 +1,5 @@
+{% load humanize %}
+{% load subsidysort_tags %}
 <ul>
 <li>
 {% if program %}
@@ -7,7 +9,13 @@
 		{% endfor %}
 	
 	<br/>
-	{% if included %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><em>Program Included</em></span>{% else %}<span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><a href="#all_programs" onclick="includeProgram({{ program.id }}, false);">[Include Program]</a></span>{% endif %}
+	{% if included %}
+        <span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><em>Program Included</em></span>
+    {% else %}
+
+        <span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><a href="#all_programs" onclick="addToTable('{{program.get_recent_grants_summary|floatformat:0|intcomma}}', {{ program.id }}, '{{program.program_title}}', '{{program.program_number}}', '{{program.scoping_comment}}');return false;">[Add Program To Table]</a></span>
+    {% endif %}
+
 {% else %}
 	<em>No matching program was found.</em>
 {% endif%}	

@@ -42,6 +42,8 @@ def sector(request, sector_id):
    
     all_programs_data = {}
     all_programs = []
+
+
     #each key maps to a tuple
     #the tuple order is (budget function or functional index?, which ones?)
      
@@ -69,6 +71,12 @@ def sector(request, sector_id):
                 all_programs_data[fi_prog] = ['functional index', fi.name + '(fi)']
                 all_programs.append(fi_prog)     
    
+    #to capture manually added programs not in bf or fi
+    for ip in included_programs:
+        if ip not in all_programs:
+            all_programs.append(ip)
+            all_programs_data[ip] = [ '', '', '']
+
     data = []
     for p in all_programs:
         data.append((p, all_programs_data[p][0], all_programs_data[p][1]))

@@ -5,7 +5,9 @@
 {% block title %}{{ sector }}{% endblock %}
 
 {% block content %}
-
+<style>
+th {cursor: pointer;}
+</style>
 <script language="javascript">
 
 var sector_id = {{ sector.id }};
@@ -24,32 +26,22 @@ $(document).ready(function () {
     
 });  
 */
-function removeProgram(program_id)
+function addToTable( grants, program_id, program_name, program_number, scoping_comment){
+    var html = '<tr id="'+program_number+'_row"><td><a href="/subsidysort/cfda/'+ program_id + '"><strong>' + program_number+ '</strong></a></td><td>'+ program_name +'</td><td style="text-align:right;">$'+grants+'</td><td>n/a</td><td>n/a</td><td>---</td><td><div id="comments_'+program_id+'">Comments: <span id="comments_'+program_id+'_span">' + scoping_comment+ '</span> <a href="#' + program_id +'" onclick="editComment(this, '+program_id+');return false;">[edit]</a><div style="display:none;" id="comments_' + program_id + '_edit"><textarea cols="40" rows="5" id="comments_'+program_id+'_textarea">'+ scoping_comment +'</textarea><br/><a href="#'+program_id+'" onclick="saveComment(this, '+ program_id + ', \'#comments_' + program_id + '\');return false;">[save]</a></div></div></td><td class="add_or_remove"><span><a href="#" onclick="includeProgram(this, '+ program_id +'); return false;">[include program]</a></span></td></tr> ';
+
+    $(html).insertAfter("table#all_programs tr:first");
+}
+function removeProgram(that, program_id)
 {
-    var that = this;
 	$.post('/subsidysort/sector/'+ sector_id + '/delete/' + program_id + '/', function(data){
-    console.log(that);
-    $(that).parents("td.add_or_remove").html('<span><a href="#" onclick="includeProgram('+program_id+');">[include program]</a></span>');
-//		location.reload();
-    return false;			
+        $(that).parents("td.add_or_remove").html('<span><a href="#" onclick="includeProgram(this, '+program_id+');return false;">[include program]</a></span>');
 	});
 }
 
-function includeProgram(program_id)
+function includeProgram(that, program_id)
 {
-    var that = this;
 	$.post('/subsidysort/sector/'+ sector_id + '/add/' + program_id + '/', function(data){
-		
-//		if(span_id)
-		{
-	//		$('#refresh_link').show();
-		
-          $(that).parents("td.add_or_remove").html('<span><em>Included <a href="#" onclick="removeProgram('+program_id+');">[remove program]</a></em></span>');
-//			$('#' + span_id).html('<em>Program Included in {{ sector.name }}</em>')
-		}
-//		else
-//			location.reload();
-	
+        $(that).parents("td.add_or_remove").html('<span><em>Included <a href="#" onclick="removeProgram(this, '+program_id+');return false;">[remove program]</a></em></span>');
 	});
 		
 }
@@ -60,22 +52,23 @@ function findProgram()
 
 	if(cfda != '')
 	{
-		$.get('/subsidysort/sector/'+ sector_id + '/search/' + cfda + '/', function(data) {
-			
-			$('#find_program_results').html(data);
-		});
+        if( $('#'+cfda.substr(0, 2) + '\\'+ cfda.substr(2) +'_row').length > 0){
+            $('#find_program_results').html('<p>This program is already in the list below</p>');
+        }
+        else {
+    		$.get('/subsidysort/sector/'+ sector_id + '/search/' + cfda + '/', function(data) {
+	    		$('#find_program_results').html(data);
+		    });
+        }
 	}
-		
-	
 }
 
-function editComment(id)
+function editComment(that, id)
 {
-//	$(id).hide();
-	$(id + '_edit').show();
+    $(that).siblings('div').show();
 }
 
-function saveComment(program_id, id)
+function saveComment(that, program_id, id)
 {
 	var comment = $(id + '_textarea').val();
 	$(id + '_span').html(comment);
@@ -93,10 +86,10 @@ function saveComment(program_id, id)
 
 <p>&nbsp;</p>
 
-<p>Add program by CFDA: <input id="find_program_cfda" type="text" size="5"/> <a href="#" onclick="findProgram();">[find]</a></p>
-
+<p>Add program by CFDA: <input id="find_program_cfda" type="text" size="5"/> <a href="#" onclick="findProgram();return false;">[find]</a></p>
 <div id="find_program_results"></div>
 
+<!--
 <p><strong>Included Programs:</strong></p>
 {% if included_programs %}
 	<table id="included_programs">
@@ -109,7 +102,7 @@ function saveComment(program_id, id)
                 <td><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a></td>
                 <td>{{ program.program_title }} <a href="#all_programs" onclick="removeProgram({{ program.id }});">[remove program]</a></td>
                 <td>
-				<!-- <br/> FY09 Obligations: $tbd <a href="" onclick=edit>[more]</a> -->
+				 <br/> FY09 Obligations: $tbd <a href="" onclick=edit>[more]</a>
 				    FY05-10 Grants: {{ program.get_recent_grants_summary }}
                 </td>
                 <td id="ap_comments_{{ program.id }}" style="width:300px;">
@@ -125,6 +118,7 @@ function saveComment(program_id, id)
 {% else %}
 No Programs Selected
 {% endif %}	
+-->
 <p><strong>Programs in Related Budget Functions and Functional Index:</strong></p>
 
 {% if all_programs %}
@@ -136,7 +130,7 @@ No Programs Selected
     </thead>
     <tbody>
 	{% for program in data %}
-        <tr><td>
+        <tr id="{{program.0.program_number}}_row"><td>
             <a href="{% url subsidysort-cfda program.0.id %}"><strong>{{ program.0.program_number }}</strong></a></td>
             <td>{{ program.0.program_title }}</td>
             <td style="text-align:right;">
@@ -153,19 +147,19 @@ No Programs Selected
             </td>
             <td>
             <div id="comments_{{ program.0.id }}">
-            Comments: <span id="comments_{{ program.0.id }}_span">{{ program.0.scoping_comment }}</span> <a href="#{{ program.0.id }}" onclick="editComment('{{ program.0.id }}')">[edit]</a>
-            </div>
-            <div style="display:none;" id="comments_{{ program.0.id }}_edit">
-                <textarea cols="40" rows="5" id="comments_{{ program.0.id }}_textarea">{{ program.scoping_comment }}</textarea>
-                <br/>
-                <a href="#{{ program.0.id }}" onclick="saveComment({{ program.0.id }}, '#comments_{{ program.0.id }}')">[save]</a>
+                Comments: <span id="comments_{{ program.0.id }}_span">{{ program.0.scoping_comment }}</span> <a href="#{{ program.0.id }}" onclick="editComment(this, '{{ program.0.id }}');return false;">[edit]</a>
+                <div style="display:none;" id="comments_{{ program.0.id }}_edit">
+                    <textarea cols="40" rows="5" id="comments_{{ program.0.id }}_textarea">{{ program.scoping_comment }}</textarea>
+                    <br/>
+                    <a href="#{{ program.0.id }}" onclick="saveComment(this, {{ program.0.id }}, '#comments_{{ program.0.id }}');return false;">[save]</a>
+                </div>
             </div>
             </td>
             <td class="add_or_remove">
                 {% ifinlist program.0 included_programs %}
-                    <span><em>Included <a href="#" onclick="removeProgram({{ program.0.id }});">[remove program]</a></em></span>
+                    <span><em>Included <a href="#" onclick="removeProgram(this, {{ program.0.id }});return false;">[remove program]</a></em></span>
                 {% else %}
-                    <span><a href="#" onclick="includeProgram({{ program.0.id }});">[include program]</a></span>
+                    <span><a href="#" onclick="includeProgram(this, {{ program.0.id }});return false;">[include program]</a></span>
                 {% endifinlist %}
             </td>
             </tr>
