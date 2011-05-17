@@ -1,3 +1,8 @@
 whoosh
 do_fpds_import.sh
 *.pyc
+bin/
+src/
+lib/
+*.zip
+*.sql

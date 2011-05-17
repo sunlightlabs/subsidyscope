@@ -1,0 +1,35 @@
+{% load media %}
+{% load smarterif %}
+{% for entry in entries %}
+
+    <div id="tab-{{forloop.counter0}}" class="carousel-tab">
+        <div id="imagecontainer">
+			<img class="feature-image" src="{% media_url %}/{{entry.image}}" width="450" />
+			<p class="intro_copy">Subsidyscope raises public awareness about the role of federal subsidies in the economy.  <a href="{% url framing-paper %}" class="intro_more">Read More »</a>
+			</p>
+			<div class="intro_copy_border">
+			</div>
+			<ul class="feature_nav tabNavigation feature_circle">
+    
+	        {% for dot in entries %}
+	            <li>
+	                <a href="#tab-{{forloop.counter0}}">
+	                    <img src="{% media_url %}/images/front/feature_nav_{% if forloop.counter0 == forloop.parentloop.counter0 %}selected_index{% else %}unselected_index{% endif %}.png" />
+	                </a>
+	            </li>
+    
+	        {% endfor %}
+    
+	        </ul>
+		</div>
+        <div class="newsbits" >
+			<h2>
+	            <a href="{{entry.link}}">{{entry.title}}</a>
+	        </h2>
+	        <p class="feature_content">
+	            <strong>{{entry.date|date:"m/d/y"}}&nbsp;&ndash;&nbsp;</strong>{{entry.text|safe}}
+	        </p>
+	
+		</div>
+    </div>
+{% endfor %}

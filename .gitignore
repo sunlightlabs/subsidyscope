@@ -1,7 +1,9 @@
+whoosh
+do_fpds_import.sh
 *.pyc
-.DS_Store
-local_settings.py
-solr*
-gunicorn.conf.py
-virt_subsidyscope
-apache-solr*
+bin/
+src/
+lib/
+include/
+*.zip
+*.sql
