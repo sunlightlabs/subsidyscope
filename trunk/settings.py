@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'inflation',
     'navigation',
     'gunicorn',
+    'menu'
 )
 
 #try:
