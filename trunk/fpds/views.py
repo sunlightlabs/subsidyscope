@@ -154,6 +154,7 @@ def search(request, sector_name=None):
     ran_search = False
     fpds_results_page = None
     found_some_results = False
+    page_range = None
     year_range_text = None
     sort_column = 'obligation_date'
     sort_order = 'asc'
@@ -243,6 +244,10 @@ def search(request, sector_name=None):
 
             found_some_results = len(fpds_results)>0
 
+            page_range = range(max(1, fpds_results_page.number - 10),
+                               min(paginator.num_pages,
+                                   fpds_results_page.number + 10))
+
             ran_search = True
 
             # display date range on map
@@ -278,7 +283,20 @@ def search(request, sector_name=None):
             form = formclass()
 
 
-    return render_to_response('fpds/search/search.html', {'year_range_text': year_range_text, 'fpds_results':fpds_results_page, 'sector': sector_name, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order, 'page_path': request.path}, context_instance=RequestContext(request))
+    return render_to_response('fpds/search/search.html', {
+                'year_range_text': year_range_text, 
+                'fpds_results': fpds_results_page, 
+                'page_range': page_range,
+                'sector': sector_name, 
+                'form': form, 
+                'ran_search': ran_search,
+                'found_some_results': found_some_results, 
+                'query': query, 
+                'sort_column': sort_column, 
+                'sort_order': sort_order, 
+                'page_path': request.path
+            }, 
+            context_instance=RequestContext(request))
 
 
 
