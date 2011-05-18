@@ -262,7 +262,6 @@ a.pew-logo{
 	-webkit-box-shadow: 3px 0px 15px #e5e5e5;
 	-moz-box-shadow: 3px 0px 15px #e5e5e5;
 	box-shadow: 3px 0px 15px #e5e5e5;
-	margin-right: 30px;
 	border-left: 3px solid #ffffff;
 	padding: 20px 10px 60px 0;
 	min-height: 470px;
@@ -347,6 +346,7 @@ h4{
 .page-content{
 	width: 660px;
 	float: left;
+	margin-left: 30px;
 }
 .page-content img{
 	display: block;
@@ -629,15 +629,28 @@ ul.sectors-home{
 }
 
 /*------ Sector Carousel Styling ------*/
+.carousel-border{
+	background: #f5f5f4;
+	width: 960px;
+	height: 10px;
+}
+.carousel-bg{
+	width: 690px;
+	float: left;
+	margin-left: 0;
+	height: 246px;
+	background: #f5f5f4;
+}
+
 .sector_carousel .marquee{
 	border-bottom: 1px solid #c3c3c3;
 	padding-bottom: 2px;
 }
-.sector_carousel .carousel-tab{
-	height: 360px;
-	width: 950px;
+.sector_carousel.carousel-tab{
+	height: 235px;
+	width: 690px;
 	position: relative;
-	z-index: 2;
+	background: #ffffff;
 }
 
 .sector_carousel #imagecontainer{
@@ -649,12 +662,13 @@ ul.sectors-home{
 .sector_carousel #imagecontainer img.feature-image{
 	width: 420px;
 	height: 235px;
+	margin-top: 0;
 }
 
 .sector_carousel ul.feature_nav{
 	position: absolute;
-	top: 210px;
-	right: 545px;
+	top: 208px;
+	right: 255px;
 }
 
 .sector_carousel .feature_nav li{
@@ -670,6 +684,17 @@ ul.sectors-home{
 }
 .sector_carousel .newsbits h2{
 	font-size: 130%;
+}
+
+.updates_head { 
+	border-top:1px solid #cbcbcb; 
+	background-color:#f3f3f4; 
+	padding:5px 0 0 10px; 
+	border-bottom:1px solid #ffffff; 
+	color:#333333; 
+	font-size:14px; 
+	background-image:url(/media/images/front_update_head_bg_alt.png); 
+	background-repeat:repeat-x;
 }
 
 

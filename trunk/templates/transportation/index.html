@@ -8,7 +8,6 @@
 {% js "scripts/cookie.js" %}
 {% js "scripts/carouselinit.js" %}
 
-<link rel="stylesheet" type="text/css" media="screen" href="/media/styles/caitlin.css" />
 
 <div id="transportation" class="wrapper clearfix">	
 	<div class="secondary-header">
@@ -16,6 +15,9 @@
 		Transportation
 		</h3>
 	</div>
+	<div class="carousel-border">
+	</div>
+
 	<div class="secondary-nav">
 		<ul id="bailout-index"  style="display: none;">
 			<li>
@@ -356,12 +358,18 @@
 			</li>
 		</ul>
 	</div>
-	
+	<div class="carousel-bg">
+		<div class="tabs">
+	              {% carousel_entries 2 %}
+	    </div>
+	</div>
 	<div class="page-content">
-	    <div class="tabs">
-                  {% carousel_entries 2 %}
-        </div>
-			
+
+		<div class="last graphs">
+            
+		    {% morsel text2 %}
+    
+		</div>	
 		<div class="updates_box">
 			<div class="updates_head">
 				<h2>Transportation Sector Updates
@@ -372,18 +380,6 @@
 	      {% project_updates 2 %}	
            </div> 	<!-- ends update box-->
 
-		<div id="intro">	
-			<img src="/media/images/sector_icons/transportation/trans_lg.png" border="0" alt="Transportation Sector" class="sector_header_icon">
-			<span class="sector_header">Transportation</span>
-			<p class="sector_intro_copy">{% morsel text1 %}</p>		
-		</div>
-
-
-		<div class="last graphs">
-            
-		    {% morsel text2 %}
-    
-		</div>
 	</div>
 </div>
 
