@@ -212,6 +212,14 @@ var sortOrder = '{{ sort_order }}';
                       {% endif %}
                   </span>
               </div>
+
+              <div class="pagination">
+                  <span>
+                      {% for page_num in page_range %}
+                          <a href="?q={{ query|safe }}&page={{ page_num }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">{{ page_num }}</a>
+                      {% endfor %}
+                  </span>
+              </div>
               
               <div class="search-disclaimer">{% morsel disclaimer1 %}</div>
 
