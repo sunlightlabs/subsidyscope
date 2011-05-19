@@ -6,27 +6,48 @@ register = template.Library()
 def recursive_menu(context):
     current_path = context['request'].path
     menu = Menu.objects.get(name=context['menu_name'])
-    sub_menus = Menu.objects.filter(parent_menu_id=menu.id).order_by('slug')
+    sub_menus = Menu.objects.filter(parent_menu_id=menu.id).order_by('id')
     menu_items = MenuItem.objects.filter(menu=menu)
 
-    menu_data = []
+    html = []
     for sm in sub_menus:
         menu_list = []
         current_page = False
+        import logging
         for mi in MenuItem.objects.filter(menu=sm):
             if current_path.startswith(mi.link_url):
-                menu_list.append((mi.title, mi.link_url, 'active'))
+                menu_list.append('<li class="active"><a href="' + mi.link_url + '">'+ mi.title + '</a></li>')
                 current_page = True
             else:
-                menu_list.append((mi.title, mi.link_url, ''))
-            
-        if current_page:
-            menu_list.insert(0, (sm.slug, sm.base_url, 'expanded'))
+                menu_list.append('<li><a href="' + mi.link_url + '">'+ mi.title+ '</a></li>')
+        
+        for lm in Menu.objects.filter(parent_menu_id=sm.id):
+            leaf_menu = []
+            current_leaf_page = False
+            for lm_item in MenuItem.objects.filter(menu=lm):
+                if current_path.startswith(lm_item.link_url):
+                    leaf_menu.append('<li class="active"><a href="' + lm_item.link_url + '">'+ lm_item.title + '</a></li>')
+                    current_leaf_page = True
+                else:
+                    leaf_menu.append('<li><a href="' + lm_item.link_url + '">'+ lm_item.title + '</a></li>')
+            if current_leaf_page:
+                leaf_menu.insert(0, '<li class="active"><a href="' + lm.base_url + '">' + lm.name + '</a><ul>')
+            else:
+                leaf_menu.insert(0, '<li><a href="'+ lm.base_url + '">' + lm.name + '</a><ul>')
+
+            leaf_menu.append('</ul></li>')
+
+            menu_list.extend(leaf_menu)
+        
+        if current_page or current_path.startswith(sm.base_url):
+            menu_list.insert(0, '<ul class="expanded"><li class="active"><a href="'+ sm.base_url + '">'+ sm.name +'</a><ul>')
         else:
-            menu_list.insert(0, (sm.slug, sm.base_url, ''))
-        menu_data.append(menu_list)
-    import logging
-    logging.debug(menu_data)
+            menu_list.insert(0, '<ul class="collapsed"><li><a href="' + sm.base_url + '">' + sm.name + '</a><ul>')
+        
+        menu_list.append('</ul></li></ul>')
+#        menu_data.append(menu_list)
+        html.extend(menu_list)
+        menu_data = ''.join(html)
     return { 'menu_data': menu_data, 'menu_items': menu_items }
 
 
