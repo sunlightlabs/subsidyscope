@@ -5,7 +5,8 @@ register = template.Library()
 
 def recursive_menu(context):
     current_path = context['request'].path
-    menu = Menu.objects.get(name=context['menu_name'])
+    slug = current_path.split('/')[1]
+    menu = Menu.objects.get(slug=slug)
     sub_menus = Menu.objects.filter(parent_menu_id=menu.id).order_by('id')
     menu_items = MenuItem.objects.filter(menu=menu)
 
@@ -13,7 +14,6 @@ def recursive_menu(context):
     for sm in sub_menus:
         menu_list = []
         current_page = False
-        import logging
         for mi in MenuItem.objects.filter(menu=sm):
             if current_path.startswith(mi.link_url):
                 menu_list.append('<li class="active"><a href="' + mi.link_url + '">'+ mi.title + '</a></li>')
@@ -42,12 +42,18 @@ def recursive_menu(context):
         if current_page or current_path.startswith(sm.base_url):
             menu_list.insert(0, '<ul class="expanded"><li class="active"><a href="'+ sm.base_url + '">'+ sm.name +'</a><ul>')
         else:
-            menu_list.insert(0, '<ul class="collapsed"><li><a href="' + sm.base_url + '">' + sm.name + '</a><ul>')
+            menu_list.insert(0, '<ul><li><a href="' + sm.base_url + '">' + sm.name + '</a><ul>')
         
         menu_list.append('</ul></li></ul>')
 #        menu_data.append(menu_list)
         html.extend(menu_list)
-        menu_data = ''.join(html)
+    
+    for mi in menu_items:
+        if current_path.startswith(mi.link_url):
+            html.append('<ul class="expanded single"><li class="active"><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
+        else:
+            html.append('<ul><li><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
+    menu_data = ''.join(html)
     return { 'menu_data': menu_data, 'menu_items': menu_items }
 
 

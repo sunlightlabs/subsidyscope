@@ -3,13 +3,12 @@
 {% load media %}
 {% load morsel_tags %}
 {% block content %}
-
-<div class="container main_container">
-    {% include "includes/generic_sub_nav.html" %}
-    <div class="span-24">
-        <div id="header_area">
+{% load menubuilder %}
+<div id="housing" class="wrapper clearfix">
+        <div id="secondary_header">
             <h3>{% morsel_page_title %}</h3>
         </div>
+        {% recursive_menu %}
         <div class="content_area">
             {% morsel summary glossarize %}
             {% morsel text1 glossarize %}

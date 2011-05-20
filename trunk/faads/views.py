@@ -37,14 +37,22 @@ def strip_clean_tags(x):
         return strip_tags(unicode(x).encode('ascii','ignore'))
     else:
         return ''
-    
 
-def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
-    
-    # fill CFDA program list
+
+def cfda_programs_for_sector(sector):
     cfda_programs = ProgramDescription.objects.all()
     if sector is not None:
         cfda_programs = cfda_programs.filter(sectors=sector)
+    else:
+        # If sector is None, we want all sectors
+        cfda_programs = cfda_programs.filter(sectors__isnull=False)
+    return cfda_programs
+
+
+def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
+
+    # fill CFDA program list
+    cfda_programs = cfda_programs_for_sector(sector)
     cfda_program_choices = []
     initial_cfda_program_choices = []
     for c in cfda_programs:
@@ -86,29 +94,48 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     }
     
     class FAADSSearchForm(forms.Form):
-      
+
         # free text query
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
+        sector_id_choices = [('', 'All Sectors')] + [(s.id, s.name) for s in Sector.objects.all()]
+        sector_id = forms.ChoiceField(label='Economic Sector',
+                                      choices=sector_id_choices,
+                                      required=False,
+                                      initial=sector.id if sector else '')
+
         # CFDA programs, subsectors
         cfda_program_selection_choices = [('program-selection-subsidy_programs','Subsidy Programs')]
         if subsector_choices:
             cfda_program_selection_choices.append(('program-selection-subsector', 'Programs by ' + SUBSECTOR_SYNONYMS.get(sector.name.lower(), 'Subsector')))
         if len(cfda_program_choices)>0:
             cfda_program_selection_choices.append(('program-selection-program', 'All Programs'))
+            if sector is not None: 
+                # The program selection widget is too large to be useful
+                # when rendered for all sectors.
+                program_selection_programs = forms.MultipleChoiceField(
+                    label="CFDA Program", 
+                    choices=cfda_program_choices, 
+                    required=False, 
+                    initial=initial_cfda_program_choices, 
+                    widget=CheckboxSelectMultipleMulticolumn(columns=2))
+        if len(cfda_program_selection_choices) > 1:
+            cfda_program_selection_method = forms.TypedChoiceField(
+                label="Choose programs by", 
+                widget=TabbedSelectWidget,
+                required=False,
+                empty_value='program-selection-subsidy_programs',
+                choices=cfda_program_selection_choices,
+                initial=(len(subsectors)>0 
+                         and 'program-selection-subsector' 
+                         or 'program-selection-subsidy_programs'))
             
-        if len(cfda_program_selection_choices)==1:
-            cfda_program_selection_method = False       
-            program_selection_programs = False
-        else:                
-            cfda_program_selection_method = forms.TypedChoiceField(label="Choose programs by", widget=TabbedSelectWidget, choices=cfda_program_selection_choices, initial=(len(subsectors)>0) and 'program-selection-subsector' or 'program-selection-subsidy_programs')
-            program_selection_programs = forms.MultipleChoiceField(label="CFDA Program", choices=cfda_program_choices, required=False, initial=initial_cfda_program_choices, widget=CheckboxSelectMultipleMulticolumn(columns=2))
-        
         if subsector_choices:
             program_selection_subsector = forms.MultipleChoiceField(choices=subsector_choices, required=False, widget=CheckboxSelectMultipleMulticolumn(columns=3))
         else:
             program_selection_subsector = False
+                
 
         assistance_type = forms.MultipleChoiceField(label="Assistance Type", required=False, choices=assistance_type_options, initial=map(lambda x: x[0], assistance_type_options), widget=forms.CheckboxSelectMultiple)
         action_type = forms.MultipleChoiceField(label="Action Type", required=False, choices=action_type_options, initial=map(lambda x: x[0], action_type_options), widget=forms.CheckboxSelectMultiple)
@@ -135,7 +162,7 @@ def get_excluded_subsidy_program_ids(sector=None):
     excluded_program_ids = []
     
     # there may be an entirely different methodology for each sector
-    if sector.name.lower().strip()=='transportation':
+    if sector is None or sector.name.lower().strip()=='transportation':
         excluded_tag_names = ('safety', 'intergovernmental transfer', 'regulatory enforcement')
         excluded_tags = []
         for tag in excluded_tag_names:
@@ -156,6 +183,8 @@ def get_included_subsidy_program_ids(sector=None):
     programs = ProgramDescription.objects.all()
     if sector is not None:
         programs = ProgramDescription.objects.filter(sectors=sector)
+    else:
+        programs = ProgramDescription.objects.filter(sectors__isnull=False)
     if len(programs)==0:
         return False
     else:
@@ -168,14 +197,23 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
     """ Returns a form object and a FAADSSearch object that have been constructed from a search key (a compressed POST querydict) """
 
     # retrieve the sector and create an appropriate form object to handle validation of the querydict
-    sector = get_sector_by_name(sector_name)
+    sector = None
     querydict = decompress_querydict(querydict_as_compressed_string)
-    if (sector is None):
-        sector = get_sector_by_name(querydict.get('sector_name', None))
+    sector_id = querydict.get('sector_id', u'')
+    if sector_id != u'':
+        sector = get_object_or_404(Sector, pk=sector_id)
+    elif querydict.has_key('sector_name'):
+        sector_name = querydict.get('sector_name', None)
+        sector = get_sector_by_name(sector_name)
+    else:
+        sector = get_sector_by_name(sector_name)
 
-    formclass = MakeFAADSSearchFormClass(sector=sector)            
+    formclass = MakeFAADSSearchFormClass(sector=sector)
     form = formclass(querydict)
 
+    if not form.is_valid():
+        raise Exception(form.errors)
+        
     # validate querydict -- no monkey business!
     if form.is_valid():
     
@@ -217,8 +255,9 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
                 
             # by CFDA program 
             elif form.cleaned_data['cfda_program_selection_method']=='program-selection-program':
-                selected_programs = form.cleaned_data['program_selection_programs']
-                faads_search_query = faads_search_query.filter('cfda_program', form.cleaned_data['program_selection_programs'])
+                if form.cleaned_data.has_key('program_selection_programs'):
+                    selected_programs = form.cleaned_data['program_selection_programs']
+                    faads_search_query = faads_search_query.filter('cfda_program', selected_programs)
 
         # handle assistance type
         # commented out this test, because we need to filter items that aren't choices on the search form.
@@ -272,6 +311,41 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         raise(Exception("Data in querydict did not pass form validation"))
 
 
+def fix_querydict_for_sector_changes(orig_querydict, sector):
+    querydict = orig_querydict.copy()
+    if querydict.has_key('sector_id'):
+        querydict['sector_name'] = None
+
+    if not querydict.has_key('cfda_program_selection_method'):
+        # The previous page was for a sector that didn't display a program selection
+        # method widget (because it only allowed the subsidy_programs method)
+        # but the current request may be for a sector that requires a selection method
+        querydict['cfda_program_selection_method'] = 'program-selection-subsidy_programs'
+
+    elif querydict['cfda_program_selection_method'] == 'program-selection-program' and sector is not None:
+        # If the user changes sectors while they have specific cfda programs selected
+        # we need to ensure that all of the cfda programs for the new sector are 
+        # selected, which would be the default on the sector-specific search pages.
+        selected_programs = set(querydict.getlist('program_selection_programs'))
+        valid_programs = set([unicode(p.id) for p in cfda_programs_for_sector(sector)])
+        if len(selected_programs) == 0 or not (selected_programs <= valid_programs):
+            querydict.setlist('program_selection_programs', list(valid_programs))
+
+    elif querydict['cfda_program_selection_method'] == 'program-selection-subsector':
+        if sector is None:
+            # The user is switching from a sector with subsectors to a sector-less search.
+            querydict['cfda_program_selection_method'] = 'program-selection-subsidy_programs'
+        else:
+            # The user is switching from a sector with subsectors to a sector without subsectors.
+            if len(sector.subsector_set.all()) == 0:
+                querydict['cfda_program_selection_method'] = 'program-selection-subsidy_programs'
+
+    elif querydict['cfda_program_selection_method'] == 'program-selection-subsidy_programs':
+        if querydict.has_key('program_selection_programs'):
+            del querydict['program_selection_programs'] 
+
+    return querydict
+
 
 def search(request, sector_name=None):
     
@@ -286,19 +360,24 @@ def search(request, sector_name=None):
     year_range_text = None    
     sort_column = 'obligation_date'
     sort_order = 'asc'
-    
-    # retrieve the sector object based on the passed name
-    sector = get_sector_by_name(sector_name)
-    
+    sector = None
+
     # if this is a POSTback, package the request into a querystring and redirect
     if request.method == 'POST':
-        if request.POST.has_key('text_query'):        
+        if request.POST.has_key('text_query'):
+            sector_id = request.POST.get('sector_id', u'')
+            if sector_id != u'':
+                sector = get_object_or_404(Sector, pk=sector_id)
+            querydict = fix_querydict_for_sector_changes(request.POST, sector)
             formclass = MakeFAADSSearchFormClass(sector=sector)            
-            form = formclass(request.POST)
+            form = formclass(querydict)
             
             if form.is_valid():
-                redirect_url = reverse('%s-faads-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
+                url_name_prefix = sector_name or 'all'
+                redirect_url = reverse('%s-faads-search' % url_name_prefix) + ('?q=%s' % compress_querydict(querydict))
                 return HttpResponseRedirect(redirect_url)
+            else:
+                raise Exception(form.errors)
         else:
             return HttpResponseRedirect(reverse('transportation-faads-search'))
         
@@ -392,7 +471,13 @@ def search(request, sector_name=None):
         
         # we just wandered into the search without a prior submission        
         else:
-        
+       
+            sector_id = request.GET.get('sector_id', u'')
+            if sector_id != u'':
+                sector = get_object_or_404(Sector, pk=sector_id)
+            elif sector_name:
+                sector = get_sector_by_name(sector_name)
+
             subsectors = []
             if sector is not None and request.GET.has_key('subsectors'):
                 re_sanitize = re.compile(u'[^\,\d]')
