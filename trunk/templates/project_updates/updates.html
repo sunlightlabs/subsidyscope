@@ -2,12 +2,14 @@
 
 {% for item in items %}
 <article id="update_item">
+	<header>
 	<div id="update_headline">{% if item.sectors %}
 {% for sector in item.sectors.all %}<img id="update_icon" src="{% media_url %}/images/sector_icons/{{ sector.id }}_sm.png" alt="{{ sector.name }}: Project Update" border="0" />{% endfor %}
 		{% endif %}<h4>	  {% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h4></div>
 
-		<p class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {{ item.text|safe }}</p>
-
+	<p class="update_date">{{ item.date|date:"F j, Y" }}</p>
+	
+	{{ item.text|safe }}
 </article>
 {% endfor %}
 
