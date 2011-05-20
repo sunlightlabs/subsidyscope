@@ -56,7 +56,11 @@ var sortOrder = '{{ sort_order }}';
 
 
           <fieldset id="advanced-options" {% if ran_search %}class="collapsed"{% endif %}>
-            
+
+              <h4> Sector </h4>
+
+              {{ form.sector_id }}
+
             <legend id="advanced-options">Search Options <a class="state" href="#" id="search-options-state"></a></legend>
 
             {% if form.cfda_program_selection_method %}
@@ -76,8 +80,10 @@ var sortOrder = '{{ sort_order }}';
 			            <div id="program-selection-program" class="ui-tabs-panel">
 			           
 			              {% morsel program_selection_program %}
-			              
-			              <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-program-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-program-select-none">Select None</a> ]</p>
+
+                          {% if form.program_selection_programs %}
+                          <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-program-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-program-select-none">Select None</a> ]</p>
+                          {% endif %}
 			              
 			              {{ form.program_selection_programs }}
 			              {{ form.program_selection_programs.errors }}
