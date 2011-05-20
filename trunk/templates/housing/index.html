@@ -9,60 +9,376 @@
 {% js "scripts/carouselinit.js" %}
 
 
-<div class="container main_container">
-    {% include "includes/generic_sub_nav.html" %}
-	<div class="span-11">
-		<div class="feature_leftside">
-            <div id="feature_box">
-			    <div class="tabs" style="height: 400px; position:relative;">
-			    
-                    {% carousel_entries 5 %}
-                    
-                </div>
-			</div><!-- end feature box -->
-			
-			<div class="updates_box">
-				<div class="updates_head">
-					<h2>Housing Sector Updates</h2>
-                <a title="Click here for news feed" href="{%url feed_project_updates "energy" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
-			</div>
-		      
-		      {% project_updates 5 %}	
-            
-            </div> 	<!-- ends update box-->
-		</div> <!-- ends feature left side -->		
-	</div> <!-- ends span 11 -->
-
-<div class="span-13 last">
-	 <div class="feature_rightside">
-		<div id="intro">	
-			<img src="/media/images/sector_icons/housing/housing_lg.png" border="0" alt="Housing Sector" class="sector_header_icon">
-			<span class="sector_header">Housing</span>
-			<p class="sector_intro_copy">{% morsel text1 %}</p>		
-		</div>
-			<div id="sector_taxonomy_box_bottom">&nbsp;</div>
+<div id="housing" class="wrapper clearfix">	
+	<div class="secondary-header">
+		<h3>
+		Housing
+		</h3>
 	</div>
-</div>
+	<div class="carousel-border">
+	</div>
 
-<div class="span-13 last graphs">
+	<div class="secondary-nav">
+		<ul id="bailout-index"  style="display: none;">
+			<li>
+				<a href="/bailout/treasury/">Treasury</a>
+				<ul>
+					<li id="bailout_treasury_index">
+						<a href="/bailout/treasury/">Overview</a>
+					</li>
+					<li id="fannie_freddie_index">
+						<a href="/bailout/treasury/fannie-freddie/">Fannie Mae and Freddie Mac</a>
+					</li>
+					<li id="tarp">
+						<a href="/bailout/tarp/">TARP Disbursements</a>
+					</li>
+					<li id="tarp-map">
+						<a href="/bailout/tarp/map/">TARP Map</a>
+					</li>
+					<li id="tarp-subsidies">
+						<a href="/bailout/tarp/subsidies/">TARP Subsidies</a>
+						<ul>
+							<li id="tarp-subsidies-cop">
+								<a href="/bailout/tarp/subsidies/cop/">COP Estimates</a>
+							</li>
+							<li id="tarp-subsidies-cbo">
+								<a href="/bailout/tarp/subsidies/cbo/">CBO Estimates</a>
+							</li>
+						</ul>
+					</li>
+					<li id="tarp-warrants">
+						<a href="/bailout/tarp/warrants/">TARP Warrants</a>
+						<ul>
+							<li id="tarp-warrants-calculation">
+								<a href="/bailout/tarp/warrants/calculation/">Inconsistencies in Warrant Policy</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="bailout-index"  style="display: none;">
+			<li id="bailout_fdic_index">
+				<a href="/bailout/fdic/">FDIC</a>
+				<ul>
+					<li id="bailout_fdic_index">
+						<a href="/bailout/fdic/">Overview</a>
+					</li>
+					<li id="fdic_bank_failures">
+						<a href="/bailout/fdic/bank-failures/">Bank Failures and the Deposit Insurance Fund</a>
+						<ul>
+							<li id="fdic_bank_failures_table">
+								<a href="/bailout/fdic/bank-failures/table/">Bank Failures Table</a>
+							</li>
+							<li id="fdic_bank_failures_prepayment_requirement">
+								<a href="/bailout/fdic/bank-failures/prepayment-requirement/">Prepayment Requirement</a>
+							</li>
+						</ul>
+					</li>
+					<li id="fdic_llp_comments">
+						<a href="/bailout/fdic/ppip/llp/comments/">Legacy Loan Program Comments</a>
+					</li>
+					<li id="fdic_tlgp">
+						<a href="/bailout/fdic/tlgp/">TLGP Monthly Reports</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="bailout-index"  style="display: none;">
+			<li id="bailout_federal_reserve_index">
+				<a href="/bailout/federal-reserve/">Federal Reserve</a>
+			</li>
+		</ul>
+		<ul id="bailout-index"  style="display: none;">
+			<li id="bailout_other_index">
+				<a href="/bailout/other/">Other Agencies</a>
+				<ul>
+					<li id="bailout_other_index">
+						<a href="/bailout/other/">Overview</a>
+					</li>
+					<li id="fhlb_index">
+						<a href="/bailout/fhlb/">Federal Home Loan Banks</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="bailout-index"  style="display: none;">
+			<li id="bailoutpdf_index">
+				<a href="/documents/">Key Documents</a>
+			</li>
+		</ul>
+		<ul id="transportation-index"  class="expanded">
+			<li id="transportation-overview">
+				<a href="/transportation/summary/">Summary</a>
+				<ul>
+					<li id="transportation-aviation">
+						<a href="/transportation/aviation/">Aviation</a>
+					</li>
+					<li id="transportation-highways">
+						<a href="/transportation/highways/">Highways</a>
+					</li>
+					<li id="transportation-maritime">
+						<a href="/transportation/maritime/">Maritime</a>
+					</li>
+					<li id="transportation-rail">
+						<a href="/transportation/rail/">Rail</a>
+					</li>
+					<li id="transportation-transit">
+						<a href="/transportation/transit/">Transit</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="transportation-index"  class="expanded">
+			<li id="transportation-direct-expenditures">
+				<a href="/transportation/direct-expenditures/">Grants &amp; Contracts</a>
+				<ul>
+					<li id="transportation-cfdaprograms-index">
+						<a href="/transportation/direct-expenditures/programs/">Direct Expenditures Program Directory (CFDA)</a>
+					</li>
+					<li id="transportation-faads-search">
+						<a href="/transportation/direct-expenditures/search/">Search Direct Expenditures</a>
+					</li>
+					<li id="aip-story">
+						<a href="/transportation/aip/">Airport Improvement Program (AIP)</a>
+						<ul>
+							<li id="aip-story">
+								<a href="/transportation/aip/">Analysis</a>
+							</li>
+							<li id="aip-index">
+								<a href="/transportation/aip/search/">Grant Search</a>
+							</li>
+						</ul>
+					</li>
+					<li id="transportation-amtrak">
+						<a href="/transportation/amtrak/">Amtrak</a>
+						<ul>
+							<li id="transportation-amtrak">
+								<a href="/transportation/amtrak/">Analysis</a>
+							</li>
+							<li id="transportation-amtrak-table">
+								<a href="/transportation/amtrak/table/">Route Performance Table</a>
+							</li>
+						</ul>
+					</li>
+					<li id="transportation-highway-funding">
+						<a href="/transportation/highways/funding/">Highway Funding Analysis </a>
+						<ul>
+							<li id="transportation-highway-funding">
+								<a href="/transportation/highways/funding/">User Fees</a>
+							</li>
+							<li id="transportation-highway-funding-state">
+								<a href="/transportation/highways/funding/state/">Highway Funding Data by Source and Type</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="transportation-index"  class="expanded">
+			<li id="transportation-tax-expenditures" class="active">
+				<a href="/transportation/tax-expenditures/">Tax Subsidies</a>
+				<ul>
+					<li id="transportation-tax-expenditures-employer-paid-benefits">
+						<a href="/transportation/tax-expenditures/employer-paid-benefits/">Employer-paid Transportation Benefits</a>
+					</li>
+					<li id="transportation-tax-expenditures-track-maintenance">
+						<a href="/transportation/tax-expenditures/track-maintenance/">Tax Credit for Certain Expenditures for Maintaining Tracks</a>
+					</li>
+					<li id="transportation-tax-expenditures-bond-interest-exclusion">
+						<a href="/transportation/tax-expenditures/bond-interest-exclusion/">Exclusion of Interest on Bonds for Financing of Highway Project and Rail-Truck Transfer Facilities</a>
+					</li>
+					<li id="transportation-tax-expenditures-capital-construction-funds">
+						<a href="/transportation/tax-expenditures/capital-construction-funds/">Deferral of Tax on Shipping Companies</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="transportation-index"  class="expanded">
+			<li id="transportation-risk-transfers">
+				<a href="/transportation/risk-transfers/" >Loans &amp; Loan Guarantees </a>
+				<ul>
+					<li id="transportation-exim">
+						<a href="/transportation/risk-transfers/exim/">Export/Import Bank</a>
+					</li>
+					<li id="transportation-marad-title-xi">
+						<a href="/transportation/risk-transfers/marad/title-xi/">MARAD Title XI Program</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="nonprofits-index"  style="display: none;">
+			<li id="nonprofits-overview" >
+				<a href="/nonprofits/summary/" >Summary </a>
+				<ul>
+					<li id="nonprofits-overview-structure">
+						<a href="/nonprofits/summary/structure/">Structure of Nonprofit Sector in the U.S.</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="nonprofits-index"  style="display: none;">
+			<li id="nonprofits-direct-expenditures" >
+				<a href="/nonprofits/direct-expenditures/" >Grants &amp; Contracts </a>
+				<ul>
+					<li id="nonprofits-faads-search">
+						<a href="/nonprofits/direct-expenditures/search/">Search Grants</a>
+					</li>
+					<li id="nonprofits-fpds-search">
+						<a href="/nonprofits/contracts/search/">Search Contracts</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="nonprofits-index"  style="display: none;">
+			<li id="nonprofits-tax-expenditures" >
+				<a href="/nonprofits/tax-expenditures/" >Tax Subsidies </a>
+				<ul>
+					<li id="nonprofits-tax-expenditures-edu-contrib">
+						<a href="/nonprofits/tax-expenditures/education-charitable-contributions/">Deduction for Charitable Contributions for Educational Institutions</a>
+					</li>
+					<li id="nonprofits-tax-expenditures-health-contrib">
+						<a href="/nonprofits/tax-expenditures/health-charitable-contributions/">Deduction for Charitable Contributions for Health Organizations</a>
+					</li>
+					<li id="nonprofits-tax-expenditures-other-contrib">
+						<a href="/nonprofits/tax-expenditures/other-charitable-contributions/">Deduction for Charitable Contributions for Institutions Other than Education and Health</a>
+					</li>
+					<li id="nonprofits-tax-expenditures-credit-union-income">
+						<a href="/nonprofits/tax-expenditures/credit-union-income/">Credit Union Income</a>
+					</li>
+					<li id="nonprofits-tax-expenditures-edu-bonds">
+						<a href="/nonprofits/tax-expenditures/bond-interest-for-educational-facilities/">Bonds for Private Nonprofit Educational Facilities</a>
+					</li>
+					<li id="nonprofits-tax-expenditures-bcbs">
+						<a href="/nonprofits/tax-expenditures/blue-cross-blue-shield/">Special BlueCross BlueShield Deduction</a>
+					</li>
+					<li id="nonprofits-tax-expenditures-minister-housing">
+						<a href="/nonprofits/tax-expenditures/minister-housing-exclusion/">Exclusion of Housing Allowances for Ministers</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="nonprofits-index"  style="display: none;">
+			<li id="nonprofits-risk-transfers">
+				<a href="/nonprofits/risk-transfers/">Loans &amp; Loan Guarantees</a>
+			</li>
+		</ul>
+		<ul id="energy-index"  style="display: none;">
+			<li id="energy-overview" >
+				<a href="/energy/summary/" >Summary </a>
+				<ul>
+					<li id="energy-overview-structure">
+						<a href="/energy/summary/structure/">Structure of the U.S. Energy Sector</a>
+					</li>
+					<li id="energy-overview-data-limitations">
+						<a href="/energy/summary/data-limitations/">Limitations of Energy Sector Data</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="energy-index"  style="display: none;">
+			<li id="energy-direct-expenditures" >
+				<a href="/energy/direct-expenditures/" >Grants &amp; Contracts </a>
+				<ul>
+					<li id="energy-faads-search">
+						<a href="/energy/direct-expenditures/search/">Search Grants</a>
+					</li>
+					<li id="energy-fpds-search">
+						<a href="/energy/contracts/search/">Search Contracts</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="energy-index"  style="display: none;">
+			<li id="energy-tax-expenditures">
+				<a href="/energy/tax-expenditures/">Tax Subsidies</a>
+			</li>
+		</ul>
+		<ul id="energy-index"  style="display: none;">
+			<li id="energy-risk-transfers">
+				<a href="/energy/risk-transfers/">Loans &amp; Loan Guarantees</a>
+			</li>
+		</ul>
+		<ul id="energy-index"   style="display: none;">
+			<li id="energy-regulations">
+				<a href="/energy/regulations/">Regulations</a>
+			</li>
+		</ul>
+		<ul id="housing-index"  style="display: none;">
+			<li id="housing-overview" >
+				<a href="/housing/summary/" >Summary </a>
+				<ul>
+					<li id="housing-overview-structure">
+						<a href="/housing/summary/structure/">Structure of the U.S. Housing Sector</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="housing-index"  style="display: none;">
+			<li id="housing-direct-expenditures" >
+				<a href="/housing/direct-expenditures/" >Grants &amp; Contracts </a>
+				<ul>
+					<li id="housing-faads-search">
+						<a href="/housing/direct-expenditures/search/">Search Grants</a>
+					</li>
+					<li id="housing-fpds-search">
+						<a href="/housing/contracts/search/">Search Contracts</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<ul id="housing-index"  style="display: none;">
+			<li id="housing-tax-expenditures">
+				<a href="/housing/tax-expenditures/">Tax Subsidies</a>
+			</li>
+		</ul>
+		<ul id="housing-index"  style="display: none;">
+			<li id="housing-risk-transfers">
+				<a href="/housing/risk-transfers/">Loans &amp; Loan Guarantees</a>
+			</li>
+		</ul>
+		<ul id="housing-index"  style="display: none;">
+			<li id="housing-regulations">
+				<a href="/housing/regulations/">Regulations</a>
+			</li>
+		</ul>
+		<ul id="tax_expenditures"  style="display: none;">
+			<li id="tax_expenditures-summary">
+				<a href="/tax_expenditures/">Summary</a>
+			</li>
+		</ul>
+		<ul id="tax_expenditures"  style="display: none;">
+			<li id="tax_expenditures-methodology">
+				<a href="/tax_expenditures/methodology/">Methodology</a>
+			</li>
+		</ul>
+		<ul id="tax_expenditures"  style="display: none;">
+			<li id="tax_expenditures-main">
+				<a href="/tax_expenditures/db/">Database</a>
+			</li>
+		</ul>
+	</div>
+	<div class="carousel-bg">
+		<div class="tabs">
+	              {% carousel_entries 5 %}
+	    </div>
+	</div>
+	<div class="page-content">
+
+		<section >
             
-    {% morsel text2 %}
+		    {% morsel text2 %}
     
-</div>
-
-<style type="text/css">
-.border {border-bottom: 1px solid #afafaf;float:left; margin-bottom: 25px; padding-bottom: 20px;}
-.graph-container {float:left; position:relative;}
-.hhsubsidy{float:right; width:95px; padding: 10px; margin: 5px 5px 5px 30px; border: 2px solid #afafaf; text-align:center;}
-.hoveranchor {display: block; position:absolute;}
-.deanchor { height:29px; width:143px; top:180px; left:15px; }
-.teanchor {height: 29px; width: 130px; top: 180px; left: 195px;}
-.rtanchor {height:29px; width: 100px; top:0px; left: 20px;}
-.hovertext {border: 1px solid black; margin:0px; background-color: #efefef; width: 250px; position:absolute; padding:10px; }
-.first { top:65px; left:150px;}
-.second {top: -90px; left:315px;}
-</style>
-
+		</section>	
+			<section class="updates_box">
+				<div class="updates_head">
+					<h3 class="sector_updates">Housing Sector Updates
+					</h2>
+				</div>
+	      
+		      {% project_updates 5 %}	
+	           </section> 	<!-- ends update box-->
+	</div>
 </div>
 
 

@@ -317,26 +317,39 @@ a.pew-logo{
 	border-bottom: 1px solid #c3c3c3;
 	margin-bottom: 10px;
 }
+h3{
+	font-size: 20px;
+	color: #154661;
+	margin-left: 15px;
+	height: 31px;
+	margin-bottom: 10px;
+	padding-top: 5px;
+}
 #transportation h3{
-	font-size: 20px;
-	color: #154661;
-	background: url('../images/sec_header_icon_transportation.jpg') left top no-repeat;
+	background:url('../images/sector_icons/trans_med.png') left top no-repeat;
 	padding-left: 35px;
-	margin-left: 15px;
-	height: 31px;
-	margin-bottom: 10px;
-	padding-top: 5px;
 }
-#tax_expenditures h3{
-	font-size: 20px;
-	color: #154661;
-	background: url('../images/sec_header_icon_tax_expenditures.jpg') left top no-repeat;
-	padding-left: 0;
-	margin-left: 15px;
-	height: 31px;
-	margin-bottom: 10px;
-	padding-top: 5px;
+#housing h3{
+	background: url('../images/sector_icons/housing_med.png') left top no-repeat;
+	padding-left: 35px;
 }
+#health h3{
+	background: url('../images/sector_icons/6_med.png') left top no-repeat;
+	padding-left: 35px;
+}
+#fin_bailout h3{
+	background: url('../images/sector_icons/1_med.png') left top no-repeat;
+	padding-left: 35px;
+}
+#energy h3{
+	background: url('../images/sector_icons/energy_med.png') left top no-repeat;
+	padding-left: 35px;
+}
+#nonprofits h3{
+	background: url('../images/sector_icons/nonprofits_med.png') left top no-repeat;
+	padding-left: 35px;
+}
+
 
 h2{
 	font-size: 180%;
@@ -715,7 +728,7 @@ ul.sectors-home{
 	display: inline;
 }
 
-#transportation h3.sector_updates{
+h3.sector_updates{
 	font-size: 110%;
 	color: #636363;
 	background-image: none;
