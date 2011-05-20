@@ -1,3 +1,4 @@
+local_settings.py
 whoosh
 do_fpds_import.sh
 *.pyc
@@ -8,3 +9,4 @@ lib/
 *.sql
 .*.swp
 TAGS
+*.json
