@@ -327,6 +327,17 @@ a.pew-logo{
 	margin-bottom: 10px;
 	padding-top: 5px;
 }
+#tax_expenditures h3{
+	font-size: 20px;
+	color: #154661;
+	background: url('../images/sec_header_icon_tax_expenditures.jpg') left top no-repeat;
+	padding-left: 0;
+	margin-left: 15px;
+	height: 31px;
+	margin-bottom: 10px;
+	padding-top: 5px;
+}
+
 h2{
 	font-size: 180%;
 	color: #154661;
@@ -754,10 +765,15 @@ h4 a {
 #update_headline { 
 }
 
-article li{
+.page-content li{
 	line-height: 1.65;
 }
 
-article ul{
+.page-content ul{
 	margin-bottom: 15px;
+}
+
+h5{
+	margin-bottom: 15px;
+	margin-top: 10px;
 }
