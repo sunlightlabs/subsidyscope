@@ -7,3 +7,5 @@ lib/
 include/
 *.zip
 *.sql
+local_settings.py
+local_settings.example.py

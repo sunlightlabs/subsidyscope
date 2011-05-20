@@ -10,3 +10,4 @@ lib/
 .*.swp
 TAGS
 *.json
+local_settings.example.py
