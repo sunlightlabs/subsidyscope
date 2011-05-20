@@ -365,21 +365,20 @@
 	</div>
 	<div class="page-content">
 
-		<div class="last graphs">
+		<section >
             
 		    {% morsel text2 %}
     
-		</div>	
-		<div class="updates_box">
-			<div class="updates_head">
-				<h2>Transportation Sector Updates
-				</h2>
-                <a title="Click here for news feed" href="{%url feed_project_updates "transportation" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
-			</div>
+		</section>	
+			<section class="updates_box">
+				<div class="updates_head">
+					<h3 class="sector_updates">Transportation Sector Updates
+					</h2>
+	                <a title="Click here for news feed" href="{%url feed_project_updates "transportation" %}">RSS</a>
+				</div>
 	      
-	      {% project_updates 2 %}	
-           </div> 	<!-- ends update box-->
-
+		      {% project_updates 2 %}	
+	           </section> 	<!-- ends update box-->
 	</div>
 </div>
 

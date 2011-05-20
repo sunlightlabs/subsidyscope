@@ -267,32 +267,13 @@ a.intro_more:active { text-decoration:none; padding-left:10px;}
 .updates_head h2  { display:inline; font-size:14px; padding:0 10px 0 0; font-weight:normal; margin:0;}
 .feed_icon { border:1px solid; padding:0; margin:0;}
 
-#update_item { padding:0 10px 0 0; border-top:1px solid #cbcbcb; border-bottom:1px solid #cbcbcb; margin:0 0 2px 0;}
 
-#update_item p {
-    font-size: 12px;
-    letter-spacing: 0pt;
-    word-spacing: 0pt;
-    line-height: 1.5;
-        padding-left:10px;
-}
 
-#update_item h3 { font-family:Verdana,sans-serif; font-size:130%; color:#336699; padding:0 5px 0 10px; margin:10px 0 5px 0;}
-#update_item h3 a:link { text-decoration:none;}
-#update_item h3 a:visited { text-decoration:none;}
-#update_item h3 a:hover { text-decoration:none;}
-#update_item h3 a:active { text-decoration:none;}
 
-.update_date { font-weight:bold; font-size:105%;}
 
-#update_item .readmore { border:1px solid #e6e6e6;  font-size:90%; padding:2px 3px 0 3px; margin:0;  text-align:center;}
-#update_item a.readmore:link { text-decoration:none; }
-#update_item a.readmore:visited {text-decoration:none;}
-#update_item a.readmore:hover { text-decoration:none; background-color:#ffffcc; }
-#update_item a.readmore:active {text-decoration:none; }
+
 
 #update_headline { width:90%; float:left;}
-#update_icon { padding-top:10px; text-align:right;}
 
 .update_copy { clear:both;}
 /*  Featured box */

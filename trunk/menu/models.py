@@ -13,7 +13,7 @@ class Menu(models.Model):
     parent_menu = generic.GenericForeignKey('content_type', 'parent_menu_id')
  
     def __unicode__(self):
-        return "%s" % self.name
+        return "%s - %s" % (self.slug, self.name)
 
     class Admin:
 

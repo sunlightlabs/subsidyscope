@@ -47,7 +47,7 @@ ul, ol { margin-left: 1.8em; }
 ol { list-style-type: decimal; }
 
 nav ul, nav li { margin: 0; } 
-small { font-size: 85%; }
+small { font-size: 80%; }
 strong, th { font-weight: bold; }
 td, td img { vertical-align: top; } 
 sub { vertical-align: sub; font-size: smaller; }
@@ -87,6 +87,7 @@ button {  width: auto; overflow: visible; }
 
 /*------ ------ ------ MEEEEEEE!!! ------ ------ ------*/
 
+.small { font-size: 80%; }
 
 p{
 	line-height: 1.65;
@@ -640,6 +641,7 @@ ul.sectors-home{
 	margin-left: 0;
 	height: 246px;
 	background: #f5f5f4;
+	margin-bottom: 30px;
 }
 
 .sector_carousel .marquee{
@@ -663,12 +665,13 @@ ul.sectors-home{
 	width: 420px;
 	height: 235px;
 	margin-top: 0;
+	
 }
 
 .sector_carousel ul.feature_nav{
 	position: absolute;
 	top: 208px;
-	right: 255px;
+	right: 285px;
 }
 
 .sector_carousel .feature_nav li{
@@ -689,12 +692,59 @@ ul.sectors-home{
 .updates_head { 
 	border-top:1px solid #cbcbcb; 
 	background-color:#f3f3f4; 
-	padding:5px 0 0 10px; 
+	padding:9px 0 0 9px; 
 	border-bottom:1px solid #ffffff; 
 	color:#333333; 
-	font-size:14px; 
+	font-size: 14px; 
 	background-image:url(/media/images/front_update_head_bg_alt.png); 
 	background-repeat:repeat-x;
+	height: 22px;
+}
+#update_headline h4{
+	display: inline-block;
+}
+
+#transportation h3.sector_updates{
+	font-size: 110%;
+	color: #636363;
+	background-image: none;
+	padding-left: 0;
+	margin-left: 5px;
+	font-weight: normal;
+	height: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	display: inline-block;
+	line-height: 0;
+}
+.updates_head a{
+	background: url('../images/rss_icon.png') left center no-repeat;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	text-indent: -9999em;
+}
+
+h4 a {
+	color: #154661;
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+#update_item { 
+	padding:0 10px 0 0; 
+	margin:0 0 2px 0;
+}
+
+#update_item .readmore { border:1px solid #e6e6e6;  font-size:90%; padding:2px 3px 0 3px; margin:0;  text-align:center;}
+#update_item a.readmore { text-decoration:none; }
+.update_date { font-weight:bold; font-size:105%;}
+
+#update_icon { 
+	padding: 0 5px 0 0;
+	margin: 0; 
+	text-align: right;
+	display: inline;
 }
 
 
