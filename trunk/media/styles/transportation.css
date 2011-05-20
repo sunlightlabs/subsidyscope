@@ -31,7 +31,6 @@ margin:0;}
 #sector_taxonomy.second-tier { margin-left: 100px;}
 
 img.subsidy-per-household { margin: 20px 20px 0px 25px; }
-#sources-of-error { padding-top:1em; clear: left; font-size: 0.9em; line-height: 1.15em; color: #aaa; padding-left: 15px; padding-right: 8px; text-align: justify;}
 
 #house_images a {
 text-decoration:none;
@@ -40,29 +39,34 @@ a .hide_link {
 visibility:hidden;
 }
 
-#de { /* Direct expenditures Link */
+.de { /* Direct expenditures Link */
 background: url('../images/transportation/transportation_landing_page_houses_de.png') left top no-repeat;
+display: inline-block;
 }
-#te{ /* Tax expenditures Link */
+.te{ /* Tax expenditures Link */
 background: url('../images/transportation/transportation_landing_page_houses_te.jpg') left top no-repeat;
-
+display: inline-block;
 }
-#rt { /* Rt Link */
+.rt { /* Rt Link */
 background: url('../images/transportation/transportation_landing_page_houses_rt.jpg') left top no-repeat;
-
+display: inline-block;
 }
-#con { /* Con Link */
+.con { /* Con Link */
 background: url('../images/transportation/transportation_landing_page_houses_nc.jpg') left top no-repeat;
+display: inline-block;
 }
 .houses{
-	height: 150px;
+	margin-top: 20px;
 }
 .houses li{
 	display: inline;
 	padding-left: 10px;
+	width : 110px;
+	height: 110px;
 }
 .houses li a{
 	width : 110px;
 	height: 110px;
 	text-indent: -9999em;
 }
+small { font-size: 85%; }

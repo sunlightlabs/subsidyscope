@@ -2,7 +2,7 @@
 {% load smarterif %}
 {% for entry in entries %}
 
-    <div id="tab-{{forloop.counter0}}" class="carousel-tab sector_carousel">
+    <div id="tab-{{forloop.counter0}}" class="carousel-tab sector_carousel" {% if forloop.first%} {% else %} style="display:none;" {% endif %}>
         <div id="imagecontainer">
 			<img class="feature-image" src="{% media_url %}/{{entry.image}}" />
 			<ul class="feature_nav tabNavigation feature_circle">
