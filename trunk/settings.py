@@ -244,7 +244,7 @@ FEEDBURNER = { 'feeds/updates': 'http://feedproxy.google.com/subsidyscope' }
 
 # Django Morsels
 MORSELS_USE_JEDITABLE = True
-
+MORSELS_JAVASCRIPT_PATH = MEDIA_URL +  'scripts/'
 try:
     from local_settings import *
 except ImportError, exp:    
