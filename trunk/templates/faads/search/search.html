@@ -57,11 +57,11 @@ var sortOrder = '{{ sort_order }}';
 
           <fieldset id="advanced-options" {% if ran_search %}class="collapsed"{% endif %}>
 
-              <h4> Sector </h4>
+            <legend id="advanced-options">Search Options <a class="state" href="#" id="search-options-state"></a></legend>
+
+              <h4> Economic Sector </h4>
 
               {{ form.sector_id }}
-
-            <legend id="advanced-options">Search Options <a class="state" href="#" id="search-options-state"></a></legend>
 
             {% if form.cfda_program_selection_method %}
 	            <div class="section" id="programs">
