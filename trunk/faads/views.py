@@ -454,9 +454,9 @@ def search(request, sector_name=None):
     
             found_some_results = len(faads_results)>0
         
-            page_range = range(max(1, faads_results_page.number - 10),
+            page_range = range(max(1, faads_results_page.number - 5),
                                min(paginator.num_pages,
-                                   faads_results_page.number + 10))
+                                   faads_results_page.number + 5))
     
             ran_search = True
             
