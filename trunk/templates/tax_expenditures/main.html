@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-
 {% load media %}
 {% load morsel_tags %}
+{% load menubuilder %}
 {% load te_tags %}
 
 {% block content %}
@@ -22,80 +22,61 @@ function changeYear(year)
 </script>
 
 
-<div class="container main_container">
-    {% include "includes/transportation_nav.html" %}
-    <div class="span-24">
-        <div id="header_area">
-            <h3>{% morsel_page_title %}</h3>
-        </div>
-        <div class="content_area">
-        
-        
-        	{% morsel text1 %}
-        
-        	
-        	
-        	
-        	<div style="float: right; text-align: right;">
-        		<a href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
-        	</div>
-        	<br clear="all"/>
-        	<div style="float: right; text-align: right;">
-        	
-	        	<form id="filterForm" action="{% url tax_expenditures-main %}" method="GET">
-	        		<strong>Display estimates for: </strong><select name="estimate" id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
-	        		<strong>Show fiscal years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
-	        	</form>
-	        	</div>
-        	
-        	
-        	<strong>Summary of Tax Expenditures by Fiscal Year ($ millions) <a href="#footnote-1" class="footnote">1</a></strong> 
-        	
-        
-        	<div id="subsidy-charts"> 
+<div id="fin_bailout" class="wrapper clearfix">
+	<div id="secondary_header">
+		<h3>
+			{% morsel_page_title %}
+		</h3>
+	</div>
+			{% recursive_menu %}
+	<div class="page-content">
+
+	      	{% morsel text1 %}
+		<a class="download_csv" href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
+		<h4 class="table_header">
+			Summary of Tax Expenditures by Fiscal Year ($ millions) <a href="#footnote-1" class="footnote">1</a>
+		</h4>     		
+
+      	<div >
+	       	<form id="filterForm" action="{% url tax_expenditures-main %}" method="GET">
+	       		<div class="display_type"><strong>Display estimates for: </strong><select name="estimate" id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select></div>
+	       		<div class="date_range"><strong>Show fiscal years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select></div>
+	       	</form>
+		</div>
+	      	<div id="subsidy-charts"> 
 				<table>
-				
-				<tbody style="border-right: 1px solid #999; border-left: 1px solid #999;">
-				
-					<tr class="header-row" > 
-					  <td style="border-left: 1px solid #999;">&nbsp;</td>
-					  {% for year in estimate_years %}<td style="text-align: right; {% if forloop.last  %} border-right: 1px solid #999;{% endif %}">{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}</td>{% endfor %}
-					 
-					</tr>
-					{% for group in groups %}
-						
-						<tr><td style="border-bottom: solid 1px #ccc; border-top: solid 1px #999;  border-right: 1px solid #999; text-align: left;" colspan="15"><strong><a href="{% url tax_expenditures-group group.id %}?estimate={{ estimate }}">{{ group.name }}</a></strong></td></tr>
-						
-						{% te_group_summary group source estimate estimate_years %}
-						
-					{% endfor %}
-				
-				</tbody>
+					<tbody>
+						<tr class="header-row" > 
+							<td>&nbsp;
+							</td>
+							{% for year in estimate_years %}
+							<td>{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}
+							</td>
+							{% endfor %}
+					 	</tr>
+						{% for group in groups %}
+						<tr>
+							<td colspan="15" style="text-align: left; padding-top: 20px; border-bottom: 1px solid #ccc;">
+								<strong><a href="{% url tax_expenditures-group group.id %}?estimate={{ estimate }}">{{ group.name }}</a></strong>
+							</td>
+						</tr>
+							{% te_group_summary group source estimate estimate_years %}
+						{% endfor %}
+					</tbody>
 				</table>
 			</div>
-			
-			
-		<cite>
-		* Contains tax expenditures estimated to be between -$50 million and $50 million. When aggregated, the sum of these estimates are unknown and thus are rounded to zero. For more information, see the methodology.
-		</cite>
-		
-		<br/>
-		<br/>
+			<cite>
+			* Contains tax expenditures estimated to be between -$50 million and $50 million. When aggregated, the sum of these estimates are unknown and thus are rounded to zero. For more information, see the methodology.
+			</cite>
 
-		<cite>
-		Notes: Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is an aggregation of the most recent estimates made for that year. All estimates are reported in nominal dollars by fiscal year. Click on specific sectors for more information and data..
-		</cite>
-		
-		<br/>
-		<br/>
-		
-		
-		<ol class="footnotes">
-			<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any single one is changed or repealed.</li>
-		</ol>
-		</div>
+			<cite>
+			Notes: Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is an aggregation of the most recent estimates made for that year. All estimates are reported in nominal dollars by fiscal year. Click on specific sectors for more information and data..
+			</cite>
+
+			<ol class="footnotes">
+				<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any single one is changed or repealed.</li>
+			</ol>
 			
-		</div>
 	</div>
 </div>
 

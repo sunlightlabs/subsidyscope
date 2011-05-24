@@ -10,24 +10,8 @@
 
 ----------------------------------------------------------------------- */
 
-/* MEYER RESET v1.0*/
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
-
 /* BASIC TYPOGRAPHY */
 
-html { font-size: 62.5%; font-family: helvetica, "microsoft sans serif", arial, sans-serif; }
-strong, th, thead td, h1, h2, h3, h4, h5, h6 { font-weight: bold; }
-cite, em, dfn { font-style: italic; }
-code, kbd, samp, pre, tt, var, input[type='text'], input[type='password'], textarea { font-size: 92%; font-family: monaco, "Lucida Console", courier, monospace; }
-del { text-decoration: line-through; color: #666; }
-ins, dfn { border-bottom: 1px solid #ccc; }
-small { font-size: 85%; }
-<!-- sup, sub { font-size: 50%; } -->
-abbr, acronym { text-transform: uppercase; font-size: 85%; letter-spacing: .1em; }
-a abbr, a acronym { border: none; }
-abbr[title], acronym[title], dfn[title] { cursor: help; border-bottom: 1px solid #ccc; }
-sup { vertical-align: super; }
-sub { vertical-align: sub; }
 
 /* QUOTES */
 
@@ -83,24 +67,7 @@ input[type='text'] { cursor: text; }
 .container ol ol, .container ul ol { margin-left: 2.5em; }
 .container form div { margin-bottom: .8em; }
 
-/* CHARTS */
 
-img.chart {  }
-img.center { margin: 0 auto; display:block; }
-
-ul.horizontal { display:inline; width: 100%; float:left; margin-left: 50px;}
-ul.horizontal li { float:left; width: 20%; }
-ul.horizontal li h6 {text-align:center;}
-ul.horizontal li img {margin-left: auto; margin-right: auto; display:block; }
-
-
-div.full {width: 100%; }
-div.charts {font-family: sans-serif;}
-div.charts h4 {text-align:center;}
-div.charts h5 {text-align:center;}
-div.charts h6 {text-align:center;}
-div.charts.left {float:left;}
-div.charts.right {float:right;}
 
 
 /* COLORS */

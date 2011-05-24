@@ -3,37 +3,30 @@
 {% load morsel_tags %}
 {% load project_update_tags %}
 {% load glossary_tags %}
-
-
+{% load menubuilder %}
 {% block content %}
 
 {% morsel_page_title as page_title %}
 
-<div class="container main_container" id="mode-page-{{ page_title|lower|escape }}">
-    {% include "includes/transportation_nav.html" %}
-    <div class="span-24">
-        <div id="header_area">
-            <h3>{% morsel_page_title %}</h3>
-        </div>
-        <div class="content_area">    
-          
-          	<div style="float:right; width: 300px;">
-          	  
-          	  {% project_updates_subsector_sidebar subsector %}
-          	
-	          {% morsel sidebar1 as sidebar glossarize %}
-	          {% if sidebar.content %}
-	        		<div class="section-floating-nav subsector-sidebar">          		    
-	    		    	{% morsel sidebar1 %}
-	      			</div>
-	    	  {% endif %}
-		    
-          	  
-          	</div>
+<div class="wrapper clearfix" id="mode-page-{{ page_title|lower|escape }}">
+    
+    <div id="header_area">
+		<h3>{% morsel_page_title %}</h3>
+    </div>
+	    {% recursive_menu %}
+    <div class="page-content">
+		<aside style="summary">
+			{% project_updates_subsector_sidebar subsector %}
+			{% morsel sidebar1 as sidebar glossarize %}
+			{% if sidebar.content %}
+      		<div class="summary">          		    
+  		    	{% morsel sidebar1 %}
+    		</div>
+	   		{% endif %}
+		</aside>
           
           {% morsel text1 glossarize %}
-
-        </div>
+	</div>
 </div>
 
 {% endblock %}

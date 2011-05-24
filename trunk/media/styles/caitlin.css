@@ -284,6 +284,7 @@ a.pew-logo{
 }
 .secondary-nav ul>li{
 	font-weight: 700;
+	list-style-type: none;
 }
 .secondary-nav ul>li>ul>li{
 	font-weight: 400;
@@ -366,6 +367,7 @@ h4{
 	font-size: 17px;
 	color: #154661;
 	margin-top: 15px;
+	padding-bottom: 15px;
 }
 
 .page-content{
@@ -379,9 +381,11 @@ h4{
 }
 
 /*------ Styling of summarizing asides ------*/
-.summary{
-	width: 220px;
+.page-content aside{
 	float: right;
+}
+.summary, .news_box, .related_updates_box{
+	width: 200px;
 	padding: 20px;
 	margin: 0 0 20px 20px;
 	background-color: #f5f5f4;
@@ -398,6 +402,17 @@ h4{
 }
 .summary li{
 	list-style-type: disc;
+}
+.related_updates_box li{
+	list-style-type: none;
+	padding-bottom: 10px;
+}
+.related_updates_box ul{
+	margin-left: 0;
+	font-family: helvetica,"microsoft sans serif",arial,sans-serif;
+}
+.related_updates_box a{
+	text-decoration: none;
 }
 
 
@@ -453,8 +468,9 @@ h4{
 	border-bottom: 1px solid #cccccc; 
 	border-right:none; 
 	border-left: none; 
-	width:100%;
-	margin-top:15px ;
+	width:640px;
+	margin-top:15px;
+	font-size: 90%;
 }
 
 /*------ Carousel Styling ------*/
@@ -789,4 +805,64 @@ h4 a {
 h5{
 	margin-bottom: 15px;
 	margin-top: 10px;
+}
+
+cite{
+	font-size: 80%;
+	color: #6a6a6a;
+}
+
+/* CHARTS */
+
+img.chart {  }
+img.center { margin: 0 auto; display:block; }
+
+ul.horizontal { display:inline; width: 100%; float:left; margin-left: 50px;}
+ul.horizontal li { float:left; width: 20%; }
+ul.horizontal li h6 {text-align:center;}
+ul.horizontal li img {margin-left: auto; margin-right: auto; display:block; }
+div.full {width: 100%; }
+div.charts {font-family: sans-serif; }
+div.charts h5 {text-align:center; padding: 0 20px}
+div.charts.left {
+	float:left; 
+	width: 320px;
+	padding: 20px 20px 20px 0;
+}
+div.charts.right {
+	float:right; 
+	width: 320px;
+	padding: 20px 0 20px 20px;
+}
+
+/* footnotes */
+ol.footnotes { font-size: 0.9em; color: #6a6a6a;}
+ol.footnotes li { margin-bottom: 0.8em; line-height: 1.3em;}
+a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
+
+
+/* PTED styling */
+
+.display_type, .date_range{
+	display: inline-block;
+}
+.date_range{
+	float: right;
+	margin-right: 20px;
+}
+.download_csv{
+	float: right;
+	margin: 15px 20px 0 0;
+}
+.table_header{
+	width: 400px;
+}
+
+.mode_alt{
+	float: right;
+	width: 360px;
+}
+
+.left{
+	float: left;
 }
