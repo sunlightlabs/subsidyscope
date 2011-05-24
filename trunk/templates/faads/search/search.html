@@ -16,6 +16,8 @@
 	{% js "scripts/ui.core.js" %}
 	{% js "scripts/ui.tabs.js" %}
 	{% js "scripts/ui.datepicker.js" %}
+
+    {% js "scripts/jquery.ba-bbq.min.js" %}
 	
 	{% js "scripts/swfobject.js" %}
 	{% js "scripts/faads-search.js?version=5" %}
@@ -50,6 +52,8 @@ var sortOrder = '{{ sort_order }}';
         <div class="content_area">    
 	
 					<p>{% morsel text1 %}</p>
+
+              <p id="sector-changing" style="display: none;"></p>
 	
 					<form action="{{ page_path }}" method="POST" id="faads-search-form">
 
@@ -57,11 +61,11 @@ var sortOrder = '{{ sort_order }}';
 
           <fieldset id="advanced-options" {% if ran_search %}class="collapsed"{% endif %}>
 
-              <h4> Sector </h4>
+            <legend id="advanced-options">Search Options <a class="state" href="#" id="search-options-state"></a></legend>
+
+              <h4> Economic Sector </h4>
 
               {{ form.sector_id }}
-
-            <legend id="advanced-options">Search Options <a class="state" href="#" id="search-options-state"></a></legend>
 
             {% if form.cfda_program_selection_method %}
 	            <div class="section" id="programs">
@@ -84,7 +88,10 @@ var sortOrder = '{{ sort_order }}';
                           {% if form.program_selection_programs %}
                           <p class="select-all-or-none">[ <a href="#" class="select-all" id="program-selection-program-select-all">Select All</a> / <a href="#" class="select-none" id="program-selection-program-select-none">Select None</a> ]</p>
                           {% endif %}
-			              
+
+                          {% if not form.program_selection_programs %}
+                            <p>All Programs for Energy, Transportation, Nonprofits and Housing are currently selected. To filter by program, choose a sector above.</p>
+                          {% endif %}
 			              {{ form.program_selection_programs }}
 			              {{ form.program_selection_programs.errors }}
 			              <div class="clear-left"></div>

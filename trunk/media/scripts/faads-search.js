@@ -41,6 +41,24 @@ $(document).ready(function(){
         });        
     }
    
+    $('#id_sector_id').bind('change', function (evt) {
+        var val = $(evt.currentTarget).val();
+        var after_effect = function () {
+            window.location = $.param.querystring(window.location.toString(), 
+                                                  {'sector_id': val},
+                                                  2);
+        };
+        if (val == '') {
+            $('#sector-changing:hidden').text('Disabling sector-specific search options...');
+            $('#sector-changing:hidden').show();
+            $('#faads-search-form:visible').hide('blind', after_effect);
+        } else {
+            var sector_name = $('#id_sector_id > option:selected').text();
+            $('#sector-changing:hidden').text('Changing to the ' + sector_name.toLowerCase() + ' sector...');
+            $('#sector-changing:hidden').show();
+            $('#faads-search-form:visible').hide('blind', after_effect);
+        }
+    });
     
     // display the initially-selected "choose programs by" div
     DisplayProgramPanel($('#program-selector ul li input:checked').val());

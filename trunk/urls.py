@@ -48,7 +48,8 @@ urlpatterns = patterns('',
     url(r'^budget_capture/', include('budget_capture.urls')),
     url(r'^faads/', include('faads.urls')),
     url(r'^fpds/', include('fpds.urls')),
-    url(r'^direct-expenditures/search/', 'faads.views.search', name='all-faads-search')
+    url(r'^direct-expenditures/search/', 'faads.views.search', name='all-faads-search'),
+    url(r'^contracts/search/', 'fpds.views.search', name='all-fpds-search')
 )
 
 urlpatterns += patterns('django.views.generic.simple',

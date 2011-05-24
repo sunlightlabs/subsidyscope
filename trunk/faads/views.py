@@ -99,7 +99,10 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
-        sector_id_choices = [('', 'All Sectors')] + [(s.id, s.name) for s in Sector.objects.all()]
+        sector_id_choices = [('', 'All Sectors')] + [(s.id, s.name) 
+                                                     for s in Sector.objects.all()
+                                                     if s.id != 1] # Hack alert! The Sector model 
+                                                                   # should really have a faads flag.
         sector_id = forms.ChoiceField(label='Economic Sector',
                                       choices=sector_id_choices,
                                       required=False,
@@ -451,9 +454,9 @@ def search(request, sector_name=None):
     
             found_some_results = len(faads_results)>0
         
-            page_range = range(max(1, faads_results_page.number - 10),
+            page_range = range(max(1, faads_results_page.number - 5),
                                min(paginator.num_pages,
-                                   faads_results_page.number + 10))
+                                   faads_results_page.number + 5))
     
             ran_search = True
             
