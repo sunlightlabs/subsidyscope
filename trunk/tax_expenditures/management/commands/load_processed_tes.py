@@ -199,18 +199,24 @@ def process_expenditure(group, row):
         else:
             try:
                 corp_amount = Decimal(corp_raw)
-            except:
+            except Exception as e:
                 corp_amount = None
+                if corp_raw:
+                    print "Corp amount wasn't anything: %s - %s - %s - %s" % (group.name, name, year, corp_raw )
+                    print e
         
         if indv_raw == '<50':
             indv_notes = Estimate.NOTE_POSITIVE
-        elif corp_raw == '>-50':
+        elif indv_raw == '>-50':
             indv_notes = Estimate.NOTE_NEGATIVE
         else:
             try:
                 indv_amount = Decimal(indv_raw)
-            except:
+            except Exception as e:
                 indv_amount = None
+                if indv_raw:
+                    print "Indiv amount wasn't anything: %s - %s - %s - %s" % (group.name, name, year, indv_raw )
+                    print e
         
         Estimate.objects.create(expenditure=expenditure, estimate_year=year, corporations_amount=corp_amount, individuals_amount=indv_amount, corporations_notes=corp_notes, individuals_notes=indv_notes)
                 
