@@ -3,6 +3,8 @@
 {% load webdesign %}
 {% load media %}
 {% load morsel_tags %}
+{% load menubuilder %}
+
 
 {% block additional_js %}
 	{% js "scripts/jquery.pngFix.pack.js" %}
@@ -15,33 +17,30 @@
 
 {% block content %}
 
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
 			<h3>{% morsel_page_title %}</h3>		
-		</div>
+	</div>
 		
-		<div class="content_area">	
-			<div class="section-floating-nav">
-				<h3 class="front_about_head">Other Agencies</h3>
-				{% include "includes/bailout_other_nav.html" %}
-			</div>
-		
-			{% morsel text1 %}
-		</div>
+			{% recursive_menu %}
 
-		<div class="non_content">
+    <div class="page-content">	
+		<div class="section-floating-nav">
+			<h3 class="front_about_head">Other Agencies</h3>
+			{% include "includes/bailout_other_nav.html" %}
+		</div>
 	
-			<div id="legend-container"></div>
-			<div id="visualization-container-0"></div>
-			<div id="visualization-container-1"></div>
-			<div id="visualization-container-2"></div>			
+		{% morsel text1 %}
+
+
+		<div id="legend-container"></div>
+		<div id="visualization-container-0"></div>
+		<div id="visualization-container-1"></div>
+		<div id="visualization-container-2"></div>			
 			
-				<div class="attribution"><p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.
-				<span class="source_download">[<a href="{% url bailout-visualization-json %}">Download as JSON</a>]</span>
-				</p>
-				</div>
+		<div class="attribution"><p>Source: Congressional Budget Office, <a href="{% url bailoutpdf_detail 19 %}">Addressing the Ongoing Crisis in the Housing and Financial Markets</a>, 1/28/09.
+		<span class="source_download">[<a href="{% url bailout-visualization-json %}">Download as JSON</a>]</span>
+		</p>
 		</div>
 	</div>
 </div>

@@ -16,7 +16,9 @@ div.grants table { width: 100%; }
 </style>
 <div id="transportation" class="wrapper clearfix">	
 	<div class="secondary-header"><h3>Airport Detail &mdash; {{airport.name}}</h3></div>
-        <div class="content_area">
+        	{% recursive_menu %}
+
+    <div class="page-content">
             <div class="info">
             <table class="port-stats">
                 <tr><th colspan="2">At a Glance</th></tr>

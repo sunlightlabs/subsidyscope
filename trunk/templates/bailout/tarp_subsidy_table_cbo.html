@@ -3,7 +3,7 @@
 {% load charts %}
 {% load webdesign %}
 {% load morsel_tags %}
-
+{% load menubuilder %}
 {% block content %}
 
 <style type="text/css">
@@ -57,15 +57,15 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 
 </style>
 
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
 			<h2>{% morsel_sector_title %}</h2>
 			<h3>{% morsel_page_title %}</h3>		
-		</div>
+	</div>
 		
-		<div class="content_area">
+			{% recursive_menu %}
+
+    <div class="page-content">
 		
 
 		{% morsel text1 glossarize %}
@@ -75,13 +75,9 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 			<p>&nbsp;</p>
 		
 		{% morsel text2 glossarize %}
-	</div>
-	
-	<div class="non_content">
 
-	{% morsel table2 %}
+		{% morsel table2 %}
 
-		</div>
 	</div>
 </div> <!--ends container-->
 

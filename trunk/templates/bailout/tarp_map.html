@@ -3,6 +3,8 @@
 {% load bailout_tags %}
 {% load morsel_tags %}
 {% load glossary_tags %}
+{% load menubuilder %}
+
 
 
 {% block additional_css %}
@@ -197,58 +199,47 @@ function getFlexMovie(movieName) {
 </script>
 
 
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
 			<h2>{% morsel_sector_title %}</h2>
 			<h3>{% morsel_page_title %}</h3>		
-		</div>
-		<div class="content_area">
-			{% morsel text1 glossarize %}
-		</div>		
-	
-		<div class="non_content">		
+	</div>
+			{% recursive_menu %}
 
-				<div id="map-container"  style="padding: 0 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
+    <div class="page-content">
+			{% morsel text1 glossarize %}
+	
+
+		<div id="map-container"  style="padding: 0 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
 				
-					{% morsel caption glossarize %}
+			{% morsel caption glossarize %}
 					
-					<div id="table-filter" style="clear:left; margin-left: 25px; float: left;">
+			<div id="table-filter" style="clear:left; margin-left: 25px; float: left;">
 				
-						<p><input class="filterType" type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
-						<p><input class="filterType" type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput" value="Enter company name" class="pre_input"/></p>
+				<p><input class="filterType" type="radio" name="filterType" value="all" checked/> Show all TARP Recipients</p>
+				<p><input class="filterType" type="radio" name="filterType" value="filter"/> Filter by TARP Recipient: <input size="30" id="tarpFilterInput" value="Enter company name" class="pre_input"/></p>
 					
-					</div>	
+			</div>	
 					
-					<div style="float: right;  margin-right: 25px;">
-						View share of: <select id="dataType-select" name="dataType">
-							<option value="branches">Branches (2008 FDIC)</option>
-							<option value="deposits">Deposits (2008 FDIC)</option>
-							<option value="lending">Lending (2007 HMDA)</option>
-						</select>
-					</div>
+			<div style="float: right;  margin-right: 25px;">
+				View share of: <select id="dataType-select" name="dataType">
+					<option value="branches">Branches (2008 FDIC)</option>
+					<option value="deposits">Deposits (2008 FDIC)</option>
+					<option value="lending">Lending (2007 HMDA)</option>
+				</select>
+			</div>
 					
-					<br clear="all"/> 
+			<div style="margin-left: 50px;">
+				<div id="mapVis" >
+					<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
 					
-					<div style="margin-left: 50px;">
-						<div id="mapVis" >
-							<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>
-							
-							<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
+					<a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>
 						
-						</div>
-					</div>
-					
-					<br clear="all"/>
-										
 				</div>
+			</div>				
 		</div>
 	
-		<div class="content_area">	
-			{% morsel text2 glossarize %} 
-		</div>
-	
+		{% morsel text2 glossarize %} 
 	</div>
 	
 </div>

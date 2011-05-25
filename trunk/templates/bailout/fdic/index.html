@@ -3,6 +3,8 @@
 {% load webdesign %}
 {% load media %}
 {% load morsel_tags %}
+{% load menubuilder %}
+
 
 {% block additional_js %}
 	{% js "scripts/jquery.pngFix.pack.js" %}
@@ -15,14 +17,14 @@
 
 {% block content %}
 
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
 			<h3>{% morsel_page_title %}</h3>		
 		</div>
 		
-		<div class="content_area">
+			{% recursive_menu %}
+
+    <div class="page-content">
 
 			<div class="section-floating-nav">
 				<h3 class="front_about_head">FDIC</h3>

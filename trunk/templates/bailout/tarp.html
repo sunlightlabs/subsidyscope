@@ -4,6 +4,8 @@
 {% load media %}
 {% load glossary_tags %}
 {% load morsel_tags %}
+{% load menubuilder %}
+
 
 {% block additional_css %}
 	{% css "styles/tarp-visualization.css" %}
@@ -28,124 +30,117 @@
 {% block content %}
 
 
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
 			<h2>{% morsel_sector_title %}</h2>
 			<h3>{% morsel_page_title %}</h3>		
-		</div>
+	</div>
 		
-		<div class="content_area">
+			{% recursive_menu %}
 
-
-                        <p><strong>April 29, 2010 &#151; TARP Repayments Underway</strong><p>
+    <div class="page-content">
+		<p><strong>April 29, 2010 &#151; TARP Repayments Underway</strong><p>
 	
 			{% morsel text1 glossarize %}		
 	
-		</div>
-
-
-<div class="non_content">
-	<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+		<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
 		
-		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
-			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#transactions">Transactions</a></li>
-			<li class="ui-state-default ui-corner-top"><a href="#recipients">By Recipient</a></li>
-			<li class="ui-state-default ui-corner-top"><a href="#by-date">By Date</a></li>
-			<li class="ui-state-default ui-corner-top"><a href="#csv">Download</a></li>
-		</ul>
+			<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+				<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#transactions">Transactions</a></li>
+				<li class="ui-state-default ui-corner-top"><a href="#recipients">By Recipient</a></li>
+				<li class="ui-state-default ui-corner-top"><a href="#by-date">By Date</a></li>
+				<li class="ui-state-default ui-corner-top"><a href="#csv">Download</a></li>
+			</ul>
 		
-		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="transactions">			
-			<div id="tarp-container">
-				<div id="tarpVis" style="text-align:center;">
-				<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
-			  <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
-				</div>
-			</div>			
-			<div class="gray-label">transaction date &rarr;</div>
-		</div>
-		
-		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="recipients">
-			<div id="bubbles-container">
-			  <div id="tarpBubbleVis" style="text-align:center;">
-				  <p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
-			    <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
-			  </div>
-		  </div>			
-		  <div class="gray-label">Mouse over the circles to see the names of institutions receiving TARP funds, the amounts received and the percentage of total disbursements each amount represents.</div>
-		  <div style="margin-top:15px" class="gray-label">Note: Although AIG is widely known as one of the world's largest insurance companies, its ownership of AIG Federal Savings Bank classifies it as a thrift holding company, subject to federal regulation by the Office of Thrift Supervision. The Federal Reserve refers to AIG as a "widely diversified financial services company."</div>
-	  </div>
-
-		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="by-date">
-			<div id="by-date-container">
-			  <div id="tarpTimelineVis" style="text-align:center;">
-				  <p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
-			    <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
-			  </div>
+			<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="transactions">			
+				<div id="tarp-container">
+					<div id="tarpVis" style="text-align:center;">
+					<p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
+				  <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
+					</div>
+				</div>			
+				<div class="gray-label">transaction date &rarr;</div>
 			</div>
+		
+			<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="recipients">
+				<div id="bubbles-container">
+				  <div id="tarpBubbleVis" style="text-align:center;">
+					  <p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
+				    <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
+				  </div>
+			  </div>			
+			  <div class="gray-label">Mouse over the circles to see the names of institutions receiving TARP funds, the amounts received and the percentage of total disbursements each amount represents.</div>
+			  <div style="margin-top:15px" class="gray-label">Note: Although AIG is widely known as one of the world's largest insurance companies, its ownership of AIG Federal Savings Bank classifies it as a thrift holding company, subject to federal regulation by the Office of Thrift Supervision. The Federal Reserve refers to AIG as a "widely diversified financial services company."</div>
+		  </div>
+
+			<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="by-date">
+				<div id="by-date-container">
+				  <div id="tarpTimelineVis" style="text-align:center;">
+					  <p>To view this content, JavaScript must be enabled, and you need the latest version of the Adobe Flash Player.</p>				
+				    <a href="http://www.adobe.com/go/getflashplayer" class="noHover" target="_top"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash Player" border="0" width="112" height="33"></a>			
+				  </div>
+				</div>
+			</div>
+
+			<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="csv">
+		    	<p>If you'd like to download the data powering these visualizations you may do so using the link below.  In addition to the fields displayed in the table on this page, the download includes information like FDIC ID numbers and stock ticker symbols (when available).  The file is in <a href="{% url glossary %}">CSV</a> format, which can be opened with any modern spreadsheet program.</p>
+				  <p><a id="csv-link" href="{% url tarp-csv %}">Download CSV Data &raquo;</a></p>
+			</div>
+
 		</div>
-
-		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="csv">
-	    	<p>If you'd like to download the data powering these visualizations you may do so using the link below.  In addition to the fields displayed in the table on this page, the download includes information like FDIC ID numbers and stock ticker symbols (when available).  The file is in <a href="{% url glossary %}">CSV</a> format, which can be opened with any modern spreadsheet program.</p>
-			  <p><a id="csv-link" href="{% url tarp-csv %}">Download CSV Data &raquo;</a></p>
-		</div>
-
-	</div>
 	
-	<div id="table-filter" style="clear:left; padding-top: 15px;">Filter transactions by recipient: <input size="30" id="tarpFilterInput"/></div> 
+		<div id="table-filter" style="clear:left; padding-top: 15px;">Filter transactions by recipient: <input size="30" id="tarpFilterInput"/></div> 
 	
-	<table class="tarp-table" id="tarp-header-table">
-	<thead>
-	<tr>
-		<th class="date">Date</th>
-		<th class="recipient">Recipient</th>
-		<th class="price">Disbursement Received</th>
-		<th class="transaction-type">Type</th>
-		<th class="assets">Company Assets&nbsp;*</th>
-		<th class="city">City</th>
-		<th class="state">State</th>
-	</tr>
-	</thead>
-	</table>
+		<table class="tarp-table" id="tarp-header-table">
+		<thead>
+		<tr>
+			<th class="date">Date</th>
+			<th class="recipient">Recipient</th>
+			<th class="price">Disbursement Received</th>
+			<th class="transaction-type">Type</th>
+			<th class="assets">Company Assets&nbsp;*</th>
+			<th class="city">City</th>
+			<th class="state">State</th>
+		</tr>
+		</thead>
+		</table>
 	
-	<div class="gray-label" style="clear:left">click on column headings to sort</div>
+		<div class="gray-label" style="clear:left">click on column headings to sort</div>
 	
 
-	<div id="tarp-table-container">	
+		<div id="tarp-table-container">	
 
 		
 	
 
-	<table class="tarp-table" id="tarp-data-table">
-	<tbody>
-	{% for t in transaction_list %}
+		<table class="tarp-table" id="tarp-data-table">
+		<tbody>
+		{% for t in transaction_list %}
 
-	<tr id="row-{{ t.id }}" class="{% cycle 'even' 'odd' %}">
-		<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
-		<td class="recipient">{% institution_name t.institution %}</td>
-		<td class="price">{% if t.is_negative %}<span class="negative">-${{ t.price_paid|cut:"-"|divide:1|floatformat:"-0"|intcomma}}</span>{% else %}${{ t.price_paid|divide:1|floatformat:"-0"|intcomma}}{% endif %}</td>
-		<td class="transaction-type">{{ t.transaction_type }}</td>
-		<td class="assets">{% if t.institution.total_assets_fixed %}${{ t.institution.total_assets_fixed|divide:1|floatformat:"-0"|intcomma }} {% else %}<em>not confirmed</em>{% endif %}</td>
-		<td class="city">{{ t.institution.city }}</td>
-		<td class="state">{{ t.institution.state }}</td>
-	</tr>
+		<tr id="row-{{ t.id }}" class="{% cycle 'even' 'odd' %}">
+			<td class="date">{{ t.date }}<!-- ordinal: {{ forloop.counter }} --></td>
+			<td class="recipient">{% institution_name t.institution %}</td>
+			<td class="price">{% if t.is_negative %}<span class="negative">-${{ t.price_paid|cut:"-"|divide:1|floatformat:"-0"|intcomma}}</span>{% else %}${{ t.price_paid|divide:1|floatformat:"-0"|intcomma}}{% endif %}</td>
+			<td class="transaction-type">{{ t.transaction_type }}</td>
+			<td class="assets">{% if t.institution.total_assets_fixed %}${{ t.institution.total_assets_fixed|divide:1|floatformat:"-0"|intcomma }} {% else %}<em>not confirmed</em>{% endif %}</td>
+			<td class="city">{{ t.institution.city }}</td>
+			<td class="state">{{ t.institution.state }}</td>
+		</tr>
 
-	{% endfor %}
-	</tbody>
-	</table>
+		{% endfor %}
+		</tbody>
+		</table>
 	
-	</div>	
+		</div>	
 	
 
-	<div class="footnotes">
-		<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
+		<div class="footnotes">
+			<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
 		
-		<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are for the quarter ending December 31, 2008 (retreived from the FDIC web site on March 13, 2009).</em></p>
+			<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are for the quarter ending December 31, 2008 (retreived from the FDIC web site on March 13, 2009).</em></p>
 		
-	</div>
-
 		</div>
+
 	</div>
 </div>
 

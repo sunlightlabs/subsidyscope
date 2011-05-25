@@ -3,6 +3,8 @@
 {% load charts %}
 {% load webdesign %}
 {% load morsel_tags %}
+{% load menubuilder %}
+
 
 {% block content %}
 
@@ -47,21 +49,18 @@ ul.subsidy-estimate, ul.subsidy-estimate li { list-style-type: disc;}
 h4.tarp_table_head { margin:0 0 0 0; padding:0;}
 </style>
 
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
-			<h2>{% morsel_sector_title %}</h2>
-			<h3>{% morsel_page_title %}</h3>		
-		</div>
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
+		<h2>{% morsel_sector_title %}</h2>
+		<h3>{% morsel_page_title %}</h3>		
+	</div>
 		
-		<div class="content_area">
-			{% morsel text1 %}
-		</div>
+	{% recursive_menu %}
+
+    <div class="page-content">
+		{% morsel text1 %}
 	
-		<div class="non_content">	
-			{% morsel text2 %}
-		</div>
+		{% morsel text2 %}
 	</div>
 </div> <!--ends container-->
 

@@ -5,6 +5,8 @@
 {% load morsel_tags %}
 {% load menubuilder %}
 {% block additional_js %}
+{% load menubuilder %}
+
 {% endblock %}
 
 {% block additional_css %}
@@ -13,13 +15,13 @@
 
 {% block content %}
 
-<div id="bailout" class="wrapper clearfix">
+<div id="fin_bailout" class="wrapper clearfix">
 	<div class="secondary-header">
 	    <h3>{% morsel_page_title %}</h3>		
 	</div>
 	{% recursive_menu %}
 
-    <div class="content_area">
+    <div class="page-content">
 					
 			<div class="section-floating-nav">
 				<h3 class="front_about_head">Treasury</h3>
