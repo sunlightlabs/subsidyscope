@@ -5,6 +5,7 @@
 {% load humanize %}
 {% load search_tags %}
 {% load sector_tags %}
+{% load menubuilder %}
 
 {% block additional_css %}
   {% css "styles/jquery-ui/ui.all.css" %}
@@ -40,16 +41,14 @@ var sortOrder = '{{ sort_order }}';
 
 {% block content %}
 
-<div class="container main_container">
-    
-    {% sector_nav %}
-    
-    <div class="span-24">
-        <div id="header_area">
+<div class="wrapper clearfix">	
+	<div class="secondary-header">
             <a id="screencast-link-container" href="{% url screencast %}">Need help? Watch the screencast.</a>
             <h3>{% morsel_page_title %} (FY 2000&ndash;2010)</h3>
         </div>
-        <div class="content_area">    
+	    {% recursive_menu %}
+
+        <div class="page-content">    
 	
 					<p>{% morsel text1 %}</p>
 
@@ -396,8 +395,7 @@ var sortOrder = '{{ sort_order }}';
 
             </div>
             {% endif %}				
-				
-        </div>
+		</div>		
 </div>
 
 <form method="GET" action="" id="sortForm">

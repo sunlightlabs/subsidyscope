@@ -6,6 +6,8 @@
 {% block content %}
 {% js "scripts/swfobject.js" %}
 {% js "scripts/json2.js" %}
+{% load menubuilder %}
+
 
 <style>
 #info {padding: 10px; margin: 10px; border: 1px solid #AFAFAF;}
@@ -37,7 +39,8 @@
 
     <span class="span-24">
         <div id="header_area"><h3>{{system.name}}</h3></div>
-        <div class="content_area">
+	    {% recursive_menu %}
+	<div class="page-content">
             <h5>Funding Sources Over Time</h5>
             <div class="line-chart-container">
                 <div id="fundingChart"></div>

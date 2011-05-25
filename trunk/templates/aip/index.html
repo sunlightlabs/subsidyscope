@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load menubuilder %}
 
 {% load media %}
 {% load humanize %}
@@ -31,11 +32,10 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
 </style>
 
 
-<div class="container main_container">
-    {% include "includes/transportation_nav.html" %}
-    <div class="span-24">
-        <div id="header_area"><h3>Airport Improvement Program Grant Search</h3></div>
-        <div class="content_area">
+<div id="transportation" class="wrapper clearfix">	
+	<div class="secondary-header"><h3>Airport Improvement Program Grant Search</h3></div>
+    {% recursive_menu %}
+		<div class="page-content">
         {% morsel text1 glossarize %}
         <form id="portsearch">
             <fieldset {% if type == 'project' %} class="collapsed" {% endif %}>    
