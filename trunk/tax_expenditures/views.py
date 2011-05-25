@@ -156,7 +156,7 @@ def te_csv(request, group_id=None):
         writer.writerow(header)
         for parent in Group.objects.filter(parent=None):
             budget_function = parent.name
-            arent_summary(parent, writer)
+            parent_summary(parent, writer)
 #           recurse_category(parent, writer, '', budget_function)
     
     return response
