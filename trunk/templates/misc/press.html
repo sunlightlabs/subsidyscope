@@ -6,16 +6,12 @@
 {% block content %}
 
 
-<div class="container top_solid_box" id="staff-page">
-	{% include "includes/generic_nav.html" %}
+<div class="wrapper clearfix" id="staff-page">
 	<div class="span-24">
 		<div id="header_area_flat">
 			<h2>Subsidyscope</h2>
 			<h3>{% morsel_page_title %}</h3>		
-		</div>
-		
-					{% recursive_menu %}
-
+		</div>{% include "includes/static_side_nav.html" %}
     <div class="page-content">				
 		
 			{% morsel text1 %}			

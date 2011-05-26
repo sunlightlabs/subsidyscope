@@ -6,16 +6,12 @@
 
 {# fallback page for those attempting to subscribe without Javascript #}
 
-<div class="container main_container" id="rss-page">
-	{% include "includes/generic_nav.html" %}
-	<div class="span-24">
+<div class="wrapper clearfix" id="rss-page">
 		<div id="header_area">
 			<h2>Subsidyscope</h2>
 			<h3>Get Email Updates</h3>		
 		</div>
-		
-					{% recursive_menu %}
-
+		{% include "includes/static_side_nav.html" %}
     <div class="page-content">
 			
 		<p>Subsidyscope sends occasional email updates to those interested in hearing about the project's status.  To add yourself to our list, please use the form below.  Your email address will not be shared with other organizations, and you can easily unsubscribe at any time by using the links contained in the mailings.</p>
@@ -25,7 +21,5 @@
 		</form>
 
 		</div>
-
-	</div>
 </div> <!--ends container-->
 {% endblock %}

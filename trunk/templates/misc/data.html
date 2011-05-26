@@ -1,20 +1,15 @@
 {% extends "base.html" %}
 {% load media %}
 
-{% load menubuilder %}
 {% block content %}
 
 
-<div class="container main_container">
-	{% include "includes/generic_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
-			<h2>Subsidyscope</h2>
-			<h3>Downloadable Datasets</h3>		
-		</div>
-		
-					{% recursive_menu %}
-
+<div class="wrapper clearfix">
+	<div id="header_area">
+		<h2>Subsidyscope</h2>
+		<h3>Downloadable Datasets</h3>		
+	</div>
+	{% include "includes/static_side_nav.html" %}
     <div class="page-content">
 		<img src="{% media_url %}/images/download_icon.png" alt="Download" id="big-download-icon" class="alignright"/>		
 		<p>Subsidyscope maintains a variety of datasets.  Some of them power the visualizations you see on the site, while others are used for behind-the-scene calculations.  All of them are available for use under the terms of the <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/us/">Creative Commons Attribution-Noncommercial 3.0 United States License</a>.</p>
@@ -24,86 +19,119 @@
 		<ul><em>Subsidyscope.org. The Pew Charitable Trusts. Washington, DC. Accessed Month, XX, 20XX. Retrieved from http://subsidyscope.org.</em></ul>
 
 		<p>On this page you can find links to the data products that we offer and descriptions of what they contain.  Confused?  Have a suggestion?  <a href="{% url contact_form %}">Contact us</a> and we'll be happy to answer your questions.</p>
-		</div>
 
-		<div class="non_content">
 			<div id="data-page">	
 				<div class="data-section">
-					<h4><a class="section-title" href="{% url housing-index %}">Housing</a></h4>
-			                    <ul class="datasets">
-				                    <li class="odd">
-				                            <div class="top">
-                                				<h5>CFDA/FAADS</h5>
-				                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
-                                				<div class="clear"></div>
-				                            </div>
-				                            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is a housing-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
-				                            <p class="updated">Updated periodically; last update 3/30/11</p>
-				                     </li>
-				                     <li class="even">
-                            		   	           <div class="top">
-                           					<h5>FPDS</h5>
-                             					<div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
-				                                <div class="clear"></div>
-				                        </div>
-				                        <p class="description">The data powering our contract search. An energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
-				                        <p class="updated">Updated periodically; last update 3/30/11</p>
-			                            </li>
-                    
-			                 </ul>				  
-			        </div>
-
-				<div class="data-section">
-					<h4><a class="section-title" href="{% url energy-index %}">Energy</a></h4>
-                    			<ul class="datasets">
-			                    <li class="odd">
-        	               		    <div class="top">
-		                                <h5>CFDA/FAADS</h5>
-		                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
-                		                <div class="clear"></div>
-                		            </div>
-                		            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is an energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
-                		            <p class="updated">Updated periodically; last update 9/9/2010</p>
-                		            </li>
-                       			    <li class="even">
-	                                    <div class="top">
-                	                    <h5>FPDS</h5>
-                            		    <div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
- 	                                    <div class="clear"></div>
-            		                    </div>
-                            		    <p class="description">The data powering our contract search. An energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
- 		                            <p class="updated">Updated periodically; last update 9/9/2010</p>
- 		                            </li>
-                    
-                    			</ul>				  
-			  	</div>
-
-                <div class="data-section">
-				  <h4><a class="section-title" href="{% url nonprofits-index %}">Nonprofits</a></h4>
+					<h4>
+						<a class="section-title" href="{% url housing-index %}">Housing</a>
+					</h4>
                     <ul class="datasets">
-				  
-				  	<li class="even">
+	                    <li class="odd">
                             <div class="top">
-                                <h5>CFDA/FAADS</h5>
-                                <div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
-                                <div class="clear"></div>
+                            				<h5>CFDA/FAADS</h5>
+                                <div class="downloads">
+									(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)
+								</div>
+                            				<div class="clear">
+                            				</div>
                             </div>
-                            <p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is a nonprofit-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
-                            <p class="updated">Updated periodically; last update 9/9/2010</p>
-                        </li>
-                        
-                         <li class="even">
-                            <div class="top">
-                                <h5>FPDS</h5>
-                                <div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
-                                <div class="clear"></div>
+                            <p class="description">
+								The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is a housing-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.
+							</p>
+                            <p class="updated">
+								Updated periodically; last update 3/30/11
+							</p>
+	                     </li>
+	                     <li class="even">
+							<div class="top">
+                        					<h5>
+									FPDS
+								</h5>
+                          				<div class="downloads">
+									(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)
+								</div>
+								<div class="clear">
+								</div>
+	                        </div>
+	                        <p class="description">
+		The data powering our contract search. An energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.
+							</p>
+	                        <p class="updated">
+								Updated periodically; last update 3/30/11
+							</p>
+						</li>
+                 </ul>
+			</div>
+			<div class="data-section">
+				<h4>
+					<a class="section-title" href="{% url energy-index %}">Energy</a>
+				</h4>
+                	<ul class="datasets">
+                   	<li class="odd">
+						<div class="top">
+							<h5>
+								CFDA/FAADS
+							</h5>
+                            <div class="downloads">
+								(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)
+							</div>
+            		        <div class="clear">
+            		        </div>
+						</div>
+						<p class="description">
+							The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is an energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.
+						</p>
+           		        <p class="updated">
+							Updated periodically; last update 9/9/2010
+						</p>
+					</li>
+					<li class="even">
+						<div class="top">
+							<h5>FPDS
+							</h5>
+							<div class="downloads">
+								(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)
+							</div>
+                            <div class="clear">
                             </div>
-                            <p class="description">The data powering our contract search. A nonprofit-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
-                            <p class="updated">Updated periodically; last update 9/9/2010</p>
-                        </li>
-				 
-                    </ul>
-			  </div>
+						</div>
+                        	<p class="description">
+							The data powering our contract search. An energy-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.
+							</p>
+                            <p class="updated">
+							Updated periodically; last update 9/9/2010
+							</p>
+                       </li>
+                
+                	</ul>
+			</div>
+
+			<div class="data-section">
+				<h4><a class="section-title" href="{% url nonprofits-index %}">Nonprofits</a></h4>
+				<ul class="datasets">
+
+					<li class="even">
+						<div class="top">
+							<h5>CFDA/FAADS</h5>
+							<div class="downloads">(<a href="http://assets.subsidyscope.com/faads.sql.gz">Gzipped MySQL database export</a>, approx. 130M)</div>
+							<div class="clear"></div>
+						</div>
+						<p class="description">The data powering our program directory and direct expenditure search. The former is extracted from PDFs and <a href="http://cfda.gov">CFDA.gov</a>; the latter portion is a nonprofit-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FAADS dataset.</p>
+						<p class="updated">Updated periodically; last update 9/9/2010</p>
+					</li>
+
+					<li class="even">
+						<div class="top">
+							<h5>FPDS</h5>
+							<div class="downloads">(<a href="http://assets.subsidyscope.com/fpds.sql.gz">Gzipped MySQL database export</a>, approx. 100M)</div>
+							<div class="clear"></div>
+						</div>
+						<p class="description">The data powering our contract search. A nonprofit-oriented subset of data from <a href="http://usaspending.gov">USASpending.gov</a>'s FPDS dataset.</p>
+						<p class="updated">Updated periodically; last update 9/9/2010</p>
+					</li>
+
+				</ul>
+			</div>
 
 
                 <div class="data-section">
@@ -258,13 +286,8 @@
                    
                     			</ul>				  
 			  	</div>
-
-
-			  			  
-			  
-				
-
-			    </div>
+			
+			
 		</div>
 	</div>
 </div> <!--ends container-->
