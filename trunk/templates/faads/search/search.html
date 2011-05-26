@@ -5,7 +5,7 @@
 {% load humanize %}
 {% load search_tags %}
 {% load sector_tags %}
-{% load menubuilder %}
+ 
 
 {% block additional_css %}
   {% css "styles/jquery-ui/ui.all.css" %}
@@ -39,6 +39,7 @@ var sortOrder = '{{ sort_order }}';
 	
 {% endblock %}
 
+{% load menubuilder %}
 {% block content %}
 
 <div class="wrapper clearfix">	

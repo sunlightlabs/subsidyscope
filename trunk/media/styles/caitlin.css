@@ -209,7 +209,7 @@ h1#subscope_logo{
 	background-color: #25688b;
 }
 
-.sectors:hover ul{
+.main-nav-item:hover ul{
 	visibility: visible;
 
 }
