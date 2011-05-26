@@ -5,23 +5,19 @@
 {% block content %}
 
 
-<div class="container top_solid_box" id="staff-page">
-	{% include "includes/generic_nav.html" %}
-	<div class="span-24">
+<div class="wrapper clearfix" id="staff-page">
 		<div id="header_area_flat">
 			<h2>Subsidyscope</h2>
 			<h3>Staff</h3>		
 		</div>
+		{% recursive_menu %}
 		
-		<div class="content_area">				
+		<div class="page-content">				
 		
 		
 		{% morsel text1 %}
 		
 		</div>
-		
-	
-		
-	</div>
+
 </div> <!--ends container-->
 {% endblock %}

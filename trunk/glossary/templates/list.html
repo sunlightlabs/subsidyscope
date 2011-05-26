@@ -12,7 +12,9 @@
 			<h3>Glossary of Terms</h3>		
 		</div>
 		
-		<div class="content_area">
+					{% recursive_menu %}
+
+    <div class="page-content">
 
             <dl id="glossary">
                 {% for item in glossary_items %}

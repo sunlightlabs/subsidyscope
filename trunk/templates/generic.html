@@ -4,18 +4,16 @@
 {% load glossary_tags %}
 
 {% block content %}
-<div class="container main_container">
-    {% include "includes/generic_nav.html" %}
-	<div class="span-24">
+<div class="wrapper clearfix">
 		<div id="header_area">
 			<h3>{% morsel_page_title %}</h3>		
 		</div>
+		{% recursive_menu %}
 		
-		<div class="content_area">
+		<div class="page-content">
             {% morsel summary %}
 			{% morsel text1 %}
 			
 		</div>
-	</div>
 </div> <!--ends container-->
 {% endblock %}

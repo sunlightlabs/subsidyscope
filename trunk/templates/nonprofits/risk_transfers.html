@@ -2,16 +2,20 @@
 {% load media %}
 {% load morsel_tags %}
 {% block content %}
+{% load menubuilder %}
 
-<div class="container main_container">
+
+<div id="nonprofits" class="wrapper clearfix">
 {# only one of the following two lines should appear #}    
-    {% include "includes/nonprofits_nav.html" %}
+     
     
-    <div class="span-24">
+     
         <div id="header_area">
             <h3>{% morsel_page_title %}</h3>
         </div>
-        <div class="content_area">
+		{% recursive_menu %}
+
+        <div class="page-content">
           
             {% morsel summary glossarize %}
             {% morsel text1 glossarize %}

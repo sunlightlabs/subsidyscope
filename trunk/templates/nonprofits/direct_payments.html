@@ -2,16 +2,19 @@
 {% load media %}
 {% load glossary_tags %}
 {% load morsel_tags %}
+{% load menubuilder %}
 
 {% block content %}
 
-<div class="container main_container">
-    {% include "includes/nonprofits_nav.html" %}
-    <div class="span-24">
+<div id="nonprofits" class="wrapper clearfix">
+     
+     
         <div id="header_area">
             <h3>{% morsel_page_title %}</h3>
         </div>
-        <div class="content_area">    
+        			{% recursive_menu %}
+
+    <div class="page-content">    
             
         	{% morsel summary glossarize %}
         	{% morsel text1 glossarize %}

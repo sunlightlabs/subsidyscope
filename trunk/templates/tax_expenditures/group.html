@@ -53,11 +53,12 @@
 
 <div class="container main_container">
     {% include "includes/pted_group_nav.html" %}
-    <div class="span-24">
-        <div id="header_area">
+         <div id="header_area">
             <h3>Pew's Tax Expenditure Database</h3>
         </div>
-        <div class="content_area">
+        			{% recursive_menu %}
+
+    <div class="page-content">
              	
         	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
         

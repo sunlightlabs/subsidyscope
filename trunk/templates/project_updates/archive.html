@@ -12,7 +12,9 @@
 			<h3>Project Updates</h3>		
 		</div>
 		
-		<div class="content_area">
+					{% recursive_menu %}
+
+    <div class="page-content">
 
 			{% for item in updates %}
                 {% if item.published %}

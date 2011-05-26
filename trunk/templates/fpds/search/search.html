@@ -5,6 +5,8 @@
 {% load humanize %}
 {% load search_tags %}
 {% load sector_tags %}
+{% load menubuilder %}
+
 
 {% block additional_css %}
   {% css "styles/jquery-ui/ui.all.css" %}
@@ -38,16 +40,14 @@ var sortOrder = '{{ sort_order }}';
 
 {% block content %}
 
-<div class="container main_container">
-
-    {% sector_nav %}
-
-    <div class="span-24">
+<div id="nonprofits" class="wrapper clearfix">	
 
         <div id="header_area">
             <h3>{% morsel_page_title %} (FY 2000&ndash;2010)</h3>
         </div>
-        <div class="content_area">    
+       {% recursive_menu %}
+
+    <div class="page-content">    
 	
 		<p>{% morsel text1 %}</p>
 	

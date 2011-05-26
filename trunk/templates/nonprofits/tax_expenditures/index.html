@@ -3,12 +3,14 @@
 {% load morsel_tags %}
 {% block content %}
 {% load menubuilder %}
+
+
 <div id="nonprofits" class="wrapper clearfix">
         <div id="secondary_header">
             <h3>{% morsel_page_title %}</h3>
         </div>
         {% recursive_menu %}
-        <div class="content_area">
+        <div class="page-content">
             {% morsel summary glossarize %}
             {% morsel text1 glossarize %}
         </div>
