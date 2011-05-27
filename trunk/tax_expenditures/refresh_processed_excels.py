@@ -169,7 +169,7 @@ def recurse_category(parent, writer, indent, budget_function):
                     if estimate.individuals_amount != None:
                         indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                         
-                        if total_estimates[estimate.estimate_year]:
+                        if total_estimates.has_key(estimate.estimate_year):
                            total_estimates[estimate.estimate_year] += estimate.individuals_amount
                    
                         else:
