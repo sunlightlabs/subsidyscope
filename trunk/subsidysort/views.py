@@ -148,8 +148,14 @@ def sector_search(request, sector_id, cfda):
 def cfda(request, program_id):
     
     program = ProgramDescription.objects.get(id=int(program_id))
-    
-    return render_to_response('subsidysort/cfda.html', {'program':program})
+    budget_accounts = program.budget_accounts.all()
+    budget_functions = []
+    for ba in budget_accounts:
+        budget_functions.append(ba.budget_function)
+
+    functional_indexes = program.functional_index.all()    
+
+    return render_to_response('subsidysort/cfda.html', {'program':program, 'budget_functions': budget_functions, 'functional_indexes': functional_indexes})
 
 
 

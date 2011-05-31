@@ -11,6 +11,16 @@
 	{% for field in program|get_fields %}
 		<tr><th>{{ field.name }}:</th><td>{{ field.value }}</td></tr>
 	{% endfor %}
+    <tr><th>Budget Functions:</th><td>
+    {% for bf in budget_functions %}
+        {{bf}},&nbsp;
+    {% endfor %}
+    </td></tr>
+    <tr><th>Functional Indexes:</th><td>
+    {% for fi in functional_indexes%}
+        {{fi}},&nbsp;
+    {% endfor %}
+    </td></tr> 
 </table>
 
 
