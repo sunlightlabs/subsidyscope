@@ -11,21 +11,6 @@ th {cursor: pointer;}
 <script language="javascript">
 
 var sector_id = {{ sector.id }};
-/*
-$(document).ready(function () { 
-    
-    var blocks = ['#all_programs','#duplicate_programs' , {% for group in bf_groups %}'#bf_group_{{ group.bf.id }}',{% for program in group.programs %}'#bf_comments_{{ program.id }}_edit',{% endfor %}{% endfor %}{% for group in fi_groups %}'#fi_group_{{ group.fi.id }}',{% for program in group.programs %}'#fi_comments_{{ program.id }}_edit',{% endfor %}{% endfor %},{% for program in included_programs %}'#ap_comments_{{ program.id }}_edit',{% endfor %}]
-    
-    $('#refresh_link').hide(); 
-    
- 	for(block in blocks)
- 	{
- 		if(blocks[block] != window.location.hash)
-    		$(blocks[block]).hide();
-    }
-    
-});  
-*/
 function addToTable( grants, program_id, program_name, program_number, scoping_comment){
     var html = '<tr id="'+program_number+'_row"><td><a href="/subsidysort/cfda/'+ program_id + '"><strong>' + program_number+ '</strong></a></td><td>'+ program_name +'</td><td style="text-align:right;">$'+grants+'</td><td>n/a</td><td>n/a</td><td>---</td><td><div id="comments_'+program_id+'">Comments: <span id="comments_'+program_id+'_span">' + scoping_comment+ '</span> <a href="#' + program_id +'" onclick="editComment(this, '+program_id+');return false;">[edit]</a><div style="display:none;" id="comments_' + program_id + '_edit"><textarea cols="40" rows="5" id="comments_'+program_id+'_textarea">'+ scoping_comment +'</textarea><br/><a href="#'+program_id+'" onclick="saveComment(this, '+ program_id + ', \'#comments_' + program_id + '\');return false;">[save]</a></div></div></td><td class="add_or_remove"><span><a href="#" onclick="includeProgram(this, '+ program_id +'); return false;">[include program]</a></span></td></tr> ';
 
@@ -89,36 +74,6 @@ function saveComment(that, program_id, id)
 <p>Add program by CFDA: <input id="find_program_cfda" type="text" size="5"/> <a href="#" onclick="findProgram();return false;">[find]</a></p>
 <div id="find_program_results"></div>
 
-<!--
-<p><strong>Included Programs:</strong></p>
-{% if included_programs %}
-	<table id="included_programs">
-        <thead>
-            <tr><th>Program Number</th><th>Program Name</th><th>Spending</th><th>Comments</th></tr>
-        </thead>
-        <tbody>
-		{% for program in included_programs %}
-            <tr>
-                <td><a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a></td>
-                <td>{{ program.program_title }} <a href="#all_programs" onclick="removeProgram({{ program.id }});">[remove program]</a></td>
-                <td>
-				 <br/> FY09 Obligations: $tbd <a href="" onclick=edit>[more]</a>
-				    FY05-10 Grants: {{ program.get_recent_grants_summary }}
-                </td>
-                <td id="ap_comments_{{ program.id }}" style="width:300px;">
-					<span id="ap_comments_{{ program.id }}_span">{{ program.scoping_comment }}</span> <a href="#ap_{{ program.id }}" onclick="editComment('#ap_comments_{{ program.id }}')">[edit]</a>
-				<span id="ap_comments_{{ program.id }}_edit" style="display:none;" >
-					<textarea cols="40" rows="5" id="ap_comments_{{ program.id }}_textarea">{{ program.scoping_comment }}</textarea>
-					<a href="#ap_{{ program.id }}" onclick="saveComment({{ program.id }}, '#ap_comments_{{ program.id }}')">[save]</a>
-				</span>
-				</td>
-            </tr>
-		{% endfor %}
-	</table>
-{% else %}
-No Programs Selected
-{% endif %}	
--->
 <p><strong>Programs in Related Budget Functions and Functional Index:</strong></p>
 
 {% if all_programs %}
