@@ -151,7 +151,8 @@ def cfda(request, program_id):
     budget_accounts = program.budget_accounts.all()
     budget_functions = []
     for ba in budget_accounts:
-        budget_functions.append(ba.budget_function)
+        if ba.budget_function not in budget_functions:
+            budget_functions.append(ba.budget_function)
 
     functional_indexes = program.functional_index.all()    
 
