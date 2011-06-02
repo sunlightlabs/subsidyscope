@@ -13,6 +13,7 @@ class Sector(models.Model):
 
     name = models.CharField("Name", max_length=40)
     related_agencies = models.ManyToManyField(Agency, blank=True, null=True)
+    launched = models.BooleanField("Launched?", default=False)
     
     budget_functions = ManyToManyField_NoSyncdb('budget_accounts.BudgetFunction', related_name='budget_functions', db_table='budget_accounts_budgetfunction_sectors')
     functional_indexes = ManyToManyField_NoSyncdb('cfda.ProgramFunctionalIndex', related_name='functional_indexes', db_table='cfda_programfunctionalindex_sectors')

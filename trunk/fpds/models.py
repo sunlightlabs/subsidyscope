@@ -526,10 +526,10 @@ class FPDSLoader(object):
     def lookup_agency(self, *args, **kwargs):
         record = args[0]
         field_name = kwargs['field_name']
-        agency_id = record[field_name]
+        agency_fips = record[field_name]
         try:
-            agency = Agency.objects.get(fips_code=int(agency_id))
-            return (True, agency.id)
+            agency = Agency.objects.get(fips_code=int(agency_fips))
+            return (True, agency)
         except:
             return (False, None)
 
@@ -763,9 +763,9 @@ class FPDSLoader(object):
         #            sql_selection_clauses.append("(%s)" % sector_selection_criteria['sector'].values()[0])
         #            self.sector_sql_mapping[sector_selection_criteria['sector'].keys()[0]] = sector_selection_criteria['sector'].values()[0]
 
-        all_sectors = Sector.objects.all()
+        all_sectors = Sector.objects.filter(launched=True)
         for sector in all_sectors:
-
+        
             psc_codes = ProductOrServiceCode.objects.filter(sectors=sector)
             naics_codes = NAICSCode.objects.filter(sectors=sector)
              
@@ -778,7 +778,7 @@ class FPDSLoader(object):
                 self.sector_sql_mapping[sector] = sql
                 print psc_code_string
                 print naics_code_string
-
+            
         # generate SQL that will provide a field for each record delineating the sectors to which it should be assigned
         sector_inclusion_sql = map(lambda (sector, sql): "IF ((%s)) THEN AS include_in_sector_%s END IF " % (sql, sector.id), self.sector_sql_mapping.items())
         if len(sector_inclusion_sql):
@@ -789,19 +789,22 @@ class FPDSLoader(object):
         conn = pg.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], dbname=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'])
         
         max_server_id = self.get_max_server_id(conn, settings)
-        print max_id
-        print max_server_id
         i = 0
         while int(max_id) < int(max_server_id):                
+            print max_id
+            print max_server_id
             sql = "SELECT * FROM %s WHERE (%s) AND id > %d ORDER BY id ASC LIMIT 1000" % ((table_override is not None) and table_override or settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'fpds_award3_sf'), " OR ".join(sql_selection_clauses), max_id)
             print "Executing query: %s" % sql
             results = conn.query(sql).dictresult()
-            for row in results:
-                sys.stdout.write("Entering loop... ")
-                sys.stdout.write("Processing row... ")
-                self.process_record(row)
-                i = i + 1
-
+            if len(results) > 0:
+                for row in results:
+                    sys.stdout.write("Entering loop... ")
+                    sys.stdout.write("Processing row... ")
+                    self.process_record(row)
+                    i = i + 1
+            else:
+                break
+    
                 sys.stdout.write("Finished iteration %d\n" % i)
             max_id = self.get_max_id()
 
