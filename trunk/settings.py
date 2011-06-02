@@ -110,6 +110,7 @@ INSTALLED_APPS = (
     'energy',
     'transportation',
     'nonprofits',
+    'housing',
     'tagging',
     'aip',
     'news_briefs',

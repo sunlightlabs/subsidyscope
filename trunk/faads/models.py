@@ -1,13 +1,14 @@
 from django.db import models, reset_queries
+from django.db.models import Max
 from decimal import Decimal
 from sectors.models import Sector, Subsector
 from geo.models import *
 import sys
 import MySQLdb
+import pg
 import settings
 
 def generate_model_entries(obj):
-    obj.objects.all().delete()
     for code,name in obj.OPTIONS:
         x = obj()
         x.code = code
@@ -119,7 +120,7 @@ class Record(models.Model):
         self.sector_hash = self._generate_sector_hash()
         super(Record, self).save()
     
-    fyq = models.CharField("FYQ", max_length=8, blank=True, default='')
+    fyq = models.CharField("FYQ", max_length=10, blank=True, default='')
     sectors = models.ManyToManyField(Sector, blank=True)    
     subsectors = models.ManyToManyField(Subsector, blank=True)    
     sector_hash = models.IntegerField("Sector Hash", blank=True, null=True, db_index=True)    
@@ -163,7 +164,7 @@ class Record(models.Model):
     def principal_place_county_or_city_name_for_display(self):        
         return self.city_name_for_display('principal_place_county_or_city_name', 'principal_place_state')
     principal_place_zip_code = models.CharField("Principal Place of Performance Zip Code", max_length=9, blank=True, default='') # NORMALIZE
-    principal_place_congressional_district = models.CharField("Principal Place Congressional District", max_length=2, blank=True, default='') # NORMALIZE
+    principal_place_congressional_district = models.CharField("Principal Place Congressional District", max_length=4, blank=True, default='') # NORMALIZE
     cfda_program_title = models.CharField("CFDA Program Title", max_length=74, blank=True, default='')
     agency_name = models.CharField("Federal Agency Name", max_length=72, blank=True, default='')
     recipient_state_name = models.CharField("Recipient State Name", max_length=25, blank=True, default='')
@@ -178,20 +179,17 @@ class Record(models.Model):
     recipient_address_3 =  models.CharField("Recipient Address 3", max_length=35, blank=True, default='')        
     face_loan_guran = models.DecimalField("Face Value of Direct Loan/Loan Guarantee", max_digits=15, decimal_places=2, blank=True, null=True)
     orig_sub_guran = models.DecimalField("Original Subsidy Cost of the Direct Loan/Loan Guarantee", max_digits=15, decimal_places=2, blank=True, null=True)
-    parent_duns =  models.CharField("Parent DUNS", max_length=13, blank=True, default='')
-    record_id = models.IntegerField("Record ID", max_length=20, blank=False, null=False, primary_key=True)
+    data_commons_id = models.IntegerField("Record ID", max_length=20, blank=False, null=False, primary_key=True)
     fiscal_year = models.IntegerField("Fiscal Year", max_length=6, blank=True, null=True)
     award_id = models.IntegerField("Award ID", max_length=11, blank=True, null=True)
     recipient_category_type = models.CharField("Recipient Category Type", max_length=1, blank=True, default='')
     asistance_category_type = models.CharField("Assistance Category Type", max_length=1, blank=True, default='')
     recipient_congressional_district = models.CharField("Recipient Congressional District", max_length=4, blank=True, default='')
     major_agency_category = models.CharField("Major Agency Category", max_length=2, blank=True, default='')
-    mod_name = models.CharField("Modified(?) Name", max_length=45, blank=True, default='')
     recipient_id = models.IntegerField("Recipient ID", max_length=11, blank=True, null=True)
     lookup_record_id = models.IntegerField("Lookup Record ID", max_length=20, blank=True, null=True)
     lookup_recipient_id = models.IntegerField("Lookup Recipient ID", max_length=20, blank=True, null=True)
-    business_identifier = models.CharField("Business Identifier", max_length=3, blank=True, default='')
-    rec_flag = models.CharField("Recovery(?) Flag", max_length=1, blank=True, default='')
+    rec_flag = models.CharField("Recovery(?) Flag", max_length=1, null=True, blank=True, default='')
     
     def city_name_for_display(self, city_field, state_field):
         s = getattr(self, city_field, None)
@@ -271,7 +269,6 @@ class FAADSLoader(object):
             'principal_place_congressional_district': (self.make_null_emptystring, {'field_name': 'principal_place_cd'}),
             'cfda_program_title': 'cfda_program_title',
             'agency_name': 'agency_name',
-            'recipient_state_name': 'recipient_state_name',
             'project_description': 'project_description',
             'duns_number': (self.make_null_emptystring, {'field_name': 'duns_no'}),
             'duns_confidence_code': (self.make_null_emptystring, {'field_name': 'duns_conf_code'}),
@@ -283,8 +280,7 @@ class FAADSLoader(object):
             'recipient_address_3': (self.make_null_emptystring, {'field_name': 'receip_addr3'}),
             'face_loan_guran': 'face_loan_guran',
             'orig_sub_guran': 'orig_sub_guran',
-            'parent_duns': (self.make_null_emptystring, {'field_name': 'parent_duns_no'}),
-            'record_id': 'record_id',
+            'data_commons_id': 'id',
             'fiscal_year': 'fiscal_year',
             'award_id': 'award_id',
             'recipient_category_type': 'recip_cat_type',
@@ -295,23 +291,26 @@ class FAADSLoader(object):
             'recipient_id': 'recip_id',
             'lookup_record_id': 'lookup_record_id',
             'lookup_recipient_id': 'lookup_recip_id',
-            'business_identifier': (self.make_null_emptystring, {'field_name': 'business_identifier'}),
             'rec_flag': 'rec_flag',
         }
         
     
     def reset_faads_import(self):
-        # reload FK models
-        generate_model_entries(ActionType)
-        generate_model_entries(RecipientType)
-        generate_model_entries(AssistanceType)
-        generate_model_entries(RecordType)
+        fk_models = [ActionType,
+                     RecipientType,
+                     AssistanceType,
+                     RecordType]
+
+        for fk in fk_models:
+            fk.objects.all().delete()
         Record.objects.all().delete()
 
+        for fk in fk_models:
+            generate_model_entries(fk)
     
     def extract_recipient_type_safely(self,x):
         r = x.get('recipient_type')
-        if r is None or r=='':
+        if r is None or r == '':
             return None
         else:
             return int(r)
@@ -363,9 +362,9 @@ class FAADSLoader(object):
         record = args[0]
         
         try:
-            recipient_state_code = int(record['recipient_state_code'])
+            recipient_state_code = record['recipient_state_code']
            
-            state = self.faads_matcher.matcher.matchFips(recipient_state_code)
+            state = self.faads_matcher.matcher.matchName(recipient_state_code)
             
             if state:
                 recipient_county_code = int(record['recipient_county_code'])
@@ -374,7 +373,7 @@ class FAADSLoader(object):
                 county = county_matcher.matchFips(recipient_county_code)
                 
                 if county:
-                    return (False, county)
+                    return (True, county)
                 else:
                     return (False, None)
             else:
@@ -388,9 +387,9 @@ class FAADSLoader(object):
         record = args[0]
         
         try:
-            recipient_state_code = int(record['recipient_state_code'])
+            recipient_state_code = record['recipient_state_code']
            
-            state = self.faads_matcher.matcher.matchFips(recipient_state_code)
+            state = self.faads_matcher.matcher.matchName(recipient_state_code)
             
             if state:
                 return (True, state)
@@ -471,19 +470,15 @@ class FAADSLoader(object):
                 kwargs = grabber[1]
                 (success, extracted_value) = func(faads_record, *args, **kwargs)                
                 if success:
-                    # print "SUCCESS: %s" % attrname
                     setattr(django_record, attrname, extracted_value)
                 else:
-                    # print "FAILURE: %s" % attrname
-                    failed_fields.append("%s (%s)" % (attrname, str(extracted_value)))
+                    failed_fields.append(attrname)
             else:
                 setattr(django_record, attrname, faads_record.get(grabber))
 
-        if len(failed_fields):
-            sys.stderr.write("%d: failed to extract field(s) %s\n" % (faads_record['record_id'], ', '.join(failed_fields)))
-
         django_record.sectors = self.assign_sectors(faads_record)
         django_record.save()        
+        return failed_fields
 
 
                     
@@ -512,45 +507,77 @@ class FAADSLoader(object):
                     self.sector_sql_mapping[sector_selection_criteria['sector'].keys()[0]] = sector_selection_criteria['sector'].values()[0]
         
         # generate SQL that will provide a field for each record delineating the sectors to which it should be assigned
-        sector_inclusion_sql = map(lambda (sector, sql): "IF((%s),1,0) AS include_in_sector_%s " % (sql, sector.id), self.sector_sql_mapping.items())
+        sector_inclusion_sql = map(lambda (sector, sql): "CASE %s WHEN true THEN 1 ELSE 0 END AS include_in_sector_%s " % (sql, sector.id), self.sector_sql_mapping.items())
         if len(sector_inclusion_sql):
             sector_inclusion_sql.insert(0, '')
                 
         assert len(sql_selection_clauses)>0, "At least one installed app must define a usaspending.faads() method"
         
-        from django.db import connection
-        cursor = connection.cursor()
-        cursor.execute("SELECT MAX(record_id) AS max_record_id FROM faads_record;")
-        row = cursor.fetchone()
-        max_record_id = row[0]
-        if max_record_id is None:
-            max_record_id = 0
-        
-        
-        conn = MySQLdb.connect(host=settings.FAADS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FAADS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FAADS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FAADS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FAADS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
-        cursor = conn.cursor()
-        sql = "SELECT *%s FROM %s WHERE (%s) AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (", ".join(sector_inclusion_sql), (table_override is not None) and table_override or settings.FAADS_IMPORT_MYSQL_SETTINGS.get('source_table', 'faads_main_sf'), " OR ".join(sql_selection_clauses), max_record_id)
-        print "Executing query: %s" % sql
+        if hasattr(settings, 'FAADS_IMPORT_MYSQL_SETTINGS'):
+            raise DeprecationWarning("The FAADS data is now imported from the datacommons Postgres database, not MySQL.")
 
-        try:
-            cursor.execute(sql)
-        except:
-            pass
-            
+        assert hasattr(settings, 'FAADS_IMPORT_PGSQL_SETTINGS'), "You must provide a FAADS_IMPORT_PGSQL_SETTINGS dictionary."
+
+        conn = pg.connect(host=settings.FAADS_IMPORT_PGSQL_SETTINGS['host'], 
+                          user=settings.FAADS_IMPORT_PGSQL_SETTINGS['user'], 
+                          passwd=settings.FAADS_IMPORT_PGSQL_SETTINGS['password'], 
+                          dbname=settings.FAADS_IMPORT_PGSQL_SETTINGS['database'], 
+                          port=settings.FAADS_IMPORT_PGSQL_SETTINGS['port'])
+
+        progress_chars = list(reversed(['|', '/', '-', '\\']))
+        def progress(i):
+            sys.stdout.write("\x1B[1D")
+            sys.stdout.write(progress_chars[i % len(progress_chars)])
+            sys.stdout.flush()
+
+        field_failure_counts = dict.fromkeys(self.FIELD_MAPPING.keys(), 0)
         i = 0
+        record_aggregates = Record.objects.aggregate(Max('data_commons_id'))
+        max_id = record_aggregates['data_commons_id__max'] or 0
         while True:
-            sys.stdout.write("Entering loop... ")
-            row = cursor.fetchone()
-            if row is None:
-                break
-            else:
-                sys.stdout.write("Processing row... ")
-                self.process_record(row)
-            i = i + 1
-        
-            sys.stdout.write("Finished iteration %d\n" % i)
+            sql = "SELECT *%s FROM %s WHERE (%s) AND id > %d ORDER BY id ASC LIMIT %d" % (
+                        ", ".join(sector_inclusion_sql), 
+                        ((table_override is not None) 
+                         and table_override 
+                         or settings.FAADS_IMPORT_PGSQL_SETTINGS.get('source_table', 'faads_main_sf')),
+                        " OR ".join(sql_selection_clauses), 
+                        max_id,
+                        settings.FAADS_IMPORT_PGSQL_SETTINGS.get('batch_size', 50000))
 
-        cursor.close()
+            try:
+                qobj = conn.query(sql)
+            except pg.ProgrammingError, err:
+                print sql
+                raise
+            n_results = qobj.ntuples()
+            if n_results == 0:
+                break
+            print "Importing another %d records, beginning at id %d..." % (n_results, max_id)
+
+            results = qobj.dictresult()
+            for row in results:
+                progress(i)
+                try:
+                    failed_fields = self.process_record(row)
+                    for f in failed_fields:
+                        field_failure_counts[f] += 1
+                    i += 1
+                    max_id = row['id']
+                except:
+                    print
+                    print "Failed to import record %s" % str(row['id'])
+                    raise
+           
+            if max(field_failure_counts.values()) > 0:
+                print
+                print "Failure counts by field (cumulative):"
+                for f, c in field_failure_counts.iteritems():
+                    if c > 0:
+                        print "%s: %d" % (f, c)
+            else:
+                print
+                print "No field failures yet"
+
         conn.close()
         
         
