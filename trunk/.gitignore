@@ -1,2 +1,6 @@
+*.xlsx
+*.sql
+*.json
+*.zip
 whoosh
 do_fpds_import.sh
