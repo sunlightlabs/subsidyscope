@@ -13,7 +13,7 @@ register = Library()
 
 JCT_SOURCES = {}
 
-JCT_SOURCES[2001] = 'JCT. "JCS-7777777-98: Estimates Of Federal Tax Expenditures For Fiscal Years 1999-2003."'
+JCT_SOURCES[2001] = 'JCT. "JCS-7-98: Estimates Of Federal Tax Expenditures For Fiscal Years 1999-2003."'
 JCT_SOURCES[2002] = 'JCT. "JCS-13-99: Estimates Of Federal Tax Expenditures For Fiscal Years 2000-2004."'
 JCT_SOURCES[2003] = 'JCT. "JCS-1-01: Estimates Of Federal Tax Expenditures For Fiscal Years 2001-2005."'
 JCT_SOURCES[2004] = 'JCT. "JCS-1-02: Estimates Of Federal Tax Expenditures For Fiscal Years 2002-2006."'
