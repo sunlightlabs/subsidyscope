@@ -9,6 +9,9 @@ from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, 
 SOURCES = ('', 'JCT', 'Treasury')
 MAX_COLUMNS = 11
 
+lower_level_footnote = "The Joint Committee on Taxation does not provide numerical data for values that are between -$50 million and $50 million. Rather they footnote the values to be either less than $50 million or greater than -$50 million. The estimates in the individual and corporation columns from the Joint Committee on Taxation may contain values between -$50 million and $50 million (denoted as an >50 and >-50). When aggregated, in the totals column, the sums of these values are unknown and thus are rounded to zero. For more information, see the methodology."
+
+top_level_footnote = "The Joint Committee on Taxation does not provide numerical data for values that are between -$50 million and $50 million. Rather they footnote the values to be either less than $50 million or greater than -$50 million. When aggregated, the sums of these estimates values are unknown and thus are rounded to zero. The aggregated estimates that are presented in this document do not indicate where these rounded values exist. For information on which estimates contain these rounded values please review the specific tax expenditure estimates. For more information, see the methodology"
 
 def get_year_choices(columns, year):
     
@@ -133,6 +136,8 @@ def te_csv(request, group_id=None):
             
         budget_function = top_level_group.name
         if (parent.parent and not parent.parent.parent) or (Group.objects.filter(parent=parent).count() == 0):
+            writer.writerow((lower_level_footnote,))
+            writer.writerow(('',))
             #this is a TE, not a group per se, so should print the line item for all subsequent groups, even multiple jct items
             header_summary.insert( 5, 'Report')
             writer.writerow(header_summary)
@@ -144,12 +149,14 @@ def te_csv(request, group_id=None):
         else:
             #need footnote disclaimer
             writer.writerow((general_footnote,))
+            writer.writerow((lower_level_footnote,))
             writer.writerow(("",))
             writer.writerow(header_summary[:len(header_summary)-1])
             recurse_category(parent, writer, '', budget_function)
     
     else:
         writer.writerow((general_footnote,))
+        writer.writerow((top_level_footnote,))
         writer.writerow(("",))
         header = header_summary[4:len(header_summary)-1]
         header.insert(0, 'Budget Function') 
