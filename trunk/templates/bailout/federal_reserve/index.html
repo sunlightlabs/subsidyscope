@@ -12,10 +12,7 @@
 {% load menubuilder %}
 {% block content %}
 
-<div class="container main_container">
-{% include "includes/bailout_nav.html" %}
-
-	<div class="span-24">
+<div id="fin_bailout" class="wrapper clearfix">	
 		<div class="secondary-header">
 			<h3>{% morsel_page_title %}</h3>		
 		</div>
@@ -24,9 +21,7 @@
 
     <div class="page-content">
 			{% morsel text1 %}			
-		</div>
 		
-		<div class="non_content">
 
 			<h4>Factors Affecting Federal Reserve Balances</h4>
 			<div id="fed-h41">				
@@ -37,14 +32,10 @@
 				<div class="attribution">Source: <a href="http://www.subsidyscope.com">www.subsidyscope.com</a>. Data from <a href="http://www.federalreserve.gov/releases/h41/">The Federal Reserve</a> <span class="source_download">[<a href="{% url h41_snapshot_csv %}">Download CSV</a>]
 				</div>
 
-		</div>
 					
-			{% recursive_menu %}
-
-    <div class="page-content">
 			{% morsel text2 %}
 		</div>
-				
+	</div>		
 			<script type="text/javascript">
 			$(function(){
 				var d = new Date();

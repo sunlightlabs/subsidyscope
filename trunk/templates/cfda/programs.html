@@ -10,14 +10,15 @@
 <style>
 .secondary-tags{font-size: 97%; font-weight: normal; float:right; margin-right: 20px;}
 </style>
-<div class="container main_container">
-    {% include navname %}
-         <div class="secondary-header" style="margin-bottom:0px;">
+<div id="transportation" class="wrapper clearfix">	
+         <div class="secondary-header">
             <h3><img style="margin-bottom:-6px;" src="{% media_url %}/images/sector_icons/30x40_trans_{{subsectors.0.name|lower}}.png" />{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span>
             </h3>
         </div>
+	    {% include "includes/static_side_nav.html" %}
 
-        <div class="content_area inlinepara">    
+
+        <div class="page-content">    
             <h5>Program Summary and Objectives</h5>
             <span class="floatright inline-box">
             <ul>
