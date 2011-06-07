@@ -120,11 +120,14 @@ class Record(models.Model):
         self.sector_hash = self._generate_sector_hash()
         super(Record, self).save()
     
-    fyq = models.CharField("FYQ", max_length=10, blank=True, default='')
+    data_commons_id = models.IntegerField("Record ID", max_length=20, blank=False, null=False, primary_key=True)
+    unique_transaction_id = models.CharField("Unique Transaction ID", max_length="32", blank=False, null=False)
+
     sectors = models.ManyToManyField(Sector, blank=True)    
     subsectors = models.ManyToManyField(Subsector, blank=True)    
     sector_hash = models.IntegerField("Sector Hash", blank=True, null=True, db_index=True)    
     
+    fyq = models.CharField("FYQ", max_length=10, blank=True, default='')
     cfda_program = models.ForeignKey('cfda.ProgramDescription', blank=True, null=True)
     sai_number = models.CharField("State Application Identifier", max_length=20, blank=True, default='')
     recipient_name = models.CharField("Recipient Name", max_length=45, blank=True, default='')
@@ -179,7 +182,6 @@ class Record(models.Model):
     recipient_address_3 =  models.CharField("Recipient Address 3", max_length=35, blank=True, default='')        
     face_loan_guran = models.DecimalField("Face Value of Direct Loan/Loan Guarantee", max_digits=15, decimal_places=2, blank=True, null=True)
     orig_sub_guran = models.DecimalField("Original Subsidy Cost of the Direct Loan/Loan Guarantee", max_digits=15, decimal_places=2, blank=True, null=True)
-    data_commons_id = models.IntegerField("Record ID", max_length=20, blank=False, null=False, primary_key=True)
     fiscal_year = models.IntegerField("Fiscal Year", max_length=6, blank=True, null=True)
     award_id = models.IntegerField("Award ID", max_length=11, blank=True, null=True)
     recipient_category_type = models.CharField("Recipient Category Type", max_length=1, blank=True, default='')
@@ -231,6 +233,8 @@ class FAADSLoader(object):
     
         self.FIELD_MAPPING = {
         #   'django field name': 'FAADS field name' OR callable that returns value when passed row
+            'data_commons_id': 'id',
+            'unique_transaction_id': 'unique_transaction_id',
             'fyq': 'fyq',
             'cfda_program': (self.lookup_cfda_program, {}),
             'sai_number': 'sai_number',
@@ -280,7 +284,6 @@ class FAADSLoader(object):
             'recipient_address_3': (self.make_null_emptystring, {'field_name': 'receip_addr3'}),
             'face_loan_guran': 'face_loan_guran',
             'orig_sub_guran': 'orig_sub_guran',
-            'data_commons_id': 'id',
             'fiscal_year': 'fiscal_year',
             'award_id': 'award_id',
             'recipient_category_type': 'recip_cat_type',
