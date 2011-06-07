@@ -3,14 +3,12 @@
 {% load morsel_tags %}
 {% load glossary_tags %}
  
-{% load menubuilder %}
 {% block content %}
 <div class="wrapper clearfix">
 		<div class="secondary-header">
 			<h3>{% morsel_page_title %}</h3>		
 		</div>
-		{% recursive_menu %}
-		
+{% include "includes/static_side_nav.html" %}			
 		<div class="page-content">
             {% morsel summary %}
 			{% morsel text1 %}

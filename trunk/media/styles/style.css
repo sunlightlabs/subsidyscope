@@ -123,7 +123,6 @@ ul#top_nav_header li { display: block !important; float: right;}
 /* CONTENT AREA */
 #header_area {margin:10px 20px 20px 20px; background-image:url(/media/images/double_lines.gif); background-position:bottom; background-repeat:repeat-x;}
 #header_area h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
-#header_area h3 { font-size:20px; margin:0; padding:0 0 10px 0; line-height:24px;}
 
 #header_area_flat {margin:20px 20px 20px 20px; background-image:url(/media/images/double_lines.gif); background-position:bottom; background-repeat:repeat-x;}
 #header_area_flat h2 { font-size:12px; margin:0 0 5px 0; padding:0; color:#a5a5a5; text-transform:uppercase;}
@@ -455,11 +454,6 @@ ul.with-bullets, ul.with-bullets li { list-style-type: disc; }
 #faq-page p.question { font-weight: bold; margin-bottom: 0.5em;}
 #faq-page ul { list-style-type: disc; }
 
-ul.press-releases, ul.press-releases li { margin-left: 0;}
-ul.press-releases li
-{
-    margin-bottom: 1em;
-}
 
 /* extra nav for FDIC and Treasury */
 .section-floating-nav
@@ -575,5 +569,3 @@ p#previous-updates { padding-left: 10px; margin-top: 10px;}
     display: block;
 }
 
-/* font size fix for bios page */
-.sub_list_bios li p { font-size: 100%;}

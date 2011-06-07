@@ -800,6 +800,7 @@ h4 a {
 
 .page-content ul{
 	margin-bottom: 15px;
+	margin-right: 20px;
 }
 
 h5{
@@ -857,12 +858,68 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
 .table_header{
 	width: 400px;
 }
-
 .mode_alt{
 	float: right;
 	width: 360px;
 }
-
 .left{
 	float: left;
 }
+.bio_list, .sub_list_bios, .press-releases{
+	list-style-type: none;
+	margin-left: 0;
+}
+.press-releases li{
+	margin-bottom: 10px;
+}
+.bio_list{
+	-moz-column-count:2;
+	-webkit-column-count: 2;
+	-moz-column-gap: 20px
+	-webkit-column-gap: 20px
+	-moz-column-rule: none;
+	-webkit-column-rule: none;
+}
+.bio_list li{
+	display: block;
+	margin-bottom: 20px;
+}
+.bio_list .affil{
+	display: block;
+	vertical-align: top;
+}
+.bio_list a{
+	font-weight: bold;
+}
+
+dl{
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+
+.subsidyscope-contributors{
+	clear: both;
+}
+.subsidyscope-contributors dd{
+	float: left;
+	width: 460px;
+	margin-bottom: 10px;
+}
+.subsidyscope-contributors dt{
+	width: 200px;
+	float: left;
+	clear: both;
+}
+
+#staff-page h5{
+	clear: both;
+	margin-top: 20px;
+}
+
+blockquote{
+	color: ;
+}
+
+
+
+
