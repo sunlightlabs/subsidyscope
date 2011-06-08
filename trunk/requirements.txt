@@ -11,5 +11,5 @@ python-memcached==1.45
 simplejson==2.1.1
 wsgiref==0.1.2
 yolk==0.4.1
-gunicorn
+gunicorn==0.12.0
 PyGreSQL==4.0
