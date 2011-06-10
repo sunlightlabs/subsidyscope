@@ -11,5 +11,6 @@ urlpatterns = patterns('tax_expenditures.views',
     url(r'^db/group/(?P<group_id>.*)/$', 'group', name="tax_expenditures-group"),
     url(r'^db/$', 'main', name="tax_expenditures-main"),
     url(r'^methodology/$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-methodology"),
+    url(r'^search/(?P<querystring>.*)/$', 'search', name='search'),
     url(r'^$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-summary"))
     
