@@ -13,13 +13,13 @@
 {% css "styles/aip.css" %}
 <style>
 .searchterms, .options {display: block; margin: 10px;}
-#portsearch fieldset, #projectsearch fieldset {padding-top :20px;padding-left: 1.8em;}
+#portsearch fieldset, #projectsearch fieldset {padding-top :20px;}
 #portsearch fieldset.collapsed, #projectsearch fieldset.collapsed { margin:0px; padding-top:0px; border-bottom: none; border-right: none;border-left: none;}
 #portsearch fieldset.collapsed div.form_content, #projectsearch fieldset.collapsed div.form_content { display: none; }
 
 #projectsearch {display: block;}
 #projectsearch fieldset select { margin: 10px auto;}
-#projectsearch fieldset span {margin: 0 auto; width: 350px;display: block;}
+#projectsearch fieldset span {margin: 0 auto; display: block;}
 #projectsearch fieldset span a {margin-left: 15px;}
 #projectsearch .submit, #portsearch .submit { font-size: 1.1em; float:right;}
 #projectsearch .submit {background-color: #f6f8fb; border: 1px solid #899EAB; margin-left: 15px; padding: 0 3px;}
@@ -27,7 +27,7 @@ td.dollars {text-align:right; }
 th.sortable {background: url(/media/images/bg.gif) no-repeat center right; cursor: pointer;}
 .pages { margin:15px; display: block; font-size: 1.1em; text-align:right; }
 #project_results table { margin-bottom: 0; }
-#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right 5px; cursor: pointer;padding-right:1.3em;margin:0 !important;}
+#projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right center; cursor: pointer;padding-right:1.3em;margin:0 !important;}
 #projectsearch fieldset.collapsed legend, #portsearch fieldset.collapsed legend { background: transparent url(/media/images/collapse_plus.png) no-repeat scroll right 5px;}
 .summary-csv {width: 200px; float:left; margin-top:10px; padding 2px;}
 </style>
@@ -38,9 +38,9 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
     {% recursive_menu %}
 		<div class="page-content">
         {% morsel text1 glossarize %}
-        <form id="portsearch">
+        <form id="portsearch" class="search-section">
             <fieldset {% if type == 'project' %} class="collapsed" {% endif %}>    
-            <legend id="expand_airport">Search by Airport</legend>
+            <legend id="expand_airport"><h4>Search by Airport</h4></legend>
             <div class="form_content" >    
             <input type="hidden" name="searchtype" value="airport"/>
             <strong>Search by Specific Airport: </strong>
@@ -110,19 +110,20 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
         {% endfor %}
     </select>
     </span>
-    <input type="submit" class="submit" value="Search" />
-</span>
+
+</span>    
+<button type="submit" class="search-submit" value="Search" />
 </div>
 </fieldset>
 </form>
-<form id="projectsearch">
+<form id="projectsearch" class="search-section">
     <input type="hidden" name="fysort" value='{% if sorts.fysort == 'asc' %}asc {%elif sorts.fysort == 'desc'%}desc{%else %}none{%endif%}' />
     <input type="hidden" name="nprsort" value='{% if sorts.nprsort == 'asc'%}asc{% elif sorts.nprsort == 'desc'%}desc{%else %}none{%endif%}' />
     <input type="hidden" name="airportsort" value='{% if sorts.airportsort == 'asc'%}asc{% elif sorts.airportsort == 'desc'%}desc{%else%}none{%endif%}' />
     <input type="hidden" name="totalsort" value='{% if sorts.totalsort == 'asc'%}asc{%elif sorts.totalsort == 'desc'%}desc{%else%}none{%endif%}' />
 
     <fieldset {% if type == 'airport' %} class="collapsed" {% endif %}>
-        <legend id="expand_project">Search by Project</legend>
+        <legend id="expand_project"><h4>Search by Project</h4></legend>
         <input type="hidden" name="searchtype" value="project" />
         <div class="form_content">
         <span>
@@ -168,7 +169,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             {% endfor %}
             </select>
         </span>
-        <input type="submit" class="submit" value="Search" />
+        <input type="submit" class="search-submit" value="Search" />
         </div>
     </fieldset>
 </form>
