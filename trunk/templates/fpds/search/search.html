@@ -44,11 +44,12 @@ var sortOrder = '{{ sort_order }}';
 <div id="nonprofits" class="wrapper clearfix">	
 
         <div class="secondary-header">
-            <h3>{% morsel_page_title %} (FY 2000&ndash;2010)</h3>
+			<h3>{% morsel_sector_title %}</h3>
         </div>
        {% recursive_menu %}
 
-    <div class="page-content">    
+    <div class="page-content">   
+	            <h2>{% morsel_page_title %} (FY 2000&ndash;2010)</h2> 
 	
 		<p>{% morsel text1 %}</p>
 	

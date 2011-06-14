@@ -33,20 +33,21 @@
 
 <div id="fin_bailout" class="wrapper clearfix">
 	<div class="secondary-header">
-			<h2>{% morsel_sector_title %}</h2>
-			<h3>{% morsel_page_title %}</h3>		
+			<h3>{% morsel_sector_title %}</h3>
 	</div>
 		
 			{% recursive_menu %}
 
     <div class="page-content">
+		<h2>{% morsel_page_title %}</h2>		
+	
 		<p><strong>April 29, 2010 &#151; TARP Repayments Underway</strong><p>
 	
 			{% morsel text1 glossarize %}		
 	
-		<div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+		<div class="widget-no-border" id="tabs">
 		
-			<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+			<ul class="widget-header widget-no-padding">
 				<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#transactions">Transactions</a></li>
 				<li class="ui-state-default ui-corner-top"><a href="#recipients">By Recipient</a></li>
 				<li class="ui-state-default ui-corner-top"><a href="#by-date">By Date</a></li>
@@ -136,7 +137,7 @@
 	
 
 		<div class="footnotes">
-			<p>Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
+			<p class="attribution">Data Sources: Information on the TARP transactions is from the <a href="http://www.treasury.gov/initiatives/eesa/tranche-reports.shtml">Treasury Web site</a>. Asset information, with a few exceptions, came from the <a href="http://www2.fdic.gov/idasp/main.asp">Federal Deposit Insurance Corporation</a>; for institutions not found in the FDIC database, asset information from SNL Interactive, Google Finance or Securities and Exchange Commission filings (company 10Q reports) was used.</p>
 		
 			<p><em><a name="footnote-1" id="footnote-1"></a>*&nbsp;All asset values are for the quarter ending December 31, 2008 (retreived from the FDIC web site on March 13, 2009).</em></p>
 		

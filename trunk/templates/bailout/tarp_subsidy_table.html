@@ -41,41 +41,38 @@
 .subsidy-table tr.title td { border-top: 1px solid black; padding-top: 5px;}
 .subsidy-table tr.grand-total td { border-bottom: 1px solid #aaa;}
 .tarp-subsidy-chart img { display: block; margin: 0 auto 1em 0; }
-.tarp-subsidy-chart h3 { margin-top: 0.7em; margin-bottom: 0; font-size: 1.3em;}
-.tarp-subsidy-chart h4 {  margin-bottom: 0; margin-top: 0; font-weight: normal; font-size: 1em;}
 </style>
 
 <div id="fin_bailout" class="wrapper clearfix">
 	<div class="secondary-header">
-			<h2>{% morsel_sector_title %}</h2>
-			<h3>{% morsel_page_title %}</h3>		
+			<h3>{% morsel_sector_title %}</h3>
 		</div>
 		
 			{% recursive_menu %}
 
     <div class="page-content">
-		
+		<h2>{% morsel_page_title %}</h2>		
 		{% morsel text1 %}
 		
 		<div class="tarp-subsidy-chart">
-			<h3>Total Disbursement</h3>
-			<h4>Selected Companies as of 1/23/09 (billions)</h4>
+			<h4>Total Disbursement</h4>
+			<h5>Selected Companies as of 1/23/09 (billions)</h5>
 			{{ amounts_received_chart|safe }}
 		</div>
 		
 		{% morsel text2 %}
 		
 		<div class="tarp-subsidy-chart">
-			<h3>Estimated Subsidy</h3>
-			<h4>Selected Companies as of 1/23/09 (billions)</h4>
+			<h4>Estimated Subsidy</h4>
+			<h5>Selected Companies as of 1/23/09 (billions)</h5>
 			{{ estimated_subsidies_chart|safe }}
 		</div>
 
 		{% morsel text3 %}
 		
 		<div class="tarp-subsidy-chart">
-			<h3>Subsidy Rate (Subsidy/Total Disbursement)</h3>
-			<h4>Selected Companies as of 1/23/09</h4>
+			<h4>Subsidy Rate (Subsidy/Total Disbursement)</h4>
+			<h5>Selected Companies as of 1/23/09</h5>
 			{{ subsidy_rate_chart|safe }}
 		</div>
 

@@ -45,12 +45,13 @@ var sortOrder = '{{ sort_order }}';
 <div class="wrapper clearfix">	
 	<div class="secondary-header">
             <a id="screencast-link-container" href="{% url screencast %}">Need help? Watch the screencast.</a>
-            <h3>{% morsel_page_title %} (FY 2000&ndash;2010)</h3>
+			<h3>{% morsel_sector_title %}</h3>
+			
         </div>
 	    {% recursive_menu %}
 
         <div class="page-content">    
-	
+	<h2>{% morsel_page_title %} (FY 2000&ndash;2010)</h2>
 					<p>{% morsel text1 %}</p>
 
               <p id="sector-changing" style="display: none;"></p>
@@ -71,11 +72,11 @@ var sortOrder = '{{ sort_order }}';
 	            <div class="section" id="programs">
 	            <h4>Select Programs</h4>
 	            
-	            	<div id="cfda_selector_tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+	            	<div id="cfda_selector_tabs" class="widget-no-border">
 	            	
 	            		{{ form.cfda_program_selection_method }}
 
-			             <div id="program-selection-subsidy_programs" class="ui-tabs-panel">
+			             <div id="program-selection-subsidy_programs" class="widget-header widget-no-padding">
 			              {% morsel program_selection_subsidy_programs %}    
 			              <div class="clear-left"></div>                    
 			             </div>
@@ -132,7 +133,12 @@ var sortOrder = '{{ sort_order }}';
             <h4>Expenditure Type</h4>
 
   					<div class="field-wrapper" id="assistance-action-recipient-wrapper">
-  						<div class="dropdown-wrapper">
+  						<div class="dropdown-wrapper" id="recipient-type">
+  						  <label for="recipient_type">Recipient Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
+  							<div>{{ form.recipient_type }}</div>
+  							{{ form.recipient_type.errors }}
+  						</div>
+						<div class="dropdown-wrapper">
   						  <label for="assistance_type">Assistance Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
   							{{ form.assistance_type }}
   							{{ form.assistance_type.errors }}
@@ -142,11 +148,7 @@ var sortOrder = '{{ sort_order }}';
   							{{ form.action_type }}
   							{{ form.action_type.errors }}
   						</div>
-  						<div class="dropdown-wrapper" id="recipient-type">
-  						  <label for="recipient_type">Recipient Type</label>&nbsp;<span class="select-all-or-none">[&nbsp;<a href="#" class="select-all" id="program-selection-subsector-select-all">All</a> / <a href="#" class="select-none" id="program-selection-subsector-select-none">None</a>&nbsp;]</span>
-  							<div>{{ form.recipient_type }}</div>
-  							{{ form.recipient_type.errors }}
-  						</div>
+
   					</div>		
   					<div class="clear-left"></div>
   				</div>
@@ -159,7 +161,7 @@ var sortOrder = '{{ sort_order }}';
 					<div id="obligation-date-wrapper">
 					  <label for="obligation_date_start">Obligation Date</label>
 					  <div class="range-wrapper">
-  						{{ form.obligation_date_start }}&nbsp;to&nbsp;{{ form.obligation_date_end }}
+  						{{ form.obligation_date_start }}<span class="range">to</span>{{ form.obligation_date_end }}
   						{{ form.obligation_date_start.errors }}
   						{{ form.obligation_date_end.errors }}
 						</div>
@@ -169,7 +171,7 @@ var sortOrder = '{{ sort_order }}';
 					<div id="obligation-amount-wrapper">
 					  <label for="obligation_amount_minimum">Obligation Amount</label>
 					  <div class="range-wrapper">
-  						$&nbsp;{{ form.obligation_amount_minimum }}&nbsp;to&nbsp;$&nbsp;{{ form.obligation_amount_maximum }}
+  						$ {{ form.obligation_amount_minimum }}<span class="range">to</span>$ {{ form.obligation_amount_maximum }}
   						{{ form.obligation_amount_minimum.errors }}
   						{{ form.obligation_amount_maximum.errors }}
 						</div>
@@ -188,9 +190,9 @@ var sortOrder = '{{ sort_order }}';
             <div id="location-selector-text">Match locations by:</div><div id="location-selector">{{ form.location_type }}</div>
             
             <div class="clear-left"></div>
-
-            <div class="state-choices">
               <p class="select-all-or-none">[ <a href="#" class="select-all" id="location-selection-select-all">Select All</a> / <a href="#" class="select-none" id="location-selection-tag-select-none">Select None</a> ]</p>
+            <div class="state-choices">
+
 
               {{ form.location_choices }}
             </div>
@@ -211,9 +213,10 @@ var sortOrder = '{{ sort_order }}';
           {% endif %}
           
           {{ form.sector_name }}
-					<input type="submit" value="Search" class="faads-search-submit" />
+					<input type="submit" value="Search" name="submit-btn" class="faads-search-submit" />
           <div class="clear-right"></div>
           
+
 					</form>
 				
 				    {% if not found_some_results and ran_search %}

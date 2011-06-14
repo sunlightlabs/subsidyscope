@@ -11,8 +11,9 @@
 
 #text-query-text-wrapper input#id_text_query
 {
-  width: 870px;
+  width: 640px;
   font-size: 1.1em;
+margin-right: 20px;
 }
 
 #text-query-type-wrapper ul

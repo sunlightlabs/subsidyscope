@@ -43,7 +43,6 @@ h2#graph-header { padding-top: 10px; }
 
 .tarp-table
 {
-	width: 893px;
 }
 
 #tarp-header-table, #tarp-header-table tr, #tarp-header-table tr th
@@ -59,37 +58,52 @@ h2#graph-header { padding-top: 10px; }
 	overflow: auto;
 }
 
+
+#tabs ul.ui-tabs-nav{
+	margin-right: 0;
+}
 .tarp-table th, .tarp-table td { overflow: hidden;}
 
-.tarp-table th { text-align: center; padding: 10px; margin: 0; border-width: 1px; vertical-align: middle;}
+.tarp-table th { text-align: left; padding: 10px; margin: 0; border-width: 1px; vertical-align: middle;font-size: 10.5px;}
 
-.tarp-table td { padding: 10px;}
+.tarp-table td { padding: 10px; font-size: 10.5px; text-align: left}
 
-.tarp-table .date { width: 75px; }
-.tarp-table .recipient { width: 208px; }
-.tarp-table .price { width: 107px; }
-.tarp-table td.transaction-type { width: 40px; }
+.tarp-table .date {  }
+.tarp-table .recipient { width: 130px; }
+.tarp-table .price {  }
+.tarp-table td.transaction-type {  }
 .tarp-table .program { width: 70px; }
 .tarp-table .strike { width: 70px; }
 .tarp-table .current { width: 70px; }
 .tarp-table .warrants { width: 70px; }
 .tarp-table .inout { width: 70px; }
 .tarp-table .percent { width: 70px; }
-.tarp-table .assets { width: 117px; }
-.tarp-table .city { width: 122px; }
-.tarp-table .state { width: 52px; }
+.tarp-table .assets { width: 90px; }
+.tarp-table .city {  }
+.tarp-table .state {  }
 
 
-.tarp-table td.date { text-align: center; }
+#tarp-header-table th.date { width: 61px;}
+#tarp-header-table th.recipient { width: 151px;}
+#tarp-header-table th.price { width: 85px;}
+#tarp-header-table th.transaction-type { width: 67px;}
+#tarp-header-table th.program {  }
+#tarp-header-table th.strike { }
+#tarp-header-table th.current {  }
+#tarp-header-table th.warrants {  }
+#tarp-header-table th.inout {  }
+#tarp-header-table th.percent {  }
+#tarp-header-table th.assets { width: 107px;}
+#tarp-header-table th.city { width: 83px;}
+#tarp-header-table th.state { width: 35px; }
+
+
 .tarp-table td.price { text-align: right; }
-.tarp-table td.transaction-type { text-align: center; }
 .tarp-table td.strike { text-align: right; }
 .tarp-table td.current { text-align: right; }
 .tarp-table td.warrants { text-align: right; }
 .tarp-table td.inout { text-align: right; }
 .tarp-table td.assets { text-align: right; }
-.tarp-table td.state { text-align: center; }
-.tarp-table td.city {  }
 
 #tarp-data-table tr.highlighted td
 {
@@ -136,6 +150,17 @@ table#tarp-header-table thead tr .header {
 	background-repeat: no-repeat;
 	background-position: center right;
 	cursor: pointer;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#table-filter{
+	margin-bottom: 30px;
+}
+
+
+#tarpFilterInput{
+	width: 460px;
 }
 
 table#tarp-header-table thead tr .headerSortUp {
