@@ -1,39 +1,48 @@
 #!/usr/bin/env python
 
-import os, re
+import os, re, csv
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-from django.core.management.base import NoArgsCommand
+from django.core.management.base import BaseCommand, make_option
 
-from tax_expenditures.models import Category
+from te_importer.models import Category
 
-class Command(NoArgsCommand):
-    help = "Performs an import of tax expenditure categories from Analytical Perspectives."
+class Command(BaseCommand):
+    
+    help = "Loads TE categories from text file (e.g. scripts/data/tax_expenditures/data/omb_ap/omb_categories_2000.txt)"
+    
+    option_list = BaseCommand.option_list + (
+        make_option("-p", "--path", dest="path", default=None),
+    )
 
-    def handle_noargs(self, **options):
-        indent_regex = re.compile('^-.*')
-
-        file = open ('scripts/data/tax_expenditures/data/omb_ap/omb_categories_2000.txt', 'r')
+    def handle(self, *args, **options):
         
-        parent = None
-        last_item = None
-        
-        for line in file.readlines():
-            line = line.strip()
+        if options['path'] is not None:   
+            indent_regex = re.compile('^-.*')
+
+            file = open (options['path'], 'r')
             
-            if indent_regex.match(line):
-                line = line.replace('-', '')
-                if parent == None:
-                    parent = last_item
-            else:
-                parent = None
+            parent = None
+            last_item = None
             
-            last_item = Category.objects.create(name=unicode(line), parent=parent, budget_function=True)
-            
+            for line in file.readlines():
+                line = line.strip()
+                
+                if indent_regex.match(line):
+                    line = line.replace('-', '')
+                    if parent == None:
+                        parent = last_item
+                else:
+                    parent = None
+                
+                last_item = Category.objects.create(name=unicode(line), parent=parent, budget_function=True)
+        else:
+            print ('No --path to categories file specified (probably need scripts/data/tax_expenditures/data/omb_ap/omb_categories_2000.txt).')
+            exit()
         
         
-
-
+        
+            
 
 
 

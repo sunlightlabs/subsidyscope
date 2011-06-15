@@ -5,14 +5,15 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.template import Template
 from django.template.loader import render_to_string
+import logging
 
-from tax_expenditures.models import Expenditure, Group, GroupSummary, TE_YEARS
+from tax_expenditures.models import Expenditure, Estimate, Group, GroupSummary, TE_YEARS, TE_CURRENT_YEAR
 
 register = Library()
 
 JCT_SOURCES = {}
 
-JCT_SOURCES[2001] = 'JCT. "JCS-1-98: Estimates Of Federal Tax Expenditures For Fiscal Years 1999-2003."'
+JCT_SOURCES[2001] = 'JCT. "JCS-7-98: Estimates Of Federal Tax Expenditures For Fiscal Years 1999-2003."'
 JCT_SOURCES[2002] = 'JCT. "JCS-13-99: Estimates Of Federal Tax Expenditures For Fiscal Years 2000-2004."'
 JCT_SOURCES[2003] = 'JCT. "JCS-1-01: Estimates Of Federal Tax Expenditures For Fiscal Years 2001-2005."'
 JCT_SOURCES[2004] = 'JCT. "JCS-1-02: Estimates Of Federal Tax Expenditures For Fiscal Years 2002-2006."'
@@ -23,6 +24,7 @@ JCT_SOURCES[2008] = 'JCT. "JCS-2-06: Estimates Of Federal Tax Expenditures For F
 JCT_SOURCES[2009] = 'JCT. "JCS-3-07: Estimates Of Federal Tax Expenditures For Fiscal Years 2007-2011."'
 JCT_SOURCES[2010] = 'JCT. "JCS-2-08: Estimates Of Federal Tax Expenditures For Fiscal Years 2008-2012."'
 JCT_SOURCES[2011] = 'JCT. "JCS-1-10: Estimates Of Federal Tax Expenditures For Fiscal Years 2009-2013."'
+JCT_SOURCES[2012] = 'JCT. "JCS-3-10: Estimates Of Federal Tax Expenditures For Fiscal Years 2010-2014."'
 
 
 TREASURY_SOURCES = {}
@@ -39,6 +41,7 @@ TREASURY_SOURCES[2008] = 'OMB. "Analytical Perspectives, Budget of the U.S. Gove
 TREASURY_SOURCES[2009] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2009."'
 TREASURY_SOURCES[2010] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2010."'
 TREASURY_SOURCES[2011] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2011."'
+TREASURY_SOURCES[2012] = 'OMB. "Analytical Perspectives, Budget of the U.S. Government, Fiscal Year 2012."'
 
 
 @register.tag
@@ -161,35 +164,57 @@ class TEEpenditureDetailNode(Node):
         
         lines = []
         
+        
+        available_report_years = []
         for report_year in report_years:
             
             data_dict = {}
+            available_report_years = []
             
             for detail in group.groupdetail_set.filter(source=source_id, estimate=estimate, analysis_year=report_year):
-                data_dict[detail.estimate_year] = {'amount': detail.amount, 'notes': detail.notes}
-                
+                if detail.amount == 0 and detail.notes:
+                    data_dict[detail.estimate_year] = {'amount': None, 'notes': detail.notes}
+                else:
+                    data_dict[detail.estimate_year] = {'amount': detail.amount, 'notes': detail.notes}
+
+                available_report_years.append(detail.analysis_year) 
             
             data = []
             blank_line = True
             for year in estimate_years:
                 if data_dict.has_key(year) and not data_dict[year] == None:
-                    if report_year == 2011:
-                        color = '#aaf'
-                    else:
-                        if year == report_year - 2:
-                            color = '#aaf'
-                        else:
-                            color = '#eee'
-                    
+                    #if report_year == TE_CURRENT_YEAR:
+                    color = '#aaf'
+                    #else:
+                        #if year >= report_year - 2:
+                        # this works now, but it's mega slow. Need to srsly optimize
+                     #   ex = Expenditure.objects.filter(source=source_id, group=group, analysis_year=(report_year+1))
+                      #  if ex.count() > 0:
+                       #     es = Estimate.objects.filter(expenditure=ex[0], estimate_year=year)
+                        #    if es.count() > 0 and (es[0].corporations_amount is not None or es[0].individuals_amount is not None):
+            #                    logging.debug('report year: %s, estimate year: %s, future estimate: %s' % (report_year, year, es[0].id))
+             #                   color = "#eee"
+              #              else:
+               #                 color = "#aaf"
+                #        else:
+                 #           color = '#aaf'
+                        #else:
+                         #   color = '#eee'
+
                     if not data_dict[year]['amount'] == None or data_dict[year]['notes']:
-                        data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color':color})
-                        blank_line = False
+                        if report_year >= TE_CURRENT_YEAR or (report_year-year == 2):
+                            data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color': '#aaf', 'estimate_year': year})
+                            blank_line = False
+                        else:
+                            data.append({'value':data_dict[year]['amount'], 'notes':data_dict[year]['notes'], 'color': '#eee', 'estimate_year': year})
+                            blank_line = False
                     else:
                         data.append(None)
                     
                 else:
                     data.append(None)
-                    
+
+            
             if not blank_line:
                 id = source + str(report_year)
                 report = group.groupdetailreport_set.get(source=source_id, analysis_year=report_year)
@@ -202,17 +227,46 @@ class TEEpenditureDetailNode(Node):
                 footnotes = ''
                 
                 if report.expenditure_source:
-                    source_string = '%s from %s' % (report.expenditure_source.name, source_string)
+                    source_string = 'This report year includes the following tax expenditure(s): %s, from %s' % (report.expenditure_source.name,  source_string)
                     footnotes = report.expenditure_source.notes
                 else:
-                    source_string = '%s Sum of %s tax expenditures listed above.' % (source_string, source)    
+                    sum_text = get_summed_groups(group, report_year, source_id)
+                    source_string = 'This report year includes the following tax expenditure(s): %s from %s' % (sum_text, source_string)    
             
                 lines.append({'report_year':report_year, 'id':id, 'data':data, 'source':source_string, 'footnotes':footnotes})
+
         
         if len(lines):
+#            #make sure only last estimate for that estimate year is highlighted
+#            count = 0 
+#            for l in lines:
+#                for o in l['data']:
+#                    if o and o.has_key('estimate_year'):
+#                        this_year = o['estimate_year']
+#                        if len(lines) == count+1:
+#                            break
+#                        next_line = lines[count+1]
+#                        for next_o in next_line['data']:
+#                            if next_o and  next_o.has_key('estimate_year') and next_o['estimate_year'] == this_year:
+#                                o['color'] = '#eee'
+#                                break
+#
+#                count += 1
+
             return render_to_string('tax_expenditures/te_expenditure_detail.html', {'lines':lines, 'estimate_years':estimate_years, 'source':source, 'previous_year':previous_year, 'next_year':next_year})
         else:
             return ''
+
+
+def get_summed_groups(group, report_year, source):
+    groups = Group.objects.filter(parent=group)
+    text = ""
+    for g in groups:
+        exps = Expenditure.objects.filter(group=g, analysis_year=report_year, source=source)
+        if exps.count() > 0:
+            text += g.name + ', '
+    return text
+    
 
 
 @register.tag
@@ -249,7 +303,11 @@ class TEGroupSummaryNode(Node):
             jct_summary_dict = {}
         
             for summary in group.groupsummary_set.filter(source=GroupSummary.SOURCE_JCT, estimate=estimate):
-                jct_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
+                if summary.amount == 0 and summary.notes:
+                    jct_summary_dict[summary.estimate_year] = {'amount': None, 'notes': summary.notes}
+                else:
+                    jct_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
+
                 
             jct_summary = []
             for year in years:
@@ -265,19 +323,22 @@ class TEGroupSummaryNode(Node):
             treasury_summary_dict = {}
           
             for summary in group.groupsummary_set.filter(source=GroupSummary.SOURCE_TREASURY, estimate=estimate):
-                treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
+                if summary.amount == 0 and summary.notes:
+                    treasury_summary_dict[summary.estimate_year] = {'amount': None, 'notes': summary.notes}
+                else:
+                    treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': summary.notes}
             
             treasury_summary = []
-            no_data = True
+           # no_data = True
             for year in years:
                 if treasury_summary_dict.has_key(year):
                     treasury_summary.append(treasury_summary_dict[year])
-                    no_data = False
+            #        no_data = False
                 else:
                     treasury_summary.append(None)
             
-            if no_data:
-                treasury_summary = None
+            #if no_data:
+             #   treasury_summary = None
         else:
             treasury_summary = None
         
@@ -350,3 +411,5 @@ class TEGroupSummaryAltNode(Node):
 
         
         return render_to_string('tax_expenditures/te_group_summary_alt.html', {'group':group, 'summary':summary})
+    
+    
