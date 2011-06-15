@@ -57,13 +57,11 @@
             <h3>Pew's Tax Expenditure Database</h3>
         </div>
 		{% include "includes/static_side_nav.html" %}
-
+        {% include "includes/pted_group_nav.html" %}
     <div class="page-content">
              	
         	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
-        
-        	{{ group.description|safe }}
-        	        	
+        	<p>{{ group.description|safe }}</p>
         	<div style="float: right; text-align: right;">
         		<a href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
         	</div>
@@ -94,8 +92,8 @@
 			</div>  	
         
         {% if subgroups%}
-        	<strong>{% if group.parent %}JCT {% endif %}Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
-        		{% if group.parent %}Multiple JCT line items correspond with this Treasury line item.  These JCT estimates have been aggregated below to create an accurate comparison.{% endif %}
+        	<strong>Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
+        		{% if group.parent %}Multiple line items correspond with this group of tax expenditures. These estimates have been aggregated below to create a more meaningful comparison.{% endif %}
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
@@ -109,8 +107,7 @@
 				
 					{% for subgroup in subgroups %}
 						
-						<tr><td style="text-align: left; padding-top: 20px; border-bottom: 1px solid #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name }}</a></td></tr>
-						
+						<tr><td style="text-align: left; border-right: 1px solid #999; border-left: 1px solid #999; border-top: solid 1px #999; border-bottom: solid 1px #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name }}</a></td></tr>
 						{% te_group_summary subgroup source estimate estimate_years %}
 						
 					{% endfor %}
@@ -155,12 +152,18 @@
 	
 		{% if not group.parent %}
 		<cite>
-			Notes: Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is the most recent estimate made for that year. All estimates are reported in nominal dollars by fiscal year. Click on specific tax expenditures for more information and data.
+Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is an aggregation of the most recent estimates made for that year, and includes estimates from different budget documents. Thus, every estimate accounts for specific assumptions about tax law and economic conditions used by the government in the budget document in which it was found. All estimates are reported by fiscal year; Subsidyscope has not adjusted the estimates for inflation. Click on specific sectors for more information and data.
 		</cite>
 		{% else %}
-		<cite>
-			Notes: Report years, presented along the vertical axis (varying down the rows) correspond to the year of the budget of document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. All estimates are reported in nominal dollars by fiscal year.
-		</cite>
+            {% if group.parent.parent %}
+                <cite>Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is the most recent estimate made for that year, and includes estimates from different budget documents. Thus, every estimate accounts for specific assumptions about tax law and economic conditions used by the government in the budget document in which it was found. All estimates are reported by fiscal year; Subsidyscope has not adjusted the estimates for inflation. Click on specific tax expenditures for more information and data.
+                </cite>
+            {% else %}
+                <cite>
+                    Report years, presented along the vertical axis (varying down the rows), correspond to the year of the budget document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. All estimates are reported by fiscal year; Subsidyscope has not adjusted the estimates for inflation.
+                </cite>
+            {% endif %}
+
 		{% endif %}
 		
 		<br/>
