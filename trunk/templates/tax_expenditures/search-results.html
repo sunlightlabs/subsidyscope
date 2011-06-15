@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container main_container">
+    <div class="span-24">
+        <div id="header_area">
+            <h3>Tax Expenditures Matching <em>{{query}}</em></h3>
+        </div>
+        <div class="content_area">
+ 
+        <ul>
+        {% for r in results %}
+            <li style="margin: 10px 0;">&raquo;
+                <a href="/tax_expenditures/db/group/{{r.0.id}}/">{{r.0.name}}</a>
+                <span style="padding-left: 25px; color:grey; display:block;"> under {{r.1}}</span>
+            </li>    
+
+        {% endfor %}
+        </ul>
+        </div>
+    </div>
+</div>
+{% endblock %} 
