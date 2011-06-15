@@ -825,7 +825,24 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
 	margin: 15px 20px 0 0;
 }
 .table_header{
-	width: 400px;
+}
+
+#filterForm, #loaderForm{
+	margin-top: 20px;
+	padding-top: 10px;
+	clear: both;
+}
+.summary_key li{
+	display: inline;
+	font-size: 85%;
+}
+.latest{
+	background:url('../images/latest.jpg') left center no-repeat ;
+	padding: 25px;
+}
+.previous{
+	background:url('../images/previous.jpg') left center no-repeat ;
+	padding: 25px;
 }
 
 /*------ Misc Page Styling ------*/

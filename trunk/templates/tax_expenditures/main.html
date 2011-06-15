@@ -35,17 +35,18 @@ function changeYear(year)
         <p>Users should note that while summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, it does not capture the potential interactions among tax expenditures if any single one is changed or repealed. For more information, see the <a href="{% url tax_expenditures-methodology %}">Methodology</a>.</p>
  
 	      	{% morsel text1 %}
-		<a class="download_csv" href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
-		<h4 class="table_header">
-			Summary of Tax Expenditures by Fiscal Year ($ millions) <a href="#footnote-1" class="footnote">1</a>
-		</h4>     		
+			<a class="download_csv" href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
 
-      	<div >
-	       	<form id="filterForm" action="{% url tax_expenditures-main %}" method="GET">
+		    <form id="filterForm" action="{% url tax_expenditures-main %}" method="GET">
 	       		<div class="display_type"><strong>Display estimates for: </strong><select name="estimate" id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select></div>
 	       		<div class="date_range"><strong>Show fiscal years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select></div>
 	       	</form>
-		</div>
+	
+		<h4 class="table_header">
+			Summary of Tax Expenditures by Fiscal Year ($ millions) <a href="#footnote-1" class="footnote">1</a>
+		</h4>    		
+
+
 	      	<div id="subsidy-charts"> 
 				<table>
 					<tbody>
