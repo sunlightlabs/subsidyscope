@@ -689,6 +689,9 @@ ul.sectors-home{
 	font-size: 130%;
 }
 
+
+/*------ Sector Updates Styling ------*/
+
 .updates_head { 
 	border-top:1px solid #cbcbcb; 
 	background-color:#f3f3f4; 
@@ -754,6 +757,8 @@ h4 a {
 #update_headline { 
 }
 
+/*------ General Page Content Styling ------*/
+
 .page-content li{
 	line-height: 1.65;
 }
@@ -773,7 +778,7 @@ cite{
 	color: #6a6a6a;
 }
 
-/* CHARTS */
+/*------ CHARTS ------*/
 
 img.chart {  }
 img.center { margin: 0 auto; display:block; }
@@ -796,7 +801,7 @@ div.charts.right {
 	padding: 20px 0 20px 20px;
 }
 
-/* footnotes */
+/*------ footnotes ------*/
 .footnotes { margin-top: 20px}
 ol.footnotes { font-size: 0.9em; color: #6a6a6a;}
 ol.footnotes li { margin-bottom: 0.8em; line-height: 1.3em;}
@@ -806,7 +811,7 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
 .attribution { font-size: 0.9em; margin-bottom: 20px; margin-top: 10px; display:block; text-align:left; padding-right:20px;}
 
 
-/* PTED styling */
+/*------ PTED styling ------*/
 
 .display_type, .date_range{
 	display: inline-block;
@@ -822,6 +827,10 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
 .table_header{
 	width: 400px;
 }
+
+/*------ Misc Page Styling ------*/
+
+
 .mode_alt{
 	float: right;
 	width: 360px;
@@ -885,12 +894,12 @@ blockquote{
 	color: ;
 }
 
-
 .program{
 	border-bottom: 1px solid #cccccc;
 }
 
 /*------ Generic chart styles ------*/
+
 #subsidy-charts tr.header-row td { 
 	background-color: #e4e4e4; 
 	border-top: 1px solid #a5a5a5; 
@@ -945,9 +954,6 @@ blockquote{
 	margin-top:15px;
 	font-size: 90%;
 }
-
-
-
 
 tbody td:nth-of-type(even){
 	background: #EEEEEE;

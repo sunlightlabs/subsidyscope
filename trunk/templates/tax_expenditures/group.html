@@ -109,7 +109,7 @@
 				
 					{% for subgroup in subgroups %}
 						
-						<tr><td style="text-align: left; border-right: 1px solid #999; border-left: 1px solid #999; border-top: solid 1px #999; border-bottom: solid 1px #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name }}</a></td></tr>
+						<tr><td style="text-align: left; padding-top: 20px; border-bottom: 1px solid #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name }}</a></td></tr>
 						
 						{% te_group_summary subgroup source estimate estimate_years %}
 						
