@@ -928,25 +928,24 @@ not appear on tax returns under present law.
                                                        1999     2000     2001     2002     2003     1999     2000     2001     2002     2003   1999-2003
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 National Defense
-  Exclusion of benefits and allowances to Armed
-   Forces personnel................................  .......  .......  .......  .......  .......      2.0      2.0      2.0      2.1      2.1      10.2
+  Exclusion of benefits and allowances to Armed      .......  .......  .......  .......  .......      2.0      2.0      2.0      2.1      2.1      10.2
+   Forces personnel................................  
   Exclusion of military disability benefits........  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.5
 International Affairs
-  Exclusion of income earned abroad by U.S.
-   citizens........................................  .......  .......  .......  .......  .......      1.9      2.0      2.2      2.3      2.5      10.9
-  Exclusion of certain allowances for Federal
-   employees abroad................................  .......  .......  .......  .......  .......      0.2      0.2      0.2      0.2      0.2       1.0
-  Exclusion of income of foreign sales corporations
-   (FSCs)..........................................      1.8      1.9      2.0      2.1      2.2  .......  .......  .......  .......  .......      10.0
-  Deferral of active income of controlled foreign
-   corporations....................................      1.3      1.4      1.4      1.5      1.6  .......  .......  .......  .......  .......       7.2
+  Exclusion of income earned abroad by U.S.          .......  .......  .......  .......  .......      1.9      2.0      2.2      2.3      2.5      10.9
+   citizens........................................  
+  Exclusion of certain allowances for Federal        .......  .......  .......  .......  .......      0.2      0.2      0.2      0.2      0.2       1.0
+   employees abroad................................  
+  Exclusion of income of foreign sales corporations      1.8      1.9      2.0      2.1      2.2  .......  .......  .......  .......  .......      10.0
+   (FSCs)..........................................  
+  Deferral of active income of controlled foreign        1.3      1.4      1.4      1.5      1.6  .......  .......  .......  .......  .......       7.2
+   corporations....................................  
   Inventory property sales source rule exception...      3.9      4.0      4.1      4.2      4.3  .......  .......  .......  .......  .......      20.5
-Footnotes at end of table.
   Deferral of certain active financing income......      0.2      0.3  .......  .......  .......  .......  .......  .......  .......  .......       0.5
 General Science, Space, and Technology
   Tax credit for qualified research expenditures...      1.6      0.9      0.5      0.3      0.1  .......  .......  .......  .......  .......       3.4
-  Expensing of research and experimental
-   expenditures....................................      1.9      2.4      2.7      2.8      3.0  .......  .......  .......  .......  .......      12.7
+  Expensing of research and experimental                 1.9      2.4      2.7      2.8      3.0  .......  .......  .......  .......  .......      12.7
+   expenditures....................................  
 Energy
   Expensing of exploration and development costs:
     Oil and gas....................................      0.4      0.4      0.4      0.5      0.5    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       2.2
@@ -955,210 +954,207 @@ Energy
     Oil and gas....................................      0.4      0.4      0.4      0.4      0.4      0.1      0.1      0.1      0.1      0.1       2.4
     Other fuels....................................      0.2      0.2      0.2      0.2      0.2      0.1      0.1      0.1      0.1      0.1       1.5
   Tax credit for enhanced oil recovery costs.......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.3
-  Tax credit for production of non-conventional
-   fuels...........................................      1.0      1.0      1.0      1.0      0.8      0.3      0.3      0.3      0.3      0.2       6.2
+  Tax credit for production of non-conventional          1.0      1.0      1.0      1.0      0.8      0.3      0.3      0.3      0.3      0.2       6.2
+   fuels...........................................  
   Tax credits for alcohol fuels (\2\)..............    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......  .......  .......  .......     (\1\)
-  Exclusion of interest on State and local
-   government industrial development bonds for
-   energy production facilities....................      0.1    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.8
-  Exclusion of energy conservation subsidies
-   provided by public utilities....................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
-  Tax credit for investments in solar and
-   geothermal energy facilities....................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.3
-  Tax credit for electricity production from wind
-   and biomass.....................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.4
+  Exclusion of interest on State and local               0.1    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.8
+   government industrial development bonds for       
+   energy production facilities....................  
+  Exclusion of energy conservation subsidies         .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+   provided by public utilities....................  
+  Tax credit for investments in solar and              (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.3
+   geothermal energy facilities....................  
+  Tax credit for electricity production from wind      (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.4
+   and biomass.....................................  
 Natural Resources and Environment
-  Expensing of exploration and development costs,
-   nonfuel minerals................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
-  Excess of percentage over cost depletion, nonfuel
-   minerals........................................      0.2      0.2      0.2      0.2      0.2      0.1      0.1      0.1      0.1      0.1       1.5
+  Expensing of exploration and development costs,      (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
+   nonfuel minerals................................  
+  Excess of percentage over cost depletion, nonfuel      0.2      0.2      0.2      0.2      0.2      0.1      0.1      0.1      0.1      0.1       1.5
+   minerals........................................  
   Expensing of multiperiod timber-growing costs....      0.1      0.1      0.2      0.2      0.2    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.9
-  Exclusion of interest on State and local
+  Exclusion of interest on State and local               0.2      0.2      0.2      0.2      0.2      0.4      0.5      0.5      0.5      0.5       3.4
    government sewage, water, and hazardous waste
-   facilities bonds................................      0.2      0.2      0.2      0.2      0.2      0.4      0.5      0.5      0.5      0.5       3.4
+   facilities bonds................................  
   Special rules for mining reclamation reserves....    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
-  Exclusion of contributions in aid of construction
-   for water and sewer utilities...................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......  .......  .......  .......       0.1
+  Exclusion of contributions in aid of construction    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......  .......  .......  .......       0.1
+   for water and sewer utilities...................  
 Agriculture
-  Expensing of soil and water conservation
-   expenditures....................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
-  Expensing of fertilizer and soil conditioner
-   costs...........................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1       0.3
-  Expensing of the costs of raising dairy and
-   breeding cattle.................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.2      0.2      0.2      0.2       0.9
+  Expensing of soil and water conservation             (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
+   expenditures....................................  
+  Expensing of fertilizer and soil conditioner         (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1       0.3
+   costs...........................................  
+  Expensing of the costs of raising dairy and          (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.2      0.2      0.2      0.2       0.9
+   breeding cattle.................................  
   Exclusion of cost-sharing payments...............    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
-  Exclusion of cancellation of indebtedness income
-   of farmers......................................  .......  .......  .......  .......  .......      0.1      0.1      0.1    (\1\)    (\1\)       0.3
+  Exclusion of cancellation of indebtedness income   .......  .......  .......  .......  .......      0.1      0.1      0.1    (\1\)    (\1\)       0.3
+   of farmers......................................  
   Cash accounting for agriculture..................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.4      0.5      0.6      0.6      0.6       3.0
   Income averaging for farmers.....................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
-  Five-year carryback period for net operating
-   losses attributable to farming..................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1    (\1\)    (\1\)       0.3
+  Five-year carryback period for net operating         (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1    (\1\)    (\1\)       0.3
+   losses attributable to farming..................  
 Commerce and Housing
   Financial institutions:
     Exemption of credit union income...............      0.9      0.9      1.0      1.0      1.1  .......  .......  .......  .......  .......       4.8
   Insurance companies:
-    Exclusion of investment income on life
-     insurance and annuity contracts...............     22.6     23.3     24.0     24.8     25.6      1.3      1.3      1.4      1.4      1.5     127.1
-    Small life insurance company taxable income
-     adjustment....................................      0.1      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.7
-    Special treatment of life insurance company
-     reserves......................................      1.3      1.4      1.4      1.5      1.5  .......  .......  .......  .......  .......       7.1
-    Deduction of unpaid property loss reserves for
-     property and casualty insurance companies.....      3.3      3.4      3.4      3.5      3.5  .......  .......  .......  .......  .......      17.1
-    Special deduction for Blue Cross and Blue
-     Shield companies..............................      0.4      0.4      0.4      0.4      0.3  .......  .......  .......  .......  .......       1.9
-Footnotes at end of table.
+    Exclusion of investment income on life              22.6     23.3     24.0     24.8     25.6      1.3      1.3      1.4      1.4      1.5     127.1
+     insurance and annuity contracts...............  
+    Small life insurance company taxable income          0.1      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.7
+     adjustment....................................   
+    Special treatment of life insurance company          1.3      1.4      1.4      1.5      1.5  .......  .......  .......  .......  .......       7.1
+     reserves......................................  
+    Deduction of unpaid property loss reserves for       3.3      3.4      3.4      3.5      3.5  .......  .......  .......  .......  .......      17.1
+     property and casualty insurance companies.....  
+    Special deduction for Blue Cross and Blue            0.4      0.4      0.4      0.4      0.3  .......  .......  .......  .......  .......       1.9
+     Shield companies..............................  
   Housing:
-    Deduction for mortgage interest on owner-
-     occupied residences...........................  .......  .......  .......  .......  .......     48.5     50.4     52.4     54.5     56.8     262.6
-    Deduction for property taxes on owner-occupied
-     residences....................................  .......  .......  .......  .......  .......     17.8     18.4     19.1     19.7     20.3      95.3
-    Exclusion of capital gains on sales of
-     principal residences..........................  .......  .......  .......  .......  .......      5.8      6.0      6.2      6.4      6.6      31.0
-    Exclusion of interest on State and local
-     government bonds for owner-occupied housing...      0.6      0.6      0.6      0.7      0.7      1.4      1.5      1.5      1.6      1.7      10.9
-    Exclusion of interest on State and local
-     government bonds for rental housing...........      0.3      0.3      0.3      0.3      0.3      0.7      0.8      0.8      0.8      0.8       5.4
-    Depreciation of rental housing in excess of
-     alternative depreciation system...............      0.2      0.2      0.2      0.2      0.2      1.6      1.5      1.5      1.6      1.7       8.6
+    Deduction for mortgage interest on owner-        .......  .......  .......  .......  .......     48.5     50.4     52.4     54.5     56.8     262.6
+     occupied residences...........................  
+    Deduction for property taxes on owner-occupied   .......  .......  .......  .......  .......     17.8     18.4     19.1     19.7     20.3      95.3
+     residences....................................  
+    Exclusion of capital gains on sales of           .......  .......  .......  .......  .......      5.8      6.0      6.2      6.4      6.6      31.0
+     principal residences..........................  
+    Exclusion of interest on State and local             0.6      0.6      0.6      0.7      0.7      1.4      1.5      1.5      1.6      1.7      10.9
+     government bonds for owner-occupied housing...  
+    Exclusion of interest on State and local             0.3      0.3      0.3      0.3      0.3      0.7      0.8      0.8      0.8      0.8       5.4
+     government bonds for rental housing...........  
+    Depreciation of rental housing in excess of          0.2      0.2      0.2      0.2      0.2      1.6      1.5      1.5      1.6      1.7       8.6
+     alternative depreciation system...............  
     Tax credit for low-income housing..............      1.2      1.4      1.5      1.7      1.9      2.3      2.6      2.8      3.1      3.4      22.0
-    Tax credit for first-time homebuyers in the
-     District of Columbia..........................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)  .......  .......       0.1
-    Tax credit for rehabilitation of historic
-     structures....................................      0.3      0.4      0.4      0.4      0.4      0.1      0.1      0.1      0.1      0.1       2.3
+    Tax credit for first-time homebuyers in the      .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)  .......  .......       0.1
+     District of Columbia..........................  
+    Tax credit for rehabilitation of historic            0.3      0.4      0.4      0.4      0.4      0.1      0.1      0.1      0.1      0.1       2.3
+     structures....................................  
   Other business and commerce:
     Reduced rates of tax on long-term capital gains  .......  .......  .......  .......  .......     35.1     32.0     33.8     34.9     36.1     171.9
     Exclusion of capital gains at death............  .......  .......  .......  .......  .......     19.2     20.7     22.2     23.9     25.2     111.2
     Carryover basis of capital gains on gifts......  .......  .......  .......  .......  .......      1.9      2.1      2.3      2.5      2.7      11.5
-    Deferral of gain on non-dealer installment
-     sales.........................................      0.5      0.5      0.5      0.5      0.6      0.4      0.4      0.4      0.4      0.4       4.7
+    Deferral of gain on non-dealer installment           0.5      0.5      0.5      0.5      0.6      0.4      0.4      0.4      0.4      0.4       4.7
+     sales.........................................  
     Deferral of gain on like-kind exchanges........      0.4      0.4      0.4      0.4      0.4      0.3      0.3      0.3      0.3      0.3       3.5
-    Deferral of gain on involuntary conversions
+    Deferral of gain on involuntary conversions      .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
      resulting from Presidentially-declared
-     disasters.....................................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
-    Depreciation of buildings other than rental
+     disasters.....................................  
+    Depreciation of buildings other than rental          1.9      1.5      1.2      1.2      1.1      0.9      0.7      0.5      0.5      0.4       9.9
      housing in excess of alternative depreciation
-     system........................................      1.9      1.5      1.2      1.2      1.1      0.9      0.7      0.5      0.5      0.4       9.9
-    Depreciation of equipment in excess of
-     alternative depreciation system...............     23.7     24.8     25.3     25.7     26.1      6.3      6.7      6.9      6.8      6.7     158.9
+     system........................................  
+    Depreciation of equipment in excess of              23.7     24.8     25.3     25.7     26.1      6.3      6.7      6.9      6.8      6.7     158.9
+     alternative depreciation system...............   
     Expensing of depreciable business property.....      0.5      0.5      0.7      0.7      0.5      0.3      0.2      0.3      0.4      0.2       4.4
     Amortization of business startup costs.........    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.3      0.3      0.3      0.3      0.3       1.6
-    Reduced rates on first $10,000,000 of corporate
-     taxable income................................      4.4      4.4      4.4      4.4      4.5  .......  .......  .......  .......  .......      22.1
+    Reduced rates on first $10,000,000 of corporate      4.4      4.4      4.4      4.4      4.5  .......  .......  .......  .......  .......      22.1
+     taxable income................................   
     Permanent exemption from imputed interest rules    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.2      0.2      0.2      0.2      0.2       1.1
     Expensing of magazine circulation expenditures.    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
-    Special rules for magazine, paperback book, and
-     record returns................................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+    Special rules for magazine, paperback book, and    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+     record returns................................  
     Completed contract rules.......................      0.2      0.2      0.2      0.2      0.2    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       1.1
     Cash accounting, other than agriculture........    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.6
-    Exclusion of interest on State and local
-     government small-issue industrial development
-     bonds.........................................      0.1      0.1      0.1      0.1      0.1      0.2      0.2      0.2      0.2      0.2       1.3
-    Exception from net operating loss limitations
-     for corporations in bankruptcy proceedings....      0.5      0.5      0.5      0.4      0.4  .......  .......  .......  .......  .......       2.3
+    Exclusion of interest on State and local             0.1      0.1      0.1      0.1      0.1      0.2      0.2      0.2      0.2      0.2       1.3
+     government small-issue industrial development   
+     bonds.........................................  
+    Exception from net operating loss limitations        0.5      0.5      0.5      0.4      0.4  .......  .......  .......  .......  .......       2.3
+     for corporations in bankruptcy proceedings....  
     Tax credit for employer-paid FICA taxes on tips      0.1      0.2      0.2      0.2      0.2      0.2      0.2      0.3      0.3      0.3       2.1
-Footnotes at end of table.
 Transportation
-  Deferral of tax on capital construction funds of
-   shipping companies..............................      0.1      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.5
-  Exclusion of employer-paid transportation
-   benefits........................................  .......  .......  .......  .......  .......      3.5      3.6      3.6      3.7      3.7      18.1
-  Exclusion of interest on State and local
-   government bonds for high-speed rail............    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.5
+  Deferral of tax on capital construction funds of       0.1      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.5
+   shipping companies..............................  
+  Exclusion of employer-paid transportation          .......  .......  .......  .......  .......      3.5      3.6      3.6      3.7      3.7      18.1
+   benefits........................................  
+  Exclusion of interest on State and local             (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.5
+   government bonds for high-speed rail............  
 Community and Regional Development
   Empowerment zone tax incentives..................      0.2      0.2      0.2      0.2      0.2      0.1      0.1      0.2      0.1      0.1       1.8
   District of Columbia tax incentives..............      0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1      0.1       0.7
   Indian reservation tax incentives................      0.1      0.1      0.1      0.1    (\1\)      0.1      0.1      0.1    (\1\)    (\1\)       0.8
-  Expensing of redevelopment costs in certain
+  Expensing of redevelopment costs in certain            0.1      0.1      0.1    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.3
    environmentally contaminated areas
-   (``Brownfields'')...............................      0.1      0.1      0.1    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.3
-  Tax credit for rehabilitation of structures,
-   other than historic structures..................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
-  Exclusion of interest on State and local
+   (``Brownfields'')...............................  
+  Tax credit for rehabilitation of structures,         (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+   other than historic structures..................  
+  Exclusion of interest on State and local               0.3      0.3      0.3      0.4      0.4      0.7      0.8      0.9      0.9      1.0       6.1
    government bonds for private airports, docks,
-   and mass-commuting facilities...................      0.3      0.3      0.3      0.4      0.4      0.7      0.8      0.9      0.9      1.0       6.1
+   and mass-commuting facilities...................  
 Education, Training, Employment, and Social
  Services
   Education and training:
-    Tax credits for tuition for post-secondary
-     education.....................................  .......  .......  .......  .......  .......      5.6      6.4      6.2      6.2      6.2      30.6
+    Tax credits for tuition for post-secondary       .......  .......  .......  .......  .......      5.6      6.4      6.2      6.2      6.2      30.6
+     education.....................................  
     Deduction for interest on student loans........  .......  .......  .......  .......  .......      0.1      0.2      0.2      0.3      0.3       1.1
-    Exclusion of earnings of trust accounts for
-     higher education (``education IRAs'').........  .......  .......  .......  .......  .......      0.3      0.5      0.5      0.6      0.7       2.6
-    Exclusion of interest on educational savings
-     bonds.........................................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
-    Deferral of tax on earnings of qualified State
-     tuition programs..............................  .......  .......  .......  .......  .......      0.2      0.2      0.2      0.3      0.4       1.2
+    Exclusion of earnings of trust accounts for      .......  .......  .......  .......  .......      0.3      0.5      0.5      0.6      0.7       2.6
+     higher education (``education IRAs'').........  
+    Exclusion of interest on educational savings     .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
+     bonds.........................................  
+    Deferral of tax on earnings of qualified State   .......  .......  .......  .......  .......      0.2      0.2      0.2      0.3      0.4       1.2
+     tuition programs..............................  
     Exclusion of scholarship and fellowship income.  .......  .......  .......  .......  .......      0.9      1.0      1.0      1.1      1.2       5.3
-    Exclusion of employer-provided education
-     assistance benefits...........................  .......  .......  .......  .......  .......      0.2      0.2      0.2      0.2      0.2       1.1
-    Parental personal exemption for students age 19
-     to 23.........................................  .......  .......  .......  .......  .......      0.8      0.8      0.8      0.9      0.9       4.2
-    Exclusion of interest on State and local
-     government student loan bonds.................      0.1      0.1      0.1      0.1      0.1      0.2      0.2      0.2      0.2      0.2       1.3
-    Exclusion of interest on State and local
+    Exclusion of employer-provided education         .......  .......  .......  .......  .......      0.2      0.2      0.2      0.2      0.2       1.1
+     assistance benefits...........................   
+    Parental personal exemption for students age 19  .......  .......  .......  .......  .......      0.8      0.8      0.8      0.9      0.9       4.2
+     to 23.........................................  
+    Exclusion of interest on State and local             0.1      0.1      0.1      0.1      0.1      0.2      0.2      0.2      0.2      0.2       1.3
+     government student loan bonds.................  
+    Exclusion of interest on State and local             0.3      0.3      0.3      0.4      0.4      0.7      0.8      0.8      0.9      0.9       5.9
      government bonds for private nonprofit
-     educational facilities........................      0.3      0.3      0.3      0.4      0.4      0.7      0.8      0.8      0.9      0.9       5.9
-    Tax credit for holders of qualified education
-     bonds.........................................    (\1\)      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.3
-    Deduction for charitable contributions to
-     educational institutions......................      1.0      1.1      1.2      1.4      1.5      2.8      2.9      3.1      3.3      3.5      21.8
+     educational facilities........................  
+    Tax credit for holders of qualified education      (\1\)      0.1      0.1      0.1      0.1  .......  .......  .......  .......  .......       0.3
+     bonds.........................................  
+    Deduction for charitable contributions to            1.0      1.1      1.2      1.4      1.5      2.8      2.9      3.1      3.3      3.5      21.8
+     educational institutions......................  
   Employment:
-    Exclusion of employee meals and lodging (other
-     than military)................................  .......  .......  .......  .......  .......      0.7      0.8      0.8      0.8      0.9       4.0
-    Exclusion of benefits provided under cafeteria
-     plans (\3\)...................................  .......  .......  .......  .......  .......      4.3      4.5      4.9      5.3      5.7      24.6
+    Exclusion of employee meals and lodging (other   .......  .......  .......  .......  .......      0.7      0.8      0.8      0.8      0.9       4.0
+     than military)................................  
+    Exclusion of benefits provided under cafeteria   .......  .......  .......  .......  .......      4.3      4.5      4.9      5.3      5.7      24.6
+     plans (\3\)...................................  
     Exclusion of housing allowances for ministers..  .......  .......  .......  .......  .......      0.4      0.4      0.4      0.4      0.4       2.0
     Exclusion of miscellaneous fringe benefits.....  .......  .......  .......  .......  .......      6.2      6.5      6.9      7.3      7.8      34.7
     Exclusion of employee awards...................  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.7
-    Exclusion of income earned by voluntary
-     employees' beneficiary associations...........  .......  .......  .......  .......  .......      0.5      0.5      0.6      0.6      0.6       2.8
-    Special tax provisions for employee stock
-     ownership plans (ESOPs).......................      0.8      0.8      0.9      0.9      0.9    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       4.6
+    Exclusion of income earned by voluntary          .......  .......  .......  .......  .......      0.5      0.5      0.6      0.6      0.6       2.8
+     employees' beneficiary associations...........  
+    Special tax provisions for employee stock            0.8      0.8      0.9      0.9      0.9    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       4.6
+     ownership plans (ESOPs).......................  
     Work opportunity tax credit....................      0.3      0.2      0.1    (\1\)    (\1\)      0.1    (\1\)    (\1\)    (\1\)  .......       0.7
     Welfare-to-work tax credit.....................    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......       0.1
-Footnotes at end of table.
   Social services:
     Tax credit for children under age 17 (\4\).....  .......  .......  .......  .......  .......     19.1     20.0     20.0     19.8     19.5      98.4
-    Tax credit for child and dependent care
-     expenses......................................  .......  .......  .......  .......  .......      2.5      2.5      2.5      2.5      2.5      12.6
+    Tax credit for child and dependent care          .......  .......  .......  .......  .......      2.5      2.5      2.5      2.5      2.5      12.6
+     expenses......................................  
     Exclusion of employer-provided child care (\5\)  .......  .......  .......  .......  .......      0.4      0.4      0.5      0.5      0.6       2.4
     Exclusion of certain foster care payments......  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.2
-    Adoption credit and employee adoption benefits
-     exclusion.....................................  .......  .......  .......  .......  .......      0.4      0.4      0.4      0.2      0.1       1.5
-    Deduction for charitable contributions, other
-     than for education and health.................      1.0      1.1      1.2      1.3      1.4     19.8     20.9     22.1     23.3     24.6     116.6
+    Adoption credit and employee adoption benefits   .......  .......  .......  .......  .......      0.4      0.4      0.4      0.2      0.1       1.5
+     exclusion.....................................  
+    Deduction for charitable contributions, other        1.0      1.1      1.2      1.3      1.4     19.8     20.9     22.1     23.3     24.6     116.6
+     than for education and health.................  
     Tax credit for disabled access expenditures....    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.3
 Health
-  Exclusion of employer contributions for health
+  Exclusion of employer contributions for health     .......  .......  .......  .......  .......     57.9     61.3     65.1     69.2     73.8     327.3
    care, health insurance premiums, and long-term
-   care insurance premiums (\6\)...................  .......  .......  .......  .......  .......     57.9     61.3     65.1     69.2     73.8     327.3
-  Exclusion of medical care and CHAMPUS/TRICARE
+   care insurance premiums (\6\)...................  
+  Exclusion of medical care and CHAMPUS/TRICARE      .......  .......  .......  .......  .......      1.5      1.6      1.6      1.6      1.6       7.9
    medical insurance for military dependents,
-   retirees, and retiree dependents................  .......  .......  .......  .......  .......      1.5      1.6      1.6      1.6      1.6       7.9
-  Deduction for health insurance premiums and long-
+   retirees, and retiree dependents................  
+  Deduction for health insurance premiums and long-  .......  .......  .......  .......  .......      1.0      1.2      1.2      1.5      2.4       7.3
    term care insurance premiums by the self-
-   employed........................................  .......  .......  .......  .......  .......      1.0      1.2      1.2      1.5      2.4       7.3
-  Deducation for medical expenses and long-term
-   care expenses...................................  .......  .......  .......  .......  .......      4.2      4.3      4.5      4.7      4.9      22.6
-  Exclusion of workers' compensation benefits
-   (medical benefits)..............................  .......  .......  .......  .......  .......      4.3      4.5      4.7      4.9      5.1      23.4
+   employed........................................  
+  Deducation for medical expenses and long-term      .......  .......  .......  .......  .......      4.2      4.3      4.5      4.7      4.9      22.6
+   care expenses...................................  
+  Exclusion of workers' compensation benefits        .......  .......  .......  .......  .......      4.3      4.5      4.7      4.9      5.1      23.4
+   (medical benefits)..............................  
   Medical savings accounts.........................  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
-  Exclusion of interest on State and local
+  Exclusion of interest on State and local               0.5      0.6      0.6      0.7      0.7      1.3      1.5      1.5      1.6      1.7      10.8
    government bonds for private nonprofit hospital
-   facilities......................................      0.5      0.6      0.6      0.7      0.7      1.3      1.5      1.5      1.6      1.7      10.8
-  Deduction for charitable contributions to health
-   organizations...................................      0.7      0.8      0.9      1.0      1.1      2.0      2.1      2.3      2.4      2.5      15.8
+   facilities......................................  
+  Deduction for charitable contributions to health       0.7      0.8      0.9      1.0      1.1      2.0      2.1      2.3      2.4      2.5      15.8
+   organizations...................................   
   Tax credit for orphan drug research..............    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)  .......  .......  .......  .......  .......       0.2
 Medicare
   Exclusion of untaxed medicare benefits:
     Hospital insurance.............................  .......  .......  .......  .......  .......     14.7     15.2     15.9     16.8     17.8      80.4
     Supplementary medical insurance................  .......  .......  .......  .......  .......      7.2      8.0      9.1     10.4     11.8      46.5
 Income Security
-  Exclusion of workers' compensation benefits
-   (disability and survivors payments).............  .......  .......  .......  .......  .......      3.7      3.8      3.9      4.0      4.2      19.7
-  Exclusion of special benefits for disabled coal
-   miners..........................................  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.4
+  Exclusion of workers' compensation benefits        .......  .......  .......  .......  .......      3.7      3.8      3.9      4.0      4.2      19.7
+   (disability and survivors payments).............  
+  Exclusion of special benefits for disabled coal    .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.4
+   miners..........................................  
   Exclusion of cash public assistance benefits.....  .......  .......  .......  .......  .......      0.5      0.5      0.5      0.5      0.5       2.5
   Net exclusion of pension contributions and
    earnings:
@@ -1168,26 +1164,25 @@ Income Security
   Exclusion of other employee benefits:
     Premiums on group term life insurance..........  .......  .......  .......  .......  .......      2.0      2.0      2.1      2.2      2.3      10.5
     Premiums on accident and disability insurance..  .......  .......  .......  .......  .......      0.2      0.2      0.2      0.2      0.2       1.0
-  Additional standard deduction for the blind and
-   the elderly.....................................  .......  .......  .......  .......  .......      2.0      2.0      2.0      2.1      2.2      10.3
+  Additional standard deduction for the blind and    .......  .......  .......  .......  .......      2.0      2.0      2.0      2.1      2.2      10.3
+   the elderly.....................................  
   Tax credit for the elderly and disabled..........  .......  .......  .......  .......  .......    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)       0.1
   Deduction for casualty and theft losses..........  .......  .......  .......  .......  .......      0.3      0.3      0.3      0.3      0.4       1.6
   Earned income credit (EIC) (\7\).................  .......  .......  .......  .......  .......      4.2      4.3      4.5      4.6      4.7      22.3
-Footnotes at end of table.
 Social Security and Railroad Retirement
-  Exclusion of untaxed social security and railroad
-   retirement benefits.............................  .......  .......  .......  .......  .......     25.4     26.1     27.0     28.0     28.9     135.4
+  Exclusion of untaxed social security and railroad  .......  .......  .......  .......  .......     25.4     26.1     27.0     28.0     28.9     135.4
+   retirement benefits.............................  
 Veterans' Benefits and Services
   Exclusion of veterans' disability compensation...  .......  .......  .......  .......  .......      2.0      2.1      2.2      2.2      2.3      10.8
   Exclusion of veterans' pensions..................  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.6
   Exclusion of GI bill benefits....................  .......  .......  .......  .......  .......      0.1      0.1      0.1      0.1      0.1       0.5
-  Exclusion of interest on State and local
-   government bonds for veterans' housing..........    (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.4
+  Exclusion of interest on State and local             (\1\)    (\1\)    (\1\)    (\1\)    (\1\)      0.1      0.1      0.1      0.1      0.1       0.4
+   government bonds for veterans' housing..........  
 General Purpose Fiscal Assistance
-  Exclusion of interest on public purpose State and
-   local government debt...........................      4.2      4.8      4.9      5.2      5.6     10.4     11.7     11.9     12.8     13.8      85.3
-  Deduction of nonbusiness State and local
-   government income and personal property taxes...  .......  .......  .......  .......  .......     31.2     32.1     33.0     33.9     34.8     165.0
+  Exclusion of interest on public purpose State and      4.2      4.8      4.9      5.2      5.6     10.4     11.7     11.9     12.8     13.8      85.3
+   local government debt...........................   
+  Deduction of nonbusiness State and local           .......  .......  .......  .......  .......     31.2     32.1     33.0     33.9     34.8     165.0
+   government income and personal property taxes...  
   Tax credit for Puerto Rico and possession income.      3.6      3.8      4.0      3.6      3.2  .......  .......  .......  .......  .......      18.2
 Interest
   Deferral of interest on savings bonds............  .......  .......  .......  .......  .......      1.2      1.2      1.2      1.2      1.2       6.0

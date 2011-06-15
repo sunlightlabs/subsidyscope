@@ -9,7 +9,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 from decimal import Decimal
 from te_importer.models import Category, Expenditure, Estimate
 
-years = range(2000, 2016)
+years = range(2000, 2017)
 
 def recurse_category(category, csvfile, indent):
     
@@ -41,16 +41,16 @@ def recurse_category(category, csvfile, indent):
             for estimate in expenditure.estimate_set.all():
                 
                 if expenditure.source == Expenditure.SOURCE_JCT and estimate.corporations_amount == 10:
-                    corp_estimates[estimate.estimate_year] = '<+'
+                    corp_estimates[estimate.estimate_year] = '<50'
                 elif expenditure.source == Expenditure.SOURCE_JCT and estimate.corporations_amount == -10:
-                    corp_estimates[estimate.estimate_year] = '<-'
+                    corp_estimates[estimate.estimate_year] = '>-50'
                 else:
                     corp_estimates[estimate.estimate_year] = estimate.corporations_amount
                 
                 if expenditure.source == Expenditure.SOURCE_JCT and estimate.individuals_amount == 10:
-                    indv_estimates[estimate.estimate_year] = '<+'
+                    indv_estimates[estimate.estimate_year] = '<50'
                 elif expenditure.source == Expenditure.SOURCE_JCT and estimate.individuals_amount == -10:
-                    indv_estimates[estimate.estimate_year] = '<-'
+                    indv_estimates[estimate.estimate_year] = '>-50'
                 else:
                     indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                     

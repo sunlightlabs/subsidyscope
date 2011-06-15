@@ -1,27 +1,49 @@
 #!/usr/bin/env python
 
-import os, re
+import os, re, csv
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-from django.core.management.base import NoArgsCommand
-
-class Command(NoArgsCommand):
-    help = "Performs an import of FAADS data."
-
-    def handle_noargs(self, **options):
-        process_file(2000)
-        process_file(2001)
-        process_file(2002)
-        process_file(2003)
-        process_file(2004)
-        process_file(2005)
-        process_file(2006)
-        process_file(2007)
-        process_file(2008)
-        process_file(2009)
+from django.core.management.base import BaseCommand, make_option
 
 
-from tax_expenditures.models import Category, Expenditure, Estimate
+class Command(BaseCommand):
+    
+    help = "Loads AP expenditure data from list of TE data files file (e.g. scripts/data/tax_expenditures/data/omb_ap/te_files.txt)"
+    
+    option_list = BaseCommand.option_list + (
+        make_option("-p", "--path", dest="path", default=None),
+    )
+
+    def handle(self, *args, **options):
+        
+        if options['path'] is None:
+            print ('No --path to AP TE data specified (probably need scripts/data/tax_expenditures/data/omb_ap/).')
+            exit()
+        
+        for year in range(2000, 2013):
+            
+            path = os.path.join(options['path'], 'spec%d.txt' % (year)) 
+            
+            print('Loading %d data from %s.' % (year, path))
+            
+            if year < 2010:
+                process_file(path, year)
+                
+            elif year == 2010:
+                process_file2010(path)
+                
+            elif year == 2011:
+                process_file2011(path, analysis_year=2011, estimate_years=range(2009,2016))
+                
+            elif year == 2012:
+                process_file2011(path, analysis_year=2012, estimate_years=range(2010,2017))
+            else:
+                print ('Year %d not in parsable range, you will need to update the script to handle this data .' % year)
+                exit()
+        
+
+from decimal import Decimal
+from te_importer.models import Category, Expenditure, Estimate
 
 categories = {}
 
@@ -29,25 +51,66 @@ for category in Category.objects.all():
     
     categories[category.name.lower()] = category
     
+
 heading_regex = re.compile('^.*:$')
 dot_regex = re.compile('^\.+$')
 number_regex = re.compile('^[0-9,]+$')
+spaces_regex = re.compile('[\s]+')
+footnotes1_regex = re.compile('\\\\[0-9]+')
+footnotes2_regex = re.compile('[0-9]+/')
 
-def recurse_parent_categories(category, expenditure):
+
+def check_figures(figures, check_value):
+
+    total = 0
+
+    if check_value == None:
+        check_value = 0
+    else:
+        check_value = abs(check_value)
+
+    for figure in figures:
+        if not figure == None:
+            total += figure
+
+    total = abs(total)
+        
+    if total > check_value + (Decimal('50')) or total < check_value - (Decimal('50')):
+        return False
+    else:
+        return True
+
+def clean_line(line):
+    return line.strip().replace(u'\x96', '-').replace(u'\u20ac', '-').replace(u'\u2013', '-').replace(u'\xc2-15', '-').replace(u'\u2019', "'")
+
+def clean_figure(figure):
     
+    if figure == '-' or figure == '' or figure == None:
+        return None
+    else:
+        return Decimal(figure.replace(',', ''))
+
+def clean_name(name):
+    
+    name = name.strip()
+    
+    name = footnotes1_regex.sub('', name)
+    name = footnotes2_regex.sub('', name)
+    
+    return name
+    
+def assign_budget_functions(expenditure, category):
     if category.budget_function:
         expenditure.budget_function_category.add(category)
-    
     if category.parent:
-        recurse_parent_categories(category.parent, expenditure)
-
-
-
-def process_file(year):
+        assign_budget_functions(expenditure, category.parent)
     
-    print "processing %d..." % (year) 
+
+
+def process_file(path, year):
+
     
-    file = open ('scripts/data/tax_expenditures/data/omb_ap/spec%d.txt' % (year), 'r')
+    file = open (path, 'r')
     
     line_id = 1
     in_line = False
@@ -58,18 +121,19 @@ def process_file(year):
     
     for line in file.readlines():
         line = unicode(line.decode("utf-8"))
-        line = line.strip().replace(u'\x96', '-').replace(u'\u20ac', '-').replace(u'\u2013', '-')
+        line = clean_line(line)
         
         if line == '#' and category:
             category = category.parent
         
         if heading_regex.match(line):
             line = line.replace(':', '')
+            #print line
             try:
                 category = categories[unicode(line.lower())]
             except:
-                print "Missing category: %s" % (unicode(line.lower()))
-             
+                print 'No category match: %s' % line
+                return 
             
         if category:
             
@@ -109,22 +173,18 @@ def process_file(year):
                         
                         if position == 0:
                             if not dot_regex.match(part):
-                                individual_total = int(part.replace(',', ''))
+                                individual_total += clean_figure(part)
                         elif position < 8:
                             if not dot_regex.match(part):
-                                try:
-                                    individual_amounts.append(int(part.replace(',', '')))
-                                except:
-                                    print line
-                                    print part
+                                individual_amounts.append(clean_figure(part))
                             else:
                                 individual_amounts.append(0)
                         elif position == 8:
                             if not dot_regex.match(part):
-                                corp_total = int(part.replace(',', ''))
+                                corp_total += clean_figure(part)
                         elif position < 16:
                             if not dot_regex.match(part):
-                                corp_amounts.append(int(part.replace(',', '')))
+                                corp_amounts.append(Decimal(clean_figure(part)))
                             else:
                                 corp_amounts.append(0)
                         
@@ -133,21 +193,20 @@ def process_file(year):
                     individual_amounts.reverse()
                     corp_amounts.reverse()
                     
-                    expense = ' '.join(expense_parts)
-                    match_expense = re.sub('[^0-9A-z]', '', expense).lower()
+                    name = ' '.join(expense_parts)
+                    match_name = re.sub('[^0-9A-z]', '', name).lower()
                     
                     
-                    expenditure = Expenditure.objects.create(source=Expenditure.SOURCE_TREASURY, category=category, name=expense, match_name=match_expense, item_number=line_id, analysis_year=year)
                     
-                    recurse_parent_categories(category, expenditure)
+                    expenditure = Expenditure.objects.create(source=Expenditure.SOURCE_TREASURY, category=category, name=name, match_name=match_name, item_number=line_id, analysis_year=year)
+                    assign_budget_functions(expenditure, category)
                     
-                    if corp_total != sum(corp_amounts[2:]):
-                        print "Error in corporate total for %d: %s (%d vs %d)" % (line_id, expense, corp_total, sum(corp_amounts[2:]))
-                        
                     
-                    if individual_total != sum(individual_amounts[2:]):
-                        print "Error in individual total for %d: %s (%d vs %d)" % (line_id, expense, individual_total, sum(individual_amounts[2:]))
-                        
+                    if not check_figures(corp_amounts[2:], corp_total):
+                        print "corporate amounts out of bounds for for: %s" % (name)
+                    
+                    if not check_figures(individual_amounts[2:], individual_total):
+                        print "individual amounts out of bounds for for: %s" % (name)
                     
                     
                     for i in range(0, 7):
@@ -157,9 +216,9 @@ def process_file(year):
                         estimate_year = year + i - 2
                         
                         Estimate.objects.create(expenditure=expenditure,  
-                                                  estimate_year=estimate_year, 
-                                                  corporations_amount=corp_estimate,
-                                                  individuals_amount=individual_estimate)
+                                                              estimate_year=estimate_year, 
+                                                              corporations_amount=corp_estimate,
+                                                              individuals_amount=individual_estimate)
                         
                     expense_parts = []
                     in_line = False
@@ -167,8 +226,147 @@ def process_file(year):
     
     file.close()
     
-    print "%d TEs" % (line_id - 1) 
+
+def process_file2010(path, analysis_year=2010, estimate_years=range(2008,2015)):
+
+    f = open(path)
+    
+    line_id = 1
+    
+
+    for line in f.readlines():
+        line = clean_line(line.decode("utf-8"))
+        
+        if line == '#' and category:
+            category = category.parent
+        
+        if heading_regex.match(line):
+            line = line.replace(':', '')
+            #print line
+            try:
+                category = categories[unicode(line.lower())]
+            except:
+                print 'No category match: %s' % line
+                return 
+            
+            
+        if category:
+            
+            line_regex = re.compile('^%d (.{110,110})' % (line_id))
+            line_parts = line_regex.split(line)
+            
+            if line_regex.match(line):
+            
+                name = clean_name(line_parts[1])
+                
+                match_name = re.sub('[^0-9A-z]', '', name).lower()
+                
+                expenditure = Expenditure.objects.create(source=Expenditure.SOURCE_TREASURY,analysis_year=analysis_year, name=name, match_name=match_name, category=category, item_number=line_id)
+                assign_budget_functions(expenditure, category)
+                
+                figures = line_parts[2].strip()
+                
+                figure_parts = spaces_regex.split(figures.strip())
+                
+                if not len(figure_parts) == 16:
+                    print 'Missing figures for: %s' % (name)
+                    return
+                
+                figure_parts =  map(lambda x: clean_figure(x), figure_parts)
+                
+                if not check_figures(figure_parts[2:7], figure_parts[7]):
+                    print "corporate amounts out of bounds for for: %s" % (name)
+                
+                if not check_figures(figure_parts[10:15], figure_parts[15]):
+                    print "individual amounts out of bounds for for: %s" % (name)
+                
+                
+                i = 0
+                
+                for estimate_year in estimate_years:
+                    
+                    corporations_amount = figure_parts[i] 
+                    individuals_amount = figure_parts[i + 8]
+                    
+                    Estimate.objects.create(expenditure=expenditure, 
+                                            estimate_year=estimate_year, 
+                                            corporations_amount=corporations_amount, 
+                                            individuals_amount=individuals_amount)
+                    
+                    i += 1 
+                
+                line_id += 1
                 
 
+      
 
+def process_file2011(path, analysis_year=2011, estimate_years=range(2009,2016)):
+    
+    f = open(path, 'rb')
+    
+    line_id = 1
+    
+    reader = csv.reader(f)
+    
+    for row in reader:
+        
+        heading = clean_line(row[0])
+        if heading == '':
+            heading = clean_line(row[1])
+        
+        if heading == '#' and category:
+            #print heading
+            category = category.parent
+        
+        if heading_regex.match(heading):
+            heading = heading.replace(':', '')
+            #print heading
+            try:
+                category = categories[unicode(heading.lower())]
+            except:
+                print 'No category match: %s' % heading
+                return
+        
+        if category:
+            
+            line_regex = re.compile('^%d' % (line_id))
+            
+            if line_regex.match(row[0]):
+                
+                name = clean_name(row[1])
+                
+                match_name = re.sub('[^0-9A-z]', '', name).lower()
+                
+                expenditure = Expenditure.objects.create(source=Expenditure.SOURCE_TREASURY,analysis_year=analysis_year, name=name, match_name=match_name, category=category, item_number=line_id)
+                assign_budget_functions(expenditure, category)
+                    
+                if not len(row[2:]) >= 16:
+                    print 'Missing figures for: %s' % (name)
+                    return
+                
+                figure_parts =  map(lambda x: clean_figure(x), row[3:19])
+                
+                if not check_figures(figure_parts[2:7], figure_parts[7]):
+                    print "corporate amounts out of bounds for for: %s" % (name)
+                
+                if not check_figures(figure_parts[10:15], figure_parts[15]):
+                    print "individual amounts out of bounds for for: %s" % (name)
+                
+                i = 0
+                
+                for estimate_year in estimate_years:
+                    
+                    corporations_amount = figure_parts[i] 
+                    individuals_amount = figure_parts[i + 8]
+                    
+                    Estimate.objects.create(expenditure=expenditure, 
+                                            estimate_year=estimate_year, 
+                                            corporations_amount=corporations_amount, 
+                                            individuals_amount=individuals_amount)
+                    
+                    i += 1 
+                
+                line_id += 1
+                
 
+                

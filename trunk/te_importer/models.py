@@ -23,41 +23,6 @@ class Category(models.Model):
         return self.name
 
     
-class Expenditure(models.Model):
-    
-    SOURCE_JCT = 1
-    SOURCE_TREASURY = 2
-    
-    SOURCE_CHOICES = (
-        (SOURCE_JCT, 'JCT'),
-        (SOURCE_TREASURY, 'Treasury')
-    )
-    
-    source = models.IntegerField(choices=SOURCE_CHOICES)
-    
-    category = models.ForeignKey(Category)
-    
-    budget_function_category = models.ManyToManyField(Category, related_name='budget_function_category_expenditure_set')
-    
-    item_number = models.IntegerField(null=True)
-    
-    name = models.TextField()
-    
-    match_name = models.TextField()
-    
-    analysis_year = models.IntegerField()
-    
-    description = models.TextField()
-    
-    notes = models.TextField()
-        
-    
-    def __unicode__(self):
-        return self.name
-    
-    class Meta:
-        
-        ordering = ('analysis_year',)
 
 # from tax_expenditures.models import *
 # ExpenditureGroup.objects.group_expenditures()
@@ -80,6 +45,9 @@ class ExpenditureGroupManager(models.Manager):
             
             group.group.add(expenditure)
             
+            expenditure.group = group 
+            expenditure.save()
+            
     
 class ExpenditureGroup(models.Model):
     
@@ -99,9 +67,13 @@ class ExpenditureGroup(models.Model):
     
     name = models.TextField()
     
+    description = models.TextField()
+    
+    notes = models.TextField()
+    
     match_name = models.TextField()
     
-    group = models.ManyToManyField(Expenditure)
+    group = models.ManyToManyField('Expenditure')
     
     objects = ExpenditureGroupManager()
     
@@ -114,8 +86,6 @@ class ExpenditureGroup(models.Model):
             
         except:
             return ''
-                
-    
     
     def aggregate(self):
         
@@ -156,6 +126,43 @@ class ExpenditureGroup(models.Model):
     def __unicode__(self):
         return self.name
     
+class Expenditure(models.Model):
+    
+    SOURCE_JCT = 1
+    SOURCE_TREASURY = 2
+    
+    SOURCE_CHOICES = (
+        (SOURCE_JCT, 'JCT'),
+        (SOURCE_TREASURY, 'Treasury')
+    )
+    
+    source = models.IntegerField(choices=SOURCE_CHOICES)
+    
+    category = models.ForeignKey(Category)
+    group = models.ForeignKey(ExpenditureGroup, null=True)
+    
+    budget_function_category = models.ManyToManyField(Category, related_name='budget_function_category_expenditure_set')
+    
+    item_number = models.IntegerField(null=True)
+    
+    name = models.TextField()
+    
+    match_name = models.TextField()
+    
+    analysis_year = models.IntegerField()
+    
+    description = models.TextField()
+    
+    notes = models.TextField()
+        
+    
+    def __unicode__(self):
+        return self.name
+    
+    class Meta:
+        
+        ordering = ('analysis_year',)
+
     
 class Estimate(models.Model):
     

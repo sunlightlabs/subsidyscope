@@ -5,9 +5,10 @@ do_fpds_import.sh
 bin/
 src/
 lib/
-*.zip
-*.sql
-.*.swp
 TAGS
-*.json
 local_settings.example.py
+*.sql
+*.json
+*.zip
+*.swp
+*.swo

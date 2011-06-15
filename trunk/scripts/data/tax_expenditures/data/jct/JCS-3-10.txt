@@ -1,0 +1,2650 @@
+<DOC>
+[Joint Comm. on Taxation]
+[From the U.S. Government Printing Office via GPO Access]
+[DOCID: f:63010.wais]
+
+                                                               JCS-3-10
+
+                        [JOINT COMMITTEE PRINT]
+ 
+                              ESTIMATES OF
+                        FEDERAL TAX EXPENDITURES
+                       FOR FISCAL YEARS 2010-2014
+
+                               __________
+
+                            Prepared for the
+
+                   HOUSE COMMITTEE ON WAYS AND MEANS
+
+                                and the
+
+                      SENATE COMMITTEE ON FINANCE
+
+                               __________
+
+                              By the Staff
+
+                                 of the
+
+                      JOINT COMMITTEE ON TAXATION
+
+[GRAPHIC(S) NOT AVAILABLE IN TIFF FORMAT]
+
+
+                           DECEMBER 15, 2010
+
+                      U.S. GOVERNMENT PRINTING OFFICE
+
+  63-010                     WASHINGTON : 2010      JCS-3-10
+
+
+
+
+
+                      JOINT COMMITTEE ON TAXATION
+                      111TH CONGRESS, 2ND SESSION
+
+                                 ------                                
+               SENATE                               HOUSE
+MAX BAUCUS, Montana,                 SANDER M. LEVIN, Michigan
+  Chairman                             Vice Chairman
+JOHN D. ROCKEFELLER IV, West         CHARLES B. RANGEL, New York,
+    Virginia                         FORTNEY PETE STARK, California
+KENT CONRAD, North Dakota            DAVE CAMP, Michigan
+CHUCK GRASSLEY, Iowa                 WALLY HERGER, California
+ORRIN G. HATCH, Utah
+
+
+
+
+
+
+
+
+                            C O N T E N T S
+
+                              ----------                              
+                                                                   Page
+Introduction.....................................................     1
+ I. The Concept of Tax Expenditures...................................3
+II. Measurement of Tax Expenditures..................................27
+III.Tax Expenditure Estimates........................................33
+
+                              INTRODUCTION
+
+    Tax expenditure analysis can help both policymakers and the 
+public to understand the actual size of government, the uses to 
+which government resources are put, and the tax and economic 
+policy consequences that follow from the implicit or explicit 
+choices made in fashioning legislation. This report \1\ on tax 
+expenditures for fiscal years 2010-2014 is prepared by the 
+staff of the Joint Committee on Taxation (``Joint Committee 
+staff'') for the House Committee on Ways and Means and the 
+Senate Committee on Finance. The report also is submitted to 
+the House and Senate Committees on the Budget.
+---------------------------------------------------------------------------
+    \1\ This report may be cited as follows: Joint Committee on 
+Taxation, Estimates of Federal Tax Expenditures for Fiscal Years 2010-
+2014 (JCS-3-10), December 15, 2010.
+---------------------------------------------------------------------------
+    As in the case of earlier reports,\2\ the estimates of tax 
+expenditures in this report were prepared in consultation with 
+the staff of the Office of Tax Analysis in the Department of 
+the Treasury (``the Treasury''). The Treasury published its 
+estimates of tax expenditures for fiscal years 2009-2015 in the 
+Administration's budgetary statement of February 1, 2010.\3\ 
+The lists of tax expenditures in this Joint Committee staff 
+report and the Administration's budgetary statement overlap 
+considerably; the differences are discussed in Part I of this 
+report under the heading ``Comparisons with Treasury.''
+---------------------------------------------------------------------------
+    \2\ Joint Committee on Taxation, Estimates of Federal Tax 
+Expenditures, October 4, 1972 (JCS-28-72), June 1, 1973 (JCS-20-73), 
+July 8, 1975 (JCS-11-75), March 15, 1976 (JCS-5-76), March 15, 1977 
+(JCS-10-77), March 14, 1978 (JCS-9-78), March 15, 1979 (JCS-9-79), 
+March 6, 1980 (JCS-8-80), March 16, 1981 (JCS-7-81), March 8, 1982 
+(JCS-4-82), March 7, 1983 (JCS-4-83), November 9, 1984 (JCS-39-84), 
+April 12, 1985 (JCS-8-85), March 1, 1986 (JCS-7-86), February 27, 1987 
+(JCS-3-87), March 8, 1988 (JCS-3-88), February 28, 1989 (JCS-4-89), 
+March 9, 1990 (JCS-7-90), March 11, 1991 (JCS-4-91), April 24, 1992 
+(JCS-8-92), April 22, 1993 (JCS-6-93), November 9, 1994 (JCS-6-94), 
+September 1, 1995 (JCS-21-95), November 26, 1996 (JCS-11-96), December 
+15, 1997 (JCS-22-97), December 14, 1998 (JCS-7-98), December 22, 1999 
+(JCS-13-99), April 6, 2001 (JCS-1-01), January 17, 2002 (JCS-1-02), 
+December 19, 2002 (JCS-5-02), December 22, 2003 (JCS-8-03), January 12, 
+2005 (JCS-1-05), April 25, 2006 (JCS-2-06), September 24, 2007 (JCS-3-
+07), October 31, 2008 (JCS-2-08), and January 11, 2010 (JCS-1-10).
+    \3\ Office of Management and Budget, ``Tax Expenditures,'' 
+Analytical Perspectives, Budget of the United States Government, Fiscal 
+Year 2011, February 1, 2010, pp. 207-243.
+---------------------------------------------------------------------------
+    The Joint Committee staff has made its estimates (as shown 
+in Table 1) based on the provisions in Federal tax law as 
+enacted through December 15, 2010. Expired or repealed 
+provisions are not listed unless they have continuing revenue 
+effects that are associated with ongoing taxpayer activity. 
+Proposed extensions or modifications of expiring provisions are 
+not included until they have been enacted into law. The tax 
+expenditure calculations in this report are based on the March 
+2010 Congressional Budget Office (``CBO'') revenue baseline and 
+Joint Committee staff projections of the gross income, 
+deductions, and expenditures of individuals and corporations 
+for calendar years 2009-2014.
+    Part I of this report contains a discussion of the concept 
+of tax expenditures. Part II is a discussion of the measurement 
+of tax expenditures. Estimates of tax expenditures for fiscal 
+years 2010-2014 are presented in Table 1 in Part III. Table 2 
+shows the distribution of tax returns by income class, and 
+Table 3 presents distributions of selected individual tax 
+expenditures by income class.
+
+                   I. THE CONCEPT OF TAX EXPENDITURES
+
+Overview
+    Tax expenditures are defined under the Congressional Budget 
+and Impoundment Control Act of 1974 (the ``Budget Act'') as 
+``revenue losses attributable to provisions of the Federal tax 
+laws which allow a special exclusion, exemption, or deduction 
+from gross income or which provide a special credit, a 
+preferential rate of tax, or a deferral of tax liability.'' \4\ 
+Thus, tax expenditures include any reductions in income tax 
+liabilities that result from special tax provisions or 
+regulations that provide tax benefits to particular taxpayers.
+---------------------------------------------------------------------------
+    \4\ Congressional Budget and Impoundment Control Act of 1974 (Pub. 
+L. No. 93-344), sec. 3(3). The Budget Act requires CBO and the Treasury 
+to publish annually detailed lists of tax expenditures. The JCT staff 
+issued reports prior to the statutory obligation placed on the CBO and 
+continued to do so thereafter. In light of this precedent and a 
+subsequent statutory requirement that the CBO rely exclusively on JCT 
+staff estimates when considering the revenue effects of proposed 
+legislation, the CBO has always relied on the JCT staff for the 
+production of its annual tax expenditure publication. See Pub. L. No. 
+99-177, sec. 273, codified at 2 USC 601(f).
+---------------------------------------------------------------------------
+    Special income tax provisions are referred to as tax 
+expenditures because they may be considered to be analogous to 
+direct outlay programs, and the two can be considered as 
+alternative means of accomplishing similar budget policy 
+objectives. Tax expenditures are similar to those direct 
+spending programs that are available as entitlements to those 
+who meet the statutory criteria established for the programs.
+    Estimates of tax expenditures are prepared for use in 
+budget analysis. They are a measure of the economic benefits 
+that are provided through the tax laws to various groups of 
+taxpayers and sectors of the economy. The estimates also may be 
+useful in determining the relative merits of achieving 
+specified public goals through tax benefits or direct outlays. 
+It is appropriate to evaluate tax expenditures with respect to 
+cost, distributional consequences, alternative means of 
+provision, and economic effects and to allow policymakers to 
+evaluate the tradeoffs among these and other potentially 
+competing policy goals.
+    The legislative history of the Budget Act indicates that 
+tax expenditures are to be defined with reference to a normal 
+income tax structure (referred to here as ``normal income tax 
+law''). The determination of whether a provision is a tax 
+expenditure is made on the basis of a broad concept of income 
+that is larger in scope than ``income'' as defined under 
+general U.S. income tax principles. The Joint Committee staff 
+has used its judgment in distinguishing between those income 
+tax provisions (and regulations) that can be viewed as a part 
+of normal income tax law and those special provisions that 
+result in tax expenditures. A provision traditionally has been 
+listed as a tax expenditure by the Joint Committee staff if 
+there is a reasonable basis for such classification and the 
+provision results in more than a de minimis revenue loss, which 
+solely for this purpose means a total revenue loss of less than 
+$50 million over the five fiscal years 2010-2014. The Joint 
+Committee staff emphasizes, however, that in the process of 
+listing tax expenditures, no judgment is made, nor any 
+implication intended, about the desirability of any special tax 
+provision as a matter of public policy.
+    The Budget Act uses the term tax expenditure to refer to 
+the special tax provisions that are contained in the Federal 
+income taxes on individuals and corporations.\5\ Other Federal 
+taxes such as excise taxes, employment taxes, and estate and 
+gift taxes may also have exceptions, exclusions, and credits, 
+but those special tax provisions are not included in this 
+report because they are not part of the income tax. Thus, for 
+example, the income tax exclusion for employer-paid health 
+insurance is included, but the Federal Insurance Contributions 
+Act (``FICA'') tax exclusion for employer-paid health insurance 
+is not treated as a tax expenditure in this report.\6\
+---------------------------------------------------------------------------
+    \5\ The Federal income tax on individuals also applies to estates 
+and trusts, which are subject to a separate income tax rate schedule 
+(sec. 1(e) of the Code). Estates and trusts may benefit from some of 
+the same tax expenditure provisions that apply to individuals. In Table 
+1 of this report, the tax expenditures that apply to estates and trusts 
+have been included in the estimates of tax expenditures for individual 
+taxpayers.
+    \6\ Other analysts have explored applying the concept of tax 
+expenditures to payroll and excise taxes. See Jonathan Barry Forman, 
+``Would a Social Security Tax Expenditure Budget Make Sense?'' Public 
+Budgeting and Financial Management, 5, 1993, pp. 311-335, and Bruce F. 
+Davie, ``Tax Expenditures in the Federal Excise Tax System,'' National 
+Tax Journal, 47, March 1994, pp. 39-62. Prior to 2003, the President's 
+budget contained a section that reviewed and tabulated estate and gift 
+tax provisions that the Treasury considered tax expenditures.
+---------------------------------------------------------------------------
+    Some provisions in the Code provide for special tax 
+treatment that is less favorable than normal income tax law. 
+Examples of such provisions include (1) the denial of 
+deductions for certain lobbying expenses, (2) the denial of 
+deductions for certain executive compensation, and (3) the two-
+percent floor on itemized deductions for unreimbursed employee 
+expenses. Tax provisions that provide treatment less favorable 
+than normal income tax law and are not related directly to 
+progressivity are called negative tax expenditures.\7\ Special 
+provisions of the law for which the principal purpose is to 
+enforce general tax rules, or to prevent the violation of other 
+laws, are not treated as negative tax expenditures even though 
+they may increase the tax burden for certain taxpayers. 
+Examples of these compliance and enforcement provisions include 
+(1) the section 382 limitation on net operating loss 
+carryforwards and certain built-in losses following ownership 
+changes, (2) the section 1091 wash sale rules, (3) the section 
+1287 denial of capital gain treatment for gains on certain 
+obligations not in registered form, and (4) the section 162(f) 
+disallowance of a deduction for fines and penalties.\8\
+---------------------------------------------------------------------------
+    \7\ Although the Budget Act does not require the identification of 
+negative tax expenditures, the Joint Committee staff has presented a 
+number of negative tax expenditures for completeness.
+    \8\ See Joint Committee on Taxation, Estimates of Federal Tax 
+Expenditures for Fiscal Years 2008-2012 (JCS-2-08), October 31, 2008, 
+9.
+---------------------------------------------------------------------------
+Individual Income Tax
+    Under the Joint Committee staff methodology, the normal 
+structure of the individual income tax includes the following 
+major components: one personal exemption for each taxpayer and 
+one for each dependent, the standard deduction, the existing 
+tax rate schedule, and deductions for investment and employee 
+business expenses. Most other tax benefits to individual 
+taxpayers are classified as exceptions to normal income tax 
+law.
+    The Joint Committee staff views the personal exemptions and 
+the standard deduction as defining the zero-rate bracket that 
+is a part of normal tax law. An itemized deduction that is not 
+necessary for the generation of income is classified as a tax 
+expenditure, but only to the extent that it, when added to a 
+taxpayer's other itemized deductions, exceeds the standard 
+deduction.
+    All employee compensation is subject to tax unless the Code 
+contains a specific exclusion for the income. Specific 
+exclusions for employer-provided benefits include: coverage 
+under accident and health plans,\9\ accident and disability 
+insurance, group term life insurance, educational assistance, 
+tuition reduction benefits, transportation benefits (parking, 
+van pools, and transit passes), dependent care assistance, 
+adoption assistance, meals and lodging furnished for the 
+convenience of the employer, employee awards, and other 
+miscellaneous fringe benefits (e.g., employee discounts, 
+services provided to employees at no additional cost to 
+employers, and de minimis fringe benefits). Each of these 
+exclusions is classified as a tax expenditure in this report.
+---------------------------------------------------------------------------
+    \9\ Present law contains an exclusion for employer-provided 
+coverage under accident and health plans (sec. 106) and an exclusion 
+for benefits received by employees under employer-provided accident and 
+health plans (sec. 105(b)). These two exclusions are viewed as a single 
+tax expenditure. Under normal income tax law, the value of employer-
+provided accident and health coverage would be includable in the income 
+of employees, but employees would not be subject to tax on the accident 
+and health insurance benefits (reimbursements) that they might receive.
+---------------------------------------------------------------------------
+    Under normal income tax law, employer contributions to 
+pension plans and income earned on pension assets generally 
+would be taxable to employees as the contributions are made and 
+as the income is earned, and employees would not receive any 
+deduction or exclusion for their pension contributions. Under 
+present law, employer contributions to qualified pension plans 
+and employee contributions made at the election of the employee 
+through salary reduction are not taxed until distributed to the 
+employee, and income earned on pension assets is not taxed 
+until distributed. The tax expenditure for ``net exclusion of 
+pension contributions and earnings'' is computed as the income 
+taxes forgone on current tax-excluded pension contributions and 
+earnings less the income taxes paid on current pension 
+distributions (including the 10-percent additional tax paid on 
+early withdrawals from pension plans).
+    Under present law, social security and tier 1 railroad 
+retirement benefits are partially excluded or fully excluded 
+from gross income.\10\ Under normal income tax law, retirees 
+would be entitled to exclude only the portion of the retirement 
+benefits that represents a return of the payroll taxes that 
+they paid during their working years. Thus, the exclusion of 
+social security and railroad retirement benefits in excess of 
+payroll tax payments is classified as a tax expenditure.
+---------------------------------------------------------------------------
+    \10\ For taxpayers with modified adjusted gross incomes above 
+certain levels, up to 85 percent of social security and tier 1 railroad 
+retirement benefits are includable in income.
+---------------------------------------------------------------------------
+    All Medicare benefits are excluded from taxation. The value 
+of Medicare Part A insurance generally is greater than the 
+Health Insurance (``HI'') tax contributions that enrollees made 
+during their working years, the value of Medicare Part B 
+insurance generally is greater than the Part B premium that 
+enrollees must pay, and the value of Medicare Part D 
+(prescription drug) insurance generally is greater than the 
+Part D premium that enrollees must pay. The exclusion of the 
+value of Medicare Part A insurance in excess of HI tax 
+contributions is classified as a tax expenditure, as are the 
+exclusion of the value of Medicare Part B insurance in excess 
+of Part B premiums and the exclusion of the value of Part D 
+insurance in excess of Part D premiums.
+    Public assistance benefits are excluded from gross income 
+by statute or by Treasury regulations. Table 1 contains tax 
+expenditure calculations for workers' compensation benefits, 
+special benefits for disabled coal miners, and cash public 
+assistance benefits (which include Supplemental Security Income 
+benefits and Temporary Assistance for Needy Families benefits).
+    The individual income tax does not include in gross income 
+the imputed income that individuals receive from the services 
+provided by owner-occupied homes and durable goods.\11\ 
+However, the Joint Committee staff does not classify this 
+exclusion as a tax expenditure.\12\ The measurement of imputed 
+income for tax purposes presents administrative problems and 
+its exclusion from taxable income may be regarded as an 
+administrative necessity.\13\ Under normal income tax law, 
+individuals would be allowed to deduct only the interest on 
+indebtedness incurred in connection with a trade or business or 
+an investment. Thus, the deduction for mortgage interest on a 
+principal or second residence is classified as a tax 
+expenditure.
+---------------------------------------------------------------------------
+    \11\  The National Income and Product Accounts include estimates of 
+this imputed income. The accounts appear in Survey of Current Business, 
+published monthly by the U.S. Department of Commerce, Bureau of 
+Economic Analysis. However, a taxpayer-by-taxpayer accounting of 
+imputed income would be necessary for a tax expenditure estimate.
+    \12\  The Treasury Department provides a tax expenditure 
+calculation for the exclusion of net rental income of homeowners that 
+combines the positive tax expenditure for the failure to impute rental 
+income with the negative tax expenditure for the failure to allow a 
+deduction for depreciation and other costs.
+    \13\  If the imputed income from owner-occupied homes were included 
+in adjusted gross income, it would be proper to include all mortgage 
+interest deductions and related property tax deductions as part of the 
+normal income tax structure, since interest and property tax deductions 
+would be allowable as a cost of producing imputed income. It also would 
+be appropriate to allow deductions for depreciation and maintenance 
+expenses for owner-occupied homes.
+---------------------------------------------------------------------------
+    The Joint Committee staff assumes that, for administrative 
+feasibility, normal income tax law would tax capital gains in 
+full in the year the gains are realized through sale, exchange, 
+gift, or transfer at death. Thus, the deferral of tax until 
+realization is not classified as a tax expenditure. However, 
+reduced rates of tax, further deferrals of tax (beyond the year 
+of sale, exchange, gift, or transfer at death), and exclusions 
+of certain capital gains are classified as tax expenditures. 
+Because of the same concern for administrative feasibility, it 
+also is assumed that normal income tax law would not provide 
+for any indexing of the basis of capital assets for changes in 
+the general price level. Thus, under normal income tax law (as 
+under present law), the income tax would be levied on nominal 
+gains as opposed to real gains in asset values.
+    There are many types of State and local government bonds 
+and private purpose bonds that qualify for tax-exempt status 
+for Federal income tax purposes. Table 1 contains a separate 
+tax expenditure listing for each type of bond.
+    Under the Joint Committee staff view of normal tax law, 
+compensatory stock options would be subject to regular income 
+tax at the time the options are exercised and employers would 
+receive a corresponding tax deduction.\14\ The employee's 
+income would be equal to the difference between the purchase 
+price of the stock and the market price on the day the option 
+is exercised. Present law provides for special tax treatment 
+for incentive stock options and options acquired under employee 
+stock purchase plans. When certain requirements are satisfied, 
+then: (1) the income that is received at the time the option is 
+exercised is excluded for purposes of the regular income tax 
+but, in the case of an incentive stock option, included for 
+purposes of the alternative minimum tax (``AMT''); (2) the gain 
+from any subsequent sale of the stock is taxed as a capital 
+gain; and (3) the employer does not receive a tax deduction 
+with respect to the option. The special tax treatment provided 
+to the employee is viewed as a tax expenditure by the Joint 
+Committee staff, and an estimate of this tax expenditure is 
+contained in Table 1. However, it should be noted that the 
+revenue loss from the special tax treatment provided to the 
+employee is accompanied by a significant revenue gain from the 
+denial of the deduction to the employer. The negative tax 
+expenditure created by the denial of the deduction for 
+employers is incorporated in the calculation of the tax 
+expenditure.
+---------------------------------------------------------------------------
+    \14\ If the option has a readily ascertainable fair market value, 
+normal law would tax the option at the time it is granted and the 
+employer would be entitled to a deduction at that time.
+---------------------------------------------------------------------------
+    The individual AMT and the passive activity loss rules are 
+not viewed by the Joint Committee staff as a part of normal 
+income tax law. Instead, they are viewed as provisions that 
+reduce the magnitude of the tax expenditures to which they 
+apply. For example, the AMT reduces the value of the deduction 
+for State and local income taxes (for those taxpayers subject 
+to the AMT) by not allowing the deductions to be claimed in the 
+calculation of AMT liability. Similarly, the passive loss rules 
+defer otherwise allowable deductions and credits from passive 
+activities until a time when the taxpayer has passive income or 
+disposes of the assets associated with the passive activity. 
+Exceptions to the individual AMT and the passive loss rules are 
+not classified as tax expenditures by the Joint Committee staff 
+because the effects of the exceptions already are incorporated 
+in the estimates of related tax expenditures. In one case the 
+restrictive effects of the AMT are presented separately because 
+there are no underlying positive tax expenditures reflecting 
+these effects: the negative tax expenditures for the AMT's 
+disallowance of personal exemptions and the standard deduction.
+
+Business Income Taxation
+
+    Regardless of the legal form of organization (sole 
+proprietorship, partnership, or S or C corporation), the same 
+general principles are used in the computation of taxable 
+business income. Thus, most business tax expenditures apply 
+equally to unincorporated and incorporated businesses.
+    One of the most difficult issues in defining tax 
+expenditures for business income relates to the tax treatment 
+of capital costs. Under present law, capital costs may be 
+recovered under a variety of alternative methods, depending 
+upon the nature of the costs and the status of the taxpayer. 
+For example, investments in equipment and structures may 
+qualify for tax credits, expensing, accelerated depreciation, 
+or straight-line depreciation. The Joint Committee staff 
+generally classifies as tax expenditures cost recovery 
+allowances that are more favorable than those provided under 
+the alternative depreciation system (sec. 168(g)), which 
+provides for straight-line recovery over tax lives that are 
+longer than those permitted under the accelerated system. In 
+addition, a tax expenditure has been measured for depreciation 
+in those specific cases where the tax treatment of a certain 
+type of asset deviates from the overall treatment of other 
+similar types of assets. For example, the tax treatment of 
+leasehold improvements of commercial buildings is depreciated 
+using a recovery period of 15 years, while the general 
+treatment of improvements to commercial buildings (e.g., owned 
+commercial buildings) is a 39 year recovery period. In this 
+case, the difference between depreciation (in this case 
+straight line) using 15 years and 39 years for the recovery 
+period represents a tax expenditure. As indicated above, the 
+Joint Committee staff assumes that normal income tax law would 
+not provide for any indexing of the basis of capital assets 
+(nor, for that matter, any indexing with respect to expenses 
+associated with these assets). Thus, normal income tax law 
+would not take into account the effects of inflation on tax 
+depreciation.
+    The Joint Committee staff uses several accounting standards 
+in evaluating the provisions in the Code that govern the 
+recognition of business receipts and expenses. Under the Joint 
+Committee staff view, normal income tax law is assumed to 
+require the accrual method of accounting (except where its 
+application is deemed infeasible), the standard of ``economic 
+performance'' (used in the Code to test whether liabilities are 
+deductible), and the general concept of matching income and 
+expenses. In general, tax provisions that do not satisfy all 
+three standards are viewed as tax expenditures. For example, 
+the deduction for contributions to taxpayer-controlled mining 
+reclamation reserve accounts is viewed as a tax expenditure 
+because the contributions do not satisfy the economic 
+performance standard. (Adherence to the standard would require 
+that the taxpayer make an irrevocable contribution toward 
+future reclamation, involving a trust fund or similar 
+mechanism, as occurs in a number of areas in the Code.) As 
+another example, the deductions for contributions to nuclear 
+decommissioning trust accounts and certain environmental 
+settlement trust accounts are not viewed as tax expenditures 
+because the contributions are irrevocable (i.e., they satisfy 
+the economic performance standard). However, present law 
+provides for a reduced rate of tax on the incomes of these two 
+types of trust accounts, and these tax rate reductions are 
+viewed as tax expenditures.
+    The Joint Committee staff assumes that normal income tax 
+law would provide for the carryback and carryforward of net 
+operating losses. The staff also assumes that the general 
+limits on the number of years that such losses may be carried 
+back or forward were chosen for reasons of administrative 
+convenience and compliance concerns and may be assumed to 
+represent normal income tax law. Exceptions to the general 
+limits on carrybacks and carryforwards are viewed as tax 
+expenditures.
+
+Corporate Income Tax
+
+    The income of corporations (other than S corporations) 
+generally is subject to the corporate income tax. The corporate 
+income tax includes a graduated tax rate schedule. The lower 
+tax rates in the schedule are classified by the Joint Committee 
+staff as a tax expenditure (as opposed to normal income tax 
+law) because they are intended to provide tax benefits to small 
+businesses and, unlike the graduated individual income tax 
+rates, are unrelated directly to concerns about ability of 
+individuals to pay taxes.
+    Exceptions to the corporate alternative minimum tax are not 
+viewed as tax expenditures because the effects of the AMT 
+exceptions are already incorporated in the estimates of related 
+tax expenditures.\15\
+---------------------------------------------------------------------------
+    \15\ See discussion of the individual AMT above.
+---------------------------------------------------------------------------
+    Certain income of pass-through entities is exempt from the 
+corporate income tax. The income of sole proprietorships, S 
+corporations, most partnerships, and other entities (such as 
+regulated investment companies, real estate investment trusts, 
+real estate mortgage investment conduits, and cooperatives) is 
+taxed only at the individual level. The special tax rules for 
+these pass-through entities are not classified as tax 
+expenditures because the tax benefits are available to any 
+entity that chooses to organize itself and operate in the 
+required manner.
+    Nonprofit corporations that satisfy the requirements of 
+section 501 also generally are exempt from corporate income 
+tax. The tax exemption for organizations that have a direct 
+business analogue or compete with for-profit organizations 
+organized for similar purposes is a tax expenditure.\16\ The 
+tax exemption for certain nonprofit cooperative business 
+organizations, such as trade associations, is not treated as a 
+tax expenditure just as the entity-level exemption given to 
+for-profit pass-through business entities is not treated as a 
+tax expenditure. With respect to other nonprofit organizations, 
+such as charities, tax-exempt status is not classified as a tax 
+expenditure because the nonbusiness activities of such 
+organizations generally must predominate and their unrelated 
+business activities are subject to tax. However, there are 
+numerous exceptions that allow for otherwise unrelated business 
+income to escape taxation,\17\ and these exceptions are treated 
+as tax expenditures. In general, the imputed income derived 
+from nonbusiness activities conducted by individuals or 
+collectively by certain nonprofit organizations is outside the 
+normal income tax base. However, the ability of donors to such 
+nonprofit organizations to claim a charitable contribution 
+deduction is a tax expenditure, as is the exclusion of income 
+granted to holders of tax-exempt financing issued by charities.
+---------------------------------------------------------------------------
+    \16\ These organizations include small insurance companies, mutual 
+or cooperative electric companies, State credit unions, and Federal 
+credit unions.
+    \17\ These exceptions include certain passive income that arguably 
+may relate to business activities, such as royalties or rents received 
+from licensing trade names or other assets typically used in a trade or 
+business, as well as other passive income such as certain dividends and 
+interest. Other exceptions include income derived from certain research 
+activities and income from certain trade show and fair activities.
+---------------------------------------------------------------------------
+
+Recent Legislation
+
+    The Worker, Homeownership, and Business Assistance Act of 
+2009, enacted on November 6, 2009 (Pub. L. No. 111-92), 
+modified three tax expenditures:
+    --Among other changes, the first-time homebuyer tax credit 
+was extended for purchases before May 1, 2010 (July 1, 2010 for 
+any taxpayer who enters into a written binding contract before 
+May 1, 2010, to close on the purchase of a principal residence 
+before July 1, 2010). The credit is extended for an additional 
+year for individuals on qualified official extended duty 
+outside of the United States. A taxpayer who has maintained the 
+same principal residence for any five-consecutive year period 
+during the eight-year period ending on the date of the purchase 
+of a subsequent principal residence is treated as a first-time 
+homebuyer. The maximum allowable credit for such taxpayers is 
+$6,500 ($3,250 for a married individual filing separately). 
+Income, purchase price, age, related party, dependent, and 
+documentation limitations apply for purchases after November 6, 
+2009. The definition of mathematical or clerical error for 
+purposes of administration of the credit by the IRS was 
+expanded.
+    --The exclusion of benefits and allowances to armed forces 
+personnel under the Homeowners Assistance Program was expanded 
+to exclude payments authorized under the American Recovery and 
+Reinvestment Tax Act of 2009 (Pub. L. No. 111-5).
+    --The unavailability of the symmetric worldwide method for 
+interest expense allocation was extended for seven years until 
+taxable years beginning after December 31, 2017. This is a 
+negative tax expenditure.
+
+    The Department of Defense Appropriations Act, 2010, enacted 
+on December 19, 2009 (Pub. L. No. 111-118), extended the 
+eligibility period for the premium subsidy for COBRA 
+continuation coverage for involuntary terminations through 
+February 28, 2010 and the maximum duration of assistance to 15 
+months.
+
+    An Act to accelerate the income tax benefits for charitable 
+cash contributions for the relief of victims of the earthquake 
+in Haiti, enacted on January 22, 2010 (Pub. L. No. 111-126), 
+permitted cash contributions made after January 11, 2010, and 
+before March 1, 2010, for the relief of earthquake victims in 
+Haiti as having been made on December 31, 2009 for purposes of 
+the tax deduction for charitable contributions. In Table 1, 
+this change is reflected in the tax expenditure estimate for 
+``Deduction for charitable contributions, other than for 
+education and health.''
+
+    The Temporary Extension Act of 2010, enacted on March 2, 
+2010 (Pub. L. No. 111-144), extended the eligibility period for 
+the premium subsidy for COBRA continuation coverage for 
+involuntary terminations through March 31, 2010 and modified 
+the applicability of the subsidy to individuals losing coverage 
+because of a reduction in hours.
+
+    The Hiring Incentives to Restore Employment Act, enacted on 
+March 18, 2010 (Pub. L. No. 111-147), created one new tax 
+expenditure:
+    --An employer's general business credit is increased by 
+$1,000 for each retained worker that satisfies a minimum 
+employment period. Generally, a retained worker is an 
+individual who is a qualified individual as defined under the 
+payroll tax forgiveness provision of new Code sec. 3111(d). 
+However, the credit is available only with respect to such an 
+individual, if the individual: (1) is employed by the employer 
+on any date during the taxable year; (2) continues to be 
+employed by the employer for a period of not less than 52 
+consecutive weeks; and (3) receives wages for such employment 
+during the last 26 weeks of such period that are least 80-
+percent of such wages during the first 26 weeks of such period. 
+In Table 1, this tax expenditure is listed as ``Credit for 
+retention of certain newly hired workers.''
+    The Hiring Incentives to Restore Employment Act also 
+modified existing tax expenditures as follows:
+    --A refundable credit was allowed to issuers of specified 
+tax credit bonds in lieu of providing investors with Federal 
+tax credits. A ``specified tax credit bond'' is a new clean 
+renewable energy bond, a qualified energy conservation bond, a 
+qualified zone academy bond, or a qualified school construction 
+bond. In Table 1, this change is reflected in the tax 
+expenditure estimates for the underlying tax credit bonds.
+    --The limitation on expensing certain depreciable business 
+assets under section 179 was modified and extended for one year 
+to permit expensing of up to $250,000 of the cost of qualifying 
+property, reduced by the amount by which the cost of qualifying 
+property exceeds $800,000, for property placed in service for 
+taxable years beginning before 2011.
+    --The unavailability of the symmetric worldwide method for 
+interest expense allocation was extended for an additional 
+three years until taxable years beginning after December 31, 
+2020. This is a negative tax expenditure.
+
+    The Patient Protection and Affordable Care Act, enacted 
+March 23, 2010 (Pub. L. No. 111-148), in combination with the 
+Health Care and Education Reconciliation Act of 2010, enacted 
+March 30, 2010 (Pub. L. No. 111-152), created several new tax 
+expenditures as follows:
+    --A premium assistance credit is available for eligible 
+individuals and families who purchase health insurance through 
+an exchange. The credit is refundable and payable in advance 
+directly to the insurer. The credit is available for 
+individuals with household incomes between 100 and 400 percent 
+of the Federal poverty line for the family size involved who do 
+not receive health insurance through an employer or a spouse's 
+employer. The credit is equal to the cost of the second lowest-
+cost silver plan minus the maximum amount of income a household 
+is expected to pay for insurance. This maximum amount is a 
+percentage of household income that increases with income. The 
+premium assistance credit is effective for taxable years ending 
+after December 31, 2013. In Table 1, this tax expenditure is 
+listed as ``Credits and subsidies for participation in 
+exchanges.''
+    --An exclusion from gross income is provided for any 
+premium assistance credit. In Table 1, this tax expenditure is 
+reflected in the tax expenditure estimate for ``Credits and 
+subsidies for participation in exchanges.''
+    --A tax credit is provided for a qualified small employer 
+for nonelective contributions to purchase health insurance for 
+its employees. For taxable years beginning in 2010-2013, the 
+credit is equal to 35 percent of the employer's contribution to 
+the health insurance premium for each covered employee, and 50 
+percent for taxable years beginning after 2013. In Table 1, 
+this tax expenditure is listed as ``Tax credit for small 
+businesses purchasing employer insurance.''
+    --Excise taxes imposed on employers whose employees receive 
+premium assistance credits are not deductible as ordinary and 
+necessary business expenses. The nondeductibility of these 
+expenses is a negative tax expenditure. This negative tax 
+expenditure is listed below in the text as a tax expenditure 
+for which quantification is not available.
+    --Excise taxes imposed on insurers if the aggregate value 
+of employer-sponsored health insurance coverage for an employee 
+exceeds a threshold amount are not deductible as ordinary and 
+necessary business expenses. The nondeductibility of these 
+expenses is a negative tax expenditure. This negative tax 
+expenditure is not listed in Table 1, because the provision is 
+not effective until taxable years beginning after December 31, 
+2017.
+    --The annual fees imposed on any covered entity engaged in 
+the business of manufacturing or importing branded prescription 
+drugs for sale to any specified government program or pursuant 
+to coverage under any such program are not deductible as 
+ordinary and necessary business expenses. The nondeductibility 
+of these expenses is a negative tax expenditure. This negative 
+tax expenditure is listed below in the text as a tax 
+expenditure for which quantification is not available.
+    --The annual fees imposed on any covered entity engaged in 
+the business of providing health insurance with respect to 
+United States health risks are not deductible as ordinary and 
+necessary business expenses. The nondeductibility of these 
+expenses is a negative tax expenditure. This negative tax 
+expenditure is listed below in the text as a tax expenditure 
+for which quantification is not available.
+    --Remuneration in excess of $500,000 attributable to 
+services performed by an applicable individual for certain 
+health insurance providers is not deductible as an ordinary and 
+necessary business expense. The nondeductibility of these 
+expenses is a negative tax expenditure. In Table 1, this 
+negative tax expenditure is reflected in the tax expenditure 
+estimate for ``Limits on deductible compensation.''
+    --An exclusion from gross income is provided for the value 
+of specified Indian tribe health care benefits and coverage 
+provided after the date of enactment (March 23, 2010). In Table 
+1, this tax expenditure is reflected in the tax expenditure 
+estimate for ``Exclusion of employer contributions for health 
+care, health insurance premiums, and long-term care insurance 
+premiums.''
+    --A 50-percent nonrefundable tax credit is provided for 
+qualified investments in qualifying therapeutic discovery 
+projects. An investment is a qualified investment only if such 
+investment is made in a taxable year beginning in 2009 or 2010 
+by an eligible taxpayer. An eligible taxpayer means a taxpayer 
+that employs not more than 250 employees. Taxpayers may apply 
+for grants in lieu of tax credits under the program. In Table 
+1, this tax expenditure is listed as ``Therapeutic research 
+credit.''
+    --An exclusion from gross income is provided for the amount 
+of a free choice voucher provided by an employer to a qualified 
+employee to the extent the amount of the voucher does not 
+exceed the amount paid for a qualified health plan. The value 
+of the voucher is equal to the dollar value of the employer 
+contribution to an employer-sponsored health plan. A qualified 
+employee is an employee: (1) whose required contribution for an 
+employer-sponsored health plan exceeds eight percent and does 
+not exceed 9.8 percent of household income for the taxable 
+year; (2) whose household income does not exceed 400 percent of 
+the Federal poverty line; and (3) who does not participate in 
+an employer-sponsored health plan. The percentage of income 
+thresholds are indexed for the excess of premium growth over 
+income growth for calendar years after 2014. The exclusion 
+applies to vouchers provided after December 31, 2013. In Table 
+1, this tax expenditure is reflected in the tax expenditure 
+estimate for ``Exclusion of employer contributions for health 
+care, health insurance premiums, and long-term care insurance 
+premiums.''
+    --In the case of an individual, a 3.8-percent unearned 
+income Medicare contribution tax is imposed on the lesser of 
+net investment income or the excess of modified adjusted gross 
+income over the threshold amount. The threshold amount is 
+$250,000 in the case of a joint return or surviving spouse, 
+$125,000 in the case of a married individual filing a separate 
+return, and $200,000 in any other case. In the case of an 
+estate or trust, the tax is 3.8 percent of the lesser of 
+undistributed net investment income or the excess of adjusted 
+gross income (as defined in section 67(e)) over the dollar 
+amount at which the highest income tax bracket applicable to an 
+estate or trust begins. This special rate of tax represents a 
+negative tax expenditure. In Table 1, this negative tax 
+expenditure is listed as ``Surtax on unearned income.''
+    The Patient Protection and Affordable Care Act, enacted 
+March 23, 2010 (Pub. L. No. 111-148), in combination with the 
+Health Care and Education Reconciliation Act of 2010, enacted 
+March 30, 2010 (Pub. L. No. 111-152), also modified several 
+existing tax expenditures as follows:
+    --The definition of medical expense, with respect to 
+medicines, for purposes of employer-provided health coverage 
+(including HRAs and Health FSAs), HSAs, and Archer MSAs, is 
+conformed to the definition for purposes of the itemized 
+deduction for medical expenses, except that prescribed drug is 
+determined without regard to whether the drug is available 
+without a prescription. Thus, the cost of over-the-counter 
+medicines may not be reimbursed with excludible income through 
+a Health FSA, HRA, HSA, or Archer MSA, unless the medicine is 
+prescribed by a physician. This change is effective for 
+expenses incurred after December 31, 2010. In Table 1, this 
+change is reflected in the tax expenditure estimates for 
+``Exclusion of benefits provided under cafeteria plans,'' 
+``Exclusion of employer contributions for health care, health 
+insurance premiums, and long-term care insurance premiums,'' 
+and ``Health savings accounts.''
+    --The maximum amount of salary reduction contributions 
+excludable from gross income under a health flexible spending 
+arrangement under a cafeteria plan is limited to $2,500 
+(indexed for inflation after 2013) for taxable years beginning 
+after December 31, 2012. In Table 1, this change is reflected 
+in the tax expenditure estimate for ``Exclusion of employer 
+contributions for health care, health insurance premiums, and 
+long-term care insurance premiums.''
+    --The amount otherwise allowable as a deduction for certain 
+prescription drug expenses for Medicare retirees not enrolled 
+in a Medicare Part D or Medicare Advantage prescription drug 
+plan is reduced by the amount of the excludable subsidy 
+payments received by the employer. The provision is effective 
+for taxable years beginning after December 31, 2012. In Table 
+1, this change is reflected in the tax expenditure estimate for 
+``Exclusion of certain subsidies to employers who maintain 
+prescription drug plans for Medicare enrollees.''
+    --The threshold for the itemized deduction for unreimbursed 
+medical expenses is increased from 7.5 percent to 10 percent of 
+adjusted gross income for taxable years beginning after 
+December 31, 2012. For any taxable year beginning after 
+December 31, 2012, and ending before January 1, 2017, if either 
+the taxpayer or the taxpayer's spouse turns 65 before the end 
+of the year, the threshold remains at 7.5 percent. In Table 1, 
+this change is reflected in the tax expenditure estimate for 
+``Deduction for medical expenses and long-term care expenses.''
+    --The employee portion of the HI tax is increased by an 
+additional tax of 0.9 percent on wages received in excess of 
+$250,000 in the case of a joint return, $125,000 in the case of 
+a married individual filing a separate return, and $200,000 in 
+any other case. In the case of a joint return, the additional 
+tax is on the combined wages of the employee and the employee's 
+spouse. The tax applies to remuneration received and taxable 
+years beginning after December 31, 2012. Since the exclusion of 
+the value of Medicare Part A insurance in excess of HI tax 
+contributions is classified as a tax expenditure and this 
+provision increases the HI tax, this reduces the tax 
+expenditure for this exclusion. In Table 1, this change is 
+reflected in the tax expenditure estimate for ``Exclusion of 
+Medicare benefits: Hospital insurance (Part A).''
+    --The special treatment for Blue Cross and Blue Shield 
+companies is limited to organizations with a medical loss ratio 
+of not less than 85 percent. In Table 1, this change is 
+reflected in the tax expenditure estimate for ``Special 
+deduction for Blue Cross and Blue Shield companies.''
+    --The gross income exclusion for amounts received under the 
+National Health Service Corps loan repayment program or certain 
+State loan repayment programs is expanded to include any amount 
+received by an individual under any State loan repayment or 
+loan forgiveness program that is intended to provide for the 
+increased availability of health care services in underserved 
+or health professional shortage areas (as determined by the 
+State). The provision applies to amounts received by an 
+individual in taxable years beginning after December 31, 2008. 
+In Table 1, this change is reflected in the tax expenditure 
+estimate for ``Exclusion of income attributable to the 
+discharge of certain student loan debt and NHSC educational 
+loan repayments.''
+    --The maximum exclusion for employer-provided adoption 
+assistance is increased to $13,170 per eligible child (a $1,000 
+increase). The new dollar limit and income limitations of the 
+employer-provided adoption assistance exclusion are adjusted 
+for inflation in taxable years beginning after December 31, 
+2010. The exclusion is extended for one year (i.e., for taxable 
+years beginning before January 1, 2012). In Table 1, this 
+change is reflected in the tax expenditure estimate for 
+``Adoption credit and employee adoption benefits exclusion.''
+    --The maximum adoption tax credit is increased to $13,170 
+per eligible child (a $1,000 increase). This increase applies 
+to both nonspecial needs adoptions and special needs adoptions. 
+Also, the adoption credit is made refundable. The new dollar 
+limit and phase-out of the adoption credit are adjusted for 
+inflation in taxable years beginning after December 31, 2010. 
+In Table 1, this change is reflected in the tax expenditure 
+estimate for ``Adoption credit and employee adoption benefits 
+exclusion.''
+    --The exclusion for reimbursements for medical care 
+expenses under an employer-provided accident and health plan is 
+extended to reimbursements for expenses for the medical care of 
+any child (whether or not the child is a dependent) who has not 
+attained age 27 as of the end of the taxable year of an 
+employee. In Table 1, this change is reflected in the tax 
+expenditure estimate for ``Exclusion of employer contributions 
+for health care, health insurance premiums, and long-term care 
+insurance premiums.''
+    --The deduction for health insurance costs of self-employed 
+individuals is extended to health insurance for any child who 
+has not attained age 27 as of the end of the taxable year of a 
+self-employed individual. In Table 1, this change is reflected 
+in the tax expenditure estimate for ``Exclusion of employer 
+contributions for health care, health insurance premiums, and 
+long-term care insurance premiums.''
+    --The cellulosic biofuel producer credit is modified to 
+exclude fuels with significant water, sediment, or ash content, 
+such as black liquor. The provision is effective for fuels sold 
+or used on or after January 1, 2010. In Table 1, this change is 
+reflected in the tax expenditure estimate for ``Credits for 
+alcohol fuels.''
+
+    The Continuing Extension Act of 2010, enacted on April 15, 
+2010 (Pub. L. No. 111-157), extended the eligibility period for 
+the premium subsidy for COBRA continuation coverage for 
+involuntary terminations through May 31, 2010.
+
+    The Homebuyer Assistance and Improvement Act of 2010, 
+enacted on July 2, 2010 (Pub. L. No. 111-198), extended the 
+time for closing on a principal residence eligible for the 
+first-time homebuyer credit through September 30, 2010 for any 
+individual who entered into a written binding contract before 
+May 1, 2010, to close on the purchase of a principal residence 
+before July 1, 2010. The eligibility period for an individual 
+who serves on qualified official extended duty outside of the 
+United States who enters into a written binding contract before 
+May 1, 2011, to close on the purchase of a principal residence 
+before July 1, 2011, and who purchases such residence before 
+July 1, 2011, is unchanged. In Table 1, this change is 
+reflected in the tax expenditure estimate for the ``First-time 
+homebuyer credit.''
+
+    The Dodd-Frank Wall Street Reform and Consumer Protection 
+Act, enacted on July 21, 2010 (Pub. L. No. 111-203), exempts 
+swaps and other derivative contracts from the tax consequences 
+of section 1256 of the Code. In Table 1, this change is 
+reflected in the tax expenditure estimate for ``Income 
+recognition rule for gain or loss from section 1256 
+contracts.''
+    The __ Act of __, enacted on August 10, 2010 (Pub. L. No. 
+111-226), modified two existing tax expenditures as follows:
+    --The affiliation rules for purposes of rules allocating 
+interest expense are modified to treat a foreign corporation as 
+a member of an affiliated group for interest allocation and 
+apportionment purposes under certain conditions. In Table 1, 
+this change is reflected in the tax expenditure estimate for 
+``Interest expense allocation.''
+    --The advance refundability of the earned income tax credit 
+is eliminated. In Table 1, this change is reflected in the tax 
+expenditure estimate for the ``Earned income credit.''
+
+    The Small Business Jobs Act of 2010, enacted on September 
+27, 2010 (Pub. L. No. 111-240), created one new tax expenditure 
+and modified several tax expenditures as follows:
+    --The carryback period for eligible small business credits 
+is extended from one to five years. An eligible small business 
+is, with respect to any taxable year, a corporation, the stock 
+of which is not publicly traded, or a partnership which meets 
+the gross receipts test of section 448(c), substituting $50 
+million for $5 million each place it appears. In the case of a 
+sole proprietorship, the gross receipts test is applied as if 
+it were a corporation. This item is listed below in the text as 
+a tax expenditure for which quantification is not available.
+    --The percentage exclusion for qualified small business 
+stock acquired during 2010 is increased to 100 percent and the 
+minimum tax preference does not apply. Thus, no regular tax or 
+alternative minimum tax is imposed on the sale of this stock 
+held at least five years. The provision is effective for stock 
+issued after the date of enactment (September 27, 2010) and 
+before January 1, 2011. In Table 1, this change is reflected in 
+the tax expenditure estimate for ``Exclusion for gain from 
+certain small business stock.''
+    --The amount a taxpayer may expense under section 179 
+increases to $500,000, and the phase-out threshold amount 
+increases to $2 million for taxable years beginning in 2010 and 
+2011. The definition of property qualifying for section 179 is 
+expanded temporarily to include qualified real property, 
+subject to a maximum of $250,000. Other special rules for 
+qualified real property apply. In Table 1, these changes are 
+reflected in the tax expenditure estimate for ``Expensing under 
+section 179 of depreciable business property.''
+    --The additional first-year depreciation deduction for 50 
+percent of the basis of certain qualified property (``bonus 
+depreciation'') is extended for one year for property placed in 
+service after December 31, 2009 and before January 1, 2011 
+(before January 1, 2012 for certain long-lived property and 
+transportation property). In Table 1, this change is reflected 
+in the tax expenditure estimate for ``Depreciation of equipment 
+in excess of the alternative depreciation system.''
+    --The amount of start-up expenditures a taxpayer can elect 
+to deduct increases from $5,000 to $10,000 for a taxable year 
+beginning in 2010. The deduction phase-out threshold increases 
+such that the $10,000 is reduced (but not below zero) by the 
+amount by which the cumulative cost of start-up expenditures 
+exceeds $60,000. In Table 1, these changes are reflected in the 
+tax expenditure estimate for ``Amortization of business startup 
+costs.''
+    --The definition of ``applicable retirement plan'' for 
+purposes of a qualified Roth contribution plan is amended to 
+include eligible deferred compensation plans (as defined under 
+section 457(b)) maintained by a State, a political subdivision 
+of a State, an agency or instrumentality of a State, or an 
+agency or instrumentality of a political subdivision of a State 
+(collectively, ``governmental 457(b) plans''). The definition 
+of ``elective deferral'' in section 402A is also amended to 
+include amounts deferred under governmental 457(b) plans. Thus, 
+participants in governmental 457(b) plans are allowed to treat 
+elective deferrals as Roth contributions. In Table 1, these 
+changes are reflected in the tax expenditure estimate for ``Net 
+exclusion of pension contributions and earnings: Defined 
+contribution plans.''
+    --If a section 401(k) plan, section 403(b) plan, or 
+governmental section 457(b) plan has a qualified designated 
+Roth contribution program, a distribution to an employee (or a 
+surviving spouse) from an account under the plan that is not a 
+designated Roth account is permitted to be rolled over into a 
+designated Roth account under the plan for the individual. In 
+the case of a permitted rollover contribution to a designated 
+Roth account under this provision, the individual must include 
+the distribution in gross income (subject to basis recovery) in 
+the same manner as if the distribution were rolled over into a 
+Roth IRA. In Table 1, this change is reflected in the tax 
+expenditure estimate for ``Net exclusion of pension 
+contributions and earnings: Defined contribution plans.''
+    --The cellulosic biofuel producer credit is modified to 
+exclude from the definition of cellulosic biofuel fuels with an 
+acid number of greater than 25, including crude tall oil. In 
+Table 1, this change is reflected in the tax expenditure 
+estimate for ``Credits for alcohol fuels.''
+
+Expiring Tax Expenditure Provisions
+
+    A number of tax expenditure provisions expired in 2009 or 
+are scheduled to expire in 2010. Some provisions expired prior 
+to 2009, but have continuing revenue effects that are 
+associated with ongoing taxpayer activity. These determinations 
+reflect present law as of December 15, 2010.
+    --The tax credit for Indian coal produced at Indian coal 
+production facilities expired for facilities placed in service 
+after December 31, 2008. The tax expenditure estimate in Table 
+1 reflects the tax credit for facilities placed in service 
+before January 1, 2009.
+    --The treatment of mineral royalties as qualified REIT 
+income for timber REITs expired on the last day of the 
+taxpayer's first taxable year beginning after May 22, 2008, and 
+before May 23, 2009. This tax expenditure is not listed in 
+Table 1 because the estimated revenue loss is below the de 
+minimis amount.
+    --The treatment of sales by REITs of certain timber 
+property as sale of property held for investment or used in a 
+trade or business expired for sales after the last day of the 
+taxpayer's first taxable year beginning after May 22, 2008, and 
+before May 23, 2009. This tax expenditure is not listed in 
+Table 1 because the estimated revenue loss is below the de 
+minimis amount.
+    --The temporary reduction in corporate rate for qualified 
+timber gain expired for taxable years beginning after May 22, 
+2009.
+    --The tax credit for qualified hybrid motor vehicles other 
+than passenger automobiles and light trucks expired for 
+vehicles purchased after December 31, 2009.
+    --The tax credit for biodiesel and renewable diesel fuel 
+expired for fuel sold or used after December 31, 2009.
+    --The tax credit for research and experimentation expenses 
+expired for amounts paid or incurred after December 31, 2009.
+    --The increase in the State housing credit ceiling under 
+the low-income housing credit expired December 31, 2009.
+    --The election to substitute grants to States for low-
+income housing projects for low-income housing credit 
+allocation expired December 31, 2009.
+    --The tax credit for electricity produced at open-loop 
+biomass facilities placed in service before October 22, 2004, 
+expired December 31, 2009.
+    --The tax credit for refined coal produced at refined coal 
+production facilities expired for facilities placed in service 
+after December 31, 2009.
+    --The Indian employment tax credit expired for taxable 
+years beginning after December 31, 2009.
+    --The new markets tax credit expired December 31, 2009.
+    --The tax credit for certain expenditures on railroad track 
+maintenance expired for expenditures paid or incurred after 
+December 31, 2009.
+    --The period for incurring qualified expenditures for 
+purposes of credit for production of low sulfur diesel fuel for 
+small refiners in compliance with EPA sulfur regulations is 
+scheduled to end on December 31, 2009. This tax expenditure is 
+not listed in Table 1 because the estimated revenue loss is 
+below the de minimis amount.
+    --The tax credit for producing coke or coke gas expired for 
+facilities placed in service after December 31, 2009. In Table 
+1, this is reflected in the tax expenditure estimate for 
+``Credit for producing fuels from a nonconventional source.''
+    --The tax credit for construction of new energy efficient 
+homes expired for homes purchased after December 31, 2009.
+    --The tax credit for training costs of mine rescue team 
+employees expired for taxable years beginning after December 
+31, 2009. This tax expenditure is not listed in Table 1 because 
+the estimated revenue loss is below the de minimis amount.
+    --The tax credit for wages of employees who are active duty 
+members of the uniformed services expired for payments made 
+after December 31, 2009. This tax expenditure is not listed in 
+Table 1 because the estimated revenue loss is below the de 
+minimis amount.
+    --The tax credit to holders of clean renewable energy bonds 
+under section 54 expired for bonds issued after December 31, 
+2009. Table 1 reflects the tax expenditure estimate for clean 
+renewable energy bonds and new clean renewable energy bonds 
+under section 54C.
+    --The above-the-line deduction for teacher classroom 
+expenses expired for taxable years beginning after December 31, 
+2009.
+    --The increased standard deduction for State and local real 
+property taxes expired for taxable years beginning after 
+December 31, 2009.
+    --The exclusion of unemployment compensation benefits from 
+gross income expired for taxable years beginning after December 
+31, 2009.
+    --The suspension of applicable high-yield debt obligation 
+rules for debt issued in an exchange or as a result of 
+modification expired for obligations issued after December 31, 
+2009.
+    --The election to deduct State and local general sales 
+taxes (in lieu of State and local income taxes) expired for 
+taxable years beginning after December 31, 2009.
+    --The increased standard deduction and itemized deduction 
+for State or local sales or excise taxes imposed on the 
+purchase of a qualified motor vehicle expired for purchases 
+made after December 31, 2009.
+    --The classification as five-year property of farming 
+business machinery and equipment expired for machinery and 
+equipment placed in service after December 31, 2009. In Table 
+1, this is reflected in the tax expenditure estimate for 
+``Depreciation of equipment in excess of the alternative 
+depreciation system.''
+    --Fifteen-year straight-line cost recovery for qualified 
+leasehold improvements, qualified restaurant property, and 
+qualified retail improvements expired for property placed in 
+service after December 31, 2009. In Table 1, this is reflected 
+in the tax expenditure estimate for ``Depreciation of buildings 
+other than rental housing in excess of alternative depreciation 
+system.''
+    --Seven-year cost recovery for certain motorsports 
+racetrack property expired for property placed in service after 
+December 31, 2009. In Table 1, this is reflected in the tax 
+expenditure estimate for ``Depreciation of buildings other than 
+rental housing in excess of alternative depreciation system.''
+    --Accelerated depreciation for business property on Indian 
+reservations expired for property placed in service after 
+December 31, 2009.
+    --Additional first-year depreciation for 50 percent of 
+basis of qualified property expired for property acquired after 
+December 31, 2009.
+    --The election to accelerate AMT and research credits in 
+lieu of additional first-year depreciation expired for basis 
+attributable to manufacture, construction, or production after 
+December 31, 2009.
+    --The higher deduction limits for charitable contributions 
+of real property interests made exclusively for conservation 
+purposes expired for contributions made in taxable years 
+beginning after December 31, 2009. In Table 1, this is 
+reflected in the tax expenditure estimate for ``Deduction for 
+charitable contributions, other than for education and 
+health.''
+    --The enhanced charitable deduction for contributions of 
+food inventory expired for contributions made after December 
+31, 2009. In Table 1, this is reflected in the tax expenditure 
+estimate for ``Deduction for charitable contributions, other 
+than for education and health.''
+    --The enhanced charitable deduction for contributions of 
+book inventories to public schools expired for contributions 
+made after December 31, 2009. In Table 1, this is reflected in 
+the tax expenditure estimate for ``Deduction for charitable 
+contributions to educational institutions.''
+    --The enhanced charitable deduction for corporate 
+contributions of computer equipment for educational purposes 
+expired for contributions made in taxable years beginning after 
+December 31, 2009. In Table 1, this is reflected in the tax 
+expenditure estimate for ``Deduction for charitable 
+contributions to educational institutions.''
+    --The election to expense 50 percent of qualified property 
+used to refine liquid fuels expired for property which is 
+placed in service after December 31, 2009 and for property on 
+which construction begins after December 31, 2009.
+    --The election to expense advanced mine safety equipment 
+expired for property placed in service after December 31, 2009. 
+This tax expenditure is not listed in Table 1 because the 
+estimated revenue loss is below the de minimis amount.
+    --The election to expense qualified film and television 
+productions expired for productions commencing after December 
+31, 2009. This tax expenditure is not listed in Table 1 because 
+the estimated revenue loss is below the de minimis amount.
+    --The election to expense environmental remediation 
+expenditures expired for expenditures paid or incurred after 
+December 31, 2009.
+    --The deduction for income attributable to domestic 
+production activities in Puerto Rico expired for taxable years 
+beginning after December 31, 2009. In Table 1, this is 
+reflected in the tax expenditure estimate for ``Deduction for 
+income attributable to domestic production activities.''
+    --The allowance of additional qualified retirement 
+contributions in certain bankruptcy cases expired for taxable 
+years beginning after December 31, 2009. In Table 1, this is 
+reflected in the tax expenditure estimate for ``Traditional 
+IRAs.''
+    --The above-the-line deduction for qualified higher 
+education expenses expired for taxable years beginning after 
+December 31, 2009.
+    --The waiver of minimum required distribution rules for 
+IRAs and defined contribution plans expired after December 31, 
+2009.
+    --The exclusion of individual retirement plan distributions 
+for charitable purposes expired for taxable years beginning 
+after December 31, 2009.
+    --The deferral of gain from the disposition of electric 
+transmission property to implement Federal Energy Regulation 
+Commission restructuring policy expired for taxable years 
+beginning after December 31, 2009.
+    --The exclusion of gain or loss on sale or exchange of 
+certain brownfield sites from unrelated business taxable income 
+expired for property acquired after December 31, 2009.
+    --The suspension of the 100-percent-of-net-income 
+limitation on percentage depletion for oil and gas from 
+marginal wells expired for taxable years beginning after 
+December 31, 2009.
+    --The exemption for certain dividends of regulated 
+investment companies expired for dividends with respect to 
+taxable years (of issuing companies) that begin after December 
+31, 2009.
+    --The exemptions under subpart F for active financing 
+income expired for taxable years beginning after December 31, 
+2009.
+    --The look-through treatment of payments between related 
+controlled foreign corporations under the foreign personal 
+holding company rules expired for taxable years beginning after 
+December 31, 2009.
+    --The designations and tax incentives for empowerment zones 
+expired after December 31, 2009.
+    --Various tax incentives for investment in the District of 
+Columbia expired after December 31, 2009.
+    --The designations and tax incentives for renewal 
+communities expired after December 31, 2009.
+    --The tax credit for corporate income earned in American 
+Samoa expired for taxable years beginning after December 31, 
+2009. This tax expenditure is not listed in Table 1 because the 
+estimated revenue loss is below the de minimis amount.
+    --The refundable tax credit for government retirees expired 
+for taxable years beginning after December 31, 2009.
+    --The tax credit for first-time homebuyers is generally 
+scheduled to expire for residences purchased after April 30, 
+2010.
+    --The 65-percent subsidy for payment of COBRA health care 
+coverage continuation premiums expired for involuntary 
+terminations that occur after May 31, 2010.
+    --The reduced capital gains rates for individuals are 
+scheduled to expire for taxable years beginning after December 
+31, 2010.
+    --The taxation of dividends at capital gains rates for 
+individuals is scheduled to expire for taxable years beginning 
+after December 31, 2010.
+    --The following modifications to the dependent care credit 
+are scheduled to expire for taxable years beginning after 
+December 31, 2010: increase of the dollar limit on creditable 
+expenses from $2,400 to $3,000 ($4,800 to $6,000 for two or 
+more children); increase of the applicable credit percentage 
+from 30 to 35 percent; increase of the beginning point of the 
+phase-out range from $10,000 to $15,000.
+    --The following modifications to the tax credit for 
+children under age 17 are scheduled to expire for taxable years 
+beginning after December 31, 2010: increase from $500 to 
+$1,000; expanded eligibility for the refundable portion of the 
+credit; AMT relief; provision that the tax credit not be 
+treated as income or resources for purposes of benefit or 
+assistance programs financed in whole or in part with Federal 
+funds; refundable child credit floor amount.
+    --The modifications to the Hope credit, known as the 
+American Opportunity Tax credit, are scheduled to expire for 
+taxable years beginning after December 31, 2010.
+    --The credit for certain nonbusiness energy property is 
+scheduled to expire for expenditures made after December 31, 
+2010.
+    --The credit for alternative motor vehicles, for advanced 
+lean burn technology motor vehicles, and qualified hybrid motor 
+vehicles that are passenger automobiles or light trucks, is 
+scheduled to expire for property purchased after December 31, 
+2010.
+    --The credit for alternative motor vehicles for qualified 
+alternative fuel vehicles is scheduled to expire for property 
+purchased after December 31, 2010.
+    --The increase in the credit rate and credit cap for the 
+credit for alternative fuel vehicle refueling property is 
+scheduled to expire for property placed in service in taxable 
+years beginning after December 31, 2010.
+    --The credit for alternative fuel vehicle refueling 
+property is scheduled to expire for property placed in service 
+after December 31, 2010.
+    --The following modifications to the earned income tax 
+credit are scheduled to expire for taxable years beginning 
+after December 31, 2010: increase in the beginning point of the 
+phase-out range for joint returns; credit percentage of 45 
+percent for three or more qualifying children; phaseout 
+threshold for marriage penalty relief; modification of 
+treatment of amounts not includible in income; repeal of 
+reduction for AMT liability; expansion of math error authority.
+    --The enhanced (80-percent in lieu of 65-percent) credit 
+for health insurance costs of eligible individuals is scheduled 
+to expire for eligible coverage months beginning after December 
+31, 2010.
+    --The ``making work pay'' credit is scheduled to expire for 
+taxable years beginning after December 31, 2010.
+    --The credits for alcohol fuels, including the alcohol 
+mixture credit, alcohol credit, and small ethanol producer 
+credit, are scheduled to expire for the sale or use of fuels 
+after December 31, 2010.
+    --The credit for employer-provided child care is scheduled 
+to expire for taxable years beginning after December 31, 2010.
+    --The credit for energy efficient appliances is scheduled 
+to expire for certain dishwashers, clothes washers, and 
+refrigerators manufactured after December 31, 2010.
+    --The grant for specified energy property in lieu of energy 
+tax credits is scheduled to expire for property placed in 
+service after December 31, 2010, or property placed in service 
+after December 31, 2010 of which construction began after 
+December 31, 2010.
+    --The work opportunity tax credit is scheduled to expire 
+for unemployed veterans and disconnected youth hired after 
+December 31, 2010.
+    --The allocation of new bond authority for the credit for 
+holders of qualified zone academy bonds is scheduled to expire 
+for bonds issued after December 31, 2010.
+    --The allocation of new bond authority for the credit for 
+holders of qualified school construction bonds is scheduled to 
+expire for bonds issued after December 31, 2010.
+    --The authority to issue Build America bonds is scheduled 
+to expire for obligations issued after December 31, 2010.
+    --The deferral and ratable inclusion of income from 
+business indebtedness discharged by the reacquisition of a debt 
+instrument is scheduled to expire for reacquisitions occurring 
+after December 31, 2010.
+    --The exclusion from gross income of awards under the 
+National Health Service Corps Scholarship Program or the Armed 
+Forces Health Professions Scholarship and Financial Assistance 
+program is scheduled to expire for taxable years beginning 
+after December 31, 2010.
+    --The exclusion from gross income of employer-provided 
+educational assistance, including the expansion to graduate 
+level courses, is scheduled to expire for expenses relating to 
+courses beginning after December 31, 2010 and taxable years 
+beginning after December 31, 2010.
+    --The increase in the exclusion of employer-provided 
+transit and vanpool benefits from $120 per month to $230 (and 
+indexed for inflation in 2010) is scheduled to expire for 
+taxable years beginning after December 31, 2010.
+    --The exclusion from gross income for benefits provided to 
+volunteer firefighters and emergency medical responders is 
+scheduled to expire for taxable years beginning after December 
+31, 2010.
+    --The increase in the amount of bonds qualifying for the 
+small-issuer arbitrage rebate exception and expansion of tax-
+exempt treatment to bonds issued to provide qualified public 
+educational facilities are scheduled to expire for taxable 
+years beginning after December 31, 2010.
+    --The exclusion from gross income for interest on qualified 
+mortgage bonds the proceeds of which are used to refinance a 
+mortgage on a residence which was originally financed through a 
+qualified subprime loan is scheduled to expire for bonds issued 
+after December 31, 2010.
+    --The exclusion from gross income for industrial 
+development bonds the proceeds of which are used to finance 
+facilities manufacturing intangible property is scheduled to 
+expire for bonds issued after December 31, 2010.
+    --The carryforward of any 2008 increase in the volume cap 
+and set-aside for private activity bonds for housing, the 
+interest on which is excludable from gross income, is scheduled 
+to expire for bonds issued after December 31, 2010.
+    --The exclusion from gross income for bonds guaranteed by a 
+Federal Home Loan Bank is scheduled to expire for bonds issued 
+after December 31, 2010.
+    --The deduction for premiums for qualified mortgage 
+insurance is scheduled to expire for amounts paid, accrued, or 
+properly allocable to any period after December 31, 2010.
+    --The election to amortize any expense paid or incurred in 
+creating or acquiring certain musical works and copyrights 
+ratably over five years is scheduled to expire for taxable 
+years beginning after December 31, 2010.
+    --Fifteen-year cost recovery for natural gas distribution 
+lines is scheduled to expire for property placed in service 
+after December 31, 2010.
+    --The following modifications to the deduction for interest 
+on student loans are scheduled to expire for taxable years 
+beginning after December 31, 2010: increase and indexation for 
+inflation of the income phase-out ranges; repeal of the limit 
+on the number of months that interest payments are deductible; 
+repeal of the rule that voluntary payments of interest are not 
+deductible.
+    --The modification of the small issuer exception to the 
+tax-exempt interest allocation rules for financial institutions 
+is scheduled to expire for obligations issued after December 
+31, 2010.
+    --The de minimis safe harbor exception for tax-exempt 
+interest expense of financial institutions is scheduled to 
+expire for tax-exempt obligations issued after December 31, 
+2010.
+    --The allowance as qualified higher education expenses for 
+expenses for the purchase of computer technology or equipment 
+to qualify for the exclusion of earnings of a qualified tuition 
+program is scheduled to expire for expenses paid or incurred 
+after December 31, 2010.
+    --The following modifications to the exclusion of earnings 
+of Coverdell education savings accounts are scheduled to expire 
+for taxable years beginning after December 31, 2010: increase 
+in maximum annual contribution from $500 to $2,000; expansion 
+of definition of qualified education expenses; increase in 
+phase-out range for married filers to double that of unmarried 
+filers; provision of special needs beneficiary rules; allowance 
+of contributions by corporations and other entities; and 
+allowance of contributions until April 15th, the time 
+prescribed by law for filing the return for the taxable year 
+(not including extensions thereof).
+    --The modified tax treatment of electing Alaska Native 
+Settlement Trusts, including a special rate of tax, is 
+scheduled to expire for taxable years beginning after December 
+31, 2010.
+    --The modified carryover basis rules for property acquired 
+from a decedent who dies during 2010 are scheduled to expire 
+for taxable years beginning after December 31, 2010.
+    --The authority to issue recovery zone economic development 
+bonds and recovery zone facility bonds is scheduled to expire 
+after December 31, 2010.
+
+Comparisons with Treasury
+
+    The Joint Committee staff and Treasury lists of tax 
+expenditures differ in at least six respects. First, the Joint 
+Committee staff and the Treasury use differing methodologies 
+for the estimation of tax expenditures. Thus, the estimates in 
+Table 1 are not necessarily comparable with the estimates 
+prepared by the Treasury. Under the Joint Committee staff 
+methodology, each tax expenditure is measured by the difference 
+between tax liability under present law and the tax liability 
+that would result if the tax expenditure provision were 
+repealed and taxpayers were allowed to take advantage of any of 
+the remaining tax expenditure provisions that apply to the 
+income or the expenses associated with the repealed tax 
+expenditure.
+    For example, the tax expenditure provision for the 
+exclusion of employer-paid health insurance is measured by the 
+difference between tax liability under present law and the tax 
+liability that would result if the exclusion were repealed and 
+taxpayers were allowed to claim the next best tax treatment for 
+the previously excluded employer-paid health insurance. This 
+next best tax treatment could be the inclusion of the employer-
+paid health insurance as an itemized medical deduction on 
+Schedule A.\18\
+---------------------------------------------------------------------------
+    \18\ If the exclusion were repealed, the value of the employer-paid 
+health insurance would be included in income and taxpayers would be 
+treated as having purchased the insurance themselves. Thus, the 
+insurance expense would be deductible as an itemized medical expense on 
+Schedule A, subject to the itemized medical deduction floor (7.5 
+percent of the taxpayer's adjusted gross income).
+---------------------------------------------------------------------------
+    Under the Treasury methodology, each tax expenditure is 
+measured by the difference between tax liability under present 
+law and the tax liability that would result if the tax 
+expenditure provision were repealed and taxpayers were 
+prohibited from taking advantage of any of the remaining tax 
+expenditure provisions that apply to the income or the expenses 
+associated with the repealed tax expenditure. For example, the 
+tax expenditure provision for the exclusion for employer-paid 
+health insurance is measured by the difference between tax 
+liability under present law and the tax liability that would 
+result if the exclusion were repealed and taxpayers were 
+required to include all of the employer-paid health insurance 
+in income, with no offsetting deductions (i.e., no 
+deductibility on Schedule A).
+    Second, the Treasury uses a different classification of 
+those provisions that can be considered a part of normal income 
+tax law under both the individual and business income taxes. In 
+general, the Joint Committee staff methodology involves a 
+broader definition of the normal income tax base. Thus, the 
+Joint Committee list of tax expenditures includes some 
+provisions that are not contained in the Treasury list. The 
+cash method of accounting by certain businesses provides an 
+example. The Treasury considers the cash accounting option for 
+certain businesses to be a part of normal income tax law, but 
+the Joint Committee staff methodology treats it as a departure 
+from normal income tax law that constitutes a tax expenditure.
+    Third, the Joint Committee staff and the Treasury estimates 
+of tax expenditures may also differ as a result of differing 
+data sources and differences in baseline projections of incomes 
+and expenses. The Treasury's tax expenditure calculations are 
+based on the Administration's economic forecast. The Joint 
+Committee staff calculations are based on the economic forecast 
+prepared by the CBO.
+    Fourth, the Joint Committee staff and the Treasury 
+estimates of tax expenditures span slightly different sets of 
+years. The Treasury's estimates cover a seven-year period: the 
+last fiscal year, the current fiscal year when the President's 
+budget is submitted, and the next five fiscal years, i.e., 
+fiscal years 2009-2015. The Joint Committee staff estimates 
+cover a recent fiscal year and the succeeding four fiscal 
+years, i.e., fiscal years 2010-2014.
+    Fifth, the Joint Committee staff list excludes those 
+provisions that are estimated to result in revenue losses below 
+the de minimis amount, i.e. less than $50 million over the five 
+fiscal years 2010 through 2014. The Treasury rounds all yearly 
+estimates to the nearest $10 million and excludes those 
+provisions with estimates that round to zero in each year, i.e. 
+provisions that result in less than $5 million in revenue loss 
+in each of the years 2009 through 2015.
+    Finally, the Joint Committee staff list formally integrates 
+negative tax expenditures into its standard presentation.
+    In some cases, two or more of the tax expenditure items in 
+the Treasury list have been combined into a single item in the 
+Joint Committee staff list, and vice versa. The Table 1 
+descriptions of some tax expenditures also may vary from the 
+descriptions used by the Treasury.
+
+                  II. MEASUREMENT OF TAX EXPENDITURES
+
+Tax Expenditure Calculations Generally
+    A tax expenditure is measured by the difference between tax 
+liability under present law and the tax liability that would 
+result from a recomputation of tax without benefit of the tax 
+expenditure provision.\19\ Taxpayer behavior is assumed to 
+remain unchanged for tax expenditure estimate purposes.\20\ 
+This assumption is made to simplify the calculation and conform 
+to the presentation of government outlays. This approach to tax 
+expenditure measurement is in contrast to the approach taken in 
+revenue estimating; all of our revenue estimates do reflect 
+anticipated taxpayer behavior.
+---------------------------------------------------------------------------
+    \19\ An alternative way to measure tax expenditures is to express 
+their values in terms of ``outlay equivalents.'' An outlay equivalent 
+is the dollar size of a direct spending program that would provide 
+taxpayers with net benefits that would equal what they now receive from 
+a tax expenditure. For positive tax expenditures, the major difference 
+between outlay equivalents and the tax expenditure calculations 
+presented here is accounting for whether a tax expenditure converted 
+into an outlay payment would itself be taxable, so that a gross-up 
+might be needed to deliver the equivalent after-tax benefits.
+    \20\ An exception to this absence of behavior in tax expenditure 
+calculations is that a taxpayer is assumed to make simple additions or 
+deletions in filing tax forms, what the Joint Committee staff refers to 
+as ``tax form behavior.'' For example, as noted above, if the exclusion 
+for employer-paid health insurance were repealed, taxpayers would be 
+allowed to claim the next best tax treatment for the previously 
+excluded insurance. This next best tax treatment could be the inclusion 
+of the employer-paid health insurance as an itemized medical deduction 
+on Schedule A. Similarly, a taxpayer that is eligible for one of two 
+alternative credits is assumed to file for the second credit if the 
+first credit is eliminated.
+---------------------------------------------------------------------------
+    The tax expenditure calculations in this report are based 
+on the March 2010 CBO revenue baseline and Joint Committee 
+staff projections of the gross income, deductions, and 
+expenditures of individuals and corporations for calendar years 
+2009-2014. These projections are used to compute tax 
+liabilities for the present-law revenue baseline and tax 
+liabilities for the alternative baseline that assumes that the 
+tax expenditure provision does not exist.
+    Internal Revenue Service (``IRS'') statistics from recent 
+tax returns are used to develop projections of the tax credits, 
+deductions, and exclusions that will be claimed (or that will 
+be denied in the case of negative tax expenditures) under the 
+present-law baseline. These IRS statistics show the actual 
+usage of the various tax expenditure provisions. In the case of 
+some tax expenditures, such as the earned income credit, there 
+is evidence that some taxpayers are not claiming all of the 
+benefits to which they are entitled, while others are filing 
+claims that exceed their entitlements. The tax expenditure 
+calculations in this report are based on projections of actual 
+claims under the various tax provisions, not the potential tax 
+benefits to which taxpayers are entitled.
+    Some tax expenditure calculations are based partly on 
+statistics for income, deductions, and expenses for prior 
+years. Accelerated depreciation is an example. Estimates for 
+this tax expenditure are based on the difference between tax 
+depreciation deductions under present law and the deductions 
+that would have been claimed in the current year if investments 
+in the current year and all prior years had been depreciated 
+using the alternative (normal income tax law) depreciation 
+system.
+    Each tax expenditure is calculated separately, under the 
+assumption that all other tax expenditures remain in the Code. 
+If two or more tax expenditures were estimated simultaneously, 
+the total change in tax liability could be smaller or larger 
+than the sum of the amounts shown for each item separately, as 
+a result of interactions among the tax expenditure 
+provisions.\21\
+---------------------------------------------------------------------------
+    \21\ See Leonard E. Burman, Christopher Geissler, and Eric J. 
+Toder, ``How Big Are Total Individual Income Tax Expenditures, and Who 
+Benefits from Them?'' American Economic Review, 98, May 2008, pp. 79-
+83.
+---------------------------------------------------------------------------
+    Year-to-year differences in the calculations for each tax 
+expenditure reflect changes in tax law, including phaseouts of 
+tax expenditure provisions and changes that alter the 
+definition of the normal income tax structure, such as the tax 
+rate schedule, the personal exemption amount, and the standard 
+deduction. Some of the calculations for this tax expenditure 
+report may differ from estimates made in previous years because 
+of changes in law and economic conditions, the availability of 
+better data, and improved measurement techniques.
+    If a tax expenditure provision were eliminated, Congress 
+might choose to continue financial assistance through other 
+means rather than terminate all Federal assistance for the 
+activity. If a replacement spending program were enacted, the 
+higher revenues received as a result of the elimination of a 
+tax expenditure might not represent a net budget gain. A 
+replacement program could involve direct expenditures, direct 
+loans or loan guarantees, regulatory activity, a mandate, a 
+different form of tax expenditure, or a general reduction in 
+tax rates. Joint Committee staff estimates of tax expenditures 
+do not anticipate such policy responses.
+Tax Expenditures versus Revenue Estimates
+    A tax expenditure calculation is not the same as a revenue 
+estimate for the repeal of the tax expenditure provision for 
+three reasons. First, unlike revenue estimates, tax expenditure 
+calculations do not incorporate the effects of the behavioral 
+changes that are anticipated to occur in response to the repeal 
+of a tax expenditure provision. Second, tax expenditure 
+calculations are concerned with changes in the reported tax 
+liabilities of taxpayers.\22\ Because tax expenditure analysis 
+focuses on tax liabilities as opposed to Federal government tax 
+receipts, there is no concern for the short-term timing of tax 
+payments. Revenue estimates are concerned with changes in 
+Federal tax receipts that are affected by the timing of all tax 
+payments. Third, some of the tax provisions that provide an 
+exclusion from income also apply to the FICA tax base, and the 
+repeal of the income tax provision would automatically increase 
+FICA tax revenues as well as income tax revenues. This FICA 
+effect would be reflected in revenue estimates, but is not 
+considered in tax expenditure calculations. There may also be 
+interactions between income tax provisions and other Federal 
+taxes such as excise taxes and the estate and gift taxes.
+---------------------------------------------------------------------------
+    \22\ Reported tax liabilities may reflect compliance issues, and 
+thus calculations of tax expenditures reflect existing compliance 
+issues.
+---------------------------------------------------------------------------
+    If a tax expenditure provision were repealed, it is likely 
+that the repeal would be made effective for taxable years 
+beginning after a certain date. Because most individual 
+taxpayers have taxable years that coincide with the calendar 
+year, the repeal of a provision affecting the individual income 
+tax most likely would be effective for taxable years beginning 
+after December 31 of a certain year. However, the Federal 
+government's fiscal year begins October 1. Thus, the revenue 
+estimate for repeal of a provision would show a smaller revenue 
+gain in the first fiscal year than in subsequent fiscal years. 
+This is due to the fact that the repeal would be effective 
+after the start of the Federal government's fiscal year. The 
+revenue estimate might also reflect some delay in the timing of 
+the revenue gains as a result of the taxpayer tendency to 
+postpone or forgo changes in tax withholding and estimated tax 
+payments, and very often repeal or modification of a tax 
+provision includes transition relief that would not be captured 
+in a tax expenditure calculation.
+
+Quantitatively de minimis Tax Expenditures
+
+    The following tax provisions are viewed as tax expenditures 
+by the Joint Committee staff but are not listed in Table 1 
+because the estimated revenue losses for fiscal years 2010 
+through 2014 are below the de minimis amount ($50 million):
+
+International affairs
+
+          <bullet> Miscellaneous exclusions (e.g., bond income 
+        of residents of the Ryukyu Islands, certain wagering 
+        income, certain communication satellite earnings, 
+        earnings from railroad rolling stock)
+
+Energy
+
+          <bullet> Expensing of tertiary injectants
+          <bullet> Credit for production of electricity from 
+        qualifying advanced nuclear power facilities
+          <bullet> Credit for producing oil and gas from 
+        marginal wells
+          <bullet> Credit for the residential purchase of 
+        qualified photovoltaic and solar water heating property
+          <bullet> Credit for the construction of energy-
+        efficient new homes
+          <bullet> Partial expensing of investments in advanced 
+        mine safety equipment
+          <bullet> Credit for costs incurred in training 
+        qualified mine rescue team employees
+          <bullet> Credit and deduction for small refiners with 
+        capital costs associated with EPA sulfur regulation 
+        compliance
+          <bullet> Credits for biodiesel and renewable fuels
+          <bullet> Energy research credit
+          <bullet> 50-percent expensing of cellulosic biofuel 
+        plant property
+          <bullet> Seven-year MACRS Alaska natural gas pipeline
+
+Agriculture
+
+          <bullet> Cash accounting for agriculture
+
+Commerce and housing
+
+          <bullet> Bad debt reserves of financial institutions
+          <bullet> Exclusion of investment income from 
+        structured settlement arrangements
+          <bullet> Deferral of gain on sales of property to 
+        comply with conflict-of-interest requirements
+          <bullet> Exclusion of income from discharge of 
+        indebtedness incurred in connection with qualified real 
+        property
+          <bullet> Reduced rates of tax on gains from the sale 
+        of self-created musical works
+          <bullet> Amortization of expenses for the creation or 
+        acquisition of musical compositions
+          <bullet> Alaska Native Corporation trusts
+
+Community and regional development
+
+          <bullet> Five-year carryback period for certain net 
+        operating losses of electric utility companies
+          <bullet> New York Liberty Zone
+          <bullet> Katrina Emergency Act provisions
+          <bullet> Kansas disaster relief
+
+Education, training, employment, and social services
+
+          <bullet> Exclusion of restitution payments received 
+        by victims of the Nazi regime and the victims' heirs 
+        and estates
+
+Health
+
+          <bullet> Archer medical savings accounts
+
+Income security
+
+          <bullet> Credit for the elderly and disabled
+          <bullet> Credit for new retirement plan expenses of 
+        small businesses
+
+Veterans' benefits and services
+
+          <bullet> Burial expenses for veterans
+
+General purpose fiscal assistance
+
+          <bullet> American Samoa economic development credit
+
+Tax Expenditures for Which Quantification Is Not Available
+
+    The following tax provisions are viewed as tax expenditures 
+by the Joint Committee staff but are not listed in Table 1 
+because the projected revenue changes are unavailable (a 
+provision that is a negative tax expenditure is indicated by an 
+``*''):
+
+International affairs
+
+          <bullet> Branch profits tax*
+          <bullet> Deduction for U.S. employment tax paid under 
+        section 3121(l) agreements for employees of foreign 
+        affiliates
+          <bullet> Doubling of tax rates on citizens and 
+        corporations of certain foreign countries*
+
+Energy
+
+          <bullet> Accelerated deductions for nuclear 
+        decommissioning costs
+          <bullet> IGCC and advanced coal credit
+
+Natural resources and environment
+
+          <bullet> Exception to partial interest rule for 
+        qualified conservation contributions
+
+Agriculture
+
+          <bullet> Agricultural security credit
+          <bullet> Exceptions from dealer disposition 
+        definition
+          <bullet> Exception from interest calculation on 
+        installment sales for small dispositions
+          <bullet> Single purpose agricultural or horticultural 
+        structures
+
+Commerce and housing
+
+          <bullet> Amortization of organizational expenditures
+          <bullet> Deferral of prepaid subscription income
+          <bullet> Deferral of prepaid dues income of certain 
+        membership organizations
+          <bullet> Amortization of partnership organization and 
+        syndication fees
+          <bullet> Unrecaptured section 1250 gain rate (section 
+        1(h)), which applies to depreciation taken on real 
+        property
+          <bullet> Nonrecognition of in-kind distributions by 
+        regulated investment companies in redemption of their 
+        stock
+          <bullet> Special discount rate rule for certain debt 
+        instruments where stated principal amount is $2.8 
+        million or less
+          <bullet> Deduction for investment expenses*
+          <bullet> Tax treatment of convertible bonds
+          <bullet> Treatment of loans under life insurance and 
+        annuity contracts and 401(k) plans
+          <bullet> Exemption for cemetery companies
+          <bullet> Certain exceptions to the UBTI rules:
+                  <bullet> Passive income gains
+                  <bullet> Income from certain research
+                  <bullet> Trade shows and fairs
+                  <bullet> Bingo games
+                  <bullet> Pole rentals
+                  <bullet> Sponsorship payments
+                  <bullet> Real estate exception to the debt-
+                financed income rules
+          <bullet> Specific identification of sold equities
+          <bullet> Five-year carryback period for small 
+        business
+          <bullet> Nondeductibility of excise taxes imposed on 
+        employers whose employees receive premium assistance 
+        credits*
+          <bullet> Nondeductibility of annual fees imposed on 
+        certain drug manufacturers or importers*
+          <bullet> Nondeductibility of annual fees imposed on 
+        health insurers*
+
+Community and regional development
+
+          <bullet> Three-year carryback of small businesses' 
+        and farmers' casualty losses attributable to 
+        Presidentially declared disaster
+
+Education, training, employment, and social services
+
+          <bullet> Allowance of 80-percent deduction for right 
+        to purchase tickets or stadium seating
+          <bullet> Disallowance, limitation, and heightened 
+        substantiation for certain business deductions (e.g., 
+        entertainment, gift, cell phone expenses)
+
+General purpose fiscal assistance
+
+          <bullet> Exclusion of Guam, American Samoa, and 
+        Northern Mariana Islands income
+          <bullet> Exclusion of U.S. Virgin Islands income
+          <bullet> Exclusion of Puerto Rico income
+
+                     III. TAX EXPENDITURE ESTIMATES
+
+    Tax expenditures are grouped in Table 1 in the same 
+functional categories as outlays in the Federal budget. 
+Estimates are shown separately for individuals and 
+corporations. Those tax expenditures that do not fit clearly 
+into any single budget category have been placed in the most 
+appropriate category.
+    Several of the tax expenditure items involve small amounts 
+of revenue, and those estimates are indicated in Table 1 by 
+footnotes 3 and 8. For each of these items, the footnote means 
+that the tax expenditure is less than $50 million in the fiscal 
+year.
+    Table 2 presents projections of tax return information for 
+each of nine income classes on the number of all returns 
+(including filing and nonfiling units), the number of taxable 
+returns, the number of returns with itemized deductions, and 
+the amount of tax liability.
+    Table 3 provides distributional estimates by income class 
+for some of the tax expenditures that affect individual 
+taxpayers. Not all tax expenditures that affect individuals are 
+shown in this table because of the difficulty in making 
+reliable estimates of the income distribution of items that do 
+not appear on tax returns under present law.
+
+                                   Table 1.--Tax Expenditure Estimates By Budget Function, Fiscal Years 2010-2014 \1\
+                                                                  (Billions of Dollars)
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                Corporations                                    Individuals
+                   Function                    -----------------------------------------------------------------------------------------------   Total
+                                                  2010     2011     2012     2013      2014     2010      2011      2012      2013      2014    2010-14
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+National Defense
+    Exclusion of benefits and allowances to     .......  .......  .......  ........  .......      4.3       4.7       4.9       5.1       5.7       24.7
+     armed forces personnel...................
+    Exclusion of military disability benefits.  .......  .......  .......  ........  .......      0.2       0.2       0.2       0.2       0.2        1.1
+    Deduction for overnight-travel expenses of  .......  .......  .......  ........  .......      0.1       0.1       0.1       0.1       0.1        0.3
+     national guard and reserve members.......
+    Exclusion of combat pay...................  .......  .......  .......  ........  .......      1.2       1.0       0.9       0.9       1.0        4.9
+International Affairs
+    Exclusion of certain allowances for         .......  .......  .......  ........  .......      1.6       1.7       1.8       1.9       2.0        9.0
+     Federal employees abroad.................
+    Exclusion of foreign earned income:
+        Housing...............................  .......  .......  .......  ........  .......      1.1       1.1       1.2       1.2       1.3        5.9
+        Salary................................  .......  .......  .......  ........  .......      5.1       5.2       5.4       5.6       5.8       27.1
+    Inventory property sales source rule           7.2      7.4      7.6       7.8       8.0  ........  ........  ........  ........  .......       38.0
+     exception................................
+    Deduction for foreign taxes instead of a       0.2      0.2      0.3       0.3       0.3  ........  ........  ........  ........  .......        1.3
+     credit...................................
+    Interest expense allocation:
+        Unavailability of symmetric worldwide     -2.7     -2.9     -3.1      -3.3      -3.5  ........  ........  ........  ........  .......      -15.5
+         method*..............................
+        Separate grouping of affiliated            1.2      1.3      1.4       1.5       1.6  ........  ........  ........  ........  .......        7.0
+         financial companies..................
+    Apportionment of research and development      0.3      0.3      0.4       0.4       0.4  ........  ........  ........  ........  .......        1.8
+     expenses for determination of foreign tax
+     credits..................................
+    Special rules for interest-charge domestic     0.5      0.1      0.1       0.1       0.1  ........  ........  ........  ........  .......        0.9
+     international sales corporations.........
+    Tonnage tax...............................     0.1      0.1      0.1       0.1       0.1  ........  ........  ........  ........  .......        0.5
+    Deferral of active income of controlled       12.5     13.3     14.1      14.9      15.8  ........  ........  ........  ........  .......       70.6
+     foreign corporations.....................
+    Deferral of active financing income \2\...     1.0   .......  .......  ........  .......  ........  ........  ........  ........  .......        1.0
+General Science, Space, and Technology
+    Credit for increasing research activities      4.0      3.0      2.3       1.8       0.9      0.1       0.1     (\3\)     (\3\)     (\3\)       12.6
+     (section 41).............................
+    Expensing of research and experimental         4.3      4.2      4.4       5.8       6.9      0.1       0.1       0.1       0.1       0.1       26.3
+     expenditures.............................
+    Therapeutic research credit...............     0.1      0.1      0.1       0.1       0.1      0.1       0.1       0.1       0.1       0.1        0.8
+Energy
+    Credit for energy efficiency improvements   .......  .......  .......  ........  .......      1.7       1.2   ........  ........  .......        2.8
+     to existing homes........................
+    Credits for alternative technology             0.2      0.1    (\3\)     (\3\)     (\3\)      0.6       0.3   ........  ........  .......        1.3
+     vehicles.................................
+    Credit for holders of clean renewable        (\3\)    (\3\)    (\3\)     (\3\)     (\3\)      0.1       0.1       0.1       0.1       0.1        0.6
+     energy bonds (sections 54 and 54C).......
+    Exclusion of energy conservation subsidies  .......  .......  .......  ........  .......    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+     provided by public utilities.............
+    Credit for holder of qualified energy        (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)       0.1       0.1       0.1        0.4
+     conservation bonds.......................
+    Credit for enhanced oil recovery costs....   (\3\)    (\3\)   .......  ........  .......    (\3\)     (\3\)   ........  ........  .......        0.1
+    Credit for producing fuels from a non-       (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)       (3)        0.1
+     conventional source......................
+    Credits for alcohol fuels \4\.............     0.1    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+    Energy credit (section 48):
+        Solar.................................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)      (\3\)
+        Geothermal............................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)      (\3\)
+        Fuel cells............................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)      (\3\)
+        Microturbines.........................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)      (\3\)
+    Credits for electricity production from
+     renewable resources (section 45):
+        Wind..................................     1.0      1.1      1.3       1.4       1.5    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        6.2
+        Closed-loop biomass...................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.2
+        Geothermal............................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+        Qualified hydropower..................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+        Solar (limited to facilities placed in   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+         service before1/1/06)................
+        Small irrigation power................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+        Municipal solid waste.................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+        Open-loop biomass.....................     0.4      0.3      0.3       0.3       0.2    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        1.6
+    Credits for investments in clean coal          0.2      0.2      0.2       0.2       0.2  ........  ........  ........  ........  .......        0.9
+     facilities...............................
+    Coal production credits:
+        Refined coal..........................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+        Indian coal...........................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+    Credit for the production of energy-           0.2      0.1   .......  ........  .......  ........  ........  ........  ........  .......        0.3
+     efficient appliances.....................
+    Credits for alternative technology
+     vehicles:
+        Hybrid vehicles.......................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        1.0
+        Other alternative fuel vehicles.......   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+    Credit for clean-fuel vehicle refueling      (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+     property.................................
+    Residential energy efficient property       .......  .......  .......  ........  .......      0.2       0.2       0.2       0.2       0.2        0.9
+     credit...................................
+    New energy efficient home credit..........   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+    Credit for certain alternative motor         (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+     vehicles that do not meet existing
+     criteria of a qualified plug-in electric
+     drive motor vehicle......................
+    Credit for investment in advanced energy       0.4      0.3      0.2       0.1       0.1      0.1       0.1     (\3\)     (\3\)     (\3\)        1.5
+     property.................................
+    Exclusion of interest on State and local     (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.3
+     government qualified private activity
+     bonds for energy production facilities...
+    Deduction for expenditures on energy-          0.1      0.1      0.1       0.1       0.1      0.1       0.1       0.1       0.1       0.1        0.9
+     efficient commercial building property...
+    Expensing of exploration and development
+     costs, fuels:
+        Oil and gas...........................     0.7      0.7      0.9       1.0       1.0    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        4.2
+        Other fuels...........................   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.4
+    Excess of percentage over cost depletion,
+     fuels:
+        Oil and gas...........................     0.5      0.8      0.9       0.9       1.0    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        4.1
+        Other fuels...........................     0.2      0.2      0.2       0.2       0.2    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.7
+    Amortization of geological and geophysical     0.1      0.1      0.1       0.1       0.1    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.6
+     expenditures associated with oil and gas
+     exploration..............................
+    Amortization of air pollution control          0.1      0.2      0.2       0.2       0.1  ........  ........  ........  ........  .......        0.7
+     facilities...............................
+    Depreciation recovery periods for energy
+     specific items:
+        Five-year MACRS for certain energy         0.3      0.3      0.2       0.2       0.1    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        1.1
+         property (solar, wind, etc.).........
+        10-year MACRS for smart electric         (\3\)      0.1      0.1       0.1       0.2  ........  ........  ........  ........  .......        0.5
+         distribution property................
+        15-year MACRS for certain electric         0.1      0.1      0.2       0.2       0.2  ........  ........  ........  ........  .......        0.8
+         transmission property................
+        15-year MACRS for natural gas              0.1      0.1      0.1       0.1       0.1  ........  ........  ........  ........  .......        0.6
+         distribution line....................
+    Election to expense 50 percent of              0.7      0.8      0.7       0.6       0.2  ........  ........  ........  ........  .......        2.7
+     qualified property used to refine liquid
+     fuels....................................
+    Exceptions for publicly traded partnership  .......  .......  .......  ........  .......      0.5       0.5       0.6       0.6       0.7        2.8
+     with qualified income derived from
+     certain energy-related activities........
+Natural Resources and Environment
+    Special depreciation allowance for certain   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+     reuse and recycling property.............
+    Expensing of exploration and development       0.1      0.1      0.1       0.1       0.1    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.3
+     costs, nonfuel minerals..................
+    Excess of percentage over cost depletion,      0.1      0.1      0.1       0.1       0.1    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.5
+     nonfuel minerals.........................
+    Expensing of timber-growing costs.........     0.7      0.2      0.2       0.2       0.2    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        1.2
+    Special rules for mining reclamation         (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+     reserves.................................
+    Special tax rate for nuclear                   0.9      0.9      1.0       1.1       1.1  ........  ........  ........  ........  .......        5.0
+     decommissioning reserve funds............
+    Exclusion of contributions in aid of         (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.2
+     construction for water and sewer
+     utilities................................
+    Exclusion of earnings of certain             (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+     environmental settlement funds...........
+    Amortization and expensing of                  0.1      0.1      0.1       0.1       0.1      0.1       0.1       0.1       0.1       0.1        1.2
+     reforestation expenditures...............
+    Special tax rate for qualified timber gain  .......  .......  .......  ........  .......      0.4       0.4       0.4       0.4       0.5        2.2
+    Treatment of income from exploration and    .......  .......  .......  ........  .......    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+     mining of natural resources as qualifying
+     income under the publicly-traded
+     partnership rules........................
+Agriculture
+    Expensing of soil and water conservation     (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+     expenditures.............................
+    Expensing of the costs of raising dairy      (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.6
+     and breeding cattle......................
+    Exclusion of cost-sharing payments........   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+    Exclusion of cancellation of indebtedness   .......  .......  .......  ........  .......      0.1       0.1       0.1       0.1       0.1        0.5
+     income of farmers........................
+    Income averaging for farmers and fishermen  .......  .......  .......  ........  .......    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+    Five-year carryback period for net             0.1      0.1      0.1       0.1       0.1      0.1       0.1       0.1       0.1       0.1        0.7
+     operating losses attributable to farming.
+    Expensing by farmers for fertilizer and      (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.3
+     soil conditioner costs...................
+Commerce and Housing
+    Housing:
+        Deduction for mortgage interest on      .......  .......  .......  ........  .......     90.8      93.8      94.1      98.5     106.8      484.1
+         owner-occupied residences............
+        Deduction for property taxes on real    .......  .......  .......  ........  .......     15.0      22.8      26.5      27.6      29.1      120.9
+         property.............................
+        Increased standard deduction for real   .......  .......  .......  ........  .......      0.5   ........  ........  ........  .......        0.5
+         property taxes.......................
+        Exclusion of capital gains on sales of  .......  .......  .......  ........  .......     15.0      16.5      17.5      18.2      19.0       86.3
+         principal residences.................
+        Exclusion of interest on State and         0.3      0.3      0.3       0.4       0.4      0.7       0.8       0.8       0.9       1.0        5.9
+         local government qualified private
+         activity bonds for owner-occupied
+         housing..............................
+        Deduction for premiums for qualified    .......  .......  .......  ........  .......      0.3       0.1   ........  ........  .......        0.4
+         mortgage insurance...................
+        Exclusion of income attributable to     .......  .......  .......  ........  .......      0.8       0.7       0.5     (\3\)   .......        2.1
+         the discharge of principal residence
+         acquisition indebtedness.............
+        First-time homebuyer credit \5\.......  .......  .......  .......  ........  .......      8.7      -2.4      -2.5      -1.6      -0.8        1.5
+        Credit for low-income housing.........     4.9      5.1      5.3       5.6       6.1      0.2       0.3       0.3       0.3       0.3       28.5
+        Credit for rehabilitation of historic      0.4      0.4      0.4       0.4       0.4      0.1       0.1       0.2       0.2       0.2        2.7
+         structures...........................
+        Credit for rehabilitation of             (\3\)      0.1      0.1       0.1       0.1      0.1       0.1       0.2       0.2       0.2        1.1
+         structures, other than historic
+         structures...........................
+        Exclusion of interest on State and         0.2      0.2      0.3       0.3       0.3      0.6       0.6       0.7       0.7       0.7        4.7
+         local government qualified private
+         activity bonds for rental housing....
+        Depreciation of rental housing in          0.5      0.5      0.5       0.4       0.4      4.5       4.4       4.2       3.9       4.0       23.3
+         excess of alternative depreciation
+         system...............................
+    Other business and commerce:
+        Exclusion of interest on State and         0.1      0.1      0.1       0.1       0.1      0.2       0.2       0.2       0.2       0.2        1.8
+         local government small-issue
+         qualified private activity bonds.....
+        Carryover basis of capital gains on     .......  .......  .......  ........  .......      7.7       9.4       3.6       4.2       7.2       32.1
+         gifts................................
+        15-year recovery period for retail         0.2      0.1      0.1       0.1       0.1      0.2       0.1       0.1       0.1       0.2        1.9
+         motor fuels outlets..................
+        Deferral of gain on non-dealer            -4.1      0.1      4.1       5.6       5.8     -1.4      -2.3       2.0       2.4       1.9       14.1
+         installment sales \6\................
+        Deferral of gain on like-kind              1.4      1.7      2.0       2.3       2.6      0.7       0.8       1.2       1.4       1.5       15.6
+         exchanges............................
+        Expensing under section 179 of             0.2      1.3      0.7      -0.5      -0.2      0.7       5.7       3.1      -1.9      -0.9        8.2
+         depreciable business property........
+        Amortization of business start-up          0.1      0.1    (\3\)     (\3\)     (\3\)      1.3       1.3       1.1       1.0       0.9        5.8
+         costs................................
+        Reduced rates on first $10,000,000 of      3.2      3.2      3.2       3.1       3.1  ........  ........  ........  ........  .......       15.9
+         corporate taxable income.............
+        Exemptions from imputed interest rules   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)      0.4       0.5       0.5       0.6       0.6        2.6
+        Expensing of magazine circulation        (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+         expenditures.........................
+        Special rules for magazine, paperback    (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+         book, and record returns.............
+        Completed contract rules..............     0.6      0.6      0.7       0.7       0.8    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        3.4
+        Cash accounting, other than              (\3\)    (\3\)    (\3\)     (\3\)     (\3\)      1.0       1.0       1.1       1.1       1.2        5.4
+         agriculture..........................
+        Credit for employer-paid FICA taxes on     0.3      0.4      0.4       0.4       0.4      0.2       0.3       0.3       0.3       0.3        3.3
+         tips.................................
+        Deduction for income attributable to       7.0      8.4      8.8       9.2       9.8      2.4       3.2       3.8       4.4       5.1       62.1
+         domestic production activities.......
+        Credit for the cost of carrying tax-     (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+         paid distilled spirits in wholesale
+         inventories..........................
+        Reduced rates of tax on dividends and   .......  .......  .......  ........  .......     77.7      84.2      65.9      90.3      84.9      402.9
+         long-term capital gains..............
+        Surtax on unearned income*............  .......  .......  .......    -18.3     -26.3  ........  ........  ........  ........  .......      -44.7
+        Exclusion of capital gains at death...  .......  .......  .......  ........  .......     25.4      31.7      39.0      45.6      52.3      194.0
+        Expensing of costs to remove             (\3\)    (\3\)    (\3\)     (\3\)     (\3\)      0.1       0.1       0.1       0.1       0.1        0.6
+         architectural and transportation
+         barriers to the handicapped and
+         elderly..............................
+        Exclusion for gain from certain small   .......  .......  .......  ........  .......      0.5       0.3       0.4       0.5       0.7        2.5
+         business stock.......................
+        Distributions in redemption of stock    .......  .......  .......  ........  .......      0.2     (\3\)       0.3       0.4       0.4        1.3
+         to pay various taxes imposed at death
+        Ordinary gain or loss treatment for        0.4      0.2      0.1      -0.1      -0.1    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.5
+         sale or exchange of Fannie Mae and
+         Freddie Mac preferred stock by
+         certain financial institutions.......
+        Inventory methods and valuation:
+            Last in first out.................     3.6      3.8      4.0       4.2       4.4      0.5       0.5       0.6       0.6       0.7       22.9
+            Lower of cost or market...........     0.4      0.4      0.4       0.5       0.5      0.1       0.1       0.1       0.1       0.1        2.7
+            Specific identification for          (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+             homogeneous products.............
+        Exclusion of gain or loss on sale or     (\3\)    (\3\)    (\3\)     (\3\)     (\3\)  ........  ........  ........  ........  .......        0.1
+         exchange of brownfield property......
+        Income recognition rule for gain or      (\3\)    (\3\)    (\3\)     (\3\)     (\3\)      0.8       0.8       0.8       0.8       0.9        4.4
+         loss from section 1256 contracts.....
+        Net alternative minimum tax               -0.5     -0.5     -0.5      -0.5      -0.5     -0.1      -0.1      -0.1      -0.1      -0.1       -3.0
+         attributable to net operating loss
+         limitation*..........................
+        Exclusion of interest on State and       (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+         local qualified private activity
+         bonds for green buildings and
+         sustainable design projects..........
+        Depreciation of buildings other than       0.2      0.2      0.2       0.2       0.2      0.1       0.2       0.2       0.2       0.2        1.9
+         rental housing in excess of
+         alternative depreciation system......
+        Depreciation of equipment in excess of    24.1      6.5     -5.0       0.8      10.7      4.3       1.2      -0.9       0.1       1.9       43.7
+         the alternative depreciation system
+         \7\..................................
+        Inclusion of income arising from          21.1      6.9      0.5       0.3     (\3\)      1.7       0.5     (\3\)     (\3\)     (\3\)       31.0
+         business indebtedness discharged by
+         the reacquisition of a debt
+         instrument...........................
+        5-year carryback of general business       1.3     -0.1     -0.1      -0.1      -0.1      0.3     (\8\)     (\8\)     (\8\)     (\8\)        0.9
+         credits..............................
+    Financial institutions:
+        Exemption of credit union income......     0.4      0.3      0.5       0.5       0.7  ........  ........  ........  ........  .......        2.3
+    Insurance companies:
+        Exclusion of investment income on life     2.5      2.5      2.6       2.6       2.7     25.4      25.7      26.3      27.0      27.7      149.5
+         insurance and annuity contracts......
+        Small life insurance company taxable       0.1      0.1      0.1       0.1       0.1  ........  ........  ........  ........  .......        0.3
+         income adjustment....................
+        Special treatment of life insurance        2.2      2.3      2.4       2.6       2.7  ........  ........  ........  ........  .......       12.2
+         company reserves.....................
+        Special deduction for Blue Cross and       0.4      0.4      0.4       0.4       0.5  ........  ........  ........  ........  .......        2.1
+         Blue Shield companies................
+        Tax-exempt status and election to be       0.1      0.1      0.1       0.1       0.1  ........  ........  ........  ........  .......        0.3
+         taxed only on investment income for
+         certain small property and casualty
+         insurance companies..................
+        Interest rate and discounting period       0.7      0.7      0.7       0.8       0.7  ........  ........  ........  ........  .......        3.4
+         assumptions for reserves of property
+         and casualty insurance companies.....
+        Proration for property and casualty        0.3      0.3      0.4       0.4       0.4  ........  ........  ........  ........  .......        1.8
+         insurance companies..................
+Transportation
+    Exclusion of employer-paid transportation   .......  .......  .......  ........  .......      3.8       4.2       4.4       4.6       4.8       21.8
+     benefits.................................
+    Deferral of tax on capital construction        0.1      0.1      0.1       0.1       0.1  ........  ........  ........  ........  .......        0.5
+     funds of shipping companies..............
+    Exclusion of interest on State and local     (\3\)    (\3\)    (\3\)     (\3\)       0.1      0.1       0.1       0.1       0.1       0.1        0.4
+     government qualified private activity
+     bonds for highway projects and rail-truck
+     transfer facilities......................
+    Exclusion of employer-provided transit and  .......  .......  .......  ........  .......      0.7       0.8       0.8       0.9       0.9        4.0
+     vanpool benefits.........................
+    High-speed intercity rail vehicle speed      (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+     requirement for exempt high-speed rail
+     facility bonds...........................
+    Exclusion of interest on State and local       0.2      0.2      0.2       0.3       0.3      0.5       0.6       0.6       0.7       0.7        4.2
+     government qualified private activity
+     bonds for private airports, docks, and
+     mass-commuting facilities................
+Community and Regional Development
+    Empowerment zone tax incentives...........     0.2      0.2      0.1     (\3\)     (\3\)      0.3       0.2       0.1     (\3\)     (\3\)        1.3
+    Renewal community incentives..............   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)      0.2       0.1       0.1       0.1       0.1        1.0
+    New markets tax credit....................     0.3      0.3      0.3       0.3       0.3      0.4       0.4       0.4       0.4       0.4        3.5
+    District of Columbia tax incentives.......     0.1    (\3\)    (\3\)     (\3\)     (\3\)      0.2       0.1       0.1       0.1       0.1        0.7
+    Credit for Indian reservation employment..   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+    Exclusion of interest on State and local       0.1      0.1      0.1       0.1       0.1      0.2       0.3       0.3       0.3       0.3        1.9
+     government qualified private activity
+     bonds for sewage, water, and hazardous
+     waste facilities.........................
+    Issuance of recovery zone economic           (\3\)      0.1      0.1       0.1       0.1    (\3\)       0.1       0.1       0.1       0.1        0.7
+     development bonds........................
+    Issuance of tribal economic development      (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+     bonds....................................
+    Build America bonds \5\...................     0.2      0.5      0.8       0.8       0.8      0.7       1.5       2.3       2.3       2.3       12.0
+    Eliminate requirement that financial           0.2      0.3      0.3       0.3       0.3  ........  ........  ........  ........  .......        1.6
+     institutions allocate interest expense
+     attributable to tax-exempt interest......
+    Disaster Relief:
+        Gulf opportunity zone.................     0.1    (\3\)    (\3\)     (\3\)     (\3\)      0.6       0.4       0.3       0.2       0.2        1.9
+        Midwest disaster relief...............     0.2      0.2      0.3       0.3       0.3      0.9       0.1       0.1       0.1       0.2        2.7
+        National disaster relief..............     0.2      0.1    (\3\)     (\3\)     (\3\)      0.2       0.2       0.1     (\3\)     (\3\)        0.8
+Education, Training, Employment, and Social
+ Services
+    Education and training:
+        Deduction for interest on student       .......  .......  .......  ........  .......      0.9       0.5       0.4       0.5       0.5        2.8
+         loans................................
+        Deduction for higher education          .......  .......  .......  ........  .......      0.1   ........  ........  ........  .......        0.1
+         expenses.............................
+        Exclusion of earnings of Coverdell      .......  .......  .......  ........  .......      0.1       0.1       0.1       0.2       0.2        0.6
+         education savings accounts...........
+        Exclusion of interest on educational    .......  .......  .......  ........  .......    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+         savings bonds........................
+        Exclusion of scholarship and            .......  .......  .......  ........  .......      2.1       2.2       2.4       2.5       2.7       11.9
+         fellowship income....................
+        Exclusion of income attributable to     .......  .......  .......  ........  .......      0.1       0.1       0.1       0.1       0.1        0.5
+         the discharge of certain student loan
+         debt and NHSC and certain state
+         educational loan repayments..........
+        Exclusion of employer-provided          .......  .......  .......  ........  .......      0.9       0.9       0.9       0.9       1.0        4.5
+         education assistance benefits........
+        Exclusion of employer-provided tuition  .......  .......  .......  ........  .......      0.2       0.2       0.2       0.2       0.2        1.1
+         reduction benefits...................
+        Parental personal exemption for         .......  .......  .......  ........  .......      1.3       2.3       2.4       2.2       2.1       10.4
+         students aged 19 to 23...............
+        Exclusion of interest on State and         0.1      0.1      0.1       0.2       0.2      0.3       0.4       0.4       0.4       0.4        2.6
+         local government qualified private
+         activity bonds for student loans.....
+        Exclusion of interest on State and         0.7      0.8      0.9       1.0       1.0      1.9       2.2       2.3       2.5       2.6       16.0
+         local government qualified private
+         activity bonds for private nonprofit
+         and qualified public educational
+         facilities...........................
+        Credit for holders of qualified zone       0.2      0.3      0.3       0.3       0.3  ........  ........  ........  ........  .......        1.4
+         academy bonds........................
+        Deduction for charitable contributions     0.4      0.4      0.4       0.4       0.4      5.1       6.0       6.5       6.8       7.1       33.3
+         to educational institutions..........
+        Deduction for teacher classroom         .......  .......  .......  ........  .......    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+         expenses.............................
+        Credits for tuition for post-secondary
+         education:
+            Hope credit \5\...................  .......  .......  .......  ........  .......      9.6       4.7       3.0       3.0       2.9       23.1
+            Lifetime learning credit..........  .......  .......  .......  ........  .......      2.3       3.0       3.2       3.2       3.1       14.7
+        Exclusion of tax on earnings of
+         qualified tuition programs:
+            Prepaid tuition programs..........  .......  .......  .......  ........  .......    (\3\)       0.1       0.1       0.1       0.1        0.4
+            Savings account programs..........  .......  .......  .......  ........  .......      0.4       0.5       0.6       0.7       0.8        2.9
+        Qualified school construction bonds...   (\3\)      0.1      0.2       0.3       0.4      0.1       0.3       0.5       0.6       0.7        3.3
+    Employment:
+        Exclusion of employee meals and         .......  .......  .......  ........  .......      1.0       1.1       1.1       1.2       1.2        5.6
+         lodging (other than military)........
+        Exclusion of benefits provided under    .......  .......  .......  ........  .......     26.4      29.3      32.3      36.1      39.0      163.1
+         cafeteria plans \9\..................
+        Exclusion of housing allowances for     .......  .......  .......  ........  .......      0.6       0.7       0.7       0.7       0.7        3.4
+         ministers............................
+        Exclusion of miscellaneous fringe       .......  .......  .......  ........  .......      6.6       7.5       8.0       8.2       8.5       38.7
+         benefits.............................
+        Exclusion of employee awards..........  .......  .......  .......  ........  .......      0.3       0.4       0.4       0.4       0.4        1.8
+        Exclusion of income earned by           .......  .......  .......  ........  .......      3.2       3.8       4.2       4.4       4.6       20.2
+         voluntary employees' beneficiary
+         associations.........................
+        Special tax provisions for employee        0.9      1.0      1.1       1.2       1.3      0.5       0.5       0.5       0.5       2.5        8.0
+         stock ownership plans (ESOPs)........
+        Deferral of taxation on spread on         -1.0     -1.0     -1.1      -1.2      -1.2      0.4       0.3       0.3       0.3       0.3       -4.9
+         acquisition of stock under incentive
+         stock option plans*..................
+        Deferral of taxation on spread on         -0.1     -0.1     -0.1      -0.2      -0.2    (\3\)     (\3\)     (\3\)       0.1       0.1       -0.5
+         employee stock purchase plans*.......
+        Disallowance of deduction for excess      -0.2     -0.2     -0.2      -0.2      -0.2  ........  ........  ........  ........  .......       -1.0
+         parachute payments (applicable if
+         payments to a disqualified individual
+         are contingent on a change of control
+         of a corporation and are equal to or
+         greater than three times the
+         individual's annualized includible
+         compensation) \10\*..................
+        Limits on deductible compensation         -0.6     -0.6     -0.6      -0.7      -0.8  ........  ........  ........  ........  .......       -3.3
+         \11\*................................
+        Work opportunity tax credit...........     0.5      0.5      0.3       0.1       0.1      0.1       0.1       0.1     (\3\)   .......        1.8
+        Credit for retention of certain newly   .......     1.7      0.9       0.3       0.2  ........      1.5       0.6   ........  .......        5.3
+         hired workers........................
+    Social services:
+        Credit for children under age 17 \5\..  .......  .......  .......  ........  .......     55.1      24.7      14.2      14.0      13.9      121.9
+        Credit for child and dependent care     .......  .......  .......  ........  .......      3.1       2.5       2.5       2.5       2.5       13.1
+         and exclusion of employer-provided
+         child care \12\......................
+        Credit for employer-provided dependent   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+         care.................................
+        Exclusion of certain foster care        .......  .......  .......  ........  .......      0.4       0.4       0.4       0.4       0.4        2.1
+         payments.............................
+        Adoption credit and employee adoption   .......  .......  .......  ........  .......      0.5       1.0     (\3\)     (\3\)     (\3\)        1.6
+         benefits exclusion...................
+        Deduction for charitable                   1.0      1.0      1.0       1.1       1.1     29.2      34.5      37.8      39.6      41.3      187.5
+         contributions, other than for
+         education and health \13\............
+        Credit for disabled access               (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.4
+         expenditures.........................
+Health
+    Exclusion of employer contributions for     .......  .......  .......  ........  .......    105.7     117.3     128.0     147.4     161.0      659.4
+     health care, health insurance premiums,
+     and long-term care insurance premiums
+     \14\.....................................
+    Exclusion of medical care and TRICARE       .......  .......  .......  ........  .......      2.3       2.5       2.6       2.8       2.9       13.1
+     medical insurance for military
+     dependents, retirees, and retiree
+     dependents not enrolled in Medicare......
+    Exclusion of health insurance benefits for  .......  .......  .......  ........  .......      1.4       1.7       1.9       2.1       2.3        9.5
+     military retirees and retiree dependents
+     enrolled in Medicare.....................
+    Deduction for health insurance premiums     .......  .......  .......  ........  .......      4.6       5.1       5.5       6.1       6.6       27.9
+     and long-term care insurance premiums by
+     the self-employed........................
+    Deduction for medical expenses and long-    .......  .......  .......  ........  .......     10.8      13.5      16.1      17.5      19.6       77.6
+     term care expenses.......................
+    Exclusion of workers' compensation          .......  .......  .......  ........  .......      3.0       3.2       3.5       3.7       4.0       17.4
+     benefits (medical benefits)..............
+    Health savings accounts...................  .......  .......  .......  ........  .......      0.9       1.2       1.6       2.1       2.1        8.0
+    Exclusion of interest on State and local       0.5      0.6      0.6       0.7       0.7      1.3       1.5       1.6       1.7       1.8       10.8
+     government qualified private activity
+     bonds for private nonprofit hospital
+     facilities...............................
+    Deduction for charitable contributions to      1.8      1.8      1.9       1.9       2.0      2.5       3.0       3.3       3.5       3.6       25.3
+     health organizations.....................
+    Credit for purchase of health insurance by  .......  .......  .......  ........  .......      0.2       0.2       0.1       0.1       0.1        0.8
+     certain displaced persons \5\............
+    Credit for orphan drug research...........     0.5      0.5      0.6       0.6       0.6    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        2.8
+    Premium subsidy for COBRA continuation      .......  .......  .......  ........  .......      4.9       1.2     (\3\)   ........  .......        6.2
+     coverage \5\.............................
+    Tax credit for small businesses purchasing     0.3      0.6      0.8       0.9       0.7      1.6       3.6       4.4       5.1       4.5       22.6
+     employer insurance.......................
+    Credits and subsidies for participation in  .......  .......  .......  ........  .......  ........  ........  ........  ........     22.4       22.4
+     exchanges \5\............................
+Medicare
+    Exclusion of Medicare benefits:...........
+        Hospital insurance (Part A)...........  .......  .......  .......  ........  .......     28.6      33.6      35.9      37.8      39.9      175.8
+        Supplementary medical insurance (Part   .......  .......  .......  ........  .......     20.5      23.4      24.4      27.2      29.0      124.5
+         B)...................................
+        Prescription drug insurance (Part D)..  .......  .......  .......  ........  .......      5.5       6.6       6.7       7.7       8.7       35.1
+        Exclusion of certain subsidies to          0.4      0.5      0.5       0.3   .......  ........  ........  ........  ........  .......        1.7
+         employers who maintain prescription
+         drug plans for Medicare enrollees....
+Income Security
+    Exclusion of workers' compensation          .......  .......  .......  ........  .......      3.4       3.7       3.9       4.1       4.4       19.5
+     benefits (disability and survivors
+     payments)................................
+    Exclusion of damages on account of          .......  .......  .......  ........  .......      1.5       1.6       1.6       1.6       1.6        7.9
+     personal physical injuries or physical
+     sickness.................................
+    Exclusion of special benefits for disabled  .......  .......  .......  ........  .......    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+     coal miners..............................
+    Exclusion of cash public assistance         .......  .......  .......  ........  .......      3.1       3.4       4.4       4.9       5.0       20.8
+     benefits.................................
+    Net exclusion of pension contributions and
+     earnings \6\:
+        Plans covering partners and sole        .......  .......  .......  ........  .......     12.4      15.7      17.0      17.7      18.2       81.1
+         proprietors (sometimes referred to as
+         ``Keogh plans'').....................
+        Defined benefit plans.................  .......  .......  .......  ........  .......     38.9      51.9      62.0      75.8      74.6      303.2
+        Defined contribution plans............  .......  .......  .......  ........  .......     32.5      38.2      44.1      49.1      48.3      212.2
+    Individual retirement arrangements:
+        Traditional IRAs......................  .......  .......  .......  ........  .......     20.1      12.3      13.2      18.4      21.6       85.6
+        Roth IRAs.............................  .......  .......  .......  ........  .......      3.4       4.0       4.8       5.4       6.3       23.9
+        Credit for certain individuals for      .......  .......  .......  ........  .......      0.9       1.0       1.1       1.0       1.0        5.0
+         elective deferrals and IRA
+         contributions........................
+    Exclusion of other employee benefits:
+        Premiums on group term life insurance   .......  .......  .......  ........  .......      1.5       1.6       1.7       1.8       1.9        8.5
+         (excludes payroll taxes).............
+        Premiums on accident and disability     .......  .......  .......  ........  .......      3.2       3.4       3.6       3.7       3.8       17.8
+         insurance............................
+    Additional standard deduction for the       .......  .......  .......  ........  .......      1.8       2.2       2.7       2.8       3.0       12.4
+     blind and the elderly....................
+    Deduction for casualty and theft losses...  .......  .......  .......  ........  .......      0.2       0.3       0.3       0.3       0.3        1.4
+    Earned income credit \5\..................  .......  .......  .......  ........  .......     56.2      52.4      52.5      53.6      54.0      268.8
+    Phase out of the personal exemption for     .......  .......  .......  ........  .......    -30.6     -41.1     -33.5     -38.6     -42.7     -186.5
+     the regular income tax, and disallowance
+     of the personal exemption and the
+     standard deduction against the
+     alternative minimum tax*.................
+    Exclusion of survivor annuities paid to     .......  .......  .......  ........  .......    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.1
+     families of public safety officers killed
+     in the line of duty......................
+    Exclusion of disaster mitigation payments.   (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)     (\3\)     (\3\)        0.2
+    Making work pay credit \5\................  .......  .......  .......  ........  .......     59.7      15.5   ........  ........  .......       75.3
+Social Security and Railroad Retirement
+    Exclusion of untaxed Social Security and    .......  .......  .......  ........  .......     26.8      33.4      36.0      37.4      39.7      173.0
+     railroad retirement benefits.............
+Veterans' Benefits and Services
+    Exclusion of veterans' disability           .......  .......  .......  ........  .......      4.5       5.9       5.4       5.6       5.7       27.0
+     compensation.............................
+    Exclusion of veterans' pensions...........  .......  .......  .......  ........  .......      0.1       0.1       0.1       0.1       0.1        0.7
+    Exclusion of veterans' readjustment         .......  .......  .......  ........  .......      0.9       1.0       1.3       1.3       1.4        5.8
+     benefits.................................
+    Exclusion of interest on State and local     (\3\)    (\3\)    (\3\)     (\3\)     (\3\)    (\3\)     (\3\)     (\3\)       0.1       0.1        0.3
+     government qualified private activity
+     bonds for veterans' housing..............
+General Purpose Fiscal Assistance
+    Exclusion of interest on public purpose        7.5      8.5      9.0       9.9      10.4     19.3      21.9      23.1      25.3      26.7      161.6
+     State and local government bonds.........
+    Deduction of nonbusiness State and local    .......  .......  .......  ........  .......     30.7      43.6      50.6      54.1      58.3      237.3
+     government income taxes, sales taxes, and
+     personal property taxes..................
+Interest
+    Deferral of interest on savings bonds.....  .......  .......  .......  ........  .......      1.3       1.4       1.4       1.5       1.5        7.1
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Footnotes for Table 1 appear on the following pages.
+
+   \1\ Reflects legislation enacted by December 15, 2010.
+  \2\ Does not include provision that permits look-through of payments between related foreign corporations.
+  \3\ Positive tax expenditure of less than $50 million.
+  \4\ In addition to the amounts above, the excise tax credit for alcohol fuel mixtures results in a reduction in excise tax receipts, net of income, of
+ $5.1 billion over the fiscal years 2010 through 2014.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                 Corporations                                   Individuals
+ \5\ Estimate includes refundability associated  ---------------------------------------------------------------------------------------------   Total
+       with the following outlay effects:           2010     2011     2012     2013    2014     2010      2011      2012      2013      2014
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+First-time homebuyer credit.....................  .......  .......  .......  .......  ......      3.4   ........  ........  ........  .......        3.4
+Build America bonds.............................     0.2      0.5      0.8      0.8      0.8      0.7       1.5       2.3       2.3       2.3       12.0
+Recovery zone bonds.............................   (\3\)      0.1      0.1      0.1      0.1    (\3\)       0.1       0.1       0.1       0.1        0.7
+Hope credit.....................................  .......  .......  .......  .......  ......      3.1       0.8   ........  ........  .......        3.9
+Credit for children under age 17................  .......  .......  .......  .......  ......     32.7      11.1       4.1       4.2       4.7       56.7
+Earned income credit............................  .......  .......  .......  .......  ......     50.9      45.5      44.8      45.5      45.6      232.2
+Making work pay credit..........................  .......  .......  .......  .......  ......     19.7       4.7   ........  ........  .......       24.4
+Premium subsidy for COBRA continuation coverage.  .......  .......  .......  .......  ......      0.1       0.1     (\3\)   ........  .......        0.3
+Credit for health insurance by certain displaced  .......  .......  .......  .......  ......      0.2       0.1       0.1       0.1       0.1        0.6
+ persons........................................
+Credits and subsidies for participation in        .......  .......  .......  .......  ......  ........  ........  ........  ........     12.6      12.6
+ exchanges......................................
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+\6\ Pattern differs from tax expenditure calculated in prior pamphlets because of economic conditions in 2008 and 2009.
+\7\ Includes bonus depreciation and general acceleration under MACRS.
+\8\ Negative tax expenditure of less than $50 million.
+\9\ Estimate includes amounts of employer-provided health insurance purchased through cafeteria plans and employer-provided child care purchased through
+  dependent care flexible spending accounts. These amounts are also included in other line items in this table.
+\10\ Estimate does not include effects of changes made by the Emergency Economic Stabilization Act of 2008.
+\11\ Estimate does not include effects of changes made by the Emergency Economic Stabilization Act of 2008. Estimate includes effects of changes made by
+  Patient Protection and Affordable Care Act enacted in 2010.
+\12\ Estimate includes employer-provided child care purchased through dependent care flexible spending accounts.\13\ In addition to the general charitable deduction, the tax expenditure accounts for the higher percentage limitation for public charities, the fair
+  market value deduction for related-use tangible personal property, the enhanced deduction for inventory, the fair market value deduction for publicly
+  traded stock and exceptions to the partial interest rules.
+\14\ Estimate includes employer-provided health insurance purchased through cafeteria plans. 
+Note: Details may not add to totals due to rounding. An ``*'' indicates a negative tax expenditure for the 2010-2014 period.
+Source: Joint Committee on Taxation.
+
+
+   Table 2.--Distribution by Income Class of All Returns, Taxable Returns, Itemized Returns, and Tax Liability
+                              at 2009 Rates and 2009 Law and 2009 Income Levels \1\
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                                  All        Taxable      Itemized       Tax
+                      Income Class \2\                        Returns \3\    Returns      Returns     Liability
+----------------------------------------------------------------------------------------------------------------
+Below $10,000...............................................       28,755           23          714     -$13,673
+$10,000 to $20,000..........................................       23,161        3,292        1,332      -32,919
+$20,000 to $30,000..........................................       18,175        6,756        2,383      -20,347
+$30,000 to $40,000..........................................       15,405        8,151        3,565           89
+$40,000 to $50,000..........................................       12,770        8,498        4,501       13,512
+$50,000 to $75,000..........................................       23,017       16,983       10,711       58,057
+$75,000 to $100,000.........................................       14,349       12,334        8,941       71,065
+$100,000 to $200,000........................................       16,546       14,802       13,511      197,660
+$200,000 and over...........................................        4,700        4,578        4,355      493,551
+                                                             ---------------------------------------------------
+    Total...................................................      156,877       75,416       50,014     $766,995
+----------------------------------------------------------------------------------------------------------------
+\1\ Tax law as in effect on December 31, 2009, is applied to the 2009 level and sources of income and their
+  distribution among taxpayers.
+\2\ The income concept used to place tax returns into classes is adjusted gross income (``AGI'') plus: (a) tax-
+  exempt interest, (b) employer contributions for health plans and life insurance, (c) employer share of FICA
+  tax, (d) workers' compensation, (e) nontaxable Social Security benefits, (f) insurance value of Medicare
+  benefits, (g) alternative minimum tax preference items, and (h) excluded income of U.S. citizens living
+  abroad.
+\3\ Includes filing and non-filing units. Filing units include all taxable and nontaxable returns. Non-filing
+  units include individuals with income that is exempt from Federal income taxation (e.g., transfer payments,
+  interest from tax-exempt bonds, etc.). Excludes individuals who are dependents of other taxpayers and
+  taxpayers with negative income.Note--Details may not add to totals due to rounding.
+Source: Joint Committee on Taxation.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                                    at 2009 Rates and 2009 Income Levels \1\
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                                  Medical Deduction          Real Estate Tax
+                                                             --------------------------         Deduction
+                      Income Class \2\                                                 -------------------------
+                                                                Returns       Amount      Returns       Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10,000...............................................          225  ...........            1  ...........
+$10,000 to $20,000..........................................          525          $32          175          $20
+$20,000 to $30,000..........................................          999          165          787          145
+$30,000 to $40,000..........................................        1,343          330        1,753          367
+$40,000 to $50,000..........................................        1,556          617        2,769          707
+$50,000 to $75,000..........................................        3,125        2,129        7,768        2,932
+$75,000 to $100,000.........................................        1,807        1,942        7,100        3,318
+$100,000 to $200,000........................................        1,504        3,062       11,041        9,583
+$200,000 and over...........................................          128        1,057        2,130        4,181
+                                                             ---------------------------------------------------
+    Total...................................................       11,212       $9,335       33,525      $21,253
+----------------------------------------------------------------------------------------------------------------
+Footnotes appear at the end of the table.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                               at 2009 Rates and 2009 Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                               State and Local Income,         Charitable
+                                                                 Sales, and Personal    Contributions  Deduction
+                      Income Class \2\                         Property Tax Deduction  -------------------------
+                                                             --------------------------
+                                                                Returns       Amount      Returns       Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10,000...............................................            7  ...........            3        (\3\)
+$10,000 to $20,000..........................................          302          $14          183          $17
+$20,000 to $30,000..........................................        1,257           99          885          137
+$30,000 to $40,000..........................................        2,441          300        1,820          347
+$40,000 to $50,000..........................................        3,630          610        2,851          627
+$50,000 to $75,000..........................................        9,439        2,854        7,801        2,616
+$75,000 to $100,000.........................................        8,255        3,575        7,071        2,895
+$100,000 to $200,000........................................       12,326       12,492       11,427        9,106
+$200,000 and over...........................................        3,066       20,101        4,039       19,138
+                                                             ---------------------------------------------------
+    Total...................................................       40,722      $40,045       36,081      $34,885
+----------------------------------------------------------------------------------------------------------------
+Footnotes appear at the end of the table.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                               at 2009 Rates and 2009 Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                                  Child Care Credit     Earned Income Credit \4\
+                      Income Class \2\                       ---------------------------------------------------
+                                                                Returns       Amount      Returns       Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10,000...............................................  ...........  ...........        6,804       $8,138
+$10,000 to $20,000..........................................          186          $40        7,484       22,007
+$20,000 to $30,000..........................................          743          380        5,578       16,126
+$30,000 to $40,000..........................................          752          450        3,922        6,669
+$40,000 to $50,000..........................................          567          307        1,599        1,667
+$50,000 to $75,000..........................................        1,232          659          299          352
+$75,000 to $100,000.........................................          924          513           11           17
+$100,000 to $200,000........................................        1,106          584            3            1
+$200,000 and over...........................................          226          120  ...........  ...........
+                                                             ---------------------------------------------------
+    Total...................................................        5,735       $3,052       25,700      $54,977
+----------------------------------------------------------------------------------------------------------------
+Footnotes appear at the end of the table.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                               at 2009 Rates and 2009 Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                               Untaxed Social Security   Child  Tax  Credit \4\
+                                                               and Railroad Retirement -------------------------
+                      Income Class \2\                                Benefits
+                                                             --------------------------   Returns       Amount
+                                                                Returns       Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10,000...............................................            6        (\3\)        2,807       $1,950
+$10,000 to $20,000..........................................        5,709       $1,911        5,556        6,958
+$20,000 to $30,000..........................................        3,015        2,512        5,431        8,503
+$30,000 to $40,000..........................................        2,757        3,153        4,326        7,479
+$40,000 to $50,000..........................................        2,786        3,983        3,255        5,704
+$50,000 to $75,000..........................................        6,031        7,641        6,174       10,757
+$75,000 to $100,000.........................................        3,443        3,503        4,285        7,395
+$100,000 to $200,000........................................        3,339        1,154        3,852        5,581
+$200,000 and over...........................................          884          446            5            4
+                                                             ---------------------------------------------------
+    Total...................................................       27,970      $24,303       35,694      $54,331
+----------------------------------------------------------------------------------------------------------------
+Footnotes appear at the end of the table.
+
+
+              Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items,
+                               at 2009 Rates and 2009 Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                                 Education  Credits      Student Loan  Interest
+                                                             --------------------------         Deduction
+                      Income Class \2\                                                 -------------------------
+                                                                Returns       Amount      Returns       Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10,000...............................................          590         $471           22           $2
+$10,000 to $20,000..........................................          965          614          275           17
+$20,000 to $30,000..........................................        1,134          910          635           51
+$30,000 to $40,000..........................................        1,031          947          843           83
+$40,000 to $50,000..........................................          993          937          771           94
+$50,000 to $75,000..........................................        1,800        2,001        1,616          215
+$75,000 to $100,000.........................................        1,542        1,839        1,161          136
+$100,000 to $200,000........................................        1,317        1,811        1,129          203
+$200,000 and over...........................................  ...........  ...........  ...........  ...........
+                                                             ---------------------------------------------------
+    Total...................................................        9,371       $9,530        6,452         $801
+----------------------------------------------------------------------------------------------------------------
+Footnotes appear at the end of the table.
+
+
+   Table 3.--Distribution by Income Class of Selected Individual Tax Expenditure Items, at 2009 Rates and 2009
+                                          Income Levels \1\--Continued
+                          [Money amounts in millions of dollars, returns in thousands]
+----------------------------------------------------------------------------------------------------------------
+                                                                 Mortgage  Interest       Phase out of Personal
+                                                                      Deduction           Exemption for Regular
+                                                             --------------------------   Income Tax; Denial of
+                                                                                         Personal Exemption and
+                      Income Class \2\                                                   Standard Deduction for
+                                                                Returns       Amount               AMT
+                                                                                       -------------------------
+                                                                                          Returns       Amount
+----------------------------------------------------------------------------------------------------------------
+Below $10,000...............................................        (\5\)        (\3\)        (\5\)        (\6\)
+$10,000 to $20,000..........................................          311          $88            7          -$5
+$20,000 to $30,000..........................................        1,000          521        (\5\)        (\6\)
+$30,000 to $40,000..........................................        2,023        1,292        (\5\)           -1
+$40,000 to $50,000..........................................        2,923        2,329            2           -2
+$50,000 to $75,000..........................................        7,603        9,332           34          -30
+$75,000 to $100,000.........................................        6,754       10,066           82          -81
+$100,000 to $200,000........................................       10,594       30,261          859       -1,024
+$200,000 and over...........................................        3,424       22,768        3,543       -8,404
+                                                             ---------------------------------------------------
+    Total...................................................       34,632      $76,656        4,527      -$9,547
+----------------------------------------------------------------------------------------------------------------
+\1\ Excludes individuals who are dependents of other taxpayers and taxpayers with negative income.
+\2\ The income concept used to place tax returns into classes is adjusted gross income (``AGI'') plus: (a) tax-
+  exempt interest, (b) employer contributions for health plans and life insurance, (c) employer share of FICA
+  tax, (d) workers' compensation, (e) nontaxable Social Security benefits, (f) insurance value of Medicare
+  benefits, (g) alternative minimum tax preference items, and (h) excluded income of U.S. citizens living
+  abroad.
+\3\ Positive tax expenditure of less than $500,000.
+\4\ Includes the refundable portion.
+\5\ Fewer than 500 returns.
+\6\ Negative tax expenditure of less than $500,000.
+Note--Details may not add to totals due to rounding.
+Source: Joint Committee on Taxation.
+
+
