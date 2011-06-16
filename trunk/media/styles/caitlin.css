@@ -148,19 +148,16 @@ h1#subscope_logo{
 .global-nav>ul{
 	width: 960px;
 	margin: 0 auto;
-	padding: 7px 0;
+	padding: 0 0;
+	height: 30px;
 }
 .global-nav ul>li{
-	width: 960px;
-	margin: 0 auto;
-	display: inline;
-	padding: 7px 50px;
-	font-weight: 700;
-	position: relative;
+
 }
 .global-nav a{
 	color: #ffffff;
 	text-decoration: none;
+	height: 24px;
 }
 .active_section{
 	background:-moz-linear-gradient(left, #26598e 0%, #1f4974 50%, #26598e 100%); /* FF3.6+ */
@@ -178,7 +175,10 @@ h1#subscope_logo{
 	width:100px;
 }
 .subsidy_types{
-	width:100px;	
+	width:102px;	
+}
+.sectors{
+	width: 100px;
 }
 
 .data{
@@ -190,11 +190,14 @@ h1#subscope_logo{
 .global-nav ul>li>ul{
 	visibility: hidden;
 	width: 200px;
-	position: absolute;
-	margin: 29px auto 0 auto;
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
 	background-color: #2d759b;
 	opacity: .95;
 	z-index: 3;
+	text-align: left;
+	left: -53px;
 	
 }
 .global-nav ul>li>ul>li{
@@ -210,9 +213,24 @@ h1#subscope_logo{
 .global-nav ul>li>ul>li:hover{
 	background-color: #25688b;
 }
-
+.main-nav-item{
+	height: 30px;
+	width: ;
+	margin: 0 auto;
+	display: inline;
+	padding: 0 29px 0 29px;
+	font-weight: 700;
+	position: ;
+	float: left;
+	text-align: center;
+}
 .main-nav-item:hover ul{
 	visibility: visible;
+}
+.main-nav-item>a{
+	display: inline-block;
+	height: 23px;
+	padding-top: 7px;
 
 }
 .global-nav .comingsoon{
@@ -442,7 +460,7 @@ h4{
 	height: 360px;
 	width: 950px;
 	position: relative;
-	z-index: 2;
+
 }
 
 #imagecontainer{
@@ -504,9 +522,26 @@ ul.feature_nav{
 }
 /*------ Carousel Sidebar Styling ------*/
 .newsbits{
-	width: 280px;
-	float: left;
-	margin: 20px;
+	width: 282px;
+	height: 465px;
+	background: url('../images/nav_secondary_bg.png') left bottom no-repeat;
+	background-color: #f5f5f4;
+	background: #FFFFFF; /* Old browsers */
+	background: -moz-linear-gradient(top, #FFFFFF 0%, #F5F5F4 20%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(20%,#F5F5F4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#F5F5F4',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* W3C */
+
+	margin-right: 0;
+	border-right: 3px solid #ffffff;
+	padding: 20px 20px 60px 20px;
+	height: 280px;
+	position: absolute;
+	right: 0;
+	top: 0;
 }
 .newsbits h2{
 	font-size: 160%;
@@ -519,33 +554,30 @@ ul.feature_nav{
 }
 .home-sidebar{
 	width: 282px;
-	height: 465px;
+	height: 190px;
 	background: url('../images/nav_secondary_bg.png') left bottom no-repeat;
 	background-color: #f5f5f4;
 	background: #FFFFFF; /* Old browsers */
-	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -moz-linear-gradient(top, #FFFFFF 0%, #F5F5F4 20%); /* FF3.6+ */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -moz-linear-gradient(top, #F5F5F4 0%, #F5F5F4 20%); /* FF3.6+ */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(20%,#F5F5F4)); /* Chrome,Safari4+ */
-	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* Chrome10+,Safari5.1+ */
-	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -o-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* Opera11.10+ */
-	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -ms-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* IE10+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#F5F5F4',GradientType=0 ); /* IE6-9 */
-	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* W3C */
-	-webkit-box-shadow: -3px 0px 15px #e5e5e5;
-	-moz-box-shadow: -3px 0px 15px #e5e5e5;
-	box-shadow: -3px 0px 15px #e5e5e5;
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* Chrome10+,Safari5.1+ */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -o-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* Opera11.10+ */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -ms-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F5F5F4', endColorstr='#F5F5F4',GradientType=0 ); /* IE6-9 */
+	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* W3C */
+	-webkit-box-shadow: -3px 15px 15px #e5e5e5;
+	-moz-box-shadow: -3px 15px 15px #e5e5e5;
+	box-shadow: -3px 15px 15px #e5e5e5;
 	margin-right: 0;
 	border-right: 3px solid #ffffff;
-	padding: 20px 20px 60px 20px;
-	min-height: 400px;
+	padding: 0 20px 0 20px;
 	position: absolute;
 	right: 0;
-	top: 0;
+	top: 360px;
 }
 .tidbits{
 	width: 282px;
 	border-top: 1px solid #C3C3C3;
-	top: 360px;
-	position: absolute;
 	padding-top: 20px;
 }
 .tidbit{

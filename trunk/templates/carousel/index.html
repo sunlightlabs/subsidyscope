@@ -22,14 +22,15 @@
     
 	        </ul>
 		</div>
-        <div class="newsbits" >
-			<h2>
-	            <a href="{{entry.link}}">{{entry.title}}</a>
-	        </h2>
-	        <p class="feature_content">
-	            <strong>{{entry.date|date:"m/d/y"}}&nbsp;&ndash;&nbsp;</strong>{{entry.text|safe}}
-	        </p>
+		
+	        <div class="newsbits" >
+				<h2>
+		            <a href="{{entry.link}}">{{entry.title}}</a>
+		        </h2>
+		        <p class="feature_content">
+		            <strong>{{entry.date|date:"m/d/y"}}&nbsp;&ndash;&nbsp;</strong>{{entry.text|safe}}
+		        </p>
 	
-		</div>
+			</div>
     </div>
 {% endfor %}
