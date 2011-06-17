@@ -7,7 +7,7 @@ from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, 
 from haystack.query import SearchQuerySet
 
 SOURCES = ('', 'JCT', 'Treasury')
-MAX_COLUMNS = 11
+MAX_COLUMNS = 8
 
 lower_level_footnote = "The Joint Committee on Taxation does not provide numerical data for values that are between -$50 million and $50 million. Rather they footnote the values to be either less than $50 million or greater than -$50 million. The estimates in the individual and corporation columns from the Joint Committee on Taxation may contain values between -$50 million and $50 million (denoted as an >50 and >-50). When aggregated, in the totals column, the sums of these values are unknown and thus are rounded to zero. For more information, see the methodology."
 
