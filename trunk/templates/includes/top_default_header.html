@@ -1,4 +1,4 @@
-
+{% load menubuilder %}
 
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -58,10 +58,10 @@
 	
 	<div class="global-nav">
 		<ul>
-			<li class="home main-nav-item">
+			<li class="home main-nav-item {% check_active_class home %}">
 				<a href="/">Home</a>
 			</li>
-			<li class="about main-nav-item">
+			<li class="about main-nav-item {% check_active_class about %}">
 				<a href="#">About</a>
 				<ul>
 					<li>
@@ -81,12 +81,9 @@
 					</li>
 				</ul>
 			</li>
-			<li class="subsidy_types main-nav-item">
+			<li class="subsidy_types main-nav-item {% check_active_class subsidy_types %}">
 				<a href="#">Subsidy Types</a>
 				<ul>
-					<li>
-						<a href="/tax_expenditures/">Tax Expenditures Database</a>
-					</li>
 					<li>
 						<a href="/tax-subsidies/">Tax Subsidies</a>
 					</li>
@@ -102,7 +99,7 @@
 				</ul>
 
 			</li>
-			<li class="sectors main-nav-item active_section">
+			<li class="sectors main-nav-item  {% check_active_class sectors %}">
 				<a href="#">Sectors</a>
 				<ul>
 					<li>
@@ -125,9 +122,12 @@
 					</li>
 				</ul>
 			</li>
-			<li class="data main-nav-item">
+			<li class="data main-nav-item {% check_active_class data %}">
 				<a href="#">Data</a>
 				<ul>
+					<li>
+						<a href="/tax_expenditures/">Tax Expenditures Database</a>
+					</li>
 					<li>
 						<a href="/glossary/">Glossary</a>
 					</li>
@@ -139,7 +139,7 @@
 					</li>
 				</ul>
 			</li>
-			<li class="contact main-nav-item">
+			<li class="contact main-nav-item {% check_active_class contact %}">
 				<a href="/contact">Contact</a>
 
 			</li>

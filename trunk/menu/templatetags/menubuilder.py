@@ -110,6 +110,40 @@ def get_items(menu, current_path, user):
             menuitems.append({'url': i.link_url, 'title': i.title, 'current': current,})
     return menuitems
 
+def check_class(parser, token):
+    try:
+        tag_name, menu_item = token.split_contents()
+
+    except: 
+        raise template.TemplateSyntaxError, "%r tag requires exactly one argument" % token.contents.split()[0]
+
+    return CSSClass(menu_item)
+
+class CSSClass(template.Node):
+        
+    path_starts = {
+            'home': '/', 
+            'about': ['/faq', '/board', '/press', '/staff', '/methodology'],
+            'subsidy_types': ['/tax-subsidies', '/grants', '/contracts', '/loans' ],
+            'sectors': ['/bailout', '/transportation', '/nonprofits', '/energy', '/housing', '/health'],
+            'data': ['/tax_expenditures', '/glossary', '/documents', '/data'],
+            'contact':['/contact'] 
+        }
+    def __init__(self, menu_item):
+        self.menu_item = menu_item
+
+    def render(self, context):
+        current_path = template.resolve_variable('request.path', context)
+        if self.menu_item == "home" and current_path != "/":
+            return ''
+        else:
+            for path_start in CSSClass.path_starts[self.menu_item]:
+                if current_path.startswith(path_start):
+                    return 'active_section'
+
+        return ''
+
 register.tag('menu', build_menu)
 register.tag('submenu', build_sub_menu)
+register.tag('check_active_class', check_class)
 register.inclusion_tag('menu/secondary.html', takes_context=True)(recursive_menu)

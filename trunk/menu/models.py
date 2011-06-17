@@ -11,7 +11,8 @@ class Menu(models.Model):
     content_type = models.ForeignKey(ContentType, null=True, blank=True)
     parent_menu_id = models.PositiveIntegerField(null=True, blank=True)
     parent_menu = generic.GenericForeignKey('content_type', 'parent_menu_id')
- 
+    css_class = models.CharField(max_length=100, null=True, blank=True)
+     
     def __unicode__(self):
         return "%s - %s" % (self.slug, self.name)
 
@@ -41,7 +42,7 @@ class MenuItem(models.Model):
     link_url = models.CharField(max_length=100, help_text='URL or URI to the content, eg /about/ or http://foo.com/')
     title = models.CharField(max_length=100)
     login_required = models.BooleanField(default=False)
-
+    css_class = models.CharField(max_length=100, null=True, blank=True)
 
     def __unicode__(self):
         return "%s %s. %s" % (self.menu.slug, self.order, self.title)
