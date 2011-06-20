@@ -50,7 +50,7 @@ def recursive_menu(context):
     
     for mi in menu_items:
         if current_path.startswith(mi.link_url):
-            html.append('<ul class="expanded single"><li class="active"><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
+            html.append('<ul class="single"><li class="active"><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
         else:
             html.append('<ul><li><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
     menu_data = ''.join(html)
