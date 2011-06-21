@@ -40,9 +40,9 @@ def recursive_menu(context):
             menu_list.extend(leaf_menu)
         
         if current_page or current_path.startswith(sm.base_url):
-            menu_list.insert(0, '<ul class="expanded"><li class="active"><a href="'+ sm.base_url + '">'+ sm.name +'</a><ul>')
+            menu_list.insert(0, '<ul class="expanded"><li class="active"><span class="accordion"></span><a href="'+ sm.base_url + '">'+ sm.name +'</a><ul>')
         else:
-            menu_list.insert(0, '<ul><li><a href="' + sm.base_url + '">' + sm.name + '</a><ul>')
+            menu_list.insert(0, '<ul class="collapsed"><li><span class="accordion"></span><a href="' + sm.base_url + '">' + sm.name + '</a><ul>')
         
         menu_list.append('</ul></li></ul>')
 #        menu_data.append(menu_list)

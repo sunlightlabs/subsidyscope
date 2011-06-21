@@ -42,7 +42,7 @@
 {% include "includes/bottom_default_footer.html" %}
 
 <script type="text/javascript" charset="utf-8">
-$('.secondary-nav li a').click(function(){
+$('.secondary-nav li span').click(function(){
     if ( $(this).siblings('ul').length > 0) {
         $(this).siblings('ul').slideToggle();
         return false;

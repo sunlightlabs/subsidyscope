@@ -301,12 +301,13 @@ a.pew-logo{
 	height: 20px; 
 	display: inline-block;
 }
-.secondary-nav>ul.expanded .accordian{
+.secondary-nav>ul.expanded .accordion{
 	background: url('../images/nav_secondary_collapse.png') left 10px no-repeat;
 }
-.secondary-nav>ul.collapsed .accordian{
+.secondary-nav>ul.collapsed .accordion{
 	background: url('../images/nav_secondary_expand.png') left 10px no-repeat;
 }
+.secondary-nav>ul.collapsed ul {display:none;}
 
 .secondary-nav ul>li{
 	font-weight: 700;
