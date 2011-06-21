@@ -27,7 +27,7 @@ body { background-image:url(/media/images/template/bg_gradient.png); background-
 
 .top_nav_bg { background-image:url(/media/images/template/top_nav_bg.png); margin:0; padding:0 0 0 0; background-repeat:repeat-x;}
 
-#top_nav_header { text-align:right; margin:5px 0 0 0;}
+#top_nav_header { display: none; visibility: hidden;}
 #top_nav_header ul { margin:0; padding:0;}
 #top_nav_header li { margin:0; padding:0; padding-left:20px;}
 #top_nav_header li.last { padding-right:20px;}
@@ -37,6 +37,9 @@ body { background-image:url(/media/images/template/bg_gradient.png); background-
 #top_nav_header a:hover {color:#000000; text-decoration:underline;}
 #top_nav_header a:active {color:#4380b0; text-decoration:none;}
 
+#header_search_form { display: none; visibility: hidden;}
+
+div.global-nav, div.secondary-nav { display: none; visibility: hidden;}
 
 /* Logo Box */
 #logo_box { margin:5px 0 0 0; padding:0;}
@@ -66,7 +69,7 @@ h1.technique-eight span {
 
 /* email updates */
 #email-form-container { overflow: hidden; width: 0px; padding-left: 0;}
-form#email-subscribe { display: flock; width: 200px; text-align: left; padding: 0; margin: 0;}
+form#email-subscribe { display: block; width: 200px; text-align: left; padding: 0; margin: 0;}
 form#email-subscribe input { font-size: 9px; }
 form#email-subscribe input.text { color: #aaa; height: 12px;}
 form#email-subscribe input.text:focus { color: #000;}
@@ -727,3 +730,6 @@ ul#sector_taxonomy li { padding-left: 0;}
 #header_area { margin-top: 20px;}
 .page-summary { width: 100% !important; float: none !important; background: none !important; font-weight: bold !important; border: 0 !important;}
 .page-summary * { color: black !important; font-size: 16px !important;}
+
+a.download_csv { display: none; visibility: none;}
+#filterForm { display: none; visibility: hidden;}
