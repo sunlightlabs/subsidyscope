@@ -314,3 +314,6 @@ a.negative:active, button.negative:active {
 	background-color: #0A246A;
 	color: white;
 }
+
+#table_header_print_detail { display: none; visibility: hidden;}
+

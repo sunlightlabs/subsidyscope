@@ -40,5 +40,13 @@
 {% endblock %}
 
 {% include "includes/bottom_default_footer.html" %}
+
+<script type="text/javascript" charset="utf-8">
+$('.secondary-nav li').click(function(){
+    $(this).children('ul').slideToggle();
+    return false;
+});
+</script>
+
 </body>
 </html>
