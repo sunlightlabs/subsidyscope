@@ -294,14 +294,20 @@ a.pew-logo{
 	-webkit-box-shadow:  0px 1px 0px #ffffff;
         box-shadow:  0px 1px 0px #ffffff;
 	margin-left: ;
-	padding-left: 23px;
 }
-.secondary-nav>ul.expanded{
-	background: url('../images/nav_secondary_expand.png') left 6px no-repeat;
+
+.accordion {
+	width: 20px; 
+	height: 20px; 
+	display: inline-block;
 }
-.secondary-nav>ul.collapsed{
-	background: url('../images/nav_secondary_expand.png') left 6px no-repeat;
+.secondary-nav>ul.expanded .accordian{
+	background: url('../images/nav_secondary_collapse.png') left 10px no-repeat;
 }
+.secondary-nav>ul.collapsed .accordian{
+	background: url('../images/nav_secondary_expand.png') left 10px no-repeat;
+}
+
 .secondary-nav ul>li{
 	font-weight: 700;
 	list-style-type: none;
