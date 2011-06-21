@@ -50,7 +50,7 @@
 		$('#routeDataTable').hide();
 		$('#noData').hide();
 		
-		swfobject.embedSWF('{% media_url %}/scripts/AmtrakMap.swf?v=2', 'mapVis', 800, 475, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent', allowScriptAccess:'always'});
+		swfobject.embedSWF('{% media_url %}/scripts/AmtrakMap.swf?v=2', 'mapVis', 660, 475, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {}, {wmode:'transparent', allowScriptAccess:'always'});
 	   
 	    for(routeId in routeData)
 	    {
@@ -201,18 +201,20 @@
 {% load menubuilder %}
 {% block content %}
 
-<div id="transportation" class="wrapper clearfix">	
+<div id="Transportation" class="wrapper clearfix">	
 	<div class="secondary-header">
-            <h3>{% morsel_page_title %}</h3>
+		<h3>{% morsel_sector_title %}</h3>
+		
         </div>
 	    {% recursive_menu %}
 	<div class="page-content">
+           <h2>{% morsel_page_title %}</h2>
            
             {% morsel text1 glossarize %}
             
             
             
-       	<div id="map-container"  style="padding: 0px 20px 10px 20px; margin: 25px 0; border: 1px solid #D3D3D3;">
+       	<div id="map-container"  style="padding: 0 0 10px 0; margin: 25px 0; border-bottom: 1px solid #D3D3D3;border-top: 1px solid #D3D3D3;">
 				 
 		<h4>Amtrak Route Performance for Fiscal Year 2008</h4> 
 				          	
@@ -236,9 +238,9 @@
            		<div id="routeDataTable">
 
 
-	           		<table style="width: 800px;">
+	           		<table style="">
 		            	<tr>
-		            		<td style="width: 300px;"><strong>Total Revenue:</strong></td><td id="gross" style="width: 100px;"></td><td style="width: 300px;"><strong>Profit/Loss per Passenger Mile:<sup>1</sup></strong><br/>(excluding costs such as depreciation)</td><td  style="width: 100px;" id="pass_mile"></td>
+		            		<td style="width: 120px;"><strong>Total Revenue:</strong></td><td id="gross" style="width: 100px;"></td><td style="width: 300px;"><strong>Profit/Loss per Passenger Mile:<sup>1</sup></strong><br/>(excluding costs such as depreciation)</td><td  style="width: 100px;" id="pass_mile"></td>
 		            	</tr>
 		            	<tr>
 		            		<td><strong>Profit/Loss:</strong></td><td id="net"></td><td><strong>Profit/Loss per Passenger Mile:<sup>2</sup></strong><br/>(including costs such as depreciation)</td><td id="pass_mile_additional"></td>
@@ -252,7 +254,6 @@
 		            	</tr>
 	    			
 	            	</table>
-	            	
             		<cite style="font-style: normal; font-size: 85%;"><sup>1</sup><em>Monthly Performance Report for September 2008</em>, Amtrak, pages C-1 and C-2.</cite><br/>
 					<cite style="font-style: normal; font-size: 85%;"><sup>2</sup>Subsidyscope calculation. Including depreciation and other unallocated costs adds an additional loss of $0.11 per passenger mile. Subsidyscope applies this cost to the per passenger mile profit/loss for each route.
 
@@ -260,9 +261,10 @@
 					<cite style="font-style: normal; font-size: 85%;"><sup>3</sup>Subsidyscope calculation, based on aggregate numbers provided by Amtrak. Amtrak does not present per passenger costs on a route-by-route basis.</cite><br/> 
 					<cite style="font-style: normal; font-size: 85%;"><sup>4</sup>Subsidyscope calculation. Including depreciation and other unallocated costs adds an additional loss of $24.29 per passenger. Subsidyscope applies this cost to the per passenger profit/loss for each route.  Methodology and steps involved in this calculation are presented <a href="{% url transportation-amtrak-table %}">here</a>.</cite>         	
             	</div>
-	
-				<p style="margin-top: 15px;">Source: All data from Amtrak's <em><a href="http://www.amtrak.com/servlet/BlobServer?blobcol=urldata&blobtable=MungoBlobs&blobkey=id&blobwhere=1249200490219&blobheader=application%2Fpdf&blobheadername1=Content-disposition&blobheadervalue1=attachment;filename=Amtrak_0809monthly.pdf">Monthly Performance Report for September 2008</a></em>; route map from <a href="http://www.mapmash.in/amtrak.html"/>Mapmash.in</a> and Amtrak.</p>
-     
+		            	<div class="footnotes">
+
+				<p>Source: All data from Amtrak's <em><a href="http://www.amtrak.com/servlet/BlobServer?blobcol=urldata&blobtable=MungoBlobs&blobkey=id&blobwhere=1249200490219&blobheader=application%2Fpdf&blobheadername1=Content-disposition&blobheadervalue1=attachment;filename=Amtrak_0809monthly.pdf">Monthly Performance Report for September 2008</a></em>; route map from <a href="http://www.mapmash.in/amtrak.html"/>Mapmash.in</a> and Amtrak.</p>
+     		</div>
         </div>
           
         {% morsel text2 glossarize %}

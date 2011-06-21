@@ -42,7 +42,7 @@ var sortOrder = '{{ sort_order }}';
 {% load menubuilder %}
 {% block content %}
 
-<div class="wrapper clearfix">	
+<div class="wrapper clearfix" id="{% morsel_sector_title %}">	
 	<div class="secondary-header">
             <a id="screencast-link-container" href="{% url screencast %}">Need help? Watch the screencast.</a>
 			<h3>{% morsel_sector_title %}</h3>

@@ -28,15 +28,20 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
 .pages { margin:15px; display: block; font-size: 1.1em; text-align:right; }
 #project_results table { margin-bottom: 0; }
 #projectsearch fieldset legend, #portsearch fieldset legend {background: transparent url(/media/images/collapse_minus.png) no-repeat scroll right center; cursor: pointer;padding-right:1.3em;margin:0 !important;}
-#projectsearch fieldset.collapsed legend, #portsearch fieldset.collapsed legend { background: transparent url(/media/images/collapse_plus.png) no-repeat scroll right 5px;}
+#projectsearch fieldset.collapsed legend, #portsearch fieldset.collapsed legend { background: transparent url(/media/images/collapse_plus.png) no-repeat scroll right center;}
 .summary-csv {width: 200px; float:left; margin-top:10px; padding 2px;}
 </style>
 
 
-<div id="transportation" class="wrapper clearfix">	
-	<div class="secondary-header"><h3>Airport Improvement Program Grant Search</h3></div>
+<div id="Transportation" class="wrapper clearfix">	
+	<div class="secondary-header">
+		<h3>{% morsel_sector_title %}</h3>
+		</div>
     {% recursive_menu %}
 		<div class="page-content">
+			
+		<h2>Airport Improvement Program Grant Search</h2>
+
         {% morsel text1 glossarize %}
         <form id="portsearch" class="search-section">
             <fieldset {% if type == 'project' %} class="collapsed" {% endif %}>    

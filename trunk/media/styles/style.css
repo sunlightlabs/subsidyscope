@@ -171,39 +171,7 @@ ul#top_nav_header li { display: block !important; float: right;}
     left: -99999px;
 }
 
-ul.programs {
-    font-size: 1em;
-    border-bottom: 1px solid #afafaf;
-    float: left;
-    margin-left:0px;
-    width: 100%;
-}
-ul.programs li{
-    float: left;
-    margin-right: 25px;
-    margin-left: 0px;
-}
-span.programs-container{
-    width: 100%;
-    float:left;
-}
-.programs-search{
-    width: 300px;
-}
-#program-listing li{
-    border-bottom: 1px solid #afafaf;
-    padding-bottom: 4px;
-    margin-top:10px;
-    text-transform: capitalize;
-}
-.programs-container {border-bottom: 1px solid #afafaf; margin-bottom:20px;}
-ul.programs {border: none;}
-ul.programs li {margin-left: 50px;}
-ul.subselect {margin-top:0px; margin-left:0px;}
-#modes { width: 250px;}
-#tags {width: 217px; }
-#modesubselect {margin-left:155px; font-size:90%; }
-#tagsubselect {margin-left: 485px;font-size: 90%;}
+
 
 
 

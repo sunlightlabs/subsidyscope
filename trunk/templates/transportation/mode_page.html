@@ -9,14 +9,17 @@
 
 {% morsel_page_title as page_title %}
 
-<div class="wrapper clearfix" id="mode-page-{{ page_title|lower|escape }}">
+<div class="wrapper clearfix" id="Transportation">
     
     <div class="secondary-header">
-		<h3>{% morsel_page_title %}</h3>
+		<h3>{% morsel_sector_title %}</h3>
+
     </div>
 	    {% recursive_menu %}
     <div class="page-content">
+		<h2>{% morsel_page_title %}</h2>
 		<aside style="summary">
+			
 			{% project_updates_subsector_sidebar subsector %}
 			{% morsel sidebar1 as sidebar glossarize %}
 			{% if sidebar.content %}
@@ -31,3 +34,4 @@
 </div>
 
 {% endblock %}
+<!--id="mode-page-{{ page_title|lower|escape }}"-->
