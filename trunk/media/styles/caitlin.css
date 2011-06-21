@@ -154,10 +154,11 @@ h1#subscope_logo{
 .global-nav ul>li{
 
 }
-.global-nav a{
+.main-nav-item ul>li a{
 	color: #ffffff;
 	text-decoration: none;
-	height: 24px;
+	display: block;
+	padding: 10px 0 ;
 }
 .active_section{
 	background:-moz-linear-gradient(left, #26598e 0%, #1f4974 50%, #26598e 100%); /* FF3.6+ */
@@ -205,7 +206,7 @@ h1#subscope_logo{
 	-moz-box-shadow: 0px 1px 0px #4d8fb2;
 	-webkit-box-shadow:  0px 1px 0px #4d8fb2;
     box-shadow:  0px 1px 0px #4d8fb2;
-	padding: 10px 15px;
+	padding: 0 15px;
 	width: 170px;
 	display: block;
 	font-size: 85%;
@@ -231,7 +232,8 @@ h1#subscope_logo{
 	display: inline-block;
 	height: 23px;
 	padding-top: 7px;
-
+	color: #ffffff;
+	text-decoration: none;
 }
 .global-nav .comingsoon{
 	font-weight: 400;
