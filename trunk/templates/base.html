@@ -45,7 +45,7 @@
 $('.secondary-nav li span').click(function(){
     if ( $(this).siblings('ul').length > 0) {
         $(this).siblings('ul').slideToggle();
-//      $(this).parent('ul').
+        $(this).parents('ul').toggleClass('expanded').toggleClass('collapsed');
         return false;
     }
 });
