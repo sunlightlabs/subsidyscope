@@ -23,14 +23,15 @@ function changeYear(year)
 </script>
 
 
-<div id="fin_bailout" class="wrapper clearfix">
-	<div id="secondary_header">
-		<h3>
-			{% morsel_page_title %}
-		</h3>
+<div id="tax_expenditures" class="wrapper clearfix">
+	<div class="secondary-header">
+		<h3>Pew's Tax Expenditure Database</h3>
 	</div>
 			{% recursive_menu %}
 	<div class="page-content">
+		<h2>
+			{% morsel_page_title %}
+		</h2>
         <p>Pew's Tax Expenditure Database includes federal income tax expenditure estimates from the Department of the Treasury (Treasury) and the Joint Committee on Taxation (JCT). To begin exploring the database, click any sector header below to see a breakdown of the tax expenditures contained within that sector. Where possible, Subsidyscope has paired JCT estimates with corresponding Treasury estimates so users can easily make side-by-side comparisons. Click on a specific  tax expenditure to view detailed information on how those Treasury and JCT projections have varied over time. </p>
         <p>Users should note that while summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, it does not capture the potential interactions among tax expenditures if any single one is changed or repealed. For more information, see the <a href="{% url tax_expenditures-methodology %}">Methodology</a>.</p>
  
