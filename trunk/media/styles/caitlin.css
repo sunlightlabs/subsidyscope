@@ -129,7 +129,7 @@ h1#subscope_logo{
 	width: 210px;
 	margin-top: 85px;
 }
-.submit{
+#header_search_form .submit{
 	background: url('../images/search_icon.png') right center no-repeat;
 	border: none;
 	text-indent: -9999em;	
@@ -1221,12 +1221,28 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	color: #444444;
 }
 
+/*------ Contact Form ------*/
 
+	
 
+#contact_form { padding:20px 0 0 0;  margin-bottom:2em;}
+#contact_form label { width: 8em;	float: left;	text-align: right;	margin-right: .5em;	display: block;	margin-bottom:1em; 	}
+#contact_form .submit input { font-size: 12px; margin-left:8.5em;	} 
+#contact_form textarea { width:500px; height:100px;}
+#contact_form input { width:500px; height: 20px}
+/*
+#contact_form fieldset { border: 1px solid #c3d5d7;  }
+#contact_form legend { padding: 2px 6px; margin-left:10px; color:#005395; }	
+*/
+#contact_form p { font-size:12px; line-height:18px; font-family:Helvetica Neue, Arial, Helvetica, sans-serif; color:#1a1a1a; }
+#contact_form li { font-size:12px; line-height:18px; font-family:Helvetica Neue, Arial, Helvetica, sans-serif; color:#1a1a1a; padding-bottom:1em; clear: both;list-style-type: none; }
 
+/*------ PTED Breadcrumb ------*/
 
-
-
+.breadcrumbs {padding-left: 20px; font-size:.9em; display:inline; margin: 5px 0 15px 0; }
+.pted-head h3{
+	display: inline;
+}
 
 
 
