@@ -27,10 +27,11 @@
                     {% ifnotequal pdf.sector.id 1 %}
                         </table>
                     {% endifnotequal %}
+					<div id="subsidy-charts">
                     <h5><a name="{{pdf.sector}}">{{pdf.sector}}</a></h5>
         		    <table class="pdf-table">
 	    			
-    	    		<tr>
+    	    		<tr class="header-row">
 	    	    		<th class="date">Date</th>
 		    	    	<th class="title">Title</th>
 			    	    <th class="description">Description</th>
@@ -61,12 +62,10 @@
 
 .pdf-table td
 {
-	border: 1px solid #ccc;
 }
 
 .pdf-table th
 {
-	border-width: 0px 0px 1px 0px;
 }
 </style>
 {% endblock %}

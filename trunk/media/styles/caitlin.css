@@ -126,13 +126,17 @@ h1#subscope_logo{
 }
 
 #header_search_form{
-	width: 210px;
-	margin-top: 85px;
+	width: 221px;
+	margin-top: 65px;
+	float: right;
+	clear: both;
 }
 #header_search_form .submit{
 	background: url('../images/search_icon.png') right center no-repeat;
 	border: none;
-	text-indent: -9999em;	
+	text-indent: -9999em;
+	width: 21px;
+	height: 21px;	
 }
 #top_nav_header{
 	font-size: 90%;
@@ -146,7 +150,7 @@ h1#subscope_logo{
 	clear: both;
 }
 .global-nav>ul{
-	width: 960px;
+	width: 950px;
 	margin: 0 auto;
 	padding: 0 0;
 	height: 30px;
@@ -401,7 +405,9 @@ h4{
 	margin-top: 15px;
 	padding-bottom: 15px;
 }
-
+.page-content h2{
+	padding-right: 20px;
+}
 .page-content{
 	width: 660px;
 	float: left;
@@ -732,9 +738,9 @@ ul.sectors-home{
 }
 
 
-/*------ Sector Updates Styling ------*/
+/*------ Sector Updates Styling (data page styling too!)------*/
 
-.updates_head { 
+.updates_head, .data-section { 
 	border-top:1px solid #cbcbcb; 
 	background-color:#f3f3f4; 
 	padding:9px 0 0 9px; 
@@ -744,23 +750,24 @@ ul.sectors-home{
 	background-image:url(/media/images/front_update_head_bg_alt.png); 
 	background-repeat:repeat-x;
 	height: 22px;
+	margin-bottom: 20px;
 }
 #update_headline h4{
 	display: inline;
 }
 
-h3.sector_updates{
+#Transportation h3.sector_updates, #Nonprofits h3.sector_updates, #Energy h3.sector_updates, #Housing h3.sector_updates, .data-section h4{
 	font-size: 110%;
 	color: #636363;
 	background-image: none;
 	padding-left: 0;
 	margin-left: 5px;
 	font-weight: normal;
-	height: 0;
 	margin-bottom: 0;
 	padding-top: 0;
 	display: inline-block;
 	line-height: 0;
+	margin-top: 0;
 }
 .updates_head a{
 	background: url('../images/rss_icon.png') left center no-repeat;
@@ -962,7 +969,7 @@ blockquote{
 
 /*------ Generic chart styles ------*/
 
-#subsidy-charts tr.header-row td{ 
+#subsidy-charts tr.header-row td, #subsidy-charts tr.header-row th{ 
 	background-color: #e4e4e4; 
 	border-top: 1px solid #a5a5a5; 
 	border-bottom: 1px solid #a5a5a5; 
@@ -1180,7 +1187,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 .download-link { float: ;}
 .download-link a { padding: 5px 0 5px 25px; background: url(../images/download_icon_smaller.png) 0 3px no-repeat;}
 
-/*------ Table style exceptions ------*/
+/*------ Alternate side bar ------*/
 .internal-ad{
 	background: url('../images/PTED_ad_numbercruncher.png') center top no-repeat;
 	padding-top: 230px;
@@ -1227,7 +1234,20 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 
 #contact_form { padding:20px 0 0 0;  margin-bottom:2em;}
 #contact_form label { width: 8em;	float: left;	text-align: right;	margin-right: .5em;	display: block;	margin-bottom:1em; 	}
-#contact_form .submit input { font-size: 12px; margin-left:8.5em;	} 
+#contact_form .submit input { 
+	font-size: 12px; 
+	margin-left:8.5em;
+	background: url('../images/button_contact_submit.png') center top no-repeat;
+	width: 500px;
+	height: 40px;
+	border: none;
+	text-indent: -9999em;
+	
+} 
+#contact_form .submit input:hover { 
+	background: url('../images/button_contact_submit.png') center bottom no-repeat;
+	
+}
 #contact_form textarea { width:500px; height:100px;}
 #contact_form input { width:500px; height: 20px}
 /*
@@ -1243,6 +1263,73 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 .pted-head h3{
 	display: inline;
 }
+
+
+
+.non_content { margin:20px 0 20px 0; padding:0 0 0 0;}
+.manyeyes img{
+	margin:0;
+}
+
+.bla a {}
+.bla li{
+}
+.bla ul{
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.energy-consumption ul{
+	width: 660px;
+	margin-right: 0;
+}
+
+.energy-consumption li{
+	width: 150px;
+	display: inline-block;
+}
+
+/*------ Data Page Styling ------*/
+#big-download-icon { float:right; margin: 20px 50px 20px 50px; }
+
+#data-page ul.datasets { margin-left: 30px; margin-top: 10px;}
+#data-page ul.datasets, ul.datasets li { padding-left: 0; margin-left: 0;}		
+#data-page ul.datasets li
+{
+	width: 45%;
+	float: left;
+	margin-top: 1em;
+	list-style-type: none;
+}
+
+#data-page ul.datasets li.odd { clear: left; margin-right: 2em;}
+#data-page ul.datasets li .downloads { margin-left: 1em;}
+#data-page ul.datasets li .updated { font-style: italic; margin-top: -1em;}
+#data-page ul.datasets li h5, ul.datasets li .downloads { float: left; padding-top: 0; margin-top: 0; margin-bottom: 0;}
+#data-page ul.datasets li p { clear: left; }
+#data-page ul.datasets li .top{
+	border-bottom:1px solid #C7C7C7;
+	margin-bottom: 5px;
+	padding-bottom: 2px;
+}
+#data-page ul.datasets li .top .clear { clear: left;}
+.data-section h4{ margin-top: 0}
+
+#data-page .data-section { 
+	clear: left;
+
+}
+
+#data-page .data-section .section-description {
+	border-top:1px solid #C7C7C7;
+	color:#666666;
+	font-size:12px;
+	font-weight:normal;
+	line-height:1.2em;
+	padding:5px 0;
+	margin-bottom: 15px;
+}
+
 
 
 
