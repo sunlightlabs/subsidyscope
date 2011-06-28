@@ -4,11 +4,12 @@
 
 
 			    {% for item in list %}
+       
 				{% if forloop.last %}
-				&raquo; {{ item.name }}
+
 				{% else %}
                     {% if forloop.first %}
-                         <a href="{% url tax_expenditures-group item.id %}?estimate={{ estimate_type }}{% if year %}&year={{ year }}{% endif %}">{{ item.name }}</a>
+                         &raquo;&nbsp;<a href="{% url tax_expenditures-group item.id %}?estimate={{ estimate_type }}{% if year %}&year={{ year }}{% endif %}">{{ item.name }}</a>
                     {% else %}
 
         				&raquo; <a href="{% url tax_expenditures-group item.id %}?estimate={{ estimate_type }}{% if year %}&year={{ year }}{% endif %}">{{ item.name }}</a>
