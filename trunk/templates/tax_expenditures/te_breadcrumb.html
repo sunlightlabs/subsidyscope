@@ -3,22 +3,18 @@
     
 
 
-<ul>
-	<li>
-		<a href="{% url tax_expenditures-summary %}">Tax Expenditures</a> &raquo; <a href="{% url tax_expenditures-main %}">Database</a>
-		<ul>
-			<li>
-				{% for item in list %}
+			    {% for item in list %}
 				{% if forloop.last %}
 				&raquo; {{ item.name }}
 				{% else %}
-				&raquo; <a href="{% url tax_expenditures-group item.id %}?estimate={{ estimate_type }}{% if year %}&year={{ year }}{% endif %}">{{ item.name }}</a>
+                    {% if forloop.first %}
+                         <a href="{% url tax_expenditures-group item.id %}?estimate={{ estimate_type }}{% if year %}&year={{ year }}{% endif %}">{{ item.name }}</a>
+                    {% else %}
+
+        				&raquo; <a href="{% url tax_expenditures-group item.id %}?estimate={{ estimate_type }}{% if year %}&year={{ year }}{% endif %}">{{ item.name }}</a>
+                    {% endif %}
 				{% endif %}
 				{% endfor %}
-			</li>
-		</ul>	
-	</li>
-</ul>
 
 
 
