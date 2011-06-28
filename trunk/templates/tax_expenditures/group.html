@@ -55,21 +55,7 @@
 <div class="wrapper clearfix">	
          <div class="secondary-header pted-head">
             <h3>Pew's Tax Expenditure Database</h3>
-
-			<span class="breadcrumbs">
-
-
-
-					<a href="{% url tax_expenditures-summary %}">Tax Expenditures</a> &raquo; <a href="{% url tax_expenditures-main %}">Database</a>
-							{% for item in list %}
-							{% if forloop.last %}
-							&raquo; {{ item.name }}
-							{% else %}
-							&raquo; <a href="{% url tax_expenditures-group item.id %}?estimate={{ estimate_type }}{% if year %}&year={{ year }}{% endif %}">{{ item.name }}</a>
-							{% endif %}
-							{% endfor %}
-
-			</span>
+        {% te_breadcrumb group estimate year %}
         </div>
 
      	{% recursive_menu %}

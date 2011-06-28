@@ -87,11 +87,9 @@ def subscribe(request):
             except IntegrityError:
                 return _render_response(response_type, 101)
                 
-        try:
+        if hasattr(settings, "MAILINGLIST_SUBSCRIBE_CALLBACK"):
             if settings.MAILINGLIST_SUBSCRIBE_CALLBACK:
                 settings.MAILINGLIST_SUBSCRIBE_CALLBACK(recipient)
-        except AttributeError:
-            pass
             
         return _render_response(response_type)
     

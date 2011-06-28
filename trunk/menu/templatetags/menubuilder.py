@@ -50,9 +50,9 @@ def recursive_menu(context):
     
     for mi in menu_items:
         if current_path.startswith(mi.link_url):
-            html.append('<ul class="single"><li class="active"><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
+            html.append('<ul class="single"><li class="active"><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
         else:
-            html.append('<ul><li><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
+            html.append('<ul><li><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
     menu_data = ''.join(html)
     return { 'menu_data': menu_data, 'menu_items': menu_items }
 
