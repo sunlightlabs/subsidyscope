@@ -9,7 +9,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Kaitlin Lee','klee@sunlightfoundation.com'),
-    ('timball', 'tball@sunlightfoundation.com')
+    ('timball', 'tball@sunlightfoundation.com'),
     ('Drew Vogel', 'dvogel@sunlightfoundation.com')
 )
 
@@ -124,7 +124,7 @@ INSTALLED_APPS = (
     'inflation',
     'navigation',
     'gunicorn',
-    'menu'
+    'menu',
     'sectors',
     'cfda_usaspending_summary',
     'subsidysort',
