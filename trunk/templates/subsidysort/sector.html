@@ -50,7 +50,8 @@ function findProgram()
 
 function editComment(that, id)
 {
-    $(that).siblings('div').show();
+    var current = $(that).siblings('span').text(); 
+    $(that).siblings('div').children('textarea').text(current).end().show();
 }
 
 function saveComment(that, program_id, id)
