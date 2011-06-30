@@ -1,0 +1,63 @@
+
+{% load media %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="" >
+<head>
+<title>ContractSort</title>
+<link rel="stylesheet" type="text/css" href="***REMOVED***css/dashboard.css" />
+
+	{% js "scripts/jquery-1.3.2.min.js" %}
+
+<meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class="dashboard">
+
+<!-- Container -->
+<div id="container">
+
+    
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+			<h1 id="site-name"><a href="/contractsort">ContractSort</a></h1>
+        </div>
+        <div id="refresh">
+        </div>
+        {% if user %}
+        	<div id="user-tools">Welcome, <strong>{{ user.first_name }}</strong>. <a href="/admin/password_change/">Change password</a> / <a href="{% url contractsort-logout %}">Log out</a></div> 
+		{% endif %}
+        
+        
+    </div>
+    <!-- END Header -->
+    
+    
+
+        
+
+    <!-- Content -->
+    <div id="content" >
+        
+        <h1>{% block title %}{% endblock %}</h1>
+        
+		<div id="content-main">
+
+		{% block content %}
+		{% endblock %}
+		
+		</div>
+
+        <br class="clear" />
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+
+</html>

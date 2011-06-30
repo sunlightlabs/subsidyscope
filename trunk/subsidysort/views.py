@@ -1,146 +1,176 @@
 from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login as login_auth, logout as logout_auth
 from django.forms import ModelForm
 from django.db.models import Q
 
-from cfda.models import ProgramDescription
+from django import forms
+
+from cfda.models import ProgramDescription, ProgramFunctionalIndex
+from budget_accounts.models import BudgetFunction
+from sectors.models import Sector
 from subsidysort.models import * 
 
-class VoteForm(ModelForm):
     
-    class Meta():
-        model = Vote
-        
-class CFDAForm(ModelForm):
+class SectorForm(ModelForm):
     
-    class Meta():
-        model = ProgramDescription
-         
+    budget_functions = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple(), queryset=BudgetFunction.objects.all(), required=False)
+    functional_indexes = forms.ModelMultipleChoiceField(widget=forms.CheckboxSelectMultiple(), queryset=ProgramFunctionalIndex.objects.all(), required=False)
+    
+    class Meta:
+        model = Sector
+        fields = ['budget_functions', 'functional_indexes']
 
-@login_required
+#@login_required
 def main(request):
     
-    tasks = Task.objects.all()
+     sectors = Sector.objects.all()
+          
+     return render_to_response('subsidysort/main.html', {'sectors':sectors})
+
+#@login_required
+def sector(request, sector_id):
     
-    return render_to_response('subsidysort/main.html', { 'tasks':tasks, 'user':request.user})
+    sector = Sector.objects.get(pk=int(sector_id))
+
+    included_programs = sector.programdescription_set.all().distinct()
+    import logging
+    logging.debug(included_programs) 
+    bf_list = sector.budget_functions.all()
+   
+    all_programs_data = {}
+    all_programs = []
 
 
-@login_required
-def task(request, task_id):
-    
-    task = Task.objects.get(id=task_id)
-    
-    items = Item.objects.filter(task=task)
-    
-    pending_items = []
-    
-    for item in items:
+    #each key maps to a tuple
+    #the tuple order is (budget function or functional index?, which ones?)
+     
+    for bf in bf_list:
+        bf_programs = ProgramDescription.objects.filter(budget_accounts__budget_function=bf).distinct()
+        for bf_prog in bf_programs:
+            if all_programs_data.has_key(bf_prog):
+                p = all_programs_data[bf_prog]
+                p[1] = p[1] + ', ' + bf.name + '(bf)'
+            else:
+                all_programs_data[bf_prog] = ['budget function', bf.name + '(bf)']
+                all_programs.append(bf_prog)
         
-        if item.vote_set.filter(user=request.user).count() == 0:
-            pending_items.append(item)
-        
-    votes = Vote.objects.filter(user=request.user, item__task=task)
+    fi_list = sector.functional_indexes.all()
     
-    return render_to_response('subsidysort/task.html', { 'task':task, 'pending_items':pending_items,'votes':votes, 'user':request.user})
+    for fi in fi_list:
+        fi_programs = ProgramDescription.objects.filter(functional_index=fi).distinct()
+        for fi_prog in fi_programs:
+            if all_programs_data.has_key(fi_prog):
+                p = all_programs_data[fi_prog]
+                if p[0] == 'budget function':
+                    p[0] = 'both'
+                p[1] += ', '+ fi.name + '(fi) '
+            else:
+                all_programs_data[fi_prog] = ['functional index', fi.name + '(fi)']
+                all_programs.append(fi_prog)     
+   
+    #to capture manually added programs not in bf or fi
+    for ip in included_programs:
+        if ip not in all_programs:
+            all_programs.append(ip)
+            all_programs_data[ip] = [ '', '', '']
 
+    data = []
+    for p in all_programs:
+        data.append((p, all_programs_data[p][0], all_programs_data[p][1]))
+    
+    return render_to_response('subsidysort/sector.html', {'sector':sector, 'included_programs':included_programs, 'all_programs': all_programs, 'all_programs_data': all_programs_data, 'data': data })
 
-def review(request, task_id, show='all', tag_id=None, tag_location=None):
+#@login_required
+def sector_edit(request, sector_id):
     
-    task = Task.objects.get(id=task_id)
-    
-    items = Item.objects.filter(task=task)
-    
-    final_items = []
-    
-    if show == 'all':
-        final_items = items
-        
+    sector = Sector.objects.get(pk=int(sector_id))
+
+    if request.method == 'POST':
+        form = SectorForm(request.POST, instance=sector)
+        form.save()
     else:
-        
-        for item in items:
-            
-            votes = item.getVotes()
-            
-            if show == 'yes' and votes.has_key('yes') and len(votes) == 1: 
-                final_items.append(item)
-            elif show == 'no' and votes.has_key('no') and len(votes) == 1:
-                final_items.append(item)    
-            elif show == 'split' and len(votes) > 1:
-                final_items.append(item)
-         
-    selected_tag = None
+        form = SectorForm(instance=sector)
+    
+    return render_to_response('subsidysort/sector_edit.html', {'sector':sector, 'form':form})
 
+#@login_required
+def sector_add(request, sector_id, program_id):
+    
+    sector = Sector.objects.get(pk=int(sector_id))
+    
+    program = ProgramDescription.objects.get(pk=int(program_id))
+
+    if request.method == 'POST':
+        program.sectors.add(sector)
+    
+    return HttpResponse()
+
+#@login_required
+def sector_delete(request, sector_id, program_id):
+    
+    sector = Sector.objects.get(pk=int(sector_id))
+    
+    program = ProgramDescription.objects.get(pk=int(program_id))
+
+    if request.method == 'POST':
+        program.sectors.remove(sector)
+    
+    return HttpResponse()
+
+#@login_required
+def sector_search(request, sector_id, cfda):
+    
+    sector = Sector.objects.get(pk=int(sector_id))
+    
+    included_programs = sector.programdescription_set.all()
+    
     try:
-        tag_location = int(tag_location)
-    except:
-        tag_location = -1
+        program = ProgramDescription.objects.get(program_number=cfda.strip())
     
-    if tag_id and int(tag_id):
-        
-        tag_id = int(tag_id)
-        
-        selected_tag = Tag.objects.get(id=tag_id)
-        
-        final = User.objects.get(id=14)
-        
-        
-            
-        if tag_location == 1:
-            final_items = Item.objects.filter(Q(vote__user=final) & Q(vote__primary_purpose=selected_tag))
-        elif tag_location == 2:
-            final_items = Item.objects.filter(Q(vote__user=final) & Q(vote__tags=selected_tag))
+        if program in included_programs:
+            included = True
         else:
-            final_items = Item.objects.filter(Q(vote__user=final) & (Q(vote__primary_purpose=selected_tag) | Q(vote__tags=selected_tag)))    
-      
+            included = False
+        
+    except:
+        program = False
+        included = False
+        
     
-    tags = Tag.objects.all()
-
-    return render_to_response('subsidysort/review.html', {'task':task, 'items':final_items, 'user':request.user, 'tags':tags, 'selected_tag':selected_tag, 'tag_location':tag_location } )
-                            
-
-
-@login_required
-def vote(request, item_id):
     
-    item = Item.objects.get(id=item_id)
+    return render_to_response('subsidysort/cfda_search.html', {'program':program, 'included':included})
+
+
+#@login_required
+def cfda(request, program_id):
+    
+    program = ProgramDescription.objects.get(id=int(program_id))
+    budget_accounts = program.budget_accounts.all()
+    budget_functions = []
+    for ba in budget_accounts:
+        if ba.budget_function not in budget_functions:
+            budget_functions.append(ba.budget_function)
+
+    functional_indexes = program.functional_index.all()    
+
+    return render_to_response('subsidysort/cfda.html', {'program':program, 'budget_functions': budget_functions, 'functional_indexes': functional_indexes})
+
+
+
+#@login_required
+def cfda_save_comment(request, program_id):
+    
+    program = ProgramDescription.objects.get(id=int(program_id))
     
     if request.method == 'POST':
-        try:
-            vote = item.vote_set.get(user=request.user)
-            vote = VoteForm(request.POST, instance=vote)
-        except:
-            vote = VoteForm(request.POST) 
+        program.scoping_comment = request.POST['comment']
+        program.save()
     
-        vote.instance.item = item
-        vote.instance.user = request.user
-        vote.save()
-        
-        items = Item.objects.filter(task=item.task)
-        
-#        for item in items:
-#            if item.vote_set.filter(user=request.user).count() == 0:
-#                return HttpResponseRedirect('/subsidysort/vote/%d/' % item.id)
-#        
-        return HttpResponseRedirect('/subsidysort/review/%d/' % item.task.id)
-    
-    try:    
-        vote = item.vote_set.get(user=request.user)
-        vote_form = VoteForm(instance=vote)
-    except: 
-        vote_form = VoteForm()
-    
-    return render_to_response('subsidysort/vote.html', {'item':item, 'vote_form':vote_form, 'user':request.user})
+    return HttpResponse()
 
-
-@login_required
-def cfda(request, cfda_id):
-    
-    program = ProgramDescription.objects.get(id=int(cfda_id))
-    
-    return render_to_response('subsidysort/cfda.html', {'program':program, 'user':request.user})
 
 
 def login(request):
@@ -152,7 +182,10 @@ def login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login_auth(request, user)
-            return HttpResponseRedirect('/subsidysort/')
+            if request.POST.has_key('next'):
+                return HttpResponseRedirect(request.POST['next'])
+            else:
+                return HttpResponseRedirect('/subsidysort/')
         
         else:
             return render_to_response('subsidysort/login.html', {'invalid':True})

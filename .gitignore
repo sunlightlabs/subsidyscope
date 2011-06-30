@@ -7,5 +7,11 @@ lib/
 include/
 *.zip
 *.sql
-local_settings.py
 local_settings.example.py
+*.swp
+*.swo
+.DS_Store
+local_settings.py
+solr*
+apache-solr*
+virt_subsidyscope

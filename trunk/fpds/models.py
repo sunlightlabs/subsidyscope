@@ -1,10 +1,12 @@
 from django.db import models
+from django.db.models import Max
 from sectors.models import Sector, Subsector
-import MySQLdb
+import pg
 import sys
 from geo.models import *
-
-
+import csv
+from django.core.exceptions import MultipleObjectsReturned, ObjectDoesNotExist
+from agency.models import Agency
 
 class ExtentCompetedMapper(object):
     # (code, title, description, considered subsidy?)
@@ -30,6 +32,47 @@ class ExtentCompetedMapper(object):
     def assign_index(self, code):
         return self._lookup.get(code, 0)
 
+class NAICSCodeManager(models.Manager):
+
+    def load_naics(self, infile=None):
+        if not infile:
+            f = csv.reader(open("data/naics/naics_codes.csv"))
+        else:
+            f = csv.reader(open(infile))
+
+        f.next() #header line
+        for l in f:
+            code = l[1]
+            desc = l[2]
+
+            try:
+                code = int(code)
+            except:
+                print "%s is not valid" % code
+                
+                continue #not a valid code
+
+            print code     
+
+            try:
+                n = NAICSCode.objects.get(code=code)
+
+            except ObjectDoesNotExist as e:
+                n = NAICSCode(code=code, name=desc)
+
+            if len(str(code)) > 2:
+                parent_code = int(str(code)[:2])
+                try:
+                    n.parent_code = NAICSCode.objects.get(code=parent_code)
+                
+                except ObjectDoesNotExist:
+                    pc = NAICSCode(code=parent_code)
+                    pc.save()
+                    n.parent_code = pc
+            n.name = desc
+            print n
+            n.save()
+
 
 class NAICSCode(models.Model):
     def __unicode__(self):
@@ -41,14 +84,33 @@ class NAICSCode(models.Model):
     class Meta:
         verbose_name = 'NAICS Code'
         
-    code = models.IntegerField("Numeric Code", max_length=6, blank=False)
+    code = models.IntegerField("Numeric Code", primary_key=True, max_length=6, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=True, default='')
 
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
 
     parent_code = models.ForeignKey('NAICSCode', blank=True, null=True)
+    objects = NAICSCodeManager()
 
+class ProductOrServiceCodeManager(models.Manager):
+
+    def load_psc(self, infile=None):
+        if not infile:
+            f = csv.reader(open("data/psc/psc_codes.csv"))
+        else:
+            f = csv.reader(open(infile))
+
+        f.next() #header line
+        for l in f:
+            code = l[0]
+            desc = l[1]
+            try:
+                p = ProductOrServiceCode.objects.get(code=code, name=desc)
+
+            except ObjectDoesNotExist:
+                p = ProductOrServiceCode(code=code, name=desc)
+                p.save()
 
 class ProductOrServiceCode(models.Model):
     def __unicode__(self):
@@ -60,12 +122,13 @@ class ProductOrServiceCode(models.Model):
     class Meta:
         verbose_name = 'PSC Code'
 
-    code = models.CharField("Numeric Code", max_length=5, blank=False)
+    code = models.CharField("Numeric Code", max_length=5, primary_key=True, blank=False)
     name = models.CharField("Descriptive Name", max_length=255, blank=True, default='')    
 
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
 
+    objects = ProductOrServiceCodeManager()
 
 
 class CodeMatcher(object):
@@ -110,14 +173,20 @@ class FPDSRecord(models.Model):
         
     def save(self):
         self.sector_hash = self._generate_sector_hash()
-        super(FPDSRecord, self).save()
+        try:
+            super(FPDSRecord, self).save()
+        except:
+            pass#change this, stupid truncation...
     
+    unique_transaction_id = models.CharField('unique_transaction_id', max_length=255, blank=False, null=False)
+    data_commons_id = models.IntegerField('data commons id', blank=False, null=False, primary_key=True)
+
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
     sector_hash = models.IntegerField("Sector Hash", blank=True, null=True, db_index=True)
 
     version = models.CharField('version', max_length=10, blank=True, default='')
-    agency_id = models.CharField('agencyID', max_length=4, blank=True, default='')
+    agency = models.ForeignKey(Agency, null=True, blank=True)
     piid = models.CharField('PIID', max_length=50, blank=True, default='')
     mod_number = models.CharField('modNumber', max_length=25, blank=True, default='')
     transaction_number = models.CharField('transactionNumber', max_length=6, blank=True, default='')
@@ -135,9 +204,7 @@ class FPDSRecord(models.Model):
     contracting_office_id = models.CharField('contractingOfficeID', max_length=6, blank=True, default='')
     funding_requesting_agency_id = models.CharField('fundingRequestingAgencyID', max_length=4, blank=True, default='')
     funding_requesting_office_id = models.CharField('fundingRequestingOfficeID', max_length=6, blank=True, default='')
-    purchase_reason = models.CharField('purchaseReason', max_length=1, blank=True, default='')
     funded_by_foreign_entity = models.NullBooleanField('fundedByForeignEntity', default=False, blank=True, null=True) # values: ['f', '', 't']
-    fee_paid_for_use_of_service = models.DecimalField('feePaidForUseOfService', max_digits=18, decimal_places=2, blank=True, null=True)
     contract_action_type = models.CharField('contractActionType', max_length=1, blank=True, default='')
     type_of_contract_pricing = models.CharField('typeOfContractPricing', max_length=1, blank=True, default='')
     national_interest_action_code = models.CharField('nationalInterestActionCode', max_length=4, blank=True, default='')
@@ -176,7 +243,6 @@ class FPDSRecord(models.Model):
     vendor_legal_organization_name = models.CharField('vendorLegalOrganizationName', max_length=120, blank=True, default='')
     vendor_doing_as_business_name = models.CharField('vendorDoingAsBusinessName', max_length=80, blank=True, default='')
     vendor_enabled = models.NullBooleanField('vendorEnabled', default=False, blank=True, null=True) # values: ['', 'f']
-    small_business_flag = models.NullBooleanField('smallBusinessFlag', default=False, blank=True, null=True) # values: ['t', 'f']
     firm8aflag = models.NullBooleanField('firm8AFlag', default=False, blank=True, null=True) # values: ['f', 't']
     hubzone_flag = models.NullBooleanField('HUBZoneFlag', default=False, blank=True, null=True) # values: ['f', 't']
     sdbflag = models.NullBooleanField('SDBFlag', default=False, blank=True, null=True) # values: ['f', 't']
@@ -222,7 +288,6 @@ class FPDSRecord(models.Model):
     registration_date = models.DateField('registrationDate', blank=True, null=True)
     renewal_date = models.DateField('renewalDate', blank=True, null=True)
     vendor_location_disable_flag = models.NullBooleanField('vendorLocationDisableFlag', default=False, blank=True, null=True) # values: ['']
-    contractor_name = models.CharField('contractorName', max_length=80, blank=True, default='')
     ccrexception = models.CharField('CCRException', max_length=1, blank=True, default='')
     contracting_officer_business_size_determination = models.CharField('contractingOfficerBusinessSizeDetermination', max_length=1, default='', blank=True) # values: ['S', 'O', '']
     location_code = models.CharField('locationCode', max_length=5, blank=True, default='')
@@ -237,94 +302,38 @@ class FPDSRecord(models.Model):
     type_of_set_aside = models.CharField('typeOfSetAside', max_length=10, blank=True, default='')
     evaluated_preference = models.CharField('evaluatedPreference', max_length=6, blank=True, default='')
     research = models.CharField('research', max_length=3, blank=True, default='')
-    statutory_exception_to_fair_opportunity = models.CharField('statutoryExceptionToFairOpportunity', max_length=3, blank=True, default='')
+    statutory_exception_to_fair_opportunity = models.CharField('statutoryExceptionToFairOpportunity', max_length=10, blank=True, default='')
     reason_not_competed = models.CharField('reasonNotCompeted', max_length=3, blank=True, default='')
     number_of_offers_received = models.IntegerField('numberOfOffersReceived', max_length=6, blank=True, null=True)
     commercial_item_acquisition_procedures = models.NullBooleanField('commercialItemAcquisitionProcedures', default=False, blank=True, null=True) # values: ['t', 'f', '']
     commercial_item_test_program = models.NullBooleanField('commercialItemTestProgram', default=False, blank=True, null=True) # values: ['t', 'f']
     small_business_competitiveness_demonstration_program = models.NullBooleanField('smallBusinessCompetitivenessDemonstrationProgram', default=False, blank=True, null=True) # values: ['f', 't']
-    pre_award_synopsis_requirement = models.NullBooleanField('preAwardSynopsisRequirement', default=False, blank=True, null=True) # values: ['t', 'f']
-    synopsis_waiver_exception = models.NullBooleanField('synopsisWaiverException', default=False, blank=True, null=True) # values: ['f', 't']
-    alternative_advertising = models.NullBooleanField('alternativeAdvertising', default=False, blank=True, null=True) # values: ['f', 't']
     a76action = models.NullBooleanField('A76Action', default=False, blank=True, null=True) # values: ['f', '', 't']
     price_evaluation_percent_difference = models.CharField('priceEvaluationPercentDifference', max_length=2, blank=True, default='')
     subcontract_plan = models.CharField('subcontractPlan', max_length=1, blank=True, default='')
-    reason_not_awarded_to_small_disadvantaged_business = models.CharField('reasonNotAwardedToSmallDisadvantagedBusiness', max_length=1, blank=True, default='')
-    reason_not_awarded_to_small_business = models.CharField('reasonNotAwardedToSmallBusiness', max_length=1, blank=True, default='')
-    created_by = models.CharField('createdBy', max_length=50, blank=True, default='')
-    created_date = models.DateField('createdDate', blank=True, null=True)
-    last_modified_by = models.CharField('lastModifiedBy', max_length=50, blank=True, default='')
-    last_modified_date = models.DateField('lastModifiedDate', blank=True, null=True)
     status = models.NullBooleanField('status', default=False, blank=False) # values: ['F']
-    agencyspecific_id = models.CharField('agencyspecificID', max_length=4, blank=True, default='')
-    offerors_proposal_number = models.CharField('offerorsProposalNumber', max_length=18, blank=True, default='')
-    prnumber = models.CharField('PRNumber', max_length=12, blank=True, default='')
-    closeout_pr = models.NullBooleanField('closeoutPR', default=False, blank=True) # values: ['', 'f', 't']
-    procurement_placement_code = models.CharField('procurementPlacementCode', max_length=2, blank=True, default='')
-    solicitation_issue_date = models.DateField('solicitationIssueDate', blank=True, null=True)
-    contract_administration_delegated = models.CharField('contractAdministrationDelegated', max_length=10, blank=True, default='')
-    advisory_or_assistance_services_contract = models.NullBooleanField('advisoryOrAssistanceServicesContract', default=False, blank=True, null=True) # values: ['', 'f']
-    support_services_type_contract = models.NullBooleanField('supportServicesTypeContract', default=False, blank=True, null=True) # values: ['', 'f', 't']
-    new_technology_or_patent_rights_clause = models.NullBooleanField('newTechnologyOrPatentRightsClause', default=False, blank=True, null=True) # values: ['', 'f', 't']
-    management_reporting_requirements = models.CharField('managementReportingRequirements', max_length=1, blank=True, default='')
-    property_financial_reporting = models.NullBooleanField('propertyFinancialReporting', default=False, blank=True, null=True) # values: ['', 'f', 't']
-    value_engineering_clause = models.NullBooleanField('valueEngineeringClause', default=False, blank=True, null=True) # values: ['', 'f', 't']
-    security_code = models.NullBooleanField('securityCode', default=False, blank=True, null=True) # values: ['', 'f']
-    administrator_code = models.CharField('administratorCode', max_length=3, blank=True, default='')
-    contracting_officer_code = models.CharField('contractingOfficerCode', max_length=3, blank=True, default='')
-    negotiator_code = models.CharField('negotiatorCode', max_length=3, blank=True, default='')
-    cotrname = models.CharField('COTRName', max_length=15, blank=True, default='')
-    alternate_cotrname = models.CharField('alternateCOTRName', max_length=15, blank=True, default='')
-    organization_code = models.CharField('organizationCode', max_length=5, blank=True, default='')
-    contract_fund_code = models.CharField('contractFundCode', max_length=1, default='', blank=True, null=True) # values: ['', 'F', 'I']
-    is_physically_complete = models.NullBooleanField('isPhysicallyComplete', default=False, blank=True, null=True) # values: ['', 'f', 't']
-    physical_completion_date = models.DateField('physicalCompletionDate', blank=True, null=True)
-    installation_unique = models.CharField('installationUnique', max_length=9, blank=True, default='')
-    funded_through_date = models.DateField('fundedThroughDate', blank=True, null=True)
-    cancellation_date = models.DateField('cancellationDate', blank=True, null=True)
-    principal_investigator_first_name = models.CharField('principalInvestigatorFirstName', max_length=40, blank=True, default='')
-    principal_investigator_middle_initial = models.CharField('principalInvestigatorMiddleInitial', max_length=6, blank=True, default='')
-    principal_investigator_last_name = models.CharField('principalInvestigatorLastName', max_length=75, blank=True, default='')
-    alternate_principal_investigator_first_name = models.CharField('alternatePrincipalInvestigatorFirstName', max_length=40, blank=True, default='')
-    alternate_principal_investigator_middle_initial = models.CharField('alternatePrincipalInvestigatorMiddleInitial', max_length=6, blank=True, default='')
-    alternate_principal_investigator_last_name = models.CharField('alternatePrincipalInvestigatorLastName', max_length=75, blank=True, default='')
-    field_of_science_or_engineering = models.CharField('fieldOfScienceOrEngineering', max_length=2, blank=True, default='')
-    final_invoice_paid_date = models.DateField('finalInvoicePaidDate', blank=True, null=True)
-    accession_number = models.CharField('accessionNumber', max_length=20, blank=True, default='')
-    destroy_date = models.DateField('destroyDate', blank=True, null=True)
-    accounting_installation_number = models.CharField('accountingInstallationNumber', max_length=2, blank=True, default='')
     other_statutory_authority = models.TextField('otherStatutoryAuthority', blank=True, null=True)
-    wild_fire_program = models.CharField('wildFireProgram', max_length=3, blank=True, default='')
-    ee_parent_duns = models.CharField('eeParentDuns', max_length=13, blank=True, default='')
-    parent_company = models.CharField('ParentCompany', max_length=100, blank=True, default='')
-    po_pcd = models.CharField('PoPCD', max_length=10, blank=True, default='')
     fiscal_year = models.IntegerField('fiscal_year', max_length=6, blank=True, null=True)
-    name_type = models.CharField('name_type', max_length=1, blank=True, default='')
-    mod_name = models.CharField('mod_name', max_length=120, blank=True, default='')
     mod_parent = models.CharField('mod_parent', max_length=100, blank=True, default='')
-    record_id = models.IntegerField('record_id', max_length=20, blank=True, null=True, primary_key=True)
-    parent_id = models.IntegerField('parent_id', max_length=20, blank=True, null=True)
-    award_id = models.IntegerField('award_id', max_length=20, blank=True, null=True)
-    idv_id = models.IntegerField('idv_id', max_length=20, blank=True, null=True)
-    mod_sort = models.IntegerField('mod_sort', max_length=11, blank=True, null=True)
-    compete_cat = models.CharField('compete_cat', max_length=1, blank=True, default='')
     maj_agency_cat = models.CharField('maj_agency_cat', max_length=2, blank=True, default='')
     psc_cat = models.CharField('psc_cat', max_length=2, blank=True, default='')
-    setaside_cat = models.NullBooleanField('setaside_cat', default=False, blank=True, null=True) # values: ['']
-    vendor_type = models.CharField('vendor_type', max_length=2, blank=True, default='')
     vendor_cd = models.CharField('vendor_cd', max_length=4, blank=True, default='')
     pop_cd = models.CharField('pop_cd', max_length=4, blank=True, default='')
-    data_src = models.NullBooleanField('data_src', default=False, blank=True, null=True) # values: ['f']
     mod_agency = models.CharField('mod_agency', max_length=4, blank=True, default='')
-    mod_eeduns = models.CharField('mod_eeduns', max_length=13, blank=True, default='')
-    mod_dunsid = models.IntegerField('mod_dunsid', max_length=20, blank=True, null=True)
-    mod_fund_agency = models.CharField('mod_fund_agency', max_length=4, blank=True, default='')
     maj_fund_agency_cat = models.CharField('maj_fund_agency_cat', max_length=2, blank=True, default='')
     prog_source_agency = models.CharField('ProgSourceAgency', max_length=2, blank=True, default='')
     prog_source_account = models.CharField('ProgSourceAccount', max_length=4, blank=True, default='')
     prog_source_sub_acct = models.CharField('ProgSourceSubAcct', max_length=3, blank=True, default='')
     rec_flag = models.NullBooleanField('rec_flag', default=False, blank=True, null=True) # values: ['']
     annual_revenue = models.DecimalField('annualRevenue', max_digits=20, decimal_places=2, blank=True, null=True)
+
+    def lookup_agency(self):
+        try:
+            agency = Agency.objects.get(fips_code=int(self.maj_agency_cat))
+            self.agency = agency
+            self.save()
+        except:
+            pass
 
 
 
@@ -341,214 +350,148 @@ class FPDSLoader(object):
 
         self.FIELD_MAPPING = {
         #   'django field name': 'FPDS field name' OR callable that returns value when passed row
-            'agency_id': (self.make_null_emptystring, {'field_name': 'agencyID'}),
-            'piid': (self.make_null_emptystring, {'field_name': 'PIID'}),
-            'mod_number': (self.make_null_emptystring, {'field_name': 'modNumber'}),
-            'transaction_number': (self.make_null_emptystring, {'field_name': 'transactionNumber'}),
-            'idvagency_id': (self.make_null_emptystring, {'field_name': 'IDVAgencyID'}),
-            'idvpiid': (self.make_null_emptystring, {'field_name': 'IDVPIID'}),
-            'idvmodification_number': (self.make_null_emptystring, {'field_name': 'IDVModificationNumber'}),
-            'signed_date': 'signedDate',
-            'effective_date': 'effectiveDate',
-            'current_completion_date': 'currentCompletionDate',
-            'ultimate_completion_date': 'ultimateCompletionDate',
-            'obligated_amount': (self.convert_float_to_string, { 'field_name': 'obligatedAmount'}),
-            'base_and_exercised_options_value': (self.convert_float_to_string, { 'field_name': 'baseAndExercisedOptionsValue'}),
-            'base_and_all_options_value': (self.convert_float_to_string, { 'field_name': 'baseAndAllOptionsValue'}),
-            'contracting_office_agency_id': (self.make_null_emptystring, {'field_name': 'contractingOfficeAgencyID'}),
-            'contracting_office_id': (self.make_null_emptystring, {'field_name': 'contractingOfficeID'}),
-            'funding_requesting_agency_id': (self.make_null_emptystring, {'field_name': 'fundingRequestingAgencyID'}),
-            'funding_requesting_office_id': (self.make_null_emptystring, {'field_name': 'fundingRequestingOfficeID'}),
-            'purchase_reason': (self.make_null_emptystring, {'field_name': 'purchaseReason'}),
-            'funded_by_foreign_entity': (self.make_boolean_from_char, {'field_name': 'fundedByForeignEntity'}),
-            'fee_paid_for_use_of_service': (self.convert_float_to_string, { 'field_name': 'feePaidForUseOfService'}),
-            'contract_action_type': (self.make_null_emptystring, {'field_name': 'contractActionType'}),
-            'type_of_contract_pricing': (self.make_null_emptystring, {'field_name': 'typeOfContractPricing'}),
-            'national_interest_action_code': (self.make_null_emptystring, {'field_name': 'nationalInterestActionCode'}),
-            'reason_for_modification': (self.make_null_emptystring, {'field_name': 'reasonForModification'}),
-            'major_program_code': (self.make_null_emptystring, {'field_name': 'majorProgramCode'}),
-            'cost_or_pricing_data': (self.make_null_emptystring, {'field_name': 'costOrPricingData'}),
-            'solicitation_id': (self.make_null_emptystring, {'field_name': 'solicitationID'}),
-            'cost_accounting_standards_clause': (self.make_boolean_from_char, {'field_name': 'costAccountingStandardsClause'}),
-            'description_of_contract_requirement': (self.make_null_emptystring, {'field_name': 'descriptionOfContractRequirement'}),
-            'gfe_gfp': (self.make_boolean_from_char, {'field_name': 'GFE_GFP'}),
-            'sea_transportation': (self.make_null_emptystring, {'field_name': 'seaTransportation'}),
-            'consolidated_contract': (self.make_boolean_from_char, {'field_name': 'consolidatedContract'}),
-            'letter_contract': (self.make_boolean_from_char, {'field_name': 'letterContract'}),
-            'multi_year_contract': (self.make_boolean_from_char, {'field_name': 'multiYearContract'}),
-            'performance_based_service_contract': (self.make_boolean_from_char, {'field_name': 'performanceBasedServiceContract'}),
-            'contingency_humanitarian_peacekeeping_operation': (self.make_null_emptystring, {'field_name': 'contingencyHumanitarianPeacekeepingOperation'}),
-            'contract_financing': (self.make_null_emptystring, {'field_name': 'contractFinancing'}),
-            'purchase_card_as_payment_method': (self.make_boolean_from_char, {'field_name': 'purchaseCardAsPaymentMethod'}),
-            'number_of_actions': 'numberOfActions',
-            'walsh_healy_act': (self.make_boolean_from_char, {'field_name': 'WalshHealyAct'}),
-            'service_contract_act': (self.make_boolean_from_char, {'field_name': 'serviceContractAct'}),
-            'davis_bacon_act': (self.make_boolean_from_char, {'field_name': 'DavisBaconAct'}),
-            'clinger_cohen_act': (self.make_boolean_from_char, {'field_name': 'ClingerCohenAct'}),
-            'product_or_service_code': (self.lookup_classification_code, {'field_name': 'productOrServiceCode', 'matcher': self.psc_matcher}),
-            'contract_bundling': (self.make_null_emptystring, {'field_name': 'contractBundling'}),
-            'claimant_program_code': (self.make_null_emptystring, {'field_name': 'claimantProgramCode'}),
-            'principal_naicscode': (self.lookup_classification_code, {'field_name': 'principalNAICSCode', 'matcher': self.naics_matcher}),
-            'recovered_material_clauses': (self.make_null_emptystring, {'field_name': 'recoveredMaterialClauses'}),
-            'system_equipment_code': (self.make_null_emptystring, {'field_name': 'systemEquipmentCode'}),
-            'information_technology_commercial_item_category': (self.make_null_emptystring, {'field_name': 'informationTechnologyCommercialItemCategory'}),
-            'use_of_epadesignated_products': (self.make_null_emptystring, {'field_name': 'useOfEPADesignatedProducts'}),
-            'country_of_origin': (self.make_null_emptystring, {'field_name': 'countryOfOrigin'}),
-            'place_of_manufacture': (self.make_null_emptystring, {'field_name': 'placeOfManufacture'}),
-            'vendor_name': (self.make_null_emptystring, {'field_name': 'vendorName'}),
-            'vendor_alternate_name': (self.make_null_emptystring, {'field_name': 'vendorAlternateName'}),
-            'vendor_legal_organization_name': (self.make_null_emptystring, {'field_name': 'vendorLegalOrganizationName'}),
-            'vendor_doing_as_business_name': (self.make_null_emptystring, {'field_name': 'vendorDoingAsBusinessName'}),
-            'vendor_enabled': (self.make_boolean_from_char, {'field_name': 'vendorEnabled'}),
-            'small_business_flag': (self.make_boolean_from_char, {'field_name': 'smallBusinessFlag'}),
-            'firm8aflag': (self.make_boolean_from_char, {'field_name': 'firm8AFlag'}),
-            'hubzone_flag': (self.make_boolean_from_char, {'field_name': 'HUBZoneFlag'}),
-            'sdbflag': (self.make_boolean_from_char, {'field_name': 'SDBFlag'}),
-            'sheltered_workshop_flag': (self.make_boolean_from_char, {'field_name': 'shelteredWorkshopFlag'}),
-            'hbcuflag': (self.make_boolean_from_char, {'field_name': 'HBCUFlag'}),
-            'educational_institution_flag': (self.make_boolean_from_char, {'field_name': 'educationalInstitutionFlag'}),
-            'women_owned_flag': (self.make_boolean_from_char, {'field_name': 'womenOwnedFlag'}),
-            'veteran_owned_flag': (self.make_boolean_from_char, {'field_name': 'veteranOwnedFlag'}),
-            'srdvobflag': (self.make_boolean_from_char, {'field_name': 'SRDVOBFlag'}),
-            'local_government_flag': (self.make_boolean_from_char, {'field_name': 'localGovernmentFlag'}),
-            'minority_institution_flag': (self.make_boolean_from_char, {'field_name': 'minorityInstitutionFlag'}),
-            'aiobflag': (self.make_boolean_from_char, {'field_name': 'AIOBFlag'}),
-            'state_government_flag': (self.make_boolean_from_char, {'field_name': 'stateGovernmentFlag'}),
-            'federal_government_flag': (self.make_boolean_from_char, {'field_name': 'federalGovernmentFlag'}),
-            'minority_owned_business_flag': (self.make_boolean_from_char, {'field_name': 'minorityOwnedBusinessFlag'}),
-            'apaobflag': (self.make_boolean_from_char, {'field_name': 'APAOBFlag'}),
-            'tribal_government_flag': (self.make_boolean_from_char, {'field_name': 'tribalGovernmentFlag'}),
-            'baobflag': (self.make_boolean_from_char, {'field_name': 'BAOBFlag'}),
-            'naobflag': (self.make_boolean_from_char, {'field_name': 'NAOBFlag'}),
-            'saaobflag': (self.make_boolean_from_char, {'field_name': 'SAAOBFlag'}),
-            'nonprofit_organization_flag': (self.make_boolean_from_char, {'field_name': 'nonprofitOrganizationFlag'}),
-            'haobflag': (self.make_boolean_from_char, {'field_name': 'HAOBFlag'}),
-            'very_small_business_flag': (self.make_boolean_from_char, {'field_name': 'verySmallBusinessFlag'}),
-            'hospital_flag': (self.make_boolean_from_char, {'field_name': 'hospitalFlag'}),
-            'number_of_employees': 'numberOfEmployees',
-            'organizational_type': (self.make_null_emptystring, {'field_name': 'organizationalType'}),
-            'street_address': (self.make_null_emptystring, {'field_name': 'streetAddress'}),
-            'street_address2': (self.make_null_emptystring, {'field_name': 'streetAddress2'}),
-            'street_address3': (self.make_null_emptystring, {'field_name': 'streetAddress3'}),
+            'unique_transaction_id': 'unique_transaction_id',
+            'data_commons_id': 'id',
+            'agency': (self.lookup_agency, {'field_name': 'maj_agency_cat'}),
+            'piid': (self.make_null_emptystring, {'field_name': 'piid'}),
+            'mod_number': (self.make_null_emptystring, {'field_name': 'modnumber'}),
+            'transaction_number': (self.make_null_emptystring, {'field_name': 'transactionnumber'}),
+            'idvagency_id': (self.make_null_emptystring, {'field_name': 'idvagencyid'}),
+            'idvpiid': (self.make_null_emptystring, {'field_name': 'idvpiid'}),
+            'idvmodification_number': (self.make_null_emptystring, {'field_name': 'idvmodificationnumber'}),
+            'signed_date': 'signeddate',
+            'effective_date': 'effectivedate',
+            'current_completion_date': 'currentcompletiondate',
+            'ultimate_completion_date': 'ultimatecompletiondate',
+            'obligated_amount': (self.convert_float_to_string, { 'field_name': 'obligatedamount'}),
+            'base_and_exercised_options_value': (self.convert_float_to_string, { 'field_name': 'baseandexercisedoptionsvalue'}),
+            'base_and_all_options_value': (self.convert_float_to_string, { 'field_name': 'baseandalloptionsvalue'}),
+            'contracting_office_agency_id': (self.make_null_emptystring, {'field_name': 'contractingofficeagencyid'}),
+            'contracting_office_id': (self.make_null_emptystring, {'field_name': 'contractingofficeid'}),
+            'funding_requesting_agency_id': (self.make_null_emptystring, {'field_name': 'fundingrequestingagencyid'}),
+            'funding_requesting_office_id': (self.make_null_emptystring, {'field_name': 'fundingrequestingofficeid'}),
+            'funded_by_foreign_entity': (self.make_boolean_from_char, {'field_name': 'fundedbyforeignentity'}),
+            'contract_action_type': (self.make_null_emptystring, {'field_name': 'contractactiontype'}),
+            'type_of_contract_pricing': (self.make_null_emptystring, {'field_name': 'typeofcontractpricing'}),
+            'national_interest_action_code': (self.make_null_emptystring, {'field_name': 'nationalinterestactioncode'}),
+            'reason_for_modification': (self.make_null_emptystring, {'field_name': 'reasonformodification'}),
+            'major_program_code': (self.make_null_emptystring, {'field_name': 'majorprogramcode'}),
+            'cost_or_pricing_data': (self.make_null_emptystring, {'field_name': 'costorpricingdata'}),
+            'solicitation_id': (self.make_null_emptystring, {'field_name': 'solicitationid'}),
+            'cost_accounting_standards_clause': (self.make_boolean_from_char, {'field_name': 'costaccountingstandardsclause'}),
+            'description_of_contract_requirement': (self.make_null_emptystring, {'field_name': 'descriptionofcontractrequirement'}),
+            'gfe_gfp': (self.make_boolean_from_char, {'field_name': 'gfe_gfp'}),
+            'sea_transportation': (self.make_null_emptystring, {'field_name': 'seatransportation'}),
+            'consolidated_contract': (self.make_boolean_from_char, {'field_name': 'consolidatedcontract'}),
+            'letter_contract': (self.make_boolean_from_char, {'field_name': 'lettercontract'}),
+            'multi_year_contract': (self.make_boolean_from_char, {'field_name': 'multiyearcontract'}),
+            'performance_based_service_contract': (self.make_boolean_from_char, {'field_name': 'performancebasedservicecontract'}),
+            'contingency_humanitarian_peacekeeping_operation': (self.make_null_emptystring, {'field_name': 'contingencyhumanitarianpeacekeepingoperation'}),
+            'contract_financing': (self.make_null_emptystring, {'field_name': 'contractfinancing'}),
+            'purchase_card_as_payment_method': (self.make_boolean_from_char, {'field_name': 'purchasecardaspaymentmethod'}),
+            'number_of_actions': 'numberofactions',
+            'walsh_healy_act': (self.make_boolean_from_char, {'field_name': 'Walshhealyact'}),
+            'service_contract_act': (self.make_boolean_from_char, {'field_name': 'servicecontractact'}),
+            'davis_bacon_act': (self.make_boolean_from_char, {'field_name': 'davisbaconact'}),
+            'clinger_cohen_act': (self.make_boolean_from_char, {'field_name': 'clingercohenact'}),
+            'product_or_service_code': (self.lookup_classification_code, {'field_name': 'productorservicecode', 'matcher': self.psc_matcher}),
+            'contract_bundling': (self.make_null_emptystring, {'field_name': 'contractbundling'}),
+            'claimant_program_code': (self.make_null_emptystring, {'field_name': 'claimantprogramcode'}),
+            'principal_naicscode': (self.lookup_classification_code, {'field_name': 'principalnaicscode', 'matcher': self.naics_matcher}),
+            'recovered_material_clauses': (self.make_null_emptystring, {'field_name': 'recoveredmaterialclauses'}),
+            'system_equipment_code': (self.make_null_emptystring, {'field_name': 'systemequipmentcode'}),
+            'information_technology_commercial_item_category': (self.make_null_emptystring, {'field_name': 'informationtechnologycommercialitemcategory'}),
+            'use_of_epadesignated_products': (self.make_null_emptystring, {'field_name': 'useofepadesignatedproducts'}),
+            'country_of_origin': (self.make_null_emptystring, {'field_name': 'countryoforigin'}),
+            'place_of_manufacture': (self.make_null_emptystring, {'field_name': 'placeofmanufacture'}),
+            'vendor_name': (self.make_null_emptystring, {'field_name': 'vendorname'}),
+            'vendor_alternate_name': (self.make_null_emptystring, {'field_name': 'vendoralternatename'}),
+            'vendor_legal_organization_name': (self.make_null_emptystring, {'field_name': 'vendorlegalorganizationname'}),
+            'vendor_doing_as_business_name': (self.make_null_emptystring, {'field_name': 'vendordoingasbusinessname'}),
+            'vendor_enabled': (self.make_boolean_from_char, {'field_name': 'vendorenabled'}),
+            'firm8aflag': (self.make_boolean_from_char, {'field_name': 'firm8aflag'}),
+            'hubzone_flag': (self.make_boolean_from_char, {'field_name': 'hubzoneflag'}),
+            'sdbflag': (self.make_boolean_from_char, {'field_name': 'sdbflag'}),
+            'sheltered_workshop_flag': (self.make_boolean_from_char, {'field_name': 'shelteredworkshopflag'}),
+            'hbcuflag': (self.make_boolean_from_char, {'field_name': 'hbcuflag'}),
+            'educational_institution_flag': (self.make_boolean_from_char, {'field_name': 'educationalinstitutionflag'}),
+            'women_owned_flag': (self.make_boolean_from_char, {'field_name': 'womenownedflag'}),
+            'veteran_owned_flag': (self.make_boolean_from_char, {'field_name': 'veteranownedflag'}),
+            'srdvobflag': (self.make_boolean_from_char, {'field_name': 'srdvobflag'}),
+            'local_government_flag': (self.make_boolean_from_char, {'field_name': 'localgovernmentflag'}),
+            'minority_institution_flag': (self.make_boolean_from_char, {'field_name': 'minorityinstitutionflag'}),
+            'aiobflag': (self.make_boolean_from_char, {'field_name': 'aiobflag'}),
+            'state_government_flag': (self.make_boolean_from_char, {'field_name': 'stategovernmentflag'}),
+            'federal_government_flag': (self.make_boolean_from_char, {'field_name': 'federalgovernmentflag'}),
+            'minority_owned_business_flag': (self.make_boolean_from_char, {'field_name': 'minorityownedbusinessflag'}),
+            'apaobflag': (self.make_boolean_from_char, {'field_name': 'apaobflag'}),
+            'tribal_government_flag': (self.make_boolean_from_char, {'field_name': 'tribalgovernmentflag'}),
+            'baobflag': (self.make_boolean_from_char, {'field_name': 'baobflag'}),
+            'naobflag': (self.make_boolean_from_char, {'field_name': 'naobflag'}),
+            'saaobflag': (self.make_boolean_from_char, {'field_name': 'saaobflag'}),
+            'nonprofit_organization_flag': (self.make_boolean_from_char, {'field_name': 'nonprofitorganizationflag'}),
+            'haobflag': (self.make_boolean_from_char, {'field_name': 'haobflag'}),
+            'very_small_business_flag': (self.make_boolean_from_char, {'field_name': 'verysmallbusinessflag'}),
+            'hospital_flag': (self.make_boolean_from_char, {'field_name': 'hospitalflag'}),
+            'number_of_employees': 'numberofemployees',
+            'organizational_type': (self.make_null_emptystring, {'field_name': 'organizationaltype'}),
+            'street_address': (self.make_null_emptystring, {'field_name': 'streetaddress'}),
+            'street_address2': (self.make_null_emptystring, {'field_name': 'streetaddress2'}),
+            'street_address3': (self.make_null_emptystring, {'field_name': 'streetaddress3'}),
             'city': (self.make_null_emptystring, {'field_name': 'city'}),
             'state': (self.lookup_state, {'field_name': 'state'}),
-            'zipcode': (self.make_null_emptystring, {'field_name': 'ZIPCode'}),
-            'vendor_country_code': (self.make_null_emptystring, {'field_name': 'vendorCountryCode'}),
-            'vendor_site_code': (self.make_null_emptystring, {'field_name': 'vendorSiteCode'}),
-            'vendor_alternate_site_code': (self.make_null_emptystring, {'field_name': 'vendorAlternateSiteCode'}),
-            'dunsnumber': (self.make_null_emptystring, {'field_name': 'DUNSNumber'}),
-            'parent_dunsnumber': (self.make_null_emptystring, {'field_name': 'parentDUNSNumber'}),
-            'phone_no': (self.make_null_emptystring, {'field_name': 'phoneNo'}),
-            'fax_no': (self.make_null_emptystring, {'field_name': 'faxNo'}),
-            'division_name': (self.make_null_emptystring, {'field_name': 'divisionName'}),
-            'division_number_or_office_code': (self.make_null_emptystring, {'field_name': 'divisionNumberOrOfficeCode'}),
-            'congressional_district': (self.make_null_emptystring, {'field_name': 'congressionalDistrict'}),
-            'registration_date': 'registrationDate',
-            'renewal_date': 'renewalDate',
-            'vendor_location_disable_flag': (self.make_boolean_from_char, {'field_name': 'vendorLocationDisableFlag'}),
-            'contractor_name': (self.make_null_emptystring, {'field_name': 'contractorName'}),
-            'ccrexception': (self.make_null_emptystring, {'field_name': 'CCRException'}),
-            'contracting_officer_business_size_determination': (self.make_null_emptystring, {'field_name': 'contractingOfficerBusinessSizeDetermination'}),
-            'location_code': (self.make_null_emptystring, {'field_name': 'locationCode'}),
-            'state_code': (self.lookup_state, {'field_name': 'stateCode'}),
-            'place_of_performance_country_code': (self.make_null_emptystring, {'field_name': 'placeOfPerformanceCountryCode'}),
-            'place_of_performance_zipcode': (self.make_null_emptystring, {'field_name': 'placeOfPerformanceZIPCode'}),
-            'place_of_performance_congressional_district': (self.make_null_emptystring, {'field_name': 'placeOfPerformanceCongressionalDistrict'}),
+            'zipcode': (self.make_null_emptystring, {'field_name': 'zipcode'}),
+            'vendor_country_code': (self.make_null_emptystring, {'field_name': 'vendorcountrycode'}),
+            'vendor_site_code': (self.make_null_emptystring, {'field_name': 'vendorsitecode'}),
+            'vendor_alternate_site_code': (self.make_null_emptystring, {'field_name': 'vendoralternatesitecode'}),
+            'dunsnumber': (self.make_null_emptystring, {'field_name': 'dunsnumber'}),
+            'parent_dunsnumber': (self.make_null_emptystring, {'field_name': 'parentdunsnumber'}),
+            'phone_no': (self.make_null_emptystring, {'field_name': 'phoneno'}),
+            'fax_no': (self.make_null_emptystring, {'field_name': 'faxno'}),
+            'division_name': (self.make_null_emptystring, {'field_name': 'divisionname'}),
+            'division_number_or_office_code': (self.make_null_emptystring, {'field_name': 'divisionnumberorofficecode'}),
+            'congressional_district': (self.make_null_emptystring, {'field_name': 'congressionaldistrict'}),
+            'registration_date': 'registrationdate',
+            'renewal_date': 'renewaldate',
+            'vendor_location_disable_flag': (self.make_boolean_from_char, {'field_name': 'vendorlocationdisableflag'}),
+            'ccrexception': (self.make_null_emptystring, {'field_name': 'ccrexception'}),
+            'contracting_officer_business_size_determination': (self.make_null_emptystring, {'field_name': 'contractingofficerbusinesssizedetermination'}),
+            'location_code': (self.make_null_emptystring, {'field_name': 'locationcode'}),
+            'state_code': (self.lookup_state, {'field_name': 'statecode'}),
+            'place_of_performance_country_code': (self.make_null_emptystring, {'field_name': 'placeofperformancecountrycode'}),
+            'place_of_performance_zipcode': (self.make_null_emptystring, {'field_name': 'placeofperformancezipcode'}),
+            'place_of_performance_congressional_district': (self.make_null_emptystring, {'field_name': 'placeofperformancecongressionaldistrict'}),
             'place_of_performance_state': (self.lookup_pop_state, {}),
-            'extent_competed': (self.make_null_emptystring, {'field_name': 'extentCompeted'}),
-            'competitive_procedures': (self.make_null_emptystring, {'field_name': 'competitiveProcedures'}),
-            'solicitation_procedures': (self.make_null_emptystring, {'field_name': 'solicitationProcedures'}),
-            'type_of_set_aside': (self.make_null_emptystring, {'field_name': 'typeOfSetAside'}),
-            'evaluated_preference': (self.make_null_emptystring, {'field_name': 'evaluatedPreference'}),
+            'extent_competed': (self.make_null_emptystring, {'field_name': 'extentcompeted'}),
+            'competitive_procedures': (self.make_null_emptystring, {'field_name': 'competitiveprocedures'}),
+            'solicitation_procedures': (self.make_null_emptystring, {'field_name': 'solicitationprocedures'}),
+            'type_of_set_aside': (self.make_null_emptystring, {'field_name': 'typeofsetaside'}),
+            'evaluated_preference': (self.make_null_emptystring, {'field_name': 'evaluatedpreference'}),
             'research': (self.make_null_emptystring, {'field_name': 'research'}),
-            'statutory_exception_to_fair_opportunity': (self.make_null_emptystring, {'field_name': 'statutoryExceptionToFairOpportunity'}),
-            'reason_not_competed': (self.make_null_emptystring, {'field_name': 'reasonNotCompeted'}),
-            'number_of_offers_received': 'numberOfOffersReceived',
-            'commercial_item_acquisition_procedures': (self.make_boolean_from_char, {'field_name': 'commercialItemAcquisitionProcedures'}),
-            'commercial_item_test_program': (self.make_boolean_from_char, {'field_name': 'commercialItemTestProgram'}),
-            'small_business_competitiveness_demonstration_program': (self.make_boolean_from_char, {'field_name': 'smallBusinessCompetitivenessDemonstrationProgram'}),
-            'pre_award_synopsis_requirement': (self.make_boolean_from_char, {'field_name': 'preAwardSynopsisRequirement'}),
-            'synopsis_waiver_exception': (self.make_boolean_from_char, {'field_name': 'synopsisWaiverException'}),
-            'alternative_advertising': (self.make_boolean_from_char, {'field_name': 'alternativeAdvertising'}),
-            'a76action': (self.make_boolean_from_char, {'field_name': 'A76Action'}),
-            'price_evaluation_percent_difference': (self.make_null_emptystring, {'field_name': 'priceEvaluationPercentDifference'}),
-            'subcontract_plan': (self.make_null_emptystring, {'field_name': 'subcontractPlan'}),
-            'reason_not_awarded_to_small_disadvantaged_business': (self.make_null_emptystring, {'field_name': 'reasonNotAwardedToSmallDisadvantagedBusiness'}),
-            'reason_not_awarded_to_small_business': (self.make_null_emptystring, {'field_name': 'reasonNotAwardedToSmallBusiness'}),
-            'created_by': (self.make_null_emptystring, {'field_name': 'createdBy'}),
-            'created_date': 'createdDate',
-            'last_modified_by': (self.make_null_emptystring, {'field_name': 'lastModifiedBy'}),
-            'last_modified_date': 'lastModifiedDate',
-            'status': (self.make_boolean_from_char, {'field_name': 'status'}),
-            'agencyspecific_id': (self.make_null_emptystring, {'field_name': 'agencyspecificID'}),
-            'offerors_proposal_number': (self.make_null_emptystring, {'field_name': 'offerorsProposalNumber'}),
-            'prnumber': (self.make_null_emptystring, {'field_name': 'PRNumber'}),
-            'closeout_pr': (self.make_boolean_from_char, {'field_name': 'closeoutPR'}),
-            'procurement_placement_code': (self.make_null_emptystring, {'field_name': 'procurementPlacementCode'}),
-            'solicitation_issue_date': 'solicitationIssueDate',
-            'contract_administration_delegated': (self.make_null_emptystring, {'field_name': 'contractAdministrationDelegated'}),
-            'advisory_or_assistance_services_contract': (self.make_boolean_from_char, {'field_name': 'advisoryOrAssistanceServicesContract'}),
-            'support_services_type_contract': (self.make_boolean_from_char, {'field_name': 'supportServicesTypeContract'}),
-            'new_technology_or_patent_rights_clause': (self.make_boolean_from_char, {'field_name': 'newTechnologyOrPatentRightsClause'}),
-            'management_reporting_requirements': (self.make_null_emptystring, {'field_name': 'managementReportingRequirements'}),
-            'property_financial_reporting': (self.make_boolean_from_char, {'field_name': 'propertyFinancialReporting'}),
-            'value_engineering_clause': (self.make_boolean_from_char, {'field_name': 'valueEngineeringClause'}),
-            'security_code': (self.make_boolean_from_char, {'field_name': 'securityCode'}),
-            'administrator_code': (self.make_null_emptystring, {'field_name': 'administratorCode'}),
-            'contracting_officer_code': (self.make_null_emptystring, {'field_name': 'contractingOfficerCode'}),
-            'negotiator_code': (self.make_null_emptystring, {'field_name': 'negotiatorCode'}),
-            'cotrname': (self.make_null_emptystring, {'field_name': 'COTRName'}),
-            'alternate_cotrname': (self.make_null_emptystring, {'field_name': 'alternateCOTRName'}),
-            'organization_code': (self.make_null_emptystring, {'field_name': 'organizationCode'}),
-            'contract_fund_code': (self.make_null_emptystring, {'field_name': 'contractFundCode'}),
-            'is_physically_complete': (self.make_boolean_from_char, {'field_name': 'isPhysicallyComplete'}),
-            'physical_completion_date': 'physicalCompletionDate',
-            'installation_unique': (self.make_null_emptystring, {'field_name': 'installationUnique'}),
-            'funded_through_date': 'fundedThroughDate',
-            'cancellation_date': 'cancellationDate',
-            'principal_investigator_first_name': (self.make_null_emptystring, {'field_name': 'principalInvestigatorFirstName'}),
-            'principal_investigator_middle_initial': (self.make_null_emptystring, {'field_name': 'principalInvestigatorMiddleInitial'}),
-            'principal_investigator_last_name': (self.make_null_emptystring, {'field_name': 'principalInvestigatorLastName'}),
-            'alternate_principal_investigator_first_name': (self.make_null_emptystring, {'field_name': 'alternatePrincipalInvestigatorFirstName'}),
-            'alternate_principal_investigator_middle_initial': (self.make_null_emptystring, {'field_name': 'alternatePrincipalInvestigatorMiddleInitial'}),
-            'alternate_principal_investigator_last_name': (self.make_null_emptystring, {'field_name': 'alternatePrincipalInvestigatorLastName'}),
-            'field_of_science_or_engineering': (self.make_null_emptystring, {'field_name': 'fieldOfScienceOrEngineering'}),
-            'final_invoice_paid_date': 'finalInvoicePaidDate',
-            'accession_number': (self.make_null_emptystring, {'field_name': 'accessionNumber'}),
-            'destroy_date': 'destroyDate',
-            'accounting_installation_number': (self.make_null_emptystring, {'field_name': 'accountingInstallationNumber'}),
-            'other_statutory_authority': (self.make_null_emptystring, {'field_name': 'otherStatutoryAuthority'}),
-            'wild_fire_program': (self.make_null_emptystring, {'field_name': 'wildFireProgram'}),
-            'ee_parent_duns': (self.make_null_emptystring, {'field_name': 'eeParentDuns'}),
-            'parent_company': (self.make_null_emptystring, {'field_name': 'ParentCompany'}),
-            'po_pcd': (self.make_null_emptystring, {'field_name': 'PoPCD'}),
+            'statutory_exception_to_fair_opportunity': (self.make_null_emptystring, {'field_name': 'statutoryexceptiontofairopportunity'}),
+            'reason_not_competed': (self.make_null_emptystring, {'field_name': 'reasonnotcompeted'}),
+            'number_of_offers_received': 'numberofoffersreceived',
+            'commercial_item_acquisition_procedures': (self.make_boolean_from_char, {'field_name': 'commercialitemacquisitionprocedures'}),
+            'commercial_item_test_program': (self.make_boolean_from_char, {'field_name': 'commercialitemtestprogram'}),
+            'small_business_competitiveness_demonstration_program': (self.make_boolean_from_char, {'field_name': 'smallbusinesscompetitivenessdemonstrationprogram'}),
+            'a76action': (self.make_boolean_from_char, {'field_name': 'a76action'}),
+            'price_evaluation_percent_difference': (self.make_null_emptystring, {'field_name': 'priceevaluationpercentdifference'}),
+            'subcontract_plan': (self.make_null_emptystring, {'field_name': 'subcontractplan'}),
+            'status': (self.make_boolean_from_char, {'field_name': 'transaction_status'}),
+            'other_statutory_authority': (self.make_null_emptystring, {'field_name': 'otherstatutoryauthority'}),
             'fiscal_year': 'fiscal_year',
-            'name_type': (self.make_null_emptystring, {'field_name': 'name_type'}),
-            'mod_name': (self.make_null_emptystring, {'field_name': 'mod_name'}),
             'mod_parent': (self.make_null_emptystring, {'field_name': 'mod_parent'}),
-            'record_id': 'record_id',
-            'parent_id': 'parent_id',
-            'award_id': 'award_id',
-            'idv_id': 'idv_id',
-            'mod_sort': 'mod_sort',
-            'compete_cat': (self.make_null_emptystring, {'field_name': 'compete_cat'}),
             'maj_agency_cat': (self.make_null_emptystring, {'field_name': 'maj_agency_cat'}),
             'psc_cat': (self.make_null_emptystring, {'field_name': 'psc_cat'}),
-            'setaside_cat': (self.make_boolean_from_char, {'field_name': 'setaside_cat'}),
-            'vendor_type': (self.make_null_emptystring, {'field_name': 'vendor_type'}),
             'vendor_cd': (self.make_null_emptystring, {'field_name': 'vendor_cd'}),
             'pop_cd': (self.make_null_emptystring, {'field_name': 'pop_cd'}),
-            'data_src': (self.make_boolean_from_char, {'field_name': 'data_src'}),
             'mod_agency': (self.make_null_emptystring, {'field_name': 'mod_agency'}),
-            'mod_eeduns': (self.make_null_emptystring, {'field_name': 'mod_eeduns'}),
-            'mod_dunsid': 'mod_dunsid',
-            'mod_fund_agency': (self.make_null_emptystring, {'field_name': 'mod_fund_agency'}),
             'maj_fund_agency_cat': (self.make_null_emptystring, {'field_name': 'maj_fund_agency_cat'}),
-            'prog_source_agency': (self.make_null_emptystring, {'field_name': 'ProgSourceAgency'}),
-            'prog_source_account': (self.make_null_emptystring, {'field_name': 'ProgSourceAccount'}),
-            'prog_source_sub_acct': (self.make_null_emptystring, {'field_name': 'ProgSourceSubAcct'}),
+            'prog_source_agency': (self.make_null_emptystring, {'field_name': 'progsourceagency'}),
+            'prog_source_account': (self.make_null_emptystring, {'field_name': 'progsourceaccount'}),
+            'prog_source_sub_acct': (self.make_null_emptystring, {'field_name': 'progsourcesubacct'}),
             'rec_flag': (self.make_boolean_from_char, {'field_name': 'rec_flag'}),
-            'annual_revenue': (self.convert_float_to_string, { 'field_name': 'annualRevenue'}),     
+            'annual_revenue': (self.convert_float_to_string, { 'field_name': 'annualrevenue'}),     
         }
 
 
@@ -560,12 +503,35 @@ class FPDSLoader(object):
         """ check for assignation of sector to each record """
         record = args[0]
         sectors_to_assign = []
-        for sector in self.sector_sql_mapping:
-            if int(record['include_in_sector_%s' % sector.id])==1:
-                sectors_to_assign.append(sector)
+        n_txt = record.get('principalnaicscode')
+        p_txt = record.get('productorservicecode')
+        print n_txt
+        if n_txt != '':
+            naics = NAICSCode.objects.filter(code=n_txt)
+            if len(naics) > 0:
+                naics = naics[0]
+                for s in self.sector_sql_mapping:
+                    if s in naics.sectors.all():
+                        sectors_to_assign.append(s)
+        elif p_txt != '':
+            psc = ProductOrServiceCode.objects.filter(code=record.get('productorservicecode'))
+            if len(psc) > 0:
+                psc = psc[0]
+                for s in self.sector_sql_mapping:
+                    if s in psc.sectors.all():
+                        sectors_to_assign.append(s)
+
         return sectors_to_assign
 
-
+    def lookup_agency(self, *args, **kwargs):
+        record = args[0]
+        field_name = kwargs['field_name']
+        agency_fips = record[field_name]
+        try:
+            agency = Agency.objects.get(fips_code=int(agency_fips))
+            return (True, agency)
+        except:
+            return (False, None)
 
     def make_boolean_from_char(self, *args, **kwargs):
         """ return (success, result) """
@@ -731,30 +697,29 @@ class FPDSLoader(object):
 
     def process_record(self, FPDS_record):
         django_record = FPDSRecord()
-
         failed_fields = []
+        print "id: %s" % FPDS_record.get('id')
         for attrname in self.FIELD_MAPPING:            
             grabber = self.FIELD_MAPPING[attrname]
             if type(grabber)==tuple and callable(grabber[0]):
                 func = grabber[0]
                 args = [FPDS_record]
                 kwargs = grabber[1]
-                (success, extracted_value) = func(FPDS_record, *args, **kwargs)
-                if success:
-                    setattr(django_record, attrname, extracted_value)
-                else:
-                    failed_fields.append("%s (%s)" % (attrname, str(extracted_value)))                    
+                if FPDS_record.get(kwargs.get('field_name')) or attrname == 'place_of_performance_state' :
+                    (success, extracted_value) = func(FPDS_record, *args, **kwargs)
+                    if success:
+                        setattr(django_record, attrname, extracted_value)
+                    else:
+                        failed_fields.append("%s (%s)" % (attrname, str(extracted_value)))                    
             else:
                 setattr(django_record, attrname, FPDS_record.get(grabber))
 
         if len(failed_fields):
-            sys.stderr.write("%d: failed to extract field(s) %s\n" % (FPDS_record['record_id'], ', '.join(failed_fields)))
+            sys.stderr.write("%s: failed to extract field(s) %s\n" % (FPDS_record['unique_transaction_id'], ', '.join(failed_fields)))
 
-
-        # TODO: figure out why the fuck you get this error:
-        # TypeError: 'ManyRelatedManager' object is not iterable        
 
         django_record.save()
+        print "saved record"
         django_record.sectors = self.assign_sectors(FPDS_record)
         django_record.save()
 
@@ -763,67 +728,86 @@ class FPDSLoader(object):
         # except Exception, e:
         #     sys.stderr.write("%d: failed to save / %s\n" % (FPDS_record['record_id'], str(e)))
 
+    def get_max_id(self):
+        return FPDSRecord.objects.aggregate(Max('data_commons_id'))['data_commons_id__max'] or 0
+        
+    def get_max_server_id(self, conn, settings):
+        
+        sql = "SELECT MAX(id) FROM %s" % settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'contracts_contract')
+        res = conn.query(sql)
+        d = res.dictresult()[0].get('max')
+        return d
+        
 
     def do_import(self, table_override=None):
         import imp
         from django.conf import settings
         sql_selection_clauses = []
         self.sector_sql_mapping = {}
-        for app in settings.INSTALLED_APPS:
-            try:
-                app_path = __import__(app, {}, {}, [app.split('.')[-1]]).__path__
-            except AttributeError:
-                continue
+        #for app in settings.INSTALLED_APPS:
+        #    try:
+        #        app_path = __import__(app, {}, {}, [app.split('.')[-1]]).__path__
+        #    except AttributeError:
+        #        continue
+        #
+        #    try:
+        #        imp.find_module('usaspending', app_path)
+        #    except ImportError:
+        #        continue
 
-            try:
-                imp.find_module('usaspending', app_path)
-            except ImportError:
-                continue
+        #    m = __import__("%s.usaspending" % app)            
+        #    f = getattr(getattr(m, 'usaspending', 'None'), 'fpds', False)
+        #    if f:
+        #        sector_selection_criteria = f()
+        #        if sector_selection_criteria not in (None, False):   
+        #            sql_selection_clauses.append("(%s)" % sector_selection_criteria['sector'].values()[0])
+        #            self.sector_sql_mapping[sector_selection_criteria['sector'].keys()[0]] = sector_selection_criteria['sector'].values()[0]
 
-            m = __import__("%s.usaspending" % app)            
-            f = getattr(getattr(m, 'usaspending', 'None'), 'fpds', False)
-            if f:
-                sector_selection_criteria = f()
-                if sector_selection_criteria not in (None, False):   
-                    sql_selection_clauses.append("(%s)" % sector_selection_criteria['sector'].values()[0])
-                    self.sector_sql_mapping[sector_selection_criteria['sector'].keys()[0]] = sector_selection_criteria['sector'].values()[0]
-
+        all_sectors = Sector.objects.filter(launched=True)
+        for sector in all_sectors:
+        
+            psc_codes = ProductOrServiceCode.objects.filter(sectors=sector)
+            naics_codes = NAICSCode.objects.filter(sectors=sector)
+             
+            if psc_codes or naics_codes:     
+                psc_code_string = "'%s'" % "','".join(map(lambda x: str(x.code).upper().strip(), psc_codes)) # chars -- need quotes
+                naics_code_string = "'%s'" % "','".join(map(lambda x: str(x.code), naics_codes)) # ints -- no quotes necessary
+                sql = "TRIM(UPPER(extentCompeted)) IN ('B', 'C', 'D', 'E', 'G', 'NDO') AND ((TRIM(UPPER(principalNAICSCode)) IN (%s)) OR ((TRIM(principalNAICSCode)='') AND (TRIM(UPPER(productOrServiceCode)) IN (%s))))" % (naics_code_string, psc_code_string)
+            
+                sql_selection_clauses.append("(%s)" % sql)
+                self.sector_sql_mapping[sector] = sql
+                print psc_code_string
+                print naics_code_string
+            
         # generate SQL that will provide a field for each record delineating the sectors to which it should be assigned
-        sector_inclusion_sql = map(lambda (sector, sql): "IF((%s),1,0) AS include_in_sector_%s " % (sql, sector.id), self.sector_sql_mapping.items())
+        sector_inclusion_sql = map(lambda (sector, sql): "IF ((%s)) THEN AS include_in_sector_%s END IF " % (sql, sector.id), self.sector_sql_mapping.items())
         if len(sector_inclusion_sql):
             sector_inclusion_sql.insert(0, '')
         
-        assert len(sql_selection_clauses)>0, "At least one installed app must define a usaspending.FPDS() method"
-
-        from django.db import connection
-        cursor = connection.cursor()
-        cursor.execute("SELECT MAX(record_id) AS max_record_id FROM fpds_fpdsrecord;")
-        row = cursor.fetchone()
-        max_record_id = row[0]
-        if max_record_id is None:
-            max_record_id = 0
-
-
-
-        conn = MySQLdb.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], db=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'], cursorclass=MySQLdb.cursors.DictCursor)
-        cursor = conn.cursor()
-        sql = "SELECT *%s FROM %s WHERE (%s) AND record_id > %d ORDER BY record_id ASC LIMIT 1000" % (", ".join(sector_inclusion_sql), (table_override is not None) and table_override or settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'fpds_award3_sf'), " OR ".join(sql_selection_clauses), max_record_id)
-        print "Executing query: %s" % sql
-
-
-        cursor.execute(sql)
+        max_id = self.get_max_id()
+        
+        conn = pg.connect(host=settings.FPDS_IMPORT_MYSQL_SETTINGS['host'], user=settings.FPDS_IMPORT_MYSQL_SETTINGS['user'], passwd=settings.FPDS_IMPORT_MYSQL_SETTINGS['password'], dbname=settings.FPDS_IMPORT_MYSQL_SETTINGS['database'], port=settings.FPDS_IMPORT_MYSQL_SETTINGS['port'])
+        
+        max_server_id = self.get_max_server_id(conn, settings)
         i = 0
-        while True:
-            sys.stdout.write("Entering loop... ")
-            row = cursor.fetchone()
-            if row is None:
-                break
+        while int(max_id) < int(max_server_id):                
+            print max_id
+            print max_server_id
+            sql = "SELECT * FROM %s WHERE (%s) AND id > %d ORDER BY id ASC LIMIT 1000" % ((table_override is not None) and table_override or settings.FPDS_IMPORT_MYSQL_SETTINGS.get('source_table', 'fpds_award3_sf'), " OR ".join(sql_selection_clauses), max_id)
+            print "Executing query: %s" % sql
+            results = conn.query(sql).dictresult()
+            if len(results) > 0:
+                for row in results:
+                    sys.stdout.write("Entering loop... ")
+                    sys.stdout.write("Processing row... ")
+                    self.process_record(row)
+                    i = i + 1
             else:
-                sys.stdout.write("Processing row... ")
-                self.process_record(row)
-            i = i + 1
+                break
+    
+                sys.stdout.write("Finished iteration %d\n" % i)
+            max_id = self.get_max_id()
 
-            sys.stdout.write("Finished iteration %d\n" % i)
-
-        cursor.close()
         conn.close()
+
+        

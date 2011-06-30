@@ -10,26 +10,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         
         if options['file'] is not None:
-            
-            try:
-                data = open(options['file'], 'r')
-            except:
-                exit('Unable to open %s' % (options['file']))
-            
-            sector = Sector.objects.get(pk=5)
-            
-            for line in data.readlines():
-                
-                code = line.strip()
-                
-                naics_codes = NAICSCode.objects.filter(code=code)
-                
-                if naics_codes:
-                    for naics in naics_codes:
-                        naics.sectors.add(sector)
-                else:
-                    naics = NAICSCode.objects.create(code=code)
-                    
-                    naics.sectors.add(sector)
-                
-                
+            NAICSCode.objects.load_naics(options['file'])
+        else:
+            NAICSCode.objects.load_naics()     

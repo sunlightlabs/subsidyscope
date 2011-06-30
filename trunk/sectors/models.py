@@ -1,5 +1,8 @@
 from django.db import models
 from django.conf import settings
+from agency.models import Agency
+
+from helpers.helpers import ManyToManyField_NoSyncdb
 
 class Sector(models.Model):
 
@@ -9,6 +12,11 @@ class Sector(models.Model):
         verbose_name = 'Sector'
 
     name = models.CharField("Name", max_length=40)
+    related_agencies = models.ManyToManyField(Agency, blank=True, null=True)
+    launched = models.BooleanField("Launched?", default=False)
+    
+    budget_functions = ManyToManyField_NoSyncdb('budget_accounts.BudgetFunction', related_name='budget_functions', db_table='budget_accounts_budgetfunction_sectors')
+    functional_indexes = ManyToManyField_NoSyncdb('cfda.ProgramFunctionalIndex', related_name='functional_indexes', db_table='cfda_programfunctionalindex_sectors')
     
     def image_url_small(self):        
         return settings.MEDIA_URL + 'images/sector_icons/' + str(self.id) + '_sm.png'
