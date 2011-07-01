@@ -52,6 +52,7 @@ function editComment(that, id)
 {
     var current = $(that).siblings('span').text(); 
     $(that).siblings('div').children('textarea').text(current).end().show();
+    return false;
 }
 
 function saveComment(that, program_id, id)
@@ -63,6 +64,7 @@ function saveComment(that, program_id, id)
 		$(id).show();
 		$(id + '_edit').hide();
 	});
+	return false;
 }
 
 
