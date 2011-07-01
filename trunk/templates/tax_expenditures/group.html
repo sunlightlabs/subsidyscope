@@ -95,8 +95,8 @@
 			</div>  	
         
         {% if subgroups%}
-        	<strong>Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
-        		{% if group.parent %}Multiple line items correspond with this group of tax expenditures. These estimates have been aggregated below to create a more meaningful comparison.{% endif %}
+        	<strong>{% ifequal group.id 166 %}Treasury{% else %} JCT{% endifequal %} Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
+        		{% if group.parent %}Multiple line items correspond with this group of tax expenditures. These estimates have been aggregated below to provide a more meaningful comparison.{% endif %}
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
@@ -151,7 +151,8 @@
 		
 		<br/>
 		<br/>
-
+        <br />
+        <br />
 	
 		{% if not group.parent %}
 		<cite>
