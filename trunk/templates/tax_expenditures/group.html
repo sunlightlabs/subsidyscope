@@ -59,7 +59,7 @@
         </div>
         <div class="content_area">
              	
-        	<h5 style="margin-top:20px;">{{ group.name }}</h5> 
+        	<h5 style="margin-top:20px;">{{ group.name|safe }}</h5> 
         	<p>{{ group.description|safe }}</p>
         	<div style="float: right; text-align: right;">
         		<a href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
@@ -110,7 +110,7 @@
 				
 					{% for subgroup in subgroups %}
 						
-						<tr><td style="text-align: left; border-right: 1px solid #999; border-left: 1px solid #999; border-top: solid 1px #999; border-bottom: solid 1px #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name }}</a></td></tr>
+						<tr><td style="text-align: left; border-right: 1px solid #999; border-left: 1px solid #999; border-top: solid 1px #999; border-bottom: solid 1px #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name|safe }}</a></td></tr>
 						{% te_group_summary subgroup source estimate estimate_years %}
 						
 					{% endfor %}
