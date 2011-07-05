@@ -9,7 +9,7 @@ TAGS
 local_settings.example.py
 *.sql
 *.json
-local_settings.example.py
 *.zip
 *.swp
 *.swo
+*.xlsx

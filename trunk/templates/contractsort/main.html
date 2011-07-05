@@ -1,0 +1,15 @@
+{% extends "contractsort/sort_base.html" %}
+
+{% block title %}Sectors{% endblock %}
+
+{% block content %}
+
+<ul>
+	{% for sector in sectors  %}
+	
+		<li><a href="{% url contractsort-sector sector.id %}"><strong>{{ sector }}</strong></a><br/></li>
+		
+	{% endfor %}
+</ul>
+
+{% endblock %}

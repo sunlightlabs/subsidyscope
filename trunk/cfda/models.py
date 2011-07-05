@@ -1,13 +1,20 @@
 import re
 from datetime import datetime
-import csv
-
+import csv, sys, os
+from django.core.mail import send_mail
 from django.db import models
+from django.db.models import Sum
+from agency.models import Agency
 from sectors.models import Sector, Subsector
 from budget_accounts.models import BudgetAccount
 from django.utils.encoding import smart_unicode
 import helpers.unicode as un
+import settings
+from faads.models import Record
 
+re_funding = re.compile('FY ([0-1][0,1,6-9]{1,1})( est. | est | )[\$]([0-9,]+)')
+re_funding_type = re.compile('\((.*?)\)')
+re_exclude = re.compile('[sS]alaries')
 
 class ProgramDescriptionManager(models.Manager):
     
@@ -53,11 +60,12 @@ class ProgramDescriptionManager(models.Manager):
         'load_date'
     ]
 
-    def import_programs(self, file):
+    def import_programs(self, file_name):
         date = datetime.today()
         new_program_count = 0
-        f = open(file, 'rU')
-        this_version = int(file[-9:-4]) #pull the date off of the programs csv file
+        new_programs = []
+        f = open(file_name, 'rU')
+        this_version = int(file_name[-9:-4]) #pull the date off of the programs csv file
 
 
         reader = csv.reader(f)
@@ -75,35 +83,106 @@ class ProgramDescriptionManager(models.Manager):
                 continue 
 
             program_number = row[1].strip()
+            program_title = row[0].strip()
             matching_programs = ProgramDescription.objects.filter(program_number=program_number)
            
             if len(matching_programs)==0:
                 matching_program = ProgramDescription()
                 new_program_count += 1
+                new_programs.append("%s - %s" % (program_number, program_title) )
                 print "new program: %s" % (program_number)
                 
             else:
                 matching_program = matching_programs[0]
-    
+   
+            matching_program.agency = Agency.objects.get(cfda_code=program_number[:2])
         
             for (i,s) in enumerate(self.FIELD_MAPPINGS):
                 
-                try:
-                    prepared_string = smart_unicode(un.kill_gremlins(row[i]))
-                    setattr(matching_program, s, prepared_string)
-                    if i == 1:
-                        #we have the program vitals, save so we can use as foreign key for other attributes
-                        matching_program.save()
-                    
-                except Exception, e:
-                    continue
-
+               # try:
+                prepared_string = smart_unicode(un.kill_gremlins(row[i]), errors='ignore')
+                setattr(matching_program, s, prepared_string)
+                if i == 1:
+                    #we have the program vitals, save so we can use as foreign key for other attributes
+                    matching_program.save()
+                if i == 24:
+                    #print "parsing Obligation"
+                    self.parseObligations(prepared_string, matching_program, this_version)
+                                        
+               # except Exception, e:
+               #     print e
+                #    continue
+            
             matching_program.save()
         f.close()
+        
+        mail_text = "CFDA programs added on %s\n" % datetime.now()
+        for n in new_programs:
+            mail_text += "%s\n" % n
+
+        admins = []
+        for ad in settings.ADMINS:
+            admins.append(ad[1])
+        
+        if new_programs:
+            send_mail( "New CFDA Programs", mail_text, 'bounce@sunlightfoundation.com', admins, fail_silently=False)
+        else:
+            send_mail("No New CFDA Programs - Cron ran successfully", "", 'bounce@sunlightfoundation.com', admins, fail_silently=False)
 
         print "Run complete. \n%s new programs were added" % new_program_count
         
-    
+    def match_assistance(self, text):
+        for type_tuple in ProgramObligation.ASSISTANCE_TYPE_CHOICES:
+            if text == type_tuple[1].lower() or type_tuple[2].findall(text):
+                return type_tuple[0]
+
+    def parseObligations(self, ob_str, program, version):
+        matches = re_funding.findall(ob_str)
+        type_matches = re_funding_type.findall(ob_str)
+        ob_type = ''
+        curr_type = ''
+        assist_code = ''
+        curr_year = 2006
+        type_iter = iter(type_matches)
+        default_type = None
+        for pair in matches:
+            year = int('20' + pair[0])
+            if year < curr_year:  #if the year sequence has started over, move to the next type
+                try:
+                    curr_type = type_iter.next()
+                except StopIteration:
+                    pass      #no more types
+            curr_year = year
+            obligation = int(pair[2].replace(",", ""))
+
+            if curr_type:
+                curr_type = curr_type.lower()
+                assist_code = self.match_assistance(curr_type)
+                if not assist_code:
+                    continue
+                if assist_code: 
+
+                    ob_type = assist_code
+                    default_type = assist_code
+           # if not assist_code:                
+            #    try:
+             #       if default_type:
+              #          ob_type = default_type #default it to first assistance type defined for program
+               #     else: 
+                #        ob_type = 1
+                #except Exception:
+                 #   ob_type = 1  # grants is always our default
+            
+            #check if this obligation exists
+                    try:
+                        obligation_obj = ProgramObligation.objects.get(fiscal_year=year, amount=obligation, assistance_type=ob_type, program=program)
+                    except:
+                        obligation_obj = ProgramObligation(fiscal_year=year, amount=obligation, assistance_type=ob_type, program=program)
+
+                    if program.cfda_edition and program.cfda_edition < version:
+                        obligation_obj.amount = obligation
+                    obligation_obj.save()
+        
 
     def parseBudgetAccounts(self):
         
@@ -126,6 +205,42 @@ class CFDATag(models.Model):
     tag_name = models.CharField(max_length=255)
     search_default_enabled = models.BooleanField("Enabled for searches by default?")
 
+class ProgramFunctionalIndex(models.Model):
+    
+    code = models.CharField("Functional Index Code", max_length=2, blank=False)
+    name = models.CharField("Name", max_length=255, blank=False)
+    
+    sectors = models.ManyToManyField(Sector)
+    
+    def __unicode__(self):
+        return '%s--%s' % (self.code, self.name)
+    
+    class Meta:
+        ordering = ['code']
+
+class ProgramFunctionalIndexManager(models.Manager):
+
+    def load_functional_indices(self, path='cfda/functional_indexes/'):
+        
+        csvs = os.listdir(path)
+        for c in csvs:
+            name = c.replace('.csv', '').replace('_', ' ')
+            try:
+                fi = ProgramFunctionalIndex.objects.get(name=name)
+            except:
+                fi = ProgramFunctionalIndex(name=name, code=1)
+                fi.save()
+
+            r = csv.reader(open(path+c))
+            for line in r:
+                program_number = line[0]
+                try:
+                    prog = ProgramDescription.objects.get(program_number=program_number)
+                    if fi not in prog.functional_index.all():
+                        prog.functional_index.add(fi)
+                except Exception as e:
+                    print e
+                    pass
 
 class ProgramDescription(models.Model):
 
@@ -139,6 +254,7 @@ class ProgramDescription(models.Model):
     program_title = models.CharField("Program title", max_length=255)
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
+    agency = models.ForeignKey('agency.Agency', blank=True, null=True)
     program_note = models.TextField("Program note", default="", blank=True)
     federal_agency = models.TextField("Federal agency", blank=True, default="")
     major_agency = models.TextField("Major agency",blank=True,default="")
@@ -185,8 +301,29 @@ class ProgramDescription(models.Model):
     budget_accounts = models.ManyToManyField(BudgetAccount, blank=True, null=True)
     primary_tag = models.ForeignKey(CFDATag, blank=True, null=True, related_name='primary_tag')
     secondary_tags = models.ManyToManyField(CFDATag, blank=True, null=True, related_name='secondary_tags')
+    
+    functional_index = models.ManyToManyField(ProgramFunctionalIndex, blank=True, null=True)
+
+    scoping_comment = models.TextField("Comments from scoping process.", blank=True,default="")
 
     objects = ProgramDescriptionManager()   
+    
+    def get_recent_grants_summary(self, summary_type='aggregate'):
+        try:
+            summary = ProgramSummary.objects.get(program=self)
+            if summary_type == 'aggregate':
+                return summary.ten_year_aggregate
+            else:
+                return summary.amount_for_2009
+        except:
+            return ""
+        # TODO: need to expand filter criteria
+        result = self.cfdasummary_set.filter(assistance_type=4, fiscal_year__gte=2005).aggregate(Sum('federal_funding_amount'))
+        
+        if result['federal_funding_amount__sum']:
+            return '$' + str(int(result['federal_funding_amount__sum']))
+        else:
+            return '$0'
     
 
     def parseBudgetAccounts(self):
@@ -209,7 +346,48 @@ class ProgramDescription(models.Model):
         else:
             return self.objectives[:200] + '...'
 
-        
+
+
+class ProgramAssistanceTypess(models.Model):
+    def __unicode__(self):
+        return self.name
+
+    code = models.CharField("Assistance code", max_length=1, blank=False)
+    name = models.CharField("Name", max_length=255, blank=False)
+
+   
+class ProgramObligation(models.Model):
+
+    program = models.ForeignKey(ProgramDescription, blank=False, null=False )
+    fiscal_year = models.IntegerField("Fiscal Year", blank=False, null=False )
+    amount = models.FloatField("Obligation", blank=False, null=False )
+    assistance_type = models.IntegerField("Assistance Type", max_length=1, blank=True, null=True)
+
+    ASSISTANCE_TYPE_CHOICES = (
+        (1, "Formula Grants", re.compile('formula.*grants')),
+        (2, "Project Grants", re.compile('project.*grants|loans\/grants|grants')),
+        (3, "Direct Payments for Specified Use", re.compile('direct.*payments.*specified')),
+        (4, "Direct Payments with Unrestricted Use", re.compile('direct.*payments.*unrestricted|payments')),
+        (5, "Direct Loans", re.compile('direct.*loans')),
+        (6, "Guaranteed/Insured Loans", re.compile('guaran.*loan|loan.*guaran')),
+        (7, "Insurance", re.compile('[iI]insur|[iI]ndemniti')),
+        (8, "Sale, Exchange, or Donation of Property and Goods", re.compile('sale.*exchange')),
+        (9, "Use of Property, Facilities, and Equipment", re.compile('property.*facilit')),
+        (10, "Provision of Specialized Services", re.compile('specialized.*')),
+        (11, "Advisory Services and Counseling", re.compile('advis.*counsel')),
+        (12, "Dissemination of Technical Information", re.compile('dissem.*tech|information')),
+        (13, "Training", re.compile('training')),
+        (14, "Investigation of Complaints", re.compile('investigation')),
+        (15, "Federal Employment", re.compile('employment')),
+        (16, "Cooperative Agreements", re.compile('coop.*agree')),
+    )
+
+
+
+
+
+
+#Below are somewhat deprecated
 
 class ProgramBudgetEstimateDescription(models.Model):
     
@@ -259,4 +437,23 @@ class ProgramBudgetAnnualEstimate(models.Model):
     
     annual_amount = models.DecimalField("Annual Amount", max_digits=15, decimal_places=2)
     
-    
+class ProgramSummary(models.Model):
+    program = models.ForeignKey('ProgramDescription', null=False, blank=False)
+    ten_year_aggregate = models.DecimalField(decimal_places=0, max_digits=21, null=True)
+    amount_for_2009 = models.DecimalField(decimal_places=0, max_digits=21, null=True)
+
+class ProgramSummaryManager(models.Manager):
+    def load_program_summary(self):
+        for program in ProgramDescription.objects.all():
+            try:
+                p_summ = ProgramSummary.objects.get(program=program)
+
+            except:
+                p_summ = ProgramSummary(program=program)
+
+            records = Record.objects.filter(cfda_program=program)
+            p_summ.amount_for_2009 = records.filter(fiscal_year=2009).aggregate(Sum('federal_funding_amount'))['federal_funding_amount__sum']
+            p_summ.ten_year_aggregate = records.aggregate(Sum('federal_funding_amount'))['federal_funding_amount__sum']
+            p_summ.save()
+
+

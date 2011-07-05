@@ -1,0 +1,184 @@
+{% extends "contractsort/sort_base.html" %}
+{% load media %}
+{% load humanize %}
+{% block title %}{{sector.name}} Sector{% endblock %}
+
+{% block content %}
+
+{% js "scripts/jquery.form.js" %}
+{% css "styles/contractsort.css" %}
+<div id="top">
+    <div id="left">
+        <h4>Agencies Associated with this Sector</h4>
+        <form id="agency-form" action="{% url contractsort-update-agency sector.id %}" method="POST">
+        <select multiple name="agencies" class="agency-select">
+        {% for a in agencies %}
+            <option value="{{a.id}}" {% for s in selected %} {% ifequal a s %} selected {% endifequal %} {% endfor %}>
+            {{a.name}}
+            </option>
+        {% endfor %}
+        </select>
+        <div>
+        <input type="submit" value="Update Agency Selection">
+        <input type="reset" value="Reset Changes" />
+        </div>
+        </form>
+    </div>
+    <div id="right">
+        <h4> Currently Selected Codes for this Sector</h4>
+        <form id="code-form" action="/contractsort/setcodes/{{sector.id}}" method="GET">
+        <select multiple name="codes" id="current-codes" size="{{size}}">
+        {% for sn in sector_naics %}
+        <option selected value="naics_{{sn.code}}">{{sn.code}} - {{sn.name}}</option>
+        {% endfor %}
+        {% for sp in sector_psc %}
+        <option selected value="psc_{{sp.code}}">{{sp.code}} - {{sp.name}}</option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="Confirm Code Selection">
+        <input type="reset" value="Reset Changes" />
+        </form>
+        <div id="code-total">
+        Total Obligations for FY 2009 using selected codes: $<span>{{total|floatformat:0|intcomma}}</span>
+        </div>
+
+    </div>
+</div>
+<div id="bottom">
+    <h4>Related NAICS Codes</h4>
+    {% if naics %}
+    <table class="related-naics" id="related-naics-top">
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Total Obligations (related agencies)</th><th>Parent Information</th><th>Already In...</th><th>Include Code</th><th>Remove Code</th></tr></thead>
+    <tbody>
+    {% for n in naics %}
+    <tr id="naics_{{n.0}}"><td>{{n.0}}</td><td class="name">{{n.1}}</td><td style="text-align:right;">${{n.2|floatformat:0|intcomma}}</td><td style="text-align:right;">${{n.3|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{n.4}}</td><td class="current-sectors">{{n.5}}</td><td class="move-right">{% if not n.6 %}<a name="{{n.0}}" href="#move-right" class="naics-move-right">&raquo;</a>{% else %}already in{% endif%}</td><td class="remove">{% if n.6 %}<a href="#remove" class="naics-remove" name="{{n.0}}">Remove Code</a>{%endif%}</td></tr>
+    {% endfor %}
+    </tbody></table>
+
+    {% endif %}
+
+    <h4>Related Product or Service Codes</h4>
+    {% if psc %}
+    <table id="related-psc-top">
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Total Obligations (related agencies)</th><th>Already In...</th><th>Include Code</th><th>Remove Code</th></tr></thead>
+    <tbody>
+    {% for p in psc %}
+        <tr id="psc_{{p.0}}"><td>{{p.0}}</td><td class="name">{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td><td style="text-align:right;">${{p.3|floatformat:0|intcomma}}</td><td class="current-sectors">{{p.4}}</td><td>{% if not p.5 %}<a name="{{p.0}}" href="#move-right" class="psc-move-right">&raquo;</a>{% else %}already in{% endif %}</td><td class="remove">{% if p.5 %}<a href="#psc-remove" class="psc-remove" name="{{p.0}}">Remove Code</a>{% endif %}</td></tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+</div>
+<div id="add-code">
+    <h4> Find a code: </h4>
+    <form id="code-picker" action="/contractsort/getcode" method="GET">
+    <label for="picked-code">Enter a NAICS or PSC code:</label><input name="picked-code" />
+    <input type="submit" value="Find a Code" />
+    </form>
+    <span class="result"></span>
+</div>
+{% js "scripts/jquery.tablesorter.js " %}
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        var updated_codes = false;
+
+        window.onbeforeunload = function() {
+            if (!updated_codes) {
+                return "Codes have not been updated. Your changes will be lost.";
+            } 
+        };
+
+        $("#related-psc-top").tablesorter({
+            headers: {
+                        2: {sorter:'currency'},
+                        3: {sorter:'currency'}
+                    } 
+        });
+
+        $("#related-naics-top").tablesorter({
+            headers: {
+                        2: {sorter:'currency'},
+                        3: {sorter:'currency'}
+                    } 
+        });
+        $('#code-picker').ajaxForm({
+                success: function(response, status, xhr, $form){
+                        $("#add-code span").html(response);
+                }
+
+        });
+
+        $('#code-form').ajaxForm({
+                
+                success: function(response, status, xhr, $form){
+                           var f = $('#right').append('<div id="success">Selected Codes Updated</div>');
+                           $('#success').fadeOut(5000, function() { $('#success').remove();});
+                           $('#code-total span').text(response);
+                           updated_codes = true;
+
+        }});
+        $('#agency-form').ajaxForm({
+        
+                success: function(response, status, xhr, $form){
+                            var s = $('#agency-form').append('<div id="success">Related Agencies Updated</div>');
+                            $('#success').fadeOut(5000, function() { $('#success').remove();});
+                            $('#bottom').html(response);
+                            
+                }
+        });
+        $('.naics-move-right').live( 'click', function(){
+            var code = $(this).attr('name');
+            var name = $(this).parent().siblings('.name').text();
+            var already_in = $('#current-codes option[value=naics_'+code+']');
+            if (already_in.length == 0){
+                $(this).parent().siblings('.remove').html('<a href="#naics-remove" class="naics-remove" name="'+code+'">Remove Code</a>');
+                var sectors = $(this).parent().siblings('.current-sectors').text();
+                sectors += ' {{sector}} ';
+                $(this).parent().siblings('.current-sectors').text(sectors);
+                $('#current-codes').append('<option selected value=naics_'+code+'>'+code+'-'+name+'</option>');
+                $(this).parent().text("already in");
+                return false;
+            }
+            return false;
+        });
+        $('.psc-move-right').live( 'click', function(){
+            var code = $(this).attr('name');
+            var name = $(this).parent().siblings('.name').text();
+            var already_in = $('#current-codes option[value=psc_'+code+']');
+            if (already_in.length == 0){
+                $(this).parent().siblings('.remove').html('<a href="#psc-remove" class="psc-remove" name="'+code+'">Remove Code</a>');
+                var sectors = $(this).parent().siblings('.current-sectors').text();
+                sectors += ' {{sector}} ';
+                $(this).parent().siblings('.current-sectors').text(sectors);
+                $('#current-codes').append('<option selected value=psc_'+code+'>'+code+'-'+name+'</option>');
+                $(this).parent().text("already in");
+                return false;
+            }
+            return false;
+        });
+
+        $('.naics-remove').live('click', function(){
+            var code = $(this).attr('name');
+            $('#current-codes option[value=naics_'+code+']').remove();
+            $(this).parent().siblings('.move-right').html('<a name='+code+' href="#move-right" class="naics-move-right">&raquo;</a>');
+            var sectors = $(this).parent().siblings('.current-sectors').text()
+            sectors = sectors.replace("{{sector}}", "");
+            $(this).parent().siblings('.current-sectors').text(sectors);
+            $(this).parent().text("");
+            return false;            
+        });
+        $('.psc-remove').live('click', function(){
+            var code = $(this).attr('name');
+            $('#current-codes option[value=psc_'+code+']').remove();
+            $(this).parent().siblings('.move-right').html('<a name='+code+' href="#move-right" class="psc-move-right">&raquo;</a>');
+            var sectors = $(this).parent().siblings('.current-sectors').text()
+            sectors = sectors.replace("{{sector}}", "");
+            $(this).parent().siblings('.current-sectors').text(sectors);
+            $(this).parent().text("");
+            return false;
+        });
+
+    });
+
+</script>
+{% endblock %}

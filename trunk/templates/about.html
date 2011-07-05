@@ -3,51 +3,20 @@
 {% load morsel_tags %}
 {% load glossary_tags %}
 
-{% load menubuilder %}
 {% block content %}
-<div class="container main_container">
-    {% include "includes/generic_nav.html" %}
-	<div class="span-24">
-		<div class="secondary-header">
-			<h3>About Subsidyscope</h3>		
-		</div>
-		
-		<style type="text/css">
-    ul.about-sections, ul.about-sections li { margin-left: 0;}
-    ul.about-sections a, ul.about-sections a:link, ul.about-sections a:hover, ul.about-sections a:visited, ul.about-sections a:active { display: block; font-size: 1.2em; text-decoration: none; font-weight: bold;}
-		ul.about-sections li { margin-bottom: 10px;}
-		</style>
-		
-					{% recursive_menu %}
-
+<div class="wrapper clearfix">
+	<div class="secondary-header">
+	    <h3>About Subsidyscope</h3>		
+	</div>
+	
+		{% include "includes/static_side_nav.html" %}
     <div class="page-content">
-      
-      <ul class="about-sections">
-			<li>
-			  <a href="/press/">Press</a>
-			  A chronological listing of Subsidyscope's press announcements.
-			</li>
-			<li>
-			  <a href="/board/">Board</a>
-			  Information on Subsidyscope's advisors.
-			</li>
-			<li>
-			  <a href="/faq/">FAQ</a>
-			  Answers to common questions about the project.  Who's behind the site, and why are we building it?
-			</li>
-			<li>
-			  <a href="/future-sectors/">Future Sectors</a>
-			  Subsidyscope's plans for the future.
-			</li>
-
-			<li>
-			  <a href="/staff/">Staff</a>
-			  Information about the team responsible for Subsidyscope.
-			</li>
-
-      </ul>
-			
-		</div>
+    <p>
+An initiative of the Pew Charitable Trusts, Subsidyscope aims to raise public awareness about the role of federal subsidies in the economy. The project aggregates information on federal spending and subsidies from multiple government sources, serving as a gateway for press, policymakers, advocates and the public. The comprehensive and objective data presented by
+Subsidyscope will contribute to an informed debate about how to best allocate scarce government resources. 
+</p>
+<p>Maintaining its nonpartisan approach to the issue of subsidies, the project is guided by an <a href="/board/">advisory board</a> of experts in federal spending, taxes and finance from across the ideological spectrum. <a href="http://sunlightfoundation.com">The Sunlight Foundation</a>, Pew's research and technology partner, develops the Subsidyscope Web site.</p>
+      	
 	</div>
 </div> <!--ends container-->
 {% endblock %}

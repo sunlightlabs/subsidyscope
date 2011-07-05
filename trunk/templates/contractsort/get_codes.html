@@ -1,0 +1,26 @@
+{% load humanize %}
+
+ <h4>Related NAICS Codes</h4>
+    {% if naics %}
+    <table class="related-naics">
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Total Obligations (related agencies)</th><th>Parent Information</th><th>Already In...</th><th>Include Code</th><th>Remove Code</th></tr></thead>
+    <tbody>
+    {% for n in naics %}
+    <tr id="naics_{{n.0}}"><td>{{n.0}}</td><td class="name">{{n.1}}</td><td style="text-align:right;">${{n.2|floatformat:0|intcomma}}</td><td style="text-align:right;">${{n.3|floatformat:0|intcomma}}</td><td style="padding-left:25px;">{{n.4}}</td><td class="current-sectors">{{n.5}}</td><td class="move-right">{% if not n.6 %}<a name="{{n.0}}" href="#move-right" class="naics-move-right">&raquo;</a>{% else %}already in{% endif %}</td><td class="remove">{% if n.6 %}<a href="#remove" class="naics-remove" name="{{n.0}}">Remove Code</a>{%endif%}</td></tr>
+    {% endfor %}
+    </tbody></table>
+
+    {% endif %}
+
+    <h4>Related Product or Service Codes</h4>
+    {% if psc %}
+    <table>
+    <thead><tr><th>Code</th><th>Name</th><th>Total Obligations (all years)</th><th>Total Obligations (related agencies)</th><th>Already In...</th><th>Include Code</th><th>Remove Code</th></tr></thead>
+    <tbody>
+    {% for p in psc %}
+        <tr id="psc_{{p.0}}"><td>{{p.0}}</td><td class="name">{{p.1}}</td><td style="text-align:right;">${{p.2|floatformat:0|intcomma}}</td><td style="text-align:right;">${{p.3|floatformat:0|intcomma}}</td><td class="current-sectors">{{p.4}}</td><td>{%if not p.5 %}<a name="{{p.0}}" href="#move-right" class="psc-move-right">&raquo;</a>{% else %}already in{% endif %}</td><td class="remove">{% if p.5 %}<a href="#psc-remove" class="psc-remove" name="{{p.0}}">Remove Code</a>{% endif %}</td></tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
+

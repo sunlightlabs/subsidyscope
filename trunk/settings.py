@@ -8,9 +8,9 @@ TEMPLATE_DEBUG = DEBUG
 
 
 ADMINS = (
-    ('Kevin Webb', 'kwebb@sunlightfoundation.com'),
     ('Kaitlin Lee','klee@sunlightfoundation.com'),
-    ('timball', 'tball@sunlightfoundation.com')
+    ('timball', 'tball@sunlightfoundation.com'),
+    ('Drew Vogel', 'dvogel@sunlightfoundation.com')
 )
 
 
@@ -71,7 +71,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'middleware.feedburner.FeedburnerMiddleware'
 )
 
@@ -93,7 +92,8 @@ INSTALLED_APPS = (
     'mediasync',
     'spammer',
     'helpers',
-   # 'haystack',
+    'agency',
+    # 'haystack',
     'csv_generator',
     'etl',
     'geo',
@@ -103,7 +103,6 @@ INSTALLED_APPS = (
     'tarp_subsidy_graphics',
     'fdic_bank_failures',
     'fed_h41',
-    'sectors',
     'tax_expenditures',
     'te_importer',
     'django_helpers',
@@ -116,6 +115,7 @@ INSTALLED_APPS = (
     'energy',
     'transportation',
     'nonprofits',
+    'housing',
     'tagging',
     'aip',
     'news_briefs',
@@ -124,7 +124,10 @@ INSTALLED_APPS = (
     'inflation',
     'navigation',
     'gunicorn',
-    'menu'
+    'menu',
+    'sectors',
+    'cfda_usaspending_summary',
+    'subsidysort',
 )
 
 #try:

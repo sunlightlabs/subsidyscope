@@ -1,0 +1,25 @@
+{% load humanize %}
+{% load subsidysort_tags %}
+<ul>
+<li>
+{% if program %}
+	<a href="{% url subsidysort-cfda program.id %}"><strong>{{ program.program_number }}</strong></a>&mdash;{{ program.program_title }}
+		{% for sector in program.sectors.all %}
+			<br/>Included in <a href="{% url subsidysort-sector sector.id %}">{{ sector.name }}</a>
+		{% endfor %}
+	
+	<br/>
+	{% if included %}
+        <span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><em>Program Included</em></span>
+    {% else %}
+
+        <span id="bf_group_{{ group.bf.id }}_{{ program.id }}"><a href="#all_programs" onclick="addToTable('{{program.get_recent_grants_summary|floatformat:0|intcomma}}', {{ program.id }}, '{{program.program_title}}', '{{program.program_number}}', '{{program.scoping_comment}}');return false;">[Add Program To Table]</a></span>
+    {% endif %}
+
+{% else %}
+	<em>No matching program was found.</em>
+{% endif%}	
+</li>
+</ul>
+
+<p>&nbsp;</p>

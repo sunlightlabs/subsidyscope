@@ -1,5 +1,8 @@
 from django.db import models
 
+from sectors.models import Sector
+
+
 class Agency(models.Model):
     
     code = models.IntegerField()
@@ -29,6 +32,7 @@ class TreasuryAccount(models.Model):
 
     objects = TreasuryAccountManager()
 
+
 class BudgetFunction(models.Model):
     
     parent = models.ForeignKey('self', null=True)
@@ -36,6 +40,11 @@ class BudgetFunction(models.Model):
     code = models.IntegerField()
     name = models.CharField(max_length=255)
     description = models.TextField()
+    
+    sectors = models.ManyToManyField(Sector)
+    
+    def __unicode__(self):
+        return '%d--%s' % (self.code, self.name)
 
 
 class BudgetAccountManager(models.Manager):
@@ -71,6 +80,18 @@ class BudgetAccountManager(models.Manager):
         else:
             return None
 
+    def set_budget_functions(self):
+        accs = BudgetAccount.objects.all()
+        for a in accs:
+            ap = a.account_string.split('-')
+            try:
+                bf = BudgetFunction.objects.get(code=int(ap[4]))
+                a.budget_function = bf
+                a.save()
+
+            except Exception as e:
+                import logging
+                logging.debug(e)
 
 class BudgetAccount(models.Model):
     
