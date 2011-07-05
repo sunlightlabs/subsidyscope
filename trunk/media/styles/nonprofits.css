@@ -41,19 +41,15 @@ visibility:hidden;
 
 .de { /* Direct expenditures Link */
 background: url('../images/nonprofits/nonprofits_landing_page_houses_de.jpg') left top no-repeat;
-display: inline-block;
 }
 .te{ /* Tax expenditures Link */
 background: url('../images/nonprofits/nonprofits_landing_page_houses_te.jpg') left top no-repeat;
-display: inline-block;
 }
 .rt { /* Rt Link */
 background: url('../images/nonprofits/nonprofits_landing_page_houses_rt.jpg') left top no-repeat;
-display: inline-block;
 }
 .con { /* Con Link */
 background: url('../images/nonprofits/nonprofits_landing_page_houses_con.jpg') left top no-repeat;
-display: inline-block;
 }
 .houses{
 	margin-top: 20px;
@@ -70,9 +66,15 @@ display: inline-block;
 	width : 110px;
 	height: 110px;
 	text-indent: -9999em;
+	display: block;
+	float: left;
+	margin: 0 15px;
 }
 small { font-size: 85%; }
 
 .samplesize{
 	color: #888888;
+}
+#sources-of-error{
+	clear: both;
 }

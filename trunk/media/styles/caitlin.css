@@ -66,9 +66,7 @@ input:invalid, textarea:invalid { border-radius: 1px;  -moz-box-shadow: 0px 0px 
 .no-boxshadow input:invalid, 
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
-::-moz-selection{ background: #a3d9df; color:#000; text-shadow: none; }
-::selection { background:#a3d9df; color:#000; text-shadow: none; } 
-a:link { -webkit-tap-highlight-color: #a3d9df; } 
+
 
 button {  width: auto; overflow: visible; }
 .ie7 img { -ms-interpolation-mode: bicubic; }
@@ -442,6 +440,9 @@ h4{
 	position: absolute;
 	margin-top: 22px;
 }
+.overlay a{
+	text-decoration: none;
+}
 
 .marquee{
 
@@ -466,8 +467,9 @@ h4{
 }
 
 ul.feature_nav{
-	margin: 180px 0 0 370px;
+	margin: 180px 0 0 0;
 	text-align: right;
+	width: 605px;
 }
 
 .feature_nav li{
@@ -690,17 +692,17 @@ ul.feature_nav{
 	width: 420px;
 	height: 235px;
 	margin-top: 0;
-	
 }
 
 .sector_carousel ul.feature_nav{
-	position: absolute;
-	top: 208px;
-	right: 285px;
+	list-style-type: none;
+	text-align: right;
+	margin: 180px 0 0 0;
+	width: 400px;
 }
 
 .sector_carousel .feature_nav li{
-	display: inline-block;
+	display: inline;
 }
 .sector_carousel .feature_content{
 	font-size: 95%;

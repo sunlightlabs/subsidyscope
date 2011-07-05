@@ -5,18 +5,20 @@
     <div id="tab-{{forloop.counter0}}" class="carousel-tab sector_carousel" {% if forloop.first%} {% else %} style="display:none;" {% endif %}>
         <div id="imagecontainer">
 			<img class="feature-image" src="{% media_url %}/{{entry.image}}" />
-			<ul class="feature_nav tabNavigation feature_circle">
+			<div class="overlay">
+				<ul class="feature_nav tabNavigation feature_circle">
     
-	        {% for dot in entries %}
-	            <li>
-	                <a href="#tab-{{forloop.counter0}}">
-	                    <img src="{% media_url %}/images/front/feature_nav_{% if forloop.counter0 == forloop.parentloop.counter0 %}selected_index{% else %}unselected_index{% endif %}.png" />
-	                </a>
-	            </li>
+		        {% for dot in entries %}
+		            <li>
+		                <a href="#tab-{{forloop.counter0}}">
+		                    <img src="{% media_url %}/images/front/feature_nav_{% if forloop.counter0 == forloop.parentloop.counter0 %}selected_index{% else %}unselected_index{% endif %}.png" />
+		                </a>
+		            </li>
     
-	        {% endfor %}
+		        {% endfor %}
     
-	        </ul>
+		        </ul>
+			</div>
 		</div>
         <div class="newsbits" >
 			<h2>

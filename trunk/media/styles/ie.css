@@ -67,3 +67,7 @@ position: relative;
 .home-sidebar{
 	background: url('../images/nav_secondary_bg.png') left bottom no-repeat ;
 }
+
+.updates_box{
+	margin-top: 20px;
+}
