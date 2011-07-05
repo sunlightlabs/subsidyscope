@@ -39,16 +39,16 @@ a .hide_link {
 visibility:hidden;
 }
 
-.page-content .houses a.de{ /* Direct expenditures Link */
+.de{ /* Direct expenditures Link */
 background: url('../images/transportation/transportation_landing_page_houses_de.jpg') left top no-repeat;
 }
-.page-content .houses a.te{ /* Tax expenditures Link */
+.te{ /* Tax expenditures Link */
 background: url('../images/transportation/transportation_landing_page_houses_te.jpg') left top no-repeat;
 }
-.page-content .houses a.rt{ /* Rt Link */
+.rt{ /* Rt Link */
 background: url('../images/transportation/transportation_landing_page_houses_rt.jpg') left top no-repeat;
 }
-.page-content .houses a.con{ /* Con Link */
+.con{ /* Con Link */
 background: url('../images/transportation/transportation_landing_page_houses_nc.jpg') left top no-repeat;
 }
 .houses{

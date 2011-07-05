@@ -71,3 +71,13 @@ position: relative;
 .updates_box{
 	margin-top: 20px;
 }
+#sources-of-error{
+	padding-bottom: 20px;
+}
+
+.secondary-nav{
+	background: url('../images/nav_secondary_bg.png') left bottom no-repeat;
+}
+
+
+

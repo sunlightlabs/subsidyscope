@@ -724,15 +724,15 @@ ul.feature_nav{
 /*------ Sector Updates Styling (data page styling too!)------*/
 
 .updates_head, .data-section { 
-	border-top:1px solid #cbcbcb; 
+	border-top: 1px solid #cbcbcb; 
 	background-color:#f3f3f4; 
-	padding:9px 0 0 9px; 
+	padding: 0 0 0 9px; 
 	border-bottom:1px solid #ffffff; 
 	color:#333333; 
 	font-size: 14px; 
 	background-image:url(/media/images/front_update_head_bg_alt.png); 
 	background-repeat:repeat-x;
-	height: 22px;
+	height: 31px;
 	margin-bottom: 20px;
 }
 #update_headline h4{
@@ -744,13 +744,10 @@ ul.feature_nav{
 	color: #636363;
 	background-image: none;
 	padding-left: 0;
+	padding-top: 6px;
 	margin-left: 5px;
 	font-weight: normal;
-	margin-bottom: 0;
-	padding-top: 0;
-	display: inline-block;
-	line-height: 0;
-	margin-top: 0;
+
 }
 .updates_head a{
 	background: url('../images/rss_icon.png') left center no-repeat;
@@ -1242,11 +1239,14 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 
 /*------ PTED Breadcrumb ------*/
 
-.breadcrumbs {padding-left: 20px; font-size:.9em; display:inline; margin: 5px 0 15px 0; }
+.breadcrumbs {padding-left: 8px; font-size:.9em; display:inline; margin: 5px 0 15px 0; }
 .pted-head h3{
 	display: inline;
 }
-
+.pted-head {
+	padding-bottom: 16px;
+	padding-top: 5px;
+}
 
 
 .non_content { margin:20px 0 20px 0; padding:0 0 0 0;}
@@ -1254,9 +1254,6 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	margin:0;
 }
 
-.bla a {}
-.bla li{
-}
 .bla ul{
 	margin-left: 0;
 	padding-left: 0;
