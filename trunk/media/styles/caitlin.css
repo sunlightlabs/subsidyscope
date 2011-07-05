@@ -996,7 +996,11 @@ blockquote{
 }**/
 #subsidy-charts td { 
 	padding: 7px; 
-	border-bottom: none; 
+	border-bottom: none;
+	text-align: right; 
+}
+#subsidy-charts td:first-of-type { 
+	text-align: left; 
 }
 #subsidy-charts table {
 	text-align:center; 
