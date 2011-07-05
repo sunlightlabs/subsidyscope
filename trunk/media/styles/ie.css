@@ -1,5 +1,5 @@
  /* ie.css */
-body {text-align:center;}
+
 .container {overflow:hidden; text-align:left;}
 * html .column {overflow-x:hidden;}
 * html legend {margin:-18px -8px 16px 0;padding:0;}
@@ -56,3 +56,14 @@ ul.programs {border: none;}
 
 .homepage-quick-search-container #quick-search-box .faads-search-submit { padding: 1px 1px !important; position: relative; top: -3px;}
 .homepage-quick-search-container #quick-search-box #faads-search-form input#id_text_query { font-size: 12px !important; position:relative; top: -5px !important; margin-right: 10px; padding: 3px 2px !important;}
+.overlay{
+	left: 0;
+}
+
+.marquee{
+position: relative;
+}
+
+.home-sidebar{
+	background: url('../images/nav_secondary_bg.png') left bottom no-repeat ;
+}

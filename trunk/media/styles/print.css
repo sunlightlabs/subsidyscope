@@ -63,27 +63,9 @@ h1.technique-eight span {
 */
 
 /* Top Nav SECTORS */
-#header_spacer { height:20px;}
 
 #mailing_list_box { }
 
-/* email updates */
-#email-form-container { overflow: hidden; width: 0px; padding-left: 0;}
-form#email-subscribe { display: block; width: 200px; text-align: left; padding: 0; margin: 0;}
-form#email-subscribe input { font-size: 9px; }
-form#email-subscribe input.text { color: #aaa; height: 12px;}
-form#email-subscribe input.text:focus { color: #000;}
-form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #899EAB; height: 18px; padding: 2px 3px;}
-#email-message { display:none; position: absolute; width: 190px; text-align: left; left: auto; margin-top: 26px; padding: 2px 4px; border: 1px solid;}
-#email-message.instruction { border-color: #7B630F; color: #7B630F; background-color: #FFFCDA;}
-#email-message.warning { border-color: #c00; color: #800; background-color: #FFCCCC;}
-ul#top_nav_header li { display: block !important; float: right;}
-
-/* email updates */
-#search_box {color:#2f4867; font-size:12px; text-align:right; padding:10px 20px 0 0; font-family:Helvetica Neue, Arial, Helvetica, sans-serif; margin:0;}
-#search_box input { margin-right:5px; padding:0; font-size: 14px;}
-#search_form  {padding:0 0 0 0; margin:0;}
-#search_form .submit { border:1px solid #899eab; color#:2f4867; background-color:#f6f8fb; padding:0 3px 0 3px;}
 
 
 

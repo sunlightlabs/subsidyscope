@@ -61,8 +61,6 @@ $(function () {
 
 
 <div class="container white">
-	<div class="sidebar-container">
-<!--{% navigation main-nav %}-->
 		<div class="marquee">
 			<div class="tabs">
 			
@@ -70,21 +68,47 @@ $(function () {
 
 			</div> <!--ends tabs class-->
 		</div><!-- ends marquee -->
+			<div class="sectors-home">
+				<h3>Sectors</h3>
+				<ul>
+					<li id="sector-housing">
+						<a href="{% url housing-index %}">Housing</a>
+					</li>
+					<li id="sector-energy">
+						<a href="{% url energy-index %}">Energy</a>
+					</li>
+					<li id="sector-nonprofits">
+						<a href="{% url nonprofits-index %}">Nonprofits</a>
+					</li>	
+					<li id="sector-transportation">
+						<a href="{% url transportation-index %}">Transportation</a>
+					</li>
+					<li id="sector-fin-bailout">
+						<a href="{% url bailout-index %}">Financial Bailout</a>
+					</li>	
+					<li id="sector-health" class="comingsoon">
+						<a>Health</a> 
+						<span>
+							Coming soon!
+						</span>
+					</li>	
+				</ul>
+			</div>
 
 			<div class="home-sidebar">
 				<div class="tidbits">
 					<div class="tidbit" id="framing-paper">
-						<h2>
+						<h3>
 							Framing Paper
-						</h2>
+						</h3>
 						<p>
 							<a href="{% url framing-paper %}">Government Subsidies: 
 					    Revealing the Hidden&nbsp;Budget</a> <small>(<a href="{% url framing-paper %}">PDF</a>&nbsp;|&nbsp;<a href="{% url framing-paper-html %}">HTML</a>)</small><span>Updated 11/18/2009</span>
 						</p>
 					</div>
 					<div class="tidbit" id="downloadabledata"> 
-						<h2>Downloadable Data
-						</h2>
+						<h3>Downloadable Data
+						</h3>
 						<p>
 							Subsidyscope releases all of its data in open formats. <a href="{% url datasets %}">Learn more</a>.
 						</p>	
@@ -92,36 +116,9 @@ $(function () {
 				</div>
 			</div>
 
-	<!--	<h2>
-			Subsidyscope Project Updates
-		</h2>
-				{# display project updates #}			
-				{% project_updates  0%}
-	 ends update box-->
 			
-			<ul class="sectors-home">
-				<li id="sector-fin-bailout">
-					<a href="{% url bailout-index %}">Financial Bailout</a>
-				</li>	
-				<li id="sector-nonprofits">
-					<a href="{% url nonprofits-index %}">Nonprofits</a>
-				</li>	
-				<li id="sector-housing">
-					<a href="{% url housing-index %}">Housing</a>
-				</li>	
-				<li id="sector-transportation">
-					<a href="{% url transportation-index %}">Transportation</a>
-				</li>	
-				<li id="sector-energy">
-					<a href="{% url energy-index %}">Energy</a>
-				</li>	
-				<li id="sector-health" class="comingsoon">
-					<a>Health</a> 
-					<span>
-						Coming soon!
-					</span>
-				</li>	
-			</ul>
-	</div>
+
 </div> <!--ends container-->
+
 {% endblock %}
+
