@@ -1024,18 +1024,23 @@ tbody td:last-of-type{
 	border-right: none;
 }
 
-/*------ Alternate chart styles ------*/
+/*------ Alternate table styles ------*/
 
 
 .alternate tbody td:nth-of-type(even){
-	background: none;
+	background: inherit;
 	border-left: 1px solid #cccccc;
 	border-right: 1px solid #cccccc;
 }
+.alternate tbody td:nth-of-type(odd){
+	background: inherit;
+}
 
-.alternate tbody tr:nth-of-type(odd){
+.alternate tbody tr:nth-of-type(odd) td{
 	background: #F4F4F4;
-
+}
+.alternate tbody tr:nth-of-type(even) td{
+	background: #FFFFFF;
 }
 .alternate tbody td:last-of-type{
 	border-right: none;
@@ -1387,8 +1392,12 @@ ul#top_nav_header li { display: block !important; float: right;}
 #by-date-container{
 	overflow-x: scroll;
 }
+/* search page */
 
-
+.search_results{
+	list-style-type: none;
+	margin-left: 0;
+}
 
 
 
