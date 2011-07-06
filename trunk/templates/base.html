@@ -10,7 +10,11 @@
 	<link rel="alternate" type="application/rss+xml" title="Subsidyscope Project Updates" href="{% url django.contrib.syndication.views.feed "updates" %}" />
 	{% css "styles/screen.css" %}
 	{% css_print "styles/print.css" %}
+	
   <!--[if IE ]>{% css "styles/ie.css" %}<![endif]-->
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 	{% css "styles/style.css" %}
 	{% block additional_css %}{% endblock %}
 	
@@ -29,6 +33,7 @@
             $("ul.sf-menu").superfish(); 
         }); 
     </script>
+
 
 	<title>{% block title %}Subsidyscope.org{% morsel_page_title page_title %}{% endblock %}</title>
 </head>

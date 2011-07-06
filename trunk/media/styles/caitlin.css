@@ -391,7 +391,7 @@ h4{
 }
 
 /*------ Styling of summarizing asides ------*/
-.page-content aside{
+.page-content aside, .page-content .aside{
 	float: right;
 }
 .summary, .news_box, .related_updates_box{
