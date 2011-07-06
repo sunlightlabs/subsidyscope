@@ -965,9 +965,9 @@ blockquote{
 #subsidy-charts tr.header-row td.first {
 	font-size: 1.2em; 
 }
-#subsidy-charts td.first, td.program {
+/**#subsidy-charts td.first, td.program {
 	width: 31%;
-}
+}**/
 #subsidy-charts td.program{
 	text-align: left; 
 	padding-left: 10px;
@@ -1003,7 +1003,6 @@ blockquote{
 	text-align: left; 
 }
 #subsidy-charts table {
-	text-align:center; 
 	border-bottom: 1px solid #cccccc; 
 	border-right:none; 
 	border-left: none; 
@@ -1024,6 +1023,60 @@ tbody tr:nth-of-type(even){
 tbody td:last-of-type{
 	border-right: none;
 }
+
+/*------ Alternate chart styles ------*/
+
+
+#subsidy-charts tr.subheader td {
+	border-right: 1px solid #cccccc;  
+	border-bottom: 1px solid #cccccc; 
+	border-left: 1px solid #cccccc;
+}
+
+#subsidy-charts td:first-of-type { 
+	text-align: left; 
+}
+#subsidy-charts table {
+	border-bottom: 1px solid #cccccc; 
+	border-right:none; 
+	border-left: none; 
+	width:660px;
+	margin-top:15px;
+	font-size: 90%;
+}
+
+tbody td:nth-of-type(even){
+	background: #EEEEEE;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+tbody tr:nth-of-type(even){
+	border-bottom: 1px dashed #d3d3d3;
+	border-top: 1px dashed #d3d3d3;
+}
+tbody td:last-of-type{
+	border-right: none;
+}
+
+.alternate tbody td:nth-of-type(even){
+	background: none;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+
+.alternate tbody tr:nth-of-type(odd){
+	background: #F4F4F4;
+
+}
+.alternate tbody td:last-of-type{
+	border-right: none;
+}
+
+
+
+
+
+
 
 #cop-table tbody td:nth-of-type(even){
 	background: none;
