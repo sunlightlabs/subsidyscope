@@ -11,7 +11,7 @@ urlpatterns = patterns('',
     url(r'^tax-expenditures/', direct_to_template, {'template': 'housing/tax_expenditures.html'}, name='housing-tax-expenditures'),
     url(r'^regulations/', direct_to_template, {'template': 'housing/generic_housing_template.html'}, name='housing-regulations'),
     url(r'^risk-transfers/', direct_to_template, {'template': 'housing/generic_housing_template.html'}, name='housing-risk-transfers'),
-
+    url(r'^more-research/', direct_to_template, {'template': 'housing/generic_housing_template.html'}, name='housing-more-research'),
     url(r'^overview/structure/', redirect_to, {'url': '/housing/summary/structure/'}),
     url(r'^overview/', redirect_to, {'url':'/housing/summary/'}),
     url(r'^overview/data-limitations/', redirect_to, {'template': '/housing/summary/data-limitations'}),
