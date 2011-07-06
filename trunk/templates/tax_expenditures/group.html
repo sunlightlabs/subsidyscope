@@ -62,7 +62,8 @@
 
     <div class="page-content">
 				
-        	<h2>{{ group.name }}</h2> 
+        	<h2>{{ group.name|safe }}</h2> 
+             	
         	<p>{{ group.description|safe }}</p>
         	
 	<a class="download_csv" href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
@@ -73,7 +74,7 @@
        				</div>
 		       	<div class="date_range">
 			<strong>Show fiscal years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
-			</div>
+		    	</div>
 		       	</form>
         
         	
@@ -92,11 +93,15 @@
 
 				</tbody>
 				</table>
+                <ol class="footnotes">
+                <li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any single one is changed or repealed.</li>
+                </ol>
+        
 			</div>  	
         
         {% if subgroups%}
-        	<h4>Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</h4>
-        		{% if group.parent %}Multiple line items correspond with this group of tax expenditures. These estimates have been aggregated below to create a more meaningful comparison.{% endif %}
+        	<strong>{% if group.parent %} {% ifequal group.id 166 %}Treasury{% else %} JCT{% endifequal %}{% endif %} Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
+        		{% if group.parent %}Multiple line items correspond with this group of tax expenditures. These estimates have been aggregated below to provide a more meaningful comparison.{% endif %}
         	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
 				<table>
 				
@@ -110,7 +115,7 @@
 				
 					{% for subgroup in subgroups %}
 						
-						<tr><td style="text-align: left; padding-top: 20px; border-bottom: solid 1px #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name }}</a></td></tr>
+						<tr><td style="text-align: left; padding-top: 20px; border-bottom: solid 1px #ccc;" colspan="15"><strong><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name|safe }}</a></td></tr>
 						{% te_group_summary subgroup source estimate estimate_years %}
 						
 					{% endfor %}
@@ -168,12 +173,9 @@ Estimate years, presented along the horizontal axis (varying across the columns)
         	{% endif %}
 		</cite>
 		
-				
-		<ol class="footnotes">
-			<li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any single one is changed or repealed.</li>
-		</ol>
+		<br/>
+		<br/>
 		
-		</div>
 	</div>
 </div>
 
