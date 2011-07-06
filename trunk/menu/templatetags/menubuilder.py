@@ -54,7 +54,10 @@ def recursive_menu(context):
         else:
             html.append('<ul><li><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
     menu_data = ''.join(html)
-    return { 'menu_data': menu_data, 'menu_items': menu_items }
+    if current_path.startswith('/tax_expenditures'):
+        return { 'menu_data': menu_data, 'menu_items': menu_items, 'pted':True }
+    else:
+        return { 'menu_data': menu_data, 'menu_items': menu_items }
 
 
 def build_menu(parser, token):

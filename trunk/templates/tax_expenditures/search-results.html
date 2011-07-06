@@ -1,24 +1,26 @@
 {% extends "base.html" %}
-
+{% load menubuilder %}
 
 {% block content %}
-<div class="container main_container">
-    <div class="span-24">
-        <div id="header_area">
+<div class="wrapper clearfix">
+        <div class="secondary-header">
             <h3>Tax Expenditures Matching <em>{{query}}</em></h3>
         </div>
-        <div class="content_area">
- 
+        {% recursive_menu %}
+        <div class="page-content">
         <ul>
-        {% for r in results %}
-            <li style="margin: 10px 0;">&raquo;
-                <a href="/tax_expenditures/db/group/{{r.0.id}}/">{{r.0.name}}</a>
-                <span style="padding-left: 25px; color:grey; display:block;"> under {{r.1}}</span>
-            </li>    
+        {% if results %}
+            {% for r in results %}
+                <li style="margin: 10px 0;">&raquo;
+                    <a href="/tax_expenditures/db/group/{{r.0.id}}/">{{r.0.name}}</a>
+                    <span style="padding-left: 25px; color:grey; display:block;"> under {{r.1}}</span>
+                </li>    
 
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <li> No results for {{query}}</li>
+        {% endif %}
         </ul>
         </div>
-    </div>
 </div>
 {% endblock %} 

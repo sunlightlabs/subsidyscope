@@ -14,16 +14,22 @@ lower_level_footnote = """The Joint Committee on Taxation (JCT) does not provide
 top_level_footnote = """The Joint Committee on Taxation (JCT) does not provide numerical data for values that are between -$50 million and $50 million. Rather it provides a footnote indicating that the values are either "greater than -$50 million" or "less than $50 million." When aggregated, the sums of these values are unknown and thus are rounded to zero. The aggregated estimates that are presented in this document do not indicate where these rounded values exist. For information on which estimates contain these rounded values please review the specific tax expenditure estimates. For more information, see Subsidyscope's methodology."""
 
 
-def search(request, querystring):
-    search_results = SearchQuerySet().filter(content=querystring).models(Group).load_all()
-    results = []
-    for r in search_results:
-        bf = r._object.parent
-        while bf.parent is not None:
-            bf = bf.parent
-        results.append((r._object, bf))
+def search(request):
+    querystring = request.GET['query']
+    if querystring:
+        search_results = SearchQuerySet().filter(content=querystring).models(Group).load_all()
+        results = []
 
-    return render_to_response('tax_expenditures/search-results.html', {'results': results, 'query': querystring}, context_instance=RequestContext(request))
+        for r in search_results:
+            bf = r._object.parent
+            if bf:
+               while bf.parent is not None:
+                   bf = bf.parent
+               results.append((r._object, bf))
+
+        return render_to_response('tax_expenditures/search-results.html', {'results': results, 'query': querystring}, context_instance=RequestContext(request))
+    else:
+        return render_to_response('tax_expenditures/search-results.html', {'query': querystring}, context_instance=RequestContext(request))
 
 def get_year_choices(columns, year):
     
