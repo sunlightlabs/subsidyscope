@@ -7,7 +7,7 @@ register = Library()
 
 @register.inclusion_tag('carousel/index.html')
 def carousel_entries_all():
-    entries =  CarouselEntry.objects.filter(published=True).order_by('weight')
+    entries =  CarouselEntry.objects.filter(published=True).order_by('weight')[:3]
     return { 'entries': entries }
 
 @register.inclusion_tag('carousel/sector.html')
