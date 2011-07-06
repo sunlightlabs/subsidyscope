@@ -44,7 +44,7 @@ function TARP_init()
 	
 	/* by date viz */
 	
-	swfobject.embedSWF('{% media_url %}/scripts/TARPVis.swf', 'tarpTimelineVis', 620, 300, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
+	swfobject.embedSWF('{% media_url %}/scripts/TARPVis.swf', 'tarpTimelineVis', 820, 260, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf');
 	
 	/* end by-date viz */
 
