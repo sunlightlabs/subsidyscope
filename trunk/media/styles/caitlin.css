@@ -62,10 +62,13 @@ input[type="checkbox"] { vertical-align: middle; }
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 button, input, select, textarea { margin: 0; }
 input:valid, textarea:valid   {  }
+input, textarea  { padding: 3px; }
 input:invalid, textarea:invalid { border-radius: 1px;  -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red;  box-shadow: 0px 0px 5px red; }
 .no-boxshadow input:invalid, 
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
-
+input {
+	
+}
 
 
 button {  width: auto; overflow: visible; }
@@ -138,6 +141,9 @@ h1#subscope_logo{
 #top_nav_header{
 	font-size: 90%;
 }
+
+
+
 /* ------ Main nav styling ------*/
 
 .global-nav{
@@ -1370,6 +1376,20 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	display: block;
 	margin-bottom: 20px;
 }
+
+#search_page_search input{
+	width: 610px;
+
+}
+#search_page_search .submit{
+	background: url('../images/search_icon.png') right center no-repeat;
+	border: none;
+	text-indent: -9999em;
+	width: 21px;
+	height: 21px;	
+}
+
+
 
 /* email updates */
 #email-form-container { overflow: hidden; width: 0px; padding-left: 0;}
