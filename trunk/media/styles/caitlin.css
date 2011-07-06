@@ -1385,7 +1385,7 @@ ul#top_nav_header li { display: block !important; float: right;}
 #search_form .submit { border:1px solid #899eab; color#:2f4867; background-color:#f6f8fb; padding:0 3px 0 3px;}
 
 #by-date-container{
-	overflow: scroll;
+	overflow-x: scroll;
 }
 
 
