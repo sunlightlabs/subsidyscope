@@ -149,24 +149,20 @@
 		<cite>
 		* Contains tax expenditures estimated to be between -$50 million and $50 million. When aggregated, the sum of these estimates are unknown and thus are rounded to zero. For more information, see the methodology.
 		</cite>
-	
-		
 		{% if not group.parent %}
-		<cite>
-Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is an aggregation of the most recent estimates made for that year, and includes estimates from different budget documents. Thus, every estimate accounts for specific assumptions about tax law and economic conditions used by the government in the budget document in which it was found. All estimates are reported by fiscal year; Subsidyscope has not adjusted the estimates for inflation. Click on specific sectors for more information and data.
+		<cite>Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is an aggregation of the most recent estimates made for that year, and includes estimates from different budget documents. Thus, every estimate accounts for specific assumptions about tax law and economic conditions used by the government in the budget document in which it was found. All estimates are reported by fiscal year; Subsidyscope has not adjusted the estimates for inflation. Click on specific sectors for more information and data.
+
 		</cite>
 		{% else %}
             {% if group.parent.parent %}
                 <cite>Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. The estimate presented is the most recent estimate made for that year, and includes estimates from different budget documents. Thus, every estimate accounts for specific assumptions about tax law and economic conditions used by the government in the budget document in which it was found. All estimates are reported by fiscal year; Subsidyscope has not adjusted the estimates for inflation. Click on specific tax expenditures for more information and data.
                 </cite>
             {% else %}
-                <cite>
-                    Report years, presented along the vertical axis (varying down the rows), correspond to the year of the budget document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. All estimates are reported by fiscal year; Subsidyscope has not adjusted the estimates for inflation.
+                <cite>Report years, presented along the vertical axis (varying down the rows), correspond to the year of the budget document in which the estimates were obtained. Estimate years, presented along the horizontal axis (varying across the columns), correspond to the years of estimates within a specific budget or document. All estimates are reported by fiscal year; Subsidyscope has not adjusted the estimates for inflation.
                 </cite>
             {% endif %}
 
 		{% endif %}
-		
 		<cite>
 		{% if group.notes %}
         		{{ group.notes|safe }}
