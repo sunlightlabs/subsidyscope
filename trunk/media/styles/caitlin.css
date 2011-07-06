@@ -987,9 +987,9 @@ blockquote{
 	font-size:.9em;
 }
 #subsidy-charts tr.subheader td {
-	border-right: 1px solid #cccccc;  
-	border-bottom: 1px solid #cccccc; 
-	border-left: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	background: #F4F4F4;
+	 
 }
 /** #subsidy-charts tr.even td { 
 	background-color: #f4f4f4; 
@@ -1012,7 +1012,7 @@ blockquote{
 }
 
 tbody td:nth-of-type(even){
-	background: #EEEEEE;
+	background: #F4F4F4;
 	border-left: 1px solid #cccccc;
 	border-right: 1px solid #cccccc;
 }
@@ -1026,37 +1026,6 @@ tbody td:last-of-type{
 
 /*------ Alternate chart styles ------*/
 
-
-#subsidy-charts tr.subheader td {
-	border-right: 1px solid #cccccc;  
-	border-bottom: 1px solid #cccccc; 
-	border-left: 1px solid #cccccc;
-}
-
-#subsidy-charts td:first-of-type { 
-	text-align: left; 
-}
-#subsidy-charts table {
-	border-bottom: 1px solid #cccccc; 
-	border-right:none; 
-	border-left: none; 
-	width:660px;
-	margin-top:15px;
-	font-size: 90%;
-}
-
-tbody td:nth-of-type(even){
-	background: #EEEEEE;
-	border-left: 1px solid #cccccc;
-	border-right: 1px solid #cccccc;
-}
-tbody tr:nth-of-type(even){
-	border-bottom: 1px dashed #d3d3d3;
-	border-top: 1px dashed #d3d3d3;
-}
-tbody td:last-of-type{
-	border-right: none;
-}
 
 .alternate tbody td:nth-of-type(even){
 	background: none;
@@ -1198,7 +1167,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 }
 
 #routeDataTable> table tr:nth-of-type(even){
-	background: #eeeeee;
+	background: #F4F4F4;
 }
 
 /*------ Table style exceptions ------*/
@@ -1208,7 +1177,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 }
 
 #routeDataTable> table tr:nth-of-type(even){
-	background: #eeeeee;
+	background: #F4F4F4;
 }
 
 
@@ -1414,5 +1383,18 @@ ul#top_nav_header li { display: block !important; float: right;}
 #search_box input { margin-right:5px; padding:0; font-size: 14px;}
 #search_form  {padding:0 0 0 0; margin:0;}
 #search_form .submit { border:1px solid #899eab; color#:2f4867; background-color:#f6f8fb; padding:0 3px 0 3px;}
+
+#by-date-container{
+	overflow: scroll;
+}
+
+
+
+
+
+
+
+
+
 
 
