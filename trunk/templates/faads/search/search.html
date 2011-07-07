@@ -209,13 +209,13 @@ var sortOrder = '{{ sort_order }}';
           {% if ran_search %}
             <input type="button" id="reset-faads-search" value="Reset Search" />
             <script type="text/javascript" charset="utf-8">
-            var original_url = window.location.href.replace(/\?.*$/,'');
-            $(function(){ $('#reset-faads-search').click(function(){ window.location.href = original_url;})});
+                var original_url = window.location.href.replace(/\?.*$/,'');
+                $(function(){ $('#reset-faads-search').click(function(){ window.location.href = original_url;})});
             </script>
           {% endif %}
           
           {{ form.sector_name }}
-					<button type="submit" value="Search" name="submit-btn" class="faads-search-submit" />
+				<button type="submit" value="Search" name="submit-btn" class="faads-search-submit"></button>
           <div class="clear-right"></div>
 
 					</form>
