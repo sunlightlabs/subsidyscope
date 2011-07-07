@@ -49,7 +49,7 @@
 $('.secondary-nav li span').click(function(){
     if ( $(this).siblings('ul').length > 0) {
         $(this).siblings('ul').slideToggle();
-        $(this).parents('ul').toggleClass('expanded').toggleClass('collapsed');
+        $(this).toggleClass('expanded').toggleClass('collapsed');
         return false;
     }
 });
