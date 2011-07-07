@@ -40,20 +40,20 @@ def recursive_menu(context):
             menu_list.extend(leaf_menu)
         
         if current_page or current_path.startswith(sm.base_url):
-            menu_list.insert(0, '<ul class="expanded"><li class="active"><span class="accordion"></span><a href="'+ sm.base_url + '">'+ sm.name +'</a><ul>')
+            menu_list.insert(0, '<li class="active"><span class="expanded accordion"></span><a href="'+ sm.base_url + '">'+ sm.name +'</a><ul>')
         else:
-            menu_list.insert(0, '<ul class="collapsed"><li><span class="accordion"></span><a href="' + sm.base_url + '">' + sm.name + '</a><ul>')
+            menu_list.insert(0, '<li><span class="collapsed accordion"></span><a href="' + sm.base_url + '">' + sm.name + '</a><ul class="collapsed">')
         
-        menu_list.append('</ul></li></ul>')
+        menu_list.append('</ul></li>')
 #        menu_data.append(menu_list)
         html.extend(menu_list)
     
     for mi in menu_items:
         if current_path.startswith(mi.link_url):
-            html.append('<ul class="single"><li class="active"><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
+            html.append('<li class="active"><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li>')
         else:
-            html.append('<ul><li><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li></ul>')
-    menu_data = ''.join(html)
+            html.append('<li><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li>')
+    menu_data = '<ul>' + ''.join(html) + '</ul>'
     if current_path.startswith('/tax_expenditures'):
         return { 'menu_data': menu_data, 'menu_items': menu_items, 'pted':True }
     else:
