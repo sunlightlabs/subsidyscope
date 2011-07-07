@@ -1,4 +1,12 @@
 
+#results ul{
+	list-style-type: none;
+}
+#results .headers{
+	font-weight: 700;
+	background-color:#E4E4E4 ;
+}
+
 #portsearch input.term {
     width: 27%;
     margin-left: 3px;
@@ -44,7 +52,7 @@ ul.headers li.name, .portdetail ul li.name {
 }
 ul.headers li.money, .portdetail ul li.money, .portdetail ul li.enps, ul.headers li.enps {
     text-align:right;
-    width: 15%;
+    width: 18%;
 }
 .portdetail ul li.enps {padding-right:30px;}
 .portdetail ul li.city {text-align:left; width:11%;}
@@ -58,7 +66,8 @@ ul.headers li.money, .portdetail ul li.money, .portdetail ul li.enps, ul.headers
     width:100%;
 }
 ul.headers {
-    border: 1px solid #1D235F;
+    border-top: 1px solid #A5A5A5;
+    border-bottom: 1px solid #A5A5A5;
     float:left;
     width: 100%;
     margin-left: 0px;
@@ -68,6 +77,7 @@ ul.headers {
     float:left;
     width: 100%;
     padding-top: 10px;
+	border-bottom: 1px dashed #d3d3d3;
 }
 .portdetail ul.sum {
     border-top: 1px solid #1D235F;

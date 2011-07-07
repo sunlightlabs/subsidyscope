@@ -35,7 +35,7 @@ body { font:14px/1.231 sans-serif; *font-size:small; }
 select, input, textarea, button { font:99% sans-serif; }
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
-body, select, input, textarea {   color: #444; }
+body, select, input, textarea {   color: #666; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 html { overflow-y: scroll; }
 
@@ -62,7 +62,7 @@ input[type="checkbox"] { vertical-align: middle; }
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 button, input, select, textarea { margin: 0; }
 input:valid, textarea:valid   {  }
-input, textarea  { padding: 3px; }
+input, textarea  { padding: 3px; font-weight: 200}
 input:invalid, textarea:invalid { border-radius: 1px;  -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red;  box-shadow: 0px 0px 5px red; }
 .no-boxshadow input:invalid, 
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
@@ -1358,7 +1358,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	border-top: 1px solid #C3C3C3;
 }
 #global-pted-search input{
-	width: 200px;
+	width: 194px;
 
 }
 #global-pted-search .submit{
@@ -1421,7 +1421,6 @@ ul#top_nav_header li { display: block !important; float: right;}
 	list-style-type: none;
 	margin-left: 0;
 }
-
 
 
 
