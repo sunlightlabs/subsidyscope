@@ -272,29 +272,31 @@ a.pew-logo{
 	position: relative;
 }
 
-.secondary-nav>ul{
+.secondary-nav>ul>li{
 	border-bottom: 1px solid #c3c3c3;
 	-moz-box-shadow: 0px 1px 0px #ffffff;
 	-webkit-box-shadow:  0px 1px 0px #ffffff;
     box-shadow:  0px 1px 0px #ffffff;
-	margin-left: ;
+	padding-top: 8px;
 }
 
 .accordion {
-	width: 20px; 
-	height: 20px; 
+	width: 12px; 
+	height: 12px; 
 	display: inline-block;
+	text-indent: -9999em;
+	margin-right: 13px;
 }
 .accordion:hover{
 	cursor: pointer;
 }
-.secondary-nav>ul.expanded .accordion{
-	background: url('../images/nav_secondary_collapse.png') left 10px no-repeat;
+.secondary-nav span.expanded.accordion{
+	background: url('../images/nav_secondary_collapse.png') left 1px no-repeat;
 }
-.secondary-nav>ul.collapsed .accordion{
-	background: url('../images/nav_secondary_expand.png') left 10px no-repeat;
+.secondary-nav span.collapsed.accordion{
+	background: url('../images/nav_secondary_expand.png') left 1px no-repeat;
 }
-.secondary-nav>ul.collapsed ul {display:none;}
+.secondary-nav ul.collapsed {display:none;}
 
 .secondary-nav ul>li{
 	font-weight: 700;
@@ -310,6 +312,7 @@ a.pew-logo{
 }
 .secondary-nav ul>li>ul>li>ul{
 	padding-top: 5px;
+	margin-left: 20px;
 }
 
 .secondary-nav li{

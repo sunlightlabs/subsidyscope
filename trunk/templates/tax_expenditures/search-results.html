@@ -8,7 +8,13 @@
         </div>
         {% recursive_menu %}
         <div class="page-content">
-        <ul>
+        	<h2>Search</h2>		
+			<p id="top-note-box">Didn't find what you were looking for? Try searching for something else.</p>
+			<form id="" action="/tax_expenditures/search" method="GET">
+			<input id="search_page_search" type="text" name="query" placeholder="enter keywords">
+			<button class="submit" type="submit" value="Search"></button>
+			</form>
+		<ul>
         {% if results %}
             {% for r in results %}
                 <li style="margin: 10px 0;">
