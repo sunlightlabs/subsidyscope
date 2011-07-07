@@ -734,7 +734,7 @@ ul.feature_nav{
 
 /*------ Sector Updates Styling (data page styling too!)------*/
 
-.updates_head, .data-section { 
+.updates_head{ 
 	border-top: 1px solid #cbcbcb; 
 	background-color:#f3f3f4; 
 	padding: 0 0 0 9px; 
@@ -746,6 +746,7 @@ ul.feature_nav{
 	height: 31px;
 	margin-bottom: 20px;
 }
+
 #update_headline h4{
 	display: inline;
 }
@@ -1315,6 +1316,22 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 }
 
 /*------ Data Page Styling ------*/
+.data-section h4{ 
+	border-top: 1px solid #cbcbcb; 
+	background-color:#f3f3f4; 
+	padding: 7px 0 0 9px; 
+	border-bottom:1px solid #ffffff; 
+	color:#333333; 
+	font-size: 110%; 
+	background:url(/media/images/front_update_head_bg_alt.png) center top repeat-x; 
+	height: 31px;
+	margin-bottom: 20px;
+	margin-left: 0;
+}
+.data-section h4 a{
+	color: #636363;
+}
+
 #big-download-icon { float:right; margin: 20px 50px 20px 50px; }
 
 #data-page ul.datasets { margin-left: 30px; margin-top: 10px;}
@@ -1342,7 +1359,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 
 #data-page .data-section { 
 	clear: left;
-
+	height: 100%;
 }
 
 #data-page .data-section .section-description {
