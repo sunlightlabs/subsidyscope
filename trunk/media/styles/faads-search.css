@@ -69,8 +69,8 @@ margin-right: 20px;
   padding: 3px;
 }
 
-#faads-search-results { width: 876px; font-size: 12px;}
-#faads-search-results th, #faads-search-results td { border-right: 0;}
+#faads-search-results { width: 660px; font-size: 12px;}
+#faads-search-results th, #faads-search-results td { border-right: 0; padding: 2px}
 #faads-search-results .last { border-right: 1px solid #ccc;}
 #faads-search-results th { font-weight: bold; text-align: center; vertical-align: middle;}
 

@@ -226,7 +226,7 @@ var sortOrder = '{{ sort_order }}';
 				    
 			      {% if found_some_results and ran_search %}		
 			      
-			  <div class="ui-tabs ui-widget ui-widget-content ui-corner-all" id="tabs">
+			  <div class="ui-tabs ui-widget ui-corner-all widget-no-border" id="tabs">
           		<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
           			<li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a href="#faads-result-table">Results</a></li>
           			<li class="ui-state-default ui-corner-top"><a href="#faads-result-graph">Summary</a></li>
@@ -236,7 +236,7 @@ var sortOrder = '{{ sort_order }}';
           		
           		<div class="ui-tabs-panel ui-widget-content ui-corner-bottom" id="faads-result-table">
 			         			         
-				      <table id="faads-search-results">
+				      <table id="faads-search-results" class="alternate">
 				        <thead>
 				          <tr>
 				            <th id="obligation_date" class="obligation-date">Obligation Date</th>
