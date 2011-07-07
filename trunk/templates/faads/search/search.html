@@ -207,7 +207,7 @@ var sortOrder = '{{ sort_order }}';
           </fieldset>
           
           {% if ran_search %}
-            <input type="button" id="reset-faads-search" value="Reset Search" />
+            <button type="button" id="reset-faads-search" value="Reset Search" />Reset Search</button>
             <script type="text/javascript" charset="utf-8">
                 var original_url = window.location.href.replace(/\?.*$/,'');
                 $(function(){ $('#reset-faads-search').click(function(){ window.location.href = original_url;})});
@@ -215,7 +215,7 @@ var sortOrder = '{{ sort_order }}';
           {% endif %}
           
           {{ form.sector_name }}
-				<button type="submit" value="Search" name="submit-btn" class="faads-search-submit"></button>
+				<button type="submit" value="Search" name="submit-btn" class="faads-search-submit">Search</button>
           <div class="clear-right"></div>
 
 					</form>
@@ -276,9 +276,16 @@ var sortOrder = '{{ sort_order }}';
                           <span class="disabled">&lsaquo; prev</span>
                       {% endif %}
 
-                      <span class="current">
-                          Page {{ faads_results.number|intcomma }} of {{ faads_results.paginator.num_pages|intcomma }}
-                      </span>
+
+            <div class="pagination-block">
+                  <span>
+                      {% for page_num in page_range %}
+                          <a href="?q={{ query|safe }}&page={{ page_num }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">{{ page_num }}</a>
+                      {% endfor %}
+                  </span>
+              </div>
+
+
 
                       {% if faads_results.has_next %}
                           <a href="?q={{ query|safe }}&page={{ faads_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &rsaquo;</a>
@@ -288,15 +295,13 @@ var sortOrder = '{{ sort_order }}';
                           <span class="disabled">&rsaquo; last</span>
                       {% endif %}
                   </span>
-              </div>
 
-              <div class="pagination">
-                  <span>
-                      {% for page_num in page_range %}
-                          <a href="?q={{ query|safe }}&page={{ page_num }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">{{ page_num }}</a>
-                      {% endfor %}
+				  <span class="current">
+                      Page {{ faads_results.number|intcomma }} of {{ faads_results.paginator.num_pages|intcomma }}
                   </span>
               </div>
+
+  
               
               <div class="search-disclaimer">{% morsel disclaimer1 %}</div>
 

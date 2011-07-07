@@ -35,7 +35,7 @@ body { font:14px/1.231 sans-serif; *font-size:small; }
 select, input, textarea, button { font:99% sans-serif; }
 pre, code, kbd, samp { font-family: monospace, sans-serif; }
 
-body, select, input, textarea {   color: #666; }
+body, select, input, textarea {   color: #444; }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; }
 html { overflow-y: scroll; }
 
@@ -62,7 +62,7 @@ input[type="checkbox"] { vertical-align: middle; }
 label, input[type=button], input[type=submit], button { cursor: pointer; }
 button, input, select, textarea { margin: 0; }
 input:valid, textarea:valid   {  }
-input, textarea  { padding: 3px; font-weight: 200}
+input, textarea  { padding: 3px; font-weight: 200; color: #666;}
 input:invalid, textarea:invalid { border-radius: 1px;  -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red;  box-shadow: 0px 0px 5px red; }
 .no-boxshadow input:invalid, 
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
@@ -278,12 +278,14 @@ a.pew-logo{
 	-webkit-box-shadow:  0px 1px 0px #ffffff;
     box-shadow:  0px 1px 0px #ffffff;
 	padding-top: 8px;
+	float: left;
 }
 
 .accordion {
 	width: 12px; 
 	height: 12px; 
-	display: inline-block;
+	display: block;
+	float: left;
 	text-indent: -9999em;
 	margin-right: 13px;
 }
@@ -322,12 +324,12 @@ a.pew-logo{
 .secondary-nav a{
 	text-decoration: none;
 	color: #676766;
+	display: block;
+	width: 205px;
 }
 .active>a{
 	color: #2e659b;
-}
-.active>a{
-	color: #2e659b;
+	text-decoration: none;
 }
 
 /*------ Secondary page styling ------*/
@@ -1040,6 +1042,9 @@ tbody td:last-of-type{
 	background: inherit;
 	border-left: 1px solid #cccccc;
 	border-right: 1px solid #cccccc;
+}
+.alternate tbody td:last-of-type{
+	border-right: none;
 }
 .alternate tbody td:nth-of-type(odd){
 	background: inherit;
