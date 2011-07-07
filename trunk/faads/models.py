@@ -120,8 +120,9 @@ class Record(models.Model):
         self.sector_hash = self._generate_sector_hash()
         super(Record, self).save()
     
-    data_commons_id = models.IntegerField("Record ID", max_length=20, blank=False, null=False, primary_key=True)
-    unique_transaction_id = models.CharField("Unique Transaction ID", max_length="32", blank=False, null=False)
+#    data_commons_id = models.IntegerField("Record ID", max_length=20, blank=False, null=False, primary_key=True)
+#    unique_transaction_id = models.CharField("Unique Transaction ID", max_length="32", blank=False, null=False)
+    record_id = models.IntegerField('Record ID', max_length=20, primary_key=True)
 
     sectors = models.ManyToManyField(Sector, blank=True)    
     subsectors = models.ManyToManyField(Subsector, blank=True)    

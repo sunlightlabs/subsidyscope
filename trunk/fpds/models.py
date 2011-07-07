@@ -178,8 +178,10 @@ class FPDSRecord(models.Model):
         except:
             pass#change this, stupid truncation...
     
-    unique_transaction_id = models.CharField('unique_transaction_id', max_length=255, blank=False, null=False)
-    data_commons_id = models.IntegerField('data commons id', blank=False, null=False, primary_key=True)
+#   unique_transaction_id = models.CharField('unique_transaction_id', max_length=255, blank=False, null=False)
+ #  data_commons_id = models.IntegerField('data commons id', blank=False, null=False, primary_key=True)
+
+    record_id = models.IntegerField('record_id', max_length=20, primary_key=True)   # should be deleted after we move to new importing
 
     sectors = models.ManyToManyField(Sector, blank=True)
     subsectors = models.ManyToManyField(Subsector, blank=True)
