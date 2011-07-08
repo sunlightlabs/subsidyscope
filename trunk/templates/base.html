@@ -10,7 +10,9 @@
 	<link rel="alternate" type="application/rss+xml" title="Subsidyscope Project Updates" href="{% url django.contrib.syndication.views.feed "updates" %}" />
 	{% css "styles/screen.css" %}
 	{% css_print "styles/print.css" %}
-
+	<!--[if lt IE 9]>
+	<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+	<![endif]-->
   <!--[if IE ]>{% css "styles/ie.css" %}<![endif]-->
 	<!--[if lt IE 9]>
 	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
