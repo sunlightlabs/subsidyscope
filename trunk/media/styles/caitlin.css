@@ -1023,9 +1023,9 @@ blockquote{
 }
 #subsidy-charts table, .subsidy-charts table {
 	border-bottom: 1px solid #cccccc; 
-	border-right:none; 
+	border-right: none; 
 	border-left: none; 
-	width:660px;
+	width: 660px;
 	margin-top:15px;
 	font-size: 90%;
 }

@@ -59,25 +59,56 @@ ul.programs {border: none;}
 .overlay{
 	left: 0;
 }
-
 .marquee{
 position: relative;
 }
-
 .home-sidebar{
 	background: url('../images/nav_secondary_bg.png') left bottom no-repeat ;
 }
-
 .updates_box{
 	margin-top: 20px;
 }
 #sources-of-error{
 	padding-bottom: 20px;
 }
-
 .secondary-nav{
 	background: url('../images/nav_secondary_bg.png') left bottom no-repeat;
 }
+.subsidy-charts.alternate table{
+	border-left: 1px solid white;
+}
+
+.subsidy-charts.alternate tr.header-row td, .subsidy-charts tr.header-row td{
+	background-color: #F4F4F4;
+}
+
+div.subsidy-charts table{
+	border-left: 1px solid white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
