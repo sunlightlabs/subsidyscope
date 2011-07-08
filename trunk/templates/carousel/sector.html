@@ -7,16 +7,19 @@
 			<img class="feature-image" src="{% media_url %}/{{entry.image}}" />
 			<div class="overlay">
 				<ul class="feature_nav tabNavigation feature_circle">
-    
-		        {% for dot in entries %}
-		            <li>
-		                <a href="#tab-{{forloop.counter0}}">
-		                    <img src="{% media_url %}/images/front/feature_nav_{% if forloop.counter0 == forloop.parentloop.counter0 %}selected_index{% else %}unselected_index{% endif %}.png" />
-		                </a>
-		            </li>
-    
-		        {% endfor %}
-    
+   
+                {% ifequal  entries|length 1 %}
+                    
+                {% else %}
+                    {% for dot in entries %}
+                        <li>
+                            <a href="#tab-{{forloop.counter0}}">
+                                <img src="{% media_url %}/images/front/feature_nav_{% if forloop.counter0 == forloop.parentloop.counter0 %}selected_index{% else %}unselected_index{% endif %}.png" />
+                            </a>
+                        </li>
+        
+                    {% endfor %}
+                {% endifequal %} 
 		        </ul>
 			</div>
 		</div>
