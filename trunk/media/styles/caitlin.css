@@ -105,6 +105,11 @@ p{
 	padding-top: 30px;
 }
 
+dd{
+	margin-right: 20px;
+	line-height: 1.65;
+}
+
 
 /* ------ Header styling ------*/
 h1#subscope_logo{
@@ -126,10 +131,13 @@ h1#subscope_logo{
 }
 
 #header_search_form{
-	width: 221px;
+	width: 227px;
 	margin-top: 65px;
 	float: right;
 	clear: both;
+}
+#header_search_form #id_query{
+	width: 194px;
 }
 #header_search_form .submit{
 	background: url('../images/search_icon.png') right top no-repeat;
@@ -255,15 +263,13 @@ a.pew-logo{
 	width: 257px;
 	float: left;
 	background: url('../images/nav_secondary_bg.png') left bottom no-repeat;
-	background-color: #f5f5f4;
-	background: #FFFFFF; /* Old browsers */
-	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, -moz-linear-gradient(top, #FFFFFF 0%, #F5F5F4 20%); /* FF3.6+ */
-	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(20%,#F5F5F4)); /* Chrome,Safari4+ */
-	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, -webkit-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* Chrome10+,Safari5.1+ */
-	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, -o-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* Opera11.10+ */
-	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, -ms-linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* IE10+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#F5F5F4',GradientType=0 ); /* IE6-9 */
-	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, linear-gradient(top, #FFFFFF 0%,#F5F5F4 20%); /* W3C */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x #F5F5F4; /* Old browsers */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -moz-linear-gradient(top, #F5F5F4 0%, #F5F5F4 20%); /* FF3.6+ */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F5F5F4), color-stop(20%,#F5F5F4)); /* Chrome,Safari4+ */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* Chrome10+,Safari5.1+ */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -o-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* Opera11.10+ */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -ms-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* IE10+ */
+	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* W3C */
 	-webkit-box-shadow: 3px 0px 15px #e5e5e5;
 	-moz-box-shadow: 3px 0px 15px #e5e5e5;
 	box-shadow: 3px 0px 15px #e5e5e5;
@@ -523,7 +529,6 @@ ul.feature_nav{
 .newsbits{
 	width: 282px;
 	height: 465px;
-	background: url('../images/nav_secondary_bg.png') left bottom no-repeat;
 	background-color: #f5f5f4;
 	background: #FFFFFF; /* Old browsers */
 	background: -moz-linear-gradient(top, #FFFFFF 0%, #F5F5F4 20%); /* FF3.6+ */
@@ -552,14 +557,12 @@ ul.feature_nav{
 .home-sidebar{
 	height: 190px;
 	background: url('../images/nav_secondary_bg.png') left bottom no-repeat;
-	background-color: #f5f5f4;
-	background: #FFFFFF; /* Old browsers */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x #F5F5F4; /* Old browsers */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -moz-linear-gradient(top, #F5F5F4 0%, #F5F5F4 20%); /* FF3.6+ */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(20%,#F5F5F4)); /* Chrome,Safari4+ */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* Chrome10+,Safari5.1+ */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -o-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* Opera11.10+ */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -ms-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* IE10+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F5F5F4', endColorstr='#F5F5F4',GradientType=0 ); /* IE6-9 */
 	background: url('../images/nav_secondary_bg.png') left bottom no-repeat, linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* W3C */
 	-webkit-box-shadow: -3px 15px 15px #e5e5e5;
 	-moz-box-shadow: -3px 15px 15px #e5e5e5;
@@ -876,6 +879,7 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
 	margin-top: 20px;
 	padding-top: 10px;
 	clear: both;
+	margin-bottom: 40px;
 }
 .summary_key li{
 	display: inline;
@@ -1456,7 +1460,7 @@ form#email-subscribe { display: block; width: 200px; text-align: left; padding: 
 form#email-subscribe input { font-size: 9px; }
 form#email-subscribe input.text { color: #aaa; height: 12px;}
 form#email-subscribe input.text:focus { color: #000;}
-form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #899EAB; height: 18px; padding: 2px 3px;}
+form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #899EAB; height: 20px; padding: 2px 3px; width: 63px}
 #email-message { display:none; position: absolute; width: 149px; text-align: left; left: auto; margin-top: 26px; padding: 2px 4px; border: 1px solid;}
 #email-message.instruction { border-color: #a3d9df; color: #175c64; background-color: #cff3f7;}
 #email-message.warning { border-color: #c00; color: #800; background-color: #FFCCCC;}
