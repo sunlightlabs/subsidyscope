@@ -39,9 +39,9 @@
 			<script type="text/javascript">
 			$(function(){
 				var d = new Date();
-				swfobject.embedSWF('{% media_url %}/scripts/fed_h41_1.3.swf', 'fed-h41', 900, 400, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', 
+				swfobject.embedSWF('{% media_url %}/scripts/fed_h41_1.3.swf', 'fed-h41', 660, 400, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', 
 				{
-					width: 900,
+					width: 660,
 					height: 400,	       
 					data_url: 'http://' + window.location.host + '{% url h41_snapshot_xml %}?' + d.getTime(),
 					timeline_data_url: 'http://' + window.location.host + '{% url fed_news_xml %}?' + d.getTime(),
