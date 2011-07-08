@@ -9,7 +9,7 @@ body { background-image:url(/media/images/template/bg_gradient.png); background-
 .alignleft {  float: left;  margin:1.5em 1.5em 1.5em 0;}
 
 .alignright {   float: right; margin:1.5em 1.5em 1.5em 0;}
-
+.centered { text-align: center; }
 
 
 /* TEMPLATE ITEMS */
