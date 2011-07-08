@@ -105,6 +105,11 @@ p{
 	padding-top: 30px;
 }
 
+dd{
+	margin-right: 20px;
+	line-height: 1.65;
+}
+
 
 /* ------ Header styling ------*/
 h1#subscope_logo{
