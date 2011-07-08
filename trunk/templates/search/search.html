@@ -16,18 +16,18 @@
 		    
 			<h2>Search</h2>		
 			<p id="top-note-box">Didn't find what you were looking for? Try searching for something else.</p>
-		    <form id="search_page_search" action="." method="GET">
+		    <form id="search_page_search" class="search_page_search" action="." method="GET">
 				{{ form.query }}
-				<input class="submit" type="submit" value="Search"/>
+				<button class="submit" type="submit" value="Search">Search</button>
 			</form>
 				    
 
 			<p>&nbsp;</p>
 			{% if page_result_set %}
-			<strong>Results:</strong>
+			<h4>Results:</h4>
 			<ul class="search_results">
 				{% for page in page_result_set %}
-					<li  style="padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid #CCCCCC;">
+					<li>
 						
 				
 					{% if page.object.program_number %}
@@ -35,18 +35,18 @@
 						{% for sector in page.object.sectors.all %}
 						
 									
-								<img style="vertical-align: top;float: left; margin-top: 3px; margin-bottom: 0; padding-right: 5px;" src="{{ sector.image_url_small }}"/>
+								<img src="{{ sector.image_url_small }}"/>
 						{% endfor %}
 						
 						
-						<strong><a href="{% url transportation-cfda-programpage page.object.id  %}">{{ page.object.program_number }} &mdash; {{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
+						<h5><a href="{% url transportation-cfda-programpage page.object.id  %}">{{ page.object.program_number }} &mdash; {{ page.title }}</a></h5>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
 					
 					{% else %}
 							{% if page.object.sector.image_url_small %}
-								<img style="vertical-align: top;float: left; margin-top: 3px; margin-bottom: 0; padding-right: 5px;" src="{{ page.object.sector.image_url_small }}"/>
+								<img src="{{ page.object.sector.image_url_small }}"/>
 							{% endif %}
 							
-						<h4><a href="{{ page.url }}/">{{ page.title }}</a></h4>
+						<h5><a href="{{ page.url }}/">{{ page.title }}</a></h5>
 						{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
 					{% endif %}
 				{% endfor %} 

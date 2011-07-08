@@ -132,11 +132,12 @@ h1#subscope_logo{
 	clear: both;
 }
 #header_search_form .submit{
-	background: url('../images/search_icon.png') right center no-repeat;
+	background: url('../images/search_icon.png') right top no-repeat;
 	border: none;
 	text-indent: -9999em;
 	width: 21px;
 	height: 21px;	
+	margin-top: 5px;
 }
 #top_nav_header{
 	font-size: 90%;
@@ -734,7 +735,7 @@ ul.feature_nav{
 
 /*------ Sector Updates Styling (data page styling too!)------*/
 
-.updates_head, .data-section { 
+.updates_head{ 
 	border-top: 1px solid #cbcbcb; 
 	background-color:#f3f3f4; 
 	padding: 0 0 0 9px; 
@@ -746,6 +747,7 @@ ul.feature_nav{
 	height: 31px;
 	margin-bottom: 20px;
 }
+
 #update_headline h4{
 	display: inline;
 }
@@ -960,44 +962,50 @@ blockquote{
 
 /*------ Generic chart styles ------*/
 
-#subsidy-charts tr.header-row td, #subsidy-charts tr.header-row th{ 
+#subsidy-charts tr.header-row td, #subsidy-charts tr.header-row th, .subsidy-charts tr.header-row td, .subsidy-charts tr.header-row th{ 
 	background-color: #e4e4e4; 
 	border-top: 1px solid #a5a5a5; 
 	border-bottom: 1px solid #a5a5a5; 
 	font-weight: bold;
 }
 
-#subsidy-charts tr.header-row td:last-of-type{
+#subsidy-charts tr.header-row td:last-of-type, .subsidy-charts tr.header-row td:last-of-type{
 	border-right: none;
 }
-#subsidy-charts tr td:last-of-type{
+#subsidy-charts tr td:last-of-type, .subsidy-charts tr td:last-of-type{
 	border-right: none;
 }
-#subsidy-charts tr.header-row td.first {
+#subsidy-charts tr.header-row td:first-of-type, .subsidy-charts tr.header-row td:first-of-type{
+	border-right: none;
+}
+#subsidy-charts tr td:first-of-type, .subsidy-charts tr td:first-of-type{
+	border-right: none;
+}
+#subsidy-charts tr.header-row td.first, .subsidy-charts tr.header-row td.first {
 	font-size: 1.2em; 
 }
 /**#subsidy-charts td.first, td.program {
 	width: 31%;
 }**/
-#subsidy-charts td.program{
+#subsidy-charts td.program, .subsidy-charts td.program{
 	text-align: left; 
 	padding-left: 10px;
 }
-#subsidy-charts td.subprogram{
+#subsidy-charts td.subprogram, .subsidy-charts td.subprogram{
 	text-align: left; 
 	padding-left: 25px;
 }
-#subsidy-charts tr.total{
+#subsidy-charts tr.total, .subsidy-charts tr.total{
 	font-weight:bold;
 }
-#subsidy-charts tr.subtotal{
+#subsidy-charts tr.subtotal, .subsidy-charts tr.subtotal{
 	font-style: italic
 }
-#subsidy-charts tr.subheader{
+#subsidy-charts tr.subheader, .subsidy-charts tr.subheader{
 	font-weight:bold; 
 	font-size:.9em;
 }
-#subsidy-charts tr.subheader td {
+#subsidy-charts tr.subheader td, .subsidy-charts tr.subheader td {
 	border-bottom: 1px solid #cccccc;
 	background: #F4F4F4;
 	 
@@ -1005,15 +1013,15 @@ blockquote{
 /** #subsidy-charts tr.even td { 
 	background-color: #f4f4f4; 
 }**/
-#subsidy-charts td { 
+#subsidy-charts td, .subsidy-charts td { 
 	padding: 7px; 
 	border-bottom: none;
 	text-align: right; 
 }
-#subsidy-charts td:first-of-type { 
+#subsidy-charts td:first-of-type, .subsidy-charts td:first-of-type { 
 	text-align: left; 
 }
-#subsidy-charts table {
+#subsidy-charts table, .subsidy-charts table {
 	border-bottom: 1px solid #cccccc; 
 	border-right:none; 
 	border-left: none; 
@@ -1036,7 +1044,6 @@ tbody td:last-of-type{
 }
 
 /*------ Alternate table styles ------*/
-
 
 .alternate tbody td:nth-of-type(even){
 	background: inherit;
@@ -1316,6 +1323,22 @@ ul.pted-summary li { margin-top: 15px; }
 }
 
 /*------ Data Page Styling ------*/
+.data-section h4{ 
+	border-top: 1px solid #cbcbcb; 
+	background-color:#f3f3f4; 
+	padding: 7px 0 0 9px; 
+	border-bottom:1px solid #ffffff; 
+	color:#333333; 
+	font-size: 110%; 
+	background:url(/media/images/front_update_head_bg_alt.png) center top repeat-x; 
+	height: 31px;
+	margin-bottom: 20px;
+	margin-left: 0;
+}
+.data-section h4 a{
+	color: #636363;
+}
+
 #big-download-icon { float:right; margin: 20px 50px 20px 50px; }
 
 #data-page ul.datasets { margin-left: 30px; margin-top: 10px;}
@@ -1343,7 +1366,7 @@ ul.pted-summary li { margin-top: 15px; }
 
 #data-page .data-section { 
 	clear: left;
-
+	height: 100%;
 }
 
 #data-page .data-section .section-description {
@@ -1367,12 +1390,13 @@ ul.pted-summary li { margin-top: 15px; }
 	width: 194px;
 
 }
-#global-pted-search .submit{
+#global-pted-search .submit, .search_page_search .submit{
 	background: url('../images/search_icon.png') right center no-repeat;
 	border: none;
 	text-indent: -9999em;
 	width: 21px;
-	height: 21px;	
+	height: 21px;
+	margin-top: 5px;	
 }
 
 #global-pted-search label{
@@ -1386,19 +1410,45 @@ ul.pted-summary li { margin-top: 15px; }
 	margin-bottom: 20px;
 }
 
-#search_page_search input{
-	width: 610px;
-
-}
-#search_page_search .submit{
-	background: url('../images/search_icon.png') right center no-repeat;
+.search_page_search#global-pted-search {
+	position: relative;
 	border: none;
-	text-indent: -9999em;
-	width: 21px;
-	height: 21px;	
+	margin-left: 0;
+	padding-top: 0;
 }
 
 
+
+.search_page_search input, .search_page_search#global-pted-search input{
+	width: 605px;
+
+}
+
+.pted-category{
+	color: #636363; 
+	display: block;
+	font-style: italic;
+}
+
+.search_results em{
+	border-bottom: 2px dotted #7ec4cc;
+}
+
+.search_results li{
+	padding-bottom: 15px; 
+	margin-bottom: 15px; 
+	border-bottom: 1px solid #CCCCCC;
+}
+.search_results.pted h5{
+	margin-bottom: 5px;
+}
+.search_results img{
+	background-position: left center;
+	float: left; 
+	margin-top: 1px; 
+	margin-bottom: 0; 
+	padding-right: 5px;
+}
 
 /* email updates */
 #email-form-container { overflow: hidden; width: 0px; padding-left: 0;}
