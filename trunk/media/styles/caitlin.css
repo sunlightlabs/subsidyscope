@@ -957,7 +957,13 @@ dl{
 }
 
 blockquote{
-	color: ;
+	color:#868686;
+	line-height: 1.65;
+	font-style: italic;
+	margin: 20px 40px 40px 20px;
+	border-left: 3px solid #ebebeb;
+	padding-left: 20px;
+
 }
 
 .program{
