@@ -119,11 +119,11 @@ margin-right: 20px;
     width: 60%;
 }
 
-.pagination { margin: 0 auto; text-align: center; font-size: ; margin-top: 20px; display: inline-block; width: 100%;}
-.pagination-block { text-align: center; font-size: ; margin-top: 20px; display: inline-block}
-.pagination .current { padding: 10px 20px 0 20px; text-align: center;  display: block}
-.step-links .disabled, .step-links a { padding: 0 10px; display: inline-block}
-.step-links .disabled { color: #888; display: inline-block}
+.pagination {text-align: center; margin-top: 20px; display: inline-block; margin-left: 150px; margin-right: 150px;}
+.pagination-block { text-align: center; font-size: ; margin-top: 0; display: block; float: left;}
+.pagination .current { padding: 10px 20px 0 20px; text-align: center;  display: block; clear: left}
+.step-links .disabled, .step-links a { padding: 0 10px; display: block; float: left;}
+.step-links .disabled { color: #888; display: block; float: left}
  
 
 #tabs ul { margin-bottom: 0px;}
