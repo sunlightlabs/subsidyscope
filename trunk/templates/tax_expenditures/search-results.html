@@ -4,14 +4,14 @@
 {% block content %}
 <div class="wrapper clearfix">
         <div class="secondary-header">
-            <h3>Tax Expenditures Matching <em>{{query}}</em></h3>
+            <h3>Tax Expenditures</h3>
         </div>
         {% recursive_menu %}
         <div class="page-content">
         	<h2>Search</h2>		
 			<p id="top-note-box">Didn't find what you were looking for? Try searching for something else.</p>
 			<form id="global-pted-search" class="search_page_search" action="/tax_expenditures/search" method="GET">
-			<input id="id_query" type="text" name="query" placeholder="enter keywords">
+			<input id="id_query" type="text" name="query" placeholder="{{query}}">
 			<button class="submit" type="submit" value="Search"></button>
 			</form>
 		
