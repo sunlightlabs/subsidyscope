@@ -133,15 +133,43 @@ def static_csv_recurse(gp, writer, budget_function, ry, source, years):
     if exps.count() > 0:
         for ex in exps:
             row = [budget_function, ex.name]
-            estimates = Estimate.objects.filter(expenditure=ex, estimate_year__in=years).order_by('estimate_year')
-            for est in estimates:
-                row.append(est.individuals_amount)
-                
-            for est in estimates:
-                row.append(est.corporations_amount)
+            estimates = Estimate.objects.filter(expenditure=ex).order_by('estimate_year')
+            totals = {}
+            for ey in years:
+                est = estimates.filter(estimate_year=ey)
+                if len(est) > 0:
+                    est = est[0]
+                    if est.individuals_notes == Estimate.NOTE_POSITIVE:
+                        row.append('<50')
+                    elif est.individuals_notes == Estimate.NOTE_NEGATIVE:
+                        row.append('>-50')
+                    else:
+                        row.append(est.individuals_amount)
+                else:
+                    row.append(None)
+            for ey in years:
+                est = estimates.filter(estimate_year=ey) 
+                if len(est) > 0:
+                    est = est[0]
+                    if est.corporations_notes == Estimate.NOTE_POSITIVE:
+                        row.append('<50')
+                    elif est.corporations_notes == Estimate.NOTE_NEGATIVE:
+                        row.append('>-50')
+                    else:
+                        row.append(est.corporations_amount)
+                else:
+                    row.append(None)
 
-            for est in estimates:
-                row.append((est.corporations_amount or 0) + (est.individuals_amount or 0))
+            for cell in range(2, 7):
+                total = 0
+                if row[cell] and row[cell].__class__ != str:
+                    total += row[cell]
+                if row[cell+5] and row[cell+5].__class__ != str :
+                    total += row[cell+5]
+                if total: 
+                    row.append(total)
+                else:
+                    row.append(None)
 
             row.append(ex.notes)
 
