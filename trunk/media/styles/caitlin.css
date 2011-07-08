@@ -1292,7 +1292,8 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	padding-bottom: 16px;
 	padding-top: 5px;
 }
-
+/* PTED ul, needs more vertical padding */
+ul.pted-summary li { margin-top: 15px; }
 
 .non_content { margin:20px 0 20px 0; padding:0 0 0 0;}
 .manyeyes img{
