@@ -111,10 +111,17 @@ table{
 	left: 0px;
 }
 
+#header_search_form{
+	margin-top: 45px;
+}
 
+#header_search_form #id_query{
+	width: 194px;
+}
+#header_search_form .submit{
+	background: url('../images/search_icon.png') right center no-repeat;
 
-
-
+}
 
 
 

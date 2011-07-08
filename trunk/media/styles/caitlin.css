@@ -126,10 +126,13 @@ h1#subscope_logo{
 }
 
 #header_search_form{
-	width: 221px;
+	width: 227px;
 	margin-top: 65px;
 	float: right;
 	clear: both;
+}
+#header_search_form #id_query{
+	width: 194px;
 }
 #header_search_form .submit{
 	background: url('../images/search_icon.png') right top no-repeat;
@@ -1452,7 +1455,7 @@ form#email-subscribe { display: block; width: 200px; text-align: left; padding: 
 form#email-subscribe input { font-size: 9px; }
 form#email-subscribe input.text { color: #aaa; height: 12px;}
 form#email-subscribe input.text:focus { color: #000;}
-form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #899EAB; height: 18px; padding: 2px 3px;}
+form#email-subscribe input.submit { background-color:#F6F8FB; border:1px solid #899EAB; height: 20px; padding: 2px 3px; width: 63px}
 #email-message { display:none; position: absolute; width: 149px; text-align: left; left: auto; margin-top: 26px; padding: 2px 4px; border: 1px solid;}
 #email-message.instruction { border-color: #a3d9df; color: #175c64; background-color: #cff3f7;}
 #email-message.warning { border-color: #c00; color: #800; background-color: #FFCCCC;}
