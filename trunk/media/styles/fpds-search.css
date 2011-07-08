@@ -82,7 +82,7 @@ margin-right: 20px;
   padding: 3px;
 }
 
-#fpds-search-results { width: 660px; font-size: 12px;}
+#fpds-search-results { width: 660px; font-size: 12px; }
 #fpds-search-results th, #fpds-search-results td {padding: 3px;}
 #fpds-search-results .last {}
 #fpds-search-results th { font-size: 0.9em; font-weight: bold; text-align: left; vertical-align: middle; padding-right: 16px;}
@@ -118,7 +118,7 @@ margin-right: 20px;
 #fpds-search-results tr.odd td { background-color: #f0f0f0;}
 #fpds-search-results td.amount { text-align: right;}
 #fpds-search-results td.cfda-program,#fpds-search-results td.obligation-date { text-align: center;}
-#fpds-search-results td.description { overflow: hidden;}
+#fpds-search-results td.description { overflow: hidden; text-transform: lowercase;}
 
 
 #no-fpds-results-found {
