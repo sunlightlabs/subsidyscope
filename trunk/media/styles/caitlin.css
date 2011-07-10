@@ -66,8 +66,7 @@ input, textarea  { padding: 3px; font-weight: 200; color: #666;}
 input:invalid, textarea:invalid { border-radius: 1px;  -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red;  box-shadow: 0px 0px 5px red; }
 .no-boxshadow input:invalid, 
 .no-boxshadow textarea:invalid { background-color: #f0dddd; }
-input {
-	
+input {	
 }
 
 
@@ -872,8 +871,7 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
 	float: right;
 	margin: 15px 20px 0 0;
 }
-.table_header{
-}
+
 
 #filterForm, #loaderForm{
 	margin-top: 20px;
@@ -970,7 +968,7 @@ blockquote{
 	border-bottom: 1px solid #cccccc;
 }
 
-/*------ Generic chart styles ------*/
+/*------ Generic chart styles ------
 
 #subsidy-charts tr.header-row td, #subsidy-charts tr.header-row th, .subsidy-charts tr.header-row td, .subsidy-charts tr.header-row th{ 
 	background-color: #e4e4e4; 
@@ -994,9 +992,7 @@ blockquote{
 #subsidy-charts tr.header-row td.first, .subsidy-charts tr.header-row td.first {
 	font-size: 1.2em; 
 }
-/**#subsidy-charts td.first, td.program {
-	width: 31%;
-}**/
+
 #subsidy-charts td.program, .subsidy-charts td.program{
 	text-align: left; 
 	padding-left: 10px;
@@ -1020,9 +1016,7 @@ blockquote{
 	background: #F4F4F4;
 	 
 }
-/** #subsidy-charts tr.even td { 
-	background-color: #f4f4f4; 
-}**/
+
 #subsidy-charts td, .subsidy-charts td { 
 	padding: 7px; 
 	border-bottom: none;
@@ -1053,7 +1047,7 @@ tbody td:last-of-type{
 	border-right: none;
 }
 
-/*------ Alternate table styles ------*/
+------ Alternate table styles ------
 
 .alternate tbody td:nth-of-type(even){
 	background: inherit;
@@ -1079,9 +1073,9 @@ tbody td:last-of-type{
 
 
 
+*/
 
-
-
+/*
 
 #cop-table tbody td:nth-of-type(even){
 	background: none;
@@ -1089,7 +1083,7 @@ tbody td:last-of-type{
 
 #cbo-table-revised tbody td:nth-of-type(even), #cbo-table tbody td:nth-of-type(even){
 	background: none;
-}
+}*/
 
 
 .widget-no-border{
@@ -1191,7 +1185,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 #tagsubselect select{width: 175px}
 #modesubselect select{width: 130px}
 
-#routeDataTable table{
+/*#routeDataTable table{
 	margin-bottom: 20px
 }
 #routeDataTable td{
@@ -1206,7 +1200,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	background: #F4F4F4;
 }
 
-/*------ Table style exceptions ------*/
+------ Table style exceptions ------*/
 
 #routeDataTable> table td:nth-of-type(even), table.transportation_te td:nth-of-type(even){
 	background: none;
@@ -1488,10 +1482,65 @@ ul#top_nav_header li { display: block !important; float: right;}
 	margin-left: 0;
 }
 
+/*------ Ultimate Awesomeness of Table Styling ------*/
 
+table{
+	width: 660px;
+	font-size: 85%;
+}
 
+td{
+	text-align: right;
+	border-left: 1px solid #C3C3C3;
+}
 
+thead{
+	background: #cecece;
+}
 
+thead th{
+	text-align: right;
+}
+thead th[scope=rowgroup]{
+	text-align: left;
+}
 
+tbody th{
+	text-align: left;
+	padding-left: 20px;
+}
 
+th, td {
+	padding: 8px 6px;
+}
+
+tbody th, tbody td{
+	border-bottom: 1px dashed #C3C3C3;
+}
+
+tr.even{
+}
+
+tr.odd{
+	background-color: #f5f5f5;	
+}
+.subhead th{
+	padding-left: 6px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #C3C3C3;
+	padding-top: 18px;
+}
+tr.odd.total, tr.even.total{
+	background-color: #e6e6e6;
+}
+tr.odd.total.grand, tr.even.total.grand{
+	background-color: #cecece;
+	font-style: italic;	
+}
+tr.odd.total th, tr.even.total th{
+	padding-left: 6px;
+}
+tr.odd.total td, tr.even.total td{
+	font-weight: bold;
+}
 
