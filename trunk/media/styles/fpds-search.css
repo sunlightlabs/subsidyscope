@@ -221,16 +221,13 @@ fieldset.collapsed { border: 0; border-top: 1px solid #CCCCCC; padding-bottom: 0
 #program-selection-program ul li:hover .program-title { background-color: #eee !important;}
 
 /* state selection */
-#location .state-choices { -moz-column-count:4;
--webkit-column-count: 4;
--moz-column-gap: 20px
--webkit-column-gap: 20px
--moz-column-rule: none;
--webkit-column-rule: none;
-width: 640px;}
+#location .state-choices ul{ 
+width: 144px;
+float: left;
+margin-left: 0;
+}
 
 
-#location .state-choices ul { margin: 0;}
 
 #assistance-action-recipient-wrapper #recipient-type ul { float: left; margin-right: 1em;}
 
@@ -267,3 +264,24 @@ a#screencast-link { text-decoration:none; font-size: 10px;}
 #tabs{
 	margin-top: 40px;
 }
+
+.dropdown-wrapper{
+	float: left;
+	width: 295px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

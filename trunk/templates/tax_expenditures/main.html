@@ -49,20 +49,22 @@ function changeYear(year)
 
 	      	<div id="subsidy-charts"> 
 				<table>
-					<tbody>
-						<tr class="header-row" > 
-							<td>&nbsp;
-							</td>
+					<thead>
+						<tr> 
+							<th scope="rowgroup">&nbsp;
+							</th>
 							{% for year in estimate_years %}
-							<td>{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}
-							</td>
+							<th scope="col">{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}
+							</th>
 							{% endfor %}
 					 	</tr>
+					</thead>
+					<tbody>
 						{% for group in groups %}
 						<tr>
-							<td colspan="15" style="text-align: left; padding-top: 20px; border-bottom: 1px solid #ccc;">
+							<th colspan="15">
 								<strong><a href="{% url tax_expenditures-group group.id %}?estimate={{ estimate }}">{{ group.name }}</a></strong>
-							</td>
+							</th>
 						</tr>
 							{% te_group_summary group source estimate estimate_years %}
 						{% endfor %}

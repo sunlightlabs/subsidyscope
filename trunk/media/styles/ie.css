@@ -123,8 +123,11 @@ table{
 
 }
 
+/*------ Ultimate Awesomeness of Table Styling ------*/
 
-
+tbody th, tbody td{
+	border-bottom: 1px dashed #C3C3C3;
+}
 
 
 
