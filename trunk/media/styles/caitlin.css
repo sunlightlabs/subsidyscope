@@ -1530,6 +1530,9 @@ tr.odd{
 	border-bottom: 1px solid #C3C3C3;
 	padding-top: 18px;
 }
+.subdata th{
+	padding: 40px;
+}
 tr.odd.total, tr.even.total{
 	background-color: #e6e6e6;
 }

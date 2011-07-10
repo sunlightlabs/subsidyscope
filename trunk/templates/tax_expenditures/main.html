@@ -47,7 +47,6 @@ function changeYear(year)
 		</h4>    		
 
 
-	      	<div id="subsidy-charts"> 
 				<table>
 					<thead>
 						<tr> 
@@ -63,14 +62,13 @@ function changeYear(year)
 						{% for group in groups %}
 						<tr>
 							<th colspan="15">
-								<strong><a href="{% url tax_expenditures-group group.id %}?estimate={{ estimate }}">{{ group.name }}</a></strong>
+								<a href="{% url tax_expenditures-group group.id %}?estimate={{ estimate }}">{{ group.name }}</a>
 							</th>
 						</tr>
 							{% te_group_summary group source estimate estimate_years %}
 						{% endfor %}
 					</tbody>
 				</table>
-			</div>
 			<cite>
 			* Contains tax expenditures estimated to be between -$50 million and $50 million. When aggregated, the sum of these estimates are unknown and thus are rounded to zero. For more information, see the methodology.
 
