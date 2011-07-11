@@ -823,6 +823,7 @@ cite{
 	color: #6a6a6a;
 	margin-bottom: 30px;
 	display: block;
+	line-height: 1.65;
 }
 
 /*------ CHARTS ------*/
@@ -1574,3 +1575,7 @@ td.align-left, th.align-left{
 .fiscal_years{
 	margin-left: 70px;
 }
+
+
+
+
