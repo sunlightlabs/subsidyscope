@@ -1501,16 +1501,19 @@ table{
 	margin-bottom: 20px;
 }
 
-table.slim, cite.slim{
+div.slim table, div.slim cite{
+	width: 330px;
+}
+div.slim h5{
+	width: 310px;
+}
+div.slim cite{
+	display: block;
+}
+div.slim{
 	width: 330px;
 	float: right;
-	margin-left: 20px;
-}
-h5.slim{
-	width: 310px;
-	float: right;
-	margin-left: 20px;
-}
+	margin-left: 20px;}
 
 td{
 	text-align: right;
