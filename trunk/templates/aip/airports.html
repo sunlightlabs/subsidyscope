@@ -170,7 +170,7 @@
 					</thead>
 					<tbody>
                         {% for o in operations %}
-                            <tr><th scope="row">{{o.year}}</th><td>{{o.operations|intcomma}}</td></tr>
+                            <tr class="{% cycle 'even' 'odd' %}"><th scope="row">{{o.year}}</th><td>{{o.operations|intcomma}}</td></tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -186,7 +186,7 @@
 					</thead>
 					<tbody>
                         {% for e in enplanements %}
-                            <tr><th scope="row">{{e.year}}</th><td>{{e.amount|intcomma}}</td></tr>
+                            <tr class="{% cycle 'even' 'odd' %}"><th scope="row">{{e.year}}</th><td>{{e.amount|intcomma}}</td></tr>
                         {% endfor %}
                     </tbody>
                 </table>
