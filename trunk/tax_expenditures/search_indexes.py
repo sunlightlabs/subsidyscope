@@ -1,6 +1,6 @@
 from haystack import indexes
 from haystack.sites import site
-from tax_expenditures.models import Group
+from tax_expenditures.models import Group, Expenditure
 
 class GroupIndex(indexes.SearchIndex):
     type = 'tax-expenditure-group'
@@ -12,7 +12,12 @@ class GroupIndex(indexes.SearchIndex):
     def get_queryset(self):
         return Group.objects.filter(parent__isnull=False)
 
-    def prepare_text(self, object):
-        return (object.name + ' ' + object.description).encode('ascii', 'ignore')
+    def prepare_text(self, obj):
+        exp = Expenditure.objects.filter(group=obj)
+        text = []
+        for e in exp:
+            text.append(e.description + ' ' + e.name)
+
+        return (obj.name + ' ' + obj.description + ' '.join(text)).encode('ascii', 'ignore')
 
 site.register(Group, GroupIndex)
