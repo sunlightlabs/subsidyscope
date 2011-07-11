@@ -819,10 +819,18 @@ h5{
 }
 
 cite{
-	font-size: 80%;
+	font-size: 11px;
 	color: #6a6a6a;
 	margin-bottom: 30px;
 	display: block;
+	line-height: 18px;
+}
+li cite{
+	font-size: 11px;
+	color: #6a6a6a;
+	margin-bottom: 30px;
+	display: block;
+	line-height: 18px;
 }
 
 /*------ CHARTS ------*/
@@ -1176,8 +1184,8 @@ ul.programs {border: none;}
 ul.subselect {margin-top:0px; margin-left:0px;}
 #modes { width: 250px;}
 #tags {width: 217px; }
-#modesubselect {margin-left:80px; font-size:90%; }
-#tagsubselect {margin-left: 380px;font-size: 90%;}
+#modesubselect { font-size:90%; float: left}
+#tagsubselect {font-size: 90%; float: left}
 #tagsubselect select{width: 175px}
 #modesubselect select{width: 130px}
 
@@ -1574,3 +1582,7 @@ td.align-left, th.align-left{
 .fiscal_years{
 	margin-left: 70px;
 }
+
+
+
+

@@ -1,11 +1,12 @@
  /* ie.css */
 
-.container {overflow:hidden; text-align:left;}
+.container {overflow: hidden; text-align:left;}
 * html .column {overflow-x:hidden;}
 * html legend {margin:-18px -8px 16px 0;padding:0;}
 ol {margin-left:2em;}
-sup {vertical-align:text-top;}
-sub {vertical-align:text-bottom;}
+sup {vertical-align: super;}
+sup a{vertical-align: super;}
+sub {vertical-align: text-bottom;}
 html>body p code {*white-space:normal;}
 hr {margin:-8px auto 11px;}
 .container ul { list-style: none outside; margin-left: 2em; list-style-type: none !important; } /* IE can't handle :before and :after */
@@ -35,8 +36,8 @@ a abbr, a acronym { text-decoration: underline; } /* IE 7 bug */
 td.description {word-wrap: break-word; width: 255px;}
 .faads-search-submit, #reset-faads-search { padding: 2px 5px !important; }
 
-#tagsubselect {margin-left:508px !important;}
-#modesubselect { margin-left: 165px !important; }
+#tagsubselect {margin-left:380px !important;}
+#modesubselect { margin-left: 80px !important; }
 #modes {width: 200px;}
 #tags {width: 217px;}
 .programs-container {border-bottom: 1px solid #afafaf; }
