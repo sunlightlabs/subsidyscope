@@ -1613,3 +1613,12 @@ div.funded{ clear: both;}
 div.grants table, div.enplanements table {width: 320px}
 
 #project_results tr.odd{background-color: #ffffff}
+
+.sortable{
+	padding-right: 17px;
+}
+
+
+
+
+

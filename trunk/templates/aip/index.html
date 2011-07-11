@@ -221,7 +221,7 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             </span>
             <table>
 		<thead>
-                    <tr><th class="sortable">FY</th><th style=width:50px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
+                    <tr><th scope="rowgroup" class="sortable">FY</th><th scope="col" style="width:50px;" class="sortable">NPR</th><th scope="col" class="sortable">Airport</th><th scope="col" >Description</th><th scope="col" class="sortable">Total</th><th scope="col" >Discretionary</th><th scope="col" >Entitlement</th><th scope="col" >Stimulus</th></tr>
 		</thead>
                 <tbody>
                     {% for p in projects.object_list %}
