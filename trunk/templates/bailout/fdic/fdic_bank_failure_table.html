@@ -31,25 +31,25 @@
 			
 		
 			<table class="alternate subsidy-charts">
-			<thead>
-				<tr>
-					<th scope="rowgroup">Date</th>
-					<th scope="col" class="align-left">Name</th>
-					<th scope="col" class="align-left">Location</th>
-					<th scope="col" class="align-right">Estimated Charge to Deposit Insurance Fund</th>
-				</tr>
-			</thead>
+				<thead>
+					<tr>
+						<th scope="rowgroup">Date</th>
+						<th scope="col" class="align-left">Name</th>
+						<th scope="col" class="align-left">Location</th>
+						<th scope="col" class="align-right">Estimated Charge to Deposit Insurance Fund</th>
+					</tr>
+				</thead>
 
-			<tbody>
-				{% for failure in bank_failure_list %}
-				<tr>
-					<th scope="row">{{ failure.closing_date }}</th>
-					<td class="align-left">{% if failure.ig_report %}<a href="{{ failure.ig_report }}">{% endif %}{{ failure.name }}{% if failure.report %}</a>{% endif %}</td>
-					<td class="align-left">{{ failure.city }}, {{ failure.state }}</td>
-					<td>{% if failure.exact_amount %}${{ failure.exact_amount|floatformat:"-2" }}m{% else %}{% if failure.range_low and failure.range_high %}${{ failure.range_low|floatformat }}&ndash;{{ failure.range_high|floatformat }}m{% else %}N/A{% endif %}{% endif %}{% if failure.notes %}<div class="notes">({{ failure.notes }})</div>{% endif %}</td>
-				</tr>
-				{% endfor %}
-			</tbody>
+				<tbody>
+					{% for failure in bank_failure_list %}
+					<tr>
+						<th scope="row">{{ failure.closing_date }}</th>
+						<td class="align-left">{% if failure.ig_report %}<a href="{{ failure.ig_report }}">{% endif %}{{ failure.name }}{% if failure.report %}</a>{% endif %}</td>
+						<td class="align-left">{{ failure.city }}, {{ failure.state }}</td>
+						<td>{% if failure.exact_amount %}${{ failure.exact_amount|floatformat:"-2" }}m{% else %}{% if failure.range_low and failure.range_high %}${{ failure.range_low|floatformat }}&ndash;{{ failure.range_high|floatformat }}m{% else %}N/A{% endif %}{% endif %}{% if failure.notes %}<div class="notes">({{ failure.notes }})</div>{% endif %}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
 			</table>
 			<div class="attribution">Source: <a href="http://www.subsidyscope.com">subsidyscope.com</a> using <a href="http://www.fdic.gov/bank/individual/failed/banklist.html">data from the FDIC</a>. (Information on
 			charge against the fund is located in each bank's press release.)</div>
