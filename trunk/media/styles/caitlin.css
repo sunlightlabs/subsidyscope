@@ -1542,6 +1542,7 @@ tr.odd{
 }
 .subhead th, .subhead td{
 	padding-left: 6px;
+	text-transform: uppercase;
 	border-bottom: 1px solid #C3C3C3;
 	padding-top: 24px;
 }
@@ -1582,6 +1583,8 @@ td.align-left, th.align-left{
 	margin-left: 70px;
 }
 
-
+.pted .subhead th, pted.subhead td{
+	text-transform: none;
+}
 
 
