@@ -819,11 +819,18 @@ h5{
 }
 
 cite{
-	font-size: 80%;
+	font-size: 11px;
 	color: #6a6a6a;
 	margin-bottom: 30px;
 	display: block;
-	line-height: 1.65;
+	line-height: 18px;
+}
+li cite{
+	font-size: 11px;
+	color: #6a6a6a;
+	margin-bottom: 30px;
+	display: block;
+	line-height: 18px;
 }
 
 /*------ CHARTS ------*/
