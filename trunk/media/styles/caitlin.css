@@ -860,11 +860,7 @@ a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
 
 /*------ PTED styling ------*/
 
-.display_type, .date_range{
-	display: inline-block;
-}
 .date_range{
-	float: right;
 	margin-right: 20px;
 }
 .download_csv{
@@ -1568,4 +1564,8 @@ td.align-left, th.align-left{
 
 .pted [scope=rowgroup]{
 	width: 67px;
+}
+
+.fiscal_years{
+	margin-left: 70px;
 }

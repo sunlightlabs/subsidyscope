@@ -90,14 +90,7 @@ table{
 	border-left: 1px solid white;
 }
 
-.display_type, .date_range{
-	display: block;
-	float: left;
-}
-
-
 .date_range{
-	float: left;
 	margin-right: 20px;
 	margin-right: 20px;
 	margin-left: 119px;
