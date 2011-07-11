@@ -66,7 +66,7 @@ def main(request):
     if request.GET.has_key('year'):
         year = int(request.GET['year'])
     else:
-        year = 2001
+        year = 2007
         
     year_choices, previous_year, next_year = get_year_choices(MAX_COLUMNS, year)
         
