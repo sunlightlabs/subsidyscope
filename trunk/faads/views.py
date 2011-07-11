@@ -101,8 +101,8 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         
         sector_id_choices = [('', 'All Sectors')] + [(s.id, s.name) 
                                                      for s in Sector.objects.all()
-                                                     if s.id != 1] # Hack alert! The Sector model 
-                                                                   # should really have a faads flag.
+                                                     if s.launched == True]
+                                                     
         sector_id = forms.ChoiceField(label='Economic Sector',
                                       choices=sector_id_choices,
                                       required=False,
