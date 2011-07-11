@@ -1490,7 +1490,7 @@ table{
 	margin-bottom: 20px;
 }
 
-table.slim{
+table.slim, cite.slim, h5.slim{
 	width: 330px;
 	float: right;
 	margin-left: 20px;
@@ -1558,3 +1558,14 @@ td.align-left, th.align-left{
 	text-align: left;
 }
 
+
+/*------ Ultimate Awesomeness of Table Styling - PTED version ------*/
+
+
+.pted tbody th{
+	padding-left: 0;
+}
+
+.pted [scope=rowgroup]{
+	width: 67px;
+}

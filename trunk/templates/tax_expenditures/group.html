@@ -81,11 +81,10 @@
         	<h4>Summary by Fiscal Year ($ millions)<a href="#footnote-1" class="footnote">1</a></h4>
 
 
-        	<div id="subsidy-charts"  style="margin-bottom: 35px;"> 
-				<table>	
+			<table class="pted">	
 				<thead>
 					<tr> 
-					  <th>&nbsp;</th>
+					  <th scope="rowgroup">&nbsp;</th>
 					  {% for year in estimate_years %}<th>{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}</th>{% endfor %}
 					</tr>
 				</thead>
@@ -93,17 +92,16 @@
 					{% te_group_summary group source estimate estimate_years %}
 
 				</tbody>
-				</table>
+			</table>
                 <ol class="footnotes">
                 <li><a name="footnote-1"></a>Summing tax expenditures often provides a reasonably good estimate for the total cost of groups of tax expenditures, though it does not capture the potential interactions among tax expenditures if any single one is changed or repealed.</li>
                 </ol>
         
-			</div>  	
         
         {% if subgroups%}
-        	<strong>{% if group.parent %} {% ifequal group.id 166 %}Treasury{% else %} JCT{% endifequal %}{% endif %} Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</strong><br/>
+        	<h4>{% if group.parent %} {% ifequal group.id 166 %}Treasury{% else %} JCT{% endifequal %}{% endif %} Tax Expenditures within {{ group.name }} by Fiscal Year ($ millions)</h4><br/>
         		{% if group.parent %}Multiple line items correspond with this group of tax expenditures. These estimates have been aggregated below to provide a more meaningful comparison.{% endif %}
-				<table>
+			<table class="pted">
 				
 				<thead>
 				
@@ -116,13 +114,13 @@
 				<tbody>
 					{% for subgroup in subgroups %}
 						
-						<tr><th colspan="15"><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name|safe }}</a></th></tr>
+						<tr class="subhead"><th colspan="15"><a href="{% url tax_expenditures-group subgroup.id %}?estimate={{ estimate }}&year={{ year }}">{{ subgroup.name|safe }}</a></th></tr>
 						{% te_group_summary subgroup source estimate estimate_years %}
 						
 					{% endfor %}
 				
 				</tbody>
-				</table>
+			</table>
 				
 		{% endif %}
 		

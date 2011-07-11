@@ -110,7 +110,15 @@ table{
 #global-pted-search{
 	left: 0px;
 }
-
+#global-pted-search .submit{
+	background-position: left bottom;
+	margin-top: 0;
+	height: 28px;
+	margin-left: 5px;
+	}
+#global-pted-search input{
+	width: 185px;
+}
 #header_search_form{
 	margin-top: 45px;
 }
@@ -129,8 +137,19 @@ tbody th, tbody td{
 	border-bottom: 1px dashed #C3C3C3;
 }
 
-
-
+.pted thead th{
+	text-align: center;
+	position: relative;
+}
+a.right_arrow{
+	display: inline-block;
+	float: none;
+	position: absolute;
+	
+}
+a.left_arrow{
+	top: 0;
+}
 
 
 

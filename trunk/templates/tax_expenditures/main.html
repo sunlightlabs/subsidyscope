@@ -47,7 +47,7 @@ function changeYear(year)
 		</h4>    		
 
 
-				<table>
+				<table class="pted">
 					<thead>
 						<tr> 
 							<th scope="rowgroup">&nbsp;
@@ -60,7 +60,7 @@ function changeYear(year)
 					</thead>
 					<tbody>
 						{% for group in groups %}
-						<tr>
+						<tr class="subhead">
 							<th colspan="15">
 								<a href="{% url tax_expenditures-group group.id %}?estimate={{ estimate }}">{{ group.name }}</a>
 							</th>
