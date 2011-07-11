@@ -6,7 +6,9 @@ from django.views.generic.simple import direct_to_template, redirect_to
 import bailout_pdfs
   
 urlpatterns = patterns('',
-    url(r'^tarp/$', 'bailout.views.tarp_index', name="tarp"),
+    url(r'^tarp/$', redirect_to, {'url': '/bailout/tarp/disbursements/'}),
+    url(r'^tarp/disbursements/$', 'bailout.views.tarp_index', name="tarp"),
+    
     url(r'^tarp/visualization\.js$', 'bailout.views.tarp_js', name="tarp-javascript"),    
     url(r'^tarp/csv/$', redirect_to, {'url':'/media/data/bailout/tarp_transactions.csv'}, name="tarp-csv"),
     url(r'^tarp\.xml$', 'bailout.views.tarp_xml', name="tarp-xml"),
@@ -28,8 +30,13 @@ urlpatterns = patterns('',
     url(r'^visualization\.js$', 'bailout.views.visualization_js', name="bailout-visualization-js"),
     url(r'^visualization\.css$', 'bailout.views.visualization_css', name="bailout-visualization-css"),
     url(r'^visualization\.json$', direct_to_template, {'template': 'bailout/bailout_programs.json', 'mimetype':'text/javascript'}, name="bailout-visualization-json"),    
-    url(r'^treasury/$', 'bailout.views.agency_landing_page', {'agency': 'treasury'}, name='bailout_treasury_index'),
-    url(r'^fdic/$', 'bailout.views.agency_landing_page', {'agency': 'fdic'}, name='bailout_fdic_index'),
+    
+    url(r'^treasury/$', redirect_to, {'url': '/bailout/treasury/overview/'}),
+    url(r'^treasury/overview/$', 'bailout.views.agency_landing_page', {'agency': 'treasury'}, name='bailout_treasury_index'),
+    
+    url(r'^fdic/$', redirect_to, {'url': '/bailout/fdic/overview/'}),
+    url(r'^fdic/overview/$', 'bailout.views.agency_landing_page', {'agency': 'fdic'}, name='bailout_fdic_index'),
+    
     url(r'^fdic/ppip/llp/comments/', direct_to_template, {'template': 'bailout/fdic/llp_comments.html'}, name="fdic_llp_comments"),
     url(r'^fdic/tlgp/', direct_to_template, {'template': 'bailout/fdic/tlgp.html'}, name="fdic_tlgp"),
     url(r'^fdic/FDIC_TLGP_opt-in\.csv$', redirect_to, {'url':'/media/data/tlgp_opt_in_source_20090131.csv'}, name='bailout_fdic_tlgp_csv'),
