@@ -69,12 +69,8 @@
 	<a class="download_csv" href="{% url tax_expenditures-csv group.id %}">Download data as CSV file</a>
         
 		       	<form id="loaderForm" action="{% url tax_expenditures-group group.id %}" method="GET" style="margin-bottom: 5px;">
-		       		<div class="display_type">
-					<strong>Display estimates for: </strong><select name="estimate" id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
-       				</div>
-		       	<div class="date_range">
-			<strong>Show fiscal years: </strong><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
-		    	</div>
+					<label>Display estimates for:</label><select name="estimate" id="displayEstimate" onchange="reloadPage();"><option value="3" {% ifequal estimate 3 %}selected{% endifequal %}>Corporations & Individuals</option><option value="1" {% ifequal estimate 1 %}selected{% endifequal %}>Corporations</option><option value="2" {% ifequal estimate 2 %}selected{% endifequal %}>Individuals</option></select>
+			<label class="fiscal_years">Show fiscal years: </label><select name="year" id="displayYear" onchange="reloadPage();">{% for choice in year_choices %}<option value="{{ choice.value }}" {% ifequal year choice.value %}selected{% endifequal %}>{{ choice.label }}</option>{% endfor %}</select>
 		       	</form>
         
         	

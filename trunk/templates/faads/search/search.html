@@ -326,7 +326,7 @@ var sortOrder = '{{ sort_order }}';
                     function loadChartFlash()
                     {
                     	if(!chartLoaded)
-                    		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "880", "400", "9.0.0", "expressInstall.swf", {'data-file': '{% url faads-search-by-year %}', 'data-query':'{{ query|safe }}'});
+                    		swfobject.embedSWF("/media/scripts/open-flash-chart.swf?v=2", "resultsgraph", "660", "400", "9.0.0", "expressInstall.swf", {'data-file': '{% url faads-search-by-year %}', 'data-query':'{{ query|safe }}'});
                     		
                     	chartLoaded = true;
                     	
@@ -349,7 +349,7 @@ var sortOrder = '{{ sort_order }}';
     					function loadMapFlash()
     					{
     						if(!mapLoaded)
-		            			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 800, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url faads-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
+		            			swfobject.embedSWF('{% media_url %}/scripts/SpendingMap.swf?v=9', 'mapVis', 660, 650, '9.0.0', '{% media_url %}/scripts/playerProductInstall.swf', {'mapPath':'/media/data/', 'dataPath':'{% url faads-search-map-data %}','dataQuery':'{{ query|safe }}'}, {wmode:'transparent'});
 		  	              			
 		            		mapLoaded = true;
 		            		

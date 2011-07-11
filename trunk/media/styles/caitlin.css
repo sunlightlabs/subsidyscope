@@ -483,7 +483,7 @@ h4{
 	float: left;
 }
 
-ul.feature_nav{
+.container ul.feature_nav{
 	margin: 180px 0 0 0;
 	text-align: right;
 	width: 605px;
@@ -1486,8 +1486,13 @@ table{
 	margin-bottom: 20px;
 }
 
-table.slim, cite.slim, h5.slim{
+table.slim, cite.slim{
 	width: 330px;
+	float: right;
+	margin-left: 20px;
+}
+h5.slim{
+	width: 310px;
 	float: right;
 	margin-left: 20px;
 }

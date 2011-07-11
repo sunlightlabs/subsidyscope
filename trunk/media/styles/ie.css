@@ -144,7 +144,9 @@ a.left_arrow{
 	top: 0;
 }
 
-
+#filterForm, #loaderForm{
+	margin-bottom: 25px;
+}
 
 
 
