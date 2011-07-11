@@ -5,29 +5,29 @@
 
 <h4>Summary of {{ source }} Tax Expenditure Estimates by Report Year ($ millions)</h4><br/>
 Click the plus for source information and footnotes from original report.
-<div id="subsidy-charts"  style="margin-bottom: {% ifequal source 'JCT' %}15{% else %}35{% endifequal %}px;"> 
-	<table>
+<div style="margin-bottom: {% ifequal source 'JCT' %}15{% else %}35{% endifequal %}px;"> 
+	<table class="pted">
 	
-	<tbody>
-	
-		<tr class="header-row" >
-			<td  style="border-bottom: none;"></td>
-			<td  style="border-bottom: none;" colspan="{{ estimate_years|length }}">Estimate Year</td>
-		</tr>
-	
-		<tr class="header-row" > 
-		  <td  style="border-top: none;"></td>
-		  {% for year in estimate_years %}<td  style="border-top: none; width: 70px; text-align: right;">{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}</td>{% endfor %}
-		 
+		<thead>
+		<tr>
+			<th scope="rowgroup"></th>
+			<th colspan="{{ estimate_years|length }}">Estimate Year</th>
 		</tr>
 		
-		<tr><td style="width: 100px; "><strong>Report Year</strong></td><td colspan="14"></td></tr>
+		<tr> 
+		  <th  style="border-top: none;"></th>
+		  {% for year in estimate_years %}<th>{% if forloop.first  %}{% te_previous_year previous_year %}{% endif %}{{year}}{% if forloop.last  %}{% te_next_year next_year %}{% endif %}</th>{% endfor %}
+		 
+		</tr>
+		</thead>
+		<tbody>
+		<tr><th style="width: 67px;" colspan="15">Report Year</th></tr>
 		
 			{% for line in lines %}
 				
 				<tr>
 				
-					<td style="border-top: 1px solid  #ccc;"><a id="{{ line.id }}_toggle" class="plus" href="#" onclick="toggleLine('{{ line.id }}');return false;" ></a><span><em>{{ line.report_year }}</em></span></td>
+					<th scope="row" style="border-top: 1px solid  #ccc;"><a id="{{ line.id }}_toggle" class="plus" href="#" onclick="toggleLine('{{ line.id }}');return false;" ></a><span><em>{{ line.report_year }}&nbsp;</em></span></th>
 						
 						{% for item in line.data %}
 						
