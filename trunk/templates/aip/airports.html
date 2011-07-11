@@ -7,44 +7,94 @@
 {% load menubuilder %}
 {% block content %}
 
-
-
-<style>
-div.info {font-size: 1em;  color: #4F4F4F; border: 1px solid black; padding: 20px;width:32%; float: left;margin-right:20px;margin-bottom:20px;}
-table.port-stats {width:100%; float:right; margin: 0; border:none;}
-table.port-stats td, table.port-stats tr {text-align:left; border: none; padding: 2px;}
-table.port-stats td.value {text-align:right;}
-table.port-stats th {padding: 2px; text-align:center; border: none; font-size: 1.2em; }
-div.grants { float:left; width: 58%; }
-div.grants table { width: 100%; }
-</style>
 <div id="Transportation" class="wrapper clearfix">	
 	<div class="secondary-header"><h3>Airport Detail &mdash; {{airport.name}}</h3></div>
         	{% recursive_menu %}
 
     <div class="page-content">
-            <div class="info">
-            <table class="port-stats">
-                <tr><th colspan="2">At a Glance</th></tr>
-                <tr><td><strong>Location:</strong></td><td class="value"> {%if airport.city%}{{airport.city}},{% endif %}{{airport.state}}</td></tr>
-                {%if service_level %} <tr><td><strong>Service Level:</strong> </td><td class="value">{{service_level}}</td></tr> {% endif %}
-                {% if airport.district %}<tr><td><strong>Congressional District: </strong></td><td class="value"> {{airport.state}}-{{airport.district}}</td></tr> {% endif %}
-                <tr><td><strong>Total Funding (2005-09):</strong></td><td class="value">&nbsp;${{totalfunding|floatformat:0|intcomma}}</td></tr>
-                <tr><td><strong>Average grant amount:</strong></td><td class="value">&nbsp;${{avggrant|floatformat:0|intcomma}}</td></tr>
-                <tr><td><strong>Average <a href="/glossary#operation">operations</a>/year:</strong></td><td class="value">&nbsp;{{avgops|floatformat:0|intcomma}}</td></tr>
-                <tr><td><strong>Average <a href="/glossary#enplanement">enplanements</a>/year:</strong></td><td class="value">&nbsp;{{avgenps|floatformat:0|intcomma}}</td></tr>
-            </table>
-            </div>
+			<div class="info">
+				<h4>At a Glance</h4>
+				<table class="port-stats">
+					<thead>
+						<tr>
+							<th scope="rogroup" colspan="2">
+								At a Glance
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="even">
+							<th scope="row">
+								Location:
+							</th>
+							<td class="value">
+								{%if airport.city%}{{airport.city}},{% endif %}{{airport.state}}
+							</td>
+						</tr>
+						<tr class="odd">
+							<th scope="row">
+								Service Level:
+							</th>
+							<td class="value">
+								{{service_level}}
+							</td>
+						</tr>
+						<tr class="even">
+							<th scope="row">
+								Congressional District:
+							</th>
+							<td class="value">
+								{{airport.state}}-{{airport.district}}
+							</td>
+						</tr>
+						<tr class="odd">
+							<th scope="row">
+								Total Funding (2005-09):
+							</th>
+							<td class="value">
+								&nbsp;${{totalfunding|floatformat:0|intcomma}}
+							</td>
+						</tr>
+						<tr class="even">
+							<th scope="row">
+								Average grant amount:
+							</th>
+							<td class="value">
+								&nbsp;${{avggrant|floatformat:0|intcomma}}
+							</td>
+						</tr>
+						<tr class="odd">
+							<th scope="row">
+								Average <a href="/glossary#operation">operations</a>/year:
+							</th>
+							<td class="value">
+								&nbsp;{{avgops|floatformat:0|intcomma}}
+							</td>
+						</tr>
+						<tr class="even">
+							<th scope="row">
+								Average <a href="/glossary#enplanement">enplanements</a>/year:
+							</th>
+							<td class="value">
+								&nbsp;{{avgenps|floatformat:0|intcomma}}
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
             <div class="grants">
                 {% if stimulus %}
                 <h4>Stimulus(ARRA) Grants</h4>
                 <table>
-                    <tbody>
+                    <thead>
                         <tr>
-                        <th>Fiscal Year</th><th><a href="/glossary#national-priority-rating">NPR</a></th><th>Grant Amount</th><th>Description</th>
+                        <th scope="rowgroup">Fiscal Year</th><th><a href="/glossary#national-priority-rating">NPR</a></th><th>Grant Amount</th><th>Description</th>
+						</tr>
+					</thead>
                         {% for s in stimulus %}
+						<tbody>
                         <tr>
-                            <td>{{s.fiscal_year}}</td>
+                            <th scope="row">{{s.fiscal_year}}</th>
                             <td>{{s.npr}}</td>
                             <td>${{s.stimulus|floatformat:0|intcomma}}</td>
                             <td>{{s.description}}</td>
@@ -54,18 +104,27 @@ div.grants table { width: 100%; }
                 </table>
                 {% endif %}
             </div>
-            <div style="clear:both;">
+            <div class="funded">
                 {% if projects %}
                 <h4>Funded Projects</h4>
-                <table style="width:100%;">
-                    <tbody>
-                    <tr><th>Fiscal year</th><th><a href="/glossary#national-priority-rating">NPR</a></th><th>Description</th><th>Total Grant Amount</th><th>Discretionary Funding</th><th>Entitlement Funding</th></tr>
+                <table>
+                    <thead>
+	                    <tr>
+							<th scope="rowgroup">Fiscal year</th>
+							<th scope="col"><a href="/glossary#national-priority-rating">NPR</a></th>
+							<th scope="col" class="align-left">Description</th>
+							<th scope="col">Total Grant Amount</th>
+							<th scope="col">Discretionary Funding</th>
+							<th scope="col">Entitlement Funding</th>
+						</tr>
+					</thead>
+					<tbody>
                     {% for p in projects %}
                         {% if p.stimulus = 0 or p.total > p.stimulus   %}
                         <tr>
-                        <td>{{p.fiscal_year}}</td>
+                        <th scope="row">{{p.fiscal_year}}</th>
                         <td>{{p.npr}}</td>
-                        <td>{{p.description}}</td>
+                        <td class="align-left">{{p.description}}</td>
                         <td>${{p.total|floatformat:0|intcomma}}</td>
                         <td>${{p.discretionary|floatformat:0|intcomma}}</td>
                         <td>${{p.entitlement|floatformat:0|intcomma}}</td>
@@ -78,12 +137,21 @@ div.grants table { width: 100%; }
                 {% elif grants %}
                     <h4>Grants Funded</h4>
                     <table style="width:100%;">
-                        <tbody>
-                            <tr><th>Fiscal year</th><th>Description</th><th>Grant Amount</th><th>Discretionary Funding</th><th>Entitlement Funding</th></tr>
-                            {% for g in grants %}
+                        <thead>
                             <tr>
-                            <td>{{g.fiscal_year}}</td>
-                            <td>{{g.description}}</td>
+								<th scope="rowgroup">Fiscal year</th>
+								<th scope="col" class="align-left">Description</th>
+								<th scope="col">Grant Amount</th>
+								<th scope="col">Discretionary Funding</th>
+								<th scope="col">Entitlement Funding</th>
+							</tr>
+                            {% for g in grants %}
+                            
+						</thead>
+						<tbody>
+							<tr>
+                            <th scope="row">{{g.fiscal_year}}</th>
+                            <td class="align-left">{{g.description}}</td>
                             <td>${{g.total|floatformat:0|intcomma}}</td>
                             <td>${{g.discretionary_total|floatformat:0|intcomma}}</td>
                             <td>${{g.entitlement_total|floatformat:0|intcomma}}</td>
@@ -94,13 +162,15 @@ div.grants table { width: 100%; }
 
                 {% endif %}
                 {%if operations %}
-                <div style="width:45%;float:left; margin-right:15px;">
+                <div class="operations">
                 <h4><a href="/glossary#operation">Operations</a></h4>
                 <table style="width:100%;">
-                    <tbody>
-                        <tr><th>Year</th><th>Operations</th></tr>
+                    <thead>
+                        <tr><th scope="rowgroup">Year</th><th scope="col">Operations</th></tr>
+					</thead>
+					<tbody>
                         {% for o in operations %}
-                            <tr><td>{{o.year}}</td><td>{{o.operations|intcomma}}</td></tr>
+                            <tr><th scope="row">{{o.year}}</th><td>{{o.operations|intcomma}}</td></tr>
                         {% endfor %}
                     </tbody>
                 </table>
@@ -108,13 +178,15 @@ div.grants table { width: 100%; }
                 {% endif %}
 
                 {% if enplanements %}
-                <div style="width:45%;float:left;">
+                <div class="enplanements">
                 <h4><a href="/glossary#enplanement">Enplanements</a></h4>
-                <table style="width:100%;">
-                    <tbody>
-                        <tr><th>Year</th><th>Enplanements</th></tr>
+                <table>
+                    <thead>
+                        <tr><th scope="rowgroup">Year</th><th scope="col">Enplanements</th></tr>
+					</thead>
+					<tbody>
                         {% for e in enplanements %}
-                            <tr><td>{{e.year}}</td><td>{{e.amount|intcomma}}</td></tr>
+                            <tr><th scope="row">{{e.year}}</th><td>{{e.amount|intcomma}}</td></tr>
                         {% endfor %}
                     </tbody>
                 </table>
