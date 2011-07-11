@@ -224,6 +224,13 @@ h1#subscope_logo{
 	color: #ffffff;
 	text-decoration: none;
 }
+.main-nav-item>span{
+	color: #FFFFFF;
+    display: inline-block;
+    height: 23px;
+    padding-top: 7px;
+    cursor: default;
+}
 .global-nav .comingsoon{
 	font-weight: 400;
 	font-style: italic;
@@ -1587,4 +1594,11 @@ td.align-left, th.align-left{
 	text-transform: none;
 }
 
-
+div.info, div.operations{width: 320px; float: left; padding-right: 10px; margin-bottom: 30px}
+table.port-stats {width: 320px; margin: 0; border:none;}
+table.port-stats td, table.port-stats tr {text-align:left;padding: 2px;}
+table.port-stats td.value {text-align:right;}
+div.grants, div.enplanements { float:left; width: 320px; padding-left: 10px; margin-bottom: 30px}
+div.grants table { width: 100%; }
+div.funded{ clear: both;}
+div.grants table, div.enplanements table {width: 320px}
