@@ -1611,3 +1611,5 @@ div.grants, div.enplanements { float:left; width: 320px; padding-left: 10px; mar
 div.grants table { width: 100%; }
 div.funded{ clear: both;}
 div.grants table, div.enplanements table {width: 320px}
+
+#project_results tr.odd{background-color: #ffffff}
