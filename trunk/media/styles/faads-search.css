@@ -256,11 +256,23 @@ table.summary-data .null-value { text-align: center; }
 	height: 100%;
 }
 
+#state-summary-container{
+	width: 660px;
+	overflow-x: scroll;
+	overflow-y: visible;
+	height: 100%;
+}
 
+#summary-state-data{
+	width: 660px;
+}
 
-
-
-
+#program-summary-container{
+	width: 660px;
+	overflow-x: scroll;
+	overflow-y: visible;
+	height: 100%;
+}
 
 
 
