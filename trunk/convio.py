@@ -136,7 +136,7 @@ class ConvioClient(object):
                 return Success([])
 
             elif type(result["group"]) is dict:
-                return Success([Group(group_from_dict(result["group"]))])
+                return Success([group_from_dict(result["group"])])
 
             elif type(result["group"]) is list:
                 group_dicts = result["group"]
@@ -167,16 +167,17 @@ class ConvioClient(object):
                                     primary_email=primary_email)
 
         if cons_id is not None and cons_id != c.cons_id:
-            return Failure("cons_id<{0}> != c.cons_id<{1}>".format(
-                cons_id, c.cons_id))
+            raise ConvioApiError("cons_id<{0}> != c.cons_id<{1}>".format(
+                                 cons_id, c.cons_id))
 
         if member_id is not None and member_id != c.member_id:
-            return Failure("member_id<{0}> != c.member_id<{1}>".format(
-                member_id, c.member_id))
+            raise ConvioApiError("member_id<{0}> != c.member_id<{1}>".format(
+                                 member_id, c.member_id))
 
-        if primary_email is not None and primary_email != c.primary_email:
-            return Failure("primary_email<{0}> != c.primary_email<{1}>".format(
-                primary_email, c.primary_email))
+        if primary_email is not None and primary_email.lower() != c.primary_email.lower():
+            # Convio apparently lower-cases all email addresses when they are imported.
+            raise ConvioApiError("primary_email<{0!r}> != c.primary_email<{1!r}>".format(
+                                 primary_email, c.primary_email))
 
         c.bind(self)
         return c

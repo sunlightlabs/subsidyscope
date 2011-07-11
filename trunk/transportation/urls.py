@@ -25,8 +25,8 @@ urlpatterns = patterns('',
     
     url(r'^direct-expenditures/amtrak/table/', direct_to_template, {'template': 'transportation/amtrak_table.html'}, name='transportation-amtrak-table'),
     url(r'^direct-expenditures/amtrak/analysis/', direct_to_template, {'template': 'transportation/amtrak.html'}, name='transportation-amtrak'),
-    url(r'^amtrak/table/', redirect_to, {'url': '/direct-expenditures/amtrak/table/'}),
-    url(r'^amtrak/', redirect_to, {'url': '/direct-expenditures/amtrak/analysis/'}),
+    url(r'^amtrak/table/', redirect_to, {'url': '/transportation/direct-expenditures/amtrak/table/'}),
+    url(r'^amtrak/', redirect_to, {'url': '/transportation/direct-expenditures/amtrak/analysis/'}),
     url(r'^contracts/', direct_to_template, {'template': 'transportation/contracts.html'}, name='transportation-contracts'),
     url(r'^summary/', direct_to_template, { 'template': 'transportation/overview.html'}, name="transportation-overview"),
     url(r'^overview/', redirect_to, {'url': '/transportation/summary/'}),
@@ -41,8 +41,8 @@ urlpatterns = patterns('',
     url(r'^direct-expenditures/highways/funding/analysis/$', direct_to_template, {'template': 'transportation/highways/funding.html', 'extra_context':{'subsector': 3}}, name='transportation-highway-funding'),
 
 
-    url(r'^highways/funding/state/', redirect_to, {'url': '/direct-expenditures/highways/funding/state/'}),
-    url(r'^highways/funding/', redirect_to, {'url': '/direct-expenditures/highways/funding/analysis/'}),
+    url(r'^highways/funding/state/', redirect_to, {'url': '/transportation/direct-expenditures/highways/funding/state/'}),
+    url(r'^highways/funding/', redirect_to, {'url': '/transportation/direct-expenditures/highways/funding/analysis/'}),
     
     url(r'^highways/', direct_to_template, {'template': 'transportation/mode_page.html', 'extra_context':{'subsector': 3}}, name='transportation-highways'),
     url(r'^transit/', include('transit.urls')),

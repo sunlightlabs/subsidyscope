@@ -172,7 +172,7 @@ def getProgram(request, cfda_id, sector_name):
         accomps2 = accomps[800:]
         accomps = accomps[:800]
     
-    return render_to_response('cfda/programs.html', {'program': program, 'subsectors': subsectors, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
+    return render_to_response('cfda/programs.html', {'program': program, 'subsectors': subsectors, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url, 'request': request})
 
 def getProgramIndex(request, sector_name):
     tags = CFDATag.objects.all()
