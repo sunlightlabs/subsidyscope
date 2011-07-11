@@ -219,11 +219,13 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             <a href="?{{querystring}}&page={{projects.next_page_number}}">Next&nbsp;&raquo;</a> 
             {% endif %}
             </span>
-            <table style="width:100%;">
-                <tbody>
+            <table>
+		<thead>
                     <tr><th class="sortable">FY</th><th style=width:50px;" class="sortable">NPR</th><th class="sortable">Airport</th><th>Description</th><th class="sortable">Total</th><th>Discretionary</th><th>Entitlement</th><th>Stimulus</th></tr>
+		</thead>
+                <tbody>
                     {% for p in projects.object_list %}
-                    <tr>
+                    <tr class="{% cycle 'even' 'odd' %}">
                     <td>{{p.fiscal_year}}</td><td>{{p.npr}}</td><td><a href="/transportation/direct-expenditures/aip/search/{{p.airport.code}}">{{p.airport}}{% if p.airport.name == 'New' %} ({{p.airport.city}}{%if p.airport.city%}, {%endif%}{{p.airport.state}}){% endif %}</a></td><td>{{p.description}}</td><td class="dollars">${{p.total|floatformat:0|intcomma}}</td><td class="dollars">${{p.discretionary|floatformat:0|intcomma}}</td><td class="dollars">${{p.entitlement|floatformat:0|intcomma}}</td><td class="dollars">${{p.stimulus|floatformat:0|intcomma}}</td>
                     </tr>
                     {% endfor %}
