@@ -93,7 +93,7 @@
 					</thead>
                         {% for s in stimulus %}
 						<tbody>
-                        <tr>
+                        <tr class="{% cycle 'even' 'odd' %}">
                             <th scope="row">{{s.fiscal_year}}</th>
                             <td>{{s.npr}}</td>
                             <td>${{s.stimulus|floatformat:0|intcomma}}</td>
@@ -121,7 +121,7 @@
 					<tbody>
                     {% for p in projects %}
                         {% if p.stimulus = 0 or p.total > p.stimulus   %}
-                        <tr>
+                        <tr class="{% cycle 'even' 'odd' %}">
                         <th scope="row">{{p.fiscal_year}}</th>
                         <td>{{p.npr}}</td>
                         <td class="align-left">{{p.description}}</td>

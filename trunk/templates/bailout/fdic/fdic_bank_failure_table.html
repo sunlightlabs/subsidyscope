@@ -42,7 +42,7 @@
 
 				<tbody>
 					{% for failure in bank_failure_list %}
-					<tr>
+					<tr class="{% cycle 'even' 'odd' %}">
 						<th scope="row">{{ failure.closing_date }}</th>
 						<td class="align-left">{% if failure.ig_report %}<a href="{{ failure.ig_report }}">{% endif %}{{ failure.name }}{% if failure.report %}</a>{% endif %}</td>
 						<td class="align-left">{{ failure.city }}, {{ failure.state }}</td>
