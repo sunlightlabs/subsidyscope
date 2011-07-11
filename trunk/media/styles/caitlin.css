@@ -1487,6 +1487,13 @@ ul#top_nav_header li { display: block !important; float: right;}
 table{
 	width: 660px;
 	font-size: 85%;
+	margin-bottom: 20px;
+}
+
+table.slim{
+	width: 330px;
+	float: right;
+	margin-left: 20px;
 }
 
 td{
@@ -1524,7 +1531,7 @@ tr.even{
 tr.odd{
 	background-color: #f5f5f5;	
 }
-.subhead th{
+.subhead th, .subhead td{
 	padding-left: 6px;
 	text-transform: uppercase;
 	border-bottom: 1px solid #C3C3C3;
@@ -1547,7 +1554,7 @@ tr.odd.total td, tr.even.total td{
 	font-weight: bold;
 }
 
-td.align-left{
+td.align-left, th.align-left{
 	text-align: left;
 }
 
