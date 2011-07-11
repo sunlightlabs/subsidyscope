@@ -1184,8 +1184,8 @@ ul.programs {border: none;}
 ul.subselect {margin-top:0px; margin-left:0px;}
 #modes { width: 250px;}
 #tags {width: 217px; }
-#modesubselect {margin-left:80px; font-size:90%; }
-#tagsubselect {margin-left: 380px;font-size: 90%;}
+#modesubselect { font-size:90%; float: left}
+#tagsubselect {font-size: 90%; float: left}
 #tagsubselect select{width: 175px}
 #modesubselect select{width: 130px}
 
