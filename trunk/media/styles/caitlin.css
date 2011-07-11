@@ -1583,6 +1583,8 @@ td.align-left, th.align-left{
 	margin-left: 70px;
 }
 
-
+.pted .subhead th, pted.subhead td{
+	text-transform: none;
+}
 
 
