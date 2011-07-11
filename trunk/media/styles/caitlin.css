@@ -1527,6 +1527,9 @@ thead th{
 thead th[scope=rowgroup]{
 	text-align: left;
 }
+thead th[scope=col]{
+	border-left: 1px solid #b0b0b0;
+}
 
 tbody th{
 	text-align: left;
@@ -1556,6 +1559,9 @@ tr.odd{
 .subdata th{
 	padding-left: 40px;
 }
+th.group{
+	text-align: center;
+}
 tr.odd.total, tr.even.total{
 	background-color: #e6e6e6;
 }
@@ -1572,6 +1578,9 @@ tr.odd.total td, tr.even.total td{
 
 td.align-left, th.align-left{
 	text-align: left;
+}
+td.align-right, th.align-right{
+	text-align: right;
 }
 
 
