@@ -9,7 +9,15 @@ def recursive_menu(context):
     menu = Menu.objects.get(slug=slug)
     sub_menus = Menu.objects.filter(parent_menu_id=menu.id).order_by('id')
     menu_items = MenuItem.objects.filter(menu=menu)
-
+    try:
+        this_menu_item = MenuItem.objects.get(link_url=current_path)
+        this_menu = None
+    except:
+        try:
+            this_menu = Menu.objects.get(base_url=current_path)
+        except:
+            this_menu = None
+        this_menu_item = None
     html = []
     for sm in sub_menus:
         menu_list = []
@@ -30,7 +38,7 @@ def recursive_menu(context):
                     current_leaf_page = True
                 else:
                     leaf_menu.append('<li><a href="' + lm_item.link_url + '">'+ lm_item.title + '</a></li>')
-            if current_leaf_page:
+            if current_leaf_page or lm.base_url == current_path:
                 leaf_menu.insert(0, '<li class="active"><a href="' + lm.base_url + '">' + lm.name + '</a><ul>')
             else:
                 leaf_menu.insert(0, '<li><a href="'+ lm.base_url + '">' + lm.name + '</a><ul>')
@@ -39,7 +47,10 @@ def recursive_menu(context):
 
             menu_list.extend(leaf_menu)
         
-        if current_page or current_path.startswith(sm.base_url):
+        if current_page or \
+            current_path.startswith(sm.base_url) or \
+            (this_menu_item and this_menu_item.menu and this_menu_item.menu.parent_menu_id == sm.id ) or \
+            (this_menu and this_menu.parent_menu_id == sm.id):
             menu_list.insert(0, '<li class="active"><span class="expanded accordion"></span><a href="'+ sm.base_url + '">'+ sm.name +'</a><ul>')
         else:
             menu_list.insert(0, '<li><span class="collapsed accordion"></span><a href="' + sm.base_url + '">' + sm.name + '</a><ul class="collapsed">')
