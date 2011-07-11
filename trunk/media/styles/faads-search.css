@@ -249,7 +249,12 @@ table.summary-data .null-value { text-align: center; }
 	width: 295px;
 }
 
-
+#summary-container{
+	width: 660px;
+	overflow-x: scroll;
+	overflow-y: visible;
+	height: 100%;
+}
 
 
 
