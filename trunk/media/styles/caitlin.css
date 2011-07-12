@@ -1562,6 +1562,9 @@ tr.odd{
 .subdata th{
 	padding-left: 40px;
 }
+.subdata th a{
+	font-weight: 400;
+}
 th.group{
 	text-align: center;
 }
