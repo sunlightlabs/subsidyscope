@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from tax_expenditures.models import Group, GroupSummary, Expenditure, Estimate, TE_YEARS
 from haystack.query import SearchQuerySet
-
+from tax_expenditures.templatetags.te_tags import JCT_SOURCES, TREASURY_SOURCES
 SOURCES = ('', 'JCT', 'Treasury')
 MAX_COLUMNS = 8
 
@@ -103,17 +103,31 @@ def group(request, group_id):
 
 def data_page_csv():
     source_text = [None, 'JCT', 'Treasury']
-    report_years = range(2000, 2013)
+    report_years = range(2001, 2013)
     for ry in report_years:
         for source in (1, 2):
             writer = csv.writer(open('tax_expenditures/data_page_csvs/'+ source_text[source] + '_' + str(ry) + '.csv', 'w'))
+            if source == 1:
+                writer.writerow(('Source: %s' % JCT_SOURCES[ry],))
+                writer.writerow(("""The Joint Committee on Taxation (JCT) does not provide numerical data for values that are between -$50 million and $50 million. Rather it provides a footnote indicating that the values are either "greater than -$50 million" or "less than $50 million." The estimates in the individual and corporation columns from the JCT may contain values between -$50 million and $50 million (denoted as >-50 or <50). When aggregated, in the totals column, the sums of these values are unknown and thus are rounded to zero. For more information, see Subsidyscope's methodology.""",))
+            else:
+                writer.writerow(('Source: %s' % TREASURY_SOURCES[ry],))
+
+            writer.writerow(("",))
+
             header = ['Budget_function', 'Title as it Appears in Source']
             groups = Group.objects.filter(parent=None).order_by('id')
             if source == 1:
                 years = range(ry-2, ry+3)
+                year_range_beg = 2
+                year_range_end = 7
             else:
                 years = range(ry-2, ry+5)
+                year_range_beg = 2
+                year_range_end = 9
 
+            if years[0] == 1999:
+                years = years[1:]
             for y in years:
                 header.append(str(y) + ' Indv')
             for y in years:
@@ -125,9 +139,9 @@ def data_page_csv():
             writer.writerow(header)
 
             for gp in groups:
-                static_csv_recurse(gp, writer, gp.name, ry, source, years)
+                static_csv_recurse(gp, writer, gp.name, ry, source, years, year_range_beg, year_range_end)
 
-def static_csv_recurse(gp, writer, budget_function, ry, source, years):
+def static_csv_recurse(gp, writer, budget_function, ry, source, years, year_range_beg, year_range_end):
      
     exps = Expenditure.objects.filter(analysis_year=ry, source=source, group=gp).order_by('id')
     if exps.count() > 0:
@@ -141,10 +155,14 @@ def static_csv_recurse(gp, writer, budget_function, ry, source, years):
                     est = est[0]
                     if est.individuals_notes == Estimate.NOTE_POSITIVE:
                         row.append('<50')
+                        totals[ey] = 0
                     elif est.individuals_notes == Estimate.NOTE_NEGATIVE:
                         row.append('>-50')
+                        totals[ey] = 0
                     else:
                         row.append(est.individuals_amount)
+                        if est.individuals_amount != None:
+                            totals[ey] = est.individuals_amount
                 else:
                     row.append(None)
             for ey in years:
@@ -153,21 +171,27 @@ def static_csv_recurse(gp, writer, budget_function, ry, source, years):
                     est = est[0]
                     if est.corporations_notes == Estimate.NOTE_POSITIVE:
                         row.append('<50')
+                        if not totals.has_key(ey):
+                            totals[ey] = 0
+                    
                     elif est.corporations_notes == Estimate.NOTE_NEGATIVE:
                         row.append('>-50')
+                        if not totals.has_key(ey):
+                            totals[ey] = 0
                     else:
                         row.append(est.corporations_amount)
+                        if est.corporations_amount != None:
+                            if totals.has_key(ey):
+                                totals[ey] = totals[ey] + est.corporations_amount
+                            else:
+                                totals[ey] = est.corporations_amount
                 else:
                     row.append(None)
 
-            for cell in range(2, 7):
-                total = 0
-                if row[cell] and row[cell].__class__ != str:
-                    total += row[cell]
-                if row[cell+5] and row[cell+5].__class__ != str :
-                    total += row[cell+5]
-                if total: 
-                    row.append(total)
+
+            for ey in years:
+                if totals.has_key(ey):
+                    row.append(totals[ey])
                 else:
                     row.append(None)
 
@@ -177,7 +201,7 @@ def static_csv_recurse(gp, writer, budget_function, ry, source, years):
 
     else:
         for subgroup in Group.objects.filter(parent=gp):
-            static_csv_recurse(subgroup, writer, budget_function, ry, source, years)
+            static_csv_recurse(subgroup, writer, budget_function, ry, source, years, year_range_beg, year_range_end)
 
 def one_off_csv():
     writer = csv.writer(open('post_processed_all.csv', 'w'))
