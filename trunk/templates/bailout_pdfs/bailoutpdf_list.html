@@ -12,60 +12,45 @@
 		
 
     <div class="page-content">
-			<p>Subsidyscope provides a clearinghouse for government documents related to our research in the following sectors. This compilation will be updated regularly.</p>
-            <p style="font-size:1em;">Skip to: 
-           {% for s in sectors %}
-                <a href="#{{s}}">{{s}}</a>
-                {% if not forloop.last %}
-                &nbsp;|&nbsp;
-                {% endif %}
+	   <p>Subsidyscope provides a clearinghouse for government documents related to our research in the following sectors. This compilation will be updated regularly.</p>
+           <p>Skip to: 
+           {% for s in sectors reversed %}
+		{% ifequal s.id 1 %}
+	                <a href="#{{s}}">{{s}}</a>
+		{% else%}
+			{% ifequal s.id 2 %}
+
+	                <a href="#{{s}}">{{s}}</a>
+	                	&nbsp;|&nbsp;
+			{% endifequal %}
+		{% endifequal %}
            {% endfor %} 
            </p>
-	
-			{% for pdf in object_list %}
-	            {% ifchanged pdf.sector %}
-                    {% ifnotequal pdf.sector.id 1 %}
-                        </table>
+          {% for pdf in object_list reversed %}
+	       {% ifchanged pdf.sector %}
+                    {% ifnotequal pdf.sector.id 2 %}
+                      </tbody>  </table>
                     {% endifnotequal %}
-					<div id="subsidy-charts">
                     <h5><a name="{{pdf.sector}}">{{pdf.sector}}</a></h5>
-        		    <table class="pdf-table">
-	    			
-    	    		<tr class="header-row">
-	    	    		<th class="date">Date</th>
-		    	    	<th class="title">Title</th>
-			    	    <th class="description">Description</th>
-    				    <th class="source">Source</th>
+        		    <table>
+				<thead>	    			
+	    	    		<tr>
+		    	    		<th scope="rowgroup">Date</th>
+		    			<th class="align-left" scope="col">Title</th>
+				        <th class="align-left" scope="col">Description</th>
+    				        <th class="align-left" scope="col">Source</th>
         			</tr>
-				{% endifchanged %}
-			    <tr class="{% cycle 'odd' 'even' %}">
-					<td class="date">{{ pdf.date }}</td>
-					<td class="title">{% ifequal pdf.document_type 'PDF' %}<a href="{% url bailoutpdf_detail pdf_id=pdf.id %}">{{ pdf.title }}</a>{% else %}<a href="{{ pdf.link_url }}">{{ pdf.title }}</a>{% endifequal %}</td>
-					<td class="description">{{ pdf.description|safe }}</td>
-					<td class="source"><a href="{{ pdf.source_url }}">{{ pdf.source_name }}</a></td>
-				</tr>
-			{% endfor %}
-			</table>
-		</div>
-</div>
-
-<style type="text/css">
-.pdf-table
-{
-	width:98%; border: 0 !important;
-}
-
-.pdf-table .source, .pdf-table .date
-{
-	text-align: center;
-}
-
-.pdf-table td
-{
-}
-
-.pdf-table th
-{
-}
-</style>
+				</thead>
+				<tbody>
+	       {% endifchanged %}
+	 	<tr class="{% cycle 'even' 'odd' %}">
+			<th scope="row">{{ pdf.date }}</th>
+			<td class="align-left">{% ifequal pdf.document_type 'PDF' %}<a href="{% url bailoutpdf_detail pdf_id=pdf.id %}">{{ pdf.title }}</a>{% else %}<a href="{{ pdf.link_url }}">{{ pdf.title }}</a>{% endifequal %}</td>
+			<td class="align-left">{{ pdf.description|safe }}</td>
+			<td class="align-left"><a href="{{ pdf.source_url }}">{{ pdf.source_name }}</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+	</table>
+</div></div>
 {% endblock %}
