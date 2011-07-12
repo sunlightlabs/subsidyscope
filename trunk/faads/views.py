@@ -99,9 +99,9 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
-        sector_id_choices = [('', 'All Sectors')] + [(s.id, s.name) 
-                                                     for s in Sector.objects.all()
-                                                     if s.launched == True]
+        sector_id_choices = [(s.id, s.name) 
+                             for s in Sector.objects.all()
+                             if s.launched == True]
                                                      
         sector_id = forms.ChoiceField(label='Economic Sector',
                                       choices=sector_id_choices,
@@ -505,6 +505,7 @@ def search(request, sector_name=None):
             'year_range_text': year_range_text, 
             'faads_results': faads_results_page, 
             'page_range': page_range,
+            'searched_sector': sector,
             'sector': sector_name, 
             'form': form, 
             'ran_search': ran_search, 
