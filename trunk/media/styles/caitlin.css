@@ -1235,14 +1235,14 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 
 ------ Table style exceptions ------*/
 
-#routeDataTable> table td:nth-of-type(even), table.transportation_te td:nth-of-type(even){
+/*#routeDataTable> table td:nth-of-type(even), table.transportation_te td:nth-of-type(even){
 	background: none;
 }
 
 #routeDataTable> table tr:nth-of-type(even){
 	background: #F4F4F4;
 }
-
+*/
 
 .page-content img.subsector-image{
 	margin-top: 0;

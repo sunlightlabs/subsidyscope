@@ -7,7 +7,7 @@
             <table>
             <tr><th>Year</th><th>Total Enplanements</th><th>$/Enplanement</th></tr>
             {%for e, t in data %}
-                <tr>
+                <tr class="{% cycle 'even' 'odd' %}">
                     <td>{{e.year}}</td>
                     <td>{{e.amount}}</td>
                     <td>${{t|floatformat:0|intcomma}}</td>
@@ -20,7 +20,7 @@
         <h5 class="left">Grants Funded</h5>
     {% endif %}
         <div style="{%if data%}width:65%;float:left;{%else%}display:block;{%endif%}">
-            <table class="port"><tr><th>FY</th><th>Amount</th><th>Description</th><th>Stimulus?</th></tr>
+            <table class="port"><tr class="{% cycle 'even' 'odd' %}"><th>FY</th><th>Amount</th><th>Description</th><th>Stimulus?</th></tr>
     {% for g in grants %}
         <tr><td>{{g.fiscal_year}}</td><td>${{g.amount|floatformat:0|intcomma}}</td><td class="desc">{{g.description}}</td><td>{%if g.stimulus%}yes{%else%}no{%endif%}</td></tr>
     {% endfor %}

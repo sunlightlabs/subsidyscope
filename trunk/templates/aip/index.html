@@ -122,69 +122,69 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
 						    </select>
 				    	</span>
 
-					</span>    
-					<button type="submit" class="search-submit" value="Search" />
-				</div>
-			</fieldset>
-		</form>
-		<form id="projectsearch" class="search-section">
-		    <input type="hidden" name="fysort" value='{% if sorts.fysort == 'asc' %}asc {%elif sorts.fysort == 'desc'%}desc{%else %}none{%endif%}' />
-		    <input type="hidden" name="nprsort" value='{% if sorts.nprsort == 'asc'%}asc{% elif sorts.nprsort == 'desc'%}desc{%else %}none{%endif%}' />
-		    <input type="hidden" name="airportsort" value='{% if sorts.airportsort == 'asc'%}asc{% elif sorts.airportsort == 'desc'%}desc{%else%}none{%endif%}' />
-		    <input type="hidden" name="totalsort" value='{% if sorts.totalsort == 'asc'%}asc{%elif sorts.totalsort == 'desc'%}desc{%else%}none{%endif%}' />
+</span>    
+<button type="submit" class="search-submit" value="Search" ></button>
+</div>
+</fieldset>
+</form>
+<form id="projectsearch" class="search-section">
+    <input type="hidden" name="fysort" value='{% if sorts.fysort == 'asc' %}asc {%elif sorts.fysort == 'desc'%}desc{%else %}none{%endif%}' />
+    <input type="hidden" name="nprsort" value='{% if sorts.nprsort == 'asc'%}asc{% elif sorts.nprsort == 'desc'%}desc{%else %}none{%endif%}' />
+    <input type="hidden" name="airportsort" value='{% if sorts.airportsort == 'asc'%}asc{% elif sorts.airportsort == 'desc'%}desc{%else%}none{%endif%}' />
+    <input type="hidden" name="totalsort" value='{% if sorts.totalsort == 'asc'%}asc{%elif sorts.totalsort == 'desc'%}desc{%else%}none{%endif%}' />
 
-		    <fieldset {% if type == 'airport' %} class="collapsed" {% endif %}>
-		        <legend id="expand_project"><h4>Search by Project</h4></legend>
-		        <input type="hidden" name="searchtype" value="project" />
-		        <div class="form_content">
-			        <span>
-			            Limit by year range:
-				        <select name="year_range_first">
-				            {% for y in years %}
-				            <option value="{{y}}" {% if filters.year_first == y %} selected  {% endif %}>{{y}}</option>
-				            {% endfor %}
-				        </select>
-				        &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
-				        <select name="year_range_last">
-				            {% for y in years %}
-				                <option value="{{y}}"{% if filters %} {% if filters.year_last == y %} selected {% endif%} {% elif forloop.last %} selected  {%endif%}>{{y}}</option>
-				            {% endfor %}
-				        </select>
-				        <a class="fy all" href="#">All</a>
-			        </span>
-			        <span>
-				            Limit by NPR range:
-				        <select name="npr_range_first">
-				            {% for n in nprs %}
-				            <option value="{{n}}" {% if filters.npr_first == n %} selected {% endif %}>{{n}}</option>
-				            {% endfor %}
-				        </select>
-				        &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
-				        <select name="npr_range_last">
-				            {% for n in nprs %}
-				            <option value="{{n}}" {% if filters %} {% if filters.npr_last == n %} selected {% endif %} {%elif forloop.last%} selected {% endif %} >{{n}}</option>
-				            {% endfor %}
-				        </select>
-				        <a href="#" class="npr all">All</a>
-			        </span>
-			        <span>
-			            Restrict to Stimulus(ARRA) funds?
-			            <input type="checkbox" name="stimulus" {% if filters.stimulus %} checked {%endif%}/>
-			        </span>
-			        <span>
-			            Restrict to congressional district?
-			            <select name="district_filter">
-			            <option value="">All</option>
-			            {%for d in districts %}
-			            <option value="{{d}}" {%if filters.dist_filter == d %} selected {% endif %}>{{d}}</option>
-			            {% endfor %}
-			            </select>
-			        </span>
-			        <input type="submit" class="search-submit" value="Search" />
-		        </div>
-		    </fieldset>
-		</form>
- 
+    <fieldset {% if type == 'airport' %} class="collapsed" {% endif %}>
+        <legend id="expand_project"><h4>Search by Project</h4></legend>
+        <input type="hidden" name="searchtype" value="project" />
+        <div class="form_content">
+        <span>
+            Limit by year range:
+        <select name="year_range_first">
+            {% for y in years %}
+            <option value="{{y}}" {% if filters.year_first == y %} selected  {% endif %}>{{y}}</option>
+            {% endfor %}
+        </select>
+        &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
+        <select name="year_range_last">
+            {% for y in years %}
+                <option value="{{y}}"{% if filters %} {% if filters.year_last == y %} selected {% endif%} {% elif forloop.last %} selected  {%endif%}>{{y}}</option>
+            {% endfor %}
+        </select>
+        <a class="fy all" href="#">All</a>
+        </span>
+        <span>
+            Limit by NPR range:
+        <select name="npr_range_first">
+            {% for n in nprs %}
+            <option value="{{n}}" {% if filters.npr_first == n %} selected {% endif %}>{{n}}</option>
+            {% endfor %}
+        </select>
+        &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
+        <select name="npr_range_last">
+            {% for n in nprs %}
+            <option value="{{n}}" {% if filters %} {% if filters.npr_last == n %} selected {% endif %} {%elif forloop.last%} selected {% endif %} >{{n}}</option>
+            {% endfor %}
+        </select>
+        <a href="#" class="npr all">All</a>
+        </span>
+        <span>
+            Restrict to Stimulus(ARRA) funds?
+            <input type="checkbox" name="stimulus" {% if filters.stimulus %} checked {%endif%}/>
+        </span>
+        <span>
+            Restrict to congressional district?
+            <select name="district_filter">
+            <option value="">All</option>
+            {%for d in districts %}
+            <option value="{{d}}" {%if filters.dist_filter == d %} selected {% endif %}>{{d}}</option>
+            {% endfor %}
+            </select>
+        </span>
+        <button type="submit" class="search-submit" value="Search"></button>
+        </div>
+    </fieldset>
+</form>
+
         {% if grants %}
         <div id="results">
             <ul class="headers">
