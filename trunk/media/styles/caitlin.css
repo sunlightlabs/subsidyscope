@@ -1287,6 +1287,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 .top-five-pages a{
 	color: #607890;
 	text-decoration: underline;
+    display: inline;
 }
 .top-five-pages h4{
 	font-family: Georgia,"Times New Roman",Times,serif;
@@ -1296,6 +1297,10 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	line-height: .7;
 	color: #444444;
 }
+.top-five-pages > ul > li {
+    list-style-type: none;
+    margin-bottom: 20px;
+}    
 
 /*------ Contact Form ------*/
 
