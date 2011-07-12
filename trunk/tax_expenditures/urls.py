@@ -12,5 +12,7 @@ urlpatterns = patterns('tax_expenditures.views',
     url(r'^db/$', 'main', name="tax_expenditures-main"),
     url(r'^methodology/$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-methodology"),
     url(r'^search$', 'search', name='search'),
-    url(r'^summary/$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-summary"))
+    url(r'^summary/$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-summary"),
+    url(r'^$', redirect_to, {'url': '/tax_expenditures/summary/'})
+)
     
