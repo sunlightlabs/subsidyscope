@@ -1,0 +1,63 @@
+Loading the PTED Database:
+
+
+*** Loading processed TE files (sent by Sarah):
+
+ a) Copy TE file to scripts/data/tax_expenditures/processed and rename to include a number as the first character of the file name. For example "energy.csv" becomes "01_energy.csv". This ensures the order of the 
+    the files during load, ensuring that db IDs are recreated in the same sequence.
+    
+ b) Rebuild the tax_expenditure database from the processed files (takes about 10 mins to run):
+ 
+    ./manage.py load_processed_tes -p scripts/data/tax_expenditures/processed/
+
+
+
+
+
+*** Loading the raw Analytical Perspecitives and JCT data into te_importer database (found in scripts/data/tax_expenditures/data).
+   This step only needs to be done when new JCT/Treasury data is released or changes/corrections are made to the original data sets.
+   ---This step should only be requried if the raw JCT or Treasury data is updated (e.g. fiscal year 2013 or updates to past years)---
+  
+ a) Ensure that both te_importer and tax_expenditures apps are loaded in Django project. 
+
+
+ b) Truncate (or create via syncdb) all te_importer_* db tables via:
+    
+    ./manage.py truncate_te_importer_db
+
+
+ c) Load the AP categories from text file via management command (populates table te_importer_categories): 
+
+    ./manage.py load_ap_categories --path scripts/data/tax_expenditures/data/omb_ap/omb_categories_2000.txt
+
+ 
+ d) Load the AP TE data from annual files (adding new years require updating the loader script):
+
+    ./manage.py load_ap_tes  --path scripts/data/tax_expenditures/data/omb_ap/
+
+ 
+ e) Load the JCT TE data from annual files (adding new years require updating the loader script):
+
+    ./manage.py load_jct_tes  --path scripts/data/tax_expenditures/data/jct/
+
+
+ f) Group loaded tax expenditures (crude merge of AP and JCT categories):
+
+   ./manage.py group_raw_tes
+
+
+ g) Load TE descriptions (data from 2011 AP PDF):
+ 
+   ./manage.py load_ap_descriptions --source_year 2011 --path scripts/data/tax_expenditures/data/omb_ap/spec2011_descriptions.txt 
+
+
+ f) Load TE footnotes (data from AP data):
+ 
+   ./manage.py load_ap_footnotes --path scripts/data/tax_expenditures/data/omb_ap/ap_footnotes.txt 
+
+
+ h) Dump raw data files in CSV exchange format (these are the files Sarah uses to edit the database). 
+   
+   ./manage.py dump_raw_te_data --path scripts/data/tax_expenditures/dumps/
+   
+

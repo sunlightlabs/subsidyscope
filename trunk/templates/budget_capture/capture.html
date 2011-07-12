@@ -2,6 +2,7 @@
 
 {% block title %}{{ item.cfda_program.program_number }} &mdash; {{ item.cfda_program.program_title }}{% endblock %}
 
+{% load menubuilder %}
 {% block content %}
 
 <p>{{ item.description }}</p>

@@ -2,6 +2,8 @@
 {% load humanize %}
 {% load webdesign %}
 {% load media %}
+ 
+
 
 {% block additional_js %}
 	{% js "scripts/jquery.pngFix.pack.js" %}
@@ -12,17 +14,20 @@
 	<style type="text/css">@import "{% url bailout-visualization-css %}";</style>
 {% endblock %}
 
+{% load menubuilder %}
 {% block content %}
 <div class="container main_container">
 {% include "includes/bailout_nav.html" %}
 
 
 	<div class="span-24">
-		<div id="header_area">
+		<div class="secondary-header">
 			<h3>The Financial Bailout</h3>		
 		</div>
 		
-		<div class="content_area">
+			{% recursive_menu %}
+
+    <div class="page-content">
 
 
 			<div id="legend-container"></div>

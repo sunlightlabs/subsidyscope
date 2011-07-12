@@ -1,16 +1,17 @@
 {% extends "base_documents.html" %}
 
+{% load menubuilder %}
 {% block content %}
 <script type='text/javascript' src='http://www.scribd.com/javascripts/view.js'></script>
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
 			<h2>Key Documents</h2>
 			<h3>{{ pdf.title }}</h3>		
 		</div>
 		
-		<div class="content_area">
+					{% recursive_menu %}
+
+    <div class="page-content">
 		{% if pdf.local_copy %}<a style="float: right" class="pdf-download-link" href="{{ pdf.local_copy.url|urlencode }}">Download Document &raquo;</a>{% endif %}
 	<p>{{ pdf.description|safe }}</p>
 		</div>

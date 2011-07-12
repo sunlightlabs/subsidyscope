@@ -172,7 +172,7 @@ def getProgram(request, cfda_id, sector_name):
         accomps2 = accomps[800:]
         accomps = accomps[:800]
     
-    return render_to_response('cfda/programs.html', {'program': program, 'subsectors': subsectors, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url})
+    return render_to_response('cfda/programs.html', {'program': program, 'subsectors': subsectors, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url, 'request': request, 'sector': Sector.objects.get(name=sector_name)})
 
 def getProgramIndex(request, sector_name):
     tags = CFDATag.objects.all()
@@ -183,7 +183,7 @@ def getProgramIndex(request, sector_name):
     sector = Sector.objects.get(name__iexact=sector_name)
     subsectors = Subsector.objects.filter(parent_sector=sector)
     programs = ProgramDescription.objects.filter(sectors=sector)
-    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'filter':filter, 'tags': tags, 'subsectors': subsectors, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
+    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'filter':filter, 'tags': tags, 'subsectors': subsectors, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'sector': sector}, context_instance=RequestContext(request), )
 
 def getFAADSLineItems(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=cfda_id)

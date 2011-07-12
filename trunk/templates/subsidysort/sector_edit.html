@@ -1,0 +1,29 @@
+{% extends "subsidysort/sort_base.html" %}
+
+{% block title %}Edit {{ sector }}{% endblock %}
+
+{% block content %}
+
+<script language="javascript">
+	
+function addBF()
+{
+	$["#bf"].val();
+}
+
+
+</script>
+
+&laquo; <a href="{% url subsidysort-sector sector.id %}">Back to Sector</a>
+
+<p>&nbsp;</p>
+<form action="{% url subsidysort-sector-edit sector.id %}" method="post">
+{{ form }}
+<p><input type="submit" value="Save" /></p>
+</form>
+
+
+
+
+
+{% endblock %}

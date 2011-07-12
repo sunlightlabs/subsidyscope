@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.db import models
 
 import simplejson
 
@@ -26,3 +27,10 @@ class FileIterWrapper(object):
 
     def __iter__(self):
         return self
+    
+    
+# http://djangosnippets.org/snippets/1295/
+class ManyToManyField_NoSyncdb(models.ManyToManyField):
+    def __init__(self, *args, **kwargs):
+        super(ManyToManyField_NoSyncdb, self).__init__(*args, **kwargs)
+        self.creates_table = False

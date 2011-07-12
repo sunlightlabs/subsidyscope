@@ -1,32 +1,32 @@
-{% extends "base_about.html" %}
-
+{% extends "base.html" %}
+{% load media %}
 {% load morsel_tags %}
 
+{% load menubuilder %}
 {% block content %}
 
-<div class="container main_container">
-	{% include "includes/generic_nav.html" %}
-	<div class="container white">
-		<div class="span-24">
-			<div id="header_area_flat">
+<div class="wrapper clearfix">
+		<div class="secondary-header">
 				<h3>Contact Subsidyscope</h3>		
-			</div>
-			
-			<div class="content_area">	
-
-				{% morsel text1 %}
-
-				<div id="contact_form">
-    				<form action="." method="post" id="contactus">
-					<ul>
-			    		{{ form.as_ul }}	
-        	    		<li><p class="submit"><input type="submit" value="Send your question or comment to Subsidyscope"></p></li>
-					</ul>
-    				</form>
-				</div>
-		
-			</div>
 		</div>
+			
+		{% include "includes/static_side_nav.html" %}
+
+    <div class="page-content">	
+
+	{% morsel text1 %}
+
+		<div id="contact_form">
+	 		<form action="." method="post" id="contactus">
+				<ul>
+		    		{{ form.as_ul }}	
+		     	    	<li>
+							<button class="submit" type="submit" value="Send your question or comment to Subsidyscope"></button>
+						</li>
+				</ul>
+	 		</form>
+		</div>
+		
 	</div>
 </div>
 

@@ -1,8 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 {% load media %}
 {% load morsel_tags %}
 {% load sector_tags %}
-
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,25 +10,26 @@
 	<link rel="alternate" type="application/rss+xml" title="Subsidyscope Project Updates" href="{% url django.contrib.syndication.views.feed "updates" %}" />
 	{% css "styles/screen.css" %}
 	{% css_print "styles/print.css" %}
-  <!--[if IE ]>{% css "styles/ie.css" %}<![endif]-->
+
 	{% css "styles/style.css" %}
 	{% block additional_css %}{% endblock %}
 	
 	{% js "scripts/jquery-1.3.2.min.js" %}
 	{% js "scripts/jquery.autocomplete.js" %}
-	{% block additional_js %}{% endblock %}
-
+    {% block additional_js %}{% endblock %}
   {% sector_css  %}
 
-    <link rel="stylesheet" type="text/css" media="screen" href="/media/styles/superfish.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/media/styles/caitlin.css" />
+
+  <!--[if IE ]>{% css "styles/ie.css" %}<![endif]-->
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
     <script type="text/javascript" src="/media/scripts/hoverIntent.js"></script>
     <script type="text/javascript" src="/media/scripts/superfish.js"></script>
 
-    <script type="text/javascript">  
-        $(document).ready(function(){ 
-            $("ul.sf-menu").superfish(); 
-        }); 
-    </script>
+
+
 
 	<title>{% block title %}Subsidyscope.org{% morsel_page_title page_title %}{% endblock %}</title>
 </head>
@@ -37,9 +37,23 @@
 {% include "includes/top_default_header.html" %}
 
 
+{% load menubuilder %}
 {% block content %}
 {% endblock %}
 
 {% include "includes/bottom_default_footer.html" %}
+
+<script type="text/javascript" charset="utf-8">
+$('.secondary-nav li span').click(function(){
+    if ( $(this).siblings('ul').length > 0) {
+        $(this).siblings('ul').slideToggle();
+        $(this).toggleClass('expanded').toggleClass('collapsed');
+        return false;
+    }
+});
+</script>
+
+
 </body>
+
 </html>

@@ -2,55 +2,52 @@
 
 {% load search_tags %}
 
+{% load menubuilder %}
 {% block content %}
 
-<div class="container top_solid_box" id="staff-page">
-	<div class="span-24">
-		<div id="header_area_flat">
-			<h2>Subsidyscope</h2>
-			<h3>Search</h3>		
-		</div>
+<div class="wrapper clearfix" id="search">
+	<div class="secondary-header">
+			<h3>Subsidyscope</h3>
+	</div>
 		
-		<div class="content_area">	
+		{% include "includes/static_side_nav.html" %}
+
+    <div class="page-content">	
 		    
-		    <form id="update_email" action="." method="GET">
+			<h2>Search</h2>		
+			<p id="top-note-box">Didn't find what you were looking for? Try searching for something else.</p>
+		    <form id="search_page_search" class="search_page_search" action="." method="GET">
 				{{ form.query }}
-				<input class="submit" type="submit" value="Search"/>
+				<button class="submit" type="submit" value="Search">Search</button>
 			</form>
 				    
 
 			<p>&nbsp;</p>
 			{% if page_result_set %}
-			<strong>Results:</strong>
-			<ul style="padding-top: 15px;">
+			<h4>Results:</h4>
+			<ul class="search_results">
 				{% for page in page_result_set %}
-					<li  style="padding-bottom: 15px; margin-bottom: 15px; width: 800px; border-bottom: 1px solid #CCCCCC;">
+					<li>
 						
 				
 					{% if page.object.program_number %}
 						
 						{% for sector in page.object.sectors.all %}
 						
-							<div style="float: right; text-transform:uppercase; color: #999; height: 15px;">
 									
-								<img style="margin-right: 5px; vertical-align: top;" src="{{ sector.image_url_small }}"/>
-								<strong>{{ sector.name }}</strong>
-							</div>
+								<img src="{{ sector.image_url_small }}"/>
 						{% endfor %}
 						
 						
-						<strong><a href="{% url transportation-cfda-programpage page.object.id  %}">{{ page.object.program_number }} &mdash; {{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
+						<h5><a href="{% url transportation-cfda-programpage page.object.id  %}">{{ page.object.program_number }} &mdash; {{ page.title }}</a></h5>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
 					
 					{% else %}
-						<div style="float: right; text-transform:uppercase; color: #999; height: 15px;">
 							{% if page.object.sector.image_url_small %}
-								<img style="margin-right: 5px; vertical-align: top;" src="{{ page.object.sector.image_url_small }}"/>
+								<img src="{{ page.object.sector.image_url_small }}"/>
 							{% endif %}
 							
-							
-							<strong>{{ page.object.sector.name }}</strong>
-						</div>
-						<strong><a href="{{ page.url }}/">{{ page.title }}</a></strong><br/>{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
+						<h5><a href="{{ page.url }}/">{{ page.title }}</a></h5>
+						{% for text in page.highlighted.text|safe_highlight %}{{ text|safe_highlight }}{% endfor %}</li>
 					{% endif %}
 				{% endfor %} 
 			</ul>
@@ -64,6 +61,5 @@
 		
 	
 		
-	</div>
 </div> <!--ends container-->
 {% endblock %}

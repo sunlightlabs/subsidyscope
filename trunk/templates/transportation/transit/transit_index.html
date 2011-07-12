@@ -4,8 +4,13 @@
 {% load humanize %}
 {% load smarterif%}
 {% load custom_filters %}
+{% load menubuilder %}
 {% block content %}
 {% css "styles/faads-search.css" %}
+ 
+
+
+
 <style>
 form#transit-search fieldset { padding: 15px; }
 form#transit-search label.text {margin-left: 15px;}
@@ -53,11 +58,10 @@ table.legend td { padding: 0px 15px; text-align: center; }
 </style>
 
 
-<div class="container main_container">
-    {% include "includes/transportation_nav.html" %}
-    <div class="span-24">
-        <div id="header_area"><h3>Transit System Search</h3></div>
-        <div class="content_area">
+<div id="Transportation" class="wrapper clearfix">	
+	<div class="secondary-header"><h3>Transit System Search</h3></div>
+	    {% recursive_menu %}
+	<div class="page-content">
             <p>Use the search engine below to find funding and ridership metrics from transit systems across the country. All data are from the <a href="http://www.ntdprogram.gov/ntdprogram/data.htm">National Transit Database</a>. Data have been converted to 2008 dollars using the CPI-U U.S. annual averages (non-chained).</p>    
 
             <form id="faads-search-form" method="post">

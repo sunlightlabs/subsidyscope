@@ -1,2 +1,15 @@
+local_settings.py
 whoosh
 do_fpds_import.sh
+*.pyc
+bin/
+src/
+lib/
+TAGS
+local_settings.example.py
+*.sql
+*.json
+*.zip
+*.swp
+*.swo
+*.xlsx

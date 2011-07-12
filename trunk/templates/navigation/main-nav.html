@@ -2,10 +2,9 @@
 {% load custom_filters %}
 {% load navigation_tags %}
 
-<div class="span-24">	
 	<div id="navbar">
 		<ul id="navbar_items">
-            {% for s in sectors %}
+         {% for s in sectors %}
 
                 <li {% if s.0 == active_sector.0 %} class="active_top" {% endif %}>
                     <a href="{{s.1}}" class="">{{s.0}}</a>
@@ -14,4 +13,3 @@
             {% endfor %}     
         </ul>
     </div>
-</div>

@@ -68,7 +68,5 @@ def glossarize(plain, id_list=None, sector=None):
             if variant:
                 mapping.append((r"\b%s\b" % variant, hyperlink, item.id))
 
-    # Do final sort: longer strings towards the front
-    mapping.sort(cmp=lambda x, y: len(y[0]) - len(x[0]))
     text, id_list = msub_first(plain, mapping, id_list)
     return text, id_list

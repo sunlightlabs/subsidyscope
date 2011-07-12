@@ -3,6 +3,7 @@
 {% load bailout_tags %}
 {% load media %}
 {% load morsel_tags %}
+ 
 
 {% block additional_css %}
 	{% css "styles/ui.theme.css" %}
@@ -22,17 +23,18 @@
 	
 {% endblock %}
 
+{% load menubuilder %}
 {% block content %}
 
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
 			<h2>{% morsel_sector_title %}</h2>
 			<h3>{% morsel_page_title %}</h3>		
 		</div>
 		
-		<div class="content_area">
+			{% recursive_menu %}
+
+    <div class="page-content">
 
 		{% morsel text1 %}
 

@@ -1,0 +1,217 @@
+National Defense:,,,,,,,,,,,,,,,,,,
+1,Exclusion of benefits and allowances to armed forces personnel ,,,,,,,,,,"12,740","13,290","13,710","12,200","12,680","13,190","13,720","65,500"
+International affairs: ,,,,,,,,,,,,,,,,,,
+2,Exclusion of income earned abroad by U.S. citizens ,,,,,,,,,,"6,800","5,550","5,400","5,800","6,140","6,430","6,730","30,500"
+3,Exclusion of certain allowances for Federal employees abroad,,,,,,,,,,970,1020,1070,1120,1180,1240,1300,"5,910"
+4,Inventory property sales source rules exception,,"2,680","2,910","3,160","3,430","3,730","4,050","4,400","18,770",,,,,,,,
+5,Deferral of income from controlled foreign corporations (normal tax method) ,,"38,130","41,410","42,000","41,810","41,770","43,020","44,240","212,840",,,,,,,,
+6,Deferred taxes for financial firms on certain income earned overseas,,"2,330",0,0,0,0,0,0,0,,,,,,,,
+"General science, space, and technology: ",,,,,,,,,,,,,,,,,,
+7,Expensing of research and experimentation expenditures (normal tax method) ,,3220,4250,5390,6330,6550,7310,7380,"32,960",340,360,380,400,420,450,470,"2,120"
+8,Credit for increasing research activities ,,5770,3850,3080,2460,1960,1570,1250,"10,320",120,0,0,0,0,0,0,0
+Energy: ,,,,,,,,,,,,,,,,,,
+9,"Expensing of exploration and development costs, fuels ",,350,460,610,470,350,300,280,"2,010",50,60,90,70,50,40,40,290
+10,"Excess of percentage over cost depletion, fuels ",,830,910,950,970,990,"1,000","1,020","4,930",150,160,170,180,180,180,180,890
+11,Alternative fuel production credit ,,160,160,110,80,60,20,0,270,10,10,10,10,0,0,0,20
+12,Exception from passive loss limitation for working interests in oil and gas properties ,,,,,,,,,,30,40,30,30,30,30,30,150
+13,Capital gains treatment of royalties on coal ,,,,,,,,,,50,50,50,60,60,80,90,340
+14,Exclusion of interest on energy facility bonds ,,10,10,10,10,10,10,10,50,10,20,20,20,20,30,30,120
+15,Energy production credit 1/,,"1,370","1,430","1,510","1,620","1,640","1,580","1,460","7,810",170,190,230,280,310,310,310,"1,440"
+16,Energy investment credit 1/,,100,120,720,1260,790,390,400,"3,560",30,50,240,430,240,90,90,"1,090"
+17,Alcohol fuel credits   2/,,60,70,110,80,40,20,10,260,10,20,20,30,10,10,0,70
+18,Bio-Diesel and small agri-biodiesel producer tax credits   3/,,20,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+19,Tax credit and deduction for clean-fuel burning vehicles,,70,40,20,10,20,50,70,170,180,220,120,160,210,340,590,"1,420"
+20,Exclusion of utility conservation subsidies,,10,10,10,10,10,10,10,50,210,210,210,210,200,200,200,"1,020"
+21,Credit for holding clean renewable energy bonds 4/,,20,20,20,20,20,20,20,100,50,50,50,50,50,50,50,250
+22,Deferral of gain from dispositions of transmission property to implement FERC restructuring policy,,-50,-150,-150,-130,-110,-80,-50,-520,,,,,,,,
+23,Credit for investment in clean coal facilities,,240,400,460,450,360,300,200,"1,770",,,,,,,,
+24,Temporary 50% expensing for equipment used in the refining of liquid fuels,,760,620,520,420,-580,-1110,-950,"-1,700",,,,,,,,
+25,Natural gas distribution pipelines treated as 15-year property,,120,120,100,80,80,80,90,430,,,,,,,,
+26,Amortize all geological and geophysical expenditures over 2 years,,120,90,70,50,30,20,20,190,30,20,20,10,10,10,10,60
+27,Allowance of deduction for certain energy efficient commercial building property,,50,60,70,80,50,20,10,230,10,20,20,20,20,10,0,70
+28,Credit for construction of new energy efficient homes,,10,10,10,0,0,0,0,10,10,10,10,0,0,0,0,10
+29,Credit for energy efficiency improvements to existing homes,,0,0,0,0,0,0,0,0,"3,190","5,530","2,270",0,0,0,0,"2,270"
+30,Credit for energy efficient appliances,,150,60,0,0,0,0,0,0,,,,,,,,
+31,Credit for residential energy efficient property ,,,,,,,,,,220,220,220,230,230,230,240,"1,150"
+32,Qualified energy conservation bonds 5/,,0,0,10,10,10,10,10,50,0,10,10,20,20,20,20,90
+33,Advanced Energy Property Credit,,160,540,810,410,-10,-80,-70,"1,060",20,60,90,50,0,-10,-10,120
+Natural resources and environment: ,,,,,,,,,,,,,,,,,,
+34,"Expensing of exploration and development costs, nonfuel minerals ",,110,110,120,130,130,140,140,660,0,0,10,10,10,10,10,50
+35,"Excess of percentage over cost depletion, nonfuel minerals ",,720,740,720,690,700,720,730,"3,560",50,50,50,50,50,50,50,250
+36,"Exclusion of interest on bonds for water, sewage, and hazardous waste facilities",,150,130,180,220,230,230,240,"1,100",310,330,370,430,480,520,550,"2,350"
+37,Capital gains treatment of certain timber income ,,,,,,,,,,50,50,50,60,60,80,90,340
+38,Expensing of multiperiod timber growing costs ,,150,180,180,190,200,210,190,970,80,110,110,110,110,120,120,570
+39,Tax incentives for preservation of historic structures ,,300,300,310,310,320,330,330,"1,600",90,90,90,100,100,100,100,490
+40,Exclusion of gain or loss on sale or exchange of certain brownfield sites,,50,40,30,20,10,0,0,60,20,20,10,10,0,0,0,20
+41,Industrial CO2 capture and sequestration tax credit,,20,30,30,40,80,130,170,450,,,,,,,,
+42,Deduction for endangered species recovery expenditures,,10,20,20,20,30,30,40,140,10,10,10,10,20,20,20,80
+Agriculture: ,,,,,,,,,,,,,,,,,,
+43,Expensing of certain capital outlays ,,0,10,10,10,10,10,10,50,70,70,90,100,120,120,130,560
+44,Expensing of certain multiperiod production costs ,,10,10,10,10,10,10,10,50,130,140,140,160,170,170,170,810
+45,Treatment of loans forgiven for solvent farmers,,,,,,,,,,20,20,20,20,20,20,20,100
+46,Capital gains treatment of certain income ,,,,,,,,,,490,500,520,580,630,780,930,"3,440"
+47,Income averaging for farmers,,,,,,,,,,90,90,90,90,90,100,100,470
+48,Deferral of gain on sale of farm refiners,,20 ,20 ,20 ,20 ,20 ,20 ,20 ,100,,,,,,,,
+49,Expensing of reforestation expenditures,,10 ,10 ,10 ,10 ,10 ,10 ,10 ,50,40,60,70,70,70,80,80,370
+Commerce and housing: ,,,,,,,,,,,,,,,,,,
+,Financial institutions and insurance: ,,,,,,,,,,,,,,,,,
+50,Exemption of credit union income ,,"1,270","1,240","1,310","1,470","1,600","1,710","1,830","7,920",,,,,,,,
+51,Exclusion of interest on life insurance savings ,,"1,500","1,570","1,650","1,740","1,840","1,940","2,050","9,220","18,410","19,640","21,010","22,480","23,990","25,440","26,920","119,840"
+52,Special alternative tax on small property and casualty insurance companies ,,40,40,40,40,40,40,40,200,,,,,,,,
+53,Tax exemption of certain insurance companies owned by tax-exempt organizations,,200,200,210,210,210,220,220,"1,070",,,,,,,,
+54,Small life insurance company deduction ,,30,30,30,30,30,30,30,150,,,,,,,,
+55,Exclusion of interest spread of financial institutions,,,,,,,,,,-170,300,550,630,700,760,810,"3,450"
+,Housing: ,,,,,,,,,,,,,,,,,
+56,Exclusion of interest on owner-occupied mortgage subsidy bonds ,,400,360,480,600,620,610,640,"2,950",830,900,"1,010","1,160","1,300","1,400","1,480","6,350"
+57,Exclusion of interest on rental housing bonds,,340,310,410,510,530,520,540,"2,510",710,770,860,990,"1,110","1,190","1,260","5,410"
+58,Deductibility of mortgage interest on owner-occupied homes ,,,,,,,,,,"79,150","88,720","98,550","110,660","122,970","133,300","143,700","609,180"
+59,Deductibility of State and local property tax on owner-occupied homes ,,,,,,,,,,"15,120","19,320","24,910","27,000","28,760","30,250","31,370","142,290"
+60,Deferral of income from installment sales ,,,,,,,,,,620,730,830,"1,020","1,230","1,420","1,600","6,100"
+61,Capital gains exclusion on home sales,,,,,,,,,,"22,160","27,650","35,200","38,880","42,940","47,420","52,380","216,820"
+62,Exclusion of net imputed rental income,,,,,,,,,,"41,200","46,950","50,640","51,080","58,740","66,860","75,480","302,800"
+63,"Exception from passive loss rules for $25,000 of rental loss ",,,,,,,,,,"8,790","10,860","13,110","14,830","16,730","18,880","20,200","83,750"
+64,Credit for low-income housing investments ,,"5,370","5,690","5,980","6,770","7,060","7,200","7,260","34,270",280,300,310,360,370,380,380,"1,800"
+65,Accelerated depreciation on rental housing (normal tax method) ,,-30,-30,-30,-30,-20,-20,-10,-110,"-1,460","-1,640","-1,550","-1,340","-1,080",-870,-690,"-5,530"
+66,Discharge of mortgage indebtedness,,0,0,0,0,0,0,0,0,"1,480","1,390","1,100",250,0,0,0,"1,350"
+67,Credit for homebuyer,,,,,,,,,,"13,680","10,410","-2,160","-1,450",-590,-520,-470,"-5,190"
+,Commerce: ,,,,,,,,,,,,,,,,,
+68,Cancellation of indebtedness ,,,,,,,,,,750,430,130,-70,-180,-250,-230,-600
+69,Exceptions from imputed interest rules ,,,,,,,,,,50,50,50,50,50,50,50,250
+70,Treatment of qualified dividends,,,,,,,,,,"31,050","23,600",0,0,0,0,0,0
+71,"Capital gains (except agriculture, timber, iron ore, and coal)",,,,,,,,,,"36,300","37,560","38,490","43,260","46,880","58,110","69,540","256,280"
+72,Capital gains exclusion of small corporation stock,,,,,,,,,,50,170,290,300,470,820,850,"2,730"
+73,Step-up basis of capital gains at death ,,,,,,,,,,"39,520","50,940","61,480","66,090","71,040","76,370","82,100","357,080"
+74,Carryover basis of capital gains on gifts ,,,,,,,,,,"1,400","4,790","1,990","2,660","2,850","3,070","3,290","13,860"
+75,Ordinary income treatment of loss from small business corporation stock sale ,,,,,,,,,,60,60,60,60,60,60,60,300
+76,Accelerated depreciation of buildings other than rental housing (normal tax method) ,,"-2,440","-2,950","-2,980","-3,150","-3,300","-3,450","-3,310","-16,190","-8,690","-10,060","-10,770","-11,230","-11,670","-12,080","-12,530","-58,280"
+77,Accelerated depreciation of machinery and equipment (normal tax method) ,,"17,140","5,400","5,300","15,730","24,470","30,950","32,990","109,440","22,650","12,140","19,150","28,560","33,780","37,790","40,960","160,240"
+78,Expensing of certain small investments (normal tax method) ,,170,960,-270,-620,-300,-130,10,"-1,310",780,"5,750",-440,"-2,200",-540,280,920,"-1,980"
+79,Graduated corporation income tax rate (normal tax method) ,,"3,000","3,280","3,220","3,300","3,590","3,770","3,960","17,840",,,,,,,,
+80,Exclusion of interest on small issue bonds ,,110,100,130,160,160,160,170,780,220,240,270,310,350,370,390,"1,690"
+81,Deduction for US production activities,,10010,10510,11140,11810,12500,13170,13830,"62,450","3,130","3,290","3,490","3,700","3,910","4,120","4,330","19,550"
+82,Special rules for certain film and TV production,,40,20,20,10,0,0,0,30,10,10,10,0,0,0,0,10
+Transportation: ,,,,,,,,,,,,,,,,,,
+83,Deferral of tax on shipping companies ,,20,20,20,20,20,20,20,100,0,0,0,0,0,0,0,0
+84,Exclusion of reimbursed employee parking expenses ,,0,0,0,0,0,0,0,0,"2,970","3,050","3,180","3,320","3,470","3,620","3,760","17,350"
+85,Exclusion for employer-provided transit passes ,,0,0,0,0,0,0,0,0,580,510,520,560,590,640,680,"2,990"
+86,Tax credit for certain expenditures for maintaining railroad tracks,,40,20,20,10,0,0,0,30,10,10,10,0,0,0,0,10
+87,Exclusion of interest on bonds for Highway Projects and rail-truck transfer facilities,,60,60,60,60,50,50,50,270,180,190,180,170,160,150,140,800
+Community and regional development: ,,,,,,,,,,,,,,,,,,
+88,Investment credit for rehabilitation of structures (other than historic) ,,10,10,10,10,10,10,10,50,10,10,10,10,10,10,10,50
+89,"Exclusion of interest for airport, dock, and similar bonds",,270,250,330,410,420,420,440,"2,020",570,620,690,800,890,960,"1,010","4,350"
+90,Exemption of certain mutuals' and cooperatives' income ,,110 ,110 ,110 ,120 ,120 ,120 ,130 ,600,,,,,,,,
+91,Empowerment zones and renewal communities,,150,100,120,130,130,120,100,600,580,400,450,490,500,480,420,"2,340"
+92,New markets tax credit,,650,720,730,700,660,590,480,"3,160",70,80,80,80,80,70,60,370
+93,Expensing of environmental remediation costs,,10,-110,-120,-120,-110,-100,-90,-540,0,-20,-20,-20,-20,-20,-20,-100
+94,Credit to holders of Gulf Tax Credit Bonds.,,20,20,20,10,10,10,10,60,60,60,50,40,40,40,40,210
+95,Recovery Zone Bonds 6/,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+96,Tribal Economic Development Bonds,,0,10,10,10,10,10,0,40,10,20,20,20,10,10,10,70
+"Education, training, employment, and social services: ",,,,,,,,,,,,,,,,,,
+,Education: ,,,,,,,,,,,,,,,,,
+97,Exclusion of scholarship and fellowship income (normal tax method) ,,,,,,,,,,"2,760","3,010","3,130","3,240","3,360","3,480","3,610","16,820"
+98,HOPE tax credit,,,,,,,,,,0,540,"5,410","5,510","5,830","5,770","5,760","28,280"
+99,Lifetime Learning tax credit,,,,,,,,,,"3,490","3,880","5,530","5,660","5,790","5,800","5,840","28,620"
+100,American Opportunity Tax Credit,,,,,,,,,,"15,110","14,400",0,0,0,0,0,0
+101,Education Individual Retirement Accounts,,,,,,,,,,60,70,80,80,90,100,100,450
+102,Deductibility of student-loan interest,,,,,,,,,,"1,480","1,400",900,960,"1,030","1,100","1,170","5,160"
+103,Deduction for higher education expenses,,,,,,,,,,760,0,0,0,0,0,0,0
+104,State prepaid tuition plans,,,,,,,,,,"1,390","1,580","1,750","1,860","1,950","2,050","2,150","9,760"
+105,Exclusion of interest on student-loan bonds ,,180,160,210,270,280,270,280,"1,310",370,400,450,520,580,620,660,"2,830"
+106,Exclusion of interest on bonds for private nonprofit educational facilities ,,760,690,910,"1,150","1,180","1,170","1,210","5,620",1580 ,1710 ,1930 ,2210 ,2480 ,2660 ,2810 ,"12,090"
+107,Credit for holders of zone academy bonds 7/,,190,200,200,180,160,130,120,790,,,,,,,,
+108,Exclusion of interest on savings bonds redeemed to finance educational expenses,,,,,,,,,,20,20,20,20,20,30,30,120
+109,Parental personal exemption for students age 19 or over ,,,,,,,,,,"2,960","2,990","3,400","3,210","2,950","2,690","2,440","14,690"
+110,Deductibility of charitable contributions (education),,620,650,690,740,790,840,890,"3,950","3,310","3,870","4,210","4,550","4,870","5,200","5,520","24,350"
+111,Exclusion of employer-provided educational assistance ,,,,,,,,,,680,30,0,0,0,0,0,0
+112,Special deduction for teacher expenses,,,,,,,,,,160,0,0,0,0,0,0,0
+113,Discharge of student loan indebtedness,,,,,,,,,,20,20,20,20,20,20,20,100
+114,Qualified school construction bonds 8/,,30,60,110,150,160,160,160,740,50,150,290,430,490,490,490,"2,190"
+,"Training, employment, and social services: ",,,,,,,,,,,,,,,,,
+115,Work opportunity tax credit,,860,770,550,290,130,60,20,"1,050",250,250,130,50,30,10,10,230
+116,Welfare-to-work tax credit,,10,10,0,0,0,0,0,0,10,0,0,0,0,0,0,0
+117,Employer provided child care exclusion,,,,,,,,,,1220,1380,1450,1570,1690,1800,1900,"8,410"
+118,Employer-provided child care credit,,10,0,0,0,0,0,0,0,,,,,,,,0
+119,Assistance for adopted foster children,,,,,,,,,,460,500,530,560,600,650,690,"3,030"
+120,Adoption credit and exclusion 9/,,,,,,,,,,660,160,190,110,100,100,90,590
+121,Exclusion of employee meals and lodging (other than military) ,,,,,,,,,,"1,060","1,110","1,170","1,230","1,300","1,370","1,440","6,510"
+122,Child credit 10/,,,,,,,,,,"23,030","18,330","10,580","10,290","9,900","9,430","9,000","49,200"
+123,Credit for child and dependent care expenses ,,,,,,,,,,"3,470","1,900","1,710","1,660","1,590","1,500","1,440","7,900"
+124,Credit for disabled access expenditures ,,10,10,10,10,10,10,10,50,10,10,10,10,10,10,10,50
+125,"Deductibility of charitable contributions, other than education and health",,"1,370","1,430","1,510","1,600","1,690","1,770",1860,"8,430","32,710","38,180","41,600","44,970","48,100","51,350","54,480","240,500"
+126,Exclusion of certain foster care payments ,,,,,,,,,,420,410,410,400,410,400,390,"2,010"
+127,Exclusion of parsonage allowances ,,,,,,,,,,660,700,750,800,860,920,980,"4,310"
+128,Employee retention credit for employers in certain federal disaster areas,,50,20,10,0,0,0,0,10,20,10,0,0,0,0,0,0
+129,Exclusion for benefits provided to volunteer EMS and firefighters,,0,0,0,0,0,0,0,0,70,20,0,0,0,0,0,0
+130,Making work pay tax credit 11/,,,,,,,,,,"38,850","23,460",0,0,0,0,0,0
+Health: ,,,,,,,,,,,,,,,,,,
+131,Exclusion of employer contributions for medical insurance premiums and medical care  12/,,,,,,,,,,"160,110","173,750","184,460","196,220","211,470","230,080","248,980","1,071,210"
+132,Self-employed medical insurance premiums 13/,,,,,,,,,,"5,680","6,210","6,690","7,200","7,740","8,310","8,900","38,840"
+133,Medical Savings Accounts / Health Savings Accounts,,,,,,,,,,"1,790","1,880","1,980","2,070","2,210","2,350","2,510","11,120"
+134,Deductibility of medical expenses ,,,,,,,,,,"9,090","10,030","10,010","9,930","11,240","13,390","15,450","60,020"
+135,Exclusion of interest on hospital construction bonds,,"1,140","1,040","1,380","1,730","1,780","1,770","1,830","8,490","2,390","2,590","2,910","3,350","3,740","4,020","4,250","18,270"
+136,Refundable Premium Assistance Tax Credit 14/,,,,,,,,,,0,0,0,0,0,"-1,010","-1,530","-2,540"
+137,Credit for employee health insurance expenses of small business 15/,,,,,,,,,,"2,300","2,420","3,440","3,810","4,460","4,740","4,190","20,640"
+138,Deductibility of charitable contributions (health),,180,190,200,210,230,240,250,"1,130","3,670","4,280","4,670","5,040","5,400","5,760","6,110","26,980"
+139,Tax credit for orphan drug research ,,470,550,650,770,900,"1,060","1,250","4,630",,,,,,,,
+140,Special Blue Cross/Blue Shield deduction ,,750,715,680,590,530,610,710,"3,120",,,,,,,,
+141,Tax credit for health insurance purchased by certain displaced and retired individuals  16/,,,,,,,,,,0,0,0,0,0,0,0,0
+142,Distributions from retirement plans for premiums for health and long-term care insurance,,,,,,,,,,260,300,330,360,400,440,490,"2,020"
+Income security: ,,,,,,,,,,,,,,,,,,
+143,Exclusion of railroad retirement system benefits ,,,,,,,,,,350,330,310,280,270,260,260,"1,380"
+144,Exclusion of workers' compensation benefits,,,,,,,,,,"6,770","7,050","7,410","7,790","8,170","8,570","9,000","40,940"
+145,Exclusion of public assistance benefits (normal tax method) ,,,,,,,,,,640,670,710,750,770,800,830,"3,860"
+146,Exclusion of special benefits for disabled coal miners ,,,,,,,,,,40,40,40,40,40,40,40,200
+147,Exclusion of military disability pensions ,,,,,,,,,,110,110,110,110,110,110,110,550
+,Net exclusion of pension contributions and earnings: ,,,,,,,,,,,,,,,,,
+148,Employer plans ,,,,,,,,,,"39,580","42,200","45,230","46,460","49,460","51,620","53,200","245,970"
+149,401(k) plans,,,,,,,,,,"52,240","62,850","67,590","69,060","71,520","72,880","75,210","356,260"
+150,Individual Retirement Accounts ,,,,,,,,,,"12,630","13,930","15,610","16,020","16,220","16,320","16,320","80,490"
+151,Low and moderate income savers credit,,,,,,,,,,"1,130","1,370","1,320","1,320","1,290","1,270","1,290","6,490"
+152,Keogh plans ,,,,,,,,,,"13,820","15,030","17,070","19,580","20,940","22,450","23,840","103,880"
+,Exclusion of other employee benefits: ,,,,,,,,,,,,,,,,,
+153,Premiums on group term life insurance ,,,,,,,,,," 1,950 "," 1,980 "," 2,080 "," 2,120 "," 2,150 "," 2,190 "," 2,250 ","10,790"
+154,Premiums on accident and disability insurance ,,,,,,,,,,330,340,350,360,360,370,370,"1,810"
+155,Income of trusts to finance supplementary unemployment benefits ,,,,,,,,,,20,30,40,50,60,70,80,300
+156,Special ESOP rules,,950,"1,030","1,110","1,180","1,150","1,220","1,290","5,950",450,470,490,520,550,580,610,"2,750"
+157,Additional deduction for the blind ,,,,,,,,,,30,40,40,50,50,50,50,240
+158,Additional deduction for the elderly ,,,,,,,,,,"1,890","2,480","2,980","3,170","3,400","3,560","3,590","16,700"
+159,Tax credit for the elderly and disabled ,,,,,,,,,,10,10,10,10,10,0,0,30
+160,Deductibility of casualty losses ,,,,,,,,,,260,300,320,330,360,380,410,"1,800"
+161,Earned income tax credit  17/ ,,,,,,,,,,"4,910","7,510","8,500","8,730","9,020","9,260","9,550","45,060"
+162,Exclusion of unemployment insurance benefits,,,,,,,,,,"5,220",0,0,0,0,0,0,0
+Social Security: ,,,,,,,,,,,,,,,,,,
+,Exclusion of social security benefits: ,,,,,,,,,,,,,,,,,
+163,Social Security benefits for retired workers ,,,,,,,,,,"21,440","20,300","21,830","23,350","25,070","27,780","31,010","129,040"
+164,Social Security benefits for disabled workers,,,,,,,,,,"7,040","7,180","7,510","7,840","8,150","8,610","9,130","41,240"
+165,"Social Security benefits for spouses, dependents and survivors",,,,,,,,,,"3,850","3,160","3,270","3,300","3,320","3,580","3,920","17,390"
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+Veterans benefits and services: ,,,,,,,,,,,,,,,,,,
+166,Exclusion of veterans death benefits and disability compensation ,,,,,,,,,,"4,130","4,510","5,010","5,520","6,110","6,750","7,460","30,850"
+167,Exclusion of veterans pensions ,,,,,,,,,,210,240,300,330,360,380,400,"1,770"
+168,Exclusion of GI bill benefits ,,,,,,,,,,450,810,"1,010","1,200","1,330","1,440","1,560","6,540"
+169,Exclusion of interest on veterans housing bonds,,10,0,10,10,10,10,10,50,10,10,10,20,20,20,20,90
+General purpose fiscal assistance: ,,,,,,,,,,,,,,,,,,
+170,Exclusion of interest on public purpose State and local bonds,,"9,850","8,990","11,880","14,910","15,340","15,210","15,780","73,120","20,590","22,270","25,080","28,810","32,230","34,630","36,570","157,320"
+171,Build America Bonds 18/,,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+172,Deductibility of nonbusiness State and local taxes other than on owner-occupied homes ,,,,,,,,,,"26,890","37,720","48,640","54,030","59,080","63,470","67,070","292,290"
+Interest: ,,,,,,,,,,,,,,,,,,
+173,Deferral of interest on U.S. savings bonds ,,,,,,,,,,"1,180","1,220","1,300","1,320","1,330","1,340","1,360","6,650"
+Addendum:  Aid to State and local governments: ,,,,,,,,,,,,,,,,,,
+,Deductibility of: ,,,,,,,,,,,,,,,,,
+,Property taxes on owner-occupied homes ,,,,,,,,,,"15,120","19,320","24,910","27,000","28,760","30,250","31,370","142,290"
+,Nonbusiness State and local taxes other than on owner-occupied homes ,,,,,,,,,,"26,890","37,720","48,640","54,030","59,080","63,470","67,070","292,290"
+,Exclusion of interest on State and local bonds for: ,,,,,,,,,,,,,,,,,
+,Public purposes,,"9,850 ","8,990 ","11,880 ","14,910 ","15,340 ","15,210 ","15,780 ","73,120","20,590 ","22,270 ","25,080 ","28,810 ","32,230 ","34,630 ","36,570 ","157,320"
+,Energy facilities,,10 ,10 ,10 ,10 ,10 ,10 ,10 ,50,10 ,20 ,20 ,20 ,20 ,30 ,30 ,120
+,"Water, sewage, and hazardous waste disposal facilities ",,150 ,130 ,180 ,220 ,230 ,230 ,240 ,"1,100",310 ,330 ,370 ,430 ,480 ,520 ,550 ,"2,350"
+,Small-issues,,110 ,100 ,130 ,160 ,160 ,160 ,170 ,780,220 ,240 ,270 ,310 ,350 ,370 ,390 ,"1,690"
+,Owner-occupied mortgage subsidies,,400 ,360 ,480 ,600 ,620 ,610 ,640 ,"2,950",830 ,900 ,"1,010 ","1,160 ","1,300 ","1,400 ","1,480 ","6,350"
+,Rental housing ,,340 ,310 ,410 ,510 ,530 ,520 ,540 ,"2,510",710 ,770 ,860 ,990 ,"1,110 ","1,190 ","1,260 ","5,410"
+,"Airports, docks, and similar facilities ",,270 ,250 ,330 ,410 ,420 ,420 ,440 ,"2,020",570 ,620 ,690 ,800 ,890 ,960 ,"1,010 ","4,350"
+,Student loans ,,180 ,160 ,210 ,270 ,280 ,270 ,280 ,"1,310",370 ,400 ,450 ,520 ,580 ,620 ,660 ,"2,830"
+,Private nonprofit educational facilities ,,760 ,690 ,910 ,"1,150 ","1,180 ","1,170 ","1,210 ","5,620","1,580 ","1,710 ","1,930 ","2,210 ","2,480 ","2,660 ","2,810 ","12,090"
+,Hospital construction,,"1,140 ","1,040 ","1,380 ","1,730 ","1,780 ","1,770 ","1,830 ","8,490","2,390 ","2,590 ","2,910 ","3,350 ","3,740 ","4,020 ","4,250 ","18,270"
+,Veterans' housing ,,10 ,0 ,10 ,10 ,10 ,10 ,10 ,50,10 ,10 ,10 ,20 ,20 ,20 ,20 ,90
+,GO Zone and GO Zone mortgage,,30 ,30 ,30 ,40 ,40 ,40 ,40 ,250,60 ,60 ,70 ,80 ,90 ,100 ,100 ,440
+,Credit for holders of zone academy bonds,,190,200,200,180,160,130,120,790,,,,,,,,

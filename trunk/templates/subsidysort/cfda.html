@@ -3,16 +3,25 @@
 
 {% block title %}{{ program.program_number }} &mdash; {{ program.program_title }}{% endblock %}
 
+{% load menubuilder %}
 {% block content %}
 
 <p>&nbsp;</p>
-
-<p><a href="http://www.usaspending.gov/faads/faads.php?cfda_program_num={{ program.program_number }}&sortby=u&detail=-1&datype=T&reptype=a&database=faads&fiscal_year=&detail=-1&datype=T&submit=GO">View USASpending Data &raquo;</a></p>
 
 <table>
 	{% for field in program|get_fields %}
 		<tr><th>{{ field.name }}:</th><td>{{ field.value }}</td></tr>
 	{% endfor %}
+    <tr><th>Budget Functions:</th><td>
+    {% for bf in budget_functions %}
+        {{bf}},&nbsp;
+    {% endfor %}
+    </td></tr>
+    <tr><th>Functional Indexes:</th><td>
+    {% for fi in functional_indexes%}
+        {{fi}},&nbsp;
+    {% endfor %}
+    </td></tr> 
 </table>
 
 

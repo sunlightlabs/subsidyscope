@@ -1,0 +1,11 @@
+<div class="secondary-nav">
+{{menu_data|safe}}
+
+{% if pted %}
+    <form method="GET" action="/tax_expenditures/search" id="global-pted-search">
+        <label>Search the Database</label>
+        <input type="text" placeholder="enter keywords" name="query" id="id_query">
+        <button value="Search" type="submit" class="submit"></button>
+    </form>
+{% endif %}
+</div>

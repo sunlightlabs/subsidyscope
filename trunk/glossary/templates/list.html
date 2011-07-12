@@ -2,17 +2,17 @@
 {% load media %}
 {% load morsel_tags %}
 
+{% load menubuilder %}
 {% block content %}
 
 
-<div class="container main_container">
-	{% include "includes/generic_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
+<div class="wrapper clearfix">
+	<div class="secondary-header">
 			<h3>Glossary of Terms</h3>		
 		</div>
+		{% include "includes/static_side_nav.html" %}
 		
-		<div class="content_area">
+    <div class="page-content">
 
             <dl id="glossary">
                 {% for item in glossary_items %}

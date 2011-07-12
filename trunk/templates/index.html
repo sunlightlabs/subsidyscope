@@ -6,6 +6,7 @@
 {% load carousel_tags %}
 {% load faads_tags %}
 {% load navigation_tags %}
+{% load menubuilder %}
 {% block content %}
 {% js "scripts/cookie.js" %}
 {% js "scripts/carouselinit.js" %}
@@ -60,156 +61,64 @@ $(function () {
 
 
 <div class="container white">
-{% navigation main-nav %}
-<div class="container top_solid_box">&nbsp;</div>
-	<div class="span-11">
-		<div class="feature_leftside">
-	
-
-<!-- feature box toggle layers -->
-		
-<div id="feature_box">
-	<div class="tabs" style="height: 400px; position:relative;">
-								
-		{% carousel_entries_all %}	
+		<div class="marquee">
+			<div class="tabs">
 			
-	</div> <!--ends tabs class-->
-</div><!-- end feature box -->
-	
-	
-		<div class="updates_box">
-			<div class="updates_head">
-			<h2>Subsidyscope Project Updates</h2>
-			<a title="Click here for news feed" href="{% url feed_project_updates "updates" %}"><img src="/media/images/rss_icon.png"></a><span id="rss-explanation">&nbsp;(<a href="{% url about_rss %}">What's this?</a>)</span>
+				{% carousel_entries_all %}	
+
+			</div> <!--ends tabs class-->
+		</div><!-- ends marquee -->
+			<div class="sectors-home">
+				<h3>Sectors</h3>
+				<ul>
+					<li id="sector-housing">
+						<a href="{% url housing-index %}">Housing</a>
+					</li>
+					<li id="sector-energy">
+						<a href="{% url energy-index %}">Energy</a>
+					</li>
+					<li id="sector-nonprofits">
+						<a href="{% url nonprofits-index %}">Nonprofits</a>
+					</li>	
+					<li id="sector-transportation">
+						<a href="{% url transportation-index %}">Transportation</a>
+					</li>
+					<li id="sector-fin-bailout">
+						<a href="{% url bailout-index %}">Financial Bailout</a>
+					</li>	
+					<li id="sector-health" class="comingsoon">
+						<a>Health</a> 
+						<span>
+							Coming soon!
+						</span>
+					</li>	
+				</ul>
 			</div>
-			{# display project updates #}			
-			{% project_updates  0%}
-		</div> 
-<!-- ends update box-->
 
-</div> <!-- ends feature left side -->		
-
-</div>
-
-	
-<div class="span-13 last">
-	<div class="feature_rightside">
-		<div id="intro">
-		<p class="intro_copy"><strong>Subsidyscope</strong>, launched by The Pew Charitable Trusts, aims to raise public awareness about the role of federal subsidies in the economy. <a href="{% url framing-paper %}" class="intro_more">Read More »</a></p>		
-		</div>
-		
-		<div id="taxonomy" style="height: 255px;">
-			<div class="left_tax">
-				<div class="tax_item">
-					<div id="tax_icon"><a href="{% url bailout-index %}"><img src="/media/images/sector_icons/1_lg.png" border="0" alt="Financial Bailout"></a></div>	
-					<div>	
-						<h3><a href="{% url bailout-index %}">Financial Bailout</a></h3>
-						<p>	<a href="{% url bailout_treasury_index %}">Treasury</a>, 
-							<a href="{% url bailout_fdic_index %}">FDIC</a>, 
-							<a href="{% url bailout_federal_reserve_index %}">Federal Reserve</a>,<br/>
-							<a href="{% url bailout_other_index %}">Other Agencies</a>
+			<div class="home-sidebar">
+				<div class="tidbits">
+					<div class="tidbit" id="framing-paper">
+						<h3>
+							Framing Paper
+						</h3>
+						<p>
+							<a href="{% url framing-paper %}">Government Subsidies: 
+					    Revealing the Hidden&nbsp;Budget</a> <small>(<a href="{% url framing-paper %}">PDF</a>)</small><span>Updated 11/18/2009</span>
+						</p>
+					</div>
+					<div class="tidbit" id="downloadabledata"> 
+						<h3>Downloadable Data
+						</h3>
+						<p>
+							Subsidyscope releases all of its data in open formats. <a href="{% url datasets %}">Learn more</a>.
 						</p>	
 					</div>
 				</div>
-				
-				<div class="tax_item">
-					<div id="tax_icon"><a href="{% url nonprofits-index %}"><img src="/media/images/sector_icons/nonprofits/nonprofits_lg.png" border="0" alt="Nonprofits"></a></div>	
-						<div>
-							<h3><a href="{% url nonprofits-index %}">Nonprofits</a></h3>
-              				<p>Universities, Charities and other Tax-exempt Entities</p>
-						</div>
-					</div>
-					
-				<div class="tax_item">
-					<div id="tax_icon"><a href="{% url housing-index %}"><img src="/media/images/sector_icons/housing/housing_lg.png" border="0" alt="Housing"></a></div>	
-						<div>
-							<h3><a href="{% url housing-index %}">Housing</a></h3>
-              				<p>Homeownership, Rental, Community Development</p>
-						</div>
-					</div>
-			
 			</div>
-			
-			<div class="right_tax">
-				<div class="tax_item">
-					<div id="tax_icon"><a href="{% url transportation-index %}"><img src="/media/images/sector_icons/transportation/trans_lg.png" border="0" alt="Transportation"></a></div>	
-						<div><h3><a href="{% url transportation-index %}">Transportation</a></h3>
-							<p>
-  							<a href="{% url transportation-aviation %}">Aviation</a>,
-  							<a href="{% url transportation-highways %}">Highways</a>, 
-  							<a href="{% url transportation-maritime %}">Maritime</a>,<br/>
-  							<a href="{% url transportation-rail %}">Rail</a>,
-  							<a href="{% url transportation-transit %}">Transit</a>
-  						</p>
-						</div>	
-				</div>
-			
-				<div class="tax_item">
-					<div id="tax_icon"><a href="{% url energy-index %}"><img src="/media/images/sector_icons/energy/energy_lg.png" border="0" alt="Energy"></a></div>	
-						<div>
-							<h3><a href="{% url energy-index %}">Energy</a></h3>
-							<p>Oil, Natural Gas, Coal,<br/>Nuclear and Renewable Energy</p>
-						</div>
-				</div>
-                <div class="tax_item">
-				    <div id="tax_icon"><img src="/media/images/sector_icons/6_sm_gray.png" border="0" alt="Health"></div>
-                    <div>
-                        <h3 style="color: #1A4760;">Health</h3>
-				        <p>Coming soon!</p>
-                    </div>
-				</div>
-			</div>
-		</div>				
-	</div>
-	
-	<div class="span-5">
-	  
-	  <div class="news_box">
-			<div class="news_head"><h2>Framing Paper</h2>
-			</div>	
-			<p id="framing-paper"><a href="{% url framing-paper %}"><img src="{% media_url %}/images/framing-paper-document-icon.png" class="alignright" style="margin: 1em 0.25em 1em 0.6em"/></a><a href="{% url framing-paper %}">Government Subsidies: 
-      Revealing the Hidden&nbsp;Budget</a> <small>(<a href="{% url framing-paper %}">PDF</a>&nbsp;|&nbsp;<a href="{% url framing-paper-html %}">HTML</a>)</small><span class="framing-paper-update-notice">Updated 11/18/2009</span></p>
-		</div>
-	  
-		<div class="news_box">
-			<div class="news_head"><h2>Downloadable Data</h2>
-			</div>	
-			<p><a href="{% url datasets %}"><img src="{% media_url %}/images/download_icon_small.png" class="alignright" style="margin: 1em 0.25em 1em 0.6em"/></a>Subsidyscope releases all of its data in open formats. <a href="{% url datasets %}">Learn more</a>.</p>
-		</div>	
-		
-		<div class="news_box">
-			<div class="news_head"><h2>Contact Us</h2>
-			</div>
-			<p>Have a suggestion, question or concern? <a href="{% url contact_form %}">Let us know</a>.</p>
-		</div>	
-		
-		<div class="news_box" id="subsidyscope-in-the-news">
-			<div class="news_head"><h2>Subsidyscope In The News</h2><a title="Click here for news feed" href="http://feeds.delicious.com/v2/rss/subsidyscope?count=15"><img src="/media/images/rss_icon.png"></a>
-			</div>
-			<ul class="news_box_items">				
-			</ul>	
-		</div>
-	</div>
-	
-	
-	<div class="span-8 last">
-		
 
-		{% news_briefs %}
-		
-		
-		<div class="front_about">
-			<h3 class="front_about_head">Who is Involved?</h3>			
-			<p>Subsidyscope is guided by a broad and bipartisan <a href="/board/">advisory board</a> of top experts in federal spending, taxes, and finance. <a href="http://www.sunlightfoundation.com">The Sunlight Foundation</a>, Pew's research and technology partner, is developing the database and Web site to facilitate the distribution of data across the Web. </p>
-		</div>
-		
-	</div>
-	
-	
-	
-	
-	
-</div>	
-	
+			
+
 </div> <!--ends container-->
+
 {% endblock %}
+

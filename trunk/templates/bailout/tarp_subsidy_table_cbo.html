@@ -3,85 +3,31 @@
 {% load charts %}
 {% load webdesign %}
 {% load morsel_tags %}
-
+ 
+{% load menubuilder %}
 {% block content %}
 
-<style type="text/css">
-.subsidy-table	{ width: 100%; border-left: 0 !important; border-top: 1px solid #a5a5a5 !important;}
-.subsidy-table td, .subsidy-table th { border: 0; padding: 0px; text-align: left; vertical-align: middle;}
-.subsidy-table th { text-align: center; font-weight: bold; line-height: 100%; padding: 5px 0; }
-.subsidy-table .header-wrapper { border-bottom: 1px solid #a5a5a5; margin: 0 5px; padding-bottom: 5px;}
-.subsidy-table td.name { padding: 3px; padding-left: 5px; }
-.subsidy-table td.date { text-align:center; }
-.subsidy-table td .number-wrapper { padding: 3px 13px 3px 0px; width: 3.5em; margin: 0 auto; text-align: right;}
-.subsidy-table td.num-institutions .number-wrapper, .subsidy-table td.amount .number-wrapper, .subsidy-table .subsidy-table td.estimated-subsidy .number-wrapper, .subsidy-table td.subsidy-rate .number-wrapper { text-align: right; }
-.underline { border-bottom: 1px solid #a5a5a5;}
-#cbo-table .header-row th { border-bottom: 1px solid #a5a5a5;}
-.subsidy-table .number-wrapper2 { width: 50px; text-align: center; margin: 0 auto;}
-.subsidy-table tr.header-row * { background-color: #e6e6e6;}
-.subsidy-table tr.header-row td { border-bottom: 1px solid #a5a5a5; padding-bottom: 5px; margin-bottom: 5px;}
-.subsidy-table tr.no-bottom-border { border-bottom: 0 !important;}
-.subsidy-table tr.smallrow { border-top: 0 !important;}
-.subsidy-table tr.smallrow td { font-size: 0.9em; text-align: center; vertical-align: bottom;}
-.subsidy-table td.name { text-align: left; }
-.subsidy-table tr.border-bottom { border-bottom:1px solid #a5a5a5;}
-.subsidy-table tr.white { background-color:#ffffff;}
-.subsidy-table tr.indent-1 td.name { padding-left: 2em !important; }
-.subsidy-table tr.indent-2 td.name { padding-left: 4em !important; }
-.subsidy-table tr.indent-3 td.name { padding-left: 6em !important; }
-.subsidy-table tr.bold td, .subsidy-table tr td.bold { font-weight: bold; }
-.subsidy-table tr.sum td.num-institutions .number-wrapper, .subsidy-table tr.sum td.amount .number-wrapper, .subsidy-table tr.sum td.estimated-subsidy .number-wrapper { border-top: 1px solid #a5a5a5; }
-.subsidy-table tr.sum td { font-weight: bold; }
-.subsidy-table tr.vertical-space td { padding-top: 1.5em; }
-.subsidy-table tr.vertical-space-below td { padding-bottom: 1.5em; }		
-.subsidy-table tr.footer-row { border-top: 1px solid #a5a5a5; border-bottom: 1px solid #a5a5a5; }
-.subsidy-table tr.footer-row td { padding: 5px;}
-.subsidy-table .centered { text-align: center; font-weight: bold; padding-top: 3px;}
-.subsidy-table .gray, .subsidy-table .gray * { background-color: #f4f4f4; }
-.subsidy-table .blue { background-color: #E6E6E6; border-top:1px solid #a5a5a5;}
-.subsidy-table { border-top: 1px solid #a5a5a5; border-bottom: 1px solid #aaa; border-left: 0; border-right: 0;}
-.subsidy-table tr.spacer td { border-top: 1px solid #aaa; border-bottom: 1px solid #aaa;}
-.subsidy-table tr.title td { text-align: center; }
-#cop-table .spacer * { border: 0;}
-#cop-table { border-bottom: 0 !important;}
-.subsidy-table .footnote td { font-size: 85%; }
-.subsidy-table tr.title td { border-top: 1px solid #a5a5a5; padding-top: 5px;}
-.subsidy-table tr.grand-total td { border-bottom: 1px solid #aaa;}
-.tarp-subsidy-chart img { display: block; margin: 0 auto;}
-.tarp-subsidy-chart h3 { text-align: center; margin-top: 0.7em; margin-bottom: 0; font-size: 1.3em;}
-.tarp-subsidy-chart h4 { text-align: center; margin-bottom: 0; margin-top: 0; font-weight: normal; font-size: 1em;}
-ul.subsidy-estimate, ul.subsidy-estimate li { list-style-type: disc;}
-h4.tarp_table_head { margin:0 0 5px 0; padding:0;}
-ol.footnotes { font-size: 0.9em !important; }
-a.footnote { font-size: 0.7em; position: relative; top: -0.8em; left: 0.2em;}
 
-</style>
 
-<div class="container main_container">
-	{% include "includes/bailout_nav.html" %}
-	<div class="span-24">
-		<div id="header_area">
-			<h2>{% morsel_sector_title %}</h2>
-			<h3>{% morsel_page_title %}</h3>		
-		</div>
+<div id="fin_bailout" class="wrapper clearfix">
+	<div class="secondary-header">
+			<h3>{% morsel_sector_title %}</h3>
+	</div>
 		
-		<div class="content_area">
+			{% recursive_menu %}
+
+    <div class="page-content">
+		<h2>{% morsel_page_title %}</h2>		
 		
 
 		{% morsel text1 glossarize %}
 
 		{% morsel table1 %}
 		
-			<p>&nbsp;</p>
-		
 		{% morsel text2 glossarize %}
-	</div>
-	
-	<div class="non_content">
 
-	{% morsel table2 %}
+		{% morsel table2 %}
 
-		</div>
 	</div>
 </div> <!--ends container-->
 

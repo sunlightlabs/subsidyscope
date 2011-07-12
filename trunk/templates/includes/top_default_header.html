@@ -1,10 +1,10 @@
-
+{% load menubuilder %}
 
 	<script type="text/javascript">
 	$(document).ready(function(){
 		
 		$('a#email-updates-toggle').click(function(){
-			$('#email-form-container').animate({width: "200px"}, { queue:false, duration:400, complete: function(){ 
+			$('#email-form-container').animate({width: "176px"}, { queue:false, duration:400, complete: function(){ 
 					$('#email-message').css('left',$('form#email-subscribe input.text').position().left).removeClass('warning').text('Please enter your email address.').fadeIn(400, function(){ $('form#email-subscribe input.text').focus() });					
 				} });
 			return false;
@@ -33,39 +33,118 @@
 	});
 	</script>
 	
-	<div class="top_nav_bg">
-		<div class="container">
-			<div class="span-24 top_nav_header_height">				
+		<div class="globalheader">
+				<a href="/">
+					<h1 id="subscope_logo">
+					Subsidyscope
+					</h1>
+				</a>
+				<div class="tools">
 				<ul id="top_nav_header">
+
 					
-					<li id="email-form-container"><span id="email-message" class="instruction">Please enter your email address.</span><form action="/mailinglist/subscribed/" method="post" id="email-subscribe"><input type="text" value="" class="text" name="email" />&nbsp;<input class="submit" type="submit" value="Subscribe" /></form></li>
+					<li id="email-form-container"><span id="email-message" class="instruction">Please enter your email address.</span><form action="/mailinglist/subscribe/" method="post" id="email-subscribe"><input type="text" value="" class="text" name="email" />&nbsp;<input class="submit" type="submit" value="Subscribe" /></form>
+					</li>
 					<li><a href="{% url email_signup_nojavascript %}" id="email-updates-toggle">Get Email Updates</a></li>
-					<li><a href="/contact/">Contact</a></li>
-					<li><a href="{% url about %}">About</a></li>					
-					<li><a href="/">Home</a></li>
-					
-				</ul>		
-			</div>
-		</div>	
-	</div>
-
-	<div class="container">	
-		<div class="span-12">
-			<div id="logo_box"><a href="/"><img src="/media/images/ss_logo.png" alt="Subsidyscope Logo" /></a></div>	
-		</div>
-
-		<div class="span-12 last">
-			<div id="search_box_header">
-				<div id="search_box">
-					<form id="search_form" action="/search/" method="GET">
-						<input id="id_query" name="query" type="text"/>
-						<input class="submit" type="submit" value="Search"/>
-					</form>
+				</ul>
+				<form id="header_search_form" action="/search/" method="GET">
+					<input id="id_query" name="query" type="text" placeholder="search site"/>
+					<button class="submit" type="submit" value="Search"/></button>
+				</form>
 				</div>
-			</div>
-		</div>
+	</div>
+	
+	
+	
+	<div class="global-nav">
+		<ul>
+			<li class="home main-nav-item {% check_active_class home %}">
+				<a href="/">Home</a>
+			</li>
+			<li class="about main-nav-item {% check_active_class about %}">
+				<span>About</span>
+				<ul>
+                    <li>
+                        <a href="/about/">About Us</a>
+                    </li>
+					<li>
+						<a href="/faq/">FAQ</a>
+					</li>
+					<li>
+						<a href="/board/">Board</a>
+					</li>
+					<li>
+						<a href="/press/">Press</a>
+					</li>
+					<li>
+						<a href="/staff/">Staff</a>
+					</li>
+					<li>
+						<a href="/methodology/">Methodology</a>
+					</li>
+				</ul>
+			</li>
+			<li class="subsidy_types main-nav-item {% check_active_class subsidy_types %}">
+				<span>Subsidy Types</span>
+				<ul>
+					<li>
+						<a href="/grants/">Grants</a>
+					</li>
+					<li>
+						<a href="/contracts/">Contracts</a>
+					</li>
+					<li>
+						<a href="/tax-subsidies/">Tax Subsidies</a>
+					</li>
+					<li>
+						<a href="/loans/">Loans and Loan Guarantees</a>
+					</li>
+				</ul>
 
-		<div class="span-24">
-			<div id="header_spacer">&nbsp;</div>
-		</div>		
+			</li>
+			<li class="sectors main-nav-item  {% check_active_class sectors %}">
+				<span>Sectors</span>
+				<ul>
+					<li>
+						<a href="/housing/">Housing</a>
+					</li>
+					<li>
+						<a href="/energy/">Energy</a>
+					</li>
+					<li>
+						<a href="/nonprofits/">Nonprofits</a>
+					</li>
+					<li>
+						<a href="/transportation/">Transportation</a>
+					</li>
+					<li>
+						<a href="/bailout/">Financial Bailout</a>
+					</li>
+					<li>
+						<a href="#">Health <span class="comingsoon">Coming soon!</span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="data main-nav-item {% check_active_class data %}">
+				<span>Data</span>
+				<ul>
+					<li>
+						<a href="/tax_expenditures/summary/">Tax Expenditure Database</a>
+					</li>
+					<li>
+						<a href="/data/">Datasets</a>
+					</li>
+					<li>
+						<a href="/glossary/">Glossary</a>
+					</li>
+					<li>
+						<a href="/documents/">Key Documents</a>
+					</li>
+				</ul>
+			</li>
+			<li class="contact main-nav-item {% check_active_class contact %}">
+				<a href="/contact">Contact</a>
+
+			</li>
+		</ul>
 	</div>

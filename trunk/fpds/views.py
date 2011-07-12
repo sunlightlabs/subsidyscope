@@ -40,6 +40,17 @@ def MakeFPDSSearchFormClass(sector=None, subsectors=[]):
 
     class FPDSSearchForm(forms.Form):
 
+        sector_id_choices = [(s.id, s.name) 
+                             for s in Sector.objects.all()
+                             if s.launched == True
+                             and s.name.lower() in ("energy", "nonprofits", 
+                                                    "housing")] # HACK ALERT!
+        sector_id = forms.ChoiceField(
+            label='Economic Sector',
+            choices=sector_id_choices,
+            required=False,
+            initial=sector.id if sector else '')
+            
         # free text query
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Vendor Name'), (1, 'Description of Contract Requirement'), (2, 'Both')), initial=2, coerce=int)
@@ -75,10 +86,8 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
     """ Returns a form object and a FPDSSearch object that have been constructed from a search key (a compressed POST querydict) """
 
     # retrieve the sector and create an appropriate form object to handle validation of the querydict
-    sector = get_sector_by_name(sector_name)
     querydict = decompress_querydict(querydict_as_compressed_string)
-    if (sector is None):
-        sector = get_sector_by_name(querydict.get('sector_name', None))
+    sector = get_sector_from_querydict(querydict) or get_sector_by_name(sector_name)
 
     formclass = MakeFPDSSearchFormClass(sector=sector)            
     form = formclass(querydict)
@@ -144,6 +153,16 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
         raise(Exception("Data in querydict did not pass form validation"))
 
 
+def get_sector_from_querydict(querydict):
+    sector_id = querydict.get('sector_id', u'')
+    if sector_id != u'':
+        return get_object_or_404(Sector, pk=sector_id)
+    elif querydict.has_key('sector_name'):
+        sector_name = querydict.get('sector_name')
+        return get_sector_by_name(sector_name)
+    else:
+        return None
+
 
 def search(request, sector_name=None):
 
@@ -154,21 +173,21 @@ def search(request, sector_name=None):
     ran_search = False
     fpds_results_page = None
     found_some_results = False
+    page_range = None
     year_range_text = None
     sort_column = 'obligation_date'
     sort_order = 'asc'
 
-    # retrieve the sector object based on the passed name
-    sector = get_sector_by_name(sector_name)
-
     # if this is a POSTback, package the request into a querystring and redirect
     if request.method == 'POST':
         if request.POST.has_key('text_query'):
+            sector = get_sector_from_querydict(request.POST)
             formclass = MakeFPDSSearchFormClass(sector=sector)            
             form = formclass(request.POST)
 
             if form.is_valid():
-                redirect_url = reverse('%s-fpds-search' % sector_name) + ('?q=%s' % compress_querydict(request.POST))
+                url_name_prefix = sector_name or 'all'
+                redirect_url = reverse('%s-fpds-search' % url_name_prefix) + ('?q=%s' % compress_querydict(request.POST))
                 return HttpResponseRedirect(redirect_url)
 
 
@@ -243,6 +262,10 @@ def search(request, sector_name=None):
 
             found_some_results = len(fpds_results)>0
 
+            page_range = range(max(1, fpds_results_page.number - 5),
+                               min(paginator.num_pages,
+                                   fpds_results_page.number + 5))
+
             ran_search = True
 
             # display date range on map
@@ -257,6 +280,8 @@ def search(request, sector_name=None):
 
         # we just wandered into the search without a prior submission        
         else:
+
+            sector = get_sector_by_name(sector_name)
 
             # no subsectors in FPDS (yet) -- ignore for now
             subsectors = []
@@ -278,7 +303,20 @@ def search(request, sector_name=None):
             form = formclass()
 
 
-    return render_to_response('fpds/search/search.html', {'year_range_text': year_range_text, 'fpds_results':fpds_results_page, 'sector': sector_name, 'form':form, 'ran_search': ran_search, 'found_some_results': found_some_results, 'query': query, 'sort_column':sort_column, 'sort_order':sort_order, 'page_path': request.path}, context_instance=RequestContext(request))
+    return render_to_response('fpds/search/search.html', {
+                'year_range_text': year_range_text, 
+                'fpds_results': fpds_results_page, 
+                'page_range': page_range,
+                'sector': sector_name, 
+                'form': form, 
+                'ran_search': ran_search,
+                'found_some_results': found_some_results, 
+                'query': query, 
+                'sort_column': sort_column, 
+                'sort_order': sort_order, 
+                'page_path': request.path
+            }, 
+            context_instance=RequestContext(request))
 
 
 

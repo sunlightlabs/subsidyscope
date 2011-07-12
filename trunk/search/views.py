@@ -19,7 +19,7 @@ def template_test(request, id):
     
     cfda = ProgramDescription.objects.get(id=id)
     
-    return render_to_response('search/indexes/cfda/programdescription_text.txt', {'object':cfda})
+    return render_to_response('search/indexes/cfda/programdescription_text.txt', {'object':cfda}, context_instance=RequestContext(request))
 
 def main_search_view(request):
     
@@ -48,6 +48,6 @@ def main_search_view(request):
     else:
         form = SearchForm()
         
-    return render_to_response('search/search.html', {'page_result_set':page_result_set, 'cfda_result_set':cfda_result_set, 'form':form})
+    return render_to_response('search/search.html', {'page_result_set':page_result_set, 'cfda_result_set':cfda_result_set, 'form':form}, context_instance=RequestContext(request))
 
 

@@ -6,10 +6,14 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 from django.core.management.base import BaseCommand, make_option
 from django.db import connection, transaction
 from decimal import Decimal
+from django.core import management
 
-from tax_expenditures.models import Group, Expenditure, Estimate
+from tax_expenditures.models import Group, Expenditure, Estimate, GroupDetail, GroupDetailReport, GroupSummary
 
-years = range(2000, 2016)
+years = range(2000, 2017)
+year_fields = len(years) * 2
+name_field = year_fields + 4
+notes_field = year_fields + 5
 
 te_tables = ['tax_expenditures_expenditure', 'tax_expenditures_group', 'tax_expenditures_groupdetail', 'tax_expenditures_groupdetailreport', 'tax_expenditures_groupdetailreport_group_source', 'tax_expenditures_groupsummary']
 
@@ -25,10 +29,13 @@ class Command(BaseCommand):
         if options['path'] is not None:    
             
             print 'Truncating TE database...'
-            
-            Group.objects.all().delete()
-            Expenditure.objects.all().delete()
-            Estimate.objects.all().delete() 
+            management.call_command('reset', 'tax_expenditures')            
+#            Group.objects.all().delete()
+ #           Expenditure.objects.all().delete()
+  #          Estimate.objects.all().delete()
+    #        GroupDetail.objects.all().delete()
+   #         GroupDetailReport.objects.all().delete()
+     #       GroupSummary.objects.all().delete()
             
             cursor = connection.cursor()
         
@@ -41,7 +48,10 @@ class Command(BaseCommand):
         
             print 'Loading processed TE data...'
         
-            for file in os.listdir(options['path']):
+            files = os.listdir(options['path'])
+            files.sort()
+        
+            for file in files:
                 
                 print file
                 
@@ -57,6 +67,47 @@ class Command(BaseCommand):
                 data.reverse()
                 
                 process_file(data)
+                
+                
+            
+
+            
+            print 'Generating TE summary data...'
+            
+            groups = Group.objects.filter(parent=None)
+            
+            for group in groups:
+                print 'Processing %s...' % group.name
+                group.calc_summary()
+                
+            
+            print 'Generating TE detail data...'
+            
+            groups = Group.objects.filter(parent=None)
+
+            for group in groups:
+                print 'Processing %s...' % group.name
+                group.calc_detail()
+       
+            for g in Group.objects.filter(notes=''):
+                #add treasury description footnotes to groups that don't have them         
+                exp = Expenditure.objects.filter(group=g, source=2).order_by('-analysis_year')
+                if exp.count() > 0:
+                    year = exp[0].analysis_year
+                #try:
+                #    g.notes = TREASURY_SOURCES[year]
+                #except:
+                #    continue
+                g.save()
+
+            for g in Group.objects.all():
+                try:
+                    g.description = g.description.split("&mdash")[1].strip(';')
+                    g.save()
+                except:
+                    continue
+
+            
         else:
              
             print 'Error: --path argument required for input files.'    
@@ -68,8 +119,9 @@ def process_file(data):
     row = data.pop()
     
     if row[0] == '':
-        group = Group.objects.create(name=row[1], description=row[36], notes=row[37])
-        
+        group = Group.objects.create(name=row[1], description=row[38], notes=row[39])
+        print row
+        print group.description 
         process_group(group, data, '')
     else:
         print 'First category not matching signature.'
@@ -87,12 +139,11 @@ def process_group(parent, data, indent):
         row = data.pop()
         
         lines_processed += 1
-        
+
         if row[0] == indent:
-            print row[1]
             group = Group.objects.create(name=row[1], parent=parent)
-            group.description = row[36]
-            group.notes = row[37]
+            group.description = row[name_field]
+            group.notes = row[notes_field]
             group.save()
         
         elif row[0] == indent + '+':
@@ -109,8 +160,7 @@ def process_group(parent, data, indent):
             
 
 def process_expenditure(group, row):
-    
-    print row[2], row[3]
+
     
     if row[2] == 'JCT':
         source = Expenditure.SOURCE_JCT
@@ -120,9 +170,10 @@ def process_expenditure(group, row):
         source = Expenditure.SOURCE_TREASURY
         
         item_number = int(row[1])
-
-    name = row[36]
-    notes = row[37]
+    
+    
+    name = row[name_field] # 36
+    notes = row[notes_field] # 37
     
     analysis_year = int(row[3])
     
@@ -133,7 +184,7 @@ def process_expenditure(group, row):
     for year in years:
 
         corp_raw = row[4 + i]
-        indv_raw = row[20 + i]
+        indv_raw = row[(year_fields / 2) + 4 + i]
         
         corp_amount = None
         corp_notes = None
@@ -148,18 +199,24 @@ def process_expenditure(group, row):
         else:
             try:
                 corp_amount = Decimal(corp_raw)
-            except:
+            except Exception as e:
                 corp_amount = None
+                if corp_raw:
+                    print "Corp amount wasn't anything: %s - %s - %s - %s" % (group.name, name, year, corp_raw )
+                    print e
         
         if indv_raw == '<50':
             indv_notes = Estimate.NOTE_POSITIVE
-        elif corp_raw == '>-50':
+        elif indv_raw == '>-50':
             indv_notes = Estimate.NOTE_NEGATIVE
         else:
             try:
                 indv_amount = Decimal(indv_raw)
-            except:
+            except Exception as e:
                 indv_amount = None
+                if indv_raw:
+                    print "Indiv amount wasn't anything: %s - %s - %s - %s" % (group.name, name, year, indv_raw )
+                    print e
         
         Estimate.objects.create(expenditure=expenditure, estimate_year=year, corporations_amount=corp_amount, individuals_amount=indv_amount, corporations_notes=corp_notes, individuals_notes=indv_notes)
                 

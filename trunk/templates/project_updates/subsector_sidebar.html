@@ -1,8 +1,8 @@
 {% if updates %}
 
 <div class="news_box related_updates_box">
-	<div class="news_head"><h2>Related Updates</h2></div>	
-	<ul class="news_box_items">
+	<h5>Related Updates</h5>
+	<ul>
 		{% for update in updates %}
 			<li><a href="{{ update.link }}">{{ update.title }}</a></li>
 		{% endfor %}

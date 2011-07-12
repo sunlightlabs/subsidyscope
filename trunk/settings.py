@@ -1,15 +1,16 @@
 # Django settings for subsidyscope project.
 import os
 from django.core.exceptions import ImproperlyConfigured
+from convio import ConvioClient
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 
 ADMINS = (
-    ('Kevin Webb', 'kwebb@sunlightfoundation.com'),
     ('Kaitlin Lee','klee@sunlightfoundation.com'),
-    ('timball', 'tball@sunlightfoundation.com')
+    ('timball', 'tball@sunlightfoundation.com'),
+    ('Drew Vogel', 'dvogel@sunlightfoundation.com')
 )
 
 
@@ -70,13 +71,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'middleware.feedburner.FeedburnerMiddleware'
 )
 
 ROOT_URLCONF = 'urls'
 
 INSTALLED_APPS = (
+	'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.markup',
@@ -91,6 +92,7 @@ INSTALLED_APPS = (
     'mediasync',
     'spammer',
     'helpers',
+    'agency',
     # 'haystack',
     'csv_generator',
     'etl',
@@ -101,18 +103,19 @@ INSTALLED_APPS = (
     'tarp_subsidy_graphics',
     'fdic_bank_failures',
     'fed_h41',
-    'sectors',
     'tax_expenditures',
+    'te_importer',
     'django_helpers',
     'glossary',
     'carousel',
     'search',
-    'faads',
+   'faads',
     'fpds',
     'budget_accounts',
     'energy',
     'transportation',
     'nonprofits',
+    'housing',
     'tagging',
     'aip',
     'news_briefs',
@@ -121,6 +124,10 @@ INSTALLED_APPS = (
     'inflation',
     'navigation',
     'gunicorn',
+    'menu',
+    'sectors',
+    'cfda_usaspending_summary',
+    'subsidysort',
 )
 
 #try:
@@ -155,55 +162,19 @@ def send_welcome_email(recipient):
     message = render_to_string("email/welcome_letter.txt", { "hashcode": recipient.hashcode })
     send_mail(subject, message, "bounce@sunlightfoundation.com", [recipient.email], fail_silently=True)
 
-# constant contact API hook -- in use
-def constant_contact_signup(recipient):
-    """send the user's info to constant contact"""
 
-    CONSTANTCONTACT_API_KEY = 'd233160e-8540-40a4-b28f-b459fecc387b'
-    CONSTANTCONTACT_LOGIN = 'subsidyscope'
-    CONSTANTCONTACT_PASSWORD = 'yAsw4pre'
+def convio_contact_signup(recipient):
+    client = ConvioClient(url_base="https://secure3.convio.net/pew/site",
+                          api_key="***REMOVED***",
+                          login_name="dvogel@sunlightfoundation.com",
+                          login_password="***REMOVED***")
+    group = client.group(11425, "Subsidyscope")
+    constituent = client.constituent(primary_email=recipient.email)
+    if constituent not in group:
+        constituent.add_to_group(group)
 
-    # time on the entry is unimportant -- req'd by ATOM spec, but thrown away by CC
-    # contactList is the URI for the "Updates" list    
-    xml = """<entry xmlns="http://www.w3.org/2005/Atom">
-      <title type="text"> </title>
-      <updated>2008-07-23T14:21:06.407Z</updated>
-      <author></author>
-      <id>data:,none</id>
-      <summary type="text">Contact</summary>
-      <content type="application/vnd.ctct+xml">
-        <Contact xmlns="http://ws.constantcontact.com/ns/1.0/">
-          <EmailAddress>%s</EmailAddress>
-          <OptInSource>ACTION_BY_CONTACT</OptInSource>
-          <ContactLists>
-            <ContactList id="http://api.constantcontact.com/ws/customers/subsidyscope/lists/2" />
-          </ContactLists>
-        </Contact>
-      </content>
-    </entry>""" % recipient.email
     
-    user = '%s%%%s' % (CONSTANTCONTACT_API_KEY, CONSTANTCONTACT_LOGIN)
-    url = "https://api.constantcontact.com/ws/customers/subsidyscope/contacts"
-    
-    # import urllib2
-    
-    #     
-    #     passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
-    #     passman.add_password(None, url, user, CONSTANTCONTACT_PASSWORD)
-    #     auth = urllib2.HTTPBasicAuthHandler(passman)
-    #     opener = urllib2.build_opener(auth)
-    #     urllib2.install_opener(opener)
-    # 
-    #     req = urllib2.Request(url)
-    #     req.add_header('Content-Type', 'application/atom+xml')
-    #     resp = urllib2.urlopen(req, data=xml)
-
-    import httplib2
-    http = httplib2.Http()
-    http.add_credentials(user, CONSTANTCONTACT_PASSWORD)
-    response, content = http.request(url, 'POST', body=xml, headers={'Content-Type': 'application/atom+xml'})
-    
-MAILINGLIST_SUBSCRIBE_CALLBACK = constant_contact_signup
+MAILINGLIST_SUBSCRIBE_CALLBACK = convio_contact_signup 
 MAILINGLIST_SUBSCRIBED_URL = "/mailinglist/subscribed/"
 MAILINGLIST_REQUIRED_FIELDS = {
     "email": u"A valid email address is required",
@@ -242,7 +213,7 @@ FEEDBURNER = { 'feeds/updates': 'http://feedproxy.google.com/subsidyscope' }
 
 # Django Morsels
 MORSELS_USE_JEDITABLE = True
-
+MORSELS_JAVASCRIPT_PATH = MEDIA_URL +  'scripts/'
 try:
     from local_settings import *
 except ImportError, exp:    

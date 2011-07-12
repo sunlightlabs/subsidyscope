@@ -22,8 +22,8 @@ def faads():
             pass
             
     sector = _get_sector()
-    
-    return { 'sector': { sector: " CONVERT('0'+recipient_type, SIGNED) IN (%s) " % ','.join(map(lambda x: str(x), recipient_type_codes)) }, 'subsectors': {} }
+
+    return { 'sector': { sector: " to_number(case recipient_type when '' then null else recipient_type end, 'S99') IN (%s) " % ','.join(map(lambda x: str(x), recipient_type_codes)) }, 'subsectors': {} }
     
     
 def fpds():

@@ -1,11 +1,12 @@
  /* ie.css */
-body {text-align:center;}
-.container {overflow:hidden; text-align:left;}
+
+.container {overflow: hidden; text-align:left;}
 * html .column {overflow-x:hidden;}
 * html legend {margin:-18px -8px 16px 0;padding:0;}
 ol {margin-left:2em;}
-sup {vertical-align:text-top;}
-sub {vertical-align:text-bottom;}
+sup {vertical-align: super;}
+sup a{vertical-align: super;}
+sub {vertical-align: text-bottom;}
 html>body p code {*white-space:normal;}
 hr {margin:-8px auto 11px;}
 .container ul { list-style: none outside; margin-left: 2em; list-style-type: none !important; } /* IE can't handle :before and :after */
@@ -35,8 +36,8 @@ a abbr, a acronym { text-decoration: underline; } /* IE 7 bug */
 td.description {word-wrap: break-word; width: 255px;}
 .faads-search-submit, #reset-faads-search { padding: 2px 5px !important; }
 
-#tagsubselect {margin-left:508px !important;}
-#modesubselect { margin-left: 165px !important; }
+#tagsubselect {margin-left:380px !important;}
+#modesubselect { margin-left: 80px !important; }
 #modes {width: 200px;}
 #tags {width: 217px;}
 .programs-container {border-bottom: 1px solid #afafaf; }
@@ -56,3 +57,102 @@ ul.programs {border: none;}
 
 .homepage-quick-search-container #quick-search-box .faads-search-submit { padding: 1px 1px !important; position: relative; top: -3px;}
 .homepage-quick-search-container #quick-search-box #faads-search-form input#id_text_query { font-size: 12px !important; position:relative; top: -5px !important; margin-right: 10px; padding: 3px 2px !important;}
+.overlay{
+	left: 0;
+}
+.marquee{
+position: relative;
+}
+
+.updates_box{
+	margin-top: 20px;
+}
+#sources-of-error{
+	padding-bottom: 20px;
+}
+.secondary-nav{
+	border-top: 2px solid #f0f0ef;
+	border-right: 2px solid #f0f0ef;
+	width: 255px;
+}
+.subsidy-charts.alternate table{
+	border-left: 1px solid white;
+}
+
+.subsidy-charts.alternate tr.header-row td, .subsidy-charts tr.header-row td{
+	background-color: #F4F4F4;
+}
+
+div.subsidy-charts table{
+	border-left: 1px solid white;
+}
+
+table{
+	border-left: 1px solid white;
+}
+
+.date_range{
+	margin-right: 20px;
+	margin-right: 20px;
+	margin-left: 119px;
+}
+
+#filterForm, #loaderForm{
+	margin-bottom: 70px;
+}
+
+#global-pted-search{
+	left: 0px;
+}
+#global-pted-search .submit{
+	background-position: left bottom;
+	margin-top: 0;
+	height: 28px;
+	margin-left: 5px;
+	}
+#global-pted-search input{
+	width: 185px;
+}
+#header_search_form{
+	margin-top: 45px;
+}
+
+#header_search_form #id_query{
+	width: 194px;
+}
+#header_search_form .submit{
+	background: url('../images/search_icon.png') right center no-repeat;
+
+}
+
+/*------ Ultimate Awesomeness of Table Styling ------*/
+
+tbody th, tbody td{
+	border-bottom: 1px dashed #C3C3C3;
+}
+
+.pted thead th{
+	text-align: center;
+	position: relative;
+}
+a.right_arrow{
+	display: inline-block;
+	float: none;
+	position: absolute;
+	
+}
+a.left_arrow{
+	top: 0;
+}
+
+#filterForm, #loaderForm{
+	margin-bottom: 25px;
+}
+
+.energy-consumption li{
+	display: block;
+	float: left;
+}
+
+
+

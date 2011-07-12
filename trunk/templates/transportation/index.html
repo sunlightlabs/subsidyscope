@@ -4,89 +4,46 @@
 {% load carousel_tags %}
 {% load project_update_tags %}
 {% load faads_tags %}
+ 
+{% load menubuilder %}
 {% block content %}
 {% js "scripts/cookie.js" %}
 {% js "scripts/carouselinit.js" %}
 
 
-<div class="container main_container">
-    {% include "includes/transportation_nav.html" %}
-	<div class="span-11">
-		<div class="feature_leftside">
-            <div id="feature_box">
-			    <div class="tabs" style="height: 400px; position:relative;">
-                    {% carousel_entries 2 %}
-                </div>
-			</div><!-- end feature box -->
-			
-			<div class="updates_box">
+<div id="Transportation" class="wrapper clearfix">	
+	<div class="secondary-header">
+		<h3>
+		Transportation
+		</h3>
+	</div>
+	<div class="carousel-border">
+	</div>
+
+    {% recursive_menu %}
+
+	<div class="carousel-bg">
+		<div class="tabs">
+	              {% carousel_entries 2 %}
+	    </div>
+	</div>
+	<div class="page-content">
+
+		<section>
+            
+		    {% morsel text2 %}
+    
+		</section>	
+			<section class="updates_box">
 				<div class="updates_head">
-				<h2>Transportation Sector Updates</h2>
-                <a title="Click here for news feed" href="{%url feed_project_updates "transportation" %}"><img src="/media/images/rss_icon.png" /></a><span id="rss-explanation">&nbsp;(<a href="{%url about_rss%}">What's this?</a>)</span>
+					<h3 class="sector_updates">Transportation Sector Updates
+					</h2>
 				</div>
-		      
+	      
 		      {% project_updates 2 %}	
-            
-            </div> 	<!-- ends update box-->
-		</div> <!-- ends feature left side -->		
-	</div> <!-- ends span 11 -->
-
-	<div class="span-13 last">
-		<div class="feature_rightside">
-			<div id="intro">	
-			<img src="/media/images/sector_icons/transportation/trans_lg.png" border="0" alt="Transportation Sector" class="sector_header_icon">
-			<span class="sector_header">Transportation</span>
-			<p class="sector_intro_copy">{% morsel text1 %}</p>		
-			</div>
-
-				<div id="sector_taxonomy_box" style="">
-					<ul id="sector_taxonomy">
-						
-						<li><img src="/media/images/sector_icons/transportation/transportation_aviation.png"><a href="{% url transportation-aviation %}">Aviation</a></li>
-						<li><img src="/media/images/sector_icons/transportation/transportation_highways.png"><a href="{% url transportation-highways %}">Highways</a></li>
-						<li><img src="/media/images/sector_icons/transportation/transportation_maritime.png"><a href="{% url transportation-maritime %}">Maritime</a></li>
-					</ul>
-					<ul id="sector_taxonomy" class="second-tier">
-					  <li><img src="/media/images/sector_icons/transportation/transportation_rail.png"><a href="{% url transportation-rail %}">Rail</a></li>					  
-					  <li><img src="/media/images/sector_icons/transportation/transportation_transit.png"><a href="{% url transportation-transit %}">Transit</a></li>
-            {# <li><img src="/media/images/sector_icons/transportation/transportation_general.png"><a href="{% url transportation-general %}">Other</a></li> #}
-					</ul>
-				</div>
-				<div id="sector_taxonomy_box_bottom">&nbsp;</div>
-		</div>
+	        </section> 	<!-- ends update box-->
+	</div>
 </div>
-
-
-<div class="span-13 last graphs">
-            
-    {% morsel text2 %}
-    
-</div>
-    <span>
-    <!-- <cite><sup>1</sup> A subsidy is conceptually defined as the net benefit a recipient receives from government spending intended to support an economic activity. Subsidy estimates will be presented in varying formats based on availability.  These formats include budgetary costs which may be net or gross of administrative costs, credit subsidy costs and tax expenditure revenue loss estimates. See Subsidyscope Methodology  for more.</cite><br />
-    <cite><sup>2</sup> Spending on programs that contain a subsidy is the amount spent in a category less spending on programs that are unlikely to contain a subsidy (see below). For more on what programs Subsidyscope includes, see Subsidyscope Methodology.</cite><br /> <br /> -->
-    
-    </span>
-
-<style>
-
-.border {border-bottom: 1px solid #afafaf;float:left; margin-bottom: 25px; padding-bottom: 20px;}
-.graph-container {float:left; position:relative;}
-.hhsubsidy{float:right; width:95px; padding: 10px; margin: 5px 5px 5px 30px; border: 2px solid #afafaf; text-align:center;}
-.hoveranchor {display: block; position:absolute;}
-.deanchor { height:29px; width:143px; top:180px; left:15px; }
-.teanchor {height: 29px; width: 130px; top: 180px; left: 195px;}
-.rtanchor {height:29px; width: 100px; top:0px; left: 20px;}
-.hovertext {border: 1px solid black; margin:0px; background-color: #efefef; width: 250px; position:absolute; padding:10px; }
-.first { top:65px; left:150px;}
-.second {top: -90px; left:315px;}
-</style>
-{# <div class="span-7 last"> #}
-{#    <div id="graph_right" style="border:1px solid #c6c6c6; margin-right:15px;">Graph here?</div> #}
-{# </div> #}
-
-</div>
-
 
 
 
