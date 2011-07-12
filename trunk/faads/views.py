@@ -592,7 +592,7 @@ def _get_state_summary_data(results, year_range):
     
     return state_data, totals
     
-def _get_program_summary_data(results, year_range):
+def _get_program_summary_data(results, year_range, sector_name):
     """ compiles aggregate data for the by-program summary table """
     
     programs = {}
@@ -609,7 +609,7 @@ def _get_program_summary_data(results, year_range):
     for (program_id, year_data) in results['program'].items():
         if program_id is None:
             continue
-        row = ["<a href=\"%s\">%s %s</a>" % (reverse('transportation-cfda-programpage', None, (program_id,)), programs[program_id].program_number, programs[program_id].program_title)]
+        row = ["<a href=\"%s\">%s %s</a>" % (reverse('%s-cfda-programpage' % sector_name, None, (program_id,)), programs[program_id].program_number, programs[program_id].program_title)]
         for year in year_range:
             annual_total = year_data.get(year, None)
             row.append(annual_total)
@@ -697,7 +697,7 @@ def program_summary_statistics(request, sector_name=None):
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
                         
-            program_data, program_totals = _get_program_summary_data(results, year_range)
+            program_data, program_totals = _get_program_summary_data(results, year_range, sector.name.lower())
                 
             return render_to_response('faads/search/program_summary_table.html', {'program_data':program_data, 'program_totals':program_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 
