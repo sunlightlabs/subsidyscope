@@ -36,9 +36,9 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
 <div id="Transportation" class="wrapper clearfix">	
 	<div class="secondary-header">
 		<h3>{% morsel_sector_title %}</h3>
-		</div>
+	</div>
     {% recursive_menu %}
-		<div class="page-content">
+	<div class="page-content">
 			
 		<h2>Airport Improvement Program Grant Search</h2>
 
@@ -46,138 +46,144 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
         <form id="portsearch" class="search-section">
             <fieldset {% if type == 'project' %} class="collapsed" {% endif %}>    
             <legend id="expand_airport"><h4>Search by Airport</h4></legend>
-            <div class="form_content" >    
-            <input type="hidden" name="searchtype" value="airport"/>
-            <strong>Search by Specific Airport: </strong>
-            <span class="searchterms"><label>Airport Name:</label><input class="term" type="text" name="portname" {%if name%} value="{{name}}" {%endif%} /><span><em> &mdash; or &mdash;</em></span><label>Airport Code:</label><input class="term" type="text" name="portcode" {% if code %} value="{{code}}" {% endif %} /></span>
-            <strong>Search by Region:</strong>
-            <span class="options">By State:&nbsp;<select name="state" id="choose_state">
-    <option value="">All</option>
-    <option value="AL">Alabama</option>
-    <option value="AK">Alaska</option>
-    <option value="AZ">Arizona</option>
-    <option value="AR">Arkansas</option>
-    <option value="CA">California</option>
-    <option value="CO">Colorado</option>
-    <option value="CT">Connecticut</option>
-    <option value="DE">Delaware</option>
-    <option value="DC">District of Columbia</option>
-    <option value="FSM">Federated States of Micronesia</option>
-    <option value="FL">Florida</option>
-    <option value="GA">Georgia</option>
-    <option value="HI">Hawaii</option>
-    <option value="ID">Idaho</option>
-    <option value="IL">Illinois</option>
-    <option value="IN">Indiana</option>
-    <option value="IA">Iowa</option>
-    <option value="KS">Kansas</option>
-    <option value="KY">Kentucky</option>
-    <option value="LA">Louisiana</option>
-    <option value="ME">Maine</option>
-    <option value="MD">Maryland</option>
-    <option value="MA">Massachusetts</option>
-    <option value="MI">Michigan</option>
-    <option value="MN">Minnesota</option>
-    <option value="MS">Mississippi</option>
-    <option value="MO">Missouri</option>
-    <option value="MT">Montana</option>
-    <option value="NE">Nebraska</option>
-    <option value="NV">Nevada</option>
-    <option value="NH">New Hampshire</option>
-    <option value="NJ">New Jersey</option>
-    <option value="NM">New Mexico</option>
-    <option value="NY">New York</option>
-    <option value="NC">North Carolina</option>
-    <option value="ND">North Dakota</option>
-    <option value="OH">Ohio</option>
-    <option value="OK">Oklahoma</option>
-    <option value="OR">Oregon</option>
-    <option value="PA">Pennsylvania</option>
-    <option value="RI">Rhode Island</option>
-    <option value="SC">South Carolina</option>
-    <option value="SD">South Dakota</option>
-    <option value="TN">Tennessee</option>
-    <option value="TX">Texas</option>
-    <option value="UT">Utah</option>
-    <option value="VT">Vermont</option>
-    <option value="VA">Virginia</option>
-    <option value="WA">Washington</option>
-    <option value="WV">West Virginia</option>
-    <option value="WI">Wisconsin</option>
-    <option value="WY">Wyoming</option>
-    </select>
+	            <div class="form_content">    
+	            	<input type="hidden" name="searchtype" value="airport"/>
+		            <strong>Search by Specific Airport: </strong>
+		            <span class="searchterms"><label>Airport Name:</label><input class="term" type="text" name="portname" {%if name%} value="{{name}}" {%endif%} />
+						<span><em> &mdash; or &mdash;</em>
+						</span>
+						<label>Airport Code:</label>
+						<input class="term" type="text" name="portcode" {% if code %} value="{{code}}" {% endif %} />
+					</span>
+		            <strong>Search by Region:</strong>
+		            <span class="options">By State:&nbsp;
+						<select name="state" id="choose_state">
+						    <option value="">All</option>
+						    <option value="AL">Alabama</option>
+						    <option value="AK">Alaska</option>
+						    <option value="AZ">Arizona</option>
+						    <option value="AR">Arkansas</option>
+						    <option value="CA">California</option>
+						    <option value="CO">Colorado</option>
+						    <option value="CT">Connecticut</option>
+						    <option value="DE">Delaware</option>
+						    <option value="DC">District of Columbia</option>
+						    <option value="FSM">Federated States of Micronesia</option>
+						    <option value="FL">Florida</option>
+						    <option value="GA">Georgia</option>
+						    <option value="HI">Hawaii</option>
+						    <option value="ID">Idaho</option>
+						    <option value="IL">Illinois</option>
+						    <option value="IN">Indiana</option>
+						    <option value="IA">Iowa</option>
+						    <option value="KS">Kansas</option>
+						    <option value="KY">Kentucky</option>
+						    <option value="LA">Louisiana</option>
+						    <option value="ME">Maine</option>
+						    <option value="MD">Maryland</option>
+						    <option value="MA">Massachusetts</option>
+						    <option value="MI">Michigan</option>
+						    <option value="MN">Minnesota</option>
+						    <option value="MS">Mississippi</option>
+						    <option value="MO">Missouri</option>
+						    <option value="MT">Montana</option>
+						    <option value="NE">Nebraska</option>
+						    <option value="NV">Nevada</option>
+						    <option value="NH">New Hampshire</option>
+						    <option value="NJ">New Jersey</option>
+						    <option value="NM">New Mexico</option>
+						    <option value="NY">New York</option>
+						    <option value="NC">North Carolina</option>
+						    <option value="ND">North Dakota</option>
+						    <option value="OH">Ohio</option>
+						    <option value="OK">Oklahoma</option>
+						    <option value="OR">Oregon</option>
+						    <option value="PA">Pennsylvania</option>
+						    <option value="RI">Rhode Island</option>
+						    <option value="SC">South Carolina</option>
+						    <option value="SD">South Dakota</option>
+						    <option value="TN">Tennessee</option>
+						    <option value="TX">Texas</option>
+						    <option value="UT">Utah</option>
+						    <option value="VT">Vermont</option>
+						    <option value="VA">Virginia</option>
+						    <option value="WA">Washington</option>
+						    <option value="WV">West Virginia</option>
+						    <option value="WI">Wisconsin</option>
+						    <option value="WY">Wyoming</option>
+						</select>
 
-    <span style="margin-left: 20px;">By District:&nbsp;
-    <select name="district" id="choose_district">
-        <option value="">All</option>
-        {%for d in districts %}
-        <option value="{{d}}">{{d}}</option>
-        {% endfor %}
-    </select>
-    </span>
+			    		<span style="margin-left: 20px;">By District:&nbsp;
+						    <select name="district" id="choose_district">
+						        <option value="">All</option>
+						        {%for d in districts %}
+						        <option value="{{d}}">{{d}}</option>
+						        {% endfor %}
+						    </select>
+				    	</span>
 
-</span>    
-<button type="submit" class="search-submit" value="Search" />
-</div>
-</fieldset>
-</form>
-<form id="projectsearch" class="search-section">
-    <input type="hidden" name="fysort" value='{% if sorts.fysort == 'asc' %}asc {%elif sorts.fysort == 'desc'%}desc{%else %}none{%endif%}' />
-    <input type="hidden" name="nprsort" value='{% if sorts.nprsort == 'asc'%}asc{% elif sorts.nprsort == 'desc'%}desc{%else %}none{%endif%}' />
-    <input type="hidden" name="airportsort" value='{% if sorts.airportsort == 'asc'%}asc{% elif sorts.airportsort == 'desc'%}desc{%else%}none{%endif%}' />
-    <input type="hidden" name="totalsort" value='{% if sorts.totalsort == 'asc'%}asc{%elif sorts.totalsort == 'desc'%}desc{%else%}none{%endif%}' />
+					</span>    
+					<button type="submit" class="search-submit" value="Search" />
+				</div>
+			</fieldset>
+		</form>
+		<form id="projectsearch" class="search-section">
+		    <input type="hidden" name="fysort" value='{% if sorts.fysort == 'asc' %}asc {%elif sorts.fysort == 'desc'%}desc{%else %}none{%endif%}' />
+		    <input type="hidden" name="nprsort" value='{% if sorts.nprsort == 'asc'%}asc{% elif sorts.nprsort == 'desc'%}desc{%else %}none{%endif%}' />
+		    <input type="hidden" name="airportsort" value='{% if sorts.airportsort == 'asc'%}asc{% elif sorts.airportsort == 'desc'%}desc{%else%}none{%endif%}' />
+		    <input type="hidden" name="totalsort" value='{% if sorts.totalsort == 'asc'%}asc{%elif sorts.totalsort == 'desc'%}desc{%else%}none{%endif%}' />
 
-    <fieldset {% if type == 'airport' %} class="collapsed" {% endif %}>
-        <legend id="expand_project"><h4>Search by Project</h4></legend>
-        <input type="hidden" name="searchtype" value="project" />
-        <div class="form_content">
-        <span>
-            Limit by year range:
-        <select name="year_range_first">
-            {% for y in years %}
-            <option value="{{y}}" {% if filters.year_first == y %} selected  {% endif %}>{{y}}</option>
-            {% endfor %}
-        </select>
-        &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
-        <select name="year_range_last">
-            {% for y in years %}
-                <option value="{{y}}"{% if filters %} {% if filters.year_last == y %} selected {% endif%} {% elif forloop.last %} selected  {%endif%}>{{y}}</option>
-            {% endfor %}
-        </select>
-        <a class="fy all" href="#">All</a>
-        </span>
-        <span>
-            Limit by NPR range:
-        <select name="npr_range_first">
-            {% for n in nprs %}
-            <option value="{{n}}" {% if filters.npr_first == n %} selected {% endif %}>{{n}}</option>
-            {% endfor %}
-        </select>
-        &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
-        <select name="npr_range_last">
-            {% for n in nprs %}
-            <option value="{{n}}" {% if filters %} {% if filters.npr_last == n %} selected {% endif %} {%elif forloop.last%} selected {% endif %} >{{n}}</option>
-            {% endfor %}
-        </select>
-        <a href="#" class="npr all">All</a>
-        </span>
-        <span>
-            Restrict to Stimulus(ARRA) funds?
-            <input type="checkbox" name="stimulus" {% if filters.stimulus %} checked {%endif%}/>
-        </span>
-        <span>
-            Restrict to congressional district?
-            <select name="district_filter">
-            <option value="">All</option>
-            {%for d in districts %}
-            <option value="{{d}}" {%if filters.dist_filter == d %} selected {% endif %}>{{d}}</option>
-            {% endfor %}
-            </select>
-        </span>
-        <input type="submit" class="search-submit" value="Search" />
-        </div>
-    </fieldset>
-</form>
+		    <fieldset {% if type == 'airport' %} class="collapsed" {% endif %}>
+		        <legend id="expand_project"><h4>Search by Project</h4></legend>
+		        <input type="hidden" name="searchtype" value="project" />
+		        <div class="form_content">
+			        <span>
+			            Limit by year range:
+				        <select name="year_range_first">
+				            {% for y in years %}
+				            <option value="{{y}}" {% if filters.year_first == y %} selected  {% endif %}>{{y}}</option>
+				            {% endfor %}
+				        </select>
+				        &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
+				        <select name="year_range_last">
+				            {% for y in years %}
+				                <option value="{{y}}"{% if filters %} {% if filters.year_last == y %} selected {% endif%} {% elif forloop.last %} selected  {%endif%}>{{y}}</option>
+				            {% endfor %}
+				        </select>
+				        <a class="fy all" href="#">All</a>
+			        </span>
+			        <span>
+				            Limit by NPR range:
+				        <select name="npr_range_first">
+				            {% for n in nprs %}
+				            <option value="{{n}}" {% if filters.npr_first == n %} selected {% endif %}>{{n}}</option>
+				            {% endfor %}
+				        </select>
+				        &nbsp;&mdash;&nbsp;<em>to</em>&nbsp;&mdash;&nbsp;
+				        <select name="npr_range_last">
+				            {% for n in nprs %}
+				            <option value="{{n}}" {% if filters %} {% if filters.npr_last == n %} selected {% endif %} {%elif forloop.last%} selected {% endif %} >{{n}}</option>
+				            {% endfor %}
+				        </select>
+				        <a href="#" class="npr all">All</a>
+			        </span>
+			        <span>
+			            Restrict to Stimulus(ARRA) funds?
+			            <input type="checkbox" name="stimulus" {% if filters.stimulus %} checked {%endif%}/>
+			        </span>
+			        <span>
+			            Restrict to congressional district?
+			            <select name="district_filter">
+			            <option value="">All</option>
+			            {%for d in districts %}
+			            <option value="{{d}}" {%if filters.dist_filter == d %} selected {% endif %}>{{d}}</option>
+			            {% endfor %}
+			            </select>
+			        </span>
+			        <input type="submit" class="search-submit" value="Search" />
+		        </div>
+		    </fieldset>
+		</form>
  
         {% if grants %}
         <div id="results">
@@ -186,24 +192,25 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             </ul>
 
             {% for port in grants %}
-                <div class="portdetail{% if forloop.counter|divisibleby:"2"  %} even {%endif%}">
-                <ul>
-                <li class="name" name="{{port.0.code}}"><a href="/transportation/direct-expenditures/aip/search/{{port.0.code}}/">{{port.0.name}}</a></li>
-                <li class="money">${{port.1|floatformat|intcomma}}</li>
-                <li class="enps">{{port.2|intcomma}}</li>
-                <li class="city">{{port.0.city}}</li><li class="st">{{port.0.state}}</li>
-                </ul>
-                </div>
+            <div class="portdetail{% if forloop.counter|divisibleby:"2"  %} even {%endif%}">
+	            <ul>
+	            <li class="name" name="{{port.0.code}}"><a href="/transportation/direct-expenditures/aip/search/{{port.0.code}}/">{{port.0.name}}</a></li>
+	            <li class="money">${{port.1|floatformat|intcomma}}</li>
+	            <li class="enps">{{port.2|intcomma}}</li>
+	            <li class="city">{{port.0.city}}</li><li class="st">{{port.0.state}}</li>
+	            </ul>
+            </div>
             {% endfor %}
             {% if state or district %}
                 {% if total_grants %}
-                 <div class="portdetail"><ul class="sum"><li class="name"><strong>Total grant funding for {%if state %}state{%else%}district{%endif%}:</strong></li><li class="money">${{total_grants|floatformat:0|intcomma}}</li></ul>
+            <div class="portdetail">
+				<ul class="sum"><li class="name"><strong>Total grant funding for {%if state %}state{%else%}district{%endif%}:</strong></li><li class="money">${{total_grants|floatformat:0|intcomma}}</li></ul>
                     {%if stimulus_total %}
                     <ul>
                      <li class="name"><strong>Total <em>stimulus</em> funding for {% if state%}state{%else%} district {%endif%}:</strong></li><li class="money">${{stimulus_total|floatformat:0|intcomma}}</li>
                     </ul>
                     {% endif %}
-                 </div>
+            </div>
                 {% endif %}
                 
             {% endif %}
@@ -220,9 +227,9 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             {% endif %}
             </span>
             <table>
-		<thead>
-                    <tr><th scope="rowgroup" class="sortable">FY</th><th scope="col" style="width:50px;" class="sortable">NPR</th><th scope="col" class="sortable">Airport</th><th scope="col" >Description</th><th scope="col" class="sortable">Total</th><th scope="col" >Discretionary</th><th scope="col" >Entitlement</th><th scope="col" >Stimulus</th></tr>
-		</thead>
+				<thead>
+		                    <tr><th scope="rowgroup" class="sortable">FY</th><th scope="col" style="width:50px;" class="sortable">NPR</th><th scope="col" class="sortable">Airport</th><th scope="col" >Description</th><th scope="col" class="sortable">Total</th><th scope="col" >Discretionary</th><th scope="col" >Entitlement</th><th scope="col" >Stimulus</th></tr>
+				</thead>	
                 <tbody>
                     {% for p in projects.object_list %}
                     <tr class="{% cycle 'even' 'odd' %}">
@@ -230,7 +237,8 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
                     </tr>
                     {% endfor %}
             </table>
-            <div class="summary-csv"><a style="background: transparent url(/media/images/download_icon_smaller.png) no-repeat scroll 0 6px; padding-left:25px;padding-top: 7px;" href="{% url aip-csv-download %}?{{querystring}}">CSV Download</a> </div>
+            <div class="summary-csv"><a style="background: transparent url(/media/images/download_icon_smaller.png) no-repeat scroll 0 6px; padding-left:25px;padding-top: 7px;" href="{% url aip-csv-download %}?{{querystring}}">CSV Download</a> 
+			</div>
             <span class="pages">
             {%if projects.has_previous %}
                 <a href="?{{querystring}}&page={{projects.previous_page_number}}">&laquo;&nbsp;Previous</a>
@@ -241,15 +249,15 @@ th.sortable {background: url(/media/images/bg.gif) no-repeat center right; curso
             {% endif %}
             </span>
         {% elif error %}
-        <div class="error" style="margin-top:15px;">
-            <div style="margin:0 auto; width: 230px;">{{error}}</div>
-        </div>
+	        <div class="error" style="margin-top:15px;">
+	            <div style="margin:0 auto; width: 230px;">{{error}}</div>
+	        </div>
         
         {% endif %} 
         </div>
-        </div>
     </span>
 </div>
+<div style="clear: both;"></div>
 <script type="text/javascript" charste="utf-8">
 if("{{state}}"){ 
     $("#choose_state").val("{{state}}")

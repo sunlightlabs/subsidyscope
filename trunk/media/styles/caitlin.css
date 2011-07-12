@@ -1627,10 +1627,10 @@ div.grants table, div.enplanements table {width: 320px}
 	font-weight: normal;
 }
 
-.summary dt{
+#top-note-box dt{
 	font-weight: bold;
 }
-.summary dd{
+#top-note-box dd{
 	margin-bottom: 20px;
 }
 

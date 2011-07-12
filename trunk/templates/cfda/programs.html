@@ -12,16 +12,17 @@
 </style>
 <div id="Transportation" class="wrapper clearfix">	
          <div class="secondary-header">
-            <h3><img style="margin-bottom:-6px;" src="{% media_url %}/images/sector_icons/30x40_trans_{{subsectors.0.name|lower}}.png" />{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span>
-            </h3>
+			<h3>Transportation</h3>
+
         </div>
 	    {% include "includes/static_side_nav.html" %}
 
 
-        <div class="page-content">    
-            <h5>Program Summary and Objectives</h5>
-            <aside class="top-note-box">
-            <dl>
+        <div class="page-content">  
+			<h2>{{ program.program_number }} &mdash; {{program.program_title}}<span class="category"><span class="slash">/</span>{{program.primary_tag.tag_name}}</span>
+            </h2>
+	  
+            <dl id="top-note-box">
                 <dt class="sencase">Federal Agency:&nbsp;</dt> 
 				<dd>{{ program.federal_agency|lower|safe}}</dd>
                 <dt>Program Website:&nbsp;</dt>
@@ -30,21 +31,21 @@
 				<dd>{{program.authorization}}</dd>
                 <dt>Headquarters:&nbsp;</dt>
 				<dd>{{program.headquarters_office|striptags}}</dd>
-            </dl>        
-            </aside>
+            </dl>   
+     		<h4>Program Summary and Objectives</h4>
             <p>{{objectives|safe}}{% ifnotequal objectives2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{objectives2|safe}}</span>
             {% endifnotequal %}
             </p>
-            <h5>Examples of Projects Funded</h5>
+            <h4>Examples of Projects Funded</h4>
             <p>{{program.examples_of_funded_projects|safe}}</p>
-            <h5>Program Accomplishments</h5>
+            <h4>Program Accomplishments</h4>
             <p>{{accomps|safe}}{% ifnotequal accomps2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{accomps2|safe}}</span>
             {% endifnotequal %}
             </p>
 			<div>
-            <h4>Program Obligations</h5>
+            <h4>Program Obligations</h4>
 			<span>(as compiled by Subsidyscope)</span>
-            <h4>Direct Expenditures Over Time</h4>
+            <h5>Direct Expenditures Over Time</h5>
             <span id="spendingchart" style="margin-top:10px;"><!--Alternative chart pic goes here maybe?--></span>
 
 			</div>
