@@ -101,7 +101,11 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         
         sector_id_choices = [(s.id, s.name) 
                              for s in Sector.objects.all()
-                             if s.launched == True]
+                             if s.launched == True
+                             and s.name.lower() in ("transportation",
+                                                    "nonprofits",
+                                                    "housing",
+                                                    "energy")] # HACK ALERT!
                                                      
         sector_id = forms.ChoiceField(label='Economic Sector',
                                       choices=sector_id_choices,
