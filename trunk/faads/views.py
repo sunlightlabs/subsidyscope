@@ -56,7 +56,8 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     cfda_program_choices = []
     initial_cfda_program_choices = []
     for c in cfda_programs:
-        cfda_program_choices.append( (c.id, '<span class="cfda-program-details">(<a href="%s">details</a>)</span>%s' % (reverse('transportation-cfda-programpage', None, (c.id,)), c.program_title)) )        
+        cfda_link_name = '%s-cfda-programpage' % sector.name.lower()
+        cfda_program_choices.append( (c.id, '<span class="cfda-program-details">(<a href="%s">details</a>)</span>%s' % (reverse(cfda_link_name, None, (c.id,)), c.program_title)) )        
         # if no subsector has been defined, check all boxes
         if len(subsectors)==0:
             initial_cfda_program_choices.append(c.id)
@@ -312,7 +313,7 @@ def construct_form_and_query_from_querydict(sector_name, querydict_as_compressed
             elif form.cleaned_data['location_type']==2:
                 faads_search_query = faads_search_query.filter('all_states', form.cleaned_data['location_choices'])
 
-        return (form, faads_search_query)
+        return (sector, form, faads_search_query)
 
     else:
         raise(Exception("Data in querydict did not pass form validation"))
@@ -386,7 +387,7 @@ def search(request, sector_name=None):
             else:
                 raise Exception(form.errors)
         else:
-            return HttpResponseRedirect(reverse('transportation-faads-search'))
+            return HttpResponseRedirect(reverse('%s-faads-search' % sector.name))
         
     # if this is a get w/ a querystring, unpack the form 
     if request.method == 'GET':
@@ -439,7 +440,7 @@ def search(request, sector_name=None):
                     sort_order = 'desc'
                     
                     
-            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            (sector, form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
 	              
             faads_results = faads_search_query.get_haystack_queryset(order_by)
             
@@ -529,7 +530,7 @@ def annual_chart_data(request, sector_name=None):
     if request.method == 'GET':
         if request.GET.has_key('q'):
         
-            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            (sector, form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
                    
             faads_results = faads_search_query.aggregate('fiscal_year')
             
@@ -638,7 +639,7 @@ def summary_statistics_csv(request, sector_name=None, first_column_label='', dat
     if request.method == 'GET':
         if request.GET.has_key('q'):
                     
-            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            (sector, form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
                    
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
@@ -670,7 +671,7 @@ def state_summary_statistics(request, sector_name=None):
     if request.method == 'GET':
         if request.GET.has_key('q'):
             
-            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            (sector, form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
                                       
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
@@ -691,7 +692,7 @@ def program_summary_statistics(request, sector_name=None):
     if request.method == 'GET':
         if request.GET.has_key('q'):
             
-            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            (sector, form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
                                       
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
@@ -717,7 +718,7 @@ def map_data_table(request, sector_name=None):
     if request.method == 'GET':
         if request.GET.has_key('q'):
         
-            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            (sector, form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
                    
             faads_results = faads_search_query.aggregate('recipient_state')
 
@@ -769,7 +770,7 @@ def map_data_csv(request, sector_name=None):
     if request.method == 'GET':
         if request.GET.has_key('q'):
         
-            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            (sector, form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
                    
             faads_results = faads_search_query.aggregate('recipient_state')
 
@@ -825,7 +826,7 @@ def map_data(request, sector_name=None):
     if request.method == 'GET':
         if request.GET.has_key('q'):
         
-            (form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
+            (sector, form, faads_search_query) = construct_form_and_query_from_querydict(sector_name, request.GET['q'])            
                    
             faads_results = faads_search_query.aggregate('recipient_state')
 

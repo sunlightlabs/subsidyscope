@@ -6,6 +6,7 @@ from django.views.generic.simple import direct_to_template, redirect_to
 urlpatterns = patterns('', 
     url(r'^direct-expenditures/search/', 'faads.views.search', {'sector_name': 'housing'}, name='housing-faads-search'),
     url(r'^direct-expenditures/programs/(?P<cfda_program_number>\d{2}\.\d{3})/', 'cfda.views.getProgramByCFDANumber', {'sector_name': 'housing'}, name='housing-cfda-programpage-by-programnumber'),    
+    url(r'^direct-expenditures/programs/(?P<cfda_id>[0-9]+)/', 'cfda.views.getProgram', {'sector_name': 'housing'}, name='housing-cfda-programpage'),
     url(r'^contracts/search/', 'fpds.views.search', {'sector_name': 'housing'}, name='housing-fpds-search'),
     url(r'^direct-expenditures/', direct_to_template, {'template': 'housing/generic_housing_template.html'}, name='housing-direct-expenditures'),
     url(r'^tax-expenditures/', direct_to_template, {'template': 'housing/tax_expenditures.html'}, name='housing-tax-expenditures'),
