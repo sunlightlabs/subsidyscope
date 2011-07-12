@@ -42,13 +42,13 @@ $(document).ready(function(){
     }
    
     $('#id_sector_id').bind('change', function (evt) {
+        var opts = $(evt.currentTarget).children();
         var val = $(evt.currentTarget).val();
+        var sector_name = $('#id_sector_id > option:selected').text();
 
 		var after_effect = function () {
 			var change_location = function () {
-				window.location = $.param.querystring(window.location.toString(), 
-													  {'sector_id': val},
-													  2);
+				window.location = '/' + sector_name.toLowerCase() + '/direct-expenditures/search/';
 			};
 			setTimeout(change_location, 2000);
 		};
@@ -58,7 +58,6 @@ $(document).ready(function(){
             $('#sector-changing:hidden').show();
             $('#faads-search-form:visible').effect('blind', {}, 500, after_effect);
         } else {
-            var sector_name = $('#id_sector_id > option:selected').text();
             $('#sector-changing:hidden').text('Changing to the ' + sector_name.toLowerCase() + ' sector...');
             $('#sector-changing:hidden').show();
             $('#faads-search-form:visible').effect('blind', {}, 500, after_effect);

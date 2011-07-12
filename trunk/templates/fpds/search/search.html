@@ -18,6 +18,8 @@
 	{% js "scripts/ui.core.js" %}
 	{% js "scripts/ui.tabs.js" %}
 	{% js "scripts/ui.datepicker.js" %}
+	{% js "scripts/effects.core.js" %}
+	{% js "scripts/effects.blind.js" %}
 	
 	{% js "scripts/swfobject.js" %}
 	{% js "scripts/fpds-search.js?version=4" %}
@@ -52,6 +54,8 @@ var sortOrder = '{{ sort_order }}';
 	            <h2>{% morsel_page_title %} (FY 2000&ndash;2010)</h2> 
 	
 		<p>{% morsel text1 %}</p>
+        
+        <p id="sector-changing" style="display: none;"></p>
 	
 		<form action="{{ page_path }}" method="POST" id="fpds-search-form">
 

@@ -46,6 +46,28 @@ $(document).ready(function(){
         });        
     }
     
+    $('#id_sector_id').bind('change', function (evt) {
+        var opts = $(evt.currentTarget).children();
+        var val = $(evt.currentTarget).val();
+        var sector_name = $('#id_sector_id > option:selected').text();
+
+		var after_effect = function () {
+			var change_location = function () {
+				window.location = '/' + sector_name.toLowerCase() + '/contracts/search/';
+			};
+			setTimeout(change_location, 2000);
+		};
+
+        if (val == '') {
+            $('#sector-changing:hidden').text('Disabling sector-specific search options...');
+            $('#sector-changing:hidden').show();
+            $('#fpds-search-form:visible').effect('blind', {}, 500, after_effect);
+        } else {
+            $('#sector-changing:hidden').text('Changing to the ' + sector_name.toLowerCase() + ' sector...');
+            $('#sector-changing:hidden').show();
+            $('#fpds-search-form:visible').effect('blind', {}, 500, after_effect);
+        }
+    });
     
     // display the initially-selected "choose programs by" div
     DisplayProgramPanel($('#program-selector ul li input:checked').val());
