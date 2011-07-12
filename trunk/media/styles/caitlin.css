@@ -1621,7 +1621,9 @@ div.grants table, div.enplanements table {width: 320px}
 	padding-right: 17px;
 }
 
-
+.limits-of-energy th[scope=row]{
+	font-weight: normal;
+}
 
 
 
