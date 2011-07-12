@@ -1653,7 +1653,7 @@ div.grants table, div.enplanements table {width: 320px}
 	font-weight: normal;
 }
 
-#top-note-box dt, .subsidyscope-contributors dt{
+#top-note-box dt, .subsidyscope-contributors dt, #glossary dt{
 	font-weight: bold;
 }
 #top-note-box dd{
