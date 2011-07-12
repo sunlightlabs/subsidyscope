@@ -565,7 +565,7 @@ h4{
 	background: url('../images/nav_secondary_bg.png') left bottom no-repeat;
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x #F5F5F4; /* Old browsers */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -moz-linear-gradient(top, #F5F5F4 0%, #F5F5F4 20%); /* FF3.6+ */
-	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(20%,#F5F5F4)); /* Chrome,Safari4+ */
+	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F5F5F4), color-stop(20%,#F5F5F4)); /* Chrome,Safari4+ */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -webkit-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* Chrome10+,Safari5.1+ */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -o-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* Opera11.10+ */
 	background: url('../images/nav_secondary_bg.png') left bottom repeat-x, -ms-linear-gradient(top, #F5F5F4 0%,#F5F5F4 20%); /* IE10+ */
@@ -1308,7 +1308,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 
 #contact_form { padding:20px 0 0 0;  margin-bottom:2em;}
 #contact_form label { width: 8em;	float: left;	text-align: right;	margin-right: .5em;	display: block;	margin-bottom:1em; 	}
-#contact_form .submit input { 
+#contact_form button.submit  { 
 	font-size: 12px; 
 	margin-left:8.5em;
 	background: url('../images/button_contact_submit.png') center top no-repeat;
@@ -1316,6 +1316,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	height: 40px;
 	border: none;
 	text-indent: -9999em;
+	display: block;
 	
 } 
 #contact_form .submit input:hover { 
@@ -1658,7 +1659,7 @@ div.grants table, div.enplanements table {width: 320px}
 	font-weight: normal;
 }
 
-#top-note-box dt, .subsidyscope-contributors dt{
+#top-note-box dt, .subsidyscope-contributors dt, #glossary dt{
 	font-weight: bold;
 }
 #top-note-box dd{

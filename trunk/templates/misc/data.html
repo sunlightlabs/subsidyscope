@@ -19,12 +19,77 @@
 
 		<p>On this page you can find links to the data products that we offer and descriptions of what they contain.  Confused?  Have a suggestion?  <a href="{% url contact_form %}">Contact us</a> and we'll be happy to answer your questions.</p>
 
+
+<style>
+ul.inline-data-list li { width:100% !important; float: none !important; }
+</style>
 			<div id="data-page">	
 				<div class="data-section">
 					<h4>
-						<a class="section-title" href="{% url housing-index %}">Housing</a>
+						<a class="section-title" href="{% url tax_expenditures-main %}">Pew's Tax Expenditure Database</a>
 					</h4>
+			<p>Subsidyscope has created downloadable CSVs that contain the Treasury and JCT data in its tax expenditure database, broken out by budget year.  Please see Subsidyscope’s <a href="/tax_expenditures/db/">tax expenditure database</a> and <a href="/tax_expenditures/methodology/">methodology</a> for more information.</p>
                     <ul class="datasets">
+                        <li class="odd">
+                            <div class="top">
+                                <h5>Joint Committee on Taxation (JCT)</h5>
+                                <div class="downloads">
+                                    <ul class="inline-data-list">
+                                        <li><a href="/media/data/pted/JCT_2001.csv">Report Year 2001</a></li>
+                                        <li><a href="/media/data/pted/JCT_2002.csv">Report Year 2002</a></li>
+                                        <li><a href="/media/data/pted/JCT_2003.csv">Report Year 2003</a></li>
+                                        <li><a href="/media/data/pted/JCT_2004.csv">Report Year 2004</a></li>
+                                        <li><a href="/media/data/pted/JCT_2005.csv">Report Year 2005</a></li>
+                                        <li><a href="/media/data/pted/JCT_2006.csv">Report Year 2006</a></li>
+                                        <li><a href="/media/data/pted/JCT_2007.csv">Report Year 2007</a></li>
+                                        <li><a href="/media/data/pted/JCT_2008.csv">Report Year 2008</a></li>
+                                        <li><a href="/media/data/pted/JCT_2009.csv">Report Year 2009</a></li>
+                                        <li><a href="/media/data/pted/JCT_2010.csv">Report Year 2010</a></li>
+                                        <li><a href="/media/data/pted/JCT_2011.csv">Report Year 2011</a></li>
+                                        <li><a href="/media/data/pted/JCT_2012.csv">Report Year 2012</a></li>
+                                    </ul> 
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+			    <p class="description"></p>
+                            <p class="updated">
+                            Updated as budget documents become available; last update 7/13/2011
+                            </p>
+                        </li>
+                        <li class="even">
+                            <div class="top">
+                                <h5 style="width:100%;">Treasury</h5>
+                                <div class="downloads">
+                                    <ul class="inline-data-list">
+                                        <li><a href="/media/data/pted/Treasury_2001.csv">Report Year 2001</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2002.csv">Report Year 2002</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2003.csv">Report Year 2003</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2004.csv">Report Year 2004</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2005.csv">Report Year 2005</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2006.csv">Report Year 2006</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2007.csv">Report Year 2007</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2008.csv">Report Year 2008</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2009.csv">Report Year 2009</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2010.csv">Report Year 2010</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2011.csv">Report Year 2011</a></li>
+                                        <li><a href="/media/data/pted/Treasury_2012.csv">Report Year 2012</a></li>
+                                    </ul> 
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+			    <p class="description"></p>
+                            <p class="updated">
+                            Updated as budget documents become available; last update 7/13/2011
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+			    <div class="data-section">
+				<h4>
+					<a class="section-title" href="{% url housing-index %}">Housing</a>
+				</h4>
+                	<ul class="datasets">
 	                    <li class="odd">
                             <div class="top">
                             				<h5>CFDA/FAADS</h5>
