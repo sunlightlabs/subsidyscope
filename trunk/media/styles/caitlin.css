@@ -982,7 +982,7 @@ dl{
 	clear: both;
 }
 
-#staff-page h5{
+h4.staff-cat{
 	clear: both;
 	margin-top: 20px;
 }
@@ -1585,6 +1585,10 @@ tr.odd{
 	padding-left: 40px;
 	font-weight: 400;
 }
+.subdata.total th{
+	padding-left: 40px;
+	font-weight: 700;
+}
 
 th.group{
 	text-align: center;
@@ -1649,10 +1653,12 @@ div.grants table, div.enplanements table {width: 320px}
 	font-weight: normal;
 }
 
-#top-note-box dt{
+#top-note-box dt, .subsidyscope-contributors dt{
 	font-weight: bold;
 }
 #top-note-box dd{
 	margin-bottom: 20px;
 }
+
+
 
