@@ -828,9 +828,12 @@ h5{
 cite{
 	font-size: 11px;
 	color: #6a6a6a;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
 	display: block;
 	line-height: 18px;
+}
+cite p{
+	padding-bottom: 7px;
 }
 li cite{
 	font-size: 11px;
@@ -839,6 +842,32 @@ li cite{
 	display: block;
 	line-height: 18px;
 }
+
+/*------ footnotes ------*/
+.footnotes {font-style: italic;}
+ol.footnotes {font-size: 11px; color: #6a6a6a; margin-bottom: 20px}
+ol.footnotes li {margin-bottom: 7px; line-height: 18px;}
+a.footnote {font-size: 11px; position: relative; top: -0.8em;}
+p.footnotes{font-size: 11px; color: #6a6a6a; line-height: 18px; padding-bottom: 7px;}
+
+.attribution { font-size: 0.9em; margin-bottom: 20px; margin-top: 10px; display:block; text-align:left; padding-right:20px;}
+
+time {
+	font-size: 12px;
+	color: #6a6a6a;
+	text-align: right;
+	width: 660px;
+	display: block;
+	padding-top: 20px;
+}
+
+
+
+
+
+
+
+
 
 /*------ CHARTS ------*/
 
@@ -863,14 +892,7 @@ div.charts.right {
 	padding: 20px 0 20px 20px;
 }
 
-/*------ footnotes ------*/
-.footnotes { margin-top: 20px}
-ol.footnotes { font-size: 0.9em; color: #6a6a6a;}
-ol.footnotes li { margin-bottom: 0.8em; line-height: 1.3em;}
-a.footnote { font-size: 0.7em; position: relative; top: -0.8em;}
-.footnotes p{ font-size: 0.9em; color: #6a6a6a; line-height: 1.3em; }
 
-.attribution { font-size: 0.9em; margin-bottom: 20px; margin-top: 10px; display:block; text-align:left; padding-right:20px;}
 
 
 /*------ PTED styling ------*/
@@ -1627,10 +1649,10 @@ div.grants table, div.enplanements table {width: 320px}
 	font-weight: normal;
 }
 
-.summary dt{
+#top-note-box dt{
 	font-weight: bold;
 }
-.summary dd{
+#top-note-box dd{
 	margin-bottom: 20px;
 }
 
