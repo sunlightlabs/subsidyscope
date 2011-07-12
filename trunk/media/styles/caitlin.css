@@ -1303,7 +1303,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 
 #contact_form { padding:20px 0 0 0;  margin-bottom:2em;}
 #contact_form label { width: 8em;	float: left;	text-align: right;	margin-right: .5em;	display: block;	margin-bottom:1em; 	}
-#contact_form .submit input { 
+#contact_form button.submit  { 
 	font-size: 12px; 
 	margin-left:8.5em;
 	background: url('../images/button_contact_submit.png') center top no-repeat;
@@ -1311,6 +1311,7 @@ ul.subselect {margin-top:0px; margin-left:0px;}
 	height: 40px;
 	border: none;
 	text-indent: -9999em;
+	display: block;
 	
 } 
 #contact_form .submit input:hover { 
