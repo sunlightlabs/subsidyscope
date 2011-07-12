@@ -20,14 +20,18 @@
 
         <div class="page-content">    
             <h5>Program Summary and Objectives</h5>
-            <span class="floatright inline-box">
-            <ul>
-                <li class="sencase"><strong>Federal Agency:&nbsp;</strong> {{ program.federal_agency|lower|safe}}</li>
-                <li><strong>Program Website:&nbsp;</strong>{{program.web_site_address}}</li>
-                <li><strong>Authorization:&nbsp;</strong>{{program.authorization}}</li>
-                <li><strong>Headquarters:&nbsp;</strong>{{program.headquarters_office|striptags}}</li>
-            </ul>        
-            </span>
+            <aside class="top-note-box">
+            <dl>
+                <dt class="sencase">Federal Agency:&nbsp;</dt> 
+				<dd>{{ program.federal_agency|lower|safe}}</dd>
+                <dt>Program Website:&nbsp;</dt>
+				<dd>{{program.web_site_address}}</dd>
+                <dt>Authorization:&nbsp;</dt>
+				<dd>{{program.authorization}}</dd>
+                <dt>Headquarters:&nbsp;</dt>
+				<dd>{{program.headquarters_office|striptags}}</dd>
+            </dl>        
+            </aside>
             <p>{{objectives|safe}}{% ifnotequal objectives2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{objectives2|safe}}</span>
             {% endifnotequal %}
             </p>
@@ -37,9 +41,13 @@
             <p>{{accomps|safe}}{% ifnotequal accomps2 "" %}<a href="#" class="js-show"> ... &raquo;read more</a><span class="hide">{{accomps2|safe}}</span>
             {% endifnotequal %}
             </p>
-            <h5>Program Obligations<br/><span style="font-size:0.9em; font-weight: normal">(as compiled by Subsidyscope)</span></h5>
-            <p style="margin: 10px auto;width:220px; display:block;font-weight:bold; ">Direct Expenditures Over Time</p>
+			<div>
+            <h4>Program Obligations</h5>
+			<span>(as compiled by Subsidyscope)</span>
+            <h4>Direct Expenditures Over Time</h4>
             <span id="spendingchart" style="margin-top:10px;"><!--Alternative chart pic goes here maybe?--></span>
+
+			</div>
 {%comment%}            <p style="font-size:1em; color:gray;">
             {% if citation %}*{{citation}}{% endif %}
             {% if url %}
@@ -50,7 +58,7 @@
         </div>
 </div>
 <script type="text/javascript" charset="utf-8">
-        swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "spendingchart", "900", "400", "9.0.0", "expressInstall.swf", {"data-file":"/transportation/direct-expenditures/getchart/{{program.id}}/"});
+        swfobject.embedSWF("/media/scripts/open-flash-chart.swf", "spendingchart", "660", "400", "9.0.0", "expressInstall.swf", {"data-file":"/transportation/direct-expenditures/getchart/{{program.id}}/"});
 $(document).ready(function(){
     $(".js-show").click(function(){$(this).siblings('span.hide').show().end().hide();return false;});
 });
