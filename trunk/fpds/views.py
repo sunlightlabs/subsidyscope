@@ -40,9 +40,11 @@ def MakeFPDSSearchFormClass(sector=None, subsectors=[]):
 
     class FPDSSearchForm(forms.Form):
 
-        sector_id_choices = [('', 'All Sectors')] + [(s.id, s.name) 
-                                                     for s in Sector.objects.all()
-                                                     if s.launched == True]
+        sector_id_choices = [(s.id, s.name) 
+                             for s in Sector.objects.all()
+                             if s.launched == True
+                             and s.name.lower() in ("energy", "nonprofits", 
+                                                    "housing")] # HACK ALERT!
         sector_id = forms.ChoiceField(
             label='Economic Sector',
             choices=sector_id_choices,

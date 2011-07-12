@@ -18,6 +18,8 @@
 	{% js "scripts/ui.core.js" %}
 	{% js "scripts/ui.tabs.js" %}
 	{% js "scripts/ui.datepicker.js" %}
+	{% js "scripts/effects.core.js" %}
+	{% js "scripts/effects.blind.js" %}
 	
 	{% js "scripts/swfobject.js" %}
 	{% js "scripts/fpds-search.js?version=4" %}
@@ -52,6 +54,8 @@ var sortOrder = '{{ sort_order }}';
 	            <h2>{% morsel_page_title %} (FY 2000&ndash;2010)</h2> 
 	
 		<p>{% morsel text1 %}</p>
+        
+        <p id="sector-changing" style="display: none;"></p>
 	
 		<form action="{{ page_path }}" method="POST" id="fpds-search-form">
 
@@ -206,13 +210,11 @@ var sortOrder = '{{ sort_order }}';
 
 
 
-					  <div class="pagination-block">
-		                  <span>
+		                  <span class="pagination-block">
 		                      {% for page_num in page_range %}
 		                          <a href="?q={{ query|safe }}&page={{ page_num }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">{{ page_num }}</a>
 		                      {% endfor %}
 		                  </span>
-		              </div>
 
                       {% if fpds_results.has_next %}
                           <a href="?q={{ query|safe }}&page={{ fpds_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &rsaquo;</a>

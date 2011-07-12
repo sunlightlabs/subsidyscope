@@ -183,7 +183,7 @@ def getProgramIndex(request, sector_name):
     sector = Sector.objects.get(name__iexact=sector_name)
     subsectors = Subsector.objects.filter(parent_sector=sector)
     programs = ProgramDescription.objects.filter(sectors=sector)
-    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'filter':filter, 'tags': tags, 'subsectors': subsectors, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html"}, context_instance=RequestContext(request), )
+    return render_to_response('cfda/cfda_programs.html', {'programs': programs, 'filter':filter, 'tags': tags, 'subsectors': subsectors, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'sector': sector}, context_instance=RequestContext(request), )
 
 def getFAADSLineItems(request, cfda_id, sector_name):
     program = ProgramDescription.objects.get(id=cfda_id)
