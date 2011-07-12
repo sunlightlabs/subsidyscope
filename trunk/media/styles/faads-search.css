@@ -113,11 +113,11 @@ margin-right: 20px;
     width: 60%;
 }
 
-.pagination {text-align: center; margin-top: 20px; display: inline-block; margin-left: 150px; margin-right: 150px;}
-.pagination-block { text-align: center; font-size: ; margin-top: 0; display: block; float: left;}
+.pagination {text-align: center; margin-top: 20px; display: block; margin-left: auto; margin-right: auto;}
+.pagination-block { text-align: center; font-size: ; margin-top: 0;}
 .pagination .current { padding: 10px 20px 0 20px; text-align: center;  display: block; clear: left}
-.step-links .disabled, .step-links a { padding: 0 10px; display: block; float: left;}
-.step-links .disabled { color: #888; display: block; float: left}
+.step-links .disabled, .step-links a { padding: 0 10px; display: inline;}
+.step-links .disabled { color: #888; display: inline;}
  
 
 #tabs ul { margin-bottom: 0px;}
