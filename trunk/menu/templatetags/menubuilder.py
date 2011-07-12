@@ -18,6 +18,33 @@ def recursive_menu(context):
         except:
             this_menu = None
         this_menu_item = None
+
+
+    if current_path.startswith('/bailout'):
+        import logging
+        logging.debug("in bailout")
+        #super mega hack for bailout ordering -- Fix later you bum! (Kaitlin)
+        sub_menus_1 = ( Menu.objects.get(id=11),)
+        menu_items_1 = (MenuItem.objects.get(id=86),)
+        html = get_menu(current_path, slug, menu, sub_menus_1, menu_items_1, this_menu_item, this_menu)
+    
+        html += get_menu_ugly_fdic_exception(current_path, slug, menu, [Menu.objects.get(id=14),], [], this_menu_item, this_menu)
+        logging.debug(html)
+        sub_menus_2 = (Menu.objects.get(id=16),)
+        html += get_menu(current_path, slug, menu, sub_menus_2, [], this_menu_item, this_menu)
+
+    else:
+        html = get_menu(current_path, slug, menu, sub_menus, menu_items, this_menu_item, this_menu)
+
+    menu_data = '<ul>' + ''.join(html) + '</ul>'
+
+    if current_path.startswith('/tax_expenditures'):
+        return { 'menu_data': menu_data, 'menu_items': menu_items, 'pted':True }
+    else:
+        return { 'menu_data': menu_data, 'menu_items': menu_items }
+
+
+def get_menu(current_path, slug, menu, sub_menus, menu_items, this_menu_item, this_menu):
     html = []
     for sm in sub_menus:
         menu_list = []
@@ -64,11 +91,68 @@ def recursive_menu(context):
             html.append('<li class="active"><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li>')
         else:
             html.append('<li><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li>')
-    menu_data = '<ul>' + ''.join(html) + '</ul>'
-    if current_path.startswith('/tax_expenditures'):
-        return { 'menu_data': menu_data, 'menu_items': menu_items, 'pted':True }
-    else:
-        return { 'menu_data': menu_data, 'menu_items': menu_items }
+
+    return ''.join(html)
+
+
+def get_menu_ugly_fdic_exception(current_path, slug, menu, sub_menus, menu_items, this_menu_item, this_menu):  #omigod destroy this asap
+    html = []
+    for sm in sub_menus:
+        menu_list = []
+        current_page = False
+        mis = MenuItem.objects.filter(menu=sm)
+        if current_path.startswith(mis[0].link_url):
+            menu_list.append('<li class="active"><a href="' + mis[0].link_url + '">'+ mis[0].title + '</a></li>')
+            current_page = True
+        else:
+            menu_list.append('<li><a href="' + mis[0].link_url + '">'+ mis[0].title+ '</a></li>')
+
+        for lm in Menu.objects.filter(parent_menu_id=sm.id):
+            leaf_menu = []
+            current_leaf_page = False
+            for lm_item in MenuItem.objects.filter(menu=lm):
+                if current_path.startswith(lm_item.link_url):
+                    leaf_menu.append('<li class="active"><a href="' + lm_item.link_url + '">'+ lm_item.title + '</a></li>')
+                    current_leaf_page = True
+                else:
+                    leaf_menu.append('<li><a href="' + lm_item.link_url + '">'+ lm_item.title + '</a></li>')
+            if current_leaf_page or lm.base_url == current_path:
+                leaf_menu.insert(0, '<li class="active"><a href="' + lm.base_url + '">' + lm.name + '</a><ul>')
+            else:
+                leaf_menu.insert(0, '<li><a href="'+ lm.base_url + '">' + lm.name + '</a><ul>')
+
+            leaf_menu.append('</ul></li>')
+
+            menu_list.extend(leaf_menu)
+        
+
+        
+        for mi in mis[1:]:
+            if current_path.startswith(mi.link_url):
+                menu_list.append('<li class="active"><a href="' + mi.link_url + '">'+ mi.title + '</a></li>')
+                current_page = True
+            else:
+                menu_list.append('<li><a href="' + mi.link_url + '">'+ mi.title+ '</a></li>')
+ 
+        if current_page or \
+            current_path.startswith(sm.base_url) or \
+            (this_menu_item and this_menu_item.menu and this_menu_item.menu.parent_menu_id == sm.id ) or \
+            (this_menu and this_menu.parent_menu_id == sm.id):
+            menu_list.insert(0, '<li class="active"><span class="expanded accordion"></span><a href="'+ sm.base_url + '">'+ sm.name +'</a><ul>')
+        else:
+            menu_list.insert(0, '<li><span class="collapsed accordion"></span><a href="' + sm.base_url + '">' + sm.name + '</a><ul class="collapsed">')
+       
+        menu_list.append('</ul></li>')
+#        menu_data.append(menu_list)
+        html.extend(menu_list)
+    
+    for mi in menu_items:
+        if current_path.startswith(mi.link_url):
+            html.append('<li class="active"><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li>')
+        else:
+            html.append('<li><span class="accordion"></span><a href="'+mi.link_url +'">'+ mi.title + '</a></li>')
+
+    return ''.join(html)
 
 
 def build_menu(parser, token):
