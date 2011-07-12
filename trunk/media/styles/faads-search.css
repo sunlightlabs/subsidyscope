@@ -252,14 +252,14 @@ table.summary-data .null-value { text-align: center; }
 #summary-container{
 	width: 660px;
 	overflow-x: scroll;
-	overflow-y: visible;
+	overflow-y: hidden;
 	height: 100%;
 }
 
 #state-summary-container{
 	width: 660px;
 	overflow-x: scroll;
-	overflow-y: visible;
+	overflow-y: hidden;
 	height: 100%;
 }
 
