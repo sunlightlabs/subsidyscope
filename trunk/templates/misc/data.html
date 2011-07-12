@@ -21,13 +21,14 @@
 
 
 <style>
-ul.inline-data-list li { width:100% !important;}
+ul.inline-data-list li { width:100% !important; float: none !important; }
 </style>
 			<div id="data-page">	
 				<div class="data-section">
 					<h4>
 						<a class="section-title" href="{% url tax_expenditures-main %}">Pew's Tax Expenditure Database</a>
 					</h4>
+			<p>Subsidyscope has created downloadable CSVs that contain the Treasury and JCT data in its tax expenditure database, broken out by budget year.  Please see Subsidyscope’s tax expenditure database and methodology for more information.</p>
                     <ul class="datasets">
                         <li class="odd">
                             <div class="top">
@@ -59,7 +60,7 @@ ul.inline-data-list li { width:100% !important;}
                         </li>
                         <li class="even">
                             <div class="top">
-                                <h5>Treasury</h5>
+                                <h5 style="width:100%;">Treasury</h5>
                                 <div class="downloads">
                                     <ul class="inline-data-list">
                                         <li><a href="/media/data/pted/Treasury_2001.csv">Report Year 2001</a></li>
