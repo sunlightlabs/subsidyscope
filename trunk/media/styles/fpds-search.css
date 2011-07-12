@@ -273,7 +273,7 @@ a#screencast-link { text-decoration:none; font-size: 10px;}
 #summary-container{
 	width: 660px;
 	overflow-x: scroll;
-	overflow-y: visible;
+	overflow-y: hidden;
 	height: 100%;
 }
 
