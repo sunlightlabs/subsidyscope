@@ -21,15 +21,12 @@ def recursive_menu(context):
 
 
     if current_path.startswith('/bailout'):
-        import logging
-        logging.debug("in bailout")
         #super mega hack for bailout ordering -- Fix later you bum! (Kaitlin)
         sub_menus_1 = ( Menu.objects.get(id=11),)
-        menu_items_1 = (MenuItem.objects.get(id=86),)
-        html = get_menu(current_path, slug, menu, sub_menus_1, menu_items_1, this_menu_item, this_menu)
-    
+        html = get_menu(current_path, slug, menu, sub_menus_1, [], this_menu_item, this_menu)
         html += get_menu_ugly_fdic_exception(current_path, slug, menu, [Menu.objects.get(id=14),], [], this_menu_item, this_menu)
-        logging.debug(html)
+        menu_items_1 = (MenuItem.objects.get(id=86),)
+        html += get_menu(current_path, slug, menu, [], menu_items_1, this_menu_item, this_menu)
         sub_menus_2 = (Menu.objects.get(id=16),)
         html += get_menu(current_path, slug, menu, sub_menus_2, [], this_menu_item, this_menu)
 
