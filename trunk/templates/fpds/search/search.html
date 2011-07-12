@@ -206,13 +206,11 @@ var sortOrder = '{{ sort_order }}';
 
 
 
-					  <div class="pagination-block">
-		                  <span>
+		                  <span class="pagination-block">
 		                      {% for page_num in page_range %}
 		                          <a href="?q={{ query|safe }}&page={{ page_num }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">{{ page_num }}</a>
 		                      {% endfor %}
 		                  </span>
-		              </div>
 
                       {% if fpds_results.has_next %}
                           <a href="?q={{ query|safe }}&page={{ fpds_results.next_page_number }}{% if sort_column %}&s={{ sort_column }}{% endif %}{% if sort_order %}&o={{ sort_order }}{% endif %}">next &rsaquo;</a>
