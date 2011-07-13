@@ -46,7 +46,7 @@ var sortOrder = '{{ sort_order }}';
 <div id="{% morsel_sector_title %}" class="wrapper clearfix">	
 
         <div class="secondary-header">
-			<h3>{% morsel_sector_title %}</h3>
+			<h3>{% if sector %}{% morsel_sector_title %}{% else %}{% morsel_page_title %}{% endif %}</h3>
         </div>
        {% recursive_menu %}
 
