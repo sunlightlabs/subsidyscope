@@ -609,7 +609,13 @@ def _get_program_summary_data(results, year_range, sector_name):
     for (program_id, year_data) in results['program'].items():
         if program_id is None:
             continue
-        row = ["<a href=\"%s\">%s %s</a>" % (reverse('%s-cfda-programpage' % sector_name, None, (program_id,)), programs[program_id].program_number, programs[program_id].program_title)]
+        if sector_name is not None:
+            # This path will be hit when we're rendering to the browser
+            row = ["<a href=\"%s\">%s %s</a>" % (reverse('%s-cfda-programpage' % sector_name, None, (program_id,)), programs[program_id].program_number, programs[program_id].program_title)]
+        else:
+            # This path will be hit when we're rendering to a CSV
+            row = ["%s %s" % (programs[program_id].program_number, programs[program_id].program_title)]
+
         for year in year_range:
             annual_total = year_data.get(year, None)
             row.append(annual_total)
@@ -644,7 +650,7 @@ def summary_statistics_csv(request, sector_name=None, first_column_label='', dat
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
 
-            data = data_fetcher(results, year_range)
+            data = data_fetcher(results, year_range, sector_name)
             
             response = HttpResponse(mimetype="text/csv")
             response['Content-Disposition'] = "attachment; filename=%s-%s.csv" % (request.GET['q'], first_column_label.replace(" ", "_").lower())
