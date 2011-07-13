@@ -422,7 +422,7 @@ def recurse_category(parent, writer, indent, budget_function):
                         total_estimates[estimate.estimate_year] = 0
                         corp_estimates[estimate.estimate_year] = '>-50'
                     else:
-                        if estimate.corporations_amount:
+                        if estimate.corporations_amount != None:
                             corp_estimates[estimate.estimate_year] = estimate.corporations_amount
                             total_estimates[estimate.estimate_year] = estimate.corporations_amount
                     
@@ -441,7 +441,7 @@ def recurse_category(parent, writer, indent, budget_function):
                         indv_estimates[estimate.estimate_year] = '>-50'
                         
                     else:
-                        if estimate.individuals_amount:
+                        if estimate.individuals_amount != None:
                             indv_estimates[estimate.estimate_year] = estimate.individuals_amount
                             
                             if total_estimates[estimate.estimate_year]:
