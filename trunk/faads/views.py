@@ -56,7 +56,7 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
     cfda_program_choices = []
     initial_cfda_program_choices = []
     for c in cfda_programs:
-        cfda_link_name = '%s-cfda-programpage' % sector.name.lower()
+        cfda_link_name = '%s-cfda-programpage' % (sector.name.lower() if sector else 'allsectors')
         cfda_program_choices.append( (c.id, '<span class="cfda-program-details">(<a href="%s">details</a>)</span>%s' % (reverse(cfda_link_name, None, (c.id,)), c.program_title)) )        
         # if no subsector has been defined, check all boxes
         if len(subsectors)==0:
@@ -100,13 +100,10 @@ def MakeFAADSSearchFormClass(sector=None, subsectors=[]):
         text_query = forms.CharField(label='Text Search', required=False, max_length=100)
         text_query_type = forms.TypedChoiceField(label='Text Search Target', widget=forms.RadioSelect, choices=((0, 'Recipient Name'), (1, 'Project Description'), (2, 'Both')), initial=2, coerce=int)
         
-        sector_id_choices = [(s.id, s.name) 
-                             for s in Sector.objects.all()
-                             if s.launched == True
-                             and s.name.lower() in ("transportation",
-                                                    "nonprofits",
-                                                    "housing",
-                                                    "energy")] # HACK ALERT!
+        sector_id_choices = [(u'', 'All Sectors')] + [(s.id, s.name) 
+                                                      for s in Sector.objects.all()
+                                                      if s.launched == True
+                                                      and s.faads_search == True]
                                                      
         sector_id = forms.ChoiceField(label='Economic Sector',
                                       choices=sector_id_choices,
@@ -381,13 +378,13 @@ def search(request, sector_name=None):
             form = formclass(querydict)
             
             if form.is_valid():
-                url_name_prefix = sector_name or 'all'
+                url_name_prefix = sector_name or 'allsectors'
                 redirect_url = reverse('%s-faads-search' % url_name_prefix) + ('?q=%s' % compress_querydict(querydict))
                 return HttpResponseRedirect(redirect_url)
             else:
                 raise Exception(form.errors)
         else:
-            return HttpResponseRedirect(reverse('%s-faads-search' % sector.name))
+            return HttpResponseRedirect(reverse('%s-faads-search' % (sector_name or 'allsectors')))
         
     # if this is a get w/ a querystring, unpack the form 
     if request.method == 'GET':
@@ -703,7 +700,7 @@ def program_summary_statistics(request, sector_name=None):
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
                         
-            program_data, program_totals = _get_program_summary_data(results, year_range, sector.name.lower())
+            program_data, program_totals = _get_program_summary_data(results, year_range, sector.name.lower() if sector else 'allsectors')
                 
             return render_to_response('faads/search/program_summary_table.html', {'program_data':program_data, 'program_totals':program_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
 

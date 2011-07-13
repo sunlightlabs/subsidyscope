@@ -50,7 +50,10 @@ urlpatterns = patterns('',
     url(r'^budget_capture/', include('budget_capture.urls')),
     url(r'^faads/', include('faads.urls')),
     url(r'^fpds/', include('fpds.urls')),
-    url(r'^direct-expenditures/search/', 'faads.views.search', name='all-faads-search'),
+    url(r'^direct-expenditures/programs/(?P<cfda_program_number>\d{2}\.\d{3})/', 'cfda.views.getProgramByCFDANumber', name='allsectors-cfda-programpage-by-programnumber'),    
+    url(r'^direct-expenditures/programs/(?P<cfda_id>[0-9]+)/', 'cfda.views.getProgram', name='allsectors-cfda-programpage'),
+    url(r'^direct-expenditures/search/', 'faads.views.search', name='allsectors-faads-search'),
+    url(r'^direct-expenditures/programs/(?P<cfda_id>[0-9]+)/', 'cfda.views.getProgram', name='allsectors-cfda-programpage'),
     url(r'^contracts/search/', 'fpds.views.search', name='all-fpds-search')
 )
 

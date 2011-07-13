@@ -151,12 +151,12 @@ def ajaxChart(request, cfda_id):
     html = t.render(c)
     return HttpResponse(html)
 
-def getProgramByCFDANumber(request, cfda_program_number, sector_name):
+def getProgramByCFDANumber(request, cfda_program_number, sector_name=None):
     program = get_object_or_404(ProgramDescription, program_number=cfda_program_number)
     return getProgram(request, program.id, sector_name)
         
 
-def getProgram(request, cfda_id, sector_name):
+def getProgram(request, cfda_id, sector_name=None):
     program = ProgramDescription.objects.select_related().get(id=int(cfda_id))
     subsectors = program.subsectors.all()
     objectives = program.objectives
@@ -171,8 +171,10 @@ def getProgram(request, cfda_id, sector_name):
     if len(accomps) > 800:
         accomps2 = accomps[800:]
         accomps = accomps[:800]
-    
-    return render_to_response('cfda/programs.html', {'program': program, 'subsectors': subsectors, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'navname': "includes/"+sector_name+"_nav.html", 'citation': citation, 'url': url, 'request': request, 'sector': Sector.objects.get(name=sector_name)})
+
+    sector = Sector.objects.filter(programdescription__id=cfda_id)[0]
+
+    return render_to_response('cfda/programs.html', {'program': program, 'subsectors': subsectors, 'objectives': objectives, 'objectives2': objectives2, 'accomps': accomps, 'accomps2': accomps2, 'sector_name': sector_name, 'citation': citation, 'url': url, 'request': request, 'sector': sector})
 
 def getProgramIndex(request, sector_name):
     tags = CFDATag.objects.all()

@@ -48,7 +48,11 @@ $(document).ready(function(){
 
 		var after_effect = function () {
 			var change_location = function () {
-				window.location = '/' + sector_name.toLowerCase() + '/direct-expenditures/search/';
+				if (val.length > 0) {
+					window.location = '/' + sector_name.toLowerCase() + '/direct-expenditures/search/';
+				} else {
+					window.location = '/direct-expenditures/search/';
+				}
 			};
 			setTimeout(change_location, 2000);
 		};

@@ -46,10 +46,11 @@ var sortOrder = '{{ sort_order }}';
 
 <div class="wrapper clearfix" id="{% morsel_sector_title %}">	
 	<div class="secondary-header">
-            <a id="screencast-link-container" href="{% url screencast %}">Need help? Watch the screencast.</a>
-			<h3>{% morsel_sector_title %}</h3>
-			
-        </div>
+		<a id="screencast-link-container" href="{% url screencast %}">Need help? Watch the screencast.</a>
+			<h3>{% if sector %}{% morsel_sector_title %}{% else %}{% morsel_page_title %}{% endif %}</h3> 
+
+	</div>
+
 	    {% recursive_menu %}
 
         <div class="page-content">    
@@ -253,7 +254,7 @@ var sortOrder = '{{ sort_order }}';
                 {% for result in faads_results.object_list %}
                   <tr class="{% cycle "odd" "even" %}" rel="faads_record_id-{{ result.object.record_id }}">
                     <td class="obligation-date">{{ result.object.obligation_action_date }}</td>
-                    <td class="cfda-program"><a href="/{{ sector }}/direct-expenditures/programs/{{ result.object.cfda_program.program_number }}/" title="{{ result.object.cfda_program.program_number }} {{ result.object.cfda_program.program_title }}">{{ result.object.cfda_program.program_number }}</a></td>
+					<td class="cfda-program"><a href="{% if sector %}/{{ sector }}{% endif %}/direct-expenditures/programs/{{ result.object.cfda_program.program_number }}/" title="{{ result.object.cfda_program.program_number }} {{ result.object.cfda_program.program_title }}">{{ result.object.cfda_program.program_number }}</a></td>
                     <td class="recipient-name">{{ result.object.recipient_name }}</td>
                     <td class="recipient-location">{{ result.object.recipient_city_name_for_display }}{% if result.object.recipient_city_name %}{% if result.object.recipient_state_name %},&nbsp;{% endif %}{% endif %}{{ result.object.recipient_state.abbreviation }}</td>
                     <td class="place-of-performance">{{ result.object.principal_place_county_or_city_name_for_display }}{% if result.object.principal_place_state %}{% if result.object.principal_place_county_or_city_name %},&nbsp;{% endif %}{% endif %}{{ result.object.principal_place_state.abbreviation }}</td>
