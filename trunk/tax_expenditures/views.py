@@ -272,7 +272,7 @@ def te_csv(request, group_id=None):
             writer.writerow((lower_level_footnote,))
             writer.writerow(("",))
             writer.writerow(header_summary[:len(header_summary)-1])
-            recurse_category(parent, writer, '', budget_function)
+            budget_function_summary(parent, writer, '', budget_function)
     
     else:
         writer.writerow((general_footnote,))
@@ -304,7 +304,6 @@ def parent_summary(group, writer):
                 except:
                     row.append('')
         writer.writerow(row)
-
 
 
 def line_item_csv(parent, writer, budget_function, indent='*', name_prefix=''):
@@ -381,6 +380,63 @@ def line_item_csv(parent, writer, budget_function, indent='*', name_prefix=''):
         
         row.append(expenditure.notes)
         writer.writerow(row)                  
+
+
+def budget_function_summary(bf, writer, indent, budget_function_name):
+    notes_hash = [None, '<50', '>-50']
+    subgroups = Group.objects.filter(parent=bf)
+    for sg in subgroups:
+        jct_exp = Expenditure.objects.filter(source=1, group=sg).order_by('-analysis_year')
+        if len(jct_exp) > 0:
+            bname = jct_exp[0].name
+        else:
+            bname = '---'
+
+        row = ['', budget_function_name, sg.name, bname, 'JCT']
+
+        for estimate in (3, 1, 2):
+            jct_summary_dict = {}
+            for summary in sg.groupsummary_set.filter(source=GroupSummary.SOURCE_JCT, estimate=estimate):
+                if (summary.amount == 0 or not summary.amount) and summary.notes:
+                    if estimate == 3:
+                        jct_summary_dict[summary.estimate_year] = {'amount': 0}
+                    else:
+                        jct_summary_dict[summary.estimate_year] = {'amount': notes_hash[summary.notes]}
+                else:
+                    jct_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': notes_hash[summary.notes]}
+            
+            for year in TE_YEARS:
+                if jct_summary_dict.has_key(year):
+                    row.append(jct_summary_dict[year]['amount'])
+                else:
+                    row.append(None)
+            
+        writer.writerow(row)
+
+        treas_exp = Expenditure.objects.filter(source=2, group=sg).order_by('-analysis_year')
+        if len(treas_exp) > 0:
+            bname = treas_exp[0].name
+        else:
+            bname = '---'
+        row = ['', budget_function_name, sg.name, bname, 'Treasury']
+        for estimate in (3, 1, 2):
+            treasury_summary_dict = {}
+            for summary in sg.groupsummary_set.filter(source=GroupSummary.SOURCE_TREASURY, estimate=estimate):
+                if (summary.amount == 0 or not summary.amount) and summary.notes:
+                    if estimate == 3:
+                        treasury_summary_dict[summary.estimate_year] = {'amount': 0}
+                    else:
+                        treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[summary.notes]}
+                else:
+                    treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': notes_hash[summary.notes]}
+            
+            for year in TE_YEARS:
+                if treasury_summary_dict.has_key(year):
+                    row.append(treasury_summary_dict[year]['amount'])
+                else:
+                    row.append(None)
+
+        writer.writerow(row)
 
 
 def recurse_category(parent, writer, indent, budget_function):
