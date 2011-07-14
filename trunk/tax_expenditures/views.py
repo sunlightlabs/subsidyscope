@@ -438,10 +438,10 @@ def budget_function_summary(bf, writer, indent, budget_function_name):
                         temp_exp = temp_exp.filter(Q(individuals_amount__isnull=False) | Q(corporations_amount__isnull=False) | Q(individuals_notes__isnull=False) | Q(corporations_notes__isnull=False))
                         if len(temp_exp) > 0: 
                             t = temp_exp[0]
-                        if estimate == 2 and t.individuals_notes is not None:
-                            treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.individuals_notes]}
-                        elif t.corporations_notes is not None:
-                            treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.corporations_notes]}
+                            if estimate == 2 and t.individuals_notes is not None:
+                                treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.individuals_notes]}
+                            elif t.corporations_notes is not None:
+                                treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.corporations_notes]}
                 else:
                     treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': notes_hash[summary.notes]}
             
