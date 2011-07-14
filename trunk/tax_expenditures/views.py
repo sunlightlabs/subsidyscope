@@ -270,8 +270,9 @@ def te_csv(request, group_id=None):
         else:
             #need footnote disclaimer
             writer.writerow((general_footnote,))
-            writer.writerow((lower_level_footnote,))
-            writer.writerow(("",))
+#            writer.writerow((lower_level_footnote,))
+
+            writer.writerow(("""The Joint Committee on Taxation (JCT) does not provide numerical data for values that are between -$50 million and $50 million. Rather it provides a footnote indicating that the values are either "greater than -$50 million" or "less than $50 million." The estimates in the individual and corporation columns from the JCT may contain values between -$50 million and $50 million (denoted as *). When aggregated, in the totals column, the sums of these values are unknown and thus are rounded to zero. For more information, see Subsidyscope's methodology.""",))
             writer.writerow(header_summary[:len(header_summary)-1])
             budget_function_summary(parent, writer, '', budget_function)
     
@@ -399,17 +400,17 @@ def budget_function_summary(bf, writer, indent, budget_function_name):
             jct_summary_dict = {}
             for summary in sg.groupsummary_set.filter(source=GroupSummary.SOURCE_JCT, estimate=estimate):
                 if ( not summary.amount) and summary.notes:
-                    if estimate == 3:
-                        jct_summary_dict[summary.estimate_year] = {'amount': 0}
-                    else:
-                        temp_exp = Estimate.objects.filter(expenditure__source=1, expenditure__group=sg, estimate_year=summary.estimate_year).order_by('-expenditure__analysis_year')
-                        temp_exp = temp_exp.filter(Q(individuals_amount__isnull=False) | Q(corporations_amount__isnull=False) | Q(individuals_notes__isnull=False) | Q(corporations_notes__isnull=False))
-                        if len(temp_exp) > 0: 
-                            t = temp_exp[0]
-                            if estimate == 2 and t.individuals_notes is not None:
-                                jct_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.individuals_notes]}
-                            elif t.corporations_notes is not None:
-                                jct_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.corporations_notes]}
+ #                   if estimate == 3:
+                    jct_summary_dict[summary.estimate_year] = {'amount': '*'}
+#                    else:
+        #                temp_exp = Estimate.objects.filter(expenditure__source=1, expenditure__group=sg, estimate_year=summary.estimate_year).order_by('-expenditure__analysis_year')
+         #               temp_exp = temp_exp.filter(Q(individuals_amount__isnull=False) | Q(corporations_amount__isnull=False) | Q(individuals_notes__isnull=False) | Q(corporations_notes__isnull=False))
+          #              if len(temp_exp) > 0: 
+           #                 t = temp_exp[0]
+#                        if estimate == 2 and t.individuals_notes is not None:
+ #                           jct_summary_dict[summary.estimate_year] = {'amount': '*' } # notes_hash[t.individuals_notes]}
+  #                      elif t.corporations_notes is not None:
+   #                         jct_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.corporations_notes]}
                 else:
                     jct_summary_dict[summary.estimate_year] = {'amount': summary.amount}
             
@@ -431,17 +432,17 @@ def budget_function_summary(bf, writer, indent, budget_function_name):
             treasury_summary_dict = {}
             for summary in sg.groupsummary_set.filter(source=GroupSummary.SOURCE_TREASURY, estimate=estimate):
                 if (not summary.amount) and summary.notes:
-                    if estimate == 3:
-                        treasury_summary_dict[summary.estimate_year] = {'amount': 0}
-                    else:
-                        temp_exp = Estimate.objects.filter(expenditure__source=2, expenditure__group=sg, estimate_year=summary.estimate_year).order_by('-expenditure__analysis_year')
-                        temp_exp = temp_exp.filter(Q(individuals_amount__isnull=False) | Q(corporations_amount__isnull=False) | Q(individuals_notes__isnull=False) | Q(corporations_notes__isnull=False))
-                        if len(temp_exp) > 0: 
-                            t = temp_exp[0]
-                            if estimate == 2 and t.individuals_notes is not None:
-                                treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.individuals_notes]}
-                            elif t.corporations_notes is not None:
-                                treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.corporations_notes]}
+                    #if estimate == 3:
+                    treasury_summary_dict[summary.estimate_year] = {'amount': '*'}
+#                    else:
+ #                       temp_exp = Estimate.objects.filter(expenditure__source=2, expenditure__group=sg, estimate_year=summary.estimate_year).order_by('-expenditure__analysis_year')
+  #                      temp_exp = temp_exp.filter(Q(individuals_amount__isnull=False) | Q(corporations_amount__isnull=False) | Q(individuals_notes__isnull=False) | Q(corporations_notes__isnull=False))
+   #                     if len(temp_exp) > 0: 
+    #                        t = temp_exp[0]
+     #                       if estimate == 2 and t.individuals_notes is not None:
+      #                          treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.individuals_notes]}
+       #                     elif t.corporations_notes is not None:
+        #                        treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.corporations_notes]}
                 else:
                     treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': notes_hash[summary.notes]}
             
