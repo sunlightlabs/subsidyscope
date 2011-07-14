@@ -1,4 +1,5 @@
 import csv, re
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render_to_response 
 from django.http import HttpResponseRedirect
@@ -397,13 +398,20 @@ def budget_function_summary(bf, writer, indent, budget_function_name):
         for estimate in (3, 1, 2):
             jct_summary_dict = {}
             for summary in sg.groupsummary_set.filter(source=GroupSummary.SOURCE_JCT, estimate=estimate):
-                if (summary.amount == 0 or not summary.amount) and summary.notes:
+                if ( not summary.amount) and summary.notes:
                     if estimate == 3:
                         jct_summary_dict[summary.estimate_year] = {'amount': 0}
                     else:
-                        jct_summary_dict[summary.estimate_year] = {'amount': notes_hash[summary.notes]}
+                        temp_exp = Estimate.objects.filter(expenditure__source=1, expenditure__group=sg, estimate_year=summary.estimate_year).order_by('-expenditure__analysis_year')
+                        temp_exp = temp_exp.filter(Q(individuals_amount__isnull=False) | Q(corporations_amount__isnull=False) | Q(individuals_notes__isnull=False) | Q(corporations_notes__isnull=False))
+                        if len(temp_exp) > 0: 
+                            t = temp_exp[0]
+                            if estimate == 2 and t.individuals_notes is not None:
+                                jct_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.individuals_notes]}
+                            elif t.corporations_notes is not None:
+                                jct_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.corporations_notes]}
                 else:
-                    jct_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': notes_hash[summary.notes]}
+                    jct_summary_dict[summary.estimate_year] = {'amount': summary.amount}
             
             for year in TE_YEARS:
                 if jct_summary_dict.has_key(year):
@@ -422,11 +430,18 @@ def budget_function_summary(bf, writer, indent, budget_function_name):
         for estimate in (3, 1, 2):
             treasury_summary_dict = {}
             for summary in sg.groupsummary_set.filter(source=GroupSummary.SOURCE_TREASURY, estimate=estimate):
-                if (summary.amount == 0 or not summary.amount) and summary.notes:
+                if (not summary.amount) and summary.notes:
                     if estimate == 3:
                         treasury_summary_dict[summary.estimate_year] = {'amount': 0}
                     else:
-                        treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[summary.notes]}
+                        temp_exp = Estimate.objects.filter(expenditure__source=2, expenditure__group=sg, estimate_year=summary.estimate_year).order_by('-expenditure__analysis_year')
+                        temp_exp = temp_exp.filter(Q(individuals_amount__isnull=False) | Q(corporations_amount__isnull=False) | Q(individuals_notes__isnull=False) | Q(corporations_notes__isnull=False))
+                        if len(temp_exp) > 0: 
+                            t = temp_exp[0]
+                        if estimate == 2 and t.individuals_notes is not None:
+                            treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.individuals_notes]}
+                        elif t.corporations_notes is not None:
+                            treasury_summary_dict[summary.estimate_year] = {'amount': notes_hash[t.corporations_notes]}
                 else:
                     treasury_summary_dict[summary.estimate_year] = {'amount': summary.amount, 'notes': notes_hash[summary.notes]}
             
