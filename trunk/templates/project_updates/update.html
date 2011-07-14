@@ -1,17 +1,13 @@
-{% extends "base_projects.html" %}
+{% extends "base.html" %}
 {% load media %}
 
 {% load menubuilder %}
 {% block content %}
-<div class="container main_container">
-	{% include "includes/generic_nav.html" %}
-	<div class="span-24">
+<div class="wrapper clearfix">
 		<div class="secondary-header">
-			<h2>Project Updates</h2>
 			<h3>{{ item.title }}</h3>		
 		</div>
 		
-					{% recursive_menu %}
 
     <div class="page-content">
 			<div id="update_item">

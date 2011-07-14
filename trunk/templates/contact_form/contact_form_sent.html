@@ -1,4 +1,4 @@
-{% extends "base_about.html" %}
+{% extends "base.html" %}
 
 {% block refresh %}
 	<meta http-equiv="refresh" content="2;url=http://subsidyscope.org" /> 
@@ -6,17 +6,14 @@
 
 {% load menubuilder %}
 {% block content %}
-<div class="container main_container">
-	{% include "includes/generic_nav.html" %}
-	<div class="container white">
-		<div class="span-24">
-			<div id="header_area_flat">
-				<h3>Thank you for contacting Subsidyscope</h3>		
-			</div>
-			
-						{% recursive_menu %}
+<div class="wrapper clearfix">
+	<div class="secondary-header">
+		<h3>Thank you for contacting Subsidyscope</h3>		
+	</div>
 
     <div class="page-content">
+		<div class="span-24">
+			<div class="page-content">
 				<p>We appreciate your interest in Subsidyscope.  If your message requires a response, we will get back to you as soon as possible.</p>
 			</div>
 		</div>
