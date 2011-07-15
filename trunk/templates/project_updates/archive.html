@@ -3,55 +3,43 @@
 
 {% load menubuilder %}
 {% block content %}
-
-
-<div class="container main_container project_update_archives">
-	{% include "includes/generic_nav.html" %}
-	<div class="span-24">
-		<div class="secondary-header">
-			<h2>Subsidyscope</h2>
-			<h3>Project Updates</h3>		
-		</div>
-		
-					{% recursive_menu %}
-
-    <div class="page-content">
-
-			{% for item in updates %}
-                {% if item.published %}
-			<div id="update_item">
-				<div id="update_headline"><h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3></div>
-				  {% if item.sectors %}
-						<div id="update_icon">{% for sector in item.sectors.all %}<img src="{% media_url %}/images/sector_icons/{{ sector.id }}_sm.png" alt="{{ sector.name }}: Project Update" border="0" />{% endfor %}
-						</div>
-					{% endif %}
-					<div class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {% if item.extended_text %}{{ item.extended_text|safe }}{% else %}{{ item.text|safe }}{% endif %}
-						<a style="font-size: 10px; color: #aaa; border: none; float: right;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
-			    </div>
-			
-			</div>
-                {% endif %}
-			{% endfor %}
-
-			<p>&nbsp;</p>
-
-			{% if previous_page %}				
-				<a href="/updates/archive/{{ previous_page }}/">&laquo; Recent Updates</a>
-			{% endif %}
-
-			{% if next_page %}	
-				{% if previous_page %}
-				| 
-				{% endif %}
-			{% endif %}
-
-			{% if next_page %}				
-				<a href="/updates/archive/{{ next_page }}/">Past Updates &raquo;</a>
-			{% endif %}
-			
-		</div>
+<div class="wrapper clearfix">
+	<div class="secondary-header">
+		<h3>Project Updates</h3>		
 	</div>
+		
+	<div class="page-content">
+	{% for item in updates %}
+	{% if item.published %}
+		<div class="update_item">
+			<div class="update_headline"><h3>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3></div>
+			{% if item.sectors %}
+			<div class="update_icon">{% for sector in item.sectors.all %}<img src="{% media_url %}/images/sector_icons/{{ sector.id }}_sm.png" alt="{{ sector.name }}: Project Update" border="0" />{% endfor %}</div>
+			{% endif %}
+			<div class="update_copy"><span class="update_date">{{ item.date|date:"F j, Y" }}</span> &ndash; {% if item.extended_text %}{{ item.extended_text|safe }}{% else %}{{ item.text|safe }}{% endif %}
+				<a style="font-size: 10px; color: #aaa; border: none; float: right;" href="{% url project_update_permalink item.date.year,item.date.month,item.date.day,item.slug %}" class="readmore">Permalink</a>			
+			</div>
+			
+		</div>
+	{% endif %}
+	{% endfor %}
 
+	<p>&nbsp;</p>
+
+	{% if previous_page %}				
+		<a href="/updates/archive/{{ previous_page }}/">&laquo; Recent Updates</a>
+	{% endif %}
+
+	{% if next_page %}	
+		{% if previous_page %}
+		| 
+		{% endif %}
+	{% endif %}
+
+	{% if next_page %}				
+		<a href="/updates/archive/{{ next_page }}/">Past Updates &raquo;</a>
+	{% endif %}
+	</div>
 
 </div> <!--ends container-->
 {% endblock %}

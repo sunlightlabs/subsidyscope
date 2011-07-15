@@ -32,4 +32,6 @@ def archive(request, page):
         previous_page = False
         
 
-    return render_to_response('project_updates/archive.html', {'updates': updates, 'next_page':next_page, 'previous_page':previous_page })
+    return render_to_response('project_updates/archive.html', 
+                              {'updates': updates, 'next_page':next_page, 'previous_page':previous_page },
+                              context_instance=RequestContext(request))
