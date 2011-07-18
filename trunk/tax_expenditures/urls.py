@@ -6,8 +6,8 @@ from django.views.generic.simple import direct_to_template, redirect_to
 import bailout_pdfs
   
 urlpatterns = patterns('tax_expenditures.views',
-    url(r'^csv/(?P<group_id>\d+)/$', 'te_csv', name="tax_expenditures-csv"),
-    url(r'^csv/$', 'te_csv', name="tax_expenditures-csv"),
+    url(r'^csv/(?P<group_id>.*)/$', 'te_csv', name="tax_expenditures-csv"),
+    url(r'^csv/$', 'te_csv', name="tax_expenditures-csv-main"),
     url(r'^db/group/(?P<group_id>\d+)/$', 'group', name="tax_expenditures-group"),
     url(r'^db/$', 'main', name="tax_expenditures-main"),
     url(r'^methodology/$', direct_to_template, {'template': 'tax_expenditures/index.html'}, name="tax_expenditures-methodology"),
