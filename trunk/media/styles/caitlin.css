@@ -757,7 +757,7 @@ h4{
 	margin-bottom: 20px;
 }
 
-#update_headline h4{
+.update_headline h4{
 	display: inline;
 }
 
@@ -785,27 +785,27 @@ h4 a {
     text-decoration: none;
 }
 
-#update_item { 
+.update_item { 
 	padding:0 10px 0 0; 
 	margin:0 0 25px 0;
 }
 
-#update_item .readmore { border:1px solid #e6e6e6;  font-size:90%; padding:2px 3px 0 3px; margin:0;  text-align:center;}
-#update_item a.readmore { text-decoration:none; }
+.update_item .readmore { border:1px solid #e6e6e6;  font-size:90%; padding:2px 3px 0 3px; margin:0;  text-align:center;}
+.update_item a.readmore { text-decoration:none; }
 .update_date { 
 	font-size:90%;
 	color: #888888;
 	font-style: italic;
 }
 
-#update_icon { 
+.update_icon { 
 	padding: 0 5px 0 0;
 	margin: 0; 
 	text-align: right;
 	display: inline;
 }
 
-#update_headline { 
+.update_headline { 
 }
 
 /*------ General Page Content Styling ------*/

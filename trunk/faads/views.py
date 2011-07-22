@@ -544,7 +544,7 @@ def annual_chart_data(request, sector_name=None):
     return Http404()
 
 
-def _get_state_summary_data(results, year_range):
+def _get_state_summary_data(results, year_range, sector_name=None):
     """ compiles aggregate data for the by-state summary table """
     
     states = {}
@@ -679,7 +679,7 @@ def state_summary_statistics(request, sector_name=None):
             results = faads_search_query.get_summary_statistics()
             year_range = faads_search_query.get_year_range()
 
-            state_data, state_totals = _get_state_summary_data(results, year_range)                        
+            state_data, state_totals = _get_state_summary_data(results, year_range, sector_name)                        
             
                 
             return render_to_response('faads/search/state_summary_table.html', {'state_data':state_data, 'state_totals':state_totals, 'year_range':year_range, 'query': request.GET['q']}, context_instance=RequestContext(request))
