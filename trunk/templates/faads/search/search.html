@@ -70,6 +70,8 @@ var sortOrder = '{{ sort_order }}';
               <h4> Economic Sector </h4>
 
               {{ form.sector_id }}
+			  {% ifequal sector 'nonprofits' %}The nonprofits sector includes programs also found in other sectors.{% endifequal %}
+			  {% ifequal sector None %}Expenditures found in multiple sectors are only displayed once.{% endifequal %}
 
             {% if form.cfda_program_selection_method %}
 	            <div class="section" id="programs">
@@ -315,7 +317,6 @@ var sortOrder = '{{ sort_order }}';
                 
                 {% js "scripts/json2.js" %}
                 
-                
                 <div id="state-summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
                 
                 <script type="text/javascript" charset="utf-8">
@@ -335,6 +336,9 @@ var sortOrder = '{{ sort_order }}';
                     }
                     
                 </script>
+                
+				<p class="footnotes">Data on this tab is aggregated by the place of performance.</p>
+
               </div>
               
               <div class="ui-tabs-hide ui-widget-content ui-corner-bottom" id="faads-result-map">
@@ -381,10 +385,11 @@ var sortOrder = '{{ sort_order }}';
 						
 						</div>
 					</div>
-                  
-                  	<div id="map-summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
-                 
 
+                  	<div id="map-summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
+                  
+					<p class="footnotes">Data on this tab is aggregated by recipient location.</p>
+                 
               </div>
 
 
