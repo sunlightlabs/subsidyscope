@@ -67,6 +67,10 @@ var sortOrder = '{{ sort_order }}';
             
              <h4>Economic Sector</h4>
              {{ form.sector_id }}
+			  <div class="clarification">
+			  {% ifequal sector 'nonprofits' %}The nonprofits sector includes programs also found in other sectors.{% endifequal %}
+			  {% ifequal sector None %}Expenditures found in multiple sectors are only displayed once.{% endifequal %}
+			  </div>
 
             <div class="section" id="text">  					
               <h4>Recipient Name / Project Description</h4>

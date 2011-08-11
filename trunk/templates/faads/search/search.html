@@ -69,9 +69,11 @@ var sortOrder = '{{ sort_order }}';
 
               <h4> Economic Sector </h4>
 
-              {{ form.sector_id }}
+			  {{ form.sector_id }}
+			  <div class="clarification">
 			  {% ifequal sector 'nonprofits' %}The nonprofits sector includes programs also found in other sectors.{% endifequal %}
 			  {% ifequal sector None %}Expenditures found in multiple sectors are only displayed once.{% endifequal %}
+			  </div>
 
             {% if form.cfda_program_selection_method %}
 	            <div class="section" id="programs">
