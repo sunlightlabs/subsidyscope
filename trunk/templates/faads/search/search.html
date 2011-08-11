@@ -303,9 +303,6 @@ var sortOrder = '{{ sort_order }}';
                       Page {{ faads_results.number|intcomma }} of {{ faads_results.paginator.num_pages|intcomma }}
                   </span>
               </div>
-              <p class="footnotes">Results are in nominal dollars.</p> 
-
-  
               
               <div class="search-disclaimer">{% morsel disclaimer1 %}</div>
 
@@ -339,8 +336,6 @@ var sortOrder = '{{ sort_order }}';
                     }
                     
                 </script>
-                
-				<p class="footnotes">Data on this tab is aggregated by the place of performance.</p>
 
               </div>
               
@@ -390,8 +385,6 @@ var sortOrder = '{{ sort_order }}';
 					</div>
 
                   	<div id="map-summary-container"><img id="ajax-loader" src="{% media_url %}/images/ajax-loader.gif" alt="Loading..." /></div>
-                  
-					<p class="footnotes">Data on this tab is aggregated by recipient location.</p>
                  
               </div>
 
@@ -412,6 +405,11 @@ var sortOrder = '{{ sort_order }}';
 
             </div>
             {% endif %}				
+
+			{% if ran_search %}
+			<p class="footnotes">The summary tab aggregates results by the place of performance while the location tab aggregates results by recipient location.</p>
+ 			{% endif %} 
+			<p class="footnotes">All results are in nominal dollars.</p> 
 		</div>		
 </div>
 
