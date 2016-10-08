@@ -25,11 +25,11 @@ def remove_projects_redirect(request):
     return HttpResponsePermanentRedirect(request.path.replace('/projects/', '/'))
 
 class SubsidyContactForm(ContactForm):
-    attrs_dict = { 'class': 'required' }    
-    from_email = "bounce@sunlightfoundation.com"
-    recipient_list = ['kwebb@sunlightfoundation.com', 'klee@sunlightfoundation.com', 'subsidyscope@pewtrusts.org']
+    attrs_dict = { 'class': 'required' }
+    from_email = "test@example.com"
+    recipient_list = []
     subject = "[SubsidyScope.org] Contact form submission"
-    
+
     name = forms.CharField(max_length=100,
                 widget=forms.TextInput(attrs=attrs_dict),
                 label=u'Name')

@@ -7,11 +7,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 
-ADMINS = (
-    ('Kaitlin Lee','klee@sunlightfoundation.com'),
-    ('timball', 'tball@sunlightfoundation.com'),
-    ('Drew Vogel', 'dvogel@sunlightfoundation.com')
-)
+ADMINS = ()
 
 
 MANAGERS = ADMINS
@@ -51,13 +47,13 @@ MEDIA_CACHE_TTL = 3600 # force browsers to refresh CSS/JS every hour
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
 # Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '***REMOVED***'
+ADMIN_MEDIA_PREFIX = ''
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '***REMOVED***'
+SECRET_KEY = ''
 
 # List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (    
+TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source'
 )
@@ -135,20 +131,20 @@ INSTALLED_APPS = (
 #except:
 #    pass
 
-EMAIL_HOST = "smtp.sunlightlabs.com"
-EMAIL_PORT = "25"
-EMAIL_HOST_USER = "***REMOVED***"
-EMAIL_HOST_PASSWORD = "***REMOVED***"
+EMAIL_HOST = ""
+EMAIL_PORT = ""
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS = True
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 MEDIASYNC = {
-    'BACKEND': 'mediasync.backends.s3',
-    'AWS_KEY': "***REMOVED***",
-    'AWS_SECRET': "***REMOVED***",
-    'AWS_BUCKET': "assets.sunlightlabs.com",
-    'AWS_PREFIX': 'subsidyscope',
+    'BACKEND': '',
+    'AWS_KEY': "",
+    'AWS_SECRET': "",
+    'AWS_BUCKET': "",
+    'AWS_PREFIX': '',
     'SERVE_REMOTE': False
 }
 
@@ -160,41 +156,41 @@ def send_welcome_email(recipient):
     from django.template.loader import render_to_string
     subject = "Welcome to the SubsidyScope"
     message = render_to_string("email/welcome_letter.txt", { "hashcode": recipient.hashcode })
-    send_mail(subject, message, "bounce@sunlightfoundation.com", [recipient.email], fail_silently=True)
+    send_mail(subject, message, "test@example.com", [recipient.email], fail_silently=True)
 
 
 def convio_contact_signup(recipient):
     client = ConvioClient(url_base="https://secure3.convio.net/pew/site",
-                          api_key="***REMOVED***",
-                          login_name="dvogel@sunlightfoundation.com",
-                          login_password="***REMOVED***")
-    group = client.group(11425, "Subsidyscope")
+                          api_key="",
+                          login_name="",
+                          login_password="")
+    group = client.group(000, "Subsidyscope")
     constituent = client.constituent(primary_email=recipient.email)
     if constituent not in group:
         constituent.add_to_group(group)
 
-    
-MAILINGLIST_SUBSCRIBE_CALLBACK = convio_contact_signup 
+
+MAILINGLIST_SUBSCRIBE_CALLBACK = convio_contact_signup
 MAILINGLIST_SUBSCRIBED_URL = "/mailinglist/subscribed/"
 MAILINGLIST_REQUIRED_FIELDS = {
     "email": u"A valid email address is required",
 }
 
 # Scribd
-SCRIBD_API_KEY = '***REMOVED***'
-SCRIBD_API_SECRET = '***REMOVED***'
-SCRIBD_PUBLISHER_ID = '***REMOVED***'
+SCRIBD_API_KEY = ''
+SCRIBD_API_SECRET = ''
+SCRIBD_PUBLISHER_ID = ''
 
 
 # Haystack
-HAYSTACK_SEARCH_ENGINE = 'solr' 
+HAYSTACK_SEARCH_ENGINE = 'solr'
 HAYSTACK_SOLR_URL = 'http://127.0.0.1:8080/solr'
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 HAYSTACK_FAADS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_FPDS_SEARCH_RESULTS_PER_PAGE = 50
 HAYSTACK_SITECONF = 'search_sites'
 
-# Auth 
+# Auth
 LOGIN_URL = '/subsidysort/login/'
 
 

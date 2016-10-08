@@ -2,7 +2,7 @@ import os, re, sys, csv
 import MySQLdb
 from datetime import date
 
-sys.path.append('/home/Kevin Webb/docs/sunlight_workspace/subsidyscope_main/bailout.site/trunk')
+# sys.path.append('')
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 

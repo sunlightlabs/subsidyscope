@@ -14,8 +14,8 @@ class CFDASummaryManager(models.Manager):
             program_lookup[program.program_number] = program
         
         import psycopg2
-        conn = psycopg2.connect("dbname=datacommons user=usaspend password=***REMOVED*** host=staging.influenceexplorer.com")
-        
+        conn = psycopg2.connect("dbname=test user=test password=test host=localhost")
+
         cur = conn.cursor()
         
         cur.execute('select fiscal_year, cfda_program_num, assistance_type, sum(fed_funding_amount) from grants_grant group by fiscal_year, cfda_program_num, assistance_type;')
